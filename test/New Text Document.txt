@@ -1,3 +1,5 @@
+<<<<<<< .mine
+sdfsdfsdfkjlkjlkjlkjlkj=======
 sdfsdfsdf
 sdfsdfsdfsefswf
 
@@ -15,3 +17,4 @@ r
 32f
 32
 f3
+>>>>>>> .r7
