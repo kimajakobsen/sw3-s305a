@@ -1,0 +1,8 @@
+System er mellemled mellem problemhaver og problemløser.
+Systemets byggesten er inrapportering af problemer, hvilket enten kan
+være uløste eller løste, med mellemled som f.x. "under behandling".
+System og problemløser kan prioritere problemerne for at sikre effektivitet.
+Før problemhaver inrapporterer problem, skal systemet kunne søge og evt.
+identificere tidligere lignende eller identiske problem. Ved inrapportering
+fås statistisk approksimativt forventet løsningstid, og visning af mest hyppige
+problemer.
