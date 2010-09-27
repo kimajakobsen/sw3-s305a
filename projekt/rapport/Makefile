@@ -3,7 +3,7 @@
 LATEX=latex
 PDFLATEX=pdflatex
 BIBTEX=bibtex
-DOC=master
+DOC=rapport
 
 
 All: c
