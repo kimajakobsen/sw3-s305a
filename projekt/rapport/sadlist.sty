@@ -20,7 +20,7 @@
 \else
   \newcommand{\sadCaption}[1]{#1}
 \fi
-\newcommand{\sadruletickness}{1px}
+\newcommand{\sadruletickness}{.5px}
 \newcommand{\sadb}[1]{\textbf{#1}}
 \newcommand{\sadspace}{\vspace{5px}}
 \newcommand{\sadwidth}{\textwidth - 30px}
@@ -29,13 +29,14 @@
 \newcommand{\sadcap}[1]{#1}
 
 
+
 \newenvironment{sadlistar}[1]
 {
 
 
 \begin{center}
-\sadrule{}
-\textbf{\textit{#1}}
+\sadrule{} \\
+\textbf{\textit{#1}} \\
 \sadrule{}
 
 \begin{minipage}{\sadwidth - 30px}
