@@ -32,7 +32,6 @@
         \ifthenelse{\equal{#3}{ibc}}%% first letter cap and italic
     {\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
     {}% if #1 false
-
    \ifthenelse{\equal{#3}{cib}}%% first letter cap and italic
     {\renewcommand{\theWord}{\textbf{\MakeUppercase{#1}#2}}}% if #1 true
     {}% if #1 false
@@ -64,9 +63,8 @@
     {\renewcommand{\theWord}{#1#2}}% if #1 true
     {}% if #1 false 
     \ifthenelse{\equal{\theWord}{some}}% % Double check actually
-    {\renewcommand{\theWord}{#1#2}}% if #1 true
+    {\renewcommand{\theWord}{#1#2 }}% if #1 true
     {}% if #1 false 
-    
     %%%%%% Standard definitions of words %%%%%%
         \ifthenelse{\equal{#4}{i}}% 
     {\textit{\theWord}}% if #1 true  % Print it italic
