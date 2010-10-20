@@ -52,19 +52,19 @@
 }
 
 
-\newenvironment{sadlist}[3]
+\newenvironment{sadlist}[4][htps]
 {
-\renewcommand{\sadcap}[1]{\saption{#2}}
+\renewcommand{\sadcap}[1]{\saption{#3}}
 \ifdefined\myCaption
-  \renewcommand{\sadCaption}[1]{\myCaption{#2}}
+  \renewcommand{\sadCaption}[1]{\myCaption{#3}}
 \else
-  \renewcommand{\sadCaption}[1]{#2}
+  \renewcommand{\sadCaption}[1]{#3}
 \fi
 
-\begin{figure}%[htdp]
+\begin{figure}[#1]
 %\begin{tabular}{|c|c|}
-\label{#3}
-\begin{sadlistar}{#1}
+\label{#4}
+\begin{sadlistar}{#2}
 }
 {
 
