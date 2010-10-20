@@ -1,0 +1,34 @@
+\ProvidesPackage{sadlist}
+%%%%%% Defines the enviroment sadlist used for actor or similar. 
+%%%%%% Looks likes the one i SAD.
+\newcommand{\sadspace}{\vspace{5px}}
+\newcommand{\sadwidth}{\textwidth - 30px}
+\newcommand{\sadrule}{\rule{\sadwidth}{1px}}
+\newcommand{\saption}[1]{\rule{\sadwidth}{1px} \caption{\myCaption{#1}}}
+\newcommand{\sadcap}[1]{#1}
+
+\newenvironment{sadlist}[3]
+{
+\renewcommand{\sadcap}[1]{\saption{#2}}
+\begin{figure}%[htdp]
+%\begin{tabular}{|c|c|}
+\label{#3}
+\begin{center}
+\sadrule{}
+\textbf{\textit{#1}}
+\sadrule{}
+
+\begin{minipage}{\sadwidth - 30px}
+\sadspace
+}
+{
+\sadspace
+\end{minipage}
+\sadcap{}
+
+\end{center}
+
+
+%\end{tabular}
+\end{figure}%
+}
