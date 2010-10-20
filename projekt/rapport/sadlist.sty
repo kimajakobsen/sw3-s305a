@@ -1,18 +1,38 @@
-\ProvidesPackage{sadlist}
+%%%%%% Created by Rasmus Prentow under the GNU public license.
 %%%%%% Defines the enviroment sadlist used for actor or similar. 
-%%%%%% Looks likes the one i SAD.
+%%%%%% Looks likes the one used in the book OOA&D
+
+%%%%%% Usage: \begin{sadlist}{title}{caption}{label} text \end{sadlist}
+
+%%%%%% Or: as a tabular enviroment.
+
+%%%%%% Define: myCaption if alternativ caption should be used.
+
+%%%%%% Renew: sadspace, sadwidth, sadruletickness, sadb (sadbullet)
+
+
+
+
+\ProvidesPackage{sadlist}
+\usepackage{xifthen}
+\ifdefined\myCaption
+  \newcommand{\sadCaption}[1]{\myCaption{#1}}
+\else
+  \newcommand{\sadCaption}[1]{#1}
+\fi
+\newcommand{\sadruletickness}{1px}
+\newcommand{\sadb}[1]{\textbf{#1}}
 \newcommand{\sadspace}{\vspace{5px}}
 \newcommand{\sadwidth}{\textwidth - 30px}
-\newcommand{\sadrule}{\rule{\sadwidth}{1px}}
-\newcommand{\saption}[1]{\rule{\sadwidth}{1px} \caption{\myCaption{#1}}}
+\newcommand{\sadrule}{\rule{\sadwidth}{\sadruletickness}}
+\newcommand{\saption}[1]{\caption{\sadCaption{#1}}}
 \newcommand{\sadcap}[1]{#1}
 
-\newenvironment{sadlist}[3]
+
+\newenvironment{sadlistar}[1]
 {
-\renewcommand{\sadcap}[1]{\saption{#2}}
-\begin{figure}%[htdp]
-%\begin{tabular}{|c|c|}
-\label{#3}
+
+
 \begin{center}
 \sadrule{}
 \textbf{\textit{#1}}
@@ -23,12 +43,32 @@
 }
 {
 \sadspace
+
 \end{minipage}
+\sadrule{}
 \sadcap{}
 
 \end{center}
+}
 
 
-%\end{tabular}
+\newenvironment{sadlist}[3]
+{
+\renewcommand{\sadcap}[1]{\saption{#2}}
+\ifdefined\myCaption
+  \renewcommand{\sadCaption}[1]{\myCaption{#2}}
+\else
+  \renewcommand{\sadCaption}[1]{#2}
+\fi
+
+\begin{figure}%[htdp]
+%\begin{tabular}{|c|c|}
+\label{#3}
+\begin{sadlistar}{#1}
+}
+{
+
+\end{sadlistar}
 \end{figure}%
 }
+
