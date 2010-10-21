@@ -1,32 +1,26 @@
-The system has two primary actors \client and \staff. Beside these two the system has the two actors: \sadmin{} and the non-human actor \wmon. The \sadmin{} can be a regular \staff with more privileges or a manager. He can change the tags and categories, create departments and add \staff to the system. \wmon[].
+The system has two primary actors \client{} and \staff. Which er described in details in figure \ref{fig:actorclient} and \ref{fig:actorstaff}. Beside these two the system has the two actors: \sadmin{} and the non-human actor \wmon. The \sadmin{} can be a regular \staff{} with more privileges or a manager of the \staff. The \sadmin{} can change the tags and categories, create/remove departments and add/hire/remove \staff{} to the departments. The \wmon[] is an automated system which on a given time interval checks if some \staff{} members is overload with tasks(problems). In that case it will reassign the problems.
 
-\begin{sadlist}{Client}{Description of the actor person.}{sadactor}
+\begin{sadlist}{Client}{Description of the actor person.}{fig:actorclient}
 \sadb{Goal:} A person who has a problem, and his goal is to get his problem(s) solved.
 
 \sadb{Characteristics:} The \client{}s are employees or students with different knowledge and experience with similar systems. The clients prefer different ways of communication.%Skal nok overvejes.
 
-\sadb{Examples:} Client A prefers face-to-face communication with the working staff whenever he got a problem. 
+\sadb{Examples:} \Client{} A prefers face-to-face communication with the working \staff{} whenever he got a problem. 
 
-Client B prefers web/mail communication instead of face-to-face communication so he does not have to leave his working space in order to get help. 
+\client[c] B prefers web/mail communication instead of face-to-face communication so he does not have to leave his working space in order to get help. 
 
 \end{sadlist}
 
 
-
-\begin{sable}[htps]{0.25}{0.7}{Caption}{Label}
-\shfone{Header1}  &  \shftwo{Header2} \\ \hline{} %
-text one & text twokl\ae{}kl\ae{}kl\ae{}kl\ae{}kl\ae{}kl\ae{}k\ae{}lk\ae{}lk\ae{}lk\ae{}lk\ae{}lk\ae{}lk\ae{}lkc  sk s jlsk jlk jlk jlk j\ae{}ldk jd\ae{}lk jd\ae{}lk jd\ae{}lkf jd\ae{}lfk jd\ae{}lkf jd\ae{}lfkj dl\ae{}fkj \ae{}ldkfj \ae{}dl jdl\ae{}fk jl\ae{}k jdf  \\%
-text three & four \\%
-\end{sable}
 
 
 \begin{figure}[htps]
 \label{fig:actorstaff}
 \begin{sadlistar}{Staff}
 
-\sadb{Goal:} The staff who solve the clients problems.
+\sadb{Goal:} The \staff{} solves the \client[]s problems and use the system as a taskmanager.  
 
-\sadb{Charcteristics:}
+\sadb{Charcteristics:} The \staff[]
  
  
  \end{sadlistar}
