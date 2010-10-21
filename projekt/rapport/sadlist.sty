@@ -32,7 +32,7 @@
 \newcommand{\sace}{\hspace{15px}}
 \newcommand{\sadcol}{p{0.3\sadwidth} p{0.75\sadwidth}}
 \newcommand{\nsadcol}{\sadcol}
-\newcommand{\sablerule}{\vspace{-5px}\sadrule{}}
+\newcommand{\sablerule}{\vspace{-5px}\hline{}}
 \newenvironment{sadlistar}[1]
 {
 
@@ -90,11 +90,11 @@
 \label{#5}%
 \begin{center}%
 \begin{tabular}{p{#2\sadwidth} p{#3\sadwidth}}%
-\sadrule{} \\%
+\hline{} \\%
 }%
 {%
 %\end{minipage}
-\sadrule{}%
+\hline{}%
 %\sadcap{}%
 \end{tabular}%
 \end{center}%
