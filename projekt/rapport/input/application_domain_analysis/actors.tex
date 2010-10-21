@@ -1,6 +1,6 @@
-The system has two primary actors \client{} and \staff. Which are described in details in figure \ref{fig:actorclient} and \ref{fig:actorstaff}. Beside these two the system has the two actors: \sadmin{} and the non-human actor \wmon. The \sadmin{} can be a regular \staff{} with more privileges or a manager of the \staff. The \sadmin{} can change the tags and categories, create/remove departments and add/hire/remove \staff{} to the departments. The \wmon[] is an automated system which on a given time interval checks if some \staff{} members is overload with tasks(problems). In that case it will reassign the problems.
+The system has two primary actors \client{} and \staff. \client[c] is the lowest privileges human actor, he is only able to submit new problems. 
 
-\begin{sadlist}{\Client}{Description of the actor \client.}{fig:actorclient}
+\begin{sadlist}[h]{\Client}{Description of the actor \client.}{fig:actorclient}
 \sadb{Goal:} A person who has a problem, and his goal is to get his problem(s) solved.
 
 \sadb{Characteristics:} The \client{}s are employees or students with different knowledge and experience with similar systems. The clients prefer different ways of communication.%Skal nok overvejes.
@@ -12,9 +12,20 @@ The system has two primary actors \client{} and \staff. Which are described in d
 \end{sadlist}
 
 
+The \staff{} are more privileges and can solve and delete problems. 
+All \staff{} can act as \client{}s if they themselves has a problem which should be addressed to another department. 
+E.g. the lightbulp in the IT-administrators office is broken and the building officer should fix it. 
+These two are described in details in figure \ref{fig:actorclient} and \ref{fig:actorstaff}. 
+Beside \staff{} and \client{} the system has the two actors: \sadmin{} and the non-human actor \wmon. 
+The \sadmin{} is a more privileges \staff{} or a manager of the \staff. 
+The \sadmin{} can change the tags and categories, create/remove departments and add/hire/remove \staff{} to the departments. 
+The \wmon[] is an automated system which on a given time interval checks if some \staff{} members is overload with tasks(problems). 
+In that case it will reassign the problems.
 
 
-\begin{figure}[htps]
+
+
+\begin{figure}[h]
 
 \begin{sadlistar}{\Staff}
 
