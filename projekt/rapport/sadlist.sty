@@ -23,26 +23,28 @@
 \newcommand{\sadruletickness}{.5px}
 \newcommand{\sadb}[1]{\textbf{#1}}
 \newcommand{\sadspace}{\vspace{5px}}
-\newcommand{\sadwidth}{\textwidth - 30px}
+\newcommand{\sadwidth}{\textwidth}
 \newcommand{\sadrule}{\rule{\sadwidth}{\sadruletickness}}
 \newcommand{\saption}[1]{\caption{\sadCaption{#1}}}
 \newcommand{\sadcap}[1]{#1}
 \newcommand{\sadheadform}[1]{\textbf{\textit{#1}}}
-\newcommand{\shf}[1]{\sadheadform{#1}}
+\newcommand{\shf}[1]{ \sadheadform{#1} \vspace{2px}}
 \newcommand{\sace}{\hspace{15px}}
 \newcommand{\sadcol}{p{0.3\sadwidth} p{0.75\sadwidth}}
 \newcommand{\nsadcol}{\sadcol}
-\newcommand{\sablerule}{\vspace{-5px}\hline{}}
+\newcommand{\sablerule}{\vspace{-5px}\sadrule{}}
+
+
 \newenvironment{sadlistar}[1]
 {
 
 
 \begin{center}
 \sadrule{} \\
-\sadheadform{#1} \\
-\sablerule{}
-
-\begin{minipage}{\sadwidth - 30px}
+\sadheadform{#1}
+\vspace{-5px} \\
+\sadrule{}
+\begin{minipage}{\sadwidth -30px}
 \sadspace
 }
 {
@@ -88,16 +90,19 @@
 
 \begin{figure}[#1]%
 \label{#5}%
+\begin{minipage}{\sadwidth -5px}
 \begin{center}%
 \begin{tabular}{p{#2\sadwidth} p{#3\sadwidth}}%
-\hline{} \\%
+\hline{}%
+\vspace{-5px}
 }%
 {%
 %\end{minipage}
-\hline{}%
+\hline%
 %\sadcap{}%
 \end{tabular}%
 \end{center}%
+\end{minipage}
 \sadcap{}%
 \end{figure}%
 }%
