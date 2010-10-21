@@ -20,6 +20,7 @@ The definition of these criteria is shown in table \ref{fig:defOfCrit}.
   Interoperable&How well the system cooperates with other systems \\
 \end{sable}
 
+\subsection{Prioritizing Criteria}
 Since it is not possible to prioritize each criterion equally, we have chosen to use a four step priority scale: Very important, important, less important, and irrelevant.
 Each criterion defined in figure \ref{fig:defOfCrit} is prioritized in figure \ref{fig:prioritizedCrit}.
 Further the figure \ref{fig:prioritizedCrit} shows a column labeled ``Easily Fulfilled''
@@ -42,7 +43,25 @@ which specifies whether a given criterion will be fulfilled without much effort.
 		Portable & & & & \multicolumn{1}{c|}{x} & \multicolumn{1}{c|}{x} \\ \hline
 		Interoperable & & & \multicolumn{1}{c|}{x} & & \\ \hline
 		\end{tabular}
-	\caption{The criteria}
+	\caption{The criteria with a priority}
 	\label{fig:prioritizedCrit}
 \end{figure}
 
+How we have prioritized the criteria is based on out system definition, which is found in chapter \ref{123}. Figure \ref{fig:reasPrio} shows the reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit}.
+
+\begin{sable}[htbp]{0.3}{0.7}{Reasoning for priority of the criteria}{fig:reasPrio}
+ \shfone{Criterion}&\shftwo{Reasoning for priority} \\
+\hline \\
+  Usable&It is important that our \hdesk[] is is user friendly because it can be used in any organization, it is how ever not very important since we during this project primarily will tailor it to the university's system. Further more we are more concerned with the functionality of the system than the usability, hence; important \\ \\
+  Secure&For the \hdesk[] security is less important because we want to make sure whether it is a client or a staff member who is using the system -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem. We do however not have any sensitive information, so we take no measures to prevent data interception or any other serious security flaw. \\ \\
+  Efficient&We do not care for the efficiency of our system, but only that it works which lead us to irrelevant \\ \\
+  Consistence& \\ \\
+  Reliable& \\ \\
+  Maintainable& \\ \\
+  Testable& \\ \\
+  Flexible& \\ \\
+  Comprehensible& \\ \\
+  Reusable& \\ \\
+  Portable& \\ \\
+  Interoperable& \\
+\end{sable}
