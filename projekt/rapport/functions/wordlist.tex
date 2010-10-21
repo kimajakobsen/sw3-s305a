@@ -4,17 +4,23 @@
 %% WORD LIST
 %% This is where we define words. 
 %% The last parameter should be blank as standard, but you can add i,b,u. 
-\newcommand{\client}[1][]{\caseControl{c}{lient}{#1}{}{}}%
+
 \newcommand{\helpdesk}[1][]{\caseControl{H}{elpdesk}{#1}{}}%
 \newcommand{\hdesk}[1][]{\caseControl{H}{elpdesk}{#1}{}}
 \newcommand{\wmon}[1][]{\caseControl{w}{orkload monitor}{#1}{}}
 \newcommand{\staff}[1][]{\caseControl{s}{taff}{#1}{}}
+\newcommand{\client}[1][]{\caseControl{c}{lient}{#1}{}{}}%
+\newcommand{\astaff}[1][]{\caseControl{s}{taff}{#1}{}}
+\newcommand{\aclient}[1][]{\caseControl{c}{lient}{#1}{}{}}%
 \newcommand{\sadmin}[1][]{\caseControl{s}{uper admin}{#1}{}}
 
-\newcommand{\Client}[1][]{\client[c]}
+
 \newcommand{\Hdesk}[1][]{\hdesk[c]}
 \newcommand{\Wmon}[1][]{\wmon[c]}
 \newcommand{\Staff}[1][]{\staff[c]}
+\newcommand{\Client}[1][]{\client[c]}
+\newcommand{\Astaff}[1][]{\astaff[c]}
+\newcommand{\Aclient}[1][]{\aclient[c]}
 \newcommand{\Helpdesk}[1][]{\helpdesk[c]}
 \newcommand{\Sadmin}[1][]{\sadmin[c]}
 
