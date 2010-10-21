@@ -1,8 +1,9 @@
 \section{Criteria}
-
+The design of \hdesk[] is specified from the following criteria: Usable, secure, efficient, consistence, reliable, maintainable, testable, comprehensible, reusable, portable, and interoperable.
+The definition of these criteria is shown in table \ref{fig:defOfCrit}.
 \cite{MathiassenMunkMadsenNielsenStage00}[p.~178]
 
-\begin{sable}[htbp]{0.3}{0.7}{Caption}{Label}
+\begin{sable}[htbp]{0.3}{0.7}{Definition of criteria}{fig:defOfCrit}
  \shfone{Criterion}&\shftwo{Definition} \\
 \hline \\
   Usable&The end user can easily use the system \\ \\
@@ -19,7 +20,12 @@
   Interoperable&How well the system cooperates with other systems \\
 \end{sable}
 
-\begin{table}[htbp]
+Since it is not possible to prioritize each criterion equally, we have chosen to use a four step priority scale: Very important, important, less important, and irrelevant.
+Each criterion defined in figure \ref{fig:defOfCrit} is prioritized in figure \ref{fig:prioritizedCrit}.
+Further the figure \ref{fig:prioritizedCrit} shows a column labeled ``Easily Fulfilled''
+which specifies whether a given criterion will be fulfilled without much effort.
+
+\begin{figure}[htbp]
 	\centering
 		\begin{tabular}{| l | m{0.135\textwidth} | m{0.135\textwidth}| m{0.13\textwidth}| m{0.135\textwidth}|m{0.13\textwidth}|} \hline
 		  & Very  Important & Important & Less Important & Irrelevant & Easily Fulfilled \\ \hline
@@ -36,7 +42,7 @@
 		Portable & & & & \multicolumn{1}{c|}{x} & \multicolumn{1}{c|}{x} \\ \hline
 		Interoperable & & & \multicolumn{1}{c|}{x} & & \\ \hline
 		\end{tabular}
-	\caption{ef}
-	\label{tab:ef}
-\end{table}
+	\caption{The criteria}
+	\label{fig:prioritizedCrit}
+\end{figure}
 
