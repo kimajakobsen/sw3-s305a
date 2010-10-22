@@ -1,7 +1,14 @@
 081010
 Dilemma with status on problem; Should a problems status be changed when a user adds a comment after the problem originally has been marked as solved?
 
+Rasmus: No!
+
 How should we assign problems
 	- we are in a dilemma with workload balancing. Should we implement a calendar, or should we assume that staff members are always at work?
 
 
+Rasmus: what about having a attribute on staff called work start work end. 
+
+
+
+Author?
