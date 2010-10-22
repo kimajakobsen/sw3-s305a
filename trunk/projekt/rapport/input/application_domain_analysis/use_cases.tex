@@ -1,9 +1,11 @@
 From the use cases listed in figure \ref{tab:actoreventtable} only some is sophisticated enough to be described in detail.  
-The use cases add tag, delete tag, add category, delete category, administrate staff, administrate department, and get statistics will be omitted, since they are trivial and/or backend administration. 
+The use cases add tag, delete tag, add category, delete category, administrate staff, administrate department, and \gstat[] will be omitted, since they are trivial and/or backend administration. 
 
 \paragraph{See all problems} The use case see all problem is used by both \aclient{} and \astaff{} and works as a searchable list. 
 
-\paragraph{Balance workload} Balance workload is the operation of the \wmon{} it checks and compares all staff members workload and redistribute problems in order to equally balance the workload in each department. 
+\paragraph{\bloadwork[c]} \bloadwork[c] is the operation of the \wmon{} it checks and compares all staff members workload and redistribute problems in order to equally balance the workload in each department. 
+
+\paragraph{\gstat[c]} The use case \gstat[] is trivial and is a list of different views each showing a kind of statistics. The use case can be accesed by \sadmin{}, \aclient{}, and \astaff{}, but they cannot access all the same statistics.
 
 \paragraph{\ucsproblem[c]} The use case \ucsproblem[] is only used be the actor \aclient. Except for cases when \astaff{} or \sadmin{}  acts as \aclient{}. The use case is described in detail in figure \ref{fig:ucsproblem} and a use case diagram is showed in figure \ref{fig:submit_problem_use_case}. 
 
@@ -20,8 +22,6 @@ Hereafter the problem gets assigned to a \astaff{}.
 \sadb{Objects:} Problem, solution, tag, category, \client, \staff. (Department)
 
 \sadb{Functions:} Search existing problems, compare problems, create problem, attach user to problem.
-
-
 \end{sadlist}
 
 \begin{figure}[htbp]
@@ -36,8 +36,9 @@ Hereafter the problem gets assigned to a \astaff{}.
 
 \paragraph{\ucsolproblem{}} The use case \ucsolproblem{} is the \astaff{}s primary working usage of the system. This is where he goes to get his to-do list and to solve problems. The use case is described in figure \ref{fig:ucsolproblem} and a diagram is shown in figure \ref{solve_problem_use_case}.
 
-\begin{sadlist}[h]{\ucsproblem[c]}{Description of the use case \ucsolproblem{}.}{fig:ucsolproblem}
-\sadb{Use Case:} 
+
+\begin{sadlist}[h]{\ucsolproblem[c]}{Description of the use case \ucsolproblem{}.}{fig:ucsolproblem}
+\sadb{Use Case:} The use case is 
 \sadb{Objects:} 
 \sadb{Functions:}
 \end{sadlist}
