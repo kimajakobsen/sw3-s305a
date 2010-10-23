@@ -45,6 +45,30 @@ Hereafter the problem gets assigned to a \astaff{}.
 \sadb{Functions:} Add comment, reassign, change status, delete problem, search database, create solution, attach solution and get staff \todolist{}.
 \end{sadlist}
 
+
+
+\begin{figure}
+\centering
+\begin{emp}[classdiag](20, 20)%
+Begin.b;
+Activity.todo(TEX("$\pi$"));
+Activity.prosel("Problem selected");
+Activity.old("Old problem searched");
+End.e;
+
+leftToRight(20)(b,todo,e);
+topToBottom(20)(todo,prosel,old);
+drawObjects(b,todo,prosel,old,e);
+clink(transition)(b, todo);
+
+
+%clink(b,todo);
+%clink(todo,prosol)
+\end{emp}
+\caption{A class diagram}
+\end{figure}
+
+
 \begin{figure}[htbp]
 \begin{center}
  \includegraphics[scale=1]{input/application_domain_analysis/solve_problem_use_case}

@@ -39,7 +39,14 @@
 
 
 %%% something? useful? hopefully!
-\usepackage[]{graphicx} %dvips
+%\usepackage[]{graphicx} %dvips
+\usepackage{emp}
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
 \usepackage[]{subfig}% Need to make several pictures in one float
 \usepackage{wrapfig}% Enables us to wrap text around a figure
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
