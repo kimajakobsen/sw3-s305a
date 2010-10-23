@@ -3320,7 +3320,7 @@ attached</Text>
 <VerticalAlign>1</VerticalAlign>
 <DefaultTabStop>0.3888889</DefaultTabStop>
 </TextBlock>
-<Char IX="0"><Font>0</Font><Color>#000000</Color><Style>0</Style><Size>0.1111111</Size><ColorTrans>0</ColorTrans></Char><Para IX="0"><IndFirst>0</IndFirst><IndLeft>0</IndLeft><IndRight>0</IndRight><SpLine>-1.2</SpLine><SpBefore>0</SpBefore><HorzAlign>1</HorzAlign></Para><Text><cp IX="0"/><pp IX="0"/>No Similar problem found</Text>
+<Char IX="0"><Font>0</Font><Color>#000000</Color><Style>0</Style><Size>0.1111111</Size><ColorTrans>0</ColorTrans></Char><Para IX="0"><IndFirst>0</IndFirst><IndLeft>0</IndLeft><IndRight>0</IndRight><SpLine>-1.2</SpLine><SpBefore>0</SpBefore><HorzAlign>1</HorzAlign></Para><Text><cp IX="0"/><pp IX="0"/>No similar problem found</Text>
 </Shape>
 
 <Shape ID="44" Type="Shape" Name="Circle Fill:Chalk Fill:Chalk.44"><XForm><Angle>-0</Angle>
@@ -3484,7 +3484,7 @@ attached</Text>
 <VerticalAlign>1</VerticalAlign>
 <DefaultTabStop>0.3888889</DefaultTabStop>
 </TextBlock>
-<Char IX="0"><Font>0</Font><Color>0</Color><Style>0</Style><Size>0.1111111</Size><ColorTrans>0</ColorTrans></Char><Para IX="0"><IndFirst>0</IndFirst><IndLeft>0</IndLeft><IndRight>-0</IndRight><SpLine>-1.2</SpLine><SpBefore>0</SpBefore><HorzAlign>1</HorzAlign></Para><Text><cp IX="0"/><pp IX="0"/>Todo checked </Text>
+<Char IX="0"><Font>0</Font><Color>0</Color><Style>0</Style><Size>0.1111111</Size><ColorTrans>0</ColorTrans></Char><Para IX="0"><IndFirst>0</IndFirst><IndLeft>0</IndLeft><IndRight>-0</IndRight><SpLine>-1.2</SpLine><SpBefore>0</SpBefore><HorzAlign>1</HorzAlign></Para><Text><cp IX="0"/><pp IX="0"/>To-do checked </Text>
 </Shape>
 
 <Shape ID="46" Type="Shape" Name="Circle Fill:Chalk Fill:Chalk.46"><XForm><Angle>-0</Angle>
@@ -3566,7 +3566,7 @@ attached</Text>
 <VerticalAlign>1</VerticalAlign>
 <DefaultTabStop>0.3888889</DefaultTabStop>
 </TextBlock>
-<Char IX="0"><Font>0</Font><Color>0</Color><Style>0</Style><Size>0.1111111</Size><ColorTrans>0</ColorTrans></Char><Para IX="0"><IndFirst>0</IndFirst><IndLeft>0</IndLeft><IndRight>-0</IndRight><SpLine>-1.2</SpLine><SpBefore>0</SpBefore><HorzAlign>1</HorzAlign></Para><Text><cp IX="0"/><pp IX="0"/>old problems searched</Text>
+<Char IX="0"><Font>0</Font><Color>0</Color><Style>0</Style><Size>0.1111111</Size><ColorTrans>0</ColorTrans></Char><Para IX="0"><IndFirst>0</IndFirst><IndLeft>0</IndLeft><IndRight>-0</IndRight><SpLine>-1.2</SpLine><SpBefore>0</SpBefore><HorzAlign>1</HorzAlign></Para><Text><cp IX="0"/><pp IX="0"/>Old problems searched</Text>
 </Shape>
 
 <Shape ID="47" Type="Shape" Name="Line Orthogonal, Stroke:Iron.47"><XForm><Angle>-0</Angle>
