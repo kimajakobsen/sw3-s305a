@@ -4,7 +4,7 @@ The purpose of this section is to determine the system's information processing 
 \ref{roedeaalborg}
 \fixme{ska ha ordnet bibtex}
 
-Comprehensive knowledge of the OOA\&D method is assumed, and therefore we will not go in detail on function types etc.. .
+Comprehensive knowledge of the OOA\&D method is assumed, and therefore we will not go in detail on function types etc. \fixme{overkill?}
 
 \begin{table}[htdp]
 \caption{Function list}
@@ -17,7 +17,7 @@ Change Status (problem) &   Simple & Update/signal \\ \hline%
 Delete Problem & Simple &   Update \\   \hline%
 Search database & Medium &   Read \\ \hline%
 Create Solution & Simple &   Update \\   \hline%
-Attach Solution & Simple &   Update/Solution \\   \hline%
+Attach Solution & Simple &   Update/Solution \fixme{solution? Burde det ikke være signal?} \\   \hline%
 Distribute problems &   Complex & Read/update/signal \\   \hline%
 Compare problems & Complex & Read/Compute \\ \hline%
 Create Problem &   Simple & Read/compute \\   \hline%
@@ -41,7 +41,14 @@ Get statistics & complex & Compute \\ \hline%
 
 \end{tabular}
 \end{center}
-\label{default}
-\end{table}%
+\label{tab:functionlist}
+\end{table}
+\fixme{Hvorfor ryger tabel \ref{tab:functionlist} ned under interfaces? den st\aa r i functions.tex}
 
-
+\emph{Add Comment} simply adds a comment to a existing problem, making the comment visible for other \client and \staff members. Marked as an \textit{signal}-function because a notification is sent to the assigned \staff member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} \\
+\emph{Reassign} reassigns the problem from one assigned \staff member to another. Marked as \textit{update}-fuction as it updates the model. Marked as a \textit{signal}-function as the new assigned \staff member received a notification of the newly reassigned problem. \\
+\emph{Change Status (problem)} changes the status of a problem from one status to another. Again marked as a \textit{update}-function as it updates the model, also marked as a \textit{singal}-function as the associated \client s receives a notification. \\
+\emph{Delete Problem} simply deletes a problem. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Search database} searches the database of problems for problems matching a set of tags. Marked as ```medium''' complexity due to somewhat advanced algorithms.\fixme{Er det virkelig derfor den er medium?} Marked as a \textit{read}-function as it simply reads the model.\\
+\emph{Create Solution} simply creates solution to a problem. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Attach Solution} attaches a existing solution to a problem, and notifies the associated \client s about it. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients.
