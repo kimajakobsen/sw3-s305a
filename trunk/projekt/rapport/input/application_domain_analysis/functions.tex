@@ -36,16 +36,13 @@ Assign staff to department & Simple & Update \\ \hline%
 Get statistics & Complex & Compute \\ \hline%
 Subscribe client & simple & Update/signal \\ \hline%
 Get priority & Complex & Compute/read \\ \hline%
-
-
-
 \end{tabular}
 \end{center}
 \caption{Function list}
 \label{tab:functionlist}
 \end{table}
 
-\paragraph{Add comment} simply adds a comment to a existing problem, making the comment visible for other \client and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} 
+\paragraph{Add comment} simply adds a comment to a existing problem, making the comment visible for other \client{} and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} 
 
 \paragraph{Reassign Problem} reassigns a specific problem from one assigned \astaff[] member to another. Marked as \textit{update}-fuction as it updates the model. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. 
 
