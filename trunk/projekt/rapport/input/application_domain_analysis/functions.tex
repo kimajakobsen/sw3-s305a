@@ -35,7 +35,9 @@ Add staff & Simple & Update \\ \hline%
 Remove staff & Simple & Update \\ \hline%
 Assign staff to department & Simple & Update \\ \hline%
 Get statistics & complex & Compute \\ \hline%
-Subscribe client & complex & Compute \\ \hline%
+Subscribe client & simple & Update/signal \\ \hline%
+Reattach tag & simple & Update \\ \hline%
+
 
 
 \end{tabular}
@@ -68,3 +70,6 @@ Subscribe client & complex & Compute \\ \hline%
 \emph{Remove staff} removes a specific \astaff[] member from the database. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Assign staff to department} assigns a specific \astaff[] member to a specific department. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Get statistics} returns statistics, eg average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amout of computation.
+\emph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification.
+
+\emph{Reattach tag} reattaches a specific tag from it's current category to another specified category. Marked as a \textit{update}-function as it updates the model.
