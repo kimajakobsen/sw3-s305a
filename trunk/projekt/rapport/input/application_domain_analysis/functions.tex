@@ -21,7 +21,7 @@ Attach solution & Simple &   Update/Signal \\   \hline%
 Distribute problems &   Complex & Read/update/signal \\   \hline%
 %Compare problems & Complex & Read/Compute \\ \hline%
 Create problem &   Simple & Read/compute \\   \hline%
-Attach client to problem & Simple & Update \\ \hline%
+%Attach client to problem & Simple & Update \\ \hline%
 Get staff todo list & Simple & Read \\   \hline%
 Create Tag & Simple &   Update \\ \hline%
 Create Category & Simple & Update \\ \hline%
@@ -35,6 +35,8 @@ Add staff & Simple & Update \\ \hline%
 Remove staff & Simple & Update \\ \hline%
 Assign staff to department & Simple & Update \\ \hline%
 Get statistics & complex & Compute \\ \hline%
+Subscribe client & complex & Compute \\ \hline%
+
 
 \end{tabular}
 \end{center}
@@ -53,7 +55,7 @@ Get statistics & complex & Compute \\ \hline%
  Marked as a \textit{read}-function as it reads from the model. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients, and the newly assigned \astaff[] member. \\
 %\emph{Compare Problems} compares a specific problem to the problems in the database and returns similair problems, prioritizing the ones with an attached solution, hence complex in complexity. Marked as a \textit{read}-function as it reads from the model, and marked as a \textit{compute}-function as a computation is involved involving information provided by the \client. \\
 \emph{Create problem} simply creates a new problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \fixme{Hvorfor er "create problem" markeret som en compute-funktion?} \\
-\emph{Attach user to problem} simply attaches a new user to an existing problem. The need for this function arises when a \client has a problem wich is in need of a solution, but the problem has already been entered in the system by another \client. Marked as a \textit{update}-function as it updates the model. \\
+%\emph{Attach user to problem} simply attaches a new user to an existing problem. The need for this function arises when a \client has a problem wich is in need of a solution, but the problem has already been entered in the system by another \client. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Get staff todo list} simply fetches the \astaff[] members todo list and displays it. Hence marked as a \textit{read}-function. \\
 \emph{Create tag} creates a tag, wich is an element used for categorizing problems, wich purpose is to make searching easier. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Create category} creates a category wich tags can be attached to. Marked as a \textit{update}-function as it updates the model. \\
