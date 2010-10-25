@@ -42,26 +42,26 @@ Get statistics & complex & Compute \\ \hline%
 \label{tab:functionlist}
 \end{table}
 
-\emph{Add Comment} simply adds a comment to a existing problem, making the comment visible for other \client and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} \\
+\emph{Add comment} simply adds a comment to a existing problem, making the comment visible for other \client and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} \\
 \emph{Reassign} reassigns a specific problem from one assigned \astaff[] member to another. Marked as \textit{update}-fuction as it updates the model. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. \\
-\emph{Change Status (problem)} changes the status of a problem from one status to another. Again marked as a \textit{update}-function as it updates the model, also marked as a \textit{singal}-function as the associated \client s receives a notification. \\
-\emph{Delete Problem} simply deletes a problem. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Change status (problem)} changes the status of a problem from one status to another. Again marked as a \textit{update}-function as it updates the model, also marked as a \textit{singal}-function as the associated \client s receives a notification. \\
+\emph{Delete problem} simply deletes a problem. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Search problems} searches the database of problems for problems matching a set of tags. Marked as ```medium'' complexity due to somewhat advanced algorithms.\fixme{Er det virkelig derfor den er medium?} Marked as a \textit{read}-function as it simply reads the model.\\
-\emph{Create Solution} simply creates solution to a problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \\
-\emph{Attach Solution} attaches a existing solution to a problem, and notifies the associated \client s about it. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients. \\
-\emph{Distribute Problems} is only ran by the workload monitor. It distributes newly created problems by assigning them to an appropriate \astaff[] member, based on current workload. % and specifications on what the different \astaff[] members are good at.
+\emph{Create solution} simply creates solution to a problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Attach solution} attaches a existing solution to a problem, and notifies the associated \client s about it. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients. \\
+\emph{Distribute problems} is only ran by the workload monitor. It distributes newly created problems by assigning them to an appropriate \astaff[] member, based on current workload. % and specifications on what the different \astaff[] members are good at.
  Marked as a \textit{read}-function as it reads from the model. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients, and the newly assigned \astaff[] member. \\
-\emph{Compare Problems} compares a specific problem to the problems in the database and returns similair problems, prioritizing the ones with an attached solution, hence complex in complexity. Marked as a \textit{read}-function as it reads from the model, and marked as a \textit{compute}-function as a computation is involved involving information provided by the \client. \\
-\emph{Create Problem} simply creates a new problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \fixme{Hvorfor er "create problem" markeret som en compute-funktion?} \\
+%\emph{Compare Problems} compares a specific problem to the problems in the database and returns similair problems, prioritizing the ones with an attached solution, hence complex in complexity. Marked as a \textit{read}-function as it reads from the model, and marked as a \textit{compute}-function as a computation is involved involving information provided by the \client. \\
+\emph{Create problem} simply creates a new problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \fixme{Hvorfor er "create problem" markeret som en compute-funktion?} \\
 \emph{Attach user to problem} simply attaches a new user to an existing problem. The need for this function arises when a \client has a problem wich is in need of a solution, but the problem has already been entered in the system by another \client. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Get staff todo list} simply fetches the \astaff[] members todo list and displays it. Hence marked as a \textit{read}-function. \\
 \emph{Create tag} creates a tag, wich is an element used for categorizing problems, wich purpose is to make searching easier. Marked as a \textit{update}-function as it updates the model. \\
-\emph{Create Category} creates a category wich tags can be attached to. Marked as a \textit{update}-function as it updates the model. \\
-\emph{Change visibility of Category} changes the visibility of a category. Changes happen and a need of a category may vanish over time, but might be needed again in the future, thus making this function necessary. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Create category} creates a category wich tags can be attached to. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Change visibility of category} changes the visibility of a category. Changes happen and a need of a category may vanish over time, but might be needed again in the future, thus making this function necessary. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Attach tag to category} simply attaches a specific tag to a specific category. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Detach tag from category} simply detaches a specific tag from a specific category. Marked as a \textit{update}-function as it updates the model. \\
-\emph{Create Department}. All \astaff[] members are associated with a department in order to ease the process of distributing newly created problems to appropriate \astaff[] members. Marked as a \textit{update}-function as it updates the model. \\
-\emph{Delete Department} as the name dictates, simply deletes a department. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Create department}. All \astaff[] members are associated with a department in order to ease the process of distributing newly created problems to appropriate \astaff[] members. Marked as a \textit{update}-function as it updates the model. \\
+\emph{Delete department} as the name dictates, simply deletes a department. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Add staff} adds a specific \astaff[] member to the database. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Remove staff} removes a specific \astaff[] member from the database. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Assign staff to department} assigns a specific \astaff[] member to a specific department. Marked as a \textit{update}-function as it updates the model. \\
