@@ -15,11 +15,11 @@ Add comment &   Simple & Read/signal   \\ \hline%
 Reassign & Simple   & Update/signal \\ \hline%
 Change status (problem) &   Simple & Update/signal \\ \hline%
 Delete problem & Simple &   Update \\   \hline%
-Search database & Medium &   Read \\ \hline%
+Search problems & Complex &   Read/Compute \\ \hline%
 Create solution & Simple &   Update \\   \hline%
 Attach solution & Simple &   Update/Signal \\   \hline%
 Distribute problems &   Complex & Read/update/signal \\   \hline%
-Compare problems & Complex & Read/Compute \\ \hline%
+%Compare problems & Complex & Read/Compute \\ \hline%
 Create problem &   Simple & Read/compute \\   \hline%
 Attach user to problem & Simple & Update \\ \hline%
 Get staff todo list & Simple & Read \\   \hline%
@@ -46,10 +46,11 @@ Get statistics & complex & Compute \\ \hline%
 \emph{Reassign} reassigns a specific problem from one assigned \astaff[] member to another. Marked as \textit{update}-fuction as it updates the model. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. \\
 \emph{Change Status (problem)} changes the status of a problem from one status to another. Again marked as a \textit{update}-function as it updates the model, also marked as a \textit{singal}-function as the associated \client s receives a notification. \\
 \emph{Delete Problem} simply deletes a problem. Marked as a \textit{update}-function as it updates the model. \\
-\emph{Search database} searches the database of problems for problems matching a set of tags. Marked as ```medium'' complexity due to somewhat advanced algorithms.\fixme{Er det virkelig derfor den er medium?} Marked as a \textit{read}-function as it simply reads the model.\\
+\emph{Search problems} searches the database of problems for problems matching a set of tags. Marked as ```medium'' complexity due to somewhat advanced algorithms.\fixme{Er det virkelig derfor den er medium?} Marked as a \textit{read}-function as it simply reads the model.\\
 \emph{Create Solution} simply creates solution to a problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \\
 \emph{Attach Solution} attaches a existing solution to a problem, and notifies the associated \client s about it. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients. \\
-\emph{Distribute Problems} is only ran by the workload monitor. It distributes newly created problems by assigning them to an appropriate \astaff[] member, based on current workload and specifications on what the different \astaff[] members are good at. Marked as a \textit{read}-function as it reads from the model. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients, and the newly assigned \astaff[] member. \\
+\emph{Distribute Problems} is only ran by the workload monitor. It distributes newly created problems by assigning them to an appropriate \astaff[] member, based on current workload. % and specifications on what the different \astaff[] members are good at.
+ Marked as a \textit{read}-function as it reads from the model. Marked as a \textit{update}-function as it updates the model. Marked as a \textit{signal}-function as it notifies the associated clients, and the newly assigned \astaff[] member. \\
 \emph{Compare Problems} compares a specific problem to the problems in the database and returns similair problems, prioritizing the ones with an attached solution, hence complex in complexity. Marked as a \textit{read}-function as it reads from the model, and marked as a \textit{compute}-function as a computation is involved involving information provided by the \client. \\
 \emph{Create Problem} simply creates a new problem and adds it to the database. Marked as a \textit{update}-function as it updates the model. \fixme{Hvorfor er "create problem" markeret som en compute-funktion?} \\
 \emph{Attach user to problem} simply attaches a new user to an existing problem. The need for this function arises when a \client has a problem wich is in need of a solution, but the problem has already been entered in the system by another \client. Marked as a \textit{update}-function as it updates the model. \\
