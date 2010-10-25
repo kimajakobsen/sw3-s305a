@@ -29,14 +29,11 @@ Change visibility of Category &   Simple &   Update \\   \hline%
 Change visibility of Tag &   Simple &  Update \\ \hline%
 Attach tag to category & Simple & Update \\ \hline%
 Detach tag to category & Simple & Update \\ \hline%
-%Set tag & Simple & Update \\ \hline%
-%Set Cat & Simple & Update \\ \hline%
 Create department & Simple & Update \\ \hline%
 Delete department & Simple & Update \\ \hline%
 Add staff & Simple & Update \\ \hline%
 Remove staff & Simple & Update \\ \hline%
 Assign staff to department & Simple & Update \\ \hline%
-%Reasign staff to department & Simple & Update \\ \hline%
 Get statistics & complex & Compute \\ \hline%
 
 \end{tabular}
@@ -44,7 +41,6 @@ Get statistics & complex & Compute \\ \hline%
 \caption{Function list}
 \label{tab:functionlist}
 \end{table}
-\fixme{Hvorfor ryger tabel \ref{tab:functionlist} ned under interfaces? den st\aa r i functions.tex}
 
 \emph{Add Comment} simply adds a comment to a existing problem, making the comment visible for other \client and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} \\
 \emph{Reassign} reassigns a specific problem from one assigned \astaff[] member to another. Marked as \textit{update}-fuction as it updates the model. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. \\
