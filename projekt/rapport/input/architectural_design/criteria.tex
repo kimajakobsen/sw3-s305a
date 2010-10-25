@@ -30,24 +30,24 @@ which specifies whether a given criterion will be fulfilled without much effort.
 	\centering
 		\begin{tabular}{| l | m{0.135\textwidth} | m{0.135\textwidth}| m{0.13\textwidth}| m{0.135\textwidth}|m{0.13\textwidth}|} \hline
 		  & Very  Important & Important & Less Important & Irrelevant & Easily Fulfilled \\ \hline
-		Usable  & & \multicolumn{1}{c|}{$\surd$} & & & \\ \hline
-		Secure  & & & \multicolumn{1}{c|}{$\surd$} & & \\ \hline
-		Efficient & & & & \multicolumn{1}{c|}{$\surd$} & \\ \hline
-		Consistence  & & \multicolumn{1}{c|}{$\surd$} & & & \\ \hline
-		Reliable  & & & \multicolumn{1}{c|}{$\surd$} & & \\ \hline
-		Maintainable  & & & & \multicolumn{1}{c|}{$\surd$} & \\ \hline
-		Testable  & & \multicolumn{1}{c|}{$\surd$} & & & \\ \hline
-		Flexible  & \multicolumn{1}{c|}{$\surd$} & & & & \\ \hline
-		Comprehensible  & & \multicolumn{1}{c|}{$\surd$} & & & \\ \hline
-		Reusable  & & & & \multicolumn{1}{c|}{$\surd$} & \\ \hline
-		Portable & & & & \multicolumn{1}{c|}{$\surd$} & \multicolumn{1}{c|}{$\surd$} \\ \hline
-		Interoperable & & & \multicolumn{1}{c|}{$\surd$} & & \\ \hline
+		Usable  & & \multicolumn{1}{c|}{$\checkmark$} & & & \\ \hline
+		Secure  & & & \multicolumn{1}{c|}{$\checkmark$} & & \\ \hline
+		Efficient & & & & \multicolumn{1}{c|}{$\checkmark$} & \\ \hline
+		Consistence  & & \multicolumn{1}{c|}{$\checkmark$} & & & \\ \hline
+		Reliable  & & & \multicolumn{1}{c|}{$\checkmark$} & & \\ \hline
+		Maintainable  & & & & \multicolumn{1}{c|}{$\checkmark$} & \\ \hline
+		Testable  & & \multicolumn{1}{c|}{$\checkmark$} & & & \\ \hline
+		Flexible  & \multicolumn{1}{c|}{$\checkmark$} & & & & \\ \hline
+		Comprehensible  & & \multicolumn{1}{c|}{$\checkmark$} & & & \\ \hline
+		Reusable  & & & & \multicolumn{1}{c|}{$\checkmark$} & \\ \hline
+		Portable & & & & \multicolumn{1}{c|}{$\checkmark$} & \multicolumn{1}{c|}{$\checkmark$} \\ \hline
+		Interoperable & & & \multicolumn{1}{c|}{$\checkmark$} & & \\ \hline
 		\end{tabular}
 	\morscaption{The criteria with a priority}
 	\label{fig:prioritizedCrit}
 \end{figure}
 
-How we have prioritized the criteria is based on out system definition, which is found in chapter \ref{123}. Figure \ref{fig:reasPrio} shows the reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit}.
+How we have prioritized the criteria is based on out system definition, which is found in chapter \ref{123}. Bellow the reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown.
 
 \paragraph{Usable}
 It is important that our \hdesk[] is is user friendly because it can be used in any organization, it is how ever not very important since we during this project primarily will tailor it to the university's system.
@@ -62,13 +62,22 @@ It is important that end users can see which problems are solved and which are n
 Further more the \hdesk[] model should not contain duplicates, since it could compromise the integrity of the statistics which the system generates. 
 \paragraph{Reliable}
 The reliability of the \hdesk[] system is not of great interest to us.
-Of course 
+Of course we do not want to sabotage our system to malfunction at any time, we just want to pay our attention to other criteria instead.
 \paragraph{Maintainable}
-
+Since we not intend to maintain the system after it is finished, it is prioritized as irrelevant.
 \paragraph{Testable}
-
-\paragraph{Flexible} 
-\paragraph{Comprehensible} 
-\paragraph{Reusable} 
-\paragraph{Portable} 
+We want our system to work and to make sure it does, we will run tests.
+Therefore we want our system to be testable.
+\paragraph{Flexible}
+It is very central to our project that it is flexible, because we want it be generic -- that it can be used in any organization without much or any trouble.
+We have chosen this to be the most important criteria.
+\paragraph{Comprehensible}
+Since the \hdesk[] system is supposed to be generic, it should be easy for the user to understand it.
+However our focus is primarily on functionality, so we have prioritized it important.
+\paragraph{Reusable}
+Since we do not care much for the system after it is deployed, we do not care whether or not it is reusable.
+\paragraph{Portable}
+Our systems portability can be divided into two, the client side and the server side.
+We do not care about the portability of the server side, because we will rather focus on the portability on the client side and the functionality of the system.
+The end users will access our system through a browser, so we assume that it can be easily fulfilled since there are many browsers for different platforms\ref{chrome10}.
 \paragraph{Interoperable}
