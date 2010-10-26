@@ -1,11 +1,11 @@
 From the use cases listed in figure \ref{tab:actoreventtable} only some is sophisticated enough to be described in detail.  
-The use cases add tag, delete tag, add category, delete category, administrate staff, administrate department, and \gstat[] will be omitted, since they are trivial and/or backend administration. 
+
 
 \paragraph{See all problems} The use case see all problem is used by both \aclient{} and \astaff{} and works as a searchable list. 
 
 \paragraph{\bloadwork[c]} \bloadwork[c] is the operation of the \wmon{} it checks and compares all staff members workload and redistribute problems in order to equally balance the workload in each department. 
 
-\paragraph{\gstat[c]} The use case \gstat[] is trivial and is a list of different views each showing a kind of statistics. The use case can be accesed by \sadmin{}, \aclient{}, and \astaff{}, but they cannot access all the same statistics.
+\paragraph{\gstat[c]} The use case \gstat[] is trivial and is a list of different views each showing a kind of statistics. The use case can be accessed by \sadmin{}, \aclient{}, and \astaff{}, but they cannot access all the same statistics.
 
 \paragraph{\ucsproblem[c]} The use case \ucsproblem[] is only used be the actor \aclient. Except for cases when \astaff{} or \sadmin{}  acts as \aclient{}. The use case is described in detail in figure \ref{fig:ucsproblem} and a use case diagram is showed in figure \ref{fig:submit_problem_use_case}. 
 
@@ -26,7 +26,7 @@ Hereafter the problem gets assigned to a \astaff{}.
 
 \begin{figure}[htbp]
 \begin{center}
- \includegraphics[scale=1]{input/application_domain_analysis/submit_problem_use_case}
+ \includegraphics[scale=0.8]{input/application_domain_analysis/submit_problem_use_case}
 \caption{A diagram of the use case \ucsproblem{}. The use case is described in detail in figure \ref{fig:ucsproblem}.}
 \label{fig:submit_problem_use_case}
 \end{center}
@@ -37,7 +37,7 @@ Hereafter the problem gets assigned to a \astaff{}.
 \paragraph{\ucsolproblem{}} The use case \ucsolproblem{} is the \astaff{}s primary working usage of the system. This is where he goes to get his \todolist{} and to solve problems. The use case is described in figure \ref{fig:ucsolproblem} and a diagram is shown in figure \ref{solve_problem_use_case}.
 
 
-\begin{sadlist}[h]{\ucsolproblem[c]}{Description of the use case \ucsolproblem{}.}{fig:ucsolproblem}
+\begin{sadlist}[htb]{\ucsolproblem[c]}{Description of the use case \ucsolproblem{}.}{fig:ucsolproblem}
 \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[]. He is then presented with a list of unsolved problems assigned to him. He can then click on one of the problems to solve the problem, see status of it, add comments to it, search the database for similar problem, reassign it or delete it. 
 
 \sadb{Objects:} Problem, solution, tag, category, comment, \client[], \staff[] and department. 
@@ -45,35 +45,31 @@ Hereafter the problem gets assigned to a \astaff{}.
 \sadb{Functions:} Add comment, reassign, change status, delete problem, search database, create solution, attach solution and get staff \todolist{}.
 \end{sadlist}
 
-
-\begin{comment}
-\begin{figure}
-\centering
-\begin{emp}[classdiag](20, 20)%
-Begin.b;
-Activity.todo(TEX("$\pi$"));
-Activity.prosel("Problem selected");
-Activity.old("Old problem searched");
-End.e;
-
-leftToRight(20)(b,todo,e);
-topToBottom(20)(todo,prosel,old);
-drawObjects(b,todo,prosel,old,e);
-clink(transition)(b, todo);
-
-
-%clink(b,todo);
-%clink(todo,prosol)
-\end{emp}
-\caption{A class diagram}
-\end{figure}
-\end{comment}
-
-\begin{figure}[h]
+\begin{figure}[htb]
 \begin{center}
- \includegraphics[scale=1]{input/application_domain_analysis/solve_problem_use_case}
+ \includegraphics[scale=0.8]{input/application_domain_analysis/solve_problem_use_case}
 \caption{A diagram of the use case \ucsolproblem{}.}
 \label{fig:solve_problem_use_case}
 \end{center}
 \end{figure}
 
+\paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories and departments. The use case is described in figure \ref{fig:tucadmin} and a statechart diagram is depicted on figure \ref{use_case_diagram}.
+
+
+\begin{sadlist}[h]{\tucadmin[c]}{Description of the use case \tucadmin{}.}{fig:tucadmin}
+\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove users and depertments. The \sadmin{} can select departments and from the select department add or remove staffs and categories. He can from the department select a category to change and from that category select, add, and remove tags. From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
+
+\sadb{Objects:} \staff[c], \client[c], category, tag, department. 
+
+\sadb{Functions:}
+
+\end{sadlist}
+
+
+\begin{figure}[h]
+\begin{center}
+ \includegraphics[scale=0.8]{input/application_domain_analysis/admin_use_case}
+\caption{A statechart diagram for the use case \tucadmin{}.}
+\label{fig:use_case_diagram}
+\end{center}
+\end{figure}
