@@ -44,9 +44,9 @@ Get priority & Complex & Compute/read \\ \hline%
 
 \paragraph{Add comment} simply adds a comment to a existing problem, making the comment visible for other \client{} and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} 
 
-\paragraph{Reassign Problem} reassigns a specific problem from one assigned \astaff[] member to another. Marked as \textit{update}-fuction as it updates the model. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. 
+\paragraph{Reassign Problem} reassigns a specific problem from one assigned \astaff[] member to another. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. 
 
-\paragraph{Change problem status} changes the status of a problem from one status to another. Again marked as a \textit{update}-function as it updates the model, also marked as a \textit{singal}-function as the associated \client s receives a notification. 
+\paragraph{Change problem status} changes the status of a problem from one status to another. Marked as a \textit{singal}-function as the associated \client s receives a notification. 
 
 \paragraph{Delete problem} simply deletes a problem. 
 
@@ -95,4 +95,4 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 \paragraph{Get statistics} returns statistics, e.g. average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amount of computation.
 \paragraph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
 
-\paragraph{Get priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited. 
+\paragraph{Get priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
