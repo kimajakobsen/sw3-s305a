@@ -33,8 +33,10 @@ Add staff & Simple & Update \\ \hline%
 Remove staff & Simple & Update \\ \hline%
 Assign staff to department & Simple & Update \\ \hline%
 Get statistics & Complex & Compute \\ \hline%
-Subscribe client & simple & Update/signal \\ \hline%
+Subscribe client & Simple & Update/signal \\ \hline%
 Get priority & Complex & Compute/read \\ \hline%
+Add client & Simple & Update \\ \hline%
+Remove client & Simple & Update \\ \hline%
 \end{tabular}
 \end{center}
 \caption{Function list}
@@ -95,6 +97,10 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 \paragraph{Get statistics} returns statistics, e.g. average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amount of computation.
 \paragraph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
 
+
 \paragraph{Get priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
 
+\paragraph{Add \client[]} adds a \client[] to the model. 
+
+\paragraph{Remove \client[]} removes a specific \client[] from the model. 
 
