@@ -12,3 +12,5 @@ Rasmus: what about having a attribute on staff called work start work end.
 
 
 Author?
+
+k
