@@ -1,11 +1,12 @@
 \section{Function}
+\label{sec:function}
+
 \fixme{Vil vi have vores sections til at starte med sm\aa t eller stort?}
 The purpose of this section is to ``determine the system's information processing capabilities'' \ref{roedeaalborg}[p.~137]. Ultimately resulting in ``a complete list of functions with specification of complex functions.'' \ref{roedeaalborg}[p.~137]
 
 Comprehensive knowledge of the OOA\&D method is assumed, and therefore we will not go in detail on function types etc. \fixme{overkill?}
 
 \begin{table}[h] %tdp t = top , p = own page, d = unknown, b = bottom, h = here
-
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -39,6 +40,7 @@ Get priority & Complex & Compute/read \\ \hline%
 \caption{Function list}
 \label{tab:functionlist}
 \end{table}
+
 
 \paragraph{Add comment} simply adds a comment to a existing problem, making the comment visible for other \client{} and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member. \fixme{Hvorfor er "add comment" markeret som "read"-funktion?} 
 
@@ -94,3 +96,5 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 \paragraph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
 
 \paragraph{Get priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
+
+
