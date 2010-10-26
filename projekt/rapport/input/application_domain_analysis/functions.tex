@@ -26,12 +26,14 @@ Create tag & Simple &   Update \\ \hline%
 Create category & Simple & Update \\ \hline%
 Change visibility of category &   Simple &   Update \\   \hline%
 Change visibility of tag &   Simple &  Update \\ \hline%
+Delete tag & Simple &   Update \\ \hline%
+Delete category & Simple & Update \\ \hline%
 %Attach tag to category & Simple & Update \\ \hline%
 Create department & Simple & Update \\ \hline%
 Delete department & Simple & Update \\ \hline%
 Add staff & Simple & Update \\ \hline%
 Remove staff & Simple & Update \\ \hline%
-Assign staff to department & Simple & Update \\ \hline%
+%Assign staff to department & Simple & Update \\ \hline%
 Get statistics & Complex & Compute \\ \hline%
 Subscribe client & Simple & Update/signal \\ \hline%
 Get priority & Complex & Compute/read \\ \hline%
@@ -74,6 +76,10 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 
 \paragraph{Create category} creates a category which tags can be attached to, also attaches that category to a department. 
 
+\paragraph{Delete tag} If a tag is not attached to any problem it can be deleted, if not it can only be hided. 
+
+\paragraph{Delete category} If any tag is attached to the attempted deleted category it can not be deleted and can only be hidden. 
+
 \paragraph{Change visibility of category} changes the visibility of a category. Changes happen and a need of a category may vanish over time, but might be needed again in the future, thus making this function necessary. 
 
 \paragraph{Change visibility of tag} This function hides tag if the \sadmin{} no longer finds it useful. In cases a delete can not be done, because the \textit{tag} is related to some problems. 
@@ -92,7 +98,7 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 
 \paragraph{Remove staff} removes a specific \astaff[] member from the model. 
 
-\paragraph{Assign staff to department} assigns a specific \astaff[] member to a specific department. 
+%\paragraph{Assign staff to department} assigns a specific \astaff[] member to a specific department. 
 
 \paragraph{Get statistics} returns statistics, e.g. average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amount of computation.
 \paragraph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
