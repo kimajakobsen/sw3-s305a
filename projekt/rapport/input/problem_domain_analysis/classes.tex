@@ -1,70 +1,75 @@
 \section{Classes}
 
-In the analysis of the problem domain we found the following classes
+In the analysis of the problem domain we found the following classes and events\newline
 
 
-\paragraph{Problem}
+\paragraph{Problem:}
+Problem is a class with the purpose of keeping track of submitted and solved problems.
 
-\paragraph{Solution}
+\paragraph{Solution:}
+This class is created 
 
-\paragraph{Staff}
+\paragraph{Staff:}
 
-\paragraph{Department}
+\paragraph{Department:}
 
-\paragraph{Person}
+\paragraph{Person:}
 
-\paragraph{Problem added}
+\paragraph{Problem added:}
 
-\paragraph{Problem solved}
+\paragraph{Problem solved:}
 
-\paragraph{Problem updated}
+\paragraph{Problem updated:}
 
-\paragraph{Problem assigned}
+\paragraph{Problem assigned:}
 
-\paragraph{Problem unassigned}
+\paragraph{Problem unassigned:}
 
-\paragraph{Problem deleted}
+\paragraph{Problem deleted:}
 
-\paragraph{User replied}
+\paragraph{User replied:}
 
-\paragraph{Staff replied}
+\paragraph{Staff replied:}
 
-\paragraph{Department created}
+\paragraph{Department created:}
 
-\paragraph{Department closed}
+\paragraph{Department closed:}
 
-\paragraph{Role assigned}
+\paragraph{Role assigned:}
 
-\paragraph{Role unassigned}
+\paragraph{Role unassigned:}
 
-\paragraph{Person created}
+\paragraph{Person created:}
 
-\paragraph{Staff emplyed}
+\paragraph{Staff emplyed:}
 
-\paragraph{Staff fired}
+\paragraph{Staff fired:}
 
-\paragraph{Solution found}¨
+\paragraph{Solution found:}
 
-\paragraph{Problem categorized}
+\paragraph{Problem categorized:}
 
-
-%Ikke færdigt :D
- \begin{tabular}{ | l | l | l | l | l | l |} \hline
- Event / Class & Problem & Solution & Staff & Department & Person \\ \hline
- Problem added & Problem & Solution & Staff & Department & Person \\ \hline
- Problem solved & Problem & Solution & Staff & Department & Person \\ \hline
- Problem updated & Problem & Solution & Staff & Department & Person \\ \hline
- Problem assigned & Problem & Solution & Staff & Department & Person \\ \hline
- Problem unassigned & Problem & Solution & Staff & Department & Person \\ \hline
- Problem deleted & Problem & Solution & Staff & Department & Person \\ \hline
- User replied & Problem & Solution & Staff & Department & Person \\ \hline
- Staff replied & Problem & Solution & Staff & Department & Person \\ \hline
- Department created & Problem & Solution & Staff & Department & Person \\ \hline
- Department closed & Problem & Solution & Staff & Department & Person \\ \hline
- Role assigned & Problem & Solution & Staff & Department & Person \\ \hline
- Role unassigned & Problem & Solution & Staff & Department & Person \\ \hline
- Person created & Problem & Solution & Staff & Department & Person \\ \hline
- Staff emplyed & Problem & Solution & Staff & Department & Person \\ \hline
- Staff fired & Problem & Solution & Staff & Department & Person \\ \hline
- Solution found & Problem & Solution & Staff & Department & Person \\ \hline
- \end{tabular}
+\begin{figure}[ht]
+\begin{tabular}{ l c c c c c} \hline
+\\
+&\emph{\textbf{Classes}} &  &  & &  \\ 
+\emph{\textbf{Events}} & Problem & Solution & Staff & Department & Person \\ \hline
+ Problem added 				& $ \checkmark $ &  &  & $ \checkmark $ &  \\ 
+ Problem solved 			& $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ &  \\ 
+ Problem updated 			& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
+ Problem assigned 		& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
+ Problem unassigned 	& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
+ Problem deleted 			& $ \checkmark $ &  &  & $ \checkmark $ &  \\ 
+ User replied 				& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
+ Staff replied 				& $ \checkmark $ &  &  &  &  \\ 
+ Department created 	&  &  &  & $ \checkmark $ &  \\ 
+ Department closed 		&  &  &  & $ \checkmark $ &  \\ 
+ Role assigned 				&  &  &  & $ \checkmark $ &  \\ 
+ Role unassigned 			&  &  &  &  & $ \checkmark $ \\ 
+ Person created 			&  &  &  &  & $ \checkmark $ \\ 
+ Solution found 			& $ \checkmark $ & $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ \\ 
+ Problem categorized	& $ \checkmark $ &  &  & $ \checkmark $ &  \\ \hline
+\end{tabular}
+\caption{Problem-domain analysis event table}
+\label{table:pdaEvent}
+\end{figure}
