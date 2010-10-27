@@ -14,7 +14,7 @@ The architecture has three layers: User- and System-interfaces, Functions, Model
 \subsection{System Component}
 \label{sub:SystemComponent}
 
-\paragraph{Client Interface}
+\paragraph{\cinterface}
 The client interface get inputs from the client, through this interface the client submits problems, post comments and search for existing problems.
 The functions associated with this interface are located in the Problem Handler component.  
 
@@ -34,7 +34,7 @@ The problem handler component controls the handling of new problems, the handlin
 This component is also responsible for sending out signals to relevant actors. e.g. if a user posts a comment the relevant staff member(s) receives a notification.  
 
 \paragraph{Administrator}
-Through the admin interface the admin component can be accessed. The functions affiliated with this component are control of departments, management of tags/categories and adding/removing of staffs and clients.   
+Through the \ainterface[] the admin component can be accessed. The functions affiliated with this component are control of departments, management of tags/categories and adding/removing of staffs and clients.   
 
 \paragraph{Authenticator}
 To determine which rights a person have, they have to authenticate them selves as either client or staff/admin, this occurs through an authenticator component which communicates with the database interface. \fixme{kim: skældner autheticator mellem staff og admin}  
