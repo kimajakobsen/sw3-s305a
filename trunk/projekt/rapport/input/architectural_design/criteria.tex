@@ -1,4 +1,5 @@
 \section{Criteria}
+\label{sec:criteria}
 The design of \hdesk[] is specified from the following criteria: Usable, secure, efficient, consistence, reliable, maintainable, testable, comprehensible, reusable, portable, and interoperable.
 The definition of these criteria is shown in table \ref{fig:defOfCrit}.
 \cite{roedeaalborg}[p.~178]
@@ -47,39 +48,43 @@ which specifies whether a given criterion will be fulfilled without much effort.
 	\label{fig:prioritizedCrit}
 \end{figure}
 
-How we have prioritized the criteria is based on out system definition, which is found in chapter \ref{123}. Bellow the reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown.
+How we have prioritized the criteria is based on out system definition, which is found in chapter \ref{123}. The reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown bellow.
 
 \paragraph{Usable}
-It is important that our \hdesk[] is is user friendly because it can be used in any organization, it is how ever not very important since we during this project primarily will tailor it to the university's system.
+It is important that our \hdesk[] is user friendly because it can be used in any organization, it is however not very important since we during this project primarily will tailor it to the university's system.
 Further more we are more concerned with the functionality of the system than the usability, hence; important 
 \paragraph{Secure}
-For the \hdesk[] security is less important because we want to make sure whether it is a client or a staff member who is using the system -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
+For the \hdesk[] security is less important. We want to make sure whether it is a client or a staff member who is using the system -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
 We do however not have any sensitive information, so we take no measures to prevent data interception or any other serious security flaw.
 \paragraph{Efficient}
 We do not care for the efficiency of our system, but only that it works which lead us to irrelevant for this criterion 
 \paragraph{Consistence}
 It is important that end users can see which problems are solved and which are not.
-Further more the \hdesk[] model should not contain duplicates, since it could compromise the integrity of the statistics which the system generates. 
+Further more the \hdesk[] model should not contain duplicates, since it could compromise the integrity of the statistics which the system generates.
+This lead us to prioritize consistence as important.
 \paragraph{Reliable}
 The reliability of the \hdesk[] system is not of great interest to us.
-Of course we do not want to sabotage our system to malfunction at any time, we just want to pay our attention to other criteria instead.
+%Of course we do not want to sabotage our system to malfunction at any time, we just want to pay our attention to other criteria instead.
+We do not actively do anything to increase the reliability of the system, neither do we intensionally decrease it.
+We want to pay our attention to other criteria instead, therefore this criterion is prioritized less important.
 \paragraph{Maintainable}
 Since we not intend to maintain the system after it is finished, it is prioritized as irrelevant.
 \paragraph{Testable}
 We want our system to work and to make sure it does, we will run tests.
 Therefore we want our system to be testable.
 \paragraph{Flexible}
-It is very central to our project that it is flexible, because we want it be generic -- that it can be used in any organization without much or any trouble.
-We have chosen this to be the most important criteria.
+It is very central to our system that it is flexible, because we want it be generic -- that it can be adapted to any organization without much or any cost.
+We have chosen this to be a very important criteria.
 \paragraph{Comprehensible}
 Since the \hdesk[] system is supposed to be generic, it should be easy for the user to understand it.
 However our focus is primarily on functionality, so we have prioritized it important.
 \paragraph{Reusable}
-Since we do not care much for the system after it is deployed, we do not care whether or not it is reusable.
+Since we do not care much for the system after it is deployed, we do not care whether or not it is reusable, hence irrelevant.
 \paragraph{Portable}
 Our systems portability can be divided into two, the client side and the server side.
 We do not care about the portability of the server side, because we will rather focus on the portability on the client side and the functionality of the system.
-The end users will access our system through a browser, so we assume that it can be easily fulfilled since there are many browsers for different platforms. \cite{chrome10}
+Therefore it is considered irrelevant.
+The end users will access our system through a browser, so we assume that it can be easily fulfilled since there are many browsers for different platforms. \cite{chrome10} \fixme{Flere kilder}
 \paragraph{Interoperable}
-If it is possible we want to be able to use an existing database for some sort of authentication to our system.
+If it is possible we want to be able to use an existing database for authentication to our system.
 This is however the only other system which we plan on cooperating with, therefore it is prioritized less important.

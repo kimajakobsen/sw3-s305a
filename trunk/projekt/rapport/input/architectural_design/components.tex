@@ -1,1 +1,43 @@
 \section{Components}
+
+With basis in our system definition in chapter \ref{abc} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, We did this to avoid complex dependencies between components and therefore making it easy to change an interface or a component. 
+The architecture layer have three layers: User- and System-interfaces, Functions, Model as shown on figure \ref{fig:SystemComponent}. The figures components will be explained in section \ref{sub:SystemComponent} 
+
+\fixme{kim: inset figure of System components}
+%\lable{fig:SystemComponent}
+
+\subsection{System Component}
+\label{sub:SystemComponent}
+
+\paragraph{Client Interface}
+The client interface get inputs from the client, through this interface the client submits problems, post comments and search for existing problems. The functions associated with this interface are located in the Problem Handler component.  
+
+\paragraph{Staff Interface}
+Through this interface the staff members can access all the client functions, submit solutions, post comments to \open[] problems, view \worklist[] and change properties of problems. This Interface uses the Problem Handler component. 
+
+\paragraph{Admin Interface}  
+\fixme{kim: hvad kan man i admin mode?}
+The interface gives access all the client functions, the staff functions, Tags/category management, department management and administration of the client/staff . The admin interface uses the Problems Handler and the Administrator component.  
+
+\paragraph{Login System Interface}
+\fixme{kim: skal skrives, (skal det være et system Interface eller userinterface?)}
+
+\paragraph{Problem Handler}
+The problem handler component controls the handling of new problems, the handling of solutions, the searching function, recording and sending statistics, manages comments and sending notifications by using the notifier component.   
+
+\paragraph{Administrator}
+Through the admin interface the admin component can be accessed. The functions affiliated with this component are control of departments, management of tags/categories and adding/removing of staff and clients.   
+
+\paragraph{Authenticator}
+To determine what rights a person have, they have to authenticate them self as ether client or staff/admin, this occurs through a authenticator component who communicates with the database interface. \fixme{kim: skældner autheticator mellem staff og admin} 
+
+\paragraph{Notifier}
+The notifier component sends out a signal to relevant actors. e.g. if a user post a comment the relevant staff member(s) receives a notification.  
+
+\paragraph{Database Interface}
+The database interface receives all database requests and translate them to the correct database language.
+
+\subsection{Client Server}
+Because we are designing a help desk, we are dealing with users who are not present in a specific location. Therefore we also designed the system using a client-server architecture.
+On the client side there is a user interface and on the server side the functionality and model are located. By using Local Presentation~\cite{roedeaalborg}[p.~200] we enable clients to access the system from anywhere, and still keep the functionality and model on the server and thus keeping the system flexible.         
+\fixme{kim: lave evt et billede med serverclient}
