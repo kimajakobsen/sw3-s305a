@@ -7,9 +7,23 @@ From the use cases listed in figure \ref{tab:actoreventtable} only some is sophi
 
 \paragraph{\gstat[c]} The use case \gstat[] is trivial and is a list of different views each showing a kind of statistics. The use case can be accessed by \sadmin{}, \aclient{}, and \astaff{}, but they cannot access all the same statistics.
 
-\paragraph{\ucsproblem[c]} The use case \ucsproblem[] is only used be the actor \aclient. Except for cases when \astaff{} or \sadmin{}  acts as \aclient{}. The use case is described in detail in figure \ref{fig:ucsproblem} and a use case diagram is showed in figure \ref{fig:submit_problem_use_case}. 
+\paragraph{\ucsproblem[c]} The use case \ucsproblem[] is only used be the actor \aclient. Except for cases when \astaff{} or \sadmin{}  acts as \aclient{}. A use case diagram is showed in figure \ref{fig:submit_problem_use_case}. 
+\begin{itemize}
+\item \sadb{Use Case:} \ucsproblem[c] is initialized when a \aclient{} has a problem and wishes to submit that problem to the system in order to get help from the \astaff{}. 
+He first has to select a category and from that choose one or more tags, he can change category and select even more tags. 
+When the \aclient{} is done selecting tags the system compares the selected tags with other problems. 
+If similar problems is found the \aclient{} is presented for the problems.
+if one of these matches his particular problem, he can subscribe to the problem(if \open), reopen problem(if \closed{}), or use the information in the old problem to solve his problem independently. 
+If no similar problem were found the \aclient{} creates a problem with a description and the previously selected tags. 
+Hereafter the problem gets assigned to a \astaff{}. 
 
+\item \sadb{Objects:} Problem, solution, tag, category, \client, \staff. (Department)
 
+\item \sadb{Functions:} Search existing problems, compare problems, create problem, attach user to problem.
+\end{itemize}
+
+%%%%%%%%% BEGIN COMMENT
+\begin{comment}
 \begin{sadlist}[h]{\ucsproblem[c]}{Description of the use case submit problem.}{fig:ucsproblem}
 \sadb{Use Case:} \ucsproblem[c] is initialized when a \aclient{} has a problem and wishes to submit that problem to the system in order to get help from the \astaff{}. 
 He first has to select a category and from that choose one or more tags, he can change category and select even more tags. 
@@ -23,20 +37,34 @@ Hereafter the problem gets assigned to a \astaff{}.
 
 \sadb{Functions:} Search existing problems, compare problems, create problem, attach user to problem.
 \end{sadlist}
+\end{comment}
+%%%%%%%%%% END COMMENT
+
+
 
 \begin{figure}[htbp]
 \begin{center}
  \includegraphics[scale=0.8]{input/application_domain_analysis/submit_problem_use_case}
-\caption{A diagram of the use case \ucsproblem{}. The use case is described in detail in figure \ref{fig:ucsproblem}.}
+\morscaption{A diagram of the use case \ucsproblem{}.}
 \label{fig:submit_problem_use_case}
 \end{center}
 \end{figure}
 
 
 
-\paragraph{\ucsolproblem{}} The use case \ucsolproblem{} is the \astaff{}s primary working usage of the system. This is where he goes to get his \todolist{} and to solve problems. The use case is described in figure \ref{fig:ucsolproblem} and a diagram is shown in figure \ref{solve_problem_use_case}.
+\paragraph{\ucsolproblem[c]} The use case \ucsolproblem{} is the \astaff{}s primary working usage of the system. This is where he goes to get his \todolist{} and to solve problems. A diagram is shown in figure \ref{fig:solve_problem_use_case}.
+
+\begin{itemize}
+\item \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[]. He is then presented with a list of unsolved problems assigned to him. He can then click on one of the problems to solve the problem, see status of it, add comments to it, search the database for similar problem, reassign it or delete it. 
+
+\item \sadb{Objects:} Problem, solution, tag, category, comment, \client[], \staff[] and department. 
+
+\item \sadb{Functions:} Add comment, reassign, change status, delete problem, search database, create solution, attach solution and get staff \todolist{}.
+\end{itemize}
 
 
+%%%%%%%%%%%%% BEGIN COMMENT
+\begin{comment}
 \begin{sadlist}[htb]{\ucsolproblem[c]}{Description of the use case \ucsolproblem{}.}{fig:ucsolproblem}
 \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[]. He is then presented with a list of unsolved problems assigned to him. He can then click on one of the problems to solve the problem, see status of it, add comments to it, search the database for similar problem, reassign it or delete it. 
 
@@ -44,6 +72,8 @@ Hereafter the problem gets assigned to a \astaff{}.
 
 \sadb{Functions:} Add comment, reassign, change status, delete problem, search database, create solution, attach solution and get staff \todolist{}.
 \end{sadlist}
+\end{comment}
+%%%%%%%%%%%%%%% END COMMENT
 
 \begin{figure}[htb]
 \begin{center}
@@ -53,9 +83,21 @@ Hereafter the problem gets assigned to a \astaff{}.
 \end{center}
 \end{figure}
 
-\paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories and departments. The use case is described in figure \ref{fig:tucadmin} and a statechart diagram is depicted on figure \ref{use_case_diagram}.
+
+\paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories and departments. A statechart diagram is depicted on figure \ref{use_case_diagram}.
+
+\begin{itemize}
+\item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove users and depertments. The \sadmin{} can select departments and from the select department add or remove staffs and categories. He can from the department select a category to change and from that category select, add, and remove tags. From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
+
+\item\sadb{Objects:} \staff[c], \client[c], category, tag, department.
+
+\item\sadb{Functions:} Remove user, remove client, add client, add staff, create department, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag.
+\end{itemize}
 
 
+
+%%%%%%%%%%%% BEGIN COMMENT
+\begin{comment}
 \begin{sadlist}[h]{\tucadmin[c]}{Description of the use case \tucadmin{}.}{fig:tucadmin}
 \sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove users and depertments. The \sadmin{} can select departments and from the select department add or remove staffs and categories. He can from the department select a category to change and from that category select, add, and remove tags. From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
 
@@ -64,7 +106,8 @@ Hereafter the problem gets assigned to a \astaff{}.
 \sadb{Functions:} Remove user, remove client, add client, add staff, create department, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag.
 
 \end{sadlist}
-
+\end{comment}
+%%%%%%%%%%%%%% END COMMENT
 
 \begin{figure}[h]
 \begin{center}
