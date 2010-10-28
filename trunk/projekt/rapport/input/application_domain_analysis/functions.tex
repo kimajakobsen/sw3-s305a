@@ -31,9 +31,9 @@ Delete category & Simple & Update \\ \hline%
 %Attach tag to category & Simple & Update \\ \hline%
 Create department & Simple & Update \\ \hline%
 Delete department & Simple & Update \\ \hline%
-Add staff & Simple & Update \\ \hline%
-Rename staff & Simple & Update \\ \hline%
-Remove staff & Simple & Update \\ \hline%
+Add person & Simple & Update \\ \hline%
+Rename person & Simple & Update \\ \hline%
+Remove person & Simple & Update \\ \hline%
 %Assign staff to department & Simple & Update \\ \hline%
 Get statistics & Complex & Compute \\ \hline%
 Subscribe client & Simple & Update/signal \\ \hline%
@@ -98,23 +98,24 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 
 \paragraph{Delete department} as the name dictates, simply deletes a department. 
 
-\paragraph{Add staff} adds a specific \astaff[] member to the model. 
+\paragraph{Add person} adds a specific person to the model. A person can either be a \aclient[], \astaff[] or a \admin[]. See table \ref{tab:actoreventtable} in section \ref{sec:actors}.
 
-\paragraph{Rename staff} renames a specific \astaff[] member. 
+\paragraph{Rename person} renames a specific person member. 
 
-\paragraph{Remove staff} removes a specific \astaff[] member from the model. 
+\paragraph{Remove person} removes a specific person from the model. 
 
 %\paragraph{Assign staff to department} assigns a specific \astaff[] member to a specific department. 
 
 \paragraph{Get statistics} returns statistics, e.g. average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amount of computation.
+
 \paragraph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
 
 \paragraph{Set priority} This function sets the priority of a tag. 
 
 \paragraph{Get priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
 
-\paragraph{Add \client[]} adds a \client[] to the model. 
+%\paragraph{Add \client[]} adds a \client[] to the model. 
 
-\paragraph{Remove \client[]} removes a specific \client[] from the model. 
+%\paragraph{Remove \client[]} removes a specific \client[] from the model. 
 
-\paragraph{Set permissions} sets the permissions of a specific person member. A person can either be a \aclient[], \astaff[] or a \admin[]. See table \ref{tab:actoreventtable} in section \ref{sec:actors}.
+\paragraph{Set permissions} sets the permissions of a specific person member.
