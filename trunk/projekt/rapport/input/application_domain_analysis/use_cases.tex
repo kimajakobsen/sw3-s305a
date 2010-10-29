@@ -90,11 +90,13 @@ Hereafter the problem gets assigned to a \astaff{}.
 \paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories and departments. A statechart diagram is depicted on figure \ref{use_case_diagram}.
 
 \begin{itemize}
-\item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove users and depertments. The \sadmin{} can select departments and from the select department add or remove staffs and categories. He can from the department select a category to change and from that category select, add, and remove tags. From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
+\item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove persons and departments. The \sadmin{} can select departments and from the selected department he can add or remove \staff[]s and categories. From both a selected department and the main window he can select a person to edit. 
+If he selects a department he can select a category to change and from that category select, add, and remove tags. 
+From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
 
 \item\sadb{Objects:} \staff[c], \client[c], category, tag, department.
 
-\item\sadb{Functions:} Remove user, remove client, add client, add staff, create department, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag.
+\item\sadb{Functions:} Delete person, Add person, create department, set permissions, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag.
 \end{itemize}
 
 
