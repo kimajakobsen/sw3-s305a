@@ -1,6 +1,6 @@
 \section{Components}
 \label{sec:components}
-With basis in our system definition in chapter \ref{abc} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or . 
+With basis in our system definition in chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or . 
 The architecture has three layers: User- and System-interfaces, Functions, Model as shown on figure \ref{fig:SystemComponent}. The figures components will be explained in section \ref{sub:SystemComponent} 
 
 \begin{figure}[]
@@ -13,7 +13,7 @@ The architecture has three layers: User- and System-interfaces, Functions, Model
 
 \subsection{System Component}
 \label{sub:SystemComponent}
-The systems three actors are displayed as interfaces. The \aclient s and \astaff s functions are located in the Problem Handler component, while the \admin s additional functions are located in the Administrator component. The \aclient[] only have limited access to the Problem Handler component while the \astaff[] and \admin[] have full access to the Problem Handler's functions, in addition the \admin[] uses the administrator component. To determine if a user is a \aclient[], \astaff[] or \admin[] the component Authenticator is used. The Authenticator asks the Database Interface what the permission the user have. Based on what permissions the user have access are given to the different interfaces. The Problem Handler and the Administrator components sends info to the Database Interface who translate the info and sends it to the database. 
+The systems three actors are displayed as interfaces. The \aclient s and \astaff s functions are located in the Problem Handler component, while the \admin s additional functions are located in the Administrator component. The \aclient[] only have limited access to the Problem Handler component while the \astaff[] and \admin[] have full access to the Problem Handler's functions, in addition the \admin[] uses the administrator component. To determine if a user is a \aclient[], \astaff[] or \admin[] the component Authenticator is used. The Authenticator asks the Database Interface what the permission the user have. Based on what permissions the user have access are given to the different interfaces. The Problem Handler and the Administrator components sends info to the Database Interface who translate the info and sends it to the database. All the components are described below:
 
 \paragraph{\cinterface}
 The client interface get inputs from the client, through this interface the client submits problems, post comments and search for existing problems.
@@ -34,14 +34,13 @@ This component is also responsible for sending out signals to relevant actors. e
 Through the admin interface the admin component can be accessed. The functions affiliated with this component are control of departments, management of tags/categories and adding/removing of staffs and clients.   
 
 \paragraph{Authenticator}
-To determine which rights a person have, they have to authenticate them selves as either client or staff/admin, this occurs through an authenticator component which communicates with the database interface. \fixme{kim: sk\ae ldner autheticator mellem staff og admin}  
-
+To determine which rights a person have, they have to authenticate them selves as either client or staff/admin, this occurs through an authenticator component which communicates with the database interface. 
 \paragraph{Database Interface}
 The database interface receives all database requests and translate them to the correct database language.
 
 
-\subsection{Altered System component}
-
+\subsection{Alternative System component}
+If the 
 
 beskrivelse af hvordan det alternative virker og hvorfor vi bruger den.
 
