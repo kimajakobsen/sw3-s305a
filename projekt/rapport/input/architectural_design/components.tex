@@ -13,11 +13,7 @@ The architecture has three layers: User- and System-interfaces, Functions, Model
 
 \subsection{System Component}
 \label{sub:SystemComponent}
-The systems three actors are displayed as interfaces. The \aclient s and \astaff s functions are located in the Problem Handler component, while the \admin s additional functions are located in the Administrator component. The \aclient[] only have limited access to the Problem Handler component while the \astaff[] and \admin[] have full access to the Problem Handler's functions, in addition the \admin[] uses the administrator component. 
-
-
-
-
+The systems three actors are displayed as interfaces. The \aclient s and \astaff s functions are located in the Problem Handler component, while the \admin s additional functions are located in the Administrator component. The \aclient[] only have limited access to the Problem Handler component while the \astaff[] and \admin[] have full access to the Problem Handler's functions, in addition the \admin[] uses the administrator component. To determine if a user is a \aclient[], \astaff[] or \admin[] the component Authenticator is used. The Authenticator asks the Database Interface what the permission the user have. Based on what permissions the user have access are given to the different interfaces. The Problem Handler and the Administrator components sends info to the Database Interface who translate the info and sends it to the database. 
 
 \paragraph{\cinterface}
 The client interface get inputs from the client, through this interface the client submits problems, post comments and search for existing problems.
