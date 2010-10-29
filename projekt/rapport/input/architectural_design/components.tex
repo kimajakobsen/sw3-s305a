@@ -1,5 +1,4 @@
 \section{Components}
-
 With basis in our system definition in chapter \ref{abc} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or . 
 The architecture has three layers: User- and System-interfaces, Functions, Model as shown on figure \ref{fig:SystemComponent}. The figures components will be explained in section \ref{sub:SystemComponent} 
 
@@ -13,6 +12,11 @@ The architecture has three layers: User- and System-interfaces, Functions, Model
 
 \subsection{System Component}
 \label{sub:SystemComponent}
+The systems three actors are displayed as interfaces. The \aclient s and \astaff s functions are located in the Problem Handler component, while the \admin s additional functions are located in the Administrator component. The \aclient[] only have limited access to the Problem Handler component while the \astaff[] and \admin[] have full access to the Problem Handler's functions, in addition the \admin[] uses the administrator component. 
+
+
+
+
 
 \paragraph{\cinterface}
 The client interface get inputs from the client, through this interface the client submits problems, post comments and search for existing problems.
@@ -38,8 +42,9 @@ To determine which rights a person have, they have to authenticate them selves a
 \paragraph{Database Interface}
 The database interface receives all database requests and translate them to the correct database language.
 
-\subsection{}
-beskrivelse af hvordan system component virker.
+
+\subsection{Altered System component}
+
 
 beskrivelse af hvordan det alternative virker og hvorfor vi bruger den.
 
@@ -61,7 +66,7 @@ On the client side there is a user interface and on the server side the function
 \fixme{kim: lave evt et billede med serverclient}
 
 \begin{figure}%
-\includegraphics[scale=0.5]{input/architectural_design/client-server-architecture-pattern.pdf}%
-\caption{}%
-\label{}%
+	\includegraphics[scale=0.5]{input/architectural_design/client-server-architecture-pattern.pdf}%
+	\morscaption{}
+	\label{fig:client-server}%
 \end{figure}
