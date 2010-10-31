@@ -1,3 +1,7 @@
+
+%%%%%%% Created and devoleped by Rasmus Prentow
+%%%%%%%% V 1.392
+
 \ProvidesPackage{casecontrol}%
 \usepackage{ifthen}%
 % c = first letter capital
@@ -5,6 +9,10 @@
 % i = italic
 % b = bold
 % ci = first letter cap and all italic.
+
+%%% EXAMPLE 
+%\newcommand{\ainterface}[1][]{\caseControl{A}{dmin Interface}{#1}{}}%
+%\ainterface
 \newcommand{\theWord}{some}
 \newcommand{\caseControl}[4]{%
 \ifthenelse{\equal{#3}{c}}% First letter capital
