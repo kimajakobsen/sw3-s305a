@@ -1,10 +1,45 @@
 \section{System Definition}
 \label{sec:systemdefinition}
 
-The following is copy-pasted from our google docs
 
-A webbased system used to ease the collaboration between client, who has a problem, and technical staff, related to solving the problem. 
-Clients can submit problems which will be assigned to a staff member, based on the clients selection of categories, the current workload of the staff members and statistics for time taken for solving similar problems for the given staff member. 
+A webbased system used to ease the collaboration between client, who has a problem, and technical staff, related to solving the problem, where the main empasis is on getting the problems to the persons who are best at solving them, as efficient as possible.
+ 
+Clients can submit problems which will be assigned to a staff member, based on the clients selection of tags and categories, and the current workload of the staff members.
+
+%The system will automatic reassign problems if a staff member has become overloaded.
+
+Before a problem is actually submitted to the system, the client is asked to \textit{categorise} the problem by selecting tags from categories wich define and describe the problem as specific as possible. Based on this categorization, the system will search for similair problems which solution might help the client, and theirfor remove the need for submitting an identical or almost identical problem to the system.
+
+If a client can not determine the correct categorisation for a specific problem, it will simply be submitted without the categorization, and the system will from there do one of the following three things, which a system administrator specifies:
+
+\begin{itemize}
+	\item distribute between all staff members, based on their workload.
+	\item distribute between all staff-personel associated with a specific department, based on their workload.
+	\item distribute to a single staff member, regardless of his workload.
+\end{itemize}
+
+Every time a problem is assigned to any staff member, he or she will get a notification about it.
+
+The system will generate priority sorted to-do lists for the staff. The priority will be based on a suggested priority by the client, and a final priority evaluation by the staff member assigned to the problem.
+%The system will generate priority sorted to-do lists for the staff. The priority will be based on the category and the time since it were committed.
+
+The system will make estimations based on time for solving problems of the same or somewhat equal categorization, the current workload of the assigned staff member, and the priority of the specific problem versus the other problems of which the specific staff member has to solve as well.
+%% The estimation will be used to estimate a deadline. The staff member assigned to the problem will be notified when the deadline is near.\\
+
+%When client submits a problem the system will check the problem against old problems; if a similar problem previously has been solved the system will show that solution to the client. If that particular solution is insufficient the client will be granted the opportunity to submit a new problem to the system. The staff members should select if they find the solution important to be saved.
+
+When problems are commited to the system and assigned to a staff member, the staff and client can add notes to the problem as a way of communication. Every time a change is made to a problem or a notes has been added the client is notified\\
+
+
+
+
+
+
+
+===========
+A webbased system used to ease the collaboration between client, who has a problem, and technical staff, related to solving the problem, where the main empasis is on getting the problems to the persons who are best at solving them, as efficient as possible.
+ 
+Clients can submit problems which will be assigned to a staff member, based on the clients selection of tags and categories, the current workload of the staff members and statistics for time taken for solving similar problems for the given staff member. 
 The system will automatic reassign problems if a staff member has become overloaded.
 The system will generate priority sorted to-do lists for the staff. The priority will be based on the category and the time since it were committed.
 The system will make estimations based on time for solving problems of the same category, the current workload of the assigned staff member, and the priority. The estimation will be used to estimate a deadline. The staff member assigned to the problem will be notified when the deadline is near.\\
@@ -16,6 +51,8 @@ If a client can not determine the correct category for a specific problem, he wi
 When client submits a problem the system will check the problem against old problems; if a similar problem previously has been solved the system will show this solution to the client. If that particular solution is insufficient the client will be granted the opportunity to submit it. The staff members should select if they find the solution important to be saved.
 
 When problems are commited to the system and assigned to a staff member, the staff and client can add notes to the problem as a way of communication. Every time a change is made to a problem or a notes has been added the client is notified\\
+===========
+
 
 
 
