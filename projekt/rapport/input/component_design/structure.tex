@@ -7,17 +7,19 @@ A subsection for each component is presented below.
 \subsection{User Interface Component}
 This component consists of three sub-components: \cinterface[], \sinterface[], and \ainterface[].
 Each of these interfaces is described in the sub-subsections bellow.
-\fixme{Jeg overvejer lidt om der måske skal være en abstrakt klasse, som alle vores vinduer arver fra. Her kunne bl.a. være en back function i, idet jeg synes det skal være muligt at gå tilbage fra alle stadier -- n\ae{}sten i hvert fald.}
 
 The sub-components share a login class, which is a window where a user enters his/her user name and password.
 Depending on the role of the user who is logging in, he/she is directed to the main window of the corresponding interface.
 
 Every window in the sub-components will inherit from a class called ``HelpdeskWindow''.
+This class is described in paragraph \ref{par:helpdeskwindow}.
 
 \subsubsection{\cinterface[]}
 The structure of the \cinterface[] is shown in figure \ref{fig:client_interface}.
 Each window represents a class and the navigation arrows indicates an association between the classes.
 Each object of the different classes will hold a pointer to the object(window) that created it, so it is possible to go back from one window to another.
+
+As mentioned, each window class inherits from the HelpdeskWindow class.
 
 \subsubsection{\sinterface[]}
 The \sinterface[] structure is visualized in figure \ref{fig:Navigation_Diagram}.
