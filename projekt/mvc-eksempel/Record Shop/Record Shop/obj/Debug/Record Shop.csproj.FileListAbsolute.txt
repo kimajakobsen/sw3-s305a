@@ -1,0 +1,5 @@
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel\Record Shop\Record Shop\bin\Record Shop.dll
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel\Record Shop\Record Shop\bin\Record Shop.pdb
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel\Record Shop\Record Shop\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel\Record Shop\Record Shop\obj\Debug\Record Shop.dll
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel\Record Shop\Record Shop\obj\Debug\Record Shop.pdb
