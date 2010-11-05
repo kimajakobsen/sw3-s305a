@@ -1,0 +1,5 @@
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel2\Movies\Movies\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel2\Movies\Movies\bin\Movies.dll
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel2\Movies\Movies\bin\Movies.pdb
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel2\Movies\Movies\obj\Debug\Movies.dll
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\projekt\mvc-eksempel2\Movies\Movies\obj\Debug\Movies.pdb

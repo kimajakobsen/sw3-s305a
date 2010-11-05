@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoviesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MoviesModelStoreContainer">
+    <EntitySet Name="Movie" EntityType="MoviesModel.Store.Movie" store:Type="Tables" store:Schema="dbo" store:Name="Movie">
+      <DefiningQuery>SELECT
+      [Movie].[id] AS [id],
+      [Movie].[Title] AS [Title], 
+      [Movie].[ReleaseDate] AS [ReleaseDate], 
+      [Movie].[Genre] AS [Genre], 
+      [Movie].[Price] AS [Price]
+      FROM [dbo].[Movie] AS [Movie]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Movies.dbo.Movie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="ReleaseDate" />
+      <PropertyRef Name="Genre" />
+      <PropertyRef Name="Price" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nchar" Nullable="false" MaxLength="80" />
+    <Property Name="ReleaseDate" Type="date" Nullable="false" />
+    <Property Name="Genre" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="Price" Type="decimal" Nullable="false" />
+  </EntityType>
+</Schema>
