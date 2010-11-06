@@ -20,6 +20,7 @@ Each window represents a class and the navigation arrows indicates an associatio
 Each object of the different classes will hold a pointer to the object(window) that created it, so it is possible to go back from one window to another.
 
 As mentioned, each window class inherits from the HelpdeskWindow class.
+Further the Client Problem View inherits from an abstract Problem View class. The reason for this is that there are different problem views -- two in the \sinterface[] -- and making one class that the others inherits from will make the views similar and thereby making the system more comprehensible for the end user.
 
 \subsubsection{\sinterface[]}
 The \sinterface[] structure is visualized in figure \ref{fig:Navigation_Diagram}.
