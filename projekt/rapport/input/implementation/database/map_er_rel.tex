@@ -3,17 +3,15 @@
 
 Our relations will be as follows:\\
 
-\textit{Problem (\underline{problemID}, name, description, date, eta, deadline)} \\
-
-
-
-\textit{Person (\underline{personID}, name, mail )} \\
+\noindent \textit{Problem (\underline{problemID}, name, description, date, eta, deadline)} \\
+\textit{Person (\underline{personID}, name, e-mail, username, password)} \\
 \textit{Solution (\underline{solutionID}, description, date)} \\
-\textit{Department (\underline{departmentID})} \\
-\textit{Tag (\underline{departmentID})} \\
-\textit{Category (\underline{departmentID})} \\
-\textit{Role (\underline{departmentID})} \\
-\textit{Department (\underline{departmentID})} \\
+\textit{Department (\underline{dept\_name})} \\
+\textit{Tag (\underline{tagID}, name, description, priority)} \\
+\textit{Category (\underline{name}, \underline{description}, dept\_name)} --- Note here that we have included \verb+dept_name+ in category as we have a one-to-many relation to the Department scheme.\\
+\textit{Role (\underline{roleID}, name)} \\
+\textit{Comment (\underline{time}, \underline{description}, problemID, personID)} \\
+Note that we have included \verb+problemID+ and \verb+personID+ \\
 \textit{Department (\underline{departmentID})} \\
 \textit{Department (\underline{departmentID})} \\
 
