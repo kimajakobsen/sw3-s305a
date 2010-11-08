@@ -1,6 +1,6 @@
 \section{Components}
 \label{sec:components}
-With basis in our system definition in chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or . 
+With basis in our system definition in chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or \fixme{eller hvad?}. 
 The architecture has three layers: User- and System-interfaces, Functions, Model as shown on figure \ref{fig:SystemComponent}. The figures components will be explained in section \ref{sub:SystemComponent}.
 
 \begin{figure}
@@ -42,7 +42,7 @@ The database interface receives all database requests and translate them to the 
 \subsection{Alternative System component}
 \label{sub:altSystemComponent}
  
-If \hdesk[] is used by a company who already have an Active Directory, then the login system should be integrated with the AD. We designed a component who is able to communicate with an external database. As seen on figure \ref{fig:AltSystemComponent} a Login system interface component is added. We are not going to implement this component.
+If \hdesk[] is used by a company who already have an Active Directory, then the login system should be integrated with the AD. We designed a component who is able to communicate with an external database\fixme{Blev vi ikke enige om at vi ikke ville bruge external database}. As seen on figure \ref{fig:AltSystemComponent} a Login system interface component is added. We are not going to implement this component.
 \fixme{kim: Jeg syntes det skal slettes, billedet og tekst}
 
 \paragraph{Login System Interface}
