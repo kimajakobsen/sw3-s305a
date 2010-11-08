@@ -8,9 +8,9 @@ Our relations will be as follows:\\
 \textit{Solution (\underline{solutionID}, description, date)} \\
 \textit{Department (\underline{dept\_name})} \\
 \textit{Tag (\underline{tagID}, name, description, priority, categoryID)} -- Note here that we have included \verb+dads+
-\textit{Category (\underline{name}, \underline{description}, dept\_name)} -- Note here that we have included \verb+dept_name+ in \verb+Category+ as we have a many-to-one relation to the \verb+Department+ scheme, and therefore the redundant tables called \verb+tag_cat+ and \verb+made_by+ can be omitted.\\
+\textit{Category (\underline{name}, \underline{description}, dept\_name)} -- Note here that we have included \verb+dept_name+ in \verb+Category+ as we have a many-to-one relation to the \verb+Department+ scheme, and therefore the redundant table called \verb+tag_cat+ can be omitted.\\
 \textit{Role (\underline{roleID}, name)} \\
-\textit{Comment (\underline{time}, \underline{description}, problemID, personID)} -- Note that we have included \verb+problemID+ and \verb+personID+ as we have a many-to-one relationship with the \verb+Problem+ scheme, and therefore the redundant table called \verb+com_prob+ can be omitted.\\
+\textit{Comment (\underline{time}, \underline{description}, problemID, personID)} -- Note that we have included \verb+problemID+ and \verb+personID+ as we have a many-to-one relationship with the \verb+Problem+ scheme, and therefore the redundant tables called \verb+com_prob+ and \verb+made_by+ can be omitted.\\
 \textit{Assignment (personID, problemID)} \\
 \textit{Subscription (personID, problemID)} \\
 \textit{prob\_tag (problemID, tagID)} \\
