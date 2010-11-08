@@ -1,1 +1,68 @@
 \section{Classes}
+In this chapter we will give a brief description and list of attributes for each class together, and a operating specification of each complex operation.
+
+ \paragraph{Person:}This class purpose is to register new users in the helpdesk. When a person register, he/she need to provide the Person class with following attributes:
+\begin{itemize}
+ \item{name}
+ \item{mail}
+ \item{username}
+ \item{password}
+\end{itemize}
+ 
+ \paragraph{Login:}After a user is registered in the helpdesk, he/she can login using their username and password they choose when registering. The login class purpose it to make sure all users is registered before they can submit problems and add comments. The login class need the following attributes:
+\begin{itemize}
+ \item{username}
+ \item{password}
+\end{itemize}
+ 
+ \paragraph{HelpdeskWindow:}All windows in the helpdesk inherits from this class. The HelpdeskWindow class is an abstact class, which purpose is to provide a standard layout for all windows. This class use the following attributes:
+\begin{itemize}
+ \item{width}
+ \item{height}
+ \item{position}
+ \item{er der mere?}
+\end{itemize}
+
+ \paragraph{Problem:}When a user submit a new problem to the helpdesk, he will be using the Problem class. The Problem class responsibility is to make sure the user provides the required attributes:
+ \begin{itemize}
+ \item{title}
+ \item{text}
+\end{itemize}
+
+ \paragraph{Client:}This class is the default role, that every user got after registering. The Client class purpose is to provide the user with basic rights, such as submitting a problem and adding a comment. This class doesn't require any attributes.
+
+ \paragraph{Staff:}This is a employee role, you can only have this role if your a employee of the helpdesk staff. The Staff class give the employee rights to change problem status, assign problems, delete problems/comments, edit problems/comments, attach solution. This class doesn't require any attributes.
+
+ \paragraph{Solution:}When a client submit a problem, it's the staff's job to find and attach a solution. The Solution class purpose is to let the staff create and attach a solution. This class requires the following attributes:
+\begin{itemize}
+ \item{file}
+ \item{text}
+\end{itemize}
+
+ \paragraph{Assignment:}This class purpose is to assign problems to staff members, and let staff members assign problems to other staff members. This class doesn't require 
+
+ \paragraph{Subscription:}Clients can subscribe to a problem, each time the problem is updated with either a comment, solution or status change, the client will be informed by mail.
+
+ \paragraph{Comment:}This class give the clients the rights to comment on a problem. The class require the following attributes.
+\begin{itemize}
+ \item{Text}
+\end{itemize}
+ 
+  \paragraph{Department:}When a problem is submitted, it is assigned to a department based on tags the client provided. The purpose of this class, is to make sure the problems is assigned to the right staff. The Department class require the following attributes:
+\begin{itemize}
+ \item{name}
+\end{itemize}
+
+ \paragraph{Category:}A department contain one more more categories that partly describe the department. The Category class purpose is to make sure, problems is assigned to the right department. The class require the following attributes:
+\begin{itemize}
+ \item{Name}
+ \item{Description}
+\end{itemize}
+ 
+ \paragraph{Tag:}Before a client can submit a problem, he/she needs to add predefined tags to the problem. Each tag belongs to a category, more tags can have the same category, but one tag can't have more categories. This class purpose is to add tags to a category or a problem. This Tag class require the following attributes:
+\begin{itemize}
+ \item{Name}
+ \item{Description}
+\end{itemize}
+
+ \paragraph{Admin:}This is the highest role that a staff member can have. As admin got all rights, the class doesn't require any attributes.
