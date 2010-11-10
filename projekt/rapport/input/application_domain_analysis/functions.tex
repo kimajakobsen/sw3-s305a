@@ -1,11 +1,11 @@
 \section{Function}
 \label{sec:function}
 
-The purpose of this section is to ``determine the system's information processing capabilities'' \cite{roedeaalborg}[p.~137]. Ultimately resulting in ``a complete list of functions with specification of complex functions.'' \cite{roedeaalborg}[p.~137]
+The purpose of this section is to ``determine the system's information processing capabilities'' \cite[p.~137]{roedeaalborg}. Ultimately resulting in ``a complete list of functions with specification of complex functions.'' \cite[p.~137]{roedeaalborg}
 
-Comprehensive knowledge of the OOA\&D method is assumed, and therefore we will not go in detail on function types etc. \fixme{overkill?}
+Comprehensive knowledge of the OOA\&D method is assumed, and therefore we will not go in detail on function types etc. \fixme{overkill? -- Nah det er okay}
 
-\begin{table}[h] %tdp t = top , p = own page, d = unknown, b = bottom, h = here
+\begin{figure}[h] %tdp t = top , p = own page, d = unknown, b = bottom, h = here
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -47,46 +47,46 @@ Set permissions & Simple & Update \\ \hline%
 \end{center}
 \caption{Function list}
 \label{tab:functionlist}
-\end{table}
+\end{figure}
 
 
-\paragraph{Add comment} simply adds a comment to a existing problem, making the comment visible for other \client{} and \astaff[] members. Marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member.
+\paragraph{Add Comment} This simply adds a comment to an existing problem, making the comment visible for other \client{} and \astaff[] members. This function is marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member.
 
-\paragraph{Reassign Problem} reassigns a specific problem from one assigned \astaff[] member to another. Marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. 
+\paragraph{Reassign Problem} This function reassigns a specific problem from one assigned \astaff[] member to another. It is marked as a \textit{signal}-function as the new assigned \astaff[] member received a notification of the newly reassigned problem. 
 
-\paragraph{Change problem status} changes the status of a problem from one status to another. Marked as a \textit{singal}-function as the associated \client s receives a notification. 
+\paragraph{Change Problem Status} changes the status of a problem from one status to another. Marked as a \textit{singal}-function as the associated \client s receives a notification. 
 
-\paragraph{Delete problem} simply deletes a problem. 
+\paragraph{Delete Problem} simply deletes a problem. 
 
-\paragraph{Search problems} searches the model for problems matching a set of tags. Marked as ``complex'' complexity due to somewhat advanced algorithms.\fixme{Er det virkelig derfor den er medium?} Marked as a \textit{read}-function as it simply reads the model.
+\paragraph{Search Problems} searches the model for problems matching a set of tags. Marked as ``complex'' complexity due to somewhat advanced algorithms.\fixme{Er det virkelig derfor den er medium?} Marked as a \textit{read}-function as it simply reads the model.
 
-\paragraph{Create solution} simply creates solution to a problem and adds it to the model. 
+\paragraph{Create Solution} simply creates solution to a problem and adds it to the model. 
 
-\paragraph{Attach solution} attaches a existing solution to a problem, and notifies the associated \client s about it. Marked as a \textit{signal}-function as it notifies the associated clients. 
+\paragraph{Attach Solution} attaches a existing solution to a problem, and notifies the associated \client s about it. Marked as a \textit{signal}-function as it notifies the associated clients. 
 
-\paragraph{Distribute problems} The distribute problem function is ran everytime a new problem is created and by a given interval to ensure that no staff is overcrowded with tasks. 
+\paragraph{Distribute Problems} The distribute problem function is ran everytime a new problem is created and by a given interval to ensure that no staff is overcrowded with tasks. 
 It distributes newly created problems by assigning them to an appropriate \astaff[] member, based on current workload. % and specifications on what the different \astaff[] members are good at.
 Marked as a \textit{read}-function as it reads from the model. Marked as a \textit{signal}-function as it notifies the associated clients, and the newly assigned \astaff[] member. 
 
 %\paragraph{Compare Problems} compares a specific problem to the problems in the model and returns similair problems, prioritizing the ones with an attached solution, hence complex in complexity. Marked as a \textit{read}-function as it reads from the model, and marked as a \textit{compute}-function as a computation is involved involving information provided by the \client. \\
 
-\paragraph{Create problem} creates a new problem and adds it to the model. Every time this function is ran, it computes which department is best suited for solving the problem, and thereafter assignes the problem to the \astaff[] member which has least problems to solve. \fixme{Hvorfor er "create problem" markeret som en compute-funktion?} 
+\paragraph{Create Problem} creates a new problem and adds it to the model. Every time this function is ran, it computes which department is best suited for solving the problem, and thereafter assignes the problem to the \astaff[] member which has least problems to solve. \fixme{Hvorfor er "create problem" markeret som en compute-funktion?} 
 
 %\paragraph{Attach user to problem} simply attaches a new user to an existing problem. The need for this function arises when a \client has a problem which is in need of a solution, but the problem has already been entered in the system by another \client. \\
 
-\paragraph{Get staff todo list} simply fetches the \astaff[] members todo list and displays it. Hence marked as a \textit{read}-function. 
+\paragraph{Get Staff Todo List} simply fetches the \astaff[] members todo list and displays it. Hence marked as a \textit{read}-function. 
 
-\paragraph{Create tag} creates a tag, which is an element used for categorizing problems, which purpose is to make searching easier, also attaches the tag to a category. 
+\paragraph{Create Tag} creates a tag, which is an element used for categorizing problems, which purpose is to make searching easier, also attaches the tag to a category. 
 
-\paragraph{Create category} creates a category which tags can be attached to, also attaches that category to a department. 
+\paragraph{Create Category} creates a category which tags can be attached to, also attaches that category to a department. 
 
-\paragraph{Delete tag} If a tag is not attached to any problem it can be deleted, if not it can only be hided. 
+\paragraph{Delete Tag} If a tag is not attached to any problem it can be deleted, if not it can only be hided. 
 
-\paragraph{Delete category} If any tag is attached to the attempted deleted category it can not be deleted and can only be hidden. 
+\paragraph{Delete Category} If any tag is attached to the attempted deleted category it can not be deleted and can only be hidden. 
 
-\paragraph{Change visibility of category} changes the visibility of a category. Changes happen and a need of a category may vanish over time, but might be needed again in the future, thus making this function necessary. 
+\paragraph{Change Visibility of Category} changes the visibility of a category. Changes happen and a need of a category may vanish over time, but might be needed again in the future, thus making this function necessary. 
 
-\paragraph{Change visibility of tag} This function hides tag if the \sadmin{} no longer finds it useful. In cases a delete can not be done, because the \textit{tag} is related to some problems. 
+\paragraph{Change Visibility of Tag} This function hides tag if the \sadmin{} no longer finds it useful. In cases a delete can not be done, because the \textit{tag} is related to some problems. 
 
 %\paragraph{Attach tag to category} simply attaches a specific tag to a specific category. 
 
@@ -94,28 +94,28 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 
 %\paragraph{Reattach tag} reattaches a specific tag from it's current category to another specified category. Marked as an \textit{update}-function as it updates the model.
 
-\paragraph{Create department} All \astaff[] members are associated with a department in order to ease the process of distributing newly created problems to appropriate \astaff[] members. 
+\paragraph{Create Department} All \astaff[] members are associated with a department in order to ease the process of distributing newly created problems to appropriate \astaff[] members. 
 
-\paragraph{Delete department} as the name dictates, simply deletes a department. 
+\paragraph{Delete Department} as the name dictates, simply deletes a department. 
 
-\paragraph{Add person} adds a specific person to the model. A person can either be a \aclient[], \astaff[] or a \admin[]. See table \ref{tab:actoreventtable} in section \ref{sec:actors}.
+\paragraph{Add Person} adds a specific person to the model. A person can either be a \aclient[], \astaff[] or a \admin[]. See table \ref{tab:actoreventtable} in section \ref{sec:actors}.
 
-\paragraph{Rename person} renames a specific person member. 
+\paragraph{Rename Person} renames a specific person member. 
 
-\paragraph{Remove person} removes a specific person from the model. 
+\paragraph{Remove Person} removes a specific person from the model. 
 
 %\paragraph{Assign staff to department} assigns a specific \astaff[] member to a specific department. 
 
-\paragraph{Get statistics} returns statistics, e.g. average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amount of computation.
+\paragraph{Get Statistics} returns statistics, e.g. average time for specific kinds of problems to be solved, hence ``complex''-complexity. Marked as a \textit{compute}-function as it involves a fair amount of computation.
 
-\paragraph{Subscribe client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
+\paragraph{Subscribe Client} subscribes a specific client to a specific problems. Marked as a \textit{signal}-function as the assigned \astaff[] member receives a notification. 
 
-\paragraph{Set priority} This function sets the priority of a tag. 
+\paragraph{Set Priority} This function sets the priority of a tag. 
 
-\paragraph{Get priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
+\paragraph{Get Priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
 
 %\paragraph{Add \client[]} adds a \client[] to the model. 
 
 %\paragraph{Remove \client[]} removes a specific \client[] from the model. 
 
-\paragraph{Set permissions} sets the permissions of a specific person member.
+\paragraph{Set Permissions} sets the permissions of a specific person member.
