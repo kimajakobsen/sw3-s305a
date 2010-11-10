@@ -1,80 +1,93 @@
-\section{Classes}
+\section{Classes and Events}
 \label{cap:classesevents}
-In the analysis of the problem domain we found the following classes and events.
+In the process of finding classes and events we made up several classes and events who are not used in the actual program. This section describes all the classes and events we found. On figure \ref{fig:classeseventstable} 
 
-\paragraph{Problem:}
+this is the final iteration
+
+talk to users? we are users!
+
+
+
+\subsection{Classes}
+
+\paragraph{Problem}
 Problem is a class created with the purpose of adding and managing problems in the system.
 
-\paragraph{Person:}
+\paragraph{Person}
 This contains attributes about users in the system, name, address, phone number ect.
 
-\paragraph{Staff:}
+\paragraph{Staff}
 The Staff Class changes the state and properties of problems. 
 
-\paragraph{Department:}
+\paragraph{Department}
 Contains information about staff and problems.
 
-\paragraph{Solution:}
+\paragraph{Solution}
 Contains state and information about a given solution
 
-\paragraph{List:}
-Should contain a list of problems, we choose not to include this class in the project.
+%\paragraph{List}
+%Should contain a list of problems, we choose not to include this class in the project.
 
-\paragraph{Problem added:}
+
+%beskriv hvor og hvordan vores problemer bliver opbevaret
+
+\subsection{Events}
+
+\paragraph{Problem added}
 This event occurs when a user has submitted a problem.
 
-\paragraph{Problem solved:}
+\paragraph{Problem solved}
 Occurs when an event receives status of \"solved\".
 
-\paragraph{Problem updated:}
+\paragraph{Problem updated}
 Occurs when the content of an event is altered.
 
-\paragraph{Problem assigned:}
+\paragraph{Problem assigned}
 This event occurs when the problem is assigned to a member of staff.
 
-\paragraph{Problem unassigned:}
+\paragraph{Problem unassigned}
 This event occurs when the problem is unassigned from a member of staff.
 
-\paragraph{Problem deleted:}
+\paragraph{Problem deleted}
 When a problem is deleted. 
 
-\paragraph{User replied:}
+\paragraph{User replied}
 An event that occurs when the user replies to something the system has sent him.
 
-\paragraph{Staff replied:}
+\paragraph{Staff replied}
 An event that occurs when the staff-member replies to something the system has sent him.
 
-\paragraph{Department created:}
+\paragraph{Department created}
 An event that occurs when a new department is created.
 
-\paragraph{Department closed:}
+\paragraph{Department closed}
 An event that occurs when a department is closed.
 
-\paragraph{Role assigned:}
+\paragraph{Role assigned}
 Occurs when a person has received a new role. We later found that this event was redundant with Staff employed, and decided not to use it.
 
-\paragraph{Role unassigned:}
+\paragraph{Role unassigned}
 Occurs when a person has lost a role. We later found that this event was redundant with Staff fired, and decided not to use it.
 
-\paragraph{Person created:}
+\paragraph{Person created}
 This event occurs when a new 
 
-\paragraph{Staff employed:}
+\paragraph{Staff employed}
 This event occurs when a person is employed as a staff.
 
-\paragraph{Staff fired:}
+\paragraph{Staff fired}
 Event that occurs when a staff-member is fired.
 
 %\paragraph{Solution found:}
 %This event triggers when a solution is 
-\paragraph{Solution assigned:}
+\paragraph{Solution assigned}
 This event triggers when a solution is assigned to a problem.
 
-\paragraph{Problem categorized:}
+\paragraph{Problem categorized}
 This event occurs when a problem is tagged.
 
 
-\begin{figure}[ht]
+\begin{figure}[]
 \begin{tabular}{ l c c c c c} \hline
 \\
 &\emph{\textbf{Classes}} &  &  & &  \\ 
@@ -89,13 +102,15 @@ This event occurs when a problem is tagged.
  Staff replied 				& $ \checkmark $ &  &  &  &  \\ 
  Department created 	&  &  &  & $ \checkmark $ &  \\ 
  Department closed 		&  &  &  & $ \checkmark $ &  \\ 
- Role assigned 				&  &  &  & $ \checkmark $ &  \\ 
- Role unassigned 			&  &  &  &  & $ \checkmark $ \\ 
+ Role assigned 				&  &  &  & $ \checkmark $ & $ \checkmark $  \\ 
+ Role unassigned 			&  &  &  &  $ \checkmark $  & $ \checkmark $ \\ 
  Person created 			&  &  &  &  & $ \checkmark $ \\ 
  Solution found 			& $ \checkmark $ & $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ \\ 
- Solution assigned			& $ \checkmark $ & $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ \\ 
+ Solution assigned		& $ \checkmark $ & $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ \\ 
  Problem categorized	& $ \checkmark $ &  &  & $ \checkmark $ &  \\ \hline
 \end{tabular}
 \caption{Problem-domain analysis event table}
 \label{fig:classeseventstable}
 \end{figure}
+
+\fixme{slå events sammen, tilføg de nye events, flere classes se klass diagram, fjern urelevante, kald den general, kontroller at checkmarks er sat rigtigt (detpartment)}
