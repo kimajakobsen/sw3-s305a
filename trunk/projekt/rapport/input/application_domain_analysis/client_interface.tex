@@ -8,23 +8,39 @@ After login, the \aclient[] is presented with the \textit{main} screen, which gi
 	\item Add problem
 	\item My problems
 	\item Search for problem(s)
+	\item Statistics
 \end{itemize}
 
-\paragraph{Add problem}as the name dictates, initiates the process of adding a specific problem to the system. Process starts by selecting what kind of problem the \aclient[] has. This is done by selecting \textit{tags} which describes the problem. Tags are grouped under categories. Each tag can only exist under one category, however if the need arises, it is possible to create a duplicate tag under another category. This does not mean that the same tag exists under two categories but two different tags with the same name exists under two different categories. We say that the problem is ``categorized'' when it has tags associated with it.
-When the \aclient[] is satisfied with the categorization of his/hers problem, he/she can click ``Search'', which will make the system search for problems with similair categorization, prioritizing those with a solution attached to it.
-From there, the idea is that the \aclient[] might find a problem which is identical, or almost identical, which solution will also fix the \aclient 's problem. If such a problem is found, the \aclient[] has the option to \textit{``subcribe''} to the problem, making the \aclient[] receive all the same notifications as the person who created the problem. This dramatically reduces redundancy in a case where multiple users has the same or similair problem. This also saves the \aclient s the time to create and describe a new problem in the system.
-If no suitable problem is found, the \aclient[] is allowed to describe his problem with words, as well as alter the tags which he/she selected earlier, in case he/she changed his mind. Ultimately, the problem is added to the database after fully described. This process will initialize the workload monitor, for distributing the problem to a \astaff[] member, who is likely to solve the problem.
-\paragraph{My problems}lists the problems created by the \aclient[], as well as the problems which the \aclient[] has subscribed to.
-\paragraph{Search for problem(s)}brings the \aclient[] to the problems search-screen, where he/she can search by specifying tags which possibly are attached to the problems that the \aclient[] wiches to find.
-
+These main possibilities are thoroughly described in the following sub-subsection, since they are the reflect the three use cases of the \aclient[] in section \ref{sec:usage}; submit problem, see all problems, and get statistics.
 Due to the nature of our webbased system, the \aclient[] can anytime terminate the session and logout/close.
 
+\subsubsection{Add Problem}
+As the name indicates, this button initiates the process of adding a specific problem to the system.
+%The process starts by selecting what kind of problem the \aclient[] has.
 
-\begin{figure}[h]
+This is done by selecting \textit{tags} which describes the problem. Tags are grouped under categories. Each tag can only exist under one category, however if the need arises, it is possible to create a duplicate tag under another category. This does not mean that the same tag exists under two categories but two different tags with the same name exists under two different categories.\fixme{Er det smart at have to tags der hedder det samme?}
+We say that the problem is ``categorized'' when it has tags associated with it.
+
+When the \aclient[] is satisfied with the categorization of his/hers problem, he/she can click ``Search'', which will make the system search for problems with similar categorization, prioritizing those with a solution attached to it.
+From there, the idea is that the \aclient[] might find a problem which is identical, or almost identical, which solution will also fix the \aclient 's problem. If such a problem is found, the \aclient[] has the option to \textit{``subcribe''} to the problem, making the \aclient[] receive all the same notifications as the person who created the problem.
+This dramatically reduces redundancy in a case where multiple users has the same or similar problem.
+This also saves the \aclient s the time to create and describe a new problem in the system.
+If no suitable problem is found, the \aclient[] is allowed to describe his problem with words, as well as alter the tags which he/she selected earlier, in case he/she changed his/her mind.
+Ultimately, the problem is added to the database after fully described. This process will initialize the workload monitor, for distributing the problem to a \astaff[] member, who is likely to solve the problem.
+
+\subsubsection{My Problems}
+This button navigates to a window where the problems created by the \aclient[] as well as the problems which the \aclient[] has subscribed to is shown.
+
+\subsubsection{Search for Problem(s)}
+Clicking this button will bring the \aclient[] to the problems search-screen, where he/she can search by specifying tags which possibly are attached to the problems that the \aclient[] wishes to find.
+
+\subsubsection{Statistics}
+\fixme{Der skal laves et interface til statistics, ellers det skal i hvert fald beskrives.}
+
+\begin{figure}[htb]
 \begin{center}
- \includegraphics[scale=0.70]{input/application_domain_analysis/client_interface}
-\caption{\Client[] interface}
+ \includegraphics[scale=0.70, clip=true, trim=0 6cm 0 0]{input/application_domain_analysis/client_interface}
+\caption{\cinterface[]}
 \label{fig:client_interface}
 \end{center}
 \end{figure}
-
