@@ -1,0 +1,5 @@
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\Dokumenter\Testprojekt\MvcApplication1\MvcApplication1\bin\MvcApplication1.dll
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\Dokumenter\Testprojekt\MvcApplication1\MvcApplication1\bin\MvcApplication1.pdb
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\Dokumenter\Testprojekt\MvcApplication1\MvcApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\Dokumenter\Testprojekt\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.dll
+C:\Users\Lasse\Documents\A A U\SW3E10\sw3-s305a\Dokumenter\Testprojekt\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.pdb
