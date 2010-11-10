@@ -1,16 +1,17 @@
 \section{Classes and Events}
 \label{cap:classesevents}
-In the process of finding classes and events we made up several classes and events who are not used in the actual program. To come up with the classes and events we talk about different possible scenarios and based on that we developed our class diagram. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are removed. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
+In the process of finding classes and events we made up several classes and events who are not used in the actual program. To come up with the classes and events we talk about different possible scenarios and based on that we developed our class diagram. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
 
 \subsection{Classes}
 
 \paragraph{Problem}
-Problem is a class created with the purpose of adding and managing problems in the system.
+Problem is the basic building brick in our system. It is used to hold information about the specific problems which it represents.
 
 \paragraph{Person}
-This contains attributes about users in the system, name, address, phone number ect.
+This contains attributes about the users in the system, name, address, phone number ect. We will look into the details later in the report.
 
 \paragraph{Staff}
+The \verb+Staff+ class inherits from the \verb+Person+ class, e
 The Staff Class changes the state and properties of problems. 
 
 \paragraph{Department}
@@ -107,4 +108,4 @@ This event occurs when a problem is tagged.
 \label{fig:classeseventstable}
 \end{figure}
 
-\fixme{slå events sammen, tilføg de nye events, flere classes se klass diagram, fjern urelevante, kald den general, kontroller at checkmarks er sat rigtigt (detpartment)}
+\fixme{sl\aa events sammen, tilf\oe g de nye events, flere classes se klass diagram, fjern urelevante, kald den general, kontroller at checkmarks er sat rigtigt (department)}
