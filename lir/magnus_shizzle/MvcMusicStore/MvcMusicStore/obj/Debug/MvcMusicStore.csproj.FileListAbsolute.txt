@@ -1,0 +1,5 @@
+C:\Users\Magnus Stubman\Documents\Visual Studio 2010\Projects\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Users\Magnus Stubman\Documents\Visual Studio 2010\Projects\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Users\Magnus Stubman\Documents\Visual Studio 2010\Projects\MvcMusicStore\MvcMusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Magnus Stubman\Documents\Visual Studio 2010\Projects\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Users\Magnus Stubman\Documents\Visual Studio 2010\Projects\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
