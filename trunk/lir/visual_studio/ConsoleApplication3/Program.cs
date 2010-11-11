@@ -11,7 +11,9 @@ namespace ConsoleApplication3
         {
             Console.WriteLine("heej, ankhsvn virker hvis du kan se dette!");
             System.Console.ReadLine();
+            System.Console.WriteLine("dwadaw");
             Console.WriteLine("Nu tilføjer jeg bare en masse lort, jeg kan ikke finde på mere at skrive.");
+
 
             return;
         }
