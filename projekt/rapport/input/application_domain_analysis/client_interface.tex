@@ -2,6 +2,38 @@
 \label{sec:client_interface}
 
 The client interface is illustrated in figure \ref{fig:client_interface}.
+After login, the \aclient[] is presented with the \textit{main} window.
+
+\subsubsection{Main}
+The \aclient[] main window have three buttons: ``Add problem'', ``My problems'' and ``Search for problems''.
+\fixme{På billedet med client navigation, skal knappen ``Search for problem(s)'' omdøbes til ``Search for problems''}
+The ``Add problem'' button sends the user to the ``Categorize new problem'' window.
+The ``My problems'' and ``Search for problems'' button sends the user to ``Search'' window.
+
+\subsubsection{Search}
+The search window contains a search button, a list where found problems are displayed, a settings and the frame ``Categories and tags''
+The search button will start a search with the current configuration and show the results in the list. A problem can be double clicked to view details about the problem in the ``Client problem view'' windows.
+
+
+\paragraph{Categories and tags} 
+This frame is used in a few other windows. 
+The frame contains a list of categories, when a category is selected the tags connected to it is shown.  
+
+
+
+\subsubsection{Categorize New Problem}\fixme{på billedet med client navigation skal ``Categorize New Problem'' ændres til ``Categorize new problem''}
+
+\subsubsection{Search for similar problems}
+
+\subsubsection{Create new problem}
+
+\subsubsection{Client problem view} \fixme{Client Problem View skal være med småt}
+
+\begin{comment} %%%%%%%%%%%%%%%%%%%COMMENT
+
+
+
+The client interface is illustrated in figure \ref{fig:client_interface}.
 After login, the \aclient[] is presented with the \textit{main} screen, which gives four possibilities:
 \fixme{hvis client ikke skal kunne tilgå statistics så skal dette stykke ændres}
 %After login, the \aclient[] is greeted with the \textit{main} screen, wich gives three posebilities:
@@ -16,15 +48,23 @@ The four options reflect the use cases of the \aclient[] in section \ref{sec:usa
 %These main possibilities are thoroughly described in the following sub-subsection, since they are the reflect the three use cases of the \aclient[] in section \ref{sec:usage}; submit problem, see all problems, and get statistics.
 Due to the nature of our webbased system, the \aclient[] can anytime terminate the session and logout/close.
 
+
 \subsubsection{Add Problem}
 As the name indicates, this button initiates the process of adding a specific problem to the system.
 %The process starts by selecting what kind of problem the \aclient[] has.
 
-This is done by selecting \textit{tags} which describes the problem. Tags are grouped under categories. Each tag can only exist under one category, however if the need arises, it is possible to create a duplicate tag under another category. This does not mean that the same tag exists under two categories but two different tags with the same name exists under two different categories.\fixme{Er det smart at have to tags der hedder det samme?}
+This is done by selecting \textit{tags} which describes the problem. Tags are grouped under categories. %Each tag can only exist under one category, however if the need arises, it is possible to create a duplicate tag under another category.\fixme{Er det smart at have to tags der hedder det samme?}
 We say that the problem is ``categorized'' when it has tags associated with it.
 
-When the \aclient[] is satisfied with the categorization of his/hers problem, he/she can click ``Search'', which will make the system search for problems with similar categorization, prioritizing those with a solution attached to it.
-From there, the idea is that the \aclient[] might find a problem which is identical, or almost identical, which solution will also fix the \aclient 's problem. If such a problem is found, the \aclient[] has the option to \textit{``subcribe''} to the problem, making the \aclient[] receive all the same notifications as the person who created the problem.
+When the \aclient[] is satisfied with the categorization of the problem, the ``Search'' button can be clicked, which will make the system search for problems with similar categorization, prioritizing \fixme{skriv om hvordan det gøres} the most relevant problems.
+The \aclient[] is then presented with a list of all similar problems.
+
+identical problems
+similar problems with solution
+similar problems without solution
+
+ 
+If a similar problem is found, the \aclient[] has the option to \textit{``subcribe''} to the problem, making the \aclient[] receive all the same notifications as the person who created the problem.
 This dramatically reduces redundancy in a case where multiple users has the same or similar problem.
 This also saves the \aclient s the time to create and describe a new problem in the system.
 If no suitable problem is found, the \aclient[] is allowed to describe his problem with words, as well as alter the tags which he/she selected earlier, in case he/she changed his/her mind.
@@ -38,6 +78,8 @@ Clicking this button will bring the \aclient[] to the problems search-screen, wh
 
 \subsubsection{Statistics}
 \fixme{Der skal laves et interface til statistics, ellers det skal i hvert fald beskrives.}
+
+\end{comment} %%%%%%%%%%%%%%%%%%%COMMENT
 
 \begin{figure}[htb]
 \begin{center}
