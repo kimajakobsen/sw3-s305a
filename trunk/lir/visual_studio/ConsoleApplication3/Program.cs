@@ -9,6 +9,8 @@ namespace ConsoleApplication3
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("heej, ankhsvn virker hvis du kan se dette!");
+            System.Console.ReadLine();
         }
     }
 }
