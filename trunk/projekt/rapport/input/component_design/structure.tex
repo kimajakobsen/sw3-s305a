@@ -29,12 +29,7 @@ The structure of the \sinterface[] is visualized in figure \ref{fig:Navigation_D
 The windows in the figure represents classes of this component, the navigation arrows are translated to associations in UML.
 Like the \cinterface[], the classes in this component
 
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=0.75\textwidth]{input/component_design/Navigation_DiagramStaff.jpg}
-	\morscaption{\sinterface[c]}
-	\label{fig:Navigation_DiagramStaff}
-\end{figure}
+
 
 Notice that Staff Main Window aggregates the clients Main Window. Likewise does the Add Solution aggregate the Search Window from the Client sub-component.
 If a staff member is an administrator he/she is presented with an administrate button in the main window, which will transfer the user to the Admin Main Window, which is described in the following sub-subsection.
@@ -44,12 +39,7 @@ If a staff member is an administrator he/she is presented with an administrate b
 Figure \ref{fig:Navigation_DiagramAdmin} shows the navigation diagram of the \ainterface[].
 Every window inherits from the abstract HelpdeskWindow class.
 
-\begin{figure}[hb]
-	\centering
-		\includegraphics[width=0.75\textwidth]{input/component_design/Navigation_DiagramAdmin.jpg}
-	\morscaption{\ainterface[c]}
-	\label{fig:Navigation_DiagramAdmin}
-\end{figure}
+
 
 Like the Staff Main Window aggregated the clients Main Window, the Admin Main Window aggregates the staff Main Window, thereby giving the \ainterface[] all the possibilities that the two other interfaces has.
 
