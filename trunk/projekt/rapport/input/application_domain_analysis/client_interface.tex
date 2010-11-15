@@ -2,7 +2,7 @@
 \label{sec:client_interface}
 
 The client interface is illustrated in figure \ref{fig:client_interface}.
-After login, the \aclient[] is presented with the \textit{main} window.
+After login, the \aclient[] is presented with the \textit{main} window. All the window have a back function who enables the user to return to the previous window.
 
 \subsubsection{Main}
 The \aclient[] main window have three buttons: ``Add problem'', ``My problems'' and ``Search for problems''.
@@ -18,13 +18,16 @@ This frame is used in a few other windows.
 The frame contains a list of categories, when a category is selected the tags connected to it is shown.  
 
 \subsubsection{Categorize New Problem}
-
+This window contains the frame ``Categories and tags'' and a search button. When a search is conducted the window ``Search for similar problems'' is opened. 
 
 \subsubsection{Search for similar problems}
-
-\subsubsection{Create new problem}
+The ``Search for similar problems'' contains a button called ``No suitable problem found'' and the window ``Search'' which contains the frame ``Categories and tags''.
+This window is actually just ``Search'' with an additional button added. The search results showed in the ``Problems found'' column can be selected and the window ``Client problem view'' is shown. The button ``No suitable problem found'' directs the user to ``Create new problem''. 
 
 \subsubsection{Client problem view}
+This window contains information about the selected problem. There is a info field which contains relevant information about the problem e.g. the description of the problem, a subscription check-box which is not visible for the user who created the problem, a text field with all the previous entered comments if any, a field to write new comments in, a button called ``Add comment'' to submit the new comment and a field with non or more solutions written by the staff members.  
+
+\subsubsection{Create new problem}
 
 \begin{comment} %%%%%%%%%%%%%%%%%%%COMMENT
 
