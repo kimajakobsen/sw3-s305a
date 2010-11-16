@@ -16,6 +16,7 @@ Delete problem & Simple &   Update \\   \hline%
 Search problems & Complex &   Read/compute \\ \hline%
 Create solution & Simple &   Update \\   \hline%
 Attach solution & Simple &   Update/signal \\   \hline%
+Detach solution & Simple &   Update/signal \\   \hline%
 Distribute problems &   Complex & Read/update/signal \\   \hline%
 %Compare problems & Complex & Read/Compute \\ \hline%
 Create problem & Medium & Update/compute \\   \hline%
@@ -42,6 +43,7 @@ Set priority & Simple & Update \\ \hline%
 %Add client & Simple & Update \\ \hline%
 %Remove client & Simple & Update \\ \hline%
 Set role & Simple & Update \\ \hline%
+Approve deadline & Simple & Update \\ \hline%
 
 \end{tabular}
 \end{center}
@@ -114,7 +116,7 @@ Marked as a \textit{read}-function as it reads from the model. Marked as a \text
 
 \paragraph{Set Priority} This function sets the priority of a tag. 
 
-\paragraph{Get Priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were commited.
+\paragraph{Get Priority} This functions computes the priority of a problem, based on the priority value of the tags attached to the problem and time since it were committed. \fixme{Nogen der kan huske om vi stadig kigger p\aa{} tid siden det blev committed?}
 
 %\paragraph{Add \client[]} adds a \client[] to the model. 
 
