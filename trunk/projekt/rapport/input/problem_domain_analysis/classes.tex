@@ -7,25 +7,36 @@ In the process of finding classes and events we made up several classes and even
 \paragraph{Problem}
 Problem is the basic building brick in our system. It is used to hold information about the specific problems which it represents.
 
-\paragraph{Person}
-This contains attributes about the users in the system, name, address, phone number ect. We will look into the details later in the report.
+\paragraph{Deadline} The deadline can be approved or not approved and is a part of the problem. 
 
-\paragraph{Staff}
-The \verb+Staff+ class inherits from the \verb+Person+ class, e
-The Staff Class changes the state and properties of problems. 
-
-\paragraph{Department}
-Contains information about staff and problems.
+\paragraph{Comment} A comment belongs to a problem. 
 
 \paragraph{Solution}
 Contains state and information about a given solution
 
+\paragraph{Person}
+This contains attributes about the users in the system, name, address, phone number ect. We will look into the details later in the report.
+
+\paragraph{Client} A \cl{client} can be subscribed to a \cl{problem} and be associated with the comments that the actor client posts.  
+ 
+\paragraph{Staff}
+The \cl{Staff} class inherits from the \cl{Client} class.
+\cl{Staff} can be assigned to a problem. 
+
+\paragraph{Admin} The admin is not associated with any other classes and is only used to administrate the users. 
+
+\paragraph{Department}
+Contains information about staff and categories. 
+
+\paragraph{Category} Categories contain Tags
+
+\paragraph{Tag} Tags is used to determine the problems category and thereby department. 
 %\paragraph{List}
 %Should contain a list of problems, we choose not to include this class in the project.
 
 
 %beskriv hvor og hvordan vores problemer bliver opbevaret
-
+\begin{comment}
 \subsection{Events}
 
 \paragraph{Problem added}
@@ -80,7 +91,7 @@ This event triggers when a solution is assigned to a problem.
 
 \paragraph{Problem categorized}
 This event occurs when a problem is tagged.
-
+\end{comment}
 
 \begin{figure}[]
 \begin{tabular}{ l c c c c c} \hline
