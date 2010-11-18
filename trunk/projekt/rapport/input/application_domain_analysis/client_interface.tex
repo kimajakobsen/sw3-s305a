@@ -2,7 +2,7 @@
 \label{sec:client_interface}
 
 The \aclient interface is illustrated in figure \ref{fig:client_interface}.
-After login, the \aclient[] is presented with the \textit{main} window. All the window have a back function who enables the user to return to the previous window.
+After login, the \aclient[] is presented with the \textit{main} window. All the window have a back function who enables the \aclient[] to return to the previous window.
 
 \subsubsection{Main}
 The \aclient s main window allows the \aclient to choose what to do in the helpdesk system. The ``Main'' window have three buttons:
@@ -40,7 +40,7 @@ The frame contains:
 This window contains information about the selected problem. The window contains the following:
 \begin{itemize}
 	\item A info field which contains relevant information about the problem e.g. the description of the problem.
-	\item a subscription check-box, clients subscribed to the problem will receive notifications when then problem changes. The creator of the problem is not able to unsubscribe.
+	\item A subscription check-box, clients subscribed to the problem will receive notifications when then problem changes. The creator of the problem is not able to unsubscribe.
 	\item A text field with all the previous entered comments if any.
 	\item A field to write new comments in.
 	\item The button ``Add comment'' which submits the comment.
@@ -59,12 +59,27 @@ To add a new problem the \aclient[] need to select the tags which best describes
 %This window contains  and a search button. When a search is conducted the window ``Search for similar problems'' is opened. 
 
 \subsubsection{Search for similar problems}
-The ``Search for similar problems'' contains a button called ``No suitable problem found'' and the window ``Search'' which contains the frame ``Categories and tags''.
-This window is actually just ``Search'' with an additional button added. The search results showed in the ``Problems found'' column can be selected and the window ``Client problem view'' is shown. The button ``No suitable problem found'' directs the user to ``Create new problem''. 
+A search is preformed with the selected tags from the previous window, a list with similar problems are displayed. This window includes the following: 
+\begin{itemize}
+	\item The window ``Search'' with all it elements.
+	\item A button called ``No suitable problem found'' which send loads the window ``Create new problem''.
+\end{itemize}
+The found problems can be double clicked and the window ``Client problem view''. 
+%The ``Search for similar problems'' window use the previous selected tags and preforms a search 
+%The ``Search for similar problems'' contains a button called ``No suitable problem found'' and the window ``Search'' which contains the frame ``Categories and tags''.
+%This window is actually just ``Search'' with an additional button added. The search results showed in the ``Problems found'' column can be selected and the window ``Client problem view'' is shown. The button ``No suitable problem found'' directs the user to ``Create new problem''. 
 
 
 \subsubsection{Create new problem}
-The ``Create new problem'' window's purpose is to describe, categorize and submit a problem. The frame ``Categories and tags'' enables the \aclient to pick what tags describe the problem best, the text field is used to write a description of the problem. When the ``Add problem'' is pressed the problem is send and the user is directed to the ``Client problem view'' where he can see the final description of the problem and relevant statistics.    
+The ``Create new problem'' window's purpose is to describe, categorize, suggest deadline and submit the problem. The window contains the following elements:
+\begin{itemize}
+	\item A text field where information about the problem can be entered.
+	\item The frame ``Categories and tags'' enables the \aclient to change and add tags so the problem is best describe.
+	\item A calender where a deadline can be suggested to the \astaff member.
+	\item ``Add problem'' submits the problem and send the user to the ``Client problem view''.
+\end{itemize}
+
+%The frame ``Categories and tags'' enables the \aclient to pick what tags describe the problem best, the . When the ``Add problem'' is pressed the problem is send and the user is directed to the ``Client problem view'' where he can see the final description of the problem and relevant statistics.    
 
 
 
