@@ -3,19 +3,19 @@
 \begin{tabular}{l  ccccc}
 \hline 
 \multicolumn{2}{r}{\shf{Actor}} \\
-\shf{Use case} &   \Aclient & \Astaff & \Wmon & \admin[c]  \\ \hline%
-Submit problem 		  	& $\checkmark$ &  $\checkmark$  &  & $\checkmark$ \\ %
+\shf{Use case} 			&   \Aclient 	& \Astaff 		& \admin[c]  \\ \hline%
+Submit problem 		  	& $\checkmark$ 	&  $\checkmark$ & $\checkmark$ \\ %
 %Check problem status 	& $\checkmark$ & $\checkmark$ &  &\\ %
-See all problems 		& $\checkmark$ & $\checkmark$  &  & $\checkmark$ \\ %
-Balance workload 		&     &    &  $\checkmark$ & \\ %
-Solve problem 			&     & $\checkmark$ &  & $\checkmark$ \\ %
+See all problems 		& $\checkmark$	& $\checkmark$  & $\checkmark$ \\ %
+%Balance workload 		&     			&				& \\ %
+Solve problem 			&     			& $\checkmark$	& $\checkmark$ \\ %
 %Add Tag				&     &  & & $\checkmark$ \\%
 %Delete tag 				&     &  & & $\checkmark$ \\%
 %Add category 			&     & & & $\checkmark$ \\%
 %Delete category 		&     &  & & $\checkmark$ \\%
 %Administrate Staff		&     &  & & $\checkmark$ \\ %
-Administrate   &     &  & & $\checkmark$ \\%
-Get Statistics   &  & $\checkmark$ & & $\checkmark$ \\ \hline%
+Administrate			&    			&				& $\checkmark$ \\%
+Get Statistics			&				& $\checkmark$	& $\checkmark$ \\ \hline%
 
 \end{tabular}
 \end{center}
@@ -23,6 +23,34 @@ Get Statistics   &  & $\checkmark$ & & $\checkmark$ \\ \hline%
 
 \label{tab:actoreventtable}
 \end{figure}
+
+
+
+%\begin{figure}[htdp]
+%\begin{center}
+%\begin{tabular}{l  ccccc}
+%\hline 
+%\multicolumn{2}{r}{\shf{Actor}} \\
+%\shf{Use case} 			&   \Aclient 	& \Astaff 		& \Wmon 		& \admin[c]  \\ \hline%
+%Submit problem 		  	& $\checkmark$ 	&  $\checkmark$ &				& $\checkmark$ \\ %
+%Check problem status 	& $\checkmark$ & $\checkmark$ &  &\\ %
+%See all problems 		& $\checkmark$	& $\checkmark$  & 				& $\checkmark$ \\ %
+%Balance workload 		&     			&				&  $\checkmark$ & \\ %
+%Solve problem 			&     			& $\checkmark$	&				& $\checkmark$ \\ %
+%Add Tag				&     &  & & $\checkmark$ \\%
+%Delete tag 				&     &  & & $\checkmark$ \\%
+%Add category 			&     & & & $\checkmark$ \\%
+%Delete category 		&     &  & & $\checkmark$ \\%
+%Administrate Staff		&     &  & & $\checkmark$ \\ %
+%Administrate			&    			&				&				& $\checkmark$ \\%
+%Get Statistics			&				& $\checkmark$	&				& $\checkmark$ \\ \hline%
+
+%\end{tabular}
+%\end{center}
+% \caption{\myCaption{Actor \& use case table}}
+
+%\label{tab:actoreventtable}
+%\end{figure}
 
 
 Figure \ref{tab:actoreventtable} shows the relationship between use cases and the actors of our system. Note that \astaff{} members also are able to submit problems. This is due to the fact that both \aclient{} and \astaff{} simply are \textit{roles}. Persons associated with the role called \astaff{} can therefore also be associated with the role \aclient{}, which are able to submit problems to the systems.
