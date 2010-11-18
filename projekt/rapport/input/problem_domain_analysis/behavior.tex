@@ -1,5 +1,5 @@
  \section{Behavior}
-In this section of the report, we will describe the behavior two major classes in our domain. 
+In this section of the report, we will describe the behavior two major classes in our domain. Theese two are the only two clases which can have more states than existing. 
 The sequence of events is not determined. On the sequence diagram of a problem figure \ref{fig:Klasse_diagram_problem}, the events ``detach problem'' can only happen after the event ``attach problem'' but it dose not show on the sequence diagram.      
 
 
@@ -15,7 +15,7 @@ Figure \ref{fig:Klasse_diagram_problem} shows the behavior of a problem. Note th
 \end{figure}
 
 \subsection{Person}
-As shown in figure \ref{fig:Klasse_diagram_person} a person is assigned a role in the system as soon as he is created. Thereafter multiple roles can be assigned to him.
+As shown in figure \ref{fig:Klasse_diagram_person} a person is assigned a role in the system as soon as he is created. He can only have one role at a time. The roles inherit from each other. Meaning that a admin can do the same as the client, but clients can do the same as admin. 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=1]{input/problem_domain_analysis/Klassediagram_person.pdf}
