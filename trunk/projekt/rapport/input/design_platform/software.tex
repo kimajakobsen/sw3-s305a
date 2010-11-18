@@ -1,7 +1,23 @@
 \section{Software}
 \label{sec:software}
 
-The required software for our system consists of two major applications; a DBMS supporting the query language \sql[], and a web server capable of running our web-scripting interface of choice. 
-The data storage model will be the relational database model and the DBMS we will be using is \posgresql[] version 8.4.5 as our only DBMS. \fixme{Ret s\aa snar vi ved hvad pokker vi vil bruge}
+Our system relies on two things:
+
+\begin{itemize}
+	\item Database
+	\item Web server
+\end{itemize}
+
+\subsection{DBMS}
+\label{subsec:dbms}
+
+Our system requires a DBMS supporting the query language \sql[] and the relational database storage model.
+We have chosen Microsoft SQL server in favor of \posgresql[], wich we have past experience with, but is less integrated with Visual Studio 2010, which we are using for developing our system.\fixme{Inds\ae t Microsoft SQL server versionsnummer}
+
+\subsection{Web server}
+\label{subsec:webserver}
+
+%The required software for our system consists of two major applications; a DBMS supporting the query language \sql[], and a web server capable of running our web-scripting interface of choice. 
+%The data storage model will be the relational database model and the DBMS we will be using is \posgresql[] version 8.4.5 as our only DBMS. \fixme{Ret s\aa snar vi ved hvad pokker vi vil bruge}
 For the web server we will be using  \wholeiis[] (\iis[]). 
 The language of choice will be C\# using the ASP.NET MVC(Model-View-Controller) framework. \\
