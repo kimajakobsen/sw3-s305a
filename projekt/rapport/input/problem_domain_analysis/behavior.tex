@@ -1,5 +1,6 @@
  \section{Behavior}
-In this section of the report, we will describe the behavior of the five classes from our class diagram. The sequence of events is not determined. On the sequence diagram of a problem figure \ref{fig:Klasse_diagram_problem}, the events ``detach problem'' can only happen after the event ``attach problem'' but it dose not show on the sequence diagram.      
+In this section of the report, we will describe the behavior two major classes in our domain. 
+The sequence of events is not determined. On the sequence diagram of a problem figure \ref{fig:Klasse_diagram_problem}, the events ``detach problem'' can only happen after the event ``attach problem'' but it dose not show on the sequence diagram.      
 
 
 \subsection{Problem}
@@ -34,6 +35,7 @@ Figure \ref{fig:Klasse_diagram_list} shows the statechart of the list class. The
 \end{figure}
 \end{comment}
 
+\begin{comment}
 \subsection{Staff}
 Figure \ref{fig:Klasse_diagram_staff} shows the statechart of the staff class. As shown on the Staff is a role to be assigned to persons. After a person receives that role, he or she can start receiving problem assignments. When all problems are either unassigned or solved, the person will be idle, meaning that the person is not doing anything useful with it's time. The role Staff can be unassigned only when there are no more problems assigned to that person.
 \begin{figure}[H]
@@ -44,7 +46,7 @@ Figure \ref{fig:Klasse_diagram_staff} shows the statechart of the staff class. A
 \end{center}
 \end{figure}
 
-\subsection{User}
+\subsection{Client}
 The statechart for a user consists of working state in which the user can create problems and comment on them. This is shown by figure \ref{fig:Klasse_diagram_user}.
 \begin{figure}[H]
 \begin{center}
@@ -53,6 +55,8 @@ The statechart for a user consists of working state in which the user can create
 \label{fig:Klasse_diagram_user}
 \end{center}
 \end{figure}
+
+
 
 \subsection{Department}
 As shown in figure \ref{fig:Klasse_diagram_department} can be open, after which staff can be both hired and fired. A department exists untill it is closed.
@@ -63,3 +67,4 @@ As shown in figure \ref{fig:Klasse_diagram_department} can be open, after which 
 \label{fig:Klasse_diagram_department}
 \end{center}
 \end{figure}
+\end{comment}
