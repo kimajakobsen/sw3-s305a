@@ -1,27 +1,62 @@
 \subsection{\cinterface}
 \label{sec:client_interface}
 
-The client interface is illustrated in figure \ref{fig:client_interface}.
+The \aclient interface is illustrated in figure \ref{fig:client_interface}.
 After login, the \aclient[] is presented with the \textit{main} window. All the window have a back function who enables the user to return to the previous window.
 
 \subsubsection{Main}
-The \aclient[] main window have three buttons: ``Add problem'', ``My problems'' and ``Search for problems''.
-The ``Add problem'' button sends the user to the ``Categorize new problem'' window.
-The ``My problems'' and ``Search for problems'' button sends the user to ``Search'' window.
+The \aclient s main window allows the \aclient to choose what to do in the helpdesk system. The ``Main'' window have three buttons:
+\begin{itemize}
+	\item The ``Add problem'' button which sends the user to the ``Categorize new problem'' window.
+	\item The ``My problems'' button which sends the user to ``Search'' window.
+	\item The ``Search for problems'' button which sends the user to ``Search'' window.
+\end{itemize}
+
+%The \aclient[] main window have three buttons: ``Add problem'', ``My problems'' and ``Search for problems''.
+%The ``Add problem'' button sends the user to the ``Categorize new problem'' window.
+%The ``My problems'' and ``Search for problems'' button sends the user to ``Search'' window.
 
 \subsubsection{Search}
-The search window contains a search button, a list where found problems are displayed, a settings and the frame ``Categories and tags''
-The search button will start a search with the current configuration and show the results in the list. A problem can be double clicked to view details about the problem in the ``Client problem view'' windows.
+The search windows is used to search for problems containing specific tags or posting by the client self. The ``Search'' window contains the following elements:
+\begin{itemize}
+	\item The ``Categories and tags'' frame, see paragraph below.
+	\item A settings panel.
+	\item A search button that triggers the search
+	\item A list containing the problems matching the settings and tags.
+\end{itemize}
+A problem can be double clicked to view details about the problem in the ``Client problem view'' windows.
+%The search window contains a search button, a list where found problems are displayed, a settings and the frame ``Categories and tags''
+%The search button will start a search with the current configuration and show the results in the list. 
 
 \paragraph{Categories and tags} 
 This frame is used in a few other windows. 
-The frame contains a list of categories, when a category is selected the tags connected to it is shown.  
+The frame contains:
+\begin{itemize}
+	\item A list of categories, when a category is selected the tags connected to it is shown.  
+	\item A checkbox for each tag.
+\end{itemize} 
 
 \subsubsection{Client problem view}
-This window contains information about the selected problem. There is a info field which contains relevant information about the problem e.g. the description of the problem, a subscription check-box which is not visible for the user who created the problem, a text field with all the previous entered comments if any, a field to write new comments in, a button called ``Add comment'' to submit the new comment and a field with non or more solutions written by the staff members.  
+This window contains information about the selected problem. The window contains the following:
+\begin{itemize}
+	\item A info field which contains relevant information about the problem e.g. the description of the problem.
+	\item a subscription check-box, clients subscribed to the problem will receive notifications when then problem changes. The creator of the problem is not able to unsubscribe.
+	\item A text field with all the previous entered comments if any.
+	\item A field to write new comments in.
+	\item The button ``Add comment'' which submits the comment.
+	\item A field with non or more solutions written by the staff members.  
+\end{itemize}
+
+
+%There is , , a text field with all the previous entered comments if any, a field to write new comments in, a button called ``Add comment'' to submit the new comment and a field with non or more solutions written by the staff members.  
 
 \subsubsection{Categorize New Problem}
-This window contains the frame ``Categories and tags'' and a search button. When a search is conducted the window ``Search for similar problems'' is opened. 
+To add a new problem the \aclient[] need to select the tags which best describes the problem. The window contains the following elements:
+\begin{itemize}
+	\item The frame ``Categories and tags''.
+	\item The button ``Add problem'' which send the \aclient[] to the window ``Search for similar problems''
+\end{itemize}
+%This window contains  and a search button. When a search is conducted the window ``Search for similar problems'' is opened. 
 
 \subsubsection{Search for similar problems}
 The ``Search for similar problems'' contains a button called ``No suitable problem found'' and the window ``Search'' which contains the frame ``Categories and tags''.
