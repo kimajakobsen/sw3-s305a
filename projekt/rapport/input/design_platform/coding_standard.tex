@@ -1,15 +1,22 @@
 \subsection{Coding Standard}
 \label{subsec:coding_standard}
 
-All functions will follow big camelcase. as seen in \ref{lst:sampleclass}
+All functions will follow big camelcase. All private variables will  as seen in code snippet \ref{lst:sampleclass}
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{Sampleclass.cs}, label=lst:sampleclass]
 class Sampleclass
 {
-    // private ints has smallCamelCase
+    // private  ints should written as smallCamelCase
     private int _privateVariable;
 
-    // functions has BigCamelCase
+    // public ints should written as smallCamelCase
+    public int publicVariable
+    {
+        get{ return _privateVariable; }
+        set { _privateVariable = value; }
+    }
+
+    // functions should written as BigCamelCase
     public int FunctionsAreLikeThis(int inputVariable)
     {
         _privateVariable = inputVariable;
