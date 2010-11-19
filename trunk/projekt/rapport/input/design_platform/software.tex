@@ -8,15 +8,34 @@ Our system relies on two things:
 	\item Web server
 \end{itemize}
 
+These two are described in following subsections.
+
 \subsection{DBMS}
 \label{subsec:dbms}
 
-Using an external DBMS allows the system to be installed across multiple machines instead on a single computer. This is a good thing as it makes our system more flexible, allowing it to be either installed on a single computer, or two computers.\fixme{er der en der kan l\ae se dette igennem og tjekke om det giver mening, og s\aa{} slette denne fixme hvis det g\oe r}
+Using an external DBMS allows the system to be installed across multiple machines instead on a single computer. This is a good thing as it makes our system more flexible, allowing it to be either installed on a single computer, or two computers.
+
+The differences which we have considered between these two DBMS's are listed in figure \ref{fig:DBMS}\cite{postgres08}
+
+\begin{figure}[htb]
+	\centering
+	\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+		\begin{tabularx}{\textwidth}{L|L|L}
+			\textbf{Feature}&\textbf{PostgreSQL}&\textbf{Microsoft SQL Server} \\
+			\hline
+			Accessible&BSD Open source&Requires license, but we do have this through the university \\
+			Cooperative with our tools&Hard to incorporate into Visual Studio 2010&Easy to incorporate into Visual studio 2010 \\
+			Experience in our work group&We have had a course based on PostgreSQL&None, but resembles other SQL DBMS's \\
+		\end{tabularx}
+	\morscaption{DBMS's compared}
+	\label{fig:DBMS}
+\end{figure}
 
 Our system requires a DBMS supporting the query language \sql[] as well as the relational database storage model.
-We have chosen Microsoft SQL Server\fixme{Inds\ae t Microsoft SQL Server versionsnummer} in favor of \posgresql[], which we have past experience with due to a university course. However \posgresql[] is less integrated with Visual Studio 2010, which we are using for developing our system. 
+We have chosen Microsoft SQL Server\fixme{Inds\ae t Microsoft SQL Server versionsnummer} in favor of \posgresql[], which we have past experience with due to a university course.
+However \posgresql[] is less integrated with Visual Studio 2010, which we are using for developing our system.
 
-\subsection{Web server}
+\subsection{Web Server}
 \label{subsec:webserver}
 
 %The required software for our system consists of two major applications; a DBMS supporting the query language \sql[], and a web server capable of running our web-scripting interface of choice. 
@@ -24,11 +43,15 @@ We have chosen Microsoft SQL Server\fixme{Inds\ae t Microsoft SQL Server version
 
 We have chosen to implement our system as a webapplication, as it minimizes the amount of software which the users of our system has to install before using our system. 
 For the web server we will be using  \wholeiis[] (\iis[]). 
-The language of choice will be C\# using the ASP.NET MVC(Model-View-Controller) framework. \\
+The language of choice will be C\# using the ASP.NET MVC(Model-View-Controller) framework.
 
+We could have used other web-frameworks, but chose ASP.NET MVC because we could use Visual Studio 2010 and C\# which we have all used during a course in object oriented programing.
 
-\subsection{Operating system}
+We also discussed not using a framework at all, and simply build everything from ground.
+We chose not do this because we might as well use what is already available, further more the framework has been developed for a long time and is therefore likely to be more effective and secure than what we could make.
+Also we might as well use it to save time on the creation of trivial things such as how a a view is shown.
+
+\subsection{Operating System}
 \label{subsec:operating_system}
-
 It is a quite natural decision to choose a operating system from Microsoft, as we have chosen a Windows based programming language, C\#. See section \ref{sec:design_language} for more.
 We are using Microsoft Windows server 2008 R2 Standard. \fixme{Ret dette s\aa snart vi ved hvad vi bruger}
