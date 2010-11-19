@@ -1,4 +1,20 @@
 \subsection{Coding Standard}
 \label{subsec:coding_standard}
 
-All functions will follow big camelcase
+All functions will follow big camelcase. Example:
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{Sampleclass.cs}, label=lst:sampleclas]
+class Sampleclass
+{
+    // private ints has smallCamelCase
+    private int _privateVariable;
+
+    // functions has BigCamelCase
+    public int FunctionsAreLikeThis(int inputVariable)
+    {
+        _privateVariable = inputVariable;
+
+        return _privateVariable;
+    }
+}
+\end{lstlisting}
