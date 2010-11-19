@@ -1,5 +1,5 @@
 \section{Structure}
-Over all there are four components: User interface, system interface, function component, and model component.
+There are four overall components: User interface, system interface, function component, and model component.
 Note however that the system interface is only used in our \nameref{sub:altSystemComponent} in subsection \ref{sub:altSystemComponent}.
 This section describes how these components internal structure is.
 A subsection for each component is presented below.
@@ -44,7 +44,7 @@ Every window inherits from the abstract HelpdeskWindow class.
 Like the Staff Main Window aggregated the clients Main Window, the Admin Main Window aggregates the staff Main Window, thereby giving the \ainterface[] all the possibilities that the two other interfaces has.
 
 \subsection{System Interface Component}
-\fixme{Det her kan nok gøres mere udførligt, men ved ikke om det er meningen}
+\fixme{Det her kan nok gÃ¸res mere udfÃ¸rligt, men ved ikke om det er meningen}
 This component is responsible for connecting our system to another systems database, so that our system can use the user names, which already exists in the organization where out system is being implemented.
 There is no internal structure in this component since it only has a single class which holds the responsibility fr this entire component.
 
@@ -67,7 +67,7 @@ The Problem Handler component can both create, modify, and delete problems as we
 Note however that the Problem Handler does not assign problems by it self, but rather provide the functionality for the \sinterface[].
 The Solution class is handled in the sense that solutions can be attached and detached to/from problems through this component.
 
-Both the Staff and Client classes are handle through the relations which are between these classes and the Problem class, namely Assignment, Subscription, and Comment. See subsection \ref{sub:modelComponent} for information on Assignment, Subscription, and Comment.\fixme{Skal tag også skrives på eller ligger det implicit?}
+Both the Staff and Client classes are handle through the relations which are between these classes and the Problem class, namely Assignment, Subscription, and Comment. See subsection \ref{sub:modelComponent} for information on Assignment, Subscription, and Comment.\fixme{Skal tag ogsÃ¥ skrives pÃ¥ eller ligger det implicit?}
 
 \subsubsection{Administrator}
 In short this sub-component handles everything in the model which the Problem Handler does not.
