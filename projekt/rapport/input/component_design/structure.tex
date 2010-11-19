@@ -96,7 +96,7 @@ Figure \ref{fig:modelComponent} shows our revised Model component.
 The new classes are: Comment, Tag, Category, and Admin.
 %The two first are simply mediators between Staff and Problem, and Client and Problem respectively.
 %They are there to ``remember'' the events Problem Assigned and Client Subscribe.\fixme{Den findes ikke endnu, men den skal vel laves, no?}
-Comment simply holds a comment for a given problem, and remembers the poster of the Comment in for of the aggregation from client.
+Comment simply holds a comment for a given problem, and remembers the poster of the Comment.
 The Tag class objects can be tied to a problem in order to ``Categorize'' it.
 The Tags also belongs to a Category which again belongs to a single Department.
 This way a Problem with some given Tags, can easily be sent to a Staff member of the Department which the problem is categorized to be in.\fixme{Lidt kryptisk m\aa ske..}
