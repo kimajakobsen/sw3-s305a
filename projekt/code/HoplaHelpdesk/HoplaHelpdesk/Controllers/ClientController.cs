@@ -72,8 +72,8 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult CategorizeNewProblem(List<Category> cats)
         {
-            try
-            {
+           // try
+            
                 var newcats = new List<Category>();
                 foreach (var cat in cats)
                 {
@@ -83,12 +83,12 @@ namespace HoplaHelpdesk.Controllers
 
                 return View(cats);
                // return RedirectToAction("Index");
-            }
-            catch
-            {
-              
-                return View();
-            }
+            
+          //  catch
+            
+               // return RedirectToAction("Index");
+                //return View();
+            
         }
 
 
