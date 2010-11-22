@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
+using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -64,11 +65,11 @@ namespace HoplaHelpdesk.Controllers
 
             };
 
-            var catViemModel = new (){
-                categories = categories
+            var catVievModel = new CategoryTagSelectionViewModel(){
+                Categories = categories
             };
 
-            return View(catViemModel);
+            return View(catVievModel);
 
         }
 
