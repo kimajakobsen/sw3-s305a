@@ -45,9 +45,9 @@
   </EntityContainer>
   <EntityType Name="ProblemSet">
     <Key>
-      <PropertyRef Name="ProblemID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="ProblemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Added_date" Type="datetime" Nullable="false" />
@@ -57,75 +57,76 @@
     <Property Name="AssignedTo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Reassignable" Type="bit" Nullable="false" />
     <Property Name="SolvedAtTime" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="TagSet">
     <Key>
-      <PropertyRef Name="TagID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="TagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Priority" Type="smallint" Nullable="false" />
-    <Property Name="Category_CategoryID" Type="int" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DepartmentSet">
     <Key>
-      <PropertyRef Name="DeptID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="CategorySet">
     <Key>
-      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Department_DeptID" Type="int" Nullable="false" />
+    <Property Name="Department_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SolutionSet">
     <Key>
-      <PropertyRef Name="SolutionID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="SolutionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="CommentSet">
     <Key>
-      <PropertyRef Name="CommentID" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="time" Type="datetime" Nullable="false" />
     <Property Name="description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Problem_ProblemID" Type="int" Nullable="false" />
+    <Property Name="Problem_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProblemTag">
     <Key>
-      <PropertyRef Name="Problem_ProblemID" />
-      <PropertyRef Name="Tag_TagID" />
+      <PropertyRef Name="Problem_Id" />
+      <PropertyRef Name="Tag_Id" />
     </Key>
-    <Property Name="Problem_ProblemID" Type="int" Nullable="false" />
-    <Property Name="Tag_TagID" Type="int" Nullable="false" />
+    <Property Name="Problem_Id" Type="int" Nullable="false" />
+    <Property Name="Tag_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProblemSolution">
     <Key>
-      <PropertyRef Name="Problem_ProblemID" />
-      <PropertyRef Name="Solution_SolutionID" />
+      <PropertyRef Name="Problem_Id" />
+      <PropertyRef Name="Solution_Id" />
     </Key>
-    <Property Name="Problem_ProblemID" Type="int" Nullable="false" />
-    <Property Name="Solution_SolutionID" Type="int" Nullable="false" />
+    <Property Name="Problem_Id" Type="int" Nullable="false" />
+    <Property Name="Solution_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="DepartmentCategory">
     <End Role="Department" Type="Model1.Store.DepartmentSet" Multiplicity="1" />
     <End Role="Category" Type="Model1.Store.CategorySet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
-        <PropertyRef Name="DeptID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Category">
-        <PropertyRef Name="Department_DeptID" />
+        <PropertyRef Name="Department_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -134,10 +135,10 @@
     <End Role="Problem" Type="Model1.Store.ProblemSet" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Problem">
-        <PropertyRef Name="ProblemID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Comment">
-        <PropertyRef Name="Problem_ProblemID" />
+        <PropertyRef Name="Problem_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -146,10 +147,10 @@
     <End Role="Category" Type="Model1.Store.CategorySet" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Category">
-        <PropertyRef Name="CategoryID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Tag">
-        <PropertyRef Name="Category_CategoryID" />
+        <PropertyRef Name="Category_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -158,10 +159,10 @@
     <End Role="ProblemTag" Type="Model1.Store.ProblemTag" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Problem">
-        <PropertyRef Name="ProblemID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemTag">
-        <PropertyRef Name="Problem_ProblemID" />
+        <PropertyRef Name="Problem_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -170,10 +171,10 @@
     <End Role="Tag" Type="Model1.Store.TagSet" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Tag">
-        <PropertyRef Name="TagID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemTag">
-        <PropertyRef Name="Tag_TagID" />
+        <PropertyRef Name="Tag_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -182,10 +183,10 @@
     <End Role="ProblemSolution" Type="Model1.Store.ProblemSolution" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Problem">
-        <PropertyRef Name="ProblemID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemSolution">
-        <PropertyRef Name="Problem_ProblemID" />
+        <PropertyRef Name="Problem_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -194,10 +195,10 @@
     <End Role="Solution" Type="Model1.Store.SolutionSet" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Solution">
-        <PropertyRef Name="SolutionID" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemSolution">
-        <PropertyRef Name="Solution_SolutionID" />
+        <PropertyRef Name="Solution_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -235,9 +236,9 @@
         </EntityContainer>
         <EntityType Name="Problem">
           <Key>
-            <PropertyRef Name="ProblemID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="ProblemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <Property Type="DateTime" Name="Added_date" Nullable="false" />
@@ -246,48 +247,49 @@
           <Property Type="Boolean" Name="IsDeadlineApproved" Nullable="false" />
           <Property Type="String" Name="AssignedTo" Nullable="false" />
           <Property Type="Boolean" Name="Reassignable" Nullable="false" />
-          <NavigationProperty Name="Tag" Relationship="Model1.ProblemTag" FromRole="Problem" ToRole="Tag" />
+          <NavigationProperty Name="Tags" Relationship="Model1.ProblemTag" FromRole="Problem" ToRole="Tag" />
           <Property Type="DateTime" Name="SolvedAtTime" Nullable="false" />
-          <NavigationProperty Name="Solution" Relationship="Model1.ProblemSolution" FromRole="Problem" ToRole="Solution" />
-          <NavigationProperty Name="Comment" Relationship="Model1.CommentProblem" FromRole="Problem" ToRole="Comment" />
+          <NavigationProperty Name="Solutions" Relationship="Model1.ProblemSolution" FromRole="Problem" ToRole="Solution" />
+          <NavigationProperty Name="Comments" Relationship="Model1.CommentProblem" FromRole="Problem" ToRole="Comment" />
+          <Property Type="String" Name="Title" Nullable="false" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
-            <PropertyRef Name="TagID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="TagID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <Property Type="Int16" Name="Priority" Nullable="false" />
-          <NavigationProperty Name="Problem" Relationship="Model1.ProblemTag" FromRole="Tag" ToRole="Problem" />
+          <NavigationProperty Name="Problems" Relationship="Model1.ProblemTag" FromRole="Tag" ToRole="Problem" />
           <NavigationProperty Name="Category" Relationship="Model1.TagCategory" FromRole="Tag" ToRole="Category" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
-            <PropertyRef Name="DeptID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="DeptID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="DepartmentName" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Model1.DepartmentCategory" FromRole="Department" ToRole="Category" />
+          <NavigationProperty Name="Categories" Relationship="Model1.DepartmentCategory" FromRole="Department" ToRole="Category" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <NavigationProperty Name="Department" Relationship="Model1.DepartmentCategory" FromRole="Category" ToRole="Department" />
-          <NavigationProperty Name="Tag" Relationship="Model1.TagCategory" FromRole="Category" ToRole="Tag" />
+          <NavigationProperty Name="Tags" Relationship="Model1.TagCategory" FromRole="Category" ToRole="Tag" />
         </EntityType>
         <EntityType Name="Solution">
           <Key>
-            <PropertyRef Name="SolutionID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="SolutionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Description" Nullable="false" />
-          <NavigationProperty Name="Problem" Relationship="Model1.ProblemSolution" FromRole="Solution" ToRole="Problem" />
+          <NavigationProperty Name="Problems" Relationship="Model1.ProblemSolution" FromRole="Solution" ToRole="Problem" />
         </EntityType>
         <Association Name="ProblemTag">
           <End Type="Model1.Problem" Role="Problem" Multiplicity="*" />
@@ -299,9 +301,9 @@
         </Association>
         <EntityType Name="Comment">
           <Key>
-            <PropertyRef Name="CommentID" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="CommentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="time" Nullable="false" />
           <Property Type="String" Name="description" Nullable="false" />
           <NavigationProperty Name="Problem" Relationship="Model1.CommentProblem" FromRole="Comment" ToRole="Problem" />
@@ -327,7 +329,7 @@
     <EntitySetMapping Name="ProblemSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Problem)">
         <MappingFragment StoreEntitySet="ProblemSet">
-          <ScalarProperty Name="ProblemID" ColumnName="ProblemID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Added_date" ColumnName="Added_date" />
@@ -337,13 +339,14 @@
           <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
           <ScalarProperty Name="Reassignable" ColumnName="Reassignable" />
           <ScalarProperty Name="SolvedAtTime" ColumnName="SolvedAtTime" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TagSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Tag)">
         <MappingFragment StoreEntitySet="TagSet">
-          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
@@ -353,7 +356,7 @@
     <EntitySetMapping Name="DepartmentSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Department)">
         <MappingFragment StoreEntitySet="DepartmentSet">
-          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -362,7 +365,7 @@
     <EntitySetMapping Name="CategorySet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Category)">
         <MappingFragment StoreEntitySet="CategorySet">
-          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
@@ -371,7 +374,7 @@
     <EntitySetMapping Name="SolutionSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Solution)">
         <MappingFragment StoreEntitySet="SolutionSet">
-          <ScalarProperty Name="SolutionID" ColumnName="SolutionID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -379,7 +382,7 @@
     <EntitySetMapping Name="CommentSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Comment)">
         <MappingFragment StoreEntitySet="CommentSet">
-          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="time" ColumnName="time" />
           <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
@@ -387,42 +390,42 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="ProblemTag" TypeName="Model1.ProblemTag" StoreEntitySet="ProblemTag">
       <EndProperty Name="Problem">
-        <ScalarProperty Name="ProblemID" ColumnName="Problem_ProblemID" />
+        <ScalarProperty Name="Id" ColumnName="Problem_Id" />
       </EndProperty>
       <EndProperty Name="Tag">
-        <ScalarProperty Name="TagID" ColumnName="Tag_TagID" />
+        <ScalarProperty Name="Id" ColumnName="Tag_Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="DepartmentCategory" TypeName="Model1.DepartmentCategory" StoreEntitySet="CategorySet">
       <EndProperty Name="Department">
-        <ScalarProperty Name="DeptID" ColumnName="Department_DeptID" />
+        <ScalarProperty Name="Id" ColumnName="Department_Id" />
       </EndProperty>
       <EndProperty Name="Category">
-        <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="ProblemSolution" TypeName="Model1.ProblemSolution" StoreEntitySet="ProblemSolution">
       <EndProperty Name="Problem">
-        <ScalarProperty Name="ProblemID" ColumnName="Problem_ProblemID" />
+        <ScalarProperty Name="Id" ColumnName="Problem_Id" />
       </EndProperty>
       <EndProperty Name="Solution">
-        <ScalarProperty Name="SolutionID" ColumnName="Solution_SolutionID" />
+        <ScalarProperty Name="Id" ColumnName="Solution_Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="CommentProblem" TypeName="Model1.CommentProblem" StoreEntitySet="CommentSet">
       <EndProperty Name="Problem">
-        <ScalarProperty Name="ProblemID" ColumnName="Problem_ProblemID" />
+        <ScalarProperty Name="Id" ColumnName="Problem_Id" />
       </EndProperty>
       <EndProperty Name="Comment">
-        <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="TagCategory" TypeName="Model1.TagCategory" StoreEntitySet="TagSet">
       <EndProperty Name="Category">
-        <ScalarProperty Name="CategoryID" ColumnName="Category_CategoryID" />
+        <ScalarProperty Name="Id" ColumnName="Category_Id" />
       </EndProperty>
       <EndProperty Name="Tag">
-        <ScalarProperty Name="TagID" ColumnName="TagID" />
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
@@ -444,7 +447,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="Model1" ZoomLevel="86" >
-        <EntityTypeShape EntityType="Model1.Problem" Width="1.5" PointX="0.5" PointY="3.375" Height="3.5186979166666656" />
+        <EntityTypeShape EntityType="Model1.Problem" Width="1.5" PointX="0.5" PointY="3.375" Height="3.7109993489583326" />
         <EntityTypeShape EntityType="Model1.Tag" Width="1.5" PointX="6" PointY="3.875" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="Model1.Department" Width="1.5" PointX="2.5" PointY="0.5" Height="1.787985026041667" />
         <EntityTypeShape EntityType="Model1.Category" Width="1.5" PointX="4.75" PointY="0.5" Height="1.9802864583333331" />

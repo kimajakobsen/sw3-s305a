@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using HoplaHelpdesk.Models;
 using HoplaHelpdesk.ViewModels;
 using HoplaHelpdesk.Tools;
+using System.Collections.ObjectModel;
+using System.Data.Objects.DataClasses;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -23,20 +25,21 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult CategorizeNewProblem()
         {
-            var categories = new List<Category>()
+            var categories = new EntityCollection<Category>()
             {
                 new Category(){
-                    Title = "Computers",
-                    Tags = new List<Tag>()
+                    Name = "Computers",
+                    Tags = new EntityCollection<Tag>()
                     {
                         new Tag() 
                         {
-                            Title = "Tag1",
+                            Name = "Tag1",
+                            
                             Id = 3
                         },  
                         new Tag() 
                         {
-                            Title = "Tag1",
+                            Name = "Tag1",
                             Id = 4
                         }
 
@@ -45,17 +48,17 @@ namespace HoplaHelpdesk.Controllers
 
                 new Category()
                 {
-                    Title = "Sodavand",
-                    Tags = new List<Tag>()
+                    Name = "Sodavand",
+                    Tags = new EntityCollection<Tag>()
                     {
                         new Tag() 
                         {
-                            Title = "Tag1",
+                            Name = "Tag1",
                             Id = 1
                         },  
                         new Tag() 
                         {
-                            Title = "Tag2",
+                            Name = "Tag2",
                             Id = 2
                         }
 
