@@ -10,7 +10,7 @@
 
     <ul>
     <li>
-    <%: Html.ActionLink("Get worklist", "GetWorklist") %>
+    <%: Html.ActionLink("Worklist", "Worklist") %>
     </li>
     
     </ul>
