@@ -15,7 +15,21 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult GetWorklist()
         {
-            return View();
+            var problemList = new List<Problem>(){
+                new Problem(){
+                    Title = "John", Assignmet = "myownStaffId"
+                }, new Problem(){
+                    Title = "Mikael" , Assignmet = "myNOTownStaffId"
+                }
+            };
+
+            var problems = new ProblemListViewModel()
+            {
+                Problems = problemList
+            };
+         
+
+            return View(problemList);
         }
 
         public ActionResult Index()
