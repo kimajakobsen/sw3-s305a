@@ -34,54 +34,38 @@ The system will make estimations based on time for solving problems of the same 
 
 When problems are committed to the system and assigned to a staff member, the staff and client can add notes to the problem as a way of communication. Every time a change is made to a problem or a comment has been added, all associated clients and the assigned staff member get notified.
 
-%\subsection{FACTOR criterion}
-%\label{sec:factor}
-%From the system definition we are here specifying the FACTOR criterion which we want our system to fulfill. 
+\subsection{FACTOR criterion}
+\label{sec:factor}
 
-%\paragraph{F (Functionality)} Rankings, keep track, knowledge saved, Statistic time estimation, generate todo-lists.
+\paragraph{R (Functionality)} Our program will contain features aimed at easing the problem-solving process of service employees. Therefor the system will have the following %features:
+\begin{itemize}
+\item Ranking of problems
 
-%\paragraph{A (Application domain)} People at the university or at another organization
+Unsolved Problems are displayed on a ranked list. The problems will be ranked based on the tags they contain and the time since they were committed.
+\item Keep track
+The system is able to keep track of all the information regarding a problem, this being
+\subitem Time the problem has been in the system
+\subsubitem Time it took to solve the problem
+\subitem Who has committed the problem
+\subitem Who has been assigned to the problem
+\subsubitem Who solved it
+\subitem The client feedback related to the problem
 
-%\paragraph{C (Conditions)} Only people associated with university should access our system, a webbased system, to-do-lists must be agile
+\item Knowledge saved
 
-%\paragraph{T (Technology)} Web based, DBMS
+The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted, thereby saving everyone the trouble of creating and solving a new problem.
+\item Time estimation
 
-%\paragraph{O (Objects)} Problems, solutions, staffs, admins, clients, departments
+The system will be able to estimate how fast a problem can be solved, based on the current workload of the employees and the description the problem has.
+\end{itemize}
+\paragraph{R (Application domain)} This system will be applicable to different office environments aswel as helpdesk and IKT departments.
 
-%\paragraph{R (Responsibility)} An administrative communication medium to ease communication between staff and client.
+\paragraph{R (Conditions)} Users have varying technical experience. Users who are not trained to use our system will have to face a simple user-interface.
 
+\paragraph{R (Technology)} In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework that exists within the ASP.NET framework. We will set up a development server and use Team Foundation and Microsoft SQL server along with visual studio 2010.
 
+The end result will be a web interface running on a webserver, with underlying SQL database.
 
+\paragraph{R (Objects)} The system will contain a structure that can handle Problems, along with their solution, employees, supervisors, ordinary users and different department within an organization..
 
-%\paragraph{R (Functionality)} Our program will contain features aimed at easing the problem-solving process of service employees. Therefor the system will have the following %features:
-%\begin{itemize}
-%\item Ranking of problems
-
-%Unsolved Problems are displayed on a ranked list. The problems will be ranked based on the tags they contain and the time since they were committed.
-%\item Keep track
-%The system is able to keep track of all the information regarding a problem, this being
-%\subitem Time the problem has been in the system
-%\subsubitem Time it took to solve the problem
-%\subitem Who has committed the problem
-%\subitem Who has been assigned to the problem
-%\subsubitem Who solved it
-%\subitem The client feedback related to the problem
-
-%\item Knowledge saved
-
-%The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted, thereby saving everyone the trouble of creating and solving a new problem.
-%\item Time estimation
-
-%The system will be able to estimate how fast a problem can be solved, based on the current workload of the employees and the description the problem has.
-%\end{itemize}
-%\paragraph{R (Application domain)} This system will be applicable to different office environments aswel as helpdesk and IKT departments.
-
-%\paragraph{R (Conditions)} Users have varying technical experience. Users who are not trained to use our system will have to face a simple user-interface.
-
-%\paragraph{R (Technology)} In the development of our program we are going to use the programming language C# together with the Model-View-Controller framework that exists within the ASP.NET framework. We will set up a development server and use Team Foundation and Microsoft SQL server along with visual studio 2010.
-
-%The end result will be a web interface running on a webserver, with underlying SQL database.
-
-%\paragraph{R (Objects)} The system will contain a structure that can handle Problems, along with their solution, employees, supervisors, ordinary users and different department within an organization..
-
-%\paragraph{R (Responsibility)} Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors.Finally it is also responsible for communication a solution to people who might be experiencing a particular problem.
+\paragraph{R (Responsibility)} Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors.Finally it is also responsible for communication a solution to people who might be experiencing a particular problem.
