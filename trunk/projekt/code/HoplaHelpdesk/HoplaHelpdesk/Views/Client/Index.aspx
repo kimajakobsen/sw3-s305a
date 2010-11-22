@@ -9,12 +9,19 @@
     <h2>Client interface</h2>
 
     <ul>
+    
     <li>
     <%: Html.ActionLink("Add problem", "CategorizeNewProblem") %>
     </li>
+    
     <li>
-    <%: Html.ActionLink("View problems", "ViewProblems") %>
+    <%: Html.ActionLink("My problems", "ViewProblems") %>
     </li>
+    
+    <li>
+    <%: Html.ActionLink("Search for problems", "ViewProblems") %>
+    </li>
+    
     </ul>
 
 </asp:Content>
