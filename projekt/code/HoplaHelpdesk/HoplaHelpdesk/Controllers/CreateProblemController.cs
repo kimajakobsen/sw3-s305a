@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
 using HoplaHelpdesk.ViewModels;
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -73,15 +74,27 @@ namespace HoplaHelpdesk.Controllers
 
         }
 
+
+
         [HttpPost]
         public ActionResult CategorizeNewProblem(CategoryTagSelectionViewModel  cats)
         {
              try
              {
+                 var cat = cats;
+                 var problems = ProblemSearch.Search(cats);
+
+                 var problemView = new ProblemListViewModel()
+                 {
+                     Editable = false,
+                     Deletable = false,
+                     Problems = problems
+
+                 };
 
 
 
-                 return RedirectToAction("ProblemList");
+                 return View("SimilarProblems", problemView);
              }
             
             
@@ -97,9 +110,10 @@ namespace HoplaHelpdesk.Controllers
 
         }
 
-      //  public ActionResult 
 
 
+
+      
         //
         // GET: /CreateProblem/Details/5
 
