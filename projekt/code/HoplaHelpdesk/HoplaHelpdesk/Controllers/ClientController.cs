@@ -70,10 +70,11 @@ namespace HoplaHelpdesk.Controllers
         }
 
         [HttpPost]
-        public ActionResult CategorizeNewProblem(List<Category> cats)
+        public ActionResult CategorizeNewProblem(FormCollection collection)
         {
            // try
-            
+          
+            var cats = new List<Category>();
                 var newcats = new List<Category>();
                 foreach (var cat in cats)
                 {
