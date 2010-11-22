@@ -10,7 +10,7 @@
 
     <ul>
     <li>
-    <%: Html.ActionLink("Add problem", "AddProblem") %>
+    <%: Html.ActionLink("Add problem", "CategorizeNewProblem") %>
     <%: Html.ActionLink("View problems", "ViewProblems") %>
     </li>
     </ul>
