@@ -14,18 +14,21 @@
         </tr>
 
     <%  foreach (var item in Model) { %>
-    
+        <% if  (item.Assignmet == "myownStaffId") { %>
         <tr>
             <td>
-            <% //if  (item.Assignmet == "myownStaffId") { %>
+            
                 <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
                 <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
                 <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) %>
 
-                <% //} %>
+                
+            </td>
+            <td>
+                <%: item.Title %>
             </td>
         </tr>
-    
+        <% } %>
     <% } %>
 
     </table>
