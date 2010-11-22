@@ -75,6 +75,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Random2Controller.cs" />
+    <Compile Include="Controllers\RandomController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Global.asax.cs">
