@@ -100,6 +100,7 @@
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controllers\Model.edmx.sql" />
     <Content Include="Global.asax" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\CreateProblem\AddProblem.aspx" />
