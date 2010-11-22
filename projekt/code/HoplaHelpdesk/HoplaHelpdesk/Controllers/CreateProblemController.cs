@@ -81,7 +81,7 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-                 return RedirectToAction("Index");
+                 return RedirectToAction("ProblemList");
              }
             
             
@@ -97,7 +97,7 @@ namespace HoplaHelpdesk.Controllers
 
         }
 
-
+      //  public ActionResult 
 
 
         //
