@@ -8,7 +8,7 @@ namespace HoplaHelpdesk.ViewModels
 {
     public class CategoryTagSelectionViewModel
     {
-        public List<Category> Categories;
+        public List<Category> Categories {get;set;}
 
     }
 }

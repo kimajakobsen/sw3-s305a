@@ -9,7 +9,7 @@ namespace HoplaHelpdesk.ViewModels
     public class ProblemListViewModel
     {
 
-        public List<Problem> Problems;
+        public List<Problem> Problems {get;set;}
 
 
     }
