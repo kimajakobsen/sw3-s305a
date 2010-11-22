@@ -242,13 +242,13 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Create a new Category object.
         /// </summary>
-        /// <param name="categoryID">Initial value of the CategoryID property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static Category CreateCategory(global::System.Int32 categoryID, global::System.String name, global::System.String description)
+        public static Category CreateCategory(global::System.Int32 id, global::System.String name, global::System.String description)
         {
             Category category = new Category();
-            category.CategoryID = categoryID;
+            category.Id = id;
             category.Name = name;
             category.Description = description;
             return category;
@@ -262,27 +262,27 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CategoryID
+        public global::System.Int32 Id
         {
             get
             {
-                return _CategoryID;
+                return _Id;
             }
             set
             {
-                if (_CategoryID != value)
+                if (_Id != value)
                 {
-                    OnCategoryIDChanging(value);
-                    ReportPropertyChanging("CategoryID");
-                    _CategoryID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CategoryID");
-                    OnCategoryIDChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _CategoryID;
-        partial void OnCategoryIDChanging(global::System.Int32 value);
-        partial void OnCategoryIDChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -381,7 +381,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "TagCategory", "Tag")]
-        public EntityCollection<Tag> Tag
+        public EntityCollection<Tag> Tags
         {
             get
             {
@@ -412,13 +412,13 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Create a new Comment object.
         /// </summary>
-        /// <param name="commentID">Initial value of the CommentID property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="time">Initial value of the time property.</param>
         /// <param name="description">Initial value of the description property.</param>
-        public static Comment CreateComment(global::System.Int32 commentID, global::System.DateTime time, global::System.String description)
+        public static Comment CreateComment(global::System.Int32 id, global::System.DateTime time, global::System.String description)
         {
             Comment comment = new Comment();
-            comment.CommentID = commentID;
+            comment.Id = id;
             comment.time = time;
             comment.description = description;
             return comment;
@@ -432,27 +432,27 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CommentID
+        public global::System.Int32 Id
         {
             get
             {
-                return _CommentID;
+                return _Id;
             }
             set
             {
-                if (_CommentID != value)
+                if (_Id != value)
                 {
-                    OnCommentIDChanging(value);
-                    ReportPropertyChanging("CommentID");
-                    _CommentID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CommentID");
-                    OnCommentIDChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _CommentID;
-        partial void OnCommentIDChanging(global::System.Int32 value);
-        partial void OnCommentIDChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -560,13 +560,13 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Create a new Department object.
         /// </summary>
-        /// <param name="deptID">Initial value of the DeptID property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="departmentName">Initial value of the DepartmentName property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static Department CreateDepartment(global::System.Int32 deptID, global::System.String departmentName, global::System.String description)
+        public static Department CreateDepartment(global::System.Int32 id, global::System.String departmentName, global::System.String description)
         {
             Department department = new Department();
-            department.DeptID = deptID;
+            department.Id = id;
             department.DepartmentName = departmentName;
             department.Description = description;
             return department;
@@ -580,27 +580,27 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 DeptID
+        public global::System.Int32 Id
         {
             get
             {
-                return _DeptID;
+                return _Id;
             }
             set
             {
-                if (_DeptID != value)
+                if (_Id != value)
                 {
-                    OnDeptIDChanging(value);
-                    ReportPropertyChanging("DeptID");
-                    _DeptID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("DeptID");
-                    OnDeptIDChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _DeptID;
-        partial void OnDeptIDChanging(global::System.Int32 value);
-        partial void OnDeptIDChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -661,7 +661,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "DepartmentCategory", "Category")]
-        public EntityCollection<Category> Category
+        public EntityCollection<Category> Categories
         {
             get
             {
@@ -692,7 +692,7 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Create a new Problem object.
         /// </summary>
-        /// <param name="problemID">Initial value of the ProblemID property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="added_date">Initial value of the Added_date property.</param>
@@ -702,10 +702,11 @@ namespace HoplaHelpdesk.Models
         /// <param name="assignedTo">Initial value of the AssignedTo property.</param>
         /// <param name="reassignable">Initial value of the Reassignable property.</param>
         /// <param name="solvedAtTime">Initial value of the SolvedAtTime property.</param>
-        public static Problem CreateProblem(global::System.Int32 problemID, global::System.String name, global::System.String description, global::System.DateTime added_date, global::System.String status, global::System.DateTime deadline, global::System.Boolean isDeadlineApproved, global::System.String assignedTo, global::System.Boolean reassignable, global::System.DateTime solvedAtTime)
+        /// <param name="title">Initial value of the Title property.</param>
+        public static Problem CreateProblem(global::System.Int32 id, global::System.String name, global::System.String description, global::System.DateTime added_date, global::System.String status, global::System.DateTime deadline, global::System.Boolean isDeadlineApproved, global::System.String assignedTo, global::System.Boolean reassignable, global::System.DateTime solvedAtTime, global::System.String title)
         {
             Problem problem = new Problem();
-            problem.ProblemID = problemID;
+            problem.Id = id;
             problem.Name = name;
             problem.Description = description;
             problem.Added_date = added_date;
@@ -715,6 +716,7 @@ namespace HoplaHelpdesk.Models
             problem.AssignedTo = assignedTo;
             problem.Reassignable = reassignable;
             problem.SolvedAtTime = solvedAtTime;
+            problem.Title = title;
             return problem;
         }
 
@@ -726,27 +728,27 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 ProblemID
+        public global::System.Int32 Id
         {
             get
             {
-                return _ProblemID;
+                return _Id;
             }
             set
             {
-                if (_ProblemID != value)
+                if (_Id != value)
                 {
-                    OnProblemIDChanging(value);
-                    ReportPropertyChanging("ProblemID");
-                    _ProblemID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ProblemID");
-                    OnProblemIDChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _ProblemID;
-        partial void OnProblemIDChanging(global::System.Int32 value);
-        partial void OnProblemIDChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -963,6 +965,30 @@ namespace HoplaHelpdesk.Models
         private global::System.DateTime _SolvedAtTime;
         partial void OnSolvedAtTimeChanging(global::System.DateTime value);
         partial void OnSolvedAtTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
 
         #endregion
     
@@ -975,7 +1001,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "ProblemTag", "Tag")]
-        public EntityCollection<Tag> Tag
+        public EntityCollection<Tag> Tags
         {
             get
             {
@@ -997,7 +1023,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "ProblemSolution", "Solution")]
-        public EntityCollection<Solution> Solution
+        public EntityCollection<Solution> Solutions
         {
             get
             {
@@ -1019,7 +1045,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "CommentProblem", "Comment")]
-        public EntityCollection<Comment> Comment
+        public EntityCollection<Comment> Comments
         {
             get
             {
@@ -1050,12 +1076,12 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Create a new Solution object.
         /// </summary>
-        /// <param name="solutionID">Initial value of the SolutionID property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static Solution CreateSolution(global::System.Int32 solutionID, global::System.String description)
+        public static Solution CreateSolution(global::System.Int32 id, global::System.String description)
         {
             Solution solution = new Solution();
-            solution.SolutionID = solutionID;
+            solution.Id = id;
             solution.Description = description;
             return solution;
         }
@@ -1068,27 +1094,27 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 SolutionID
+        public global::System.Int32 Id
         {
             get
             {
-                return _SolutionID;
+                return _Id;
             }
             set
             {
-                if (_SolutionID != value)
+                if (_Id != value)
                 {
-                    OnSolutionIDChanging(value);
-                    ReportPropertyChanging("SolutionID");
-                    _SolutionID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("SolutionID");
-                    OnSolutionIDChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _SolutionID;
-        partial void OnSolutionIDChanging(global::System.Int32 value);
-        partial void OnSolutionIDChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1125,7 +1151,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "ProblemSolution", "Problem")]
-        public EntityCollection<Problem> Problem
+        public EntityCollection<Problem> Problems
         {
             get
             {
@@ -1156,14 +1182,14 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Create a new Tag object.
         /// </summary>
-        /// <param name="tagID">Initial value of the TagID property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="priority">Initial value of the Priority property.</param>
-        public static Tag CreateTag(global::System.Int32 tagID, global::System.String name, global::System.String description, global::System.Int16 priority)
+        public static Tag CreateTag(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int16 priority)
         {
             Tag tag = new Tag();
-            tag.TagID = tagID;
+            tag.Id = id;
             tag.Name = name;
             tag.Description = description;
             tag.Priority = priority;
@@ -1178,27 +1204,27 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 TagID
+        public global::System.Int32 Id
         {
             get
             {
-                return _TagID;
+                return _Id;
             }
             set
             {
-                if (_TagID != value)
+                if (_Id != value)
                 {
-                    OnTagIDChanging(value);
-                    ReportPropertyChanging("TagID");
-                    _TagID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("TagID");
-                    OnTagIDChanged();
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
                 }
             }
         }
-        private global::System.Int32 _TagID;
-        partial void OnTagIDChanging(global::System.Int32 value);
-        partial void OnTagIDChanged();
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1283,7 +1309,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Model1", "ProblemTag", "Problem")]
-        public EntityCollection<Problem> Problem
+        public EntityCollection<Problem> Problems
         {
             get
             {

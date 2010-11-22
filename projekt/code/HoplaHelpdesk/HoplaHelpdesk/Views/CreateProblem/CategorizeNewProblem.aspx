@@ -14,7 +14,7 @@
         <div class="editor-field">
         <% for(int i = 0; i < Model.Categories.Count; i++)
            { %>
-         <%: Html.EditorFor(x => x.Categories[i], "CategorySelectEditor") %>
+         <%: Html.EditorFor(x => x.Categories.ToList()[i], "CategorySelectEditor") %>
          <% }
            %>
         </div>

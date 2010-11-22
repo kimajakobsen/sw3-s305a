@@ -24,7 +24,8 @@ namespace HoplaHelpdesk.Controllers
         {
             var problemList =  new List<Problem>(){
                 new Problem(){
-                    Title = "John"
+                    
+                   Title = "John"
                 }, new Problem(){
                     Title = "Mikael"
                 }

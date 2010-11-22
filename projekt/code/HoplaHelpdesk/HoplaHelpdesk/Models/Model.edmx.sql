@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/22/2010 16:19:02
--- Generated from EDMX file: C:\Users\Kim\Desktop\SVN\sw3-s305a\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Controllers\Model.edmx
+-- Date Created: 11/22/2010 16:54:52
+-- Generated from EDMX file: C:\Users\John\Documents\sw3\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -74,7 +74,7 @@ GO
 
 -- Creating table 'ProblemSet'
 CREATE TABLE [dbo].[ProblemSet] (
-    [ProblemID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Added_date] datetime  NOT NULL,
@@ -83,23 +83,24 @@ CREATE TABLE [dbo].[ProblemSet] (
     [IsDeadlineApproved] bit  NOT NULL,
     [AssignedTo] nvarchar(max)  NOT NULL,
     [Reassignable] bit  NOT NULL,
-    [SolvedAtTime] datetime  NOT NULL
+    [SolvedAtTime] datetime  NOT NULL,
+    [Title] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'TagSet'
 CREATE TABLE [dbo].[TagSet] (
-    [TagID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Priority] smallint  NOT NULL,
-    [Category_CategoryID] int  NOT NULL
+    [Category_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'DepartmentSet'
 CREATE TABLE [dbo].[DepartmentSet] (
-    [DeptID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [DepartmentName] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL
 );
@@ -107,40 +108,40 @@ GO
 
 -- Creating table 'CategorySet'
 CREATE TABLE [dbo].[CategorySet] (
-    [CategoryID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Department_DeptID] int  NOT NULL
+    [Department_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'SolutionSet'
 CREATE TABLE [dbo].[SolutionSet] (
-    [SolutionID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Description] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'CommentSet'
 CREATE TABLE [dbo].[CommentSet] (
-    [CommentID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [time] datetime  NOT NULL,
     [description] nvarchar(max)  NOT NULL,
-    [Problem_ProblemID] int  NOT NULL
+    [Problem_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'ProblemTag'
 CREATE TABLE [dbo].[ProblemTag] (
-    [Problem_ProblemID] int  NOT NULL,
-    [Tag_TagID] int  NOT NULL
+    [Problem_Id] int  NOT NULL,
+    [Tag_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'ProblemSolution'
 CREATE TABLE [dbo].[ProblemSolution] (
-    [Problem_ProblemID] int  NOT NULL,
-    [Solution_SolutionID] int  NOT NULL
+    [Problem_Id] int  NOT NULL,
+    [Solution_Id] int  NOT NULL
 );
 GO
 
@@ -148,144 +149,144 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [ProblemID] in table 'ProblemSet'
+-- Creating primary key on [Id] in table 'ProblemSet'
 ALTER TABLE [dbo].[ProblemSet]
 ADD CONSTRAINT [PK_ProblemSet]
-    PRIMARY KEY CLUSTERED ([ProblemID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [TagID] in table 'TagSet'
+-- Creating primary key on [Id] in table 'TagSet'
 ALTER TABLE [dbo].[TagSet]
 ADD CONSTRAINT [PK_TagSet]
-    PRIMARY KEY CLUSTERED ([TagID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [DeptID] in table 'DepartmentSet'
+-- Creating primary key on [Id] in table 'DepartmentSet'
 ALTER TABLE [dbo].[DepartmentSet]
 ADD CONSTRAINT [PK_DepartmentSet]
-    PRIMARY KEY CLUSTERED ([DeptID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [CategoryID] in table 'CategorySet'
+-- Creating primary key on [Id] in table 'CategorySet'
 ALTER TABLE [dbo].[CategorySet]
 ADD CONSTRAINT [PK_CategorySet]
-    PRIMARY KEY CLUSTERED ([CategoryID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [SolutionID] in table 'SolutionSet'
+-- Creating primary key on [Id] in table 'SolutionSet'
 ALTER TABLE [dbo].[SolutionSet]
 ADD CONSTRAINT [PK_SolutionSet]
-    PRIMARY KEY CLUSTERED ([SolutionID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [CommentID] in table 'CommentSet'
+-- Creating primary key on [Id] in table 'CommentSet'
 ALTER TABLE [dbo].[CommentSet]
 ADD CONSTRAINT [PK_CommentSet]
-    PRIMARY KEY CLUSTERED ([CommentID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Problem_ProblemID], [Tag_TagID] in table 'ProblemTag'
+-- Creating primary key on [Problem_Id], [Tag_Id] in table 'ProblemTag'
 ALTER TABLE [dbo].[ProblemTag]
 ADD CONSTRAINT [PK_ProblemTag]
-    PRIMARY KEY NONCLUSTERED ([Problem_ProblemID], [Tag_TagID] ASC);
+    PRIMARY KEY NONCLUSTERED ([Problem_Id], [Tag_Id] ASC);
 GO
 
--- Creating primary key on [Problem_ProblemID], [Solution_SolutionID] in table 'ProblemSolution'
+-- Creating primary key on [Problem_Id], [Solution_Id] in table 'ProblemSolution'
 ALTER TABLE [dbo].[ProblemSolution]
 ADD CONSTRAINT [PK_ProblemSolution]
-    PRIMARY KEY NONCLUSTERED ([Problem_ProblemID], [Solution_SolutionID] ASC);
+    PRIMARY KEY NONCLUSTERED ([Problem_Id], [Solution_Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Problem_ProblemID] in table 'ProblemTag'
+-- Creating foreign key on [Problem_Id] in table 'ProblemTag'
 ALTER TABLE [dbo].[ProblemTag]
 ADD CONSTRAINT [FK_ProblemTag_Problem]
-    FOREIGN KEY ([Problem_ProblemID])
+    FOREIGN KEY ([Problem_Id])
     REFERENCES [dbo].[ProblemSet]
-        ([ProblemID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Tag_TagID] in table 'ProblemTag'
+-- Creating foreign key on [Tag_Id] in table 'ProblemTag'
 ALTER TABLE [dbo].[ProblemTag]
 ADD CONSTRAINT [FK_ProblemTag_Tag]
-    FOREIGN KEY ([Tag_TagID])
+    FOREIGN KEY ([Tag_Id])
     REFERENCES [dbo].[TagSet]
-        ([TagID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ProblemTag_Tag'
 CREATE INDEX [IX_FK_ProblemTag_Tag]
 ON [dbo].[ProblemTag]
-    ([Tag_TagID]);
+    ([Tag_Id]);
 GO
 
--- Creating foreign key on [Department_DeptID] in table 'CategorySet'
+-- Creating foreign key on [Department_Id] in table 'CategorySet'
 ALTER TABLE [dbo].[CategorySet]
 ADD CONSTRAINT [FK_DepartmentCategory]
-    FOREIGN KEY ([Department_DeptID])
+    FOREIGN KEY ([Department_Id])
     REFERENCES [dbo].[DepartmentSet]
-        ([DeptID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_DepartmentCategory'
 CREATE INDEX [IX_FK_DepartmentCategory]
 ON [dbo].[CategorySet]
-    ([Department_DeptID]);
+    ([Department_Id]);
 GO
 
--- Creating foreign key on [Problem_ProblemID] in table 'ProblemSolution'
+-- Creating foreign key on [Problem_Id] in table 'ProblemSolution'
 ALTER TABLE [dbo].[ProblemSolution]
 ADD CONSTRAINT [FK_ProblemSolution_Problem]
-    FOREIGN KEY ([Problem_ProblemID])
+    FOREIGN KEY ([Problem_Id])
     REFERENCES [dbo].[ProblemSet]
-        ([ProblemID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Solution_SolutionID] in table 'ProblemSolution'
+-- Creating foreign key on [Solution_Id] in table 'ProblemSolution'
 ALTER TABLE [dbo].[ProblemSolution]
 ADD CONSTRAINT [FK_ProblemSolution_Solution]
-    FOREIGN KEY ([Solution_SolutionID])
+    FOREIGN KEY ([Solution_Id])
     REFERENCES [dbo].[SolutionSet]
-        ([SolutionID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ProblemSolution_Solution'
 CREATE INDEX [IX_FK_ProblemSolution_Solution]
 ON [dbo].[ProblemSolution]
-    ([Solution_SolutionID]);
+    ([Solution_Id]);
 GO
 
--- Creating foreign key on [Problem_ProblemID] in table 'CommentSet'
+-- Creating foreign key on [Problem_Id] in table 'CommentSet'
 ALTER TABLE [dbo].[CommentSet]
 ADD CONSTRAINT [FK_CommentProblem]
-    FOREIGN KEY ([Problem_ProblemID])
+    FOREIGN KEY ([Problem_Id])
     REFERENCES [dbo].[ProblemSet]
-        ([ProblemID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CommentProblem'
 CREATE INDEX [IX_FK_CommentProblem]
 ON [dbo].[CommentSet]
-    ([Problem_ProblemID]);
+    ([Problem_Id]);
 GO
 
--- Creating foreign key on [Category_CategoryID] in table 'TagSet'
+-- Creating foreign key on [Category_Id] in table 'TagSet'
 ALTER TABLE [dbo].[TagSet]
 ADD CONSTRAINT [FK_TagCategory]
-    FOREIGN KEY ([Category_CategoryID])
+    FOREIGN KEY ([Category_Id])
     REFERENCES [dbo].[CategorySet]
-        ([CategoryID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TagCategory'
 CREATE INDEX [IX_FK_TagCategory]
 ON [dbo].[TagSet]
-    ([Category_CategoryID]);
+    ([Category_Id]);
 GO
 
 -- --------------------------------------------------
