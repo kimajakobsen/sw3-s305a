@@ -24,7 +24,7 @@
             <legend>Fields</legend>
             
             <p>
-                <input type="submit" value="Save" />
+                <input type="submit" value="Search for this kind of problems" />
             </p>
         </fieldset>
 
