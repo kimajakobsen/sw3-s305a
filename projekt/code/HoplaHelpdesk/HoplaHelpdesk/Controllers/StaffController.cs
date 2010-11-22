@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HoplaHelpdesk.Models;
+using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -10,6 +12,11 @@ namespace HoplaHelpdesk.Controllers
     {
         //
         // GET: /Staff/
+
+        public ActionResult GetWorklist()
+        {
+            return View();
+        }
 
         public ActionResult Index()
         {
