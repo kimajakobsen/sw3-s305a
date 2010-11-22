@@ -11,6 +11,8 @@
     <ul>
     <li>
     <%: Html.ActionLink("Add problem", "CategorizeNewProblem") %>
+    </li>
+    <li>
     <%: Html.ActionLink("View problems", "ViewProblems") %>
     </li>
     </ul>

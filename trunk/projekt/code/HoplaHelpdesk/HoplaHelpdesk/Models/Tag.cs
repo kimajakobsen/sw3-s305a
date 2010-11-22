@@ -8,6 +8,6 @@ namespace HoplaHelpdesk.Models
     public class Tag
     {
         public string Title;
-        
+        public bool IsSelected;
     }
 }
