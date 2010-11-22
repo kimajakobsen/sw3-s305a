@@ -13,17 +13,16 @@
             <th></th>
         </tr>
 
-    <%  
-        foreach (var item in Model) { %>
+    <%  foreach (var item in Model) { %>
     
         <tr>
             <td>
-            <% if  (item.Assignmet == "myownStaffId") { %>
+            <% //if  (item.Assignmet == "myownStaffId") { %>
                 <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
                 <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
                 <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) %>
 
-                <% } %>
+                <% //} %>
             </td>
         </tr>
     
