@@ -7,12 +7,12 @@ namespace HoplaHelpdesk.Models
 {
     public partial class Problem
     {
-        public string Title;
-        public string Description;
-        public DateTime Deadline;
-        public bool DeadlineIsApproved;
-        public bool Solved;
-        public List<string> Subscriptions;
-        public string Assignmet;
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Deadline { get; set; }
+        public bool DeadlineIsApproved { get; set; }
+        public bool Solved{get;set;}
+        public List<string> Subscriptions{get;set;}
+        public string Assignmet{get;set;}
     }
 }
