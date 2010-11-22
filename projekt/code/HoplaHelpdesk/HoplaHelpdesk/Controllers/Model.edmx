@@ -4,11 +4,204 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="Model1TargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="ProblemSet" EntityType="Model1.Store.ProblemSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TagSet" EntityType="Model1.Store.TagSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepartmentSet" EntityType="Model1.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategorySet" EntityType="Model1.Store.CategorySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SolutionSet" EntityType="Model1.Store.SolutionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentSet" EntityType="Model1.Store.CommentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemTag" EntityType="Model1.Store.ProblemTag" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemSolution" EntityType="Model1.Store.ProblemSolution" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ProblemTag_Problem" Association="Model1.Store.FK_ProblemTag_Problem">
+      <End Role="Problem" EntitySet="ProblemSet" />
+      <End Role="ProblemTag" EntitySet="ProblemTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemTag_Tag" Association="Model1.Store.FK_ProblemTag_Tag">
+      <End Role="Tag" EntitySet="TagSet" />
+      <End Role="ProblemTag" EntitySet="ProblemTag" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentCategory" Association="Model1.Store.DepartmentCategory">
+      <End Role="Department" EntitySet="DepartmentSet" />
+      <End Role="Category" EntitySet="CategorySet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemSolution_Problem" Association="Model1.Store.FK_ProblemSolution_Problem">
+      <End Role="Problem" EntitySet="ProblemSet" />
+      <End Role="ProblemSolution" EntitySet="ProblemSolution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemSolution_Solution" Association="Model1.Store.FK_ProblemSolution_Solution">
+      <End Role="Solution" EntitySet="SolutionSet" />
+      <End Role="ProblemSolution" EntitySet="ProblemSolution" />
+    </AssociationSet>
+    <AssociationSet Name="CommentProblem" Association="Model1.Store.CommentProblem">
+      <End Role="Comment" EntitySet="CommentSet" />
+      <End Role="Problem" EntitySet="ProblemSet" />
+    </AssociationSet>
+    <AssociationSet Name="TagCategory" Association="Model1.Store.TagCategory">
+      <End Role="Tag" EntitySet="TagSet" />
+      <End Role="Category" EntitySet="CategorySet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ProblemSet">
+    <Key>
+      <PropertyRef Name="ProblemID" />
+    </Key>
+    <Property Name="ProblemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Added_date" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Deadline" Type="datetime" Nullable="false" />
+    <Property Name="IsDeadlineApproved" Type="bit" Nullable="false" />
+    <Property Name="AssignedTo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Reassignable" Type="bit" Nullable="false" />
+    <Property Name="SolvedAtTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TagSet">
+    <Key>
+      <PropertyRef Name="TagID" />
+    </Key>
+    <Property Name="TagID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Priority" Type="smallint" Nullable="false" />
+    <Property Name="Category_CategoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DepartmentSet">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CategorySet">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department_DeptID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SolutionSet">
+    <Key>
+      <PropertyRef Name="SolutionID" />
+    </Key>
+    <Property Name="SolutionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentSet">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="time" Type="datetime" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Problem_ProblemID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemTag">
+    <Key>
+      <PropertyRef Name="Problem_ProblemID" />
+      <PropertyRef Name="Tag_TagID" />
+    </Key>
+    <Property Name="Problem_ProblemID" Type="int" Nullable="false" />
+    <Property Name="Tag_TagID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemSolution">
+    <Key>
+      <PropertyRef Name="Problem_ProblemID" />
+      <PropertyRef Name="Solution_SolutionID" />
+    </Key>
+    <Property Name="Problem_ProblemID" Type="int" Nullable="false" />
+    <Property Name="Solution_SolutionID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="DepartmentCategory">
+    <End Role="Department" Type="Model1.Store.DepartmentSet" Multiplicity="1" />
+    <End Role="Category" Type="Model1.Store.CategorySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DeptID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="Department_DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommentProblem">
+    <End Role="Comment" Type="Model1.Store.CommentSet" Multiplicity="*" />
+    <End Role="Problem" Type="Model1.Store.ProblemSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Problem">
+        <PropertyRef Name="ProblemID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Problem_ProblemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TagCategory">
+    <End Role="Tag" Type="Model1.Store.TagSet" Multiplicity="*" />
+    <End Role="Category" Type="Model1.Store.CategorySet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Tag">
+        <PropertyRef Name="Category_CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemTag_Problem">
+    <End Role="Problem" Type="Model1.Store.ProblemSet" Multiplicity="1" />
+    <End Role="ProblemTag" Type="Model1.Store.ProblemTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Problem">
+        <PropertyRef Name="ProblemID" />
+      </Principal>
+      <Dependent Role="ProblemTag">
+        <PropertyRef Name="Problem_ProblemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemTag_Tag">
+    <End Role="ProblemTag" Type="Model1.Store.ProblemTag" Multiplicity="*" />
+    <End Role="Tag" Type="Model1.Store.TagSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="TagID" />
+      </Principal>
+      <Dependent Role="ProblemTag">
+        <PropertyRef Name="Tag_TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemSolution_Problem">
+    <End Role="Problem" Type="Model1.Store.ProblemSet" Multiplicity="1" />
+    <End Role="ProblemSolution" Type="Model1.Store.ProblemSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Problem">
+        <PropertyRef Name="ProblemID" />
+      </Principal>
+      <Dependent Role="ProblemSolution">
+        <PropertyRef Name="Problem_ProblemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemSolution_Solution">
+    <End Role="ProblemSolution" Type="Model1.Store.ProblemSolution" Multiplicity="*" />
+    <End Role="Solution" Type="Model1.Store.SolutionSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Solution">
+        <PropertyRef Name="SolutionID" />
+      </Principal>
+      <Dependent Role="ProblemSolution">
+        <PropertyRef Name="Solution_SolutionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -129,13 +322,111 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Model1" />
-        <Alias Key="Target" Value="Model1.Store" />
-        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="ProblemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Problem)">
+        <MappingFragment StoreEntitySet="ProblemSet">
+          <ScalarProperty Name="ProblemID" ColumnName="ProblemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Added_date" ColumnName="Added_date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="IsDeadlineApproved" ColumnName="IsDeadlineApproved" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="Reassignable" ColumnName="Reassignable" />
+          <ScalarProperty Name="SolvedAtTime" ColumnName="SolvedAtTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Tag)">
+        <MappingFragment StoreEntitySet="TagSet">
+          <ScalarProperty Name="TagID" ColumnName="TagID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Department)">
+        <MappingFragment StoreEntitySet="DepartmentSet">
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Category)">
+        <MappingFragment StoreEntitySet="CategorySet">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolutionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Solution)">
+        <MappingFragment StoreEntitySet="SolutionSet">
+          <ScalarProperty Name="SolutionID" ColumnName="SolutionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Comment)">
+        <MappingFragment StoreEntitySet="CommentSet">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProblemTag" TypeName="Model1.ProblemTag" StoreEntitySet="ProblemTag">
+      <EndProperty Name="Problem">
+        <ScalarProperty Name="ProblemID" ColumnName="Problem_ProblemID" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="TagID" ColumnName="Tag_TagID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DepartmentCategory" TypeName="Model1.DepartmentCategory" StoreEntitySet="CategorySet">
+      <EndProperty Name="Department">
+        <ScalarProperty Name="DeptID" ColumnName="Department_DeptID" />
+      </EndProperty>
+      <EndProperty Name="Category">
+        <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProblemSolution" TypeName="Model1.ProblemSolution" StoreEntitySet="ProblemSolution">
+      <EndProperty Name="Problem">
+        <ScalarProperty Name="ProblemID" ColumnName="Problem_ProblemID" />
+      </EndProperty>
+      <EndProperty Name="Solution">
+        <ScalarProperty Name="SolutionID" ColumnName="Solution_SolutionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentProblem" TypeName="Model1.CommentProblem" StoreEntitySet="CommentSet">
+      <EndProperty Name="Problem">
+        <ScalarProperty Name="ProblemID" ColumnName="Problem_ProblemID" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TagCategory" TypeName="Model1.TagCategory" StoreEntitySet="TagSet">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="CategoryID" ColumnName="Category_CategoryID" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="TagID" ColumnName="TagID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
