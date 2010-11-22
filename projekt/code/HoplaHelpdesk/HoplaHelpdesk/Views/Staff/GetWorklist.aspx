@@ -12,7 +12,10 @@
         <tr>
             <th></th>
         </tr>
-
+        <%
+            // Get worklist - henter liste med alle problemer, hvis assignment matcher nuværende staff's staffID
+            // TODO: FIX accounting og staffID så det virker med hans eget ID og ikke myownStaffId
+        %>
     <%  foreach (var item in Model) { %>
         <% if  (item.Assignmet == "myownStaffId") { %>
         <tr>
