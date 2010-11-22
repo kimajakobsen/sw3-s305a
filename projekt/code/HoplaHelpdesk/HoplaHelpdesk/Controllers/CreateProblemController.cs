@@ -76,20 +76,21 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult CategorizeNewProblem(CategoryTagSelectionViewModel  cats)
         {
-            /* try
-            var col = collection;
-            //var cats = new List<Category>();
-            var newcats = new List<Category>();
-            foreach (var cat in cats)
-            {
-                var tag = cat.Tags.Where(t => t.IsSelected == true);
-                newcats.Single(t => t.Title == cat.Title).Tags = tag.ToList();
-            }
-            */
-            return View(cats);
-            // return RedirectToAction("Index");
+             try
+             {
 
-            //  catch
+
+
+                 return RedirectToAction("Index");
+             }
+            
+            
+          
+
+             catch
+             {
+                 return View(cats)
+             }
 
             // return RedirectToAction("Index");
             //return View();

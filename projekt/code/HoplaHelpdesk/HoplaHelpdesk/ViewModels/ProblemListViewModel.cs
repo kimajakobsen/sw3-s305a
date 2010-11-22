@@ -10,7 +10,8 @@ namespace HoplaHelpdesk.ViewModels
     {
 
         public List<Problem> Problems {get;set;}
-
+        public bool Editable { get; set; }
+        public bool Deletable { get; set; }
 
     }
 }
