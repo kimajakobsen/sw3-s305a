@@ -89,7 +89,7 @@ namespace HoplaHelpdesk.Controllers
 
              catch
              {
-                 return View(cats)
+                 return View(cats);
              }
 
             // return RedirectToAction("Index");
