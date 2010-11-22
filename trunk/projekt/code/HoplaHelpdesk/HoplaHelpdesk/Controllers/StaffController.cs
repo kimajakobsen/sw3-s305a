@@ -13,7 +13,7 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Staff/
 
-        public ActionResult GetWorklist()
+        public ActionResult Worklist()
         {
             var problemList = new List<Problem>(){
                 new Problem(){

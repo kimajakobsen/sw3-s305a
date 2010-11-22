@@ -99,7 +99,7 @@
     <Content Include="Views\CreateProblem\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\CreateProblem\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\CreateProblem\Index.aspx" />
-    <Content Include="Views\Staff\GetWorklist.aspx" />
+    <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Views\Staff\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
