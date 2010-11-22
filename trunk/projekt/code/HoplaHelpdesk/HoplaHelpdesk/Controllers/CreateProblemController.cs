@@ -97,7 +97,7 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-                 return View("SimilarProblems", problemView);
+                 return View(cats);
              }
             
             
