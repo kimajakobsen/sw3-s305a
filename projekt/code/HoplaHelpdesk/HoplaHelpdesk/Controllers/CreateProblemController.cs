@@ -76,7 +76,7 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult CategorizeNewProblem(CategoryTagSelectionViewModel  cats)
         {
-            // try
+            /* try
             var col = collection;
             //var cats = new List<Category>();
             var newcats = new List<Category>();
@@ -85,7 +85,7 @@ namespace HoplaHelpdesk.Controllers
                 var tag = cat.Tags.Where(t => t.IsSelected == true);
                 newcats.Single(t => t.Title == cat.Title).Tags = tag.ToList();
             }
-
+            */
             return View(cats);
             // return RedirectToAction("Index");
 

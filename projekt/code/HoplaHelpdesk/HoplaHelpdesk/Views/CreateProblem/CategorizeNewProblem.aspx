@@ -9,12 +9,12 @@
     <h2>CategorizeNewProblem</h2>
 
     <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
+      
         
         <div class="editor-field">
         <% for(int i = 0; i < Model.Categories.Count; i++)
            { %>
-         <%: Html.EditorFor(x => x.Categories.ToArray()[i], "CategorySelectEditor") %>
+         <%: Html.EditorFor(x => x.Categories[i], "CategorySelectEditor") %>
          <% }
            %>
         </div>
