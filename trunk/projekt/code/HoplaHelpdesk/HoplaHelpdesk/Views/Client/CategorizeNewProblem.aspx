@@ -19,7 +19,7 @@
     
       
               <h2> <%: item.Title %></h2>
-          
+         
                 <table>
                  <% foreach (var tag in item.Tags)
                     { %>
@@ -29,7 +29,7 @@
                 
                 </td>
                 <td>
-                    <%: Html.CheckBoxFor(model => model.Single(t => t.Title == item.Title).Tags.Single(b => b.Id == tag.Id).IsSelected) %>
+                    <%: Html.CheckBoxFor(model => model.Single(t => t.Title == item.Title).Tags.Single(b => b.Id == tag.Id).IsSelected ) %>
                 </td>
                 
                 
