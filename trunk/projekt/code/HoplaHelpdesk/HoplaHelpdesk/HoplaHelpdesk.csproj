@@ -79,7 +79,7 @@
     <Compile Include="Controllers\CreateProblemController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Model.Designer.cs">
+    <Compile Include="Models\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -100,7 +100,7 @@
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controllers\Model.edmx.sql" />
+    <Content Include="Models\Model.edmx.sql" />
     <Content Include="Global.asax" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\CreateProblem\AddProblem.aspx" />
@@ -150,7 +150,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Controllers\Model.edmx">
+    <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
