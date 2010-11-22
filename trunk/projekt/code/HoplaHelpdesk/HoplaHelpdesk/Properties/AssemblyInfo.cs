@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("HoplaHelpdesk")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GateHouse A/S")]
+[assembly: AssemblyCompany("Aalborg University")]
 [assembly: AssemblyProduct("HoplaHelpdesk")]
-[assembly: AssemblyCopyright("Copyright © GateHouse A/S 2010")]
+[assembly: AssemblyCopyright("Copyright © Aalborg University 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
