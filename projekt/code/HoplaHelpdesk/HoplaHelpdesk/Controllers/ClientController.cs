@@ -81,7 +81,7 @@ namespace HoplaHelpdesk.Controllers
                     newcats.Single(t => t.Title == cat.Title).Tags = tag.ToList();
                 }
 
-                return View(newcats);
+                return View(cats);
                // return RedirectToAction("Index");
             }
             catch
