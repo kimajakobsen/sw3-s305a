@@ -70,18 +70,24 @@ namespace HoplaHelpdesk.Controllers
         }
 
         [HttpPost]
-        public ActionResult CategorizeNewProblem(FormCollection collection)
+        public ActionResult CategorizeNewProblem(List<Category> cats)
         {
             try
             {
-               
+                var newcats = new List<Category>();
+                foreach (var cat in cats)
+                {
+                    var tag = cat.Tags.Where(t => t.IsSelected == true);
+                    newcats.Single(t => t.Title == cat.Title).Tags = tag.ToList();
+                }
 
-                return RedirectToAction("Index");
+                return View(newcats);
+               // return RedirectToAction("Index");
             }
             catch
             {
-                return RedirectToAction("Index");
-                //return View();
+              
+                return View();
             }
         }
 
