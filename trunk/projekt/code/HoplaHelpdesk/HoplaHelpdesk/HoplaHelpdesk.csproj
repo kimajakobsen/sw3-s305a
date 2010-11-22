@@ -94,6 +94,7 @@
     <Content Include="Views\Client\CategorizeNewProblem.aspx" />
     <Content Include="Views\Client\Index.aspx" />
     <Content Include="Views\Client\ViewProblems.aspx" />
+    <Content Include="Views\Staff\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

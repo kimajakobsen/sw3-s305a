@@ -13,6 +13,6 @@ namespace HoplaHelpdesk.Models
         public bool DeadlineIsApproved;
         public bool Solved;
         public List<string> Subscriptions;
-
+        public string Assignmet;
     }
 }
