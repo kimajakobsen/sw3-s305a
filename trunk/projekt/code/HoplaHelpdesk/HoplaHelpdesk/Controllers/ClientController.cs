@@ -24,6 +24,8 @@ namespace HoplaHelpdesk.Controllers
         {
 
 
+            return View();
+
         }
 
         public ActionResult ViewProblems()
