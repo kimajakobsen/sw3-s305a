@@ -9,6 +9,11 @@
     <h2>CategorizeNewProblem</h2>
 
    
+    <% using (Html.BeginForm()) {%>
+        <%: Html.ValidationSummary(true) %>
+
+    
+
 
     <% foreach (var item in Model) { %>
     
@@ -16,12 +21,15 @@
               <h2> <%: item.Title %></h2>
           
                 <table>
-                 <% foreach (var tags in item.Tags)
+                 <% foreach (var tag in item.Tags)
                     { %>
                 <tr>
                 <td>
-                <%: tags.Title%>
+                <%: tag.Title%>
                 
+                </td>
+                <td>
+                    <%: Html.CheckBoxFor(tag => tag.) %>
                 </td>
                 
                 
@@ -33,6 +41,11 @@
     <% } %>
 
   
+                <input type="submit" value="Create" />
+          
+
+    <% } %>
+
     <p>
         <%: Html.ActionLink("Create New", "Create") %>
     </p>
