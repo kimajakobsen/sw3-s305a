@@ -12,8 +12,7 @@ namespace HoplaHelpdesk.Tools
 
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag)
         {
-
-            return new List<Problem>(){ 
+            var probs = new List<Problem>(){ 
                 new Problem(){
                     Title = "Something with coms",
                     Description = "fvæjkeghlergjgehtiegtqhgetkijguiggergeggegtelgqerhjgtfoikeuwui   rfgeruhriuugeuiouiguihgerqueuieighequiheqruihvushfsdvbdkjfvefdg"
@@ -26,6 +25,7 @@ namespace HoplaHelpdesk.Tools
                 }
 
             };
+            return probs;
         }
 
     }
