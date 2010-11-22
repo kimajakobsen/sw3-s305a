@@ -13,11 +13,17 @@
                    { %>
                 <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })%> |
                 <% } %>
-                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
                  <% if (Model.Deletable)
                    { %>
                 <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })%>
                  <% } %>
+            </td>
+            <td>
+               <%: Html.ActionLink("Details", item.Title, new { /* id=item.PrimaryKey */ })%> |
+            
+            </td>
+            <td>
+            <%: item.Description %>
             </td>
         </tr>
     
