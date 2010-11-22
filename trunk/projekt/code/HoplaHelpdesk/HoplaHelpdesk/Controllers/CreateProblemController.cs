@@ -64,7 +64,11 @@ namespace HoplaHelpdesk.Controllers
 
             };
 
-            return View(categories);
+            var catViemModel = new (){
+                categories = categories
+            };
+
+            return View(catViemModel);
 
         }
 

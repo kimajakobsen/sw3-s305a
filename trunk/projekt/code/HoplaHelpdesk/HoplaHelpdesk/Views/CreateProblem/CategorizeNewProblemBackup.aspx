@@ -17,7 +17,9 @@
 
     <% foreach (var item in Model) { %>
     
-      
+               <div class=editor-field>
+                    <%: Html.EditorFor(item => item.) %>
+               </div>
               <h2> <%: item.Title %></h2>
          
                 <table>
