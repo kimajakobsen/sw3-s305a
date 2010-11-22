@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/22/2010 16:17:02
+-- Date Created: 11/22/2010 16:19:02
 -- Generated from EDMX file: C:\Users\Kim\Desktop\SVN\sw3-s305a\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Controllers\Model.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,56 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ProblemTag_Problem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProblemTag] DROP CONSTRAINT [FK_ProblemTag_Problem];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProblemTag_Tag]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProblemTag] DROP CONSTRAINT [FK_ProblemTag_Tag];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DepartmentCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CategorySet] DROP CONSTRAINT [FK_DepartmentCategory];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProblemSolution_Problem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProblemSolution] DROP CONSTRAINT [FK_ProblemSolution_Problem];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProblemSolution_Solution]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProblemSolution] DROP CONSTRAINT [FK_ProblemSolution_Solution];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CommentProblem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CommentSet] DROP CONSTRAINT [FK_CommentProblem];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TagCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TagSet] DROP CONSTRAINT [FK_TagCategory];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[ProblemSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProblemSet];
+GO
+IF OBJECT_ID(N'[dbo].[TagSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TagSet];
+GO
+IF OBJECT_ID(N'[dbo].[DepartmentSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DepartmentSet];
+GO
+IF OBJECT_ID(N'[dbo].[CategorySet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CategorySet];
+GO
+IF OBJECT_ID(N'[dbo].[SolutionSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SolutionSet];
+GO
+IF OBJECT_ID(N'[dbo].[CommentSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CommentSet];
+GO
+IF OBJECT_ID(N'[dbo].[ProblemTag]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProblemTag];
+GO
+IF OBJECT_ID(N'[dbo].[ProblemSolution]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProblemSolution];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
