@@ -9,8 +9,6 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemSearch
     {
-    
-
 
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag)
         {
