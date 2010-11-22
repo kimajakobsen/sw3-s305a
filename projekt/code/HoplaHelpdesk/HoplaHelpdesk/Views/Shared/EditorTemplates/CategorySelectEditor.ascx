@@ -5,10 +5,10 @@
      
         <% for (int i = 0; i < Model.Tags.Count; i++)
            { %>
-
+         
            <%: Html.EditorFor(x => x.Tags[i], "TagSelectEditor") %>
 
-
+             <%: Html.HiddenFor(x => x.Title)  %>
 
         <%  } %>
       

@@ -96,8 +96,8 @@
     <Content Include="Views\CreateProblem\CategorizeNewProblemBackup.aspx" />
     <Content Include="Views\Client\Index.aspx" />
     <Content Include="Views\Client\ViewProblems.aspx" />
-    <Content Include="Views\CreateProblem\EditorTemplates\CategorySelectEditor.ascx" />
-    <Content Include="Views\CreateProblem\EditorTemplates\TagSelectEditor.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\CreateProblem\Index.aspx" />
     <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Views\Staff\Index.aspx" />

@@ -4,8 +4,8 @@
         
         <%: Model.Title %>
       <%: Html.CheckBoxFor(x => x.IsSelected)%>
-
-  
+      <%: Html.HiddenFor(x => x.Id) %>
+    <%: Html.HiddenFor(x => x.Title) %>
 
  
 
