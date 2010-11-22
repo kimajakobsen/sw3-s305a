@@ -97,6 +97,7 @@
     <Content Include="Views\Client\Index.aspx" />
     <Content Include="Views\Client\ViewProblems.aspx" />
     <Content Include="Views\CreateProblem\EditorTemplates\CategorySelectEditor.ascx" />
+    <Content Include="Views\CreateProblem\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\CreateProblem\Index.aspx" />
     <Content Include="Views\Staff\GetWorklist.aspx" />
     <Content Include="Views\Staff\Index.aspx" />
