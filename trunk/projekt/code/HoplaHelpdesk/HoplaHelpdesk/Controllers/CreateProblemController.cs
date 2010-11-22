@@ -74,11 +74,11 @@ namespace HoplaHelpdesk.Controllers
         }
 
         [HttpPost]
-        public ActionResult CategorizeNewProblem(FormCollection collection)
+        public ActionResult CategorizeNewProblem(CategoryTagSelectionViewModel  cats)
         {
             // try
             var col = collection;
-            var cats = new List<Category>();
+            //var cats = new List<Category>();
             var newcats = new List<Category>();
             foreach (var cat in cats)
             {

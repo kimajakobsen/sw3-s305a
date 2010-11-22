@@ -4,13 +4,7 @@
         <%: Html.ValidationSummary(true) %>
         
         <%: Model.Title %>
-        <fieldset>
-            <legend>Fields</legend>
-            
-            <p>
-                <input type="submit" value="Save" />
-            </p>
-        </fieldset>
+      <%: Html.CheckBoxFor(x => x.IsSelected)%>
 
     <% } %>
 
