@@ -22,9 +22,46 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult CategorizeNewProblem()
         {
+            var categories = new List<Category>()
+            {
+                new Category(){
+                    Title = "Computers",
+                    Tags = new List<Tag>()
+                    {
+                        new Tag() 
+                        {
+                            Title = "Tag1"
+                        },  
+                        new Tag() 
+                        {
+                            Title = "Tag1"
+                        }
+
+                    }
+                },
+
+                new Category()
+                {
+                    Title = "Sodavand",
+                    Tags = new List<Tag>()
+                    {
+                        new Tag() 
+                        {
+                            Title = "Tag1"
+                        },  
+                        new Tag() 
+                        {
+                            Title = "Tag2"
+                        }
+
+                    }
+
+                }
 
 
-            return View();
+            };
+
+            return View(categories);
 
         }
 
