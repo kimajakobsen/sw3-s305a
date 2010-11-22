@@ -29,7 +29,8 @@
                 
                 </td>
                 <td>
-                    <%: Html.CheckBoxFor(model => model.Single(t => t.Title == item.Title).Tags.Single(b => b.Id == tag.Id).IsSelected ) %>
+                    <%: Html.CheckBoxFor(model => model.Single(t => t.Title == item.Title).Tags.Single(b => b.Id == tag.Id)
+                                            .IsSelected, new HoplaHelpdesk.Models.Category() { Tags =  new List<HoplaHelpdesk.Models.Tag>() })%>
                 </td>
                 
                 
