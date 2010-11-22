@@ -69,6 +69,25 @@ namespace HoplaHelpdesk.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult CategorizeNewProblem(FormCollection collection)
+        {
+            try
+            {
+               
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+                //return View();
+            }
+        }
+
+
+
+
         public ActionResult ViewProblems()
         {
             var problemList =  new List<Problem>(){
