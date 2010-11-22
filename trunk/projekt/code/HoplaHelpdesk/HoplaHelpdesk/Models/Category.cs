@@ -7,7 +7,7 @@ namespace HoplaHelpdesk.Models
 {
     public class Category
     {
-        public List<Tag> Tags;
-        public string Title;
+        public List<Tag> Tags {get;set;}
+        public string Title { get; set; }
     }
 }

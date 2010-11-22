@@ -7,8 +7,8 @@ namespace HoplaHelpdesk.Models
 {
     public class Tag
     {
-        public string Title;
-        public bool IsSelected;
-        public int Id;
+        public string Title { get; set; }
+        public bool IsSelected { get; set; }
+        public int Id { get; set; }
     }
 }
