@@ -30,11 +30,13 @@ namespace HoplaHelpdesk.Controllers
                     {
                         new Tag() 
                         {
-                            Title = "Tag1"
+                            Title = "Tag1",
+                            Id = 3
                         },  
                         new Tag() 
                         {
-                            Title = "Tag1"
+                            Title = "Tag1",
+                            Id = 4
                         }
 
                     }
@@ -47,11 +49,13 @@ namespace HoplaHelpdesk.Controllers
                     {
                         new Tag() 
                         {
-                            Title = "Tag1"
+                            Title = "Tag1",
+                            Id = 1
                         },  
                         new Tag() 
                         {
-                            Title = "Tag2"
+                            Title = "Tag2",
+                            Id = 2
                         }
 
                     }

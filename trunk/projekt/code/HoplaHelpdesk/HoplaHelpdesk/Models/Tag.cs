@@ -9,5 +9,6 @@ namespace HoplaHelpdesk.Models
     {
         public string Title;
         public bool IsSelected;
+        public int Id;
     }
 }

@@ -25,11 +25,11 @@
                     { %>
                 <tr>
                 <td>
-                <%: tag.Title%>
+                <%: tag.Title %>
                 
                 </td>
                 <td>
-                    <%: Html.CheckBoxFor(tag => tag.) %>
+                    <%: Html.CheckBoxFor(model => model.Single(t => t.Title == item.Title).Tags.Single(b => b.Id == tag.Id).IsSelected) %>
                 </td>
                 
                 
