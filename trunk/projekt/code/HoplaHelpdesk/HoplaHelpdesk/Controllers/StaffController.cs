@@ -12,7 +12,7 @@ namespace HoplaHelpdesk.Controllers
     {
         // GET: /Staff/
 
-        [Authorize(Roles="Staff")]
+        //[Authorize(Roles="Staff")]
         public ActionResult Worklist()
         {
             DBEntities DB = new DBEntities();
@@ -31,9 +31,17 @@ namespace HoplaHelpdesk.Controllers
                     Title = "Problem title 2" , AssignedTo = "Not john"
                 }
             };*/
+            
+            var problemList = new List<Problem>();
 
+            //problemList = (from Problem in DB.ProblemSet select Problem).ToList();
 
-            var problemList = (from Problem in DB.ProblemSet where Problem.AssignedTo == "John" select Problem).ToList();
+            var qq = from Problem in DB.ProblemSet select Problem;
+            
+            foreach (var aa in qq)
+            {
+                problemList.Add(aa);
+            }
 
                 //var cartItems = (from cart in storeDB.Carts where cart.CartId == shoppingCartId
                 //return cartItems;
@@ -45,7 +53,7 @@ namespace HoplaHelpdesk.Controllers
             };
          
 
-            return View(problemList);
+            return View(problems);
         }
 
         public ActionResult Index()
