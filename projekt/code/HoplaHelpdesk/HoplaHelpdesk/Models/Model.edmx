@@ -48,7 +48,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Added_date" Type="datetime" Nullable="false" />
     <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
@@ -57,7 +57,6 @@
     <Property Name="AssignedTo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Reassignable" Type="bit" Nullable="false" />
     <Property Name="SolvedAtTime" Type="datetime" Nullable="false" />
-    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="TagSet">
     <Key>
@@ -329,7 +328,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Problem)">
         <MappingFragment StoreEntitySet="ProblemSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Title" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Added_date" ColumnName="Added_date" />
           <ScalarProperty Name="Status" ColumnName="Status" />
