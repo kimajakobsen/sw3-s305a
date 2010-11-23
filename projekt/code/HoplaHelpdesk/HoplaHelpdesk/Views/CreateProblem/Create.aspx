@@ -13,8 +13,9 @@
 
         <fieldset>
             <legend>Fields</legend>
-            <% Html.RenderPartial("ProblemEditor"); %>
-            <% Html.RenderPartial("CategoryTagSelectionEditor"); %>
+            <%: Html.EditorFor(x => x.CatTag,"ProblemEditor") %>
+
+            <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectionEditor") %>
  
             <p>
                 <input type="submit" value="Create" />

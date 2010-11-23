@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
-Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSelectionViewModel>" %>
+Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.CatTagWithSelectionViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	CategorizeNewProblem
@@ -12,7 +12,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSele
     <% using (Html.BeginForm()) {%>
   
         <div class="editor-field">
-        <% Html.EditorFor(x => x.CatTag, "CategoryTagSelectEditor"); %>
+        <%: Html.EditorForModel("CategoryTagSelectEditor") %>
         </div>
 
         <fieldset>
