@@ -115,6 +115,7 @@
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\CreateProblem\Index.aspx" />
     <Content Include="Views\Shared\ProblemList.ascx" />
+    <Content Include="Views\Shared\ViewUserControl1.ascx" />
     <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Views\Staff\Index.aspx" />
     <Content Include="Web.config" />

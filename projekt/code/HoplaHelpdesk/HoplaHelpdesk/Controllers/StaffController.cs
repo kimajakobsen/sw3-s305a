@@ -36,6 +36,7 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
+
             return View();
         }
 
