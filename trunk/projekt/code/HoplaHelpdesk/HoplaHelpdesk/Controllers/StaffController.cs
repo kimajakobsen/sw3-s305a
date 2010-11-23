@@ -8,16 +8,22 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
+    [Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
         // GET: /Staff/
 
-        [Authorize(Roles="Staff")]
+        
         public ActionResult Worklist()
         {
             DBEntities DB = new DBEntities();
             var problemList = (from Problem in DB.ProblemSet where Problem.AssignedTo == "John" select Problem).ToList();
-            return View(problemList);
+
+            var viewModel = new ProblemListViewModel()
+            {
+                Problems = problemList
+            };
+            return View(viewModel);
         }
 
         public ActionResult Index()
