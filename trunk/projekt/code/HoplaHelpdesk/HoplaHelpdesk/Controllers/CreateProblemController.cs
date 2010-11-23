@@ -43,8 +43,7 @@ namespace HoplaHelpdesk.Controllers
         {
            
                  Session["SelectedCatTag"] = cats;
-             
-               
+  
                  return RedirectToAction("SimilarProblems");
             
 
@@ -61,9 +60,9 @@ namespace HoplaHelpdesk.Controllers
             if(Session["SelectedCatTag"] == null)
             {
                 var categories = db.CategorySet.ToList();
-                {
-                    catViewModel.Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
-                };
+
+                catViewModel.Categories = CategoryTagSelectionViewModel.ConvertTo(categories);
+                
             } else 
             {
                 catViewModel = (CategoryTagSelectionViewModel)Session["SelectedCatTag"];

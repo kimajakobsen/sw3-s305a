@@ -9,6 +9,14 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemSearch
     {
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="catTag">A CategoryTagSelectionViewModel</param>
+        /// <param name="db">DB entitites</param>
+        /// <returns></returns>
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag, DBEntities db)
         {
             List<Problem> result;
