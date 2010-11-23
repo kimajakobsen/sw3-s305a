@@ -6,6 +6,9 @@ using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.ViewModels
 {
+    /// <summary>
+    /// ViewModel for a  Problem List containing attributes for Deletable and 
+    /// </summary>
     public class ProblemListViewModel
     {
 

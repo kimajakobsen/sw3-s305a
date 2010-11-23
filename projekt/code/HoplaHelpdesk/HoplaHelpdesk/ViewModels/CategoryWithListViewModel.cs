@@ -6,14 +6,30 @@ using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.ViewModels
 {
+    /// <summary>
+    /// This is a wrapper for the Model.Category Class. This uses a List&lt;T&gt; enstead of a EntityCollection&lt;T&gt. Beaware that it does not map all properties of the Category.
+    /// </summary>
     public class CategoryWithListViewModel : Category
     {
+
+        /// <summary>
+        /// <code>Tags</code> list is the same as <code>Tag</code> except that is uses a List&lt;T&gt; enstead of a EntityCollection&lt;T&gt;
+        /// </summary>
         public List<Tag> TagList { get; set; }
 
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
         public CategoryWithListViewModel()
         {
 
         }
+
+        /// <summary>
+        /// This maps a Category to a CategoryWithListViewModel. Beware that it does not map all Category Properties. 
+        /// </summary>
+        /// <param name="cat">A category, which will be mapped to a CategoryWithListViewModel</param>
         public CategoryWithListViewModel(Category cat)
         {
             Id = cat.Id;
