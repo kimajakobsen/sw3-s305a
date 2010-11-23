@@ -693,26 +693,10 @@ namespace HoplaHelpdesk.Models
         /// Create a new Problem object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        /// <param name="description">Initial value of the Description property.</param>
-        /// <param name="added_date">Initial value of the Added_date property.</param>
-        /// <param name="deadline">Initial value of the Deadline property.</param>
-        /// <param name="isDeadlineApproved">Initial value of the IsDeadlineApproved property.</param>
-        /// <param name="assignedTo">Initial value of the AssignedTo property.</param>
-        /// <param name="reassignable">Initial value of the Reassignable property.</param>
-        /// <param name="solvedAtTime">Initial value of the SolvedAtTime property.</param>
-        public static Problem CreateProblem(global::System.Int32 id, global::System.String title, global::System.String description, global::System.DateTime added_date, global::System.DateTime deadline, global::System.Boolean isDeadlineApproved, global::System.String assignedTo, global::System.Boolean reassignable, global::System.DateTime solvedAtTime)
+        public static Problem CreateProblem(global::System.Int32 id)
         {
             Problem problem = new Problem();
             problem.Id = id;
-            problem.Title = title;
-            problem.Description = description;
-            problem.Added_date = added_date;
-            problem.Deadline = deadline;
-            problem.IsDeadlineApproved = isDeadlineApproved;
-            problem.AssignedTo = assignedTo;
-            problem.Reassignable = reassignable;
-            problem.SolvedAtTime = solvedAtTime;
             return problem;
         }
 
@@ -749,7 +733,7 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Title
         {
@@ -761,7 +745,7 @@ namespace HoplaHelpdesk.Models
             {
                 OnTitleChanging(value);
                 ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
+                _Title = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Title");
                 OnTitleChanged();
             }
@@ -773,7 +757,7 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -785,7 +769,7 @@ namespace HoplaHelpdesk.Models
             {
                 OnDescriptionChanging(value);
                 ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, false);
+                _Description = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Description");
                 OnDescriptionChanged();
             }
@@ -797,9 +781,9 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime Added_date
+        public Nullable<global::System.DateTime> Added_date
         {
             get
             {
@@ -814,16 +798,16 @@ namespace HoplaHelpdesk.Models
                 OnAdded_dateChanged();
             }
         }
-        private global::System.DateTime _Added_date;
-        partial void OnAdded_dateChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _Added_date;
+        partial void OnAdded_dateChanging(Nullable<global::System.DateTime> value);
         partial void OnAdded_dateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime Deadline
+        public Nullable<global::System.DateTime> Deadline
         {
             get
             {
@@ -838,16 +822,16 @@ namespace HoplaHelpdesk.Models
                 OnDeadlineChanged();
             }
         }
-        private global::System.DateTime _Deadline;
-        partial void OnDeadlineChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _Deadline;
+        partial void OnDeadlineChanging(Nullable<global::System.DateTime> value);
         partial void OnDeadlineChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Boolean IsDeadlineApproved
+        public Nullable<global::System.Boolean> IsDeadlineApproved
         {
             get
             {
@@ -862,14 +846,14 @@ namespace HoplaHelpdesk.Models
                 OnIsDeadlineApprovedChanged();
             }
         }
-        private global::System.Boolean _IsDeadlineApproved;
-        partial void OnIsDeadlineApprovedChanging(global::System.Boolean value);
+        private Nullable<global::System.Boolean> _IsDeadlineApproved;
+        partial void OnIsDeadlineApprovedChanging(Nullable<global::System.Boolean> value);
         partial void OnIsDeadlineApprovedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String AssignedTo
         {
@@ -881,7 +865,7 @@ namespace HoplaHelpdesk.Models
             {
                 OnAssignedToChanging(value);
                 ReportPropertyChanging("AssignedTo");
-                _AssignedTo = StructuralObject.SetValidValue(value, false);
+                _AssignedTo = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("AssignedTo");
                 OnAssignedToChanged();
             }
@@ -893,9 +877,9 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Boolean Reassignable
+        public Nullable<global::System.Boolean> Reassignable
         {
             get
             {
@@ -910,16 +894,16 @@ namespace HoplaHelpdesk.Models
                 OnReassignableChanged();
             }
         }
-        private global::System.Boolean _Reassignable;
-        partial void OnReassignableChanging(global::System.Boolean value);
+        private Nullable<global::System.Boolean> _Reassignable;
+        partial void OnReassignableChanging(Nullable<global::System.Boolean> value);
         partial void OnReassignableChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime SolvedAtTime
+        public Nullable<global::System.DateTime> SolvedAtTime
         {
             get
             {
@@ -934,8 +918,8 @@ namespace HoplaHelpdesk.Models
                 OnSolvedAtTimeChanged();
             }
         }
-        private global::System.DateTime _SolvedAtTime;
-        partial void OnSolvedAtTimeChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _SolvedAtTime;
+        partial void OnSolvedAtTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnSolvedAtTimeChanged();
 
         #endregion
