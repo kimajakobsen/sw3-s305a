@@ -15,24 +15,34 @@ namespace HoplaHelpdesk.Controllers
         [Authorize(Roles="Staff")]
         public ActionResult Worklist()
         {
-            DBEntities DB = new DBEntities();
+            /*DBEntities DB = new DBEntities();
 
-            var probs = from Problem in DB.ProblemSet 
-                        where (Problem.AssignedTo == "John")
-                        select Problem;
+            var problems = (from Problem in DB.ProblemSet 
+                            where (Problem.AssignedTo == "John")
+                        select Problem;)
 
-            /*var problemList = new List<Problem>(){
+            var problems = (from cart in DB.ProblemSet select*/
+
+            var problemList = new List<Problem>(){
+
                 new Problem(){
-                    Title = probs.ToString(), AssignedTo = "myownStaffId"
+                    Title = "John", AssignedTo = "myownStaffId"
                 }, new Problem(){
                     Title = "Mikael" , AssignedTo = "myNOTownStaffId"
                 }
             };
+
+            
+
+
+                //var cartItems = (from cart in storeDB.Carts where cart.CartId == shoppingCartId
+                //return cartItems;
+
              
             var problems = new ProblemListViewModel()
             {
                 Problems = problemList
-            };*/
+            };
          
 
             return View(problemList);
