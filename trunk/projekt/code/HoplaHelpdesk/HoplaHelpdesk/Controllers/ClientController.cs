@@ -37,7 +37,7 @@ namespace HoplaHelpdesk.Controllers
             };
          
 
-            return View(problemList);
+            return View(problems);
         }
 
         //
