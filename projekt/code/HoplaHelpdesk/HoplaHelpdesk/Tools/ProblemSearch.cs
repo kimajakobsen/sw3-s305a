@@ -17,7 +17,7 @@ namespace HoplaHelpdesk.Tools
 
             if (catTag.Categories != null)
             {
-                foreach (Tag tag in catTag.AllTags())
+                foreach (Tag tag in catTag.AllTagsSelected())
                 {
                     temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.Tags.Contains(tag));
                 }
