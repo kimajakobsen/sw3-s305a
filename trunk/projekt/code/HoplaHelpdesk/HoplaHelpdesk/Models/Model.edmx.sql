@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/22/2010 16:54:52
--- Generated from EDMX file: C:\Users\John\Documents\sw3\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\Model.edmx
+-- Date Created: 11/23/2010 10:51:00
+-- Generated from EDMX file: C:\Users\Kim\Desktop\SVN\sw3-s305a\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -133,15 +133,15 @@ GO
 
 -- Creating table 'ProblemTag'
 CREATE TABLE [dbo].[ProblemTag] (
-    [Problem_Id] int  NOT NULL,
-    [Tag_Id] int  NOT NULL
+    [Problems_Id] int  NOT NULL,
+    [Tags_Id] int  NOT NULL
 );
 GO
 
 -- Creating table 'ProblemSolution'
 CREATE TABLE [dbo].[ProblemSolution] (
-    [Problem_Id] int  NOT NULL,
-    [Solution_Id] int  NOT NULL
+    [Problems_Id] int  NOT NULL,
+    [Solutions_Id] int  NOT NULL
 );
 GO
 
@@ -185,35 +185,35 @@ ADD CONSTRAINT [PK_CommentSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Problem_Id], [Tag_Id] in table 'ProblemTag'
+-- Creating primary key on [Problems_Id], [Tags_Id] in table 'ProblemTag'
 ALTER TABLE [dbo].[ProblemTag]
 ADD CONSTRAINT [PK_ProblemTag]
-    PRIMARY KEY NONCLUSTERED ([Problem_Id], [Tag_Id] ASC);
+    PRIMARY KEY NONCLUSTERED ([Problems_Id], [Tags_Id] ASC);
 GO
 
--- Creating primary key on [Problem_Id], [Solution_Id] in table 'ProblemSolution'
+-- Creating primary key on [Problems_Id], [Solutions_Id] in table 'ProblemSolution'
 ALTER TABLE [dbo].[ProblemSolution]
 ADD CONSTRAINT [PK_ProblemSolution]
-    PRIMARY KEY NONCLUSTERED ([Problem_Id], [Solution_Id] ASC);
+    PRIMARY KEY NONCLUSTERED ([Problems_Id], [Solutions_Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [Problem_Id] in table 'ProblemTag'
+-- Creating foreign key on [Problems_Id] in table 'ProblemTag'
 ALTER TABLE [dbo].[ProblemTag]
 ADD CONSTRAINT [FK_ProblemTag_Problem]
-    FOREIGN KEY ([Problem_Id])
+    FOREIGN KEY ([Problems_Id])
     REFERENCES [dbo].[ProblemSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Tag_Id] in table 'ProblemTag'
+-- Creating foreign key on [Tags_Id] in table 'ProblemTag'
 ALTER TABLE [dbo].[ProblemTag]
 ADD CONSTRAINT [FK_ProblemTag_Tag]
-    FOREIGN KEY ([Tag_Id])
+    FOREIGN KEY ([Tags_Id])
     REFERENCES [dbo].[TagSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -221,7 +221,7 @@ ADD CONSTRAINT [FK_ProblemTag_Tag]
 -- Creating non-clustered index for FOREIGN KEY 'FK_ProblemTag_Tag'
 CREATE INDEX [IX_FK_ProblemTag_Tag]
 ON [dbo].[ProblemTag]
-    ([Tag_Id]);
+    ([Tags_Id]);
 GO
 
 -- Creating foreign key on [Department_Id] in table 'CategorySet'
@@ -238,19 +238,19 @@ ON [dbo].[CategorySet]
     ([Department_Id]);
 GO
 
--- Creating foreign key on [Problem_Id] in table 'ProblemSolution'
+-- Creating foreign key on [Problems_Id] in table 'ProblemSolution'
 ALTER TABLE [dbo].[ProblemSolution]
 ADD CONSTRAINT [FK_ProblemSolution_Problem]
-    FOREIGN KEY ([Problem_Id])
+    FOREIGN KEY ([Problems_Id])
     REFERENCES [dbo].[ProblemSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Solution_Id] in table 'ProblemSolution'
+-- Creating foreign key on [Solutions_Id] in table 'ProblemSolution'
 ALTER TABLE [dbo].[ProblemSolution]
 ADD CONSTRAINT [FK_ProblemSolution_Solution]
-    FOREIGN KEY ([Solution_Id])
+    FOREIGN KEY ([Solutions_Id])
     REFERENCES [dbo].[SolutionSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -258,7 +258,7 @@ ADD CONSTRAINT [FK_ProblemSolution_Solution]
 -- Creating non-clustered index for FOREIGN KEY 'FK_ProblemSolution_Solution'
 CREATE INDEX [IX_FK_ProblemSolution_Solution]
 ON [dbo].[ProblemSolution]
-    ([Solution_Id]);
+    ([Solutions_Id]);
 GO
 
 -- Creating foreign key on [Problem_Id] in table 'CommentSet'

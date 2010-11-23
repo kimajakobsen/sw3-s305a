@@ -104,19 +104,19 @@
   </EntityType>
   <EntityType Name="ProblemTag">
     <Key>
-      <PropertyRef Name="Problem_Id" />
-      <PropertyRef Name="Tag_Id" />
+      <PropertyRef Name="Problems_Id" />
+      <PropertyRef Name="Tags_Id" />
     </Key>
-    <Property Name="Problem_Id" Type="int" Nullable="false" />
-    <Property Name="Tag_Id" Type="int" Nullable="false" />
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+    <Property Name="Tags_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProblemSolution">
     <Key>
-      <PropertyRef Name="Problem_Id" />
-      <PropertyRef Name="Solution_Id" />
+      <PropertyRef Name="Problems_Id" />
+      <PropertyRef Name="Solutions_Id" />
     </Key>
-    <Property Name="Problem_Id" Type="int" Nullable="false" />
-    <Property Name="Solution_Id" Type="int" Nullable="false" />
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+    <Property Name="Solutions_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="DepartmentCategory">
     <End Role="Department" Type="Model1.Store.DepartmentSet" Multiplicity="1" />
@@ -162,7 +162,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemTag">
-        <PropertyRef Name="Problem_Id" />
+        <PropertyRef Name="Problems_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -174,7 +174,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemTag">
-        <PropertyRef Name="Tag_Id" />
+        <PropertyRef Name="Tags_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -186,7 +186,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemSolution">
-        <PropertyRef Name="Problem_Id" />
+        <PropertyRef Name="Problems_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -198,7 +198,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ProblemSolution">
-        <PropertyRef Name="Solution_Id" />
+        <PropertyRef Name="Solutions_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -390,10 +390,10 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="ProblemTag" TypeName="Model1.ProblemTag" StoreEntitySet="ProblemTag">
       <EndProperty Name="Problem">
-        <ScalarProperty Name="Id" ColumnName="Problem_Id" />
+        <ScalarProperty Name="Id" ColumnName="Problems_Id" />
       </EndProperty>
       <EndProperty Name="Tag">
-        <ScalarProperty Name="Id" ColumnName="Tag_Id" />
+        <ScalarProperty Name="Id" ColumnName="Tags_Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="DepartmentCategory" TypeName="Model1.DepartmentCategory" StoreEntitySet="CategorySet">
@@ -406,10 +406,10 @@
     </AssociationSetMapping>
     <AssociationSetMapping Name="ProblemSolution" TypeName="Model1.ProblemSolution" StoreEntitySet="ProblemSolution">
       <EndProperty Name="Problem">
-        <ScalarProperty Name="Id" ColumnName="Problem_Id" />
+        <ScalarProperty Name="Id" ColumnName="Problems_Id" />
       </EndProperty>
       <EndProperty Name="Solution">
-        <ScalarProperty Name="Id" ColumnName="Solution_Id" />
+        <ScalarProperty Name="Id" ColumnName="Solutions_Id" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="CommentProblem" TypeName="Model1.CommentProblem" StoreEntitySet="CommentSet">
