@@ -7,10 +7,22 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Similar Problems</h2>
-    <% Html.RenderPartial("ProblemList", Model); %>
 
-    <p>
-       <%: Html.ActionLink("No problem Suffice", "Create") %>
-    </p>
+    
+    <% using (Html.BeginForm("NoSufficeCreate", "CreateProblem")) {%>
+        <%: Html.ValidationSummary(true) %>
+        
+        <%: Html.HiddenFor(x => x.SelectedCatTag) %>
+          
+
+    
+    <% Html.RenderPartial("ProblemList", Model); %>
+    
+     <p>
+                <input type="submit" value="No Problem Suffice" />
+            </p>
+    
+    <% } %>
+
 
 </asp:Content>
