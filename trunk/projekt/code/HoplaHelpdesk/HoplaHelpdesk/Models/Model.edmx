@@ -239,7 +239,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <Property Type="DateTime" Name="Added_date" Nullable="false" />
           <Property Type="String" Name="Status" Nullable="false" />
@@ -251,7 +251,6 @@
           <Property Type="DateTime" Name="SolvedAtTime" Nullable="false" />
           <NavigationProperty Name="Solutions" Relationship="Model1.ProblemSolution" FromRole="Problem" ToRole="Solution" />
           <NavigationProperty Name="Comments" Relationship="Model1.CommentProblem" FromRole="Problem" ToRole="Comment" />
-          <Property Type="String" Name="Title" Nullable="false" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -330,7 +329,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Problem)">
         <MappingFragment StoreEntitySet="ProblemSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Added_date" ColumnName="Added_date" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -339,7 +338,6 @@
           <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
           <ScalarProperty Name="Reassignable" ColumnName="Reassignable" />
           <ScalarProperty Name="SolvedAtTime" ColumnName="SolvedAtTime" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -447,7 +445,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram Name="Model1" ZoomLevel="86" >
-        <EntityTypeShape EntityType="Model1.Problem" Width="1.5" PointX="0.5" PointY="3.375" Height="3.7109993489583326" />
+        <EntityTypeShape EntityType="Model1.Problem" Width="1.5" PointX="0.5" PointY="3.375" Height="3.5186979166666656" />
         <EntityTypeShape EntityType="Model1.Tag" Width="1.5" PointX="6" PointY="3.875" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="Model1.Department" Width="1.5" PointX="2.5" PointY="0.5" Height="1.787985026041667" />
         <EntityTypeShape EntityType="Model1.Category" Width="1.5" PointX="4.75" PointY="0.5" Height="1.9802864583333331" />

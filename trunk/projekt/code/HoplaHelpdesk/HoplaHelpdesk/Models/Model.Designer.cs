@@ -693,7 +693,7 @@ namespace HoplaHelpdesk.Models
         /// Create a new Problem object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="title">Initial value of the Title property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="added_date">Initial value of the Added_date property.</param>
         /// <param name="status">Initial value of the Status property.</param>
@@ -702,12 +702,11 @@ namespace HoplaHelpdesk.Models
         /// <param name="assignedTo">Initial value of the AssignedTo property.</param>
         /// <param name="reassignable">Initial value of the Reassignable property.</param>
         /// <param name="solvedAtTime">Initial value of the SolvedAtTime property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        public static Problem CreateProblem(global::System.Int32 id, global::System.String name, global::System.String description, global::System.DateTime added_date, global::System.String status, global::System.DateTime deadline, global::System.Boolean isDeadlineApproved, global::System.String assignedTo, global::System.Boolean reassignable, global::System.DateTime solvedAtTime, global::System.String title)
+        public static Problem CreateProblem(global::System.Int32 id, global::System.String title, global::System.String description, global::System.DateTime added_date, global::System.String status, global::System.DateTime deadline, global::System.Boolean isDeadlineApproved, global::System.String assignedTo, global::System.Boolean reassignable, global::System.DateTime solvedAtTime)
         {
             Problem problem = new Problem();
             problem.Id = id;
-            problem.Name = name;
+            problem.Title = title;
             problem.Description = description;
             problem.Added_date = added_date;
             problem.Status = status;
@@ -716,7 +715,6 @@ namespace HoplaHelpdesk.Models
             problem.AssignedTo = assignedTo;
             problem.Reassignable = reassignable;
             problem.SolvedAtTime = solvedAtTime;
-            problem.Title = title;
             return problem;
         }
 
@@ -755,24 +753,24 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Name
+        public global::System.String Title
         {
             get
             {
-                return _Name;
+                return _Title;
             }
             set
             {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Name");
-                OnNameChanged();
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
             }
         }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -965,30 +963,6 @@ namespace HoplaHelpdesk.Models
         private global::System.DateTime _SolvedAtTime;
         partial void OnSolvedAtTimeChanging(global::System.DateTime value);
         partial void OnSolvedAtTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
 
         #endregion
     
