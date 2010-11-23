@@ -11,8 +11,11 @@ namespace HoplaHelpdesk.ViewModels
     /// </summary>
     public class ProblemListViewModel
     {
+
         public List<Problem> Problems {get;set;}
         public bool Editable { get; set; }
         public bool Deletable { get; set; }
+        public CategoryTagSelectionViewModel SelectedCatTag { get; set; }
+
     }
 }

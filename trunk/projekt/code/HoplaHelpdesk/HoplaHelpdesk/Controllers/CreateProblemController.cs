@@ -17,12 +17,10 @@ namespace HoplaHelpdesk.Controllers
 
         //
         // GET: /CreateProblem/
-
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("CategorizeNewProblem");
         }
-
 
         /// <summary>
         /// This action method is called when a problem should be categorized
@@ -31,14 +29,11 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult CategorizeNewProblem()
         {
             var categories = db.CategorySet.ToList();
-
             var catVievModel = new CategoryTagSelectionViewModel()
             {
                 Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
-
             return View(catVievModel);
-
         }
 
 
@@ -57,7 +52,7 @@ namespace HoplaHelpdesk.Controllers
                      Problems = problems
 
                  };
-
+               
                  return View("SimilarProblems", problemView);
              }
              catch

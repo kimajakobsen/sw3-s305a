@@ -112,6 +112,7 @@
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategoryTagSelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ProblemEditor.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\ProblemList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\CreateProblem\Index.aspx" />
     <Content Include="Views\Shared\ViewUserControl1.ascx" />
