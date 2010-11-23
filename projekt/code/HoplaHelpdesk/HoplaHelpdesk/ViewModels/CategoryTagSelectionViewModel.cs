@@ -44,5 +44,16 @@ namespace HoplaHelpdesk.ViewModels
         {
             return CategoryTagSelectionViewModel.ConvertTo(list.ToList());
         }
+
+
+        public List<Tag> AllTags()
+        {
+            var tags = new List<Tag>();
+
+
+
+            return tags;
+
+        }
     }
 }
