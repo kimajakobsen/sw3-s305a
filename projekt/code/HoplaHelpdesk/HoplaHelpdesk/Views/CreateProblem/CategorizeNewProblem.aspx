@@ -18,15 +18,12 @@
         <!--
         <div class="editor-field">
         <% for(int i = 0; i < Model.Categories.Count; i++)
-           { %>
+           { %>  
          <%: Html.EditorFor(x => x.Categories[i], "CategorySelectEditor") %>
          <% }
            %>
         </div>
-       -->
 
-
-       
         <fieldset>
             <legend>Fields</legend>
             
