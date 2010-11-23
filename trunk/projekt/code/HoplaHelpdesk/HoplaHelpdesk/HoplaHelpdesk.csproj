@@ -109,6 +109,7 @@
     <Content Include="Views\Client\ViewProblems.aspx" />
     <Content Include="Views\CreateProblem\Copy of Create.aspx" />
     <Content Include="Views\CreateProblem\Create.aspx" />
+    <Content Include="Views\CreateProblem\Details.aspx" />
     <Content Include="Views\CreateProblem\SimilarProblems.aspx" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategoryTagSelectEditor.ascx" />
