@@ -48,7 +48,7 @@ namespace HoplaHelpdesk.Controllers
         {
              try
              {
-                 var problems = ProblemSearch.Search(cats);
+                 var problems = ProblemSearch.Search(cats,db);
 
                  var problemView = new ProblemListViewModel()
                  {

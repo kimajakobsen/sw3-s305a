@@ -51,7 +51,6 @@
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Added_date" Type="datetime" Nullable="false" />
-    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Deadline" Type="datetime" Nullable="false" />
     <Property Name="IsDeadlineApproved" Type="bit" Nullable="false" />
     <Property Name="AssignedTo" Type="nvarchar(max)" Nullable="false" />

@@ -9,9 +9,9 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemSearch
     {
-
-        public static List<Problem> Search(CategoryTagSelectionViewModel catTag)
+        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, DBEntities db)
         {
+            /*
             var probs = new List<Problem>(){ 
                 new Problem(){
                     Title = "Something with coms",
@@ -24,8 +24,19 @@ namespace HoplaHelpdesk.Tools
                     
                 }
 
-            };
-            return probs;
+            };*/
+
+            List<Problem> result;
+
+            var temp = db.ProblemSet;
+            foreach(Tag tag in catTag.AllTags())
+            {
+                temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.Tags.Contains(tag));
+            }
+
+            result = temp.ToList();
+
+            return result;
         }
 
     }

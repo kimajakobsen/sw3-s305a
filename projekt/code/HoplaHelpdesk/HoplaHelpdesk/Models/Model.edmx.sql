@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/23/2010 13:07:17
--- Generated from EDMX file: C:\Users\Magnus Stubman\Documents\Visual Studio 2010\Projects\HoplaHelpdesk(2)\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\Model.edmx
+-- Date Created: 11/23/2010 13:46:52
+-- Generated from EDMX file: C:\Documents and Settings\aba\My Documents\3.SW\P3\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -78,7 +78,6 @@ CREATE TABLE [dbo].[ProblemSet] (
     [Title] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Added_date] datetime  NOT NULL,
-    [Status] nvarchar(max)  NOT NULL,
     [Deadline] datetime  NOT NULL,
     [IsDeadlineApproved] bit  NOT NULL,
     [AssignedTo] nvarchar(max)  NOT NULL,
