@@ -95,7 +95,7 @@ namespace HoplaHelpdesk.Controllers
         // POST: /CreateProblem/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProblemCatTagWithSelectionViewModel model)
         {
             try
             {
