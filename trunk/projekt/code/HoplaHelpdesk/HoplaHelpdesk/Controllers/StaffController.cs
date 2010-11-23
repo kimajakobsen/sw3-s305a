@@ -12,47 +12,11 @@ namespace HoplaHelpdesk.Controllers
     {
         // GET: /Staff/
 
-        //[Authorize(Roles="Staff")]
+        [Authorize(Roles="Staff")]
         public ActionResult Worklist()
         {
             DBEntities DB = new DBEntities();
-
-            /*var problems = (from Problem in DB.ProblemSet 
-                            where (Problem.AssignedTo == "John")
-                        select Problem;)
-
-            var problems = (from cart in DB.ProblemSet select*/
-
-            /*var problemList = new List<Problem>(){
-
-                new Problem(){
-                    Title = "Problem title 1", AssignedTo = "John"
-                }, new Problem(){
-                    Title = "Problem title 2" , AssignedTo = "Not john"
-                }
-            };*/
-            
-            var problemList = new List<Problem>();
-
-            //problemList = (from Problem in DB.ProblemSet select Problem).ToList();
-            problemList = DB.ProblemSet.ToList();
-            /*var qq = from Problem in DB.ProblemSet select Problem;
-            
-            foreach (var aa in qq)
-            {
-                problemList.Add(aa);
-            }*/
-
-                //var cartItems = (from cart in storeDB.Carts where cart.CartId == shoppingCartId
-                //return cartItems;
-
-             
-            var problems = new ProblemListViewModel()
-            {
-                Problems = problemList
-            };
-         
-
+            var problemList = (from Problem in DB.ProblemSet where Problem.AssignedTo == "John" select Problem).ToList();
             return View(problemList);
         }
 
