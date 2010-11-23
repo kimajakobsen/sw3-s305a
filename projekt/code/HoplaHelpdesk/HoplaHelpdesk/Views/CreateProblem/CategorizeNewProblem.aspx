@@ -12,7 +12,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSele
     <% using (Html.BeginForm()) {%>
   
         <div class="editor-field">
-        <% Html.EditorFor(x => x.CatTag,"CategoryTagSelectEditor") %>
+        <% Html.EditorFor(x => x.CatTag, "CategoryTagSelectEditor"); %>
         </div>
 
         <fieldset>
