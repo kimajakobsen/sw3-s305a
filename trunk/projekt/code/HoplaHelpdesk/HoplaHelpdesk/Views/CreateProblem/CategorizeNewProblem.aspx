@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.CategoryTagSelectionViewModel>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
+Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSelectionViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	CategorizeNewProblem
@@ -11,11 +12,7 @@
     <% using (Html.BeginForm()) {%>
   
         <div class="editor-field">
-        <% for(int i = 0; i < Model.Categories.Count; i++)
-           { %>  
-         <%: Html.EditorFor(x => x.Categories[i], "CategorySelectEditor") %>
-         <% }
-          %>
+        <% Html.EditorFor(x => x.CatTag,"CategoryTagSelectEditor") %>
         </div>
 
         <fieldset>
