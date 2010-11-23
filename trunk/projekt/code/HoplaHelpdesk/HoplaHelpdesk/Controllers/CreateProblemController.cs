@@ -62,7 +62,7 @@ namespace HoplaHelpdesk.Controllers
              }
              catch
              {
-                 return RedirectToAction("Create");
+                 return View("Create",cats);
              }
 
             // return RedirectToAction("Index");
@@ -87,6 +87,7 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Create()
         {
+
             return View();
         } 
 
