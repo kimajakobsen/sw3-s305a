@@ -10,9 +10,10 @@
 
      <ul>
     <li>
-    <%: Html.ActionLink("Administrate departments, categories and tags", "Worklist") %>
-    <%: Html.ActionLink("Administrate Persons", " %>
+    <%: Html.ActionLink("Administrate departments, categories and tags", "AdministrateDepartments") %>
+    
     </li>
+
     
     </ul>
 
