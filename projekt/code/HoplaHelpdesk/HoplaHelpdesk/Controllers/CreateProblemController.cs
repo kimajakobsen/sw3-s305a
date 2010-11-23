@@ -49,7 +49,8 @@ namespace HoplaHelpdesk.Controllers
                  {
                      Editable = false,
                      Deletable = false,
-                     Problems = problems
+                     Problems = problems,
+                     SelectedCatTag  = cats
 
                  };
                
@@ -57,7 +58,13 @@ namespace HoplaHelpdesk.Controllers
              }
              catch
              {
-                 return View("Create",cats);
+                 var viewModel = new ProblemCatTagWithSelectionViewModel()
+                 {
+                     CatTag = cats
+                   
+
+                 };
+                 return View("Create",viewModel);
              }
 
             // return RedirectToAction("Index");
@@ -98,7 +105,18 @@ namespace HoplaHelpdesk.Controllers
             };
 
             return View(viewModel);
-        } 
+        }
+
+
+
+
+
+        [HttpPost]
+        public ActionResult NoSufficeCreate(CategoryTagSelectionViewModel SelectedCatTag)
+        {
+
+            return View();
+        }
 
         //
         // POST: /CreateProblem/Create

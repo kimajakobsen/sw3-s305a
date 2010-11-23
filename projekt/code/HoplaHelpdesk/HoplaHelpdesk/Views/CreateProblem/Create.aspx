@@ -13,7 +13,7 @@
         <fieldset>
             <legend>Fields</legend>
            
-              <%: Html.EditorFor(x => x.Problem, "ProblemEditor") %>
+              <%: Html.EditorFor(x => x.Problem, "ProblemCreate") %>
               <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectionEditor") %>
             <p>
                 <input type="submit" value="Create" />
