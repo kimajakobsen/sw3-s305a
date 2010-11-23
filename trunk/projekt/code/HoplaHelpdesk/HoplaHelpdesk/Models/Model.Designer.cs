@@ -14,6 +14,7 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
