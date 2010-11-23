@@ -14,7 +14,6 @@ using System.Data.EntityClient;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
-using System.Collections.Generic;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -34,32 +33,32 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class Model1Container : ObjectContext
+    public partial class DBEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new Model1Container object using the connection string found in the 'Model1Container' section of the application configuration file.
+        /// Initializes a new DBEntities object using the connection string found in the 'DBEntities' section of the application configuration file.
         /// </summary>
-        public Model1Container() : base("name=Model1Container", "Model1Container")
+        public DBEntities() : base("name=DBEntities", "DBEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Model1Container object.
+        /// Initialize a new DBEntities object.
         /// </summary>
-        public Model1Container(string connectionString) : base(connectionString, "Model1Container")
+        public DBEntities(string connectionString) : base(connectionString, "DBEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new Model1Container object.
+        /// Initialize a new DBEntities object.
         /// </summary>
-        public Model1Container(EntityConnection connection) : base(connection, "Model1Container")
+        public DBEntities(EntityConnection connection) : base(connection, "DBEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
