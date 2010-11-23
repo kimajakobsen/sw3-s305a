@@ -105,7 +105,8 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+           var problem = db.ProblemSet.Single(x => x.Id == id);
+            return View(problem);
         }
 
         //

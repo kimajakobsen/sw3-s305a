@@ -1,10 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Problem>" %>
 
-    <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
-        
-        <fieldset>
-            <legend>Fields</legend>
+ 
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Title) %>
             </div>
@@ -29,10 +25,6 @@
             </div>
             
             
-           
-          
-        </fieldset>
-
-    <% } %>
+   
 
   
