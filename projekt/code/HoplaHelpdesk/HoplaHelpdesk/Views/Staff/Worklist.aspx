@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<HoplaHelpdesk.Models.Problem>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemListViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	GetWorklist
@@ -8,36 +8,7 @@
 
     <h2>Your worklist</h2>
 
-    <table>
-        <tr>
-            <th></th>
-        </tr>
-        <%
-            // Get worklist - henter liste med alle problemer, der tilhører den staff der er logget på
-        %>
-    <%  foreach (var item in Model) { %>
-        <% //if  (item.Assignmet == "myownStaffId") { %>
-        <tr>
-            <td>
-                
-                <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
-                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) %>
-
-                
-            </td>
-            <td>
-                <%: item.Title %>
-            </td>
-        </tr>
-        <% //} %>
-    <% } %>
-
-    </table>
-
-    <p>
-        <%: Html.ActionLink("Create New", "Create") %>
-    </p>
+    <% Html.RenderPartial("ProblemList", Model); %>
 
 </asp:Content>
 
