@@ -16,22 +16,22 @@ namespace HoplaHelpdesk.Controllers
         [Authorize(Roles="Staff")]
         public ActionResult Worklist()
         {
-            Model1Container DB = new Model1Container();
+            DBEntities DB = new DBEntities();
 
             var probs = from Problem in DB.ProblemSet select Problem;
 
-            var problemList = new List<Problem>(){
+            /*var problemList = new List<Problem>(){
                 new Problem(){
                     Title = probs.ToString(), AssignedTo = "myownStaffId"
                 }, new Problem(){
                     Title = "Mikael" , AssignedTo = "myNOTownStaffId"
                 }
             };
-
+             
             var problems = new ProblemListViewModel()
             {
                 Problems = problemList
-            };
+            };*/
          
 
             return View(problemList);

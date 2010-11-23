@@ -206,7 +206,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ProblemSet" EntityType="Model1.Problem" />
           <EntitySet Name="TagSet" EntityType="Model1.Tag" />
           <EntitySet Name="DepartmentSet" EntityType="Model1.Department" />
@@ -325,7 +325,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="DBEntities">
     <EntitySetMapping Name="ProblemSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Problem)">
         <MappingFragment StoreEntitySet="ProblemSet">
