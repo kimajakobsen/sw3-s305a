@@ -12,7 +12,7 @@
       
 
      
-      <%: Html.EditorForModel() %>
+      <%: Html.EditorForModel("CategorySelectEditor") %>
 
      
         <!--
