@@ -13,6 +13,8 @@ namespace HoplaHelpdesk.Controllers
 {
     public class CreateProblemController : Controller
     {
+        DBEntities db = new DBEntities();
+
         //
         // GET: /CreateProblem/
 
@@ -22,52 +24,13 @@ namespace HoplaHelpdesk.Controllers
         }
 
 
-
+        /// <summary>
+        /// This action method is called when a problem should be categorized
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CategorizeNewProblem()
         {
-            var categories = new EntityCollection<Category>()
-            {
-                new Category(){
-                    Name = "Computers",
-                    Tags = new EntityCollection<Tag>()
-                    {
-                        new Tag() 
-                        {
-                            Name = "Tag1",
-                            
-                            Id = 3
-                        },  
-                        new Tag() 
-                        {
-                            Name = "Tag1",
-                            Id = 4
-                        }
-
-                    }
-                },
-
-                new Category()
-                {
-                    Name = "Sodavand",
-                    Tags = new EntityCollection<Tag>()
-                    {
-                        new Tag() 
-                        {
-                            Name = "Tag1",
-                            Id = 1
-                        },  
-                        new Tag() 
-                        {
-                            Name = "Tag2",
-                            Id = 2
-                        }
-
-                    }
-
-                }
-
-
-            };
+            var categories = db.CategorySet.ToList();
 
 
             var catVievModel = new CategoryTagSelectionViewModel(){
@@ -85,7 +48,6 @@ namespace HoplaHelpdesk.Controllers
         {
              try
              {
-                 var cat = cats;
                  var problems = ProblemSearch.Search(cats);
 
                  var problemView = new ProblemListViewModel()
@@ -98,7 +60,7 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-                 return View(cats);
+                 return View("SimilarProblems", problemView);
              }
             
             
