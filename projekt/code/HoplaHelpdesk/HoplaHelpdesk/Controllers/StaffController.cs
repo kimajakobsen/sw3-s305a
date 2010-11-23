@@ -35,13 +35,13 @@ namespace HoplaHelpdesk.Controllers
             var problemList = new List<Problem>();
 
             //problemList = (from Problem in DB.ProblemSet select Problem).ToList();
-
-            var qq = from Problem in DB.ProblemSet select Problem;
+            problemList = DB.ProblemSet.ToList();
+            /*var qq = from Problem in DB.ProblemSet select Problem;
             
             foreach (var aa in qq)
             {
                 problemList.Add(aa);
-            }
+            }*/
 
                 //var cartItems = (from cart in storeDB.Carts where cart.CartId == shoppingCartId
                 //return cartItems;
@@ -53,7 +53,7 @@ namespace HoplaHelpdesk.Controllers
             };
          
 
-            return View(problems);
+            return View(problemList);
         }
 
         public ActionResult Index()
