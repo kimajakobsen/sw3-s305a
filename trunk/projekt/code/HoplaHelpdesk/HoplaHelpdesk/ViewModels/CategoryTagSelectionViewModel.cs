@@ -52,11 +52,9 @@ namespace HoplaHelpdesk.ViewModels
         public List<Tag> AllTags()
         {
             var tags = new List<Tag>();
-
             foreach (var category in Categories)
             {
                 tags.AddRange(category.TagList.ToArray());
-
             }
             return tags;
         }
