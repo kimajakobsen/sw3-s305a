@@ -237,15 +237,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Title" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="DateTime" Name="Added_date" Nullable="false" />
-          <Property Type="DateTime" Name="Deadline" Nullable="false" />
-          <Property Type="Boolean" Name="IsDeadlineApproved" Nullable="false" />
-          <Property Type="String" Name="AssignedTo" Nullable="false" />
-          <Property Type="Boolean" Name="Reassignable" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="Added_date" Nullable="true" />
+          <Property Type="DateTime" Name="Deadline" Nullable="true" />
+          <Property Type="Boolean" Name="IsDeadlineApproved" Nullable="true" />
+          <Property Type="String" Name="AssignedTo" Nullable="true" />
+          <Property Type="Boolean" Name="Reassignable" Nullable="true" />
           <NavigationProperty Name="Tags" Relationship="Model1.ProblemTag" FromRole="Problem" ToRole="Tag" />
-          <Property Type="DateTime" Name="SolvedAtTime" Nullable="false" />
+          <Property Type="DateTime" Name="SolvedAtTime" Nullable="true" />
           <NavigationProperty Name="Solutions" Relationship="Model1.ProblemSolution" FromRole="Problem" ToRole="Solution" />
           <NavigationProperty Name="Comments" Relationship="Model1.CommentProblem" FromRole="Problem" ToRole="Comment" />
         </EntityType>
