@@ -45,15 +45,20 @@ namespace HoplaHelpdesk.ViewModels
             return CategoryTagSelectionViewModel.ConvertTo(list.ToList());
         }
 
-
+        /// <summary>
+        /// Gets all tags from all categories in the viewModel.
+        /// </summary>
+        /// <returns>A List of tags</returns>
         public List<Tag> AllTags()
         {
             var tags = new List<Tag>();
 
+            foreach (var category in Categories)
+            {
+                tags.AddRange(category.TagList.ToArray());
 
-
+            }
             return tags;
-
         }
     }
 }
