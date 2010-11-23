@@ -21,7 +21,7 @@ namespace HoplaHelpdesk.Tools
                 {
                     temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.Tags.Contains(tag));
                 }
-
+                
                 result = temp.ToList();
             }
             else

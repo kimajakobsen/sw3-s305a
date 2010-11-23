@@ -76,6 +76,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\Copy of CreateProblemController.cs" />
     <Compile Include="Controllers\CreateProblemController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -107,6 +108,7 @@
     <Content Include="Views\CreateProblem\CategorizeNewProblemBackup.aspx" />
     <Content Include="Views\Client\Index.aspx" />
     <Content Include="Views\Client\ViewProblems.aspx" />
+    <Content Include="Views\CreateProblem\Copy of Create.aspx" />
     <Content Include="Views\CreateProblem\Create.aspx" />
     <Content Include="Views\CreateProblem\SimilarProblems.aspx" />
     <Content Include="Views\CreateProblem\ViewPage1.aspx" />

@@ -11,7 +11,7 @@ using System.Data.Objects.DataClasses;
 
 namespace HoplaHelpdesk.Controllers
 {
-    public class CreateProblemController : Controller
+    public class CreateProblemControllerBackup : Controller
     {
         DBEntities db = new DBEntities();
 
@@ -41,12 +41,31 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult CategorizeNewProblem(CategoryTagSelectionViewModel  cats)
         {
-           
-                 Session["SelectedCatTag"] = cats;
-             
+             try
+             {
+                 var problems = ProblemSearch.Search(cats,db);
+
+                 var problemView = new ProblemListViewModel()
+                 {
+                     Editable = false,
+                     Deletable = false,
+                     Problems = problems,
+                     SelectedCatTag  = cats
+
+                 };
                
-                 return RedirectToAction("SimilarProblems");
-            
+                 return View("SimilarProblems", problemView);
+             }
+             catch
+             {
+                 var viewModel = new ProblemCatTagWithSelectionViewModel()
+                 {
+                     CatTag = cats
+                   
+
+                 };
+                 return View("Create",viewModel);
+             }
 
             // return RedirectToAction("Index");
             //return View();
@@ -54,52 +73,8 @@ namespace HoplaHelpdesk.Controllers
         }
 
 
-        // GET: /CreatePRoblem/SimilarProblems
-        public ActionResult SimilarProblems()
-        {
-            var catViewModel = new CategoryTagSelectionViewModel();
-            if(Session["SelectedCatTag"] == null)
-            {
-                var categories = db.CategorySet.ToList();
-                {
-                    catViewModel.Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
-                };
-            } else 
-            {
-                catViewModel = (CategoryTagSelectionViewModel)Session["SelectedCatTag"];
-            }
-            
-            try {
-                var ProblemList = ProblemSearch.Search(catViewModel,db);
 
-                if(ProblemList.Count == 0 ||  ProblemList == null){
-                    throw new ArgumentNullException();
-                }
-                
-                var viewModel = new ProblemListViewModel(){
-                    Problems = ProblemList,
-                    SelectedCatTag = catViewModel
-                };
 
-                return View(viewModel);
-
- 
-             }
-             catch
-             {
-                 /*
-                 var viewModel = new ProblemCatTagWithSelectionViewModel()
-                 {
-                     CatTag = cats
-                   
-
-                 };
-                  * */
-                 return RedirectToAction("Create");
-             }
-
-           
-        }
       
         //
         // GET: /CreateProblem/Details/5
@@ -114,32 +89,34 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Create()
         {
-            var viewModel = new CategoryTagSelectionViewModel();
+            var categories = db.CategorySet.ToList();
 
-            // If no session is defined then an empty all categories will be sent to the CategoryTagSelection View Model. 
-            if (Session["SelectedCatTag"] == null)
-            {      
-                var categories = db.CategorySet.ToList();
-                viewModel.Categories = CategoryTagSelectionViewModel.ConvertTo(categories);
-            }
-            else
+            var catVievModel = new CategoryTagSelectionViewModel()
             {
-                viewModel = (CategoryTagSelectionViewModel)Session["SelectedCatTag"];
-            } 
-         
-            var probCatviewModel = new ProblemCatTagWithSelectionViewModel()
-            {
-                // The problem is left to null.
-                CatTag = viewModel
+                Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
-            return View(probCatviewModel);
+
+            var problem = new Problem();
+
+            var viewModel = new ProblemCatTagWithSelectionViewModel()
+            {
+                CatTag = catVievModel,
+                Problem = problem
+            };
+
+            return View(viewModel);
         }
 
 
 
 
 
-     
+        [HttpPost]
+        public ActionResult NoSufficeCreate(CategoryTagSelectionViewModel SelectedCatTag)
+        {
+
+            return View();
+        }
 
         //
         // POST: /CreateProblem/Create
