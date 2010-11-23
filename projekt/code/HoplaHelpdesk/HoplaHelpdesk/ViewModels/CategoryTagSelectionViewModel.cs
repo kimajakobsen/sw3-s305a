@@ -58,5 +58,21 @@ namespace HoplaHelpdesk.ViewModels
             }
             return tags;
         }
+
+
+
+        /// <summary>
+        /// Gets all selected tags from all categories in the viewModel.
+        /// </summary>
+        /// <returns>A List of selected  tags</returns>
+        public List<Tag> AllTagsSelected()
+        {
+            var tags = new List<Tag>();
+            foreach (var category in Categories)
+            {
+                tags.AddRange(category.TagList.Where(x => x.IsSelected == true).ToArray());
+            }
+            return tags;
+        }
     }
 }
