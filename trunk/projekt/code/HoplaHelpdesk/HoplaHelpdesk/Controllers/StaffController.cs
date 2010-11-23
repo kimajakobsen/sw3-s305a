@@ -26,9 +26,9 @@ namespace HoplaHelpdesk.Controllers
             var problemList = new List<Problem>(){
 
                 new Problem(){
-                    Title = "John", AssignedTo = "myownStaffId"
+                    Title = "Problem title 1", AssignedTo = "John"
                 }, new Problem(){
-                    Title = "Mikael" , AssignedTo = "myNOTownStaffId"
+                    Title = "Problem title 2" , AssignedTo = "Not john"
                 }
             };
 
