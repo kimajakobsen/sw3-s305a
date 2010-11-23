@@ -19,7 +19,7 @@
                  <% } %>
             </td>
             <td>
-               <%: Html.ActionLink("Details", item.Title, new { /* id=item.PrimaryKey */ })%> |
+               <%: Html.ActionLink("Details", item.Title, new { /* id=item.PrimaryKey */ })%>
             
             </td>
             <td>

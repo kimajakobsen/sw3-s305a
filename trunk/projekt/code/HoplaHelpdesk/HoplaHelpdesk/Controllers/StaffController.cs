@@ -11,8 +11,6 @@ namespace HoplaHelpdesk.Controllers
     [Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
-        // GET: /Staff/
-
         
         public ActionResult Worklist()
         {
@@ -21,7 +19,9 @@ namespace HoplaHelpdesk.Controllers
 
             var viewModel = new ProblemListViewModel()
             {
-                Problems = problemList
+                Problems = problemList,
+                Editable = true,
+                Deletable = true
             };
             return View(viewModel);
         }
