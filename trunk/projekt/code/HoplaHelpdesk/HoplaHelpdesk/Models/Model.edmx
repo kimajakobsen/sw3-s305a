@@ -241,7 +241,6 @@
           <Property Type="String" Name="Title" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
           <Property Type="DateTime" Name="Added_date" Nullable="false" />
-          <Property Type="String" Name="Status" Nullable="false" />
           <Property Type="DateTime" Name="Deadline" Nullable="false" />
           <Property Type="Boolean" Name="IsDeadlineApproved" Nullable="false" />
           <Property Type="String" Name="AssignedTo" Nullable="false" />
@@ -250,6 +249,7 @@
           <Property Type="DateTime" Name="SolvedAtTime" Nullable="false" />
           <NavigationProperty Name="Solutions" Relationship="Model1.ProblemSolution" FromRole="Problem" ToRole="Solution" />
           <NavigationProperty Name="Comments" Relationship="Model1.CommentProblem" FromRole="Problem" ToRole="Comment" />
+          <Property Name="Status" Type="Undefined" Nullable="false" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -331,7 +331,6 @@
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Added_date" ColumnName="Added_date" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Deadline" ColumnName="Deadline" />
           <ScalarProperty Name="IsDeadlineApproved" ColumnName="IsDeadlineApproved" />
           <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
