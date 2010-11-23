@@ -8,27 +8,12 @@
 
     <h2>ViewProblems</h2>
 
-    <table>
-        <tr>
-            <th></th>
-        </tr>
-
-    <% foreach (var item in Model) { %>
+  
+  
+        <% Html.RenderPartial("ProblemList", Model); %>
+      
     
-        <tr>
-            <td>
-            
-                <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> 
-          
-            </td>
-            <td>
-                <%: item.Title %>
-            </td>
-        </tr>
-    
-    <% } %>
-
-    </table>
+   
 
     <p>
         <%: Html.ActionLink("Create New", "CategorizeNewProblem") %>

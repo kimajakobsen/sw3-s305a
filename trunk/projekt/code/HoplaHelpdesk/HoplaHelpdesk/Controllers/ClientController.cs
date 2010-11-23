@@ -54,60 +54,6 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Client/Create
 
-        public ActionResult Create()
-        {
-
-            var problem = new Problem();
-
-            return View(problem);
-        } 
-
-        //
-        // POST: /Client/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return RedirectToAction("Index");
-                //return View();
-            }
-        }
-        
-        //
-        // GET: /Client/Edit/5
-        
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Client/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-      
        
     }
 }
