@@ -14,7 +14,7 @@
         <fieldset>
             <legend>Fields</legend>
             <% Html.RenderPartial("ProblemEditor"); %>
-            <% Html. %>
+            <% Html.RenderPartial("CategoryTagSelectionEditor"); %>
  
             <p>
                 <input type="submit" value="Create" />

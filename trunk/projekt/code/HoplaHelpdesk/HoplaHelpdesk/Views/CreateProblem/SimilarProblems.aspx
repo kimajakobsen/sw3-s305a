@@ -9,5 +9,8 @@
     <h2>Similar Problems</h2>
     <% Html.RenderPartial("ProblemList", Model); %>
 
+    <p>
+        <input type="button" title="No problem suffice" />
+    </p>
 
 </asp:Content>
