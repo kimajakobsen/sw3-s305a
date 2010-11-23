@@ -69,8 +69,9 @@ namespace HoplaHelpdesk.Controllers
 
             };
 
+
             var catVievModel = new CategoryTagSelectionViewModel(){
-                Categories = categories
+                Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
 
             return View(catVievModel);
