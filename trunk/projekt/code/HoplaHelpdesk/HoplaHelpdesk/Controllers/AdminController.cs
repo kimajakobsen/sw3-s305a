@@ -13,6 +13,8 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Index()
         {
+            
+
             return View();
         }
 
