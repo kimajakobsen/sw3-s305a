@@ -9,24 +9,13 @@
     <h2>CategorizeNewProblem</h2>
 
     <% using (Html.BeginForm()) {%>
-      
-
-     <% foreach (HoplaHelpdesk.Models.Category item in Model.Categories)
-        { %>
-        <%: Html.RenderPartial("CategorySelectEditor", item) %>
-
-
-     <% } %>
-    
-
-     
-        <!--
+  
         <div class="editor-field">
-        < for(int i = 0; i < Model.Categories.Count; i++)
+        <% for(int i = 0; i < Model.Categories.Count; i++)
            { %>  
-         <: Html.EditorFor(x => x.Categories[i], "CategorySelectEditor") %>
-         < }
-           %>
+         <%: Html.EditorFor(x => x.Categories[i], "CategorySelectEditor") %>
+         <% }
+          %>
         </div>
 
         <fieldset>
