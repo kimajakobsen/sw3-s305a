@@ -102,7 +102,7 @@
     <Content Include="Models\Model.edmx.sql" />
     <Content Include="Global.asax" />
     <Content Include="Views\Admin\Index.aspx" />
-    <Content Include="Views\CreateProblem\AddProblem.aspx" />
+    <Content Include="Views\CreateProblem\Create.aspx" />
     <Content Include="Views\CreateProblem\CategorizeNewProblem.aspx" />
     <Content Include="Views\CreateProblem\CategorizeNewProblemBackup.aspx" />
     <Content Include="Views\Client\Index.aspx" />

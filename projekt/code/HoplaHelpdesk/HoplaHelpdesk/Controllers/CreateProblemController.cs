@@ -58,17 +58,11 @@ namespace HoplaHelpdesk.Controllers
 
                  };
 
-
-
                  return View("SimilarProblems", problemView);
              }
-            
-            
-          
-
              catch
              {
-                 return View(cats);
+                 return RedirectToAction("Create");
              }
 
             // return RedirectToAction("Index");
