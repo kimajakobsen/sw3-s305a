@@ -23,8 +23,12 @@
             
             </td>
             <td>
-            <%: item.Description %>
+                <%: item.Title %>
             </td>
+        </tr>
+        <tr>
+            <td colspan="2">   <%: item.Description %> </td>
+        
         </tr>
     
     <% } %>
