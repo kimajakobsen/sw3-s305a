@@ -1,10 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Problem>" %>
 
-    <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
-
-        <fieldset>
-            <legend>Fields</legend>
+   
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Id) %>
@@ -78,12 +74,7 @@
                 <%: Html.ValidationMessageFor(model => model.SolvedAtTime) %>
             </div>
             
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
-
-    <% } %>
+      
 
     <div>
         <%: Html.ActionLink("Back to List", "Index") %>

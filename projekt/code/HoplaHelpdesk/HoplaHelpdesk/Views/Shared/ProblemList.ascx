@@ -6,18 +6,17 @@
     
         <table>
         <tr>
-            <th> <%: item.Title %></th>
+            <th> <%:  Html.ActionLink(item.Title, "Detail", new { item.Id })%></th>
             <th> 
             
               <% if (Model.Editable)
                    { %>
-                <%: Html.ActionLink("Edit", "Edit", new { item.Id })%> |
+                <%: Html.ActionLink("Edit", "Edit", new { item.Id })%> 
                 <% } %>
                  <% if (Model.Deletable)
                    { %>
-                <%: Html.ActionLink("Delete", "Delete", new { item.Id })%> |
+                <%: Html.ActionLink("Delete", "Delete", new { item.Id })%> 
                  <% } %>
-               <%: Html.ActionLink("Details", "Delete", new { item.Id })%> 
             </th>
        </tr>
         <tr>
