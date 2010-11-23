@@ -13,11 +13,16 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Staff/
 
+        [Authorize(Roles="Staff")]
         public ActionResult Worklist()
         {
+            Model1Container DB = new Model1Container();
+
+            var probs = from Problem in DB.ProblemSet select Problem;
+
             var problemList = new List<Problem>(){
                 new Problem(){
-                    Title = "John", AssignedTo = "myownStaffId"
+                    Title = probs.ToString(), AssignedTo = "myownStaffId"
                 }, new Problem(){
                     Title = "Mikael" , AssignedTo = "myNOTownStaffId"
                 }

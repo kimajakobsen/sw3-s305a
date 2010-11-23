@@ -17,10 +17,10 @@
             // TODO: FIX accounting og staffID så det virker med hans eget ID og ikke myownStaffId
         %>
     <%  foreach (var item in Model) { %>
-        <% if  (item.Assignmet == "myownStaffId") { %>
+        <% //if  (item.Assignmet == "myownStaffId") { %>
         <tr>
             <td>
-            
+                
                 <%: Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) %> |
                 <%: Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })%> |
                 <%: Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) %>
@@ -31,7 +31,7 @@
                 <%: item.Title %>
             </td>
         </tr>
-        <% } %>
+        <% //} %>
     <% } %>
 
     </table>
