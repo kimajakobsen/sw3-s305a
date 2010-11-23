@@ -32,8 +32,8 @@ namespace HoplaHelpdesk.Controllers
         {
             var categories = db.CategorySet.ToList();
 
-
-            var catVievModel = new CategoryTagSelectionViewModel(){
+            var catVievModel = new CategoryTagSelectionViewModel()
+            {
                 Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
 
@@ -87,8 +87,22 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Create()
         {
+            var categories = db.CategorySet.ToList();
 
-            return View();
+            var catVievModel = new CategoryTagSelectionViewModel()
+            {
+                Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
+            };
+
+            var problem = new Problem();
+
+            var viewModel = new ProblemCatTagWithSelectionViewModel()
+            {
+                CatTag = catVievModel,
+                Problem = problem
+            };
+
+            return View(viewModel);
         } 
 
         //

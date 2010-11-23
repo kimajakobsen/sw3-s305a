@@ -109,10 +109,10 @@
     <Content Include="Views\Client\Index.aspx" />
     <Content Include="Views\Client\ViewProblems.aspx" />
     <Content Include="Views\CreateProblem\SimilarProblems.aspx" />
-    <Content Include="Views\Shared\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\CreateProblem\Index.aspx" />
+    <Content Include="Views\Shared\EditorTemplates\ProblemEditor.ascx" />
     <Content Include="Views\Shared\ProblemList.ascx" />
     <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Views\Staff\Index.aspx" />

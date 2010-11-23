@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Problem>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagSelectionViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	AddProblem
@@ -13,17 +13,10 @@
 
         <fieldset>
             <legend>Fields</legend>
-            <div class="editor-label">
-            <%: Html.TextBoxFor(model => model.Title) %>
-            
-            </div>
-             <div class="editor-label">
-            <%: Html.TextAreaFor(model => model.Description) %>
-            
-            </div>
+            <% Html.RenderPartial("ProblemEditor"); %>
+            <% Html. %>
  
             <p>
-
                 <input type="submit" value="Create" />
             </p>
         </fieldset>
