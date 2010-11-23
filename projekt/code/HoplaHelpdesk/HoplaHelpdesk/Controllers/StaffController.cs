@@ -18,7 +18,9 @@ namespace HoplaHelpdesk.Controllers
         {
             DBEntities DB = new DBEntities();
 
-            var probs = from Problem in DB.ProblemSet select Problem;
+            var probs = from Problem in DB.ProblemSet 
+                        where (Problem.AssignedTo == "John")
+                        select Problem;
 
             /*var problemList = new List<Problem>(){
                 new Problem(){
