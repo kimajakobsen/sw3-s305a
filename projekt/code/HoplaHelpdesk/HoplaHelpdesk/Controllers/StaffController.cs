@@ -10,7 +10,6 @@ namespace HoplaHelpdesk.Controllers
 {
     public class StaffController : Controller
     {
-        //
         // GET: /Staff/
 
         [Authorize(Roles="Staff")]
