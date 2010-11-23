@@ -10,7 +10,7 @@
     <% Html.RenderPartial("ProblemList", Model); %>
 
     <p>
-        <input type="button" title="No problem suffice" />
+       <%: Html.ActionLink("No problem Suffice", "Create") %>
     </p>
 
 </asp:Content>
