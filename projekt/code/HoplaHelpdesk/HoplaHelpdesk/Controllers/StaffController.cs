@@ -40,17 +40,22 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(int id)
         {
             DBEntities DB = new DBEntities();
-            var problem = (from Problem in DB.ProblemSet
-                                    where Problem.AssignedTo == User.Identity.Name
-                                    where Problem.Id == id
-                                    select Problem).ToList();
 
-            var viewModel = new ProblemDetailsViewModel()
+            Problem problem = new Problem();
+            try
             {
-                Problem = problem
-            };
+                problem = (from Problem in DB.ProblemSet
+                                   where Problem.AssignedTo == User.Identity.Name
+                                   where Problem.Id == id
+                                   select Problem).Single();
 
-            return View();
+            }
+            catch (NullReferenceException)
+            {
+                problem.Description = "No problems found, or you tried to hack the system..";
+            }
+
+            return View(problem);
         }
 
         //
