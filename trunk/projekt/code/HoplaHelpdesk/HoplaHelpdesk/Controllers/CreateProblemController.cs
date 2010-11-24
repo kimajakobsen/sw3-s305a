@@ -144,13 +144,19 @@ namespace HoplaHelpdesk.Controllers
         {
             try
             {
+                foreach(var tag in model.CatTag.AllTagsSelected()){
+                    model.Problem.Tags.Add(tag);
+                }
+                db.ProblemSet.AddObject(model.Problem);
+                db.SaveChanges();
+
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
 
