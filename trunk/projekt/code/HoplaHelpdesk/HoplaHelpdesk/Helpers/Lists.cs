@@ -25,5 +25,39 @@ namespace HoplaHelpdesk.Helpers
 
             return result;
         }
+
+        public static List<T> RemoveNext<T>(this List<T> list, ref List<int> formerRemoved)
+        {
+            int count = formerRemoved.Count;
+            List<int> result = new List<int>();
+
+            for (int i = count-1 ; i >= 0 ; i--)
+            {
+                int current = ++formerRemoved[i];
+                
+                for (int j = i+1; j < count; j++)
+                {
+                    formerRemoved[j] = ++current;
+                }
+                if (formerRemoved[count] < list.Count)
+                {
+                    for (int k = 0, l = 0; k < list.Count; k++)
+                    {
+                        if (k != formerRemoved[l])
+                        {
+                            result.Add(list[k]);
+                        }
+                        else
+                        {
+                            l = (l+1) % count;
+                        }
+                    }
+
+                    return result;
+                }
+            }
+
+            throw new NotSupportedException("");
+        }
     }
 }
