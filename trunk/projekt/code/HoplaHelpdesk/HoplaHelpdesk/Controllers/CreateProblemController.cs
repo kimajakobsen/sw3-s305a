@@ -156,6 +156,8 @@ namespace HoplaHelpdesk.Controllers
               foreach(var tag in model.CatTag.AllTagsSelected()){
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
+                  model.Problem.Added_date = DateTime.Now;
+                  model.Problem.aspnet_Users.Add(db.aspnet_Users.Single(x => x.UserName == User.Identity.Name));
                 db.ProblemSet.AddObject(model.Problem);
               
                 db.SaveChanges();
