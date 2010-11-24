@@ -6,7 +6,7 @@
     
         <table>
         <tr>
-            <th> <%:  Html.ActionLink(item.Title, "Detail", new { item.Id })%></th>
+            <th> <%:  Html.ActionLink(item.Title, "Details", new { item.Id })%></th>
             <th> 
             
               <% if (Model.Editable)
