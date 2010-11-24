@@ -13,7 +13,7 @@ namespace HoplaHelpdesk.Controllers
         {
             ViewData["Message"] = "Welcome to Hopla Helpdesk";
 
-            return View();
+            return Redirect("Client/Index");
         }
 
         public ActionResult About()

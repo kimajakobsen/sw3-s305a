@@ -8,6 +8,7 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
+    //[Authorize(Roles = "Client")]
     public class ClientController : Controller
     {
         //
