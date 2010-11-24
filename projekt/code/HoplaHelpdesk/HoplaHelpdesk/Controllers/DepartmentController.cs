@@ -9,12 +9,16 @@ namespace HoplaHelpdesk.Controllers
     public class DepartmentController : Controller
     {
         //
-        // GET: /Department/
+        // GET: /Index/
 
         public ActionResult Index()
         {
             return View();
         }
+
+
+
+        
 
         //
         // GET: /Department/Details/5

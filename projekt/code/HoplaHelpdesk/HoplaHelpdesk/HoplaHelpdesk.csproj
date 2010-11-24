@@ -108,7 +108,7 @@
   <ItemGroup>
     <Content Include="Models\Model.edmx.sql" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Department\Index.aspx" />
     <Content Include="Views\CreateProblem\CategorizeNewProblem.aspx" />
     <Content Include="Views\Client\Index.aspx" />
     <Content Include="Views\Client\ViewProblems.aspx" />
@@ -117,6 +117,7 @@
     <Content Include="Views\CreateProblem\Details.aspx" />
     <Content Include="Views\CreateProblem\SimilarProblems.aspx" />
     <Content Include="Views\CreateProblem\Succes.aspx" />
+    <Content Include="Views\Shared\DepartmentList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategoryTagSelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ProblemCreate.ascx" />
@@ -162,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\HoplaModel.edmx">
