@@ -33,6 +33,9 @@ namespace HoplaHelpdesk.Controllers
             {
                 Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
+            hoplaEntities dbd = new hoplaEntities();
+            var problemfgf = dbd.ProblemSet.Single(x => x.Id == 3);
+            problemfgf
             return View(catViewModel);
         }
 
