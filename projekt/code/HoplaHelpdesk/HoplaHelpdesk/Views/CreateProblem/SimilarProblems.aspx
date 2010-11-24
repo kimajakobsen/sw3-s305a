@@ -19,8 +19,8 @@
     <% Html.RenderPartial("ProblemList", Model); %>
     
      <p>
-                <input type="submit" value="No Problem Suffice" />
-            </p>
+       <input type="submit" value="No Problem Suffice" />
+     </p>
     
     <% } %>
 

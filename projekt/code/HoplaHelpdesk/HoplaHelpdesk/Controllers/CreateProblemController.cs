@@ -71,7 +71,8 @@ namespace HoplaHelpdesk.Controllers
             try {
                 var ProblemList = ProblemSearch.Search(catViewModel,db);
 
-                if(ProblemList.Count == 0 ||  ProblemList == null){
+                if(ProblemList.Count == 0 ||  ProblemList == null)
+                {
                     throw new ArgumentNullException();
                 }
                 
@@ -135,12 +136,6 @@ namespace HoplaHelpdesk.Controllers
             return View(probCatviewModel);
         }
 
-
-
-
-
-     
-
         //
         // POST: /CreateProblem/Create
 
@@ -158,7 +153,15 @@ namespace HoplaHelpdesk.Controllers
                 return View();
             }
         }
-        
+
+        //
+        // GET: /CreateProblem/NoSuffice
+
+        public ActionResult NoSufficeCreate()
+        {
+            return RedirectToAction("Create");
+        }
+
         //
         // GET: /CreateProblem/Edit/5
  
