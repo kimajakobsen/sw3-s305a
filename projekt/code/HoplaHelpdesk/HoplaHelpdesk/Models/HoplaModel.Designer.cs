@@ -27,14 +27,14 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK__aspnet_Pe__PathI__68487DD7", "aspnet_Paths", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HoplaHelpdesk.Models.aspnet_Paths), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_PersonalizationPerUser), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK__aspnet_Pe__UserI__693CA210", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HoplaHelpdesk.Models.aspnet_Users), "aspnet_PersonalizationPerUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_PersonalizationPerUser), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK__aspnet_Pr__UserI__38996AB5", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.aspnet_Users), "aspnet_Profile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HoplaHelpdesk.Models.aspnet_Profile), true)]
-[assembly: EdmRelationshipAttribute("hoplaModel", "FK_DepartmentCategory", "DepartmentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.DepartmentSet), "CategorySet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.CategorySet), true)]
-[assembly: EdmRelationshipAttribute("hoplaModel", "FK_TagCategory", "CategorySet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.CategorySet), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.TagSet), true)]
-[assembly: EdmRelationshipAttribute("hoplaModel", "FK_CommentProblem", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Problem), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.CommentSet), true)]
+[assembly: EdmRelationshipAttribute("hoplaModel", "FK_DepartmentCategory", "DepartmentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Department), "CategorySet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Category), true)]
+[assembly: EdmRelationshipAttribute("hoplaModel", "FK_TagCategory", "CategorySet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Category), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Tag), true)]
+[assembly: EdmRelationshipAttribute("hoplaModel", "FK_CommentProblem", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Problem), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "CommentId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.CommentSet))]
+[assembly: EdmRelationshipAttribute("hoplaModel", "CommentId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemSolution", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "SolutionSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.SolutionSet))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemTag", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.TagSet))]
+[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemSolution", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "SolutionSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Solution))]
+[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemTag", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Tag))]
 
 #endregion
 
@@ -249,50 +249,50 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CategorySet> CategorySet
+        public ObjectSet<Category> CategorySet
         {
             get
             {
                 if ((_CategorySet == null))
                 {
-                    _CategorySet = base.CreateObjectSet<CategorySet>("CategorySet");
+                    _CategorySet = base.CreateObjectSet<Category>("CategorySet");
                 }
                 return _CategorySet;
             }
         }
-        private ObjectSet<CategorySet> _CategorySet;
+        private ObjectSet<Category> _CategorySet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CommentSet> CommentSet
+        public ObjectSet<Comment> CommentSet
         {
             get
             {
                 if ((_CommentSet == null))
                 {
-                    _CommentSet = base.CreateObjectSet<CommentSet>("CommentSet");
+                    _CommentSet = base.CreateObjectSet<Comment>("CommentSet");
                 }
                 return _CommentSet;
             }
         }
-        private ObjectSet<CommentSet> _CommentSet;
+        private ObjectSet<Comment> _CommentSet;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DepartmentSet> DepartmentSet
+        public ObjectSet<Department> DepartmentSet
         {
             get
             {
                 if ((_DepartmentSet == null))
                 {
-                    _DepartmentSet = base.CreateObjectSet<DepartmentSet>("DepartmentSet");
+                    _DepartmentSet = base.CreateObjectSet<Department>("DepartmentSet");
                 }
                 return _DepartmentSet;
             }
         }
-        private ObjectSet<DepartmentSet> _DepartmentSet;
+        private ObjectSet<Department> _DepartmentSet;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -313,18 +313,18 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SolutionSet> SolutionSet
+        public ObjectSet<Solution> SolutionSet
         {
             get
             {
                 if ((_SolutionSet == null))
                 {
-                    _SolutionSet = base.CreateObjectSet<SolutionSet>("SolutionSet");
+                    _SolutionSet = base.CreateObjectSet<Solution>("SolutionSet");
                 }
                 return _SolutionSet;
             }
         }
-        private ObjectSet<SolutionSet> _SolutionSet;
+        private ObjectSet<Solution> _SolutionSet;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -345,18 +345,18 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TagSet> TagSet
+        public ObjectSet<Tag> TagSet
         {
             get
             {
                 if ((_TagSet == null))
                 {
-                    _TagSet = base.CreateObjectSet<TagSet>("TagSet");
+                    _TagSet = base.CreateObjectSet<Tag>("TagSet");
                 }
                 return _TagSet;
             }
         }
-        private ObjectSet<TagSet> _TagSet;
+        private ObjectSet<Tag> _TagSet;
 
         #endregion
         #region AddTo Methods
@@ -444,25 +444,25 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Deprecated Method for adding a new object to the CategorySet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCategorySet(CategorySet categorySet)
+        public void AddToCategorySet(Category category)
         {
-            base.AddObject("CategorySet", categorySet);
+            base.AddObject("CategorySet", category);
         }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the CommentSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCommentSet(CommentSet commentSet)
+        public void AddToCommentSet(Comment comment)
         {
-            base.AddObject("CommentSet", commentSet);
+            base.AddObject("CommentSet", comment);
         }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the DepartmentSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDepartmentSet(DepartmentSet departmentSet)
+        public void AddToDepartmentSet(Department department)
         {
-            base.AddObject("DepartmentSet", departmentSet);
+            base.AddObject("DepartmentSet", department);
         }
     
         /// <summary>
@@ -476,9 +476,9 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Deprecated Method for adding a new object to the SolutionSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToSolutionSet(SolutionSet solutionSet)
+        public void AddToSolutionSet(Solution solution)
         {
-            base.AddObject("SolutionSet", solutionSet);
+            base.AddObject("SolutionSet", solution);
         }
     
         /// <summary>
@@ -492,9 +492,9 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Deprecated Method for adding a new object to the TagSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTagSet(TagSet tagSet)
+        public void AddToTagSet(Tag tag)
         {
-            base.AddObject("TagSet", tagSet);
+            base.AddObject("TagSet", tag);
         }
 
         #endregion
@@ -2889,17 +2889,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "CommentId_UserId", "CommentSet")]
-        public EntityCollection<CommentSet> CommentSet
+        public EntityCollection<Comment> CommentSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CommentSet>("hoplaModel.CommentId_UserId", "CommentSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("hoplaModel.CommentId_UserId", "CommentSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CommentSet>("hoplaModel.CommentId_UserId", "CommentSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("hoplaModel.CommentId_UserId", "CommentSet", value);
                 }
             }
         }
@@ -3339,28 +3339,28 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="CategorySet")]
+    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Category")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class CategorySet : EntityObject
+    public partial class Category : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new CategorySet object.
+        /// Create a new Category object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="department_Id">Initial value of the Department_Id property.</param>
-        public static CategorySet CreateCategorySet(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int32 department_Id)
+        public static Category CreateCategory(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int32 department_Id)
         {
-            CategorySet categorySet = new CategorySet();
-            categorySet.Id = id;
-            categorySet.Name = name;
-            categorySet.Description = description;
-            categorySet.Department_Id = department_Id;
-            return categorySet;
+            Category category = new Category();
+            category.Id = id;
+            category.Name = name;
+            category.Description = description;
+            category.Department_Id = department_Id;
+            return category;
         }
 
         #endregion
@@ -3476,15 +3476,15 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_DepartmentCategory", "DepartmentSet")]
-        public DepartmentSet DepartmentSet
+        public Department DepartmentSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentSet>("hoplaModel.FK_DepartmentCategory", "DepartmentSet").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.FK_DepartmentCategory", "DepartmentSet").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentSet>("hoplaModel.FK_DepartmentCategory", "DepartmentSet").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.FK_DepartmentCategory", "DepartmentSet").Value = value;
             }
         }
         /// <summary>
@@ -3492,17 +3492,17 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<DepartmentSet> DepartmentSetReference
+        public EntityReference<Department> DepartmentSetReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentSet>("hoplaModel.FK_DepartmentCategory", "DepartmentSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.FK_DepartmentCategory", "DepartmentSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DepartmentSet>("hoplaModel.FK_DepartmentCategory", "DepartmentSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("hoplaModel.FK_DepartmentCategory", "DepartmentSet", value);
                 }
             }
         }
@@ -3514,17 +3514,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_TagCategory", "TagSet")]
-        public EntityCollection<TagSet> TagSet
+        public EntityCollection<Tag> TagSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TagSet>("hoplaModel.FK_TagCategory", "TagSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tag>("hoplaModel.FK_TagCategory", "TagSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TagSet>("hoplaModel.FK_TagCategory", "TagSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tag>("hoplaModel.FK_TagCategory", "TagSet", value);
                 }
             }
         }
@@ -3535,28 +3535,28 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="CommentSet")]
+    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Comment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class CommentSet : EntityObject
+    public partial class Comment : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new CommentSet object.
+        /// Create a new Comment object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="time">Initial value of the time property.</param>
         /// <param name="description">Initial value of the description property.</param>
         /// <param name="problem_Id">Initial value of the Problem_Id property.</param>
-        public static CommentSet CreateCommentSet(global::System.Int32 id, global::System.DateTime time, global::System.String description, global::System.Int32 problem_Id)
+        public static Comment CreateComment(global::System.Int32 id, global::System.DateTime time, global::System.String description, global::System.Int32 problem_Id)
         {
-            CommentSet commentSet = new CommentSet();
-            commentSet.Id = id;
-            commentSet.time = time;
-            commentSet.description = description;
-            commentSet.Problem_Id = problem_Id;
-            return commentSet;
+            Comment comment = new Comment();
+            comment.Id = id;
+            comment.time = time;
+            comment.description = description;
+            comment.Problem_Id = problem_Id;
+            return comment;
         }
 
         #endregion
@@ -3731,26 +3731,26 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="DepartmentSet")]
+    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Department")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class DepartmentSet : EntityObject
+    public partial class Department : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new DepartmentSet object.
+        /// Create a new Department object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="departmentName">Initial value of the DepartmentName property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static DepartmentSet CreateDepartmentSet(global::System.Int32 id, global::System.String departmentName, global::System.String description)
+        public static Department CreateDepartment(global::System.Int32 id, global::System.String departmentName, global::System.String description)
         {
-            DepartmentSet departmentSet = new DepartmentSet();
-            departmentSet.Id = id;
-            departmentSet.DepartmentName = departmentName;
-            departmentSet.Description = description;
-            return departmentSet;
+            Department department = new Department();
+            department.Id = id;
+            department.DepartmentName = departmentName;
+            department.Description = description;
+            return department;
         }
 
         #endregion
@@ -3842,17 +3842,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_DepartmentCategory", "CategorySet")]
-        public EntityCollection<CategorySet> CategorySet
+        public EntityCollection<Category> CategorySet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CategorySet>("hoplaModel.FK_DepartmentCategory", "CategorySet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Category>("hoplaModel.FK_DepartmentCategory", "CategorySet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CategorySet>("hoplaModel.FK_DepartmentCategory", "CategorySet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Category>("hoplaModel.FK_DepartmentCategory", "CategorySet", value);
                 }
             }
         }
@@ -4114,17 +4114,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_CommentProblem", "CommentSet")]
-        public EntityCollection<CommentSet> CommentSet
+        public EntityCollection<Comment> CommentSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CommentSet>("hoplaModel.FK_CommentProblem", "CommentSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("hoplaModel.FK_CommentProblem", "CommentSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CommentSet>("hoplaModel.FK_CommentProblem", "CommentSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("hoplaModel.FK_CommentProblem", "CommentSet", value);
                 }
             }
         }
@@ -4158,17 +4158,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemSolution", "SolutionSet")]
-        public EntityCollection<SolutionSet> SolutionSet
+        public EntityCollection<Solution> SolutionSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SolutionSet>("hoplaModel.ProblemSolution", "SolutionSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Solution>("hoplaModel.ProblemSolution", "SolutionSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SolutionSet>("hoplaModel.ProblemSolution", "SolutionSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Solution>("hoplaModel.ProblemSolution", "SolutionSet", value);
                 }
             }
         }
@@ -4180,17 +4180,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemTag", "TagSet")]
-        public EntityCollection<TagSet> TagSet
+        public EntityCollection<Tag> TagSet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<TagSet>("hoplaModel.ProblemTag", "TagSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tag>("hoplaModel.ProblemTag", "TagSet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TagSet>("hoplaModel.ProblemTag", "TagSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tag>("hoplaModel.ProblemTag", "TagSet", value);
                 }
             }
         }
@@ -4201,24 +4201,24 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="SolutionSet")]
+    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Solution")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class SolutionSet : EntityObject
+    public partial class Solution : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new SolutionSet object.
+        /// Create a new Solution object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="description">Initial value of the Description property.</param>
-        public static SolutionSet CreateSolutionSet(global::System.Int32 id, global::System.String description)
+        public static Solution CreateSolution(global::System.Int32 id, global::System.String description)
         {
-            SolutionSet solutionSet = new SolutionSet();
-            solutionSet.Id = id;
-            solutionSet.Description = description;
-            return solutionSet;
+            Solution solution = new Solution();
+            solution.Id = id;
+            solution.Description = description;
+            return solution;
         }
 
         #endregion
@@ -4462,30 +4462,30 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="TagSet")]
+    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Tag")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TagSet : EntityObject
+    public partial class Tag : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TagSet object.
+        /// Create a new Tag object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="priority">Initial value of the Priority property.</param>
         /// <param name="category_Id">Initial value of the Category_Id property.</param>
-        public static TagSet CreateTagSet(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int16 priority, global::System.Int32 category_Id)
+        public static Tag CreateTag(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int16 priority, global::System.Int32 category_Id)
         {
-            TagSet tagSet = new TagSet();
-            tagSet.Id = id;
-            tagSet.Name = name;
-            tagSet.Description = description;
-            tagSet.Priority = priority;
-            tagSet.Category_Id = category_Id;
-            return tagSet;
+            Tag tag = new Tag();
+            tag.Id = id;
+            tag.Name = name;
+            tag.Description = description;
+            tag.Priority = priority;
+            tag.Category_Id = category_Id;
+            return tag;
         }
 
         #endregion
@@ -4625,15 +4625,15 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_TagCategory", "CategorySet")]
-        public CategorySet CategorySet
+        public Category CategorySet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CategorySet>("hoplaModel.FK_TagCategory", "CategorySet").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("hoplaModel.FK_TagCategory", "CategorySet").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CategorySet>("hoplaModel.FK_TagCategory", "CategorySet").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("hoplaModel.FK_TagCategory", "CategorySet").Value = value;
             }
         }
         /// <summary>
@@ -4641,17 +4641,17 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<CategorySet> CategorySetReference
+        public EntityReference<Category> CategorySetReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CategorySet>("hoplaModel.FK_TagCategory", "CategorySet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Category>("hoplaModel.FK_TagCategory", "CategorySet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CategorySet>("hoplaModel.FK_TagCategory", "CategorySet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Category>("hoplaModel.FK_TagCategory", "CategorySet", value);
                 }
             }
         }
