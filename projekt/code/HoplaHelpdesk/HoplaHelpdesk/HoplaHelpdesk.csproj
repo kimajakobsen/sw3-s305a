@@ -86,11 +86,6 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Helpers\Lists.cs" />
-    <Compile Include="Backup\Model.Designer.cs">
-      <DependentUpon>Model.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -172,12 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Backup\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\HoplaModel.edmx">
