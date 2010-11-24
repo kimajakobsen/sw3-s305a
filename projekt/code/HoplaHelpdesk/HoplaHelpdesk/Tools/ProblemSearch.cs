@@ -21,20 +21,28 @@ namespace HoplaHelpdesk.Tools
         {
             List<Problem> result;
 
-            var temp = db.ProblemSet;
+            List<IQueryable<Problem>> temp = new List<IQueryable<Problem>>();
+            temp.Add(db.ProblemSet.Where(x => x.Id >= 0));
 
-            if (catTag.Categories != null)
+            if (catTag.AllTagsSelected().Count != 0)
             {
                 foreach (Tag tag in catTag.AllTagsSelected())
                 {
-                    temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.Tags.Contains(tag));
+                    temp.Add(temp[temp.Count-1].Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))));
                 }
-                
-                result = temp.ToList();
+
+                try
+                {
+                    result = temp[temp.Count-1].ToList();
+                }
+                catch
+                {
+                    throw;
+                }
             }
             else
             {
-                result = temp.Where(x => x.Tags.Count == 0).ToList();
+                result = temp[0].Where(x => x.Tags.Count == 0).ToList();
             }
 
             return result;

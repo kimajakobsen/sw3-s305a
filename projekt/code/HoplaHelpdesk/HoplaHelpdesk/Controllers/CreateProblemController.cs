@@ -97,6 +97,7 @@ namespace HoplaHelpdesk.Controllers
 
                  };
                   * */
+                 //throw;
                  return RedirectToAction("Create");
              }
 
@@ -108,6 +109,8 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
+            List<int> john = new List<int>();
+
             try
             {
                 var problem = db.ProblemSet.Single(x => x.Id == id);
