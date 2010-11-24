@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="hoplaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="hoplaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="hoplaModelStoreContainer">
           <EntitySet Name="aspnet_Applications" EntityType="hoplaModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="aspnet_Membership" EntityType="hoplaModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
@@ -627,8 +627,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hoplaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -646,7 +645,7 @@
           <EntitySet Name="CategorySet" EntityType="hoplaModel.CategorySet" />
           <EntitySet Name="CommentSet" EntityType="hoplaModel.CommentSet" />
           <EntitySet Name="DepartmentSet" EntityType="hoplaModel.DepartmentSet" />
-          <EntitySet Name="ProblemSet" EntityType="hoplaModel.ProblemSet" />
+          <EntitySet Name="ProblemSet" EntityType="hoplaModel.Problem" />
           <EntitySet Name="SolutionSet" EntityType="hoplaModel.SolutionSet" />
           <EntitySet Name="sysdiagrams" EntityType="hoplaModel.sysdiagrams" />
           <EntitySet Name="TagSet" EntityType="hoplaModel.TagSet" />
@@ -895,7 +894,7 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="CategorySet" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="DepartmentSet" ToRole="CategorySet" />
         </EntityType>
-        <EntityType Name="ProblemSet">
+        <EntityType Name="Problem">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1076,7 +1075,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CommentProblem">
-          <End Role="ProblemSet" Type="hoplaModel.ProblemSet" Multiplicity="1" />
+          <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="1" />
           <End Role="CommentSet" Type="hoplaModel.CommentSet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProblemSet">
@@ -1097,14 +1096,14 @@
         </Association>
         <Association Name="ProblemId_UserId">
           <End Role="aspnet_Users" Type="hoplaModel.aspnet_Users" Multiplicity="*" />
-          <End Role="ProblemSet" Type="hoplaModel.ProblemSet" Multiplicity="*" />
+          <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
         </Association>
         <Association Name="ProblemSolution">
-          <End Role="ProblemSet" Type="hoplaModel.ProblemSet" Multiplicity="*" />
+          <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
           <End Role="SolutionSet" Type="hoplaModel.SolutionSet" Multiplicity="*" />
         </Association>
         <Association Name="ProblemTag">
-          <End Role="ProblemSet" Type="hoplaModel.ProblemSet" Multiplicity="*" />
+          <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
           <End Role="TagSet" Type="hoplaModel.TagSet" Multiplicity="*" />
         </Association>
       </Schema>
@@ -1222,7 +1221,7 @@
             <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
             <ScalarProperty Name="Description" ColumnName="Description" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="ProblemSet"><EntityTypeMapping TypeName="hoplaModel.ProblemSet"><MappingFragment StoreEntitySet="ProblemSet">
+          <EntitySetMapping Name="ProblemSet"><EntityTypeMapping TypeName="hoplaModel.Problem"><MappingFragment StoreEntitySet="ProblemSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Title" ColumnName="Title" />
             <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1305,7 +1304,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
@@ -1325,7 +1324,7 @@
         <EntityTypeShape EntityType="hoplaModel.CategorySet" Width="1.5" PointX="10.5" PointY="24.25" Height="2.1725878906250031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.CommentSet" Width="1.5" PointX="12.75" PointY="17" Height="2.1725878906250031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.DepartmentSet" Width="1.5" PointX="8.25" PointY="24.5" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.ProblemSet" Width="1.5" PointX="10.5" PointY="19.625" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Problem" Width="1.5" PointX="10.5" PointY="19.625" Height="3.5186979166666674" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.SolutionSet" Width="1.5" PointX="12.75" PointY="20.5" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.TagSet" Width="1.5" PointX="13.125" PointY="24.375" Height="2.3648893229166674" IsExpanded="true" />
