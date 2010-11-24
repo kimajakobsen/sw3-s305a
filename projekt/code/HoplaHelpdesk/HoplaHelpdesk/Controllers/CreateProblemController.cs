@@ -29,12 +29,11 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult CategorizeNewProblem()
         {
             var categories = db.CategorySet.ToList();
+
             var catViewModel = new CategoryTagSelectionViewModel()
             {
                 Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
-           
-           
             
             return View(catViewModel);
         }
