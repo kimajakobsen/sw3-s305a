@@ -11,7 +11,7 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemSearch
     {
-        private static const int _maxProblems = 10;
+        private static int _maxProblems = 10;
 
         /// <summary>
         /// 
