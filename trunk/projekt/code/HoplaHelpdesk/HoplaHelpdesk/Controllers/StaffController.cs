@@ -12,13 +12,19 @@ namespace HoplaHelpdesk.Controllers
     public class StaffController : Controller
     {
         hoplaEntities DB = new hoplaEntities();
+
         public ActionResult Worklist()
         {
-          
+            List<Problem> problemList;
 
-            var problemList = (from Problem in DB.ProblemSet
+            try{
+
+            problemList = (from Problem in DB.ProblemSet
                                where Problem.AssignedTo == User.Identity.Name
                                select Problem).ToList();
+
+            }catch (Exception){return View("Error");}
+
 
             var viewModel = new ProblemListViewModel()
             {
@@ -40,8 +46,6 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
-           
-
             Problem problem = new Problem();
             try
             {
