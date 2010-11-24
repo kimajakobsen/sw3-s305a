@@ -29,7 +29,7 @@ a:hover
 }
 a:active
 {
-    color: #12eb87;
+    color: #E8C499;
 }
 
 p, ul
@@ -171,7 +171,7 @@ ul#menu li a:hover
 
 ul#menu li a:active
 {
-    background-color: #E8D1B7;
+    background-color: #E8C499;
     text-decoration: none;
 }
 
@@ -188,7 +188,7 @@ fieldset
 {
     margin: 1em 0;
     padding: 1em;
-    /*border: 1px solid #CCC;*/
+    border: 1px solid #CCCCCC;
 }
 
 fieldset p 
@@ -268,7 +268,7 @@ div#title
     font-size:1.1em;
     display:block;
     text-align:right;
-    margin:0px;
+    margin:2px;
     color:White;
 }
 
@@ -321,15 +321,54 @@ div#title
 
 /* Styles for editor and display helpers
 ----------------------------------------------------------*/
-.display-label,
-.editor-label,
-.display-field,
+.display-label
+{
+    margin-top:20px;
+    font-weight:bold;
+    font-family:Tahoma;
+}
+.editor-label
+{
+    margin-top:20px;
+    font-weight:bold;
+    font-family:Tahoma;
+}
+.display-field
+{
+    font-family:Tahoma;
+    background-color:#F7BB71;
+    border-style:solid;
+    border-collapse:collapse;
+    border-width:thin;
+    padding:5px;
+}
 .editor-field
 {
-    margin: 10px;
-    padding:5px;
-    border:1;
+    font-family:Tahoma;
+    background-color:#ffffff;
     border-style:solid;
+    border-collapse:collapse;
+    border-width:thin;
+    padding:5px;
+}
+
+table.problemlist
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
+    
+}
+table.problemlist th
+{
+    background-color:#AA700F;
+    color:White;
+}
+table.problemlist td
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
 }
 
 .text-box
