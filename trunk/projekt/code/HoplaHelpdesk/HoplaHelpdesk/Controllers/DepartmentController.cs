@@ -16,9 +16,12 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Index()
         {
-            
+            var DepartmentList = db.DepartmentSet.ToList();
 
-            return View();
+            var viewmodel = new DepartmentListViewModel() { Departments = DepartmentList };
+
+
+            return View(viewmodel);
         }
 
 
