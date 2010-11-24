@@ -9,6 +9,7 @@
     <h2>Details</h2>
 
     <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
+
     <% Html.RenderPartial("CommentList", Model.Comments); %>
 
 
