@@ -15,6 +15,7 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Worklist()
         {
             DBEntities DB = new DBEntities();
+
             var problemList = (from Problem in DB.ProblemSet
                                where Problem.AssignedTo == User.Identity.Name
                                select Problem).ToList();
