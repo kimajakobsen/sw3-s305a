@@ -19,7 +19,7 @@
 
         <h2>Add Comment:</h2>
 
-        // 
+        
         <%: Html.LabelFor(model => model.Comments.Single().description) %>
         <%: Html.TextBoxFor(model => model.Comments.Single().description) %>
         <%: Html.ValidationMessageFor(model => model.Comments.Single().description) %>
