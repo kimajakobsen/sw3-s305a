@@ -4,26 +4,24 @@
 
     <% foreach (var item in Model.Problems) { %>
     
-        <table>
-        <tr>
-            <th> <%:  Html.ActionLink(item.Title, "Details", new { item.Id })%></th>
-            <th> 
-            
-              <% if (Model.Editable)
-                   { %>
-                <%: Html.ActionLink("Edit", "Edit", new { item.Id })%> 
-                <% } %>
-                 <% if (Model.Deletable)
-                   { %>
-                <%: Html.ActionLink("Delete", "Delete", new { item.Id })%> 
-                 <% } %>
-            </th>
-       </tr>
-        <tr>
-            <td colspan="2">   <%: item.Description %> </td>
-        
-        </tr>
+
+        <table border="1">
+            <tr>
+                <th width="10%">Deadline</th>
+                <th width="10%">Priority</th>
+                <th width="10%">ETA</th>
+                <th width="20%">Title</th>
+                <th width="50%">Description</th>
+            </tr>
+            <tr>
+                <td><%: item.Deadline %></td>
+                <td></td>
+                <td></td>
+                <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%></th></td>
+                <td><%: item.Description %></td>
+            </tr>
         </table>
+
     <% } %>
 
 
