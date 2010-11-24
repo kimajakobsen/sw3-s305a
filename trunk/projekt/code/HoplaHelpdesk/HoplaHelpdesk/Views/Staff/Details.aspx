@@ -7,21 +7,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <fieldset>
-        <legend>Fields</legend>
-        
+        <legend><%: Model.Problem.Title %></legend>
+        <p>
+            <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
+            <%: Html.ActionLink("Back to List", "Index") %>
+        </p>
+    
+        <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
 
-    <h2><%: Model.Problem. %>Details</h2>
-
-    <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
-
-    <% Html.RenderPartial("CommentList", Model.Comments); %>
+        <% Html.RenderPartial("CommentList", Model.Comments); %>
             
     </fieldset>
-    <p>
-
-        <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </p>
+    
 
 
 </asp:Content>
