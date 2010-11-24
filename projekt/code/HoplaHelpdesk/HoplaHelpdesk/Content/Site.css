@@ -5,7 +5,7 @@ to use a different color start by replacing all instances of
 ----------------------------------------------------------*/
 body
 {
-    background-color: #0000FF;
+    background-color: #D39039;
     font-size: .75em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -84,14 +84,14 @@ first child of the left and right table columns */
 page width. Or, you can specify an exact pixel width. */
 .page
 {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 #header
 {
-    position: relative;
+    /*position: relative;*/
     margin-bottom: 0px;
     color: #000;
     padding: 0;
@@ -112,7 +112,7 @@ page width. Or, you can specify an exact pixel width. */
 #main
 {
     padding: 30px 30px 15px 30px;
-    background-color: #fff;
+    background-color: #E8AA5F;
     margin-bottom: 30px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
 }
@@ -131,11 +131,11 @@ page width. Or, you can specify an exact pixel width. */
 ----------------------------------------------------------*/
 ul#menu
 {
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 2px;
-    position: relative;
-    margin: 0;
-    text-align: right;
+    /*border-bottom: 0px #5C87B2 solid;*/
+    padding: 0px;
+    /*position: relative;*/
+    margin: 0px;
+    text-align: left;
 }
 
 ul#menu li
@@ -188,7 +188,7 @@ fieldset
 {
     margin: 1em 0;
     padding: 1em;
-    border: 1px solid #CCC;
+    /*border: 1px solid #CCC;*/
 }
 
 fieldset p 
@@ -220,22 +220,22 @@ input[type="password"]
 
 table 
 {
-  border: solid 1px #e8eef4;
-  border-collapse: collapse;
+  /*border: solid 1px #e8eef4;*/
+  /*border-collapse: collapse;*/
 }
 
 table td 
 {
-  padding: 5px;   
-  border: solid 1px #e8eef4;
+  /*padding: 5px;   */
+  /*border: solid 1px #e8eef4;*/
 }
 
 table th
 {
-  padding: 6px 5px;
-  text-align: left;
-  background-color: #e8eef4; 
-  border: solid 1px #e8eef4;   
+  /*padding: 6px 5px;*/
+  /*text-align: left;*/
+  /*background-color: #e8eef4; */
+  /*border: solid 1px #e8eef4;   */
 }
 
 /* MISC  
@@ -252,7 +252,8 @@ table th
 
 #menucontainer
 {
-    margin-top:40px;
+    margin-top:0px;
+    /*background-color:#E8AA5F;*/
 }
 
 div#title
@@ -267,7 +268,7 @@ div#title
     font-size:1.1em;
     display:block;
     text-align:right;
-    margin:10px;
+    margin:0px;
     color:White;
 }
 
@@ -325,7 +326,7 @@ div#title
 .display-field,
 .editor-field
 {
-    margin: 0.5em 0;
+    margin: 0em 0;
 }
 
 .text-box
