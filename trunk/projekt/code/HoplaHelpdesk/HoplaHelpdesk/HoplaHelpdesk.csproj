@@ -100,7 +100,6 @@
     <Compile Include="Tools\ProblemSearch.cs" />
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
-    <Compile Include="ViewModels\ProblemDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +121,7 @@
     <Content Include="Views\Shared\ProblemList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
+    <Content Include="Views\Staff\Details.aspx" />
     <Content Include="Views\Staff\Index.aspx" />
     <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Web.config">
