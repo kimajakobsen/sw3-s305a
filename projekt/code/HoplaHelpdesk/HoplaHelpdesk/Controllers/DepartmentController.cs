@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HoplaHelpdesk.Models;
+using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
     public class DepartmentController : Controller
     {
+        hoplaEntities db = new hoplaEntities();
         //
         // GET: /Index/
 
         public ActionResult Index()
         {
+            
+
             return View();
         }
 
