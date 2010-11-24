@@ -161,7 +161,9 @@ namespace HoplaHelpdesk.Controllers
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
                   model.Problem.Added_date = DateTime.Now;
-                  model.Problem.aspnet_Users.Add(db.aspnet_Users.Single(x => x.UserId == db.aspnet_Users.FirstOrDefault(y => User.Identity.Name == y.UserName).UserId));
+                  model.Problem.aspnet_Users.Add(db.aspnet_Users.Single(x => x.UserName ==  User.Identity.Name));
+              
+                
                 db.ProblemSet.AddObject(model.Problem);
               
                 db.SaveChanges();

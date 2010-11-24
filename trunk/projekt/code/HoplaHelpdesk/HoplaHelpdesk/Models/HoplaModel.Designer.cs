@@ -32,9 +32,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK_CommentProblem", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Problem), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "CommentId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemSolution", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "SolutionSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Solution))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemTag", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Tag))]
+[assembly: EdmRelationshipAttribute("hoplaModel", "aspnet_UsersProblem", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem))]
 
 #endregion
 
@@ -2910,18 +2910,18 @@ namespace HoplaHelpdesk.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemId_UserId", "ProblemSet")]
+        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "aspnet_UsersProblem", "Problem")]
         public EntityCollection<Problem> Problems
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Problem>("hoplaModel.ProblemId_UserId", "ProblemSet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Problem>("hoplaModel.aspnet_UsersProblem", "Problem");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Problem>("hoplaModel.ProblemId_UserId", "ProblemSet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Problem>("hoplaModel.aspnet_UsersProblem", "Problem", value);
                 }
             }
         }
@@ -4135,28 +4135,6 @@ namespace HoplaHelpdesk.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemId_UserId", "aspnet_Users")]
-        public EntityCollection<aspnet_Users> aspnet_Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("hoplaModel.ProblemId_UserId", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("hoplaModel.ProblemId_UserId", "aspnet_Users", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemSolution", "SolutionSet")]
         public EntityCollection<Solution> Solutions
         {
@@ -4191,6 +4169,28 @@ namespace HoplaHelpdesk.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tag>("hoplaModel.ProblemTag", "TagSet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "aspnet_UsersProblem", "aspnet_Users")]
+        public EntityCollection<aspnet_Users> aspnet_Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("hoplaModel.aspnet_UsersProblem", "aspnet_Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("hoplaModel.aspnet_UsersProblem", "aspnet_Users", value);
                 }
             }
         }
