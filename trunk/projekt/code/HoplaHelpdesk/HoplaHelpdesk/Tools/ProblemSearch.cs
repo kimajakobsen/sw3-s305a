@@ -17,7 +17,7 @@ namespace HoplaHelpdesk.Tools
         /// <param name="catTag">A CategoryTagSelectionViewModel</param>
         /// <param name="db">DB entitites</param>
         /// <returns></returns>
-        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, DBEntities db)
+        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, hoplaEntities db)
         {
             List<Problem> result;
 
@@ -27,7 +27,7 @@ namespace HoplaHelpdesk.Tools
             {
                 foreach (Tag tag in catTag.AllTagsSelected())
                 {
-                    temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.Tags.Contains(tag));
+                    temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.TagSet.Contains(tag));
                 }
                 
                 result = temp.ToList();
