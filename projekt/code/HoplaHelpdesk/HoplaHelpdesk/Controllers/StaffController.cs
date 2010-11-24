@@ -11,10 +11,10 @@ namespace HoplaHelpdesk.Controllers
     //[Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
-        
+        hoplaEntities DB = new hoplaEntities();
         public ActionResult Worklist()
         {
-            DBEntities DB = new DBEntities();
+          
 
             var problemList = (from Problem in DB.ProblemSet
                                where Problem.AssignedTo == User.Identity.Name
@@ -40,7 +40,7 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
-            DBEntities DB = new DBEntities();
+           
 
             Problem problem = new Problem();
             try
