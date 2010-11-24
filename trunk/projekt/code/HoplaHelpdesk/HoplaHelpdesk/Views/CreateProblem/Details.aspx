@@ -9,5 +9,5 @@
     <h2>Details</h2>
 
     <% Html.RenderPartial("ProblemDetail", Model); %>
-
+    <%: Html.ActionLink("Subscribe to this problem", "Subscribe", new { Id = Model.Id })%>
 </asp:Content>
