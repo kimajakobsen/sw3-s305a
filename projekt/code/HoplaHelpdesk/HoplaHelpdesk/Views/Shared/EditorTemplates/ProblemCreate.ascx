@@ -74,10 +74,6 @@
                 <%: Html.ValidationMessageFor(model => model.SolvedAtTime) %>
             </div>
             
-      
-
-    <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </div>
+    
 
 
