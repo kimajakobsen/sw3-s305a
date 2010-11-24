@@ -22,7 +22,7 @@ namespace HoplaHelpdesk.Tools
             List<Problem> result;
 
             List<IQueryable<Problem>> temp = new List<IQueryable<Problem>>();
-            temp.Add(db.ProblemSet.Where(x => x.Id >= 0));
+            temp.Add(db.ProblemSet);
 
             if (catTag.AllTagsSelected().Count != 0)
             {
