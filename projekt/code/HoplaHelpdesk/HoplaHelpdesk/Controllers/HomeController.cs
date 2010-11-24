@@ -11,7 +11,7 @@ namespace HoplaHelpdesk.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Velkommen til Hopla Helpdesk - WE WILL VAPORIZE YOU!!!!!!!!!1111111";
+            ViewData["Message"] = "Welcome to Hopla Helpdesk";
 
             return View();
         }
