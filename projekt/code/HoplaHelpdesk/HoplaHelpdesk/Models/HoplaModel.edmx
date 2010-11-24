@@ -331,7 +331,7 @@
             <End Role="ProblemSet" EntitySet="ProblemSet" />
             <End Role="TagSet" EntitySet="TagSet" />
           </AssociationSet>
-          <EntitySet Name="PersonSet" EntityType="hoplaModel.Persons" />
+          <EntitySet Name="PersonSet" EntityType="hoplaModel.Person" />
           <AssociationSet Name="PersonsProblem" Association="hoplaModel.PersonsProblem">
             <End Role="Persons" EntitySet="PersonSet" />
             <End Role="Problem" EntitySet="ProblemSet" />
@@ -465,7 +465,7 @@
           <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
           <End Role="TagSet" Type="hoplaModel.Tag" Multiplicity="*" />
         </Association>
-        <EntityType Name="Persons">
+        <EntityType Name="Person">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -479,11 +479,11 @@
           <NavigationProperty Name="Comments" Relationship="hoplaModel.PersonsComment" FromRole="Persons" ToRole="Comment" />
         </EntityType>
         <Association Name="PersonsProblem">
-          <End Type="hoplaModel.Persons" Role="Persons" Multiplicity="*" />
+          <End Type="hoplaModel.Person" Role="Persons" Multiplicity="*" />
           <End Type="hoplaModel.Problem" Role="Problem" Multiplicity="*" />
         </Association>
         <Association Name="PersonsDepartment">
-          <End Type="hoplaModel.Persons" Role="Persons" Multiplicity="*" />
+          <End Type="hoplaModel.Person" Role="Persons" Multiplicity="*" />
           <End Type="hoplaModel.Department" Role="Department" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Department">
@@ -496,7 +496,7 @@
         </Association>
         <Association Name="ProblemPersons">
           <End Type="hoplaModel.Problem" Role="Problem" Multiplicity="*" />
-          <End Type="hoplaModel.Persons" Role="Persons" Multiplicity="1" />
+          <End Type="hoplaModel.Person" Role="Persons" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Persons">
               <PropertyRef Name="Id" />
@@ -507,7 +507,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PersonsComment">
-          <End Type="hoplaModel.Persons" Role="Persons" Multiplicity="1" />
+          <End Type="hoplaModel.Person" Role="Persons" Multiplicity="1" />
           <End Type="hoplaModel.Comment" Role="Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Persons">
@@ -589,7 +589,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PersonSet">
-      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Persons)">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Person)">
         <MappingFragment StoreEntitySet="PersonSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -643,10 +643,10 @@
     <Diagrams>
       <Diagram Name="HoplaModel" ZoomLevel="88">
         <EntityTypeShape EntityType="hoplaModel.Category" Width="1.5" PointX="10.5" PointY="24.25" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="12.75" PointY="17" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="10.5" PointY="15.75" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Department" Width="1.5" PointX="8.25" PointY="24.5" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Problem" Width="1.5" PointX="10.5" PointY="19.625" Height="3.7109993489583353" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Solution" Width="1.5" PointX="12.75" PointY="20.5" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Solution" Width="1.5" PointX="14.625" PointY="19.375" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Tag" Width="1.5" PointX="13.125" PointY="24.375" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="hoplaModel.FK_DepartmentCategory" ManuallyRouted="false">
           <ConnectorPoint PointX="9.75" PointY="25.393992513020834" />
@@ -658,19 +658,18 @@
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.FK_CommentProblem" ManuallyRouted="false">
           <ConnectorPoint PointX="11.25" PointY="19.625" />
-          <ConnectorPoint PointX="11.25" PointY="17.81774060472668" />
-          <ConnectorPoint PointX="12.75" PointY="17.81774060472668" />
+          <ConnectorPoint PointX="11.25" PointY="18.114889322916667" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.ProblemSolution" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="21.297841796875" />
-          <ConnectorPoint PointX="12.75" PointY="21.297841796875" />
+          <ConnectorPoint PointX="12" PointY="20.297841796875" />
+          <ConnectorPoint PointX="14.625" PointY="20.297841796875" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.ProblemTag" ManuallyRouted="false">
           <ConnectorPoint PointX="12" PointY="22.747091471354171" />
           <ConnectorPoint PointX="14.46875" PointY="22.747091471354171" />
           <ConnectorPoint PointX="14.46875" PointY="24.375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="hoplaModel.Persons" Width="1.5" PointX="7.75" PointY="21.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="hoplaModel.Person" Width="1.5" PointX="7.75" PointY="21.125" Height="1.5956835937500031" />
         <AssociationConnector Association="hoplaModel.PersonsProblem">
           <ConnectorPoint PointX="9.25" PointY="22.661299769083662" />
           <ConnectorPoint PointX="10.5" PointY="22.661299769083662" />
@@ -685,10 +684,8 @@
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.PersonsComment">
           <ConnectorPoint PointX="8.5" PointY="21.125" />
-          <ConnectorPoint PointX="8.5" PointY="18.622567463821674" />
-          <ConnectorPoint PointX="11.166666666666666" PointY="18.622567463821674" />
-          <ConnectorPoint PointX="11.333333333333334" PointY="18.622567463821674" />
-          <ConnectorPoint PointX="12.75" PointY="18.622567463821674" />
+          <ConnectorPoint PointX="8.5" PointY="16.932444661458334" />
+          <ConnectorPoint PointX="10.5" PointY="16.932444661458334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
