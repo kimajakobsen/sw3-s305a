@@ -11,10 +11,19 @@
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         <fieldset>
-            <legend>Fields</legend>
+            <fieldset>
+            
+            <legend>Description</legend>
+
+            <%: Html.EditorFor(x => x.Problem, "ProblemCreate") %>
+            </fieldset>
            
-              <%: Html.EditorFor(x => x.Problem, "ProblemCreate") %>
+            <fieldset>
+
+            <legend>Categorization</legend>
+
               <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
+              </fieldset>
             <p>
                 <input type="submit" value="Create" />
             </p>
