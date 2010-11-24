@@ -55,7 +55,6 @@ namespace HoplaHelpdesk.Controllers
                                    select Problem).Single();
 
                 //problem = DB.ProblemSet.Single(x => x.Id == id && x.AssignedTo == User.Identity.Name);
-
             }
             catch (Exception)
             {
