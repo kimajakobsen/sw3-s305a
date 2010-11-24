@@ -105,6 +105,7 @@
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
     <Compile Include="ViewModels\DepartmentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
+    <Compile Include="ViewModels\ProblemDetailsCommentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
