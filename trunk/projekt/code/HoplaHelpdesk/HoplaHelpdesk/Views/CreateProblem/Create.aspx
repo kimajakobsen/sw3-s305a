@@ -14,7 +14,7 @@
             <legend>Fields</legend>
            
               <%: Html.EditorFor(x => x.Problem, "ProblemCreate") %>
-              <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectionEditor") %>
+              <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
             <p>
                 <input type="submit" value="Create" />
             </p>
