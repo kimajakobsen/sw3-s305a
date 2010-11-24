@@ -1,8 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Problem>" %>
 
-    <fieldset>
-        <legend>Fields</legend>
-        
+
         <div class="display-label">Id</div>
         <div class="display-field"><%: Model.Id %></div>
         
@@ -29,12 +27,5 @@
         
         <div class="display-label">SolvedAtTime</div>
         <div class="display-field"><%: String.Format("{0:g}", Model.SolvedAtTime) %></div>
-        
-    </fieldset>
-    <p>
-
-        <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </p>
 
 
