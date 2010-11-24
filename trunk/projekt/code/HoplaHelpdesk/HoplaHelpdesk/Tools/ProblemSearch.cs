@@ -26,13 +26,14 @@ namespace HoplaHelpdesk.Tools
             List<int> tagsToRemove;
             List<Tag> tags = catTag.AllTagsSelected();
 
-            List<List<Problem>> temp = new List<List<Problem>>();
-            temp.Add(db.ProblemSet.ToList());
+            List<Problem> temp = new List<Problem>();
+            
 
             if (catTag.AllTagsSelected().Count != 0)
             {
-                while (temp.Count < _maxProblems && noOfTagsToRemove < tags.Count)
+                while (result.Count < _maxProblems && noOfTagsToRemove < tags.Count)
                 {
+                    temp = (db.ProblemSet.ToList());
                     tagsToRemove = new List<int>();
                     for (int i = 0; i < noOfTagsToRemove; i++)
                     {
@@ -45,7 +46,7 @@ namespace HoplaHelpdesk.Tools
                         {
                             foreach (Tag tag in currentSearch)
                             {
-                                temp.Add(temp[temp.Count - 1].Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList());
+                                temp = temp.Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList();
                             }
                             currentSearch = tags.RemoveNext(ref tagsToRemove);
                         }
@@ -53,14 +54,15 @@ namespace HoplaHelpdesk.Tools
                     catch (NotSupportedException ex)
                     {
                         noOfTagsToRemove++;
-                        result.AddRange(temp[temp.Count - 1].ToList());
+                        result.AddRange(temp.ToList());
                     }
                 }
             }
 
+            temp = (db.ProblemSet.ToList());
             if (result.Count() < _maxProblems)
             {
-                result.AddRange(temp[0].Where(x => x.Tags.Count == 0).ToList());
+                result.AddRange(temp.Where(x => x.Tags.Count == 0).ToList());
             }
 
             return result;
