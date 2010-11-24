@@ -153,9 +153,9 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-                var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
-                return View("Details", problem);
-             //   return RedirectToAction("Index");
+                //var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
+               // return View("Details", problem);
+                return RedirectToAction("Confirm",4);
             }
                 /*
             catch
@@ -165,6 +165,10 @@ namespace HoplaHelpdesk.Controllers
                  */
         }
 
+
+
+
+
         //
         // GET: /CreateProblem/NoSuffice
 
@@ -173,56 +177,10 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Create");
         }
 
-        //
-        // GET: /CreateProblem/Edit/5
- 
-        public ActionResult Edit(int id)
+        public ActionResult Confirm(int id)
         {
-            return View();
-        }
-
-        //
-        // POST: /CreateProblem/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        //
-        // GET: /CreateProblem/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /CreateProblem/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var problem = db.ProblemSet.Single(x => x.Id == id);
+            return View(problem);
         }
     }
 }
