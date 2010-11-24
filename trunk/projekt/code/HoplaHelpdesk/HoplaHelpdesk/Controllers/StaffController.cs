@@ -15,7 +15,9 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Worklist()
         {
             DBEntities DB = new DBEntities();
-            var problemList = (from Problem in DB.ProblemSet where Problem.AssignedTo == User.Identity.Name select Problem).ToList();
+            var problemList = (from Problem in DB.ProblemSet
+                               where Problem.AssignedTo == User.Identity.Name
+                               select Problem).ToList();
 
             var viewModel = new ProblemListViewModel()
             {
@@ -37,6 +39,16 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
+            DBEntities DB = new DBEntities();
+            var problem = (Problem)(from Problem in DB.ProblemSet
+                                    where Problem.AssignedTo == User.Identity.Name
+                                    where Problem.Id == id
+                                    select Problem);
+
+            var viewModel = new ProblemDetailsViewModel()
+            {
+                Problem = problem
+            };
 
             return View();
         }

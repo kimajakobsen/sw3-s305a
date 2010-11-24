@@ -100,6 +100,7 @@
     <Compile Include="Tools\ProblemSearch.cs" />
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
+    <Compile Include="ViewModels\ProblemDetailsViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
