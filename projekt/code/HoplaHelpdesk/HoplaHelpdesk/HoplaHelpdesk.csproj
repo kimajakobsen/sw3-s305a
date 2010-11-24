@@ -73,6 +73,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backup\HoplaModel.Designer.cs">
+      <DependentUpon>HoplaModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -81,7 +86,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Helpers\Lists.cs" />
-    <Compile Include="Helpers\Model.Designer.cs">
+    <Compile Include="Backup\Model.Designer.cs">
       <DependentUpon>Model.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,13 +179,19 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Helpers\Model.edmx">
+    <EntityDeploy Include="Backup\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\HoplaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HoplaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Backup\HoplaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HoplaModel.Designer.cs</LastGenOutput>
     </EntityDeploy>

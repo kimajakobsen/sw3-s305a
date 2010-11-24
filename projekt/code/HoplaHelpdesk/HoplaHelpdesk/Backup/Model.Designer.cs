@@ -18,15 +18,15 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("Model1", "ProblemTag", "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Problem), "Tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Tag))]
-[assembly: EdmRelationshipAttribute("Model1", "DepartmentCategory", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Helpers.Department), "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Category))]
-[assembly: EdmRelationshipAttribute("Model1", "ProblemSolution", "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Problem), "Solution", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Solution))]
-[assembly: EdmRelationshipAttribute("Model1", "CommentProblem", "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Comment), "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Helpers.Problem))]
-[assembly: EdmRelationshipAttribute("Model1", "TagCategory", "Tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Helpers.Tag), "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Helpers.Category))]
+[assembly: EdmRelationshipAttribute("Model1", "ProblemTag", "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Problem), "Tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Tag))]
+[assembly: EdmRelationshipAttribute("Model1", "DepartmentCategory", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Backup.Department), "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Category))]
+[assembly: EdmRelationshipAttribute("Model1", "ProblemSolution", "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Problem), "Solution", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Solution))]
+[assembly: EdmRelationshipAttribute("Model1", "CommentProblem", "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Comment), "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Backup.Problem))]
+[assembly: EdmRelationshipAttribute("Model1", "TagCategory", "Tag", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Backup.Tag), "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Backup.Category))]
 
 #endregion
 
-namespace HoplaHelpdesk.Helpers
+namespace HoplaHelpdesk.Backup
 {
     #region Contexts
     
