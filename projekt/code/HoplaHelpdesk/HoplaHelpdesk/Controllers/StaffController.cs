@@ -61,7 +61,23 @@ namespace HoplaHelpdesk.Controllers
                 return View("Error");
             }
 
-            return View(problem);
+            //try
+            //{
+                List<Comment> comments = new List<Comment>();
+
+                comments = (from Comment in DB.CommentSet
+                            where Comment.Problem_Id == id
+                            select Comment).ToList();
+
+            //} catch (Exception) { return View("Error");}
+
+            var viewModel = new ProblemDetailsCommentListViewModel()
+            {
+                Problem = problem,
+                Comments = comments
+            };
+
+            return View(viewModel);
         }
 
         //
