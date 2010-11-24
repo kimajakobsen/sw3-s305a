@@ -13,6 +13,12 @@ namespace HoplaHelpdesk.Controllers
     {
         hoplaEntities DB = new hoplaEntities();
 
+        public ActionResult CreateComment(FormCollection collection, int ProblemID)
+        {
+
+            return View();
+        }
+
         public ActionResult Worklist()
         {
             List<Problem> problemList;
