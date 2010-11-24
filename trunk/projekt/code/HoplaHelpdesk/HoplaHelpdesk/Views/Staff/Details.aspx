@@ -9,7 +9,7 @@
     <fieldset>
         <legend><%: Model.Problem.Title %></legend>
         <p>
-            <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
+            <%: Html.ActionLink("Edit", "Edit", new { id=Model.Problem.Id }) %> |
             <%: Html.ActionLink("Back to List", "Index") %>
         </p>
     
