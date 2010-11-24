@@ -11,6 +11,7 @@ using System.Data.Objects.DataClasses;
 
 namespace HoplaHelpdesk.Controllers
 {
+  
     public class CreateProblemController : Controller
     {
         hoplaEntities db = new hoplaEntities();
@@ -154,29 +155,29 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Create(ProblemCatTagWithSelectionViewModel model)
         {
-            try
+            //try
             {
               foreach(var tag in model.CatTag.AllTagsSelected()){
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
                   model.Problem.Added_date = DateTime.Now;
-                  model.Problem.aspnet_Users.Add(db.aspnet_Users.Single(x => x.UserName == User.Identity.Name));
+                  model.Problem.aspnet_Users.Add(db.aspnet_Users.Single(x => x.UserId == db.aspnet_Users.FirstOrDefault(y => User.Identity.Name == y.UserName).UserId));
                 db.ProblemSet.AddObject(model.Problem);
               
                 db.SaveChanges();
 
 
 
-                //var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
-               // return View("Details", problem);
+                var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
+                return View("Details", problem);
                 
-                return View("Succes");
+               // return View("Succes");
             }
                 
-            catch
-            {
-                return View(model);
-            }
+          //  catch
+           // {
+             //   return View(model);
+          //  }
                  
         }
 
