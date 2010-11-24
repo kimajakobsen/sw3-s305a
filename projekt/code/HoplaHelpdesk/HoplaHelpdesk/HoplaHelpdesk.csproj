@@ -73,11 +73,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\HoplaModel.Designer.cs">
-      <DependentUpon>HoplaModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -93,6 +88,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\HoplaMohdel.Designer.cs">
+      <DependentUpon>HoplaMohdel.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Models\Problem.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,9 +169,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\HoplaModel.edmx">
+    <EntityDeploy Include="Models\HoplaMohdel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HoplaModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HoplaMohdel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
