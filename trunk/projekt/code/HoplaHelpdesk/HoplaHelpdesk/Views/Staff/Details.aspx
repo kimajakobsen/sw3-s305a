@@ -16,7 +16,19 @@
         <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
 
         <% Html.RenderPartial("CommentList", Model.Comments); %>
-            
+
+        <h2>Add Comment:</h2>
+
+        // 
+        <%: Html.LabelFor(model => model.Comments.Single().description) %>
+        <%: Html.TextBoxFor(model => model.Comments.Single().description) %>
+        <%: Html.ValidationMessageFor(model => model.Comments.Single().description) %>
+
+        
+        <p> 
+            <input type="submit" value="Save" />  
+        </p>  
+
     </fieldset>
     
 
