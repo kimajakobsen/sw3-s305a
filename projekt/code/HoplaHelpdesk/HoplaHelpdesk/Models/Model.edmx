@@ -440,7 +440,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="Model1" ZoomLevel="86" >
+      <Diagram Name="Model1" ZoomLevel="71" >
         <EntityTypeShape EntityType="Model1.Problem" Width="1.5" PointX="0.5" PointY="3.375" Height="3.3263964843749996" />
         <EntityTypeShape EntityType="Model1.Tag" Width="1.5" PointX="6" PointY="3.875" Height="2.1725878906249996" />
         <EntityTypeShape EntityType="Model1.Department" Width="1.5" PointX="2.5" PointY="0.5" Height="1.787985026041667" />
