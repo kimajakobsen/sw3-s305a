@@ -9,32 +9,44 @@
 
 <body>
     <div class="page">
-
-        <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td>
+                <div id="header">
+                    <div id="title">
+                        <a href="<%: Url.Action("Index", "Home")%>"><img alt="Hopla Helpdesk" border="0" height="150" src="<%: Url.Action("hopla.png", "Content") %>" /></a>
+                    </div>
               
-            <div id="logindisplay">
-                <% Html.RenderPartial("LogOnUserControl"); %>
-            </div> 
-            
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                </ul>
-            
-            </div>
-        </div>
+                    <div id="logindisplay">
+                        <% Html.RenderPartial("LogOnUserControl"); %>
+                    </div> 
+                </div>
+                </td>
+            </tr>
+        </table>
 
-        <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        <table width="90%" border="0" cellpadding="10" cellspacing="10" align="center">
+            <tr>
+                <td bgcolor="#E8AA5F">
+                    <div id="menucontainer">
+                        <ul id="menu">              
+                            <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                            <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#E8AA5F">
+                    <div id="main">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
-            <div id="footer">
-            </div>
-        </div>
+                        <div id="footer">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
