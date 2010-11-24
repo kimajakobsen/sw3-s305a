@@ -642,13 +642,13 @@
           <EntitySet Name="aspnet_SchemaVersions" EntityType="hoplaModel.aspnet_SchemaVersions" />
           <EntitySet Name="aspnet_Users" EntityType="hoplaModel.aspnet_Users" />
           <EntitySet Name="aspnet_WebEvent_Events" EntityType="hoplaModel.aspnet_WebEvent_Events" />
-          <EntitySet Name="CategorySet" EntityType="hoplaModel.CategorySet" />
-          <EntitySet Name="CommentSet" EntityType="hoplaModel.CommentSet" />
-          <EntitySet Name="DepartmentSet" EntityType="hoplaModel.DepartmentSet" />
+          <EntitySet Name="CategorySet" EntityType="hoplaModel.Category" />
+          <EntitySet Name="CommentSet" EntityType="hoplaModel.Comment" />
+          <EntitySet Name="DepartmentSet" EntityType="hoplaModel.Department" />
           <EntitySet Name="ProblemSet" EntityType="hoplaModel.Problem" />
-          <EntitySet Name="SolutionSet" EntityType="hoplaModel.SolutionSet" />
+          <EntitySet Name="SolutionSet" EntityType="hoplaModel.Solution" />
           <EntitySet Name="sysdiagrams" EntityType="hoplaModel.sysdiagrams" />
-          <EntitySet Name="TagSet" EntityType="hoplaModel.TagSet" />
+          <EntitySet Name="TagSet" EntityType="hoplaModel.Tag" />
           <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="hoplaModel.FK__aspnet_Me__Appli__21B6055D">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -863,7 +863,7 @@
           <Property Name="ExceptionType" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
           <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
-        <EntityType Name="CategorySet">
+        <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -874,7 +874,7 @@
           <NavigationProperty Name="DepartmentSet" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="CategorySet" ToRole="DepartmentSet" />
           <NavigationProperty Name="TagSet" Relationship="hoplaModel.FK_TagCategory" FromRole="CategorySet" ToRole="TagSet" />
         </EntityType>
-        <EntityType Name="CommentSet">
+        <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -885,7 +885,7 @@
           <NavigationProperty Name="ProblemSet" Relationship="hoplaModel.FK_CommentProblem" FromRole="CommentSet" ToRole="ProblemSet" />
           <NavigationProperty Name="aspnet_Users" Relationship="hoplaModel.CommentId_UserId" FromRole="CommentSet" ToRole="aspnet_Users" />
         </EntityType>
-        <EntityType Name="DepartmentSet">
+        <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -912,7 +912,7 @@
           <NavigationProperty Name="SolutionSet" Relationship="hoplaModel.ProblemSolution" FromRole="ProblemSet" ToRole="SolutionSet" />
           <NavigationProperty Name="TagSet" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
         </EntityType>
-        <EntityType Name="SolutionSet">
+        <EntityType Name="Solution">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -930,7 +930,7 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="TagSet">
+        <EntityType Name="Tag">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -1051,8 +1051,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DepartmentCategory">
-          <End Role="DepartmentSet" Type="hoplaModel.DepartmentSet" Multiplicity="1" />
-          <End Role="CategorySet" Type="hoplaModel.CategorySet" Multiplicity="*" />
+          <End Role="DepartmentSet" Type="hoplaModel.Department" Multiplicity="1" />
+          <End Role="CategorySet" Type="hoplaModel.Category" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DepartmentSet">
               <PropertyRef Name="Id" />
@@ -1063,8 +1063,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TagCategory">
-          <End Role="CategorySet" Type="hoplaModel.CategorySet" Multiplicity="1" />
-          <End Role="TagSet" Type="hoplaModel.TagSet" Multiplicity="*" />
+          <End Role="CategorySet" Type="hoplaModel.Category" Multiplicity="1" />
+          <End Role="TagSet" Type="hoplaModel.Tag" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CategorySet">
               <PropertyRef Name="Id" />
@@ -1076,7 +1076,7 @@
         </Association>
         <Association Name="FK_CommentProblem">
           <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="1" />
-          <End Role="CommentSet" Type="hoplaModel.CommentSet" Multiplicity="*" />
+          <End Role="CommentSet" Type="hoplaModel.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProblemSet">
               <PropertyRef Name="Id" />
@@ -1092,7 +1092,7 @@
         </Association>
         <Association Name="CommentId_UserId">
           <End Role="aspnet_Users" Type="hoplaModel.aspnet_Users" Multiplicity="*" />
-          <End Role="CommentSet" Type="hoplaModel.CommentSet" Multiplicity="*" />
+          <End Role="CommentSet" Type="hoplaModel.Comment" Multiplicity="*" />
         </Association>
         <Association Name="ProblemId_UserId">
           <End Role="aspnet_Users" Type="hoplaModel.aspnet_Users" Multiplicity="*" />
@@ -1100,11 +1100,11 @@
         </Association>
         <Association Name="ProblemSolution">
           <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
-          <End Role="SolutionSet" Type="hoplaModel.SolutionSet" Multiplicity="*" />
+          <End Role="SolutionSet" Type="hoplaModel.Solution" Multiplicity="*" />
         </Association>
         <Association Name="ProblemTag">
           <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
-          <End Role="TagSet" Type="hoplaModel.TagSet" Multiplicity="*" />
+          <End Role="TagSet" Type="hoplaModel.Tag" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1204,19 +1204,19 @@
             <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
             <ScalarProperty Name="Details" ColumnName="Details" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="CategorySet"><EntityTypeMapping TypeName="hoplaModel.CategorySet"><MappingFragment StoreEntitySet="CategorySet">
+          <EntitySetMapping Name="CategorySet"><EntityTypeMapping TypeName="hoplaModel.Category"><MappingFragment StoreEntitySet="CategorySet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Description" ColumnName="Description" />
             <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="CommentSet"><EntityTypeMapping TypeName="hoplaModel.CommentSet"><MappingFragment StoreEntitySet="CommentSet">
+          <EntitySetMapping Name="CommentSet"><EntityTypeMapping TypeName="hoplaModel.Comment"><MappingFragment StoreEntitySet="CommentSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="time" ColumnName="time" />
             <ScalarProperty Name="description" ColumnName="description" />
             <ScalarProperty Name="Problem_Id" ColumnName="Problem_Id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="DepartmentSet"><EntityTypeMapping TypeName="hoplaModel.DepartmentSet"><MappingFragment StoreEntitySet="DepartmentSet">
+          <EntitySetMapping Name="DepartmentSet"><EntityTypeMapping TypeName="hoplaModel.Department"><MappingFragment StoreEntitySet="DepartmentSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
             <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1232,7 +1232,7 @@
             <ScalarProperty Name="Reassignable" ColumnName="Reassignable" />
             <ScalarProperty Name="SolvedAtTime" ColumnName="SolvedAtTime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SolutionSet"><EntityTypeMapping TypeName="hoplaModel.SolutionSet"><MappingFragment StoreEntitySet="SolutionSet">
+          <EntitySetMapping Name="SolutionSet"><EntityTypeMapping TypeName="hoplaModel.Solution"><MappingFragment StoreEntitySet="SolutionSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Description" ColumnName="Description" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
@@ -1243,7 +1243,7 @@
             <ScalarProperty Name="version" ColumnName="version" />
             <ScalarProperty Name="definition" ColumnName="definition" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TagSet"><EntityTypeMapping TypeName="hoplaModel.TagSet"><MappingFragment StoreEntitySet="TagSet">
+          <EntitySetMapping Name="TagSet"><EntityTypeMapping TypeName="hoplaModel.Tag"><MappingFragment StoreEntitySet="TagSet">
             <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1310,7 +1310,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="HoplaModel" ZoomLevel="98">
+      <Diagram Name="HoplaModel" ZoomLevel="55">
         <EntityTypeShape EntityType="hoplaModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="11.875" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.aspnet_Membership" Width="1.5" PointX="6" PointY="13.375" Height="5.4417122395833317" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.aspnet_Paths" Width="1.5" PointX="3" PointY="10.375" Height="2.3648893229166674" IsExpanded="true" />
@@ -1321,13 +1321,13 @@
         <EntityTypeShape EntityType="hoplaModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="15.125" Height="3.7109993489583317" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" Height="3.9033007812500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.CategorySet" Width="1.5" PointX="10.5" PointY="24.25" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.CommentSet" Width="1.5" PointX="12.75" PointY="17" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.DepartmentSet" Width="1.5" PointX="8.25" PointY="24.5" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Category" Width="1.5" PointX="10.5" PointY="24.25" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="12.75" PointY="17" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Department" Width="1.5" PointX="8.25" PointY="24.5" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Problem" Width="1.5" PointX="10.5" PointY="19.625" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.SolutionSet" Width="1.5" PointX="12.75" PointY="20.5" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Solution" Width="1.5" PointX="12.75" PointY="20.5" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.TagSet" Width="1.5" PointX="13.125" PointY="24.375" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Tag" Width="1.5" PointX="13.125" PointY="24.375" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="hoplaModel.FK__aspnet_Me__Appli__21B6055D" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="13.903595377604166" />
           <ConnectorPoint PointX="6" PointY="13.903595377604166" />
