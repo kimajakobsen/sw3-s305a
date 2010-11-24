@@ -148,11 +148,14 @@ namespace HoplaHelpdesk.Controllers
                     model.Problem.Tags.Add(tag);
                 }
                 db.ProblemSet.AddObject(model.Problem);
+              
                 db.SaveChanges();
 
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+
+                var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
+                return View("Detail", problem);
+             //   return RedirectToAction("Index");
             }
             catch
             {
