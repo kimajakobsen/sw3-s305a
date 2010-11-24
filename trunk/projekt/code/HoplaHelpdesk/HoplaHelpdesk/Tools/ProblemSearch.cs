@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using HoplaHelpdesk.Models;
 using HoplaHelpdesk.ViewModels;
+using System.Data.Linq;
 
 namespace HoplaHelpdesk.Tools
 {
@@ -21,14 +22,14 @@ namespace HoplaHelpdesk.Tools
         {
             List<Problem> result;
 
-            List<IQueryable<Problem>> temp = new List<IQueryable<Problem>>();
-            temp.Add(db.ProblemSet);
+            List<List<Problem>> temp = new List<List<Problem>>();
+            temp.Add(db.ProblemSet.ToList());
 
             if (catTag.AllTagsSelected().Count != 0)
             {
                 foreach (Tag tag in catTag.AllTagsSelected())
                 {
-                    temp.Add(temp[temp.Count-1].Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))));
+                    temp.Add(temp[temp.Count-1].Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList());
                 }
 
                 try
