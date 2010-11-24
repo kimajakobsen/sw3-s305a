@@ -159,25 +159,25 @@ ul#menu li a
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    background-color: #e8eef4;
+    background-color: #E8C499;
     color: #034af3;
 }
 
 ul#menu li a:hover
 {
-    background-color: #fff;
+    background-color: #E8D1B7;
     text-decoration: none;
 }
 
 ul#menu li a:active
 {
-    background-color: #a6e2a6;
+    background-color: #E8D1B7;
     text-decoration: none;
 }
 
 ul#menu li.selected a
 {
-    background-color: #fff;
+    background-color: #E8D1B7;
     color: #000;
 }
 
