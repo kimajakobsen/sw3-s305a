@@ -88,8 +88,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\HoplaMohdel.Designer.cs">
-      <DependentUpon>HoplaMohdel.edmx</DependentUpon>
+    <Compile Include="Models\HoplaModel.Designer.cs">
+      <DependentUpon>HoplaModel.edmx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
@@ -169,9 +169,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\HoplaMohdel.edmx">
+    <EntityDeploy Include="Models\HoplaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HoplaMohdel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HoplaModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
