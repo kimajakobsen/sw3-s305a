@@ -201,6 +201,8 @@ legend
     font-size: 1.1em;
     font-weight: 600;
     padding: 2px 4px 8px 4px;
+    color:Black;
+    border-color:#cacaca;
 }
 
 input[type="text"] 
@@ -326,12 +328,14 @@ div#title
     margin-top:20px;
     font-weight:bold;
     font-family:Tahoma;
+    color:Black;
 }
 .editor-label
 {
     margin-top:20px;
     font-weight:bold;
     font-family:Tahoma;
+    color:Black;
 }
 .display-field
 {
@@ -340,7 +344,10 @@ div#title
     border-style:solid;
     border-collapse:collapse;
     border-width:thin;
+    border-color:Gray;
     padding:5px;
+    color:Black;
+    width:90%;
 }
 .editor-field
 {
