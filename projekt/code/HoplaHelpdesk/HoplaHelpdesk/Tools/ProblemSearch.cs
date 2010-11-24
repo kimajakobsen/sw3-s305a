@@ -15,7 +15,7 @@ namespace HoplaHelpdesk.Tools
         /// 
         /// </summary>
         /// <param name="catTag">A CategoryTagSelectionViewModel</param>
-        /// <param name="db">DB entitites</param>
+        /// <param name="db">Hopla entitites</param>
         /// <returns></returns>
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag, hoplaEntities db)
         {
