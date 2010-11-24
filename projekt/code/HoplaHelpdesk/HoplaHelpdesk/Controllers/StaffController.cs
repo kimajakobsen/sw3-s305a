@@ -25,9 +25,7 @@ namespace HoplaHelpdesk.Controllers
 
             //try{
 
-            problemList = (from Problem in DB.ProblemSet
-                               where Problem.AssignedTo == User.Identity.Name
-                               select Problem).ToList();
+            problemList = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Problems.ToList();
 
             //}catch (Exception){return View("Error");}
 
@@ -55,10 +53,9 @@ namespace HoplaHelpdesk.Controllers
             Problem problem = new Problem();
             try
             {
-                problem = (from Problem in DB.ProblemSet
-                                   where Problem.AssignedTo == User.Identity.Name
-                                   where Problem.Id == id
-                                   select Problem).Single();
+                problem = DB.ProblemSet.FirstOrDefault(x => x.Id == id);
+                    
+                   
 
                 //problem = DB.ProblemSet.Single(x => x.Id == id && x.AssignedTo == User.Identity.Name);
             }
