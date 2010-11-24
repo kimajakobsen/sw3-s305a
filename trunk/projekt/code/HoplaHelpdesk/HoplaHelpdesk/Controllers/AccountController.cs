@@ -94,6 +94,11 @@ namespace HoplaHelpdesk.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    // Adds user to the Hopla database.
+                    hoplaEntities hoplaDb = new hoplaEntities();
+                    hoplaDb.PersonSet.AddObject(new Person { Name = model.UserName, Email = model.Email });
+
+
                     FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }

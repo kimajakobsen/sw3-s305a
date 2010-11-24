@@ -23,10 +23,10 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK_CommentProblem", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Problem), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemSolution", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "SolutionSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Solution))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemTag", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Tag))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "PersonsProblem", "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Persons), "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "PersonsDepartment", "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Persons), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HoplaHelpdesk.Models.Department), true)]
-[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemPersons", "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Persons), true)]
-[assembly: EdmRelationshipAttribute("hoplaModel", "PersonsComment", "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Persons), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment), true)]
+[assembly: EdmRelationshipAttribute("hoplaModel", "PersonsProblem", "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Person), "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem))]
+[assembly: EdmRelationshipAttribute("hoplaModel", "PersonsDepartment", "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Person), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HoplaHelpdesk.Models.Department), true)]
+[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemPersons", "Problem", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Person), true)]
+[assembly: EdmRelationshipAttribute("hoplaModel", "PersonsComment", "Persons", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Person), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment), true)]
 
 #endregion
 
@@ -177,18 +177,18 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Persons> PersonSet
+        public ObjectSet<Person> PersonSet
         {
             get
             {
                 if ((_PersonSet == null))
                 {
-                    _PersonSet = base.CreateObjectSet<Persons>("PersonSet");
+                    _PersonSet = base.CreateObjectSet<Person>("PersonSet");
                 }
                 return _PersonSet;
             }
         }
-        private ObjectSet<Persons> _PersonSet;
+        private ObjectSet<Person> _PersonSet;
 
         #endregion
         #region AddTo Methods
@@ -244,9 +244,9 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// Deprecated Method for adding a new object to the PersonSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPersonSet(Persons persons)
+        public void AddToPersonSet(Person person)
         {
-            base.AddObject("PersonSet", persons);
+            base.AddObject("PersonSet", person);
         }
 
         #endregion
@@ -657,15 +657,15 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "PersonsComment", "Persons")]
-        public Persons Person
+        public Person Person
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Persons>("hoplaModel.PersonsComment", "Persons").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("hoplaModel.PersonsComment", "Persons").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Persons>("hoplaModel.PersonsComment", "Persons").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("hoplaModel.PersonsComment", "Persons").Value = value;
             }
         }
         /// <summary>
@@ -673,17 +673,17 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Persons> PersonReference
+        public EntityReference<Person> PersonReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Persons>("hoplaModel.PersonsComment", "Persons");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("hoplaModel.PersonsComment", "Persons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Persons>("hoplaModel.PersonsComment", "Persons", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("hoplaModel.PersonsComment", "Persons", value);
                 }
             }
         }
@@ -827,17 +827,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "PersonsDepartment", "Persons")]
-        public EntityCollection<Persons> Persons
+        public EntityCollection<Person> Persons
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Persons>("hoplaModel.PersonsDepartment", "Persons");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("hoplaModel.PersonsDepartment", "Persons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Persons>("hoplaModel.PersonsDepartment", "Persons", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("hoplaModel.PersonsDepartment", "Persons", value);
                 }
             }
         }
@@ -848,26 +848,26 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Persons")]
+    [EdmEntityTypeAttribute(NamespaceName="hoplaModel", Name="Person")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Persons : EntityObject
+    public partial class Person : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Persons object.
+        /// Create a new Person object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="email">Initial value of the Email property.</param>
-        public static Persons CreatePersons(global::System.Int32 id, global::System.String name, global::System.String email)
+        public static Person CreatePerson(global::System.Int32 id, global::System.String name, global::System.String email)
         {
-            Persons persons = new Persons();
-            persons.Id = id;
-            persons.Name = name;
-            persons.Email = email;
-            return persons;
+            Person person = new Person();
+            person.Id = id;
+            person.Name = name;
+            person.Email = email;
+            return person;
         }
 
         #endregion
@@ -1405,17 +1405,17 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "PersonsProblem", "Persons")]
-        public EntityCollection<Persons> Persons
+        public EntityCollection<Person> Persons
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Persons>("hoplaModel.PersonsProblem", "Persons");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Person>("hoplaModel.PersonsProblem", "Persons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Persons>("hoplaModel.PersonsProblem", "Persons", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Person>("hoplaModel.PersonsProblem", "Persons", value);
                 }
             }
         }
@@ -1427,15 +1427,15 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemPersons", "Persons")]
-        public Persons AssignedTo
+        public Person AssignedTo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Persons>("hoplaModel.ProblemPersons", "Persons").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("hoplaModel.ProblemPersons", "Persons").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Persons>("hoplaModel.ProblemPersons", "Persons").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("hoplaModel.ProblemPersons", "Persons").Value = value;
             }
         }
         /// <summary>
@@ -1443,17 +1443,17 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Persons> AssignedToReference
+        public EntityReference<Person> AssignedToReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Persons>("hoplaModel.ProblemPersons", "Persons");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Person>("hoplaModel.ProblemPersons", "Persons");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Persons>("hoplaModel.ProblemPersons", "Persons", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Person>("hoplaModel.ProblemPersons", "Persons", value);
                 }
             }
         }
