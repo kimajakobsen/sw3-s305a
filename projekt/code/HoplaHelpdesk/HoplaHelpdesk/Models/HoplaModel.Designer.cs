@@ -31,8 +31,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK_TagCategory", "CategorySet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Category), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Tag), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "FK_CommentProblem", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HoplaHelpdesk.Models.Problem), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("hoplaModel", "aspnet_UsersInRoles", "aspnet_Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Roles), "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "CommentId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "CommentSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Comment))]
-[assembly: EdmRelationshipAttribute("hoplaModel", "ProblemId_UserId", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.aspnet_Users), "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemSolution", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "SolutionSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Solution))]
 [assembly: EdmRelationshipAttribute("hoplaModel", "ProblemTag", "ProblemSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Problem), "TagSet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HoplaHelpdesk.Models.Tag))]
 
@@ -2881,50 +2879,6 @@ namespace HoplaHelpdesk.Models
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "CommentId_UserId", "CommentSet")]
-        public EntityCollection<Comment> Comments
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Comment>("hoplaModel.CommentId_UserId", "CommentSet");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("hoplaModel.CommentId_UserId", "CommentSet", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemId_UserId", "ProblemSet")]
-        public EntityCollection<Problem> Problems
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Problem>("hoplaModel.ProblemId_UserId", "ProblemSet");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Problem>("hoplaModel.ProblemId_UserId", "ProblemSet", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -3702,28 +3656,6 @@ namespace HoplaHelpdesk.Models
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "CommentId_UserId", "aspnet_Users")]
-        public EntityCollection<aspnet_Users> aspnet_Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("hoplaModel.CommentId_UserId", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("hoplaModel.CommentId_UserId", "aspnet_Users", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -4125,28 +4057,6 @@ namespace HoplaHelpdesk.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Comment>("hoplaModel.FK_CommentProblem", "CommentSet", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemId_UserId", "aspnet_Users")]
-        public EntityCollection<aspnet_Users> aspnet_Users
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<aspnet_Users>("hoplaModel.ProblemId_UserId", "aspnet_Users");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<aspnet_Users>("hoplaModel.ProblemId_UserId", "aspnet_Users", value);
                 }
             }
         }
