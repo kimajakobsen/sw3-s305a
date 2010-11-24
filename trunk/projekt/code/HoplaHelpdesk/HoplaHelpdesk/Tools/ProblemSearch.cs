@@ -21,8 +21,7 @@ namespace HoplaHelpdesk.Tools
         /// <returns></returns>
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag, hoplaEntities db)
         {
-            List<Problem> result;
-            int problemsFound = 0;
+            List<Problem> result = new List<Problem>();
             int noOfTagsToRemove = 0;
             List<int> tagsToRemove;
             List<Tag> tags = catTag.AllTagsSelected();
@@ -32,7 +31,7 @@ namespace HoplaHelpdesk.Tools
 
             if (catTag.AllTagsSelected().Count != 0)
             {
-                while (problemsFound < _maxProblems)
+                while (temp.Count < _maxProblems && noOfTagsToRemove < tags.Count)
                 {
                     tagsToRemove = new List<int>();
                     for (int i = 0; i < noOfTagsToRemove; i++)
@@ -41,33 +40,27 @@ namespace HoplaHelpdesk.Tools
                     }
                     try
                     {
+                        List<Tag> currentSearch = tags.RemoveCurrent(tagsToRemove);
                         while (true)
                         {
-                            List<Tag> currentSearch = tags.RemoveNext(ref tagsToRemove);
                             foreach (Tag tag in currentSearch)
                             {
                                 temp.Add(temp[temp.Count - 1].Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList());
                             }
+                            currentSearch = tags.RemoveNext(ref tagsToRemove);
                         }
                     }
                     catch (NotSupportedException ex)
                     {
-
+                        noOfTagsToRemove++;
+                        result.AddRange(temp[temp.Count - 1].ToList());
                     }
                 }
-
-                try
-                {
-                    result = temp[temp.Count-1].ToList();
-                }
-                catch
-                {
-                    throw;
-                }
             }
-            else
+
+            if (result.Count() < _maxProblems)
             {
-                result = temp[0].Where(x => x.Tags.Count == 0).ToList();
+                result.AddRange(temp[0].Where(x => x.Tags.Count == 0).ToList());
             }
 
             return result;
