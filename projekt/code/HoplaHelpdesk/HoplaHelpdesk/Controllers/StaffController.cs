@@ -40,10 +40,10 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(int id)
         {
             DBEntities DB = new DBEntities();
-            var problem = (Problem)(from Problem in DB.ProblemSet
+            var problem = (from Problem in DB.ProblemSet
                                     where Problem.AssignedTo == User.Identity.Name
                                     where Problem.Id == id
-                                    select Problem);
+                                    select Problem).ToList();
 
             var viewModel = new ProblemDetailsViewModel()
             {
