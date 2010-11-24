@@ -44,17 +44,17 @@ namespace HoplaHelpdesk.Controllers
             Problem problem = new Problem();
             try
             {
-                /*problem = (from Problem in DB.ProblemSet
+                problem = (from Problem in DB.ProblemSet
                                    where Problem.AssignedTo == User.Identity.Name
                                    where Problem.Id == id
-                                   select Problem).Single();*/
+                                   select Problem).Single();
 
-                problem = DB.ProblemSet.Single(x => x.Id == id && x.AssignedTo == User.Identity.Name);
+                //problem = DB.ProblemSet.Single(x => x.Id == id && x.AssignedTo == User.Identity.Name);
 
             }
-            catch (NullReferenceException)
+            catch (Exception)
             {
-                problem.Description = "No problems found, or you tried to hack the system..";
+                return View("Error");
             }
 
             return View(problem);
