@@ -2889,7 +2889,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "CommentId_UserId", "CommentSet")]
-        public EntityCollection<Comment> CommentSet
+        public EntityCollection<Comment> Comments
         {
             get
             {
@@ -2911,7 +2911,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemId_UserId", "ProblemSet")]
-        public EntityCollection<Problem> ProblemSet
+        public EntityCollection<Problem> Problems
         {
             get
             {
@@ -3476,7 +3476,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_DepartmentCategory", "DepartmentSet")]
-        public Department DepartmentSet
+        public Department Departments
         {
             get
             {
@@ -3492,7 +3492,7 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Department> DepartmentSetReference
+        public EntityReference<Department> DepartmentsReference
         {
             get
             {
@@ -3514,7 +3514,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_TagCategory", "TagSet")]
-        public EntityCollection<Tag> TagSet
+        public EntityCollection<Tag> Tags
         {
             get
             {
@@ -3672,7 +3672,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_CommentProblem", "ProblemSet")]
-        public Problem ProblemSet
+        public Problem Problems
         {
             get
             {
@@ -3688,7 +3688,7 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Problem> ProblemSetReference
+        public EntityReference<Problem> ProblemsReference
         {
             get
             {
@@ -3842,7 +3842,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_DepartmentCategory", "CategorySet")]
-        public EntityCollection<Category> CategorySet
+        public EntityCollection<Category> Categories
         {
             get
             {
@@ -4158,7 +4158,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemSolution", "SolutionSet")]
-        public EntityCollection<Solution> SolutionSet
+        public EntityCollection<Solution> Solutions
         {
             get
             {
@@ -4180,7 +4180,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemTag", "TagSet")]
-        public EntityCollection<Tag> TagSet
+        public EntityCollection<Tag> Tags
         {
             get
             {
@@ -4286,7 +4286,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemSolution", "ProblemSet")]
-        public EntityCollection<Problem> ProblemSet
+        public EntityCollection<Problem> Problems
         {
             get
             {
@@ -4625,7 +4625,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "FK_TagCategory", "CategorySet")]
-        public Category CategorySet
+        public Category Categories
         {
             get
             {
@@ -4641,7 +4641,7 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Category> CategorySetReference
+        public EntityReference<Category> CategoriesReference
         {
             get
             {
@@ -4663,7 +4663,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "ProblemTag", "ProblemSet")]
-        public EntityCollection<Problem> ProblemSet
+        public EntityCollection<Problem> Problems
         {
             get
             {
