@@ -103,6 +103,7 @@
     <Compile Include="ViewModels\CategoryTagSelectionViewModel.cs" />
     <Compile Include="Tools\ProblemSearch.cs" />
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
+    <Compile Include="ViewModels\DepartmentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
   </ItemGroup>
@@ -119,7 +120,7 @@
     <Content Include="Views\CreateProblem\Details.aspx" />
     <Content Include="Views\CreateProblem\SimilarProblems.aspx" />
     <Content Include="Views\CreateProblem\Succes.aspx" />
-    <Content Include="Views\Department\Index.ascx" />
+    <Content Include="Views\Department\Index.aspx" />
     <Content Include="Views\Shared\DepartmentList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategoryTagSelectEditor.ascx" />
