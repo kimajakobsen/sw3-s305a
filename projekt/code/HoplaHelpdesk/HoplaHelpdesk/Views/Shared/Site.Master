@@ -29,7 +29,7 @@
             <tr>
                 <td bgcolor="#E8AA5F">
                     <div id="menucontainer">
-                        <ul id="menu">              
+                        <ul id="menu">
                             <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                             <li><%: Html.ActionLink("Client", "Index", "Client")  %></li>
                             <li><%: Html.ActionLink("Staff", "Index", "Staff")  %></li>

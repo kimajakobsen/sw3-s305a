@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Comment>>" %>
 
-    <table>
+    <table class="problemlist">
         <tr>
             <th></th>
             <th>
