@@ -25,7 +25,16 @@ namespace HoplaHelpdesk.Helpers
 
             return result;
         }
+        
 
+        /// <summary>
+        /// This function increments the <paramref name="formerRemoved"/> to the next set to be removed
+        /// and removes the entries specified in <paramref name="formerRemoved"/> from the list
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="formerRemoved">A list where integers representing the indices of the list to be removed</param>
+        /// <returns>A new list where the specified entries in <paramref name="formerRemoved"/> are removed from the list </returns>
         public static List<T> RemoveNext<T>(this List<T> list, ref List<int> formerRemoved)
         {
             int count = formerRemoved.Count;
@@ -41,23 +50,48 @@ namespace HoplaHelpdesk.Helpers
                 }
                 if (formerRemoved[count] < list.Count)
                 {
-                    for (int k = 0, l = 0; k < list.Count; k++)
-                    {
-                        if (k != formerRemoved[l])
-                        {
-                            result.Add(list[k]);
-                        }
-                        else
-                        {
-                            l = (l+1) % count;
-                        }
-                    }
-
-                    return result;
+                    return list.RemoveCurrent(formerRemoved);
                 }
             }
 
             throw new NotSupportedException("");
+        }
+
+        /// <summary>
+        /// This function removes the entries specified in <paramref name="removeList"/> from the list
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="removeList">A list where integers representing the indices of the list to be removed</param>
+        /// <returns>A new list where the specified entries in <paramref name="removeList"/> are removed from the list </returns>
+        public static List<T> RemoveCurrent<T>(this List<T> list, List<int> removeList)
+        {
+            int count = removeList.Count;
+            List<T> result = new List<T>();
+
+            if (removeList != null && removeList.Count != 0)
+            {
+                for (int k = 0, l = 0; k < list.Count; k++)
+                {
+                    if (k != removeList[l])
+                    {
+                        result.Add(list[k]);
+                    }
+                    else
+                    {
+                        l = (l + 1) % count;
+                    }
+                }
+            }
+            else
+            {
+                for (int k = 0; k < list.Count; k++)
+                {
+                    result.Add(list[k]);
+                }
+            }
+
+            return result;
         }
     }
 }
