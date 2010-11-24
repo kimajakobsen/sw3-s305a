@@ -27,7 +27,7 @@ namespace HoplaHelpdesk.Tools
             {
                 foreach (Tag tag in catTag.AllTagsSelected())
                 {
-                    temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.TagSet.Contains(tag));
+                    temp = (System.Data.Objects.ObjectSet<Problem>)temp.Where(x => x.Tags.Contains(tag));
                 }
                 
                 result = temp.ToList();
