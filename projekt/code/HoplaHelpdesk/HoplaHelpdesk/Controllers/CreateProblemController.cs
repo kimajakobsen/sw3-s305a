@@ -13,7 +13,7 @@ namespace HoplaHelpdesk.Controllers
 {
     public class CreateProblemController : Controller
     {
-        DBEntities db = new DBEntities();
+        hoplaEntities db = new hoplaEntities();
 
         //
         // GET: /CreateProblem/
@@ -33,9 +33,9 @@ namespace HoplaHelpdesk.Controllers
             {
                 Categories = CategoryTagSelectionViewModel.ConvertTo(categories)
             };
-            hoplaEntities dbd = new hoplaEntities();
-            var problemfgf = dbd.ProblemSet.Single(x => x.Id == 3);
-            problemfgf
+           
+           
+            
             return View(catViewModel);
         }
 

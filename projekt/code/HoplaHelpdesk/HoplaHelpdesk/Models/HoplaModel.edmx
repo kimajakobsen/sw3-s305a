@@ -840,8 +840,8 @@
           <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="hoplaModel.FK__aspnet_Pe__UserI__693CA210" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
           <NavigationProperty Name="aspnet_Profile" Relationship="hoplaModel.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="aspnet_Roles" Relationship="hoplaModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
-          <NavigationProperty Name="CommentSet" Relationship="hoplaModel.CommentId_UserId" FromRole="aspnet_Users" ToRole="CommentSet" />
-          <NavigationProperty Name="ProblemSet" Relationship="hoplaModel.ProblemId_UserId" FromRole="aspnet_Users" ToRole="ProblemSet" />
+          <NavigationProperty Name="Comments" Relationship="hoplaModel.CommentId_UserId" FromRole="aspnet_Users" ToRole="CommentSet" />
+          <NavigationProperty Name="Problems" Relationship="hoplaModel.ProblemId_UserId" FromRole="aspnet_Users" ToRole="ProblemSet" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -871,8 +871,8 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Department_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DepartmentSet" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="CategorySet" ToRole="DepartmentSet" />
-          <NavigationProperty Name="TagSet" Relationship="hoplaModel.FK_TagCategory" FromRole="CategorySet" ToRole="TagSet" />
+          <NavigationProperty Name="Departments" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="CategorySet" ToRole="DepartmentSet" />
+          <NavigationProperty Name="Tags" Relationship="hoplaModel.FK_TagCategory" FromRole="CategorySet" ToRole="TagSet" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
@@ -882,7 +882,7 @@
           <Property Name="time" Type="DateTime" Nullable="false" />
           <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Problem_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ProblemSet" Relationship="hoplaModel.FK_CommentProblem" FromRole="CommentSet" ToRole="ProblemSet" />
+          <NavigationProperty Name="Problems" Relationship="hoplaModel.FK_CommentProblem" FromRole="CommentSet" ToRole="ProblemSet" />
           <NavigationProperty Name="aspnet_Users" Relationship="hoplaModel.CommentId_UserId" FromRole="CommentSet" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="Department">
@@ -892,7 +892,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="CategorySet" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="DepartmentSet" ToRole="CategorySet" />
+          <NavigationProperty Name="Categories" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="DepartmentSet" ToRole="CategorySet" />
         </EntityType>
         <EntityType Name="Problem">
           <Key>
@@ -909,8 +909,8 @@
           <Property Name="SolvedAtTime" Type="DateTime" />
           <NavigationProperty Name="CommentSet" Relationship="hoplaModel.FK_CommentProblem" FromRole="ProblemSet" ToRole="CommentSet" />
           <NavigationProperty Name="aspnet_Users" Relationship="hoplaModel.ProblemId_UserId" FromRole="ProblemSet" ToRole="aspnet_Users" />
-          <NavigationProperty Name="SolutionSet" Relationship="hoplaModel.ProblemSolution" FromRole="ProblemSet" ToRole="SolutionSet" />
-          <NavigationProperty Name="TagSet" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
+          <NavigationProperty Name="Solutions" Relationship="hoplaModel.ProblemSolution" FromRole="ProblemSet" ToRole="SolutionSet" />
+          <NavigationProperty Name="Tags" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
         </EntityType>
         <EntityType Name="Solution">
           <Key>
@@ -918,7 +918,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="ProblemSet" Relationship="hoplaModel.ProblemSolution" FromRole="SolutionSet" ToRole="ProblemSet" />
+          <NavigationProperty Name="Problems" Relationship="hoplaModel.ProblemSolution" FromRole="SolutionSet" ToRole="ProblemSet" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -939,8 +939,8 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Priority" Type="Int16" Nullable="false" />
           <Property Name="Category_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CategorySet" Relationship="hoplaModel.FK_TagCategory" FromRole="TagSet" ToRole="CategorySet" />
-          <NavigationProperty Name="ProblemSet" Relationship="hoplaModel.ProblemTag" FromRole="TagSet" ToRole="ProblemSet" />
+          <NavigationProperty Name="Categories" Relationship="hoplaModel.FK_TagCategory" FromRole="TagSet" ToRole="CategorySet" />
+          <NavigationProperty Name="Problems" Relationship="hoplaModel.ProblemTag" FromRole="TagSet" ToRole="ProblemSet" />
         </EntityType>
         <Association Name="FK__aspnet_Me__Appli__21B6055D">
           <End Role="aspnet_Applications" Type="hoplaModel.aspnet_Applications" Multiplicity="1" />
@@ -1310,7 +1310,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="HoplaModel" ZoomLevel="55">
+      <Diagram Name="HoplaModel" ZoomLevel="82">
         <EntityTypeShape EntityType="hoplaModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="11.875" Height="2.5571907552083317" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.aspnet_Membership" Width="1.5" PointX="6" PointY="13.375" Height="5.4417122395833317" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.aspnet_Paths" Width="1.5" PointX="3" PointY="10.375" Height="2.3648893229166674" IsExpanded="true" />
