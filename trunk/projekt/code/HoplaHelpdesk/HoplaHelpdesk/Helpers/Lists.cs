@@ -29,7 +29,7 @@ namespace HoplaHelpdesk.Helpers
         public static List<T> RemoveNext<T>(this List<T> list, ref List<int> formerRemoved)
         {
             int count = formerRemoved.Count;
-            List<int> result = new List<int>();
+            List<T> result = new List<T>();
 
             for (int i = count-1 ; i >= 0 ; i--)
             {
