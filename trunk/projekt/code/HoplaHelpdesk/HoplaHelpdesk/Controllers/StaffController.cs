@@ -17,13 +17,13 @@ namespace HoplaHelpdesk.Controllers
         {
             List<Problem> problemList;
 
-            try{
+            //try{
 
             problemList = (from Problem in DB.ProblemSet
                                where Problem.AssignedTo == User.Identity.Name
                                select Problem).ToList();
 
-            }catch (Exception){return View("Error");}
+            //}catch (Exception){return View("Error");}
 
 
             var viewModel = new ProblemListViewModel()
