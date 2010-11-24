@@ -1,11 +1,15 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Problem>" %>
 
                
+            <%@ Register assembly="EO.Web" namespace="EO.Web" tagprefix="eo" %>
+
+               
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Title) %>
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.Title) %>
+            
                 <%: Html.ValidationMessageFor(model => model.Title) %>
             </div>
             
@@ -32,6 +36,7 @@
                 <%: Html.TextBoxFor(model => model.Deadline) %>
                 <%: Html.ValidationMessageFor(model => model.Deadline) %>
             </div>
+          
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.IsDeadlineApproved) %>
@@ -67,4 +72,9 @@
             
     
 
+
+
+
+            
+    
 
