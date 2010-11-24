@@ -8,7 +8,7 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
-    [Authorize(Roles = "Staff")]
+    //[Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
         
