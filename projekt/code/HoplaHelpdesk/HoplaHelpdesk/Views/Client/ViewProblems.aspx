@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<HoplaHelpdesk.Models.Problem>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemListViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	ViewProblems
@@ -16,7 +16,7 @@
    
 
     <p>
-        <%: Html.ActionLink("Create New", "CategorizeNewProblem") %>
+        <%: Html.ActionLink("Create New", "Index","CreateProblem") %>
     </p>
 
 </asp:Content>

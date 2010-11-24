@@ -5,629 +5,613 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="hoplaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="hoplaModelStoreContainer">
-          <EntitySet Name="aspnet_Applications" EntityType="hoplaModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Membership" EntityType="hoplaModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Paths" EntityType="hoplaModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="hoplaModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="hoplaModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Profile" EntityType="hoplaModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Roles" EntityType="hoplaModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_SchemaVersions" EntityType="hoplaModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_Users" EntityType="hoplaModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_UsersInRoles" EntityType="hoplaModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="aspnet_WebEvent_Events" EntityType="hoplaModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CategorySet" EntityType="hoplaModel.Store.CategorySet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CommentId_UserId" EntityType="hoplaModel.Store.CommentId_UserId" store:Type="Tables" store:Schema="dbo" store:Name="CommentId_UserId">
-            <DefiningQuery>SELECT 
-      [CommentId_UserId].[CommentId] AS [CommentId], 
-      [CommentId_UserId].[UserId] AS [UserId]
-      FROM [dbo].[CommentId_UserId] AS [CommentId_UserId]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CommentSet" EntityType="hoplaModel.Store.CommentSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DepartmentSet" EntityType="hoplaModel.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProblemId_UserId" EntityType="hoplaModel.Store.ProblemId_UserId" store:Type="Tables" store:Schema="dbo" store:Name="ProblemId_UserId">
-            <DefiningQuery>SELECT 
-      [ProblemId_UserId].[Problem Id] AS [Problem Id], 
-      [ProblemId_UserId].[UserId] AS [UserId]
-      FROM [dbo].[ProblemId_UserId] AS [ProblemId_UserId]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ProblemSet" EntityType="hoplaModel.Store.ProblemSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProblemSolution" EntityType="hoplaModel.Store.ProblemSolution" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProblemTag" EntityType="hoplaModel.Store.ProblemTag" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SolutionSet" EntityType="hoplaModel.Store.SolutionSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="hoplaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TagSet" EntityType="hoplaModel.Store.TagSet" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="hoplaModel.Store.FK__aspnet_Me__Appli__21B6055D">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="hoplaModel.Store.FK__aspnet_Me__UserI__22AA2996">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="hoplaModel.Store.FK__aspnet_Pa__Appli__5AEE82B9">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="hoplaModel.Store.FK__aspnet_Pe__PathI__628FA481">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="hoplaModel.Store.FK__aspnet_Pe__PathI__68487DD7">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="hoplaModel.Store.FK__aspnet_Pe__UserI__693CA210">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="hoplaModel.Store.FK__aspnet_Pr__UserI__38996AB5">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="hoplaModel.Store.FK__aspnet_Ro__Appli__440B1D61">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="hoplaModel.Store.FK__aspnet_Us__Appli__0DAF0CB0">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="hoplaModel.Store.FK__aspnet_Us__RoleI__4AB81AF0">
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
-            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="hoplaModel.Store.FK__aspnet_Us__UserI__49C3F6B7">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CommentId_UserId_aspnet_Users" Association="hoplaModel.Store.FK_CommentId_UserId_aspnet_Users">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="CommentId_UserId" EntitySet="CommentId_UserId" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CommentId_UserId_CommentSet" Association="hoplaModel.Store.FK_CommentId_UserId_CommentSet">
-            <End Role="CommentSet" EntitySet="CommentSet" />
-            <End Role="CommentId_UserId" EntitySet="CommentId_UserId" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CommentProblem" Association="hoplaModel.Store.FK_CommentProblem">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="CommentSet" EntitySet="CommentSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DepartmentCategory" Association="hoplaModel.Store.FK_DepartmentCategory">
-            <End Role="DepartmentSet" EntitySet="DepartmentSet" />
-            <End Role="CategorySet" EntitySet="CategorySet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemId_UserId_aspnet_Users" Association="hoplaModel.Store.FK_ProblemId_UserId_aspnet_Users">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="ProblemId_UserId" EntitySet="ProblemId_UserId" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemId_UserId_ProblemSet" Association="hoplaModel.Store.FK_ProblemId_UserId_ProblemSet">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="ProblemId_UserId" EntitySet="ProblemId_UserId" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemSolution_Problem" Association="hoplaModel.Store.FK_ProblemSolution_Problem">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="ProblemSolution" EntitySet="ProblemSolution" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemSolution_Solution" Association="hoplaModel.Store.FK_ProblemSolution_Solution">
-            <End Role="SolutionSet" EntitySet="SolutionSet" />
-            <End Role="ProblemSolution" EntitySet="ProblemSolution" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemTag_Problem" Association="hoplaModel.Store.FK_ProblemTag_Problem">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="ProblemTag" EntitySet="ProblemTag" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemTag_Tag" Association="hoplaModel.Store.FK_ProblemTag_Tag">
-            <End Role="TagSet" EntitySet="TagSet" />
-            <End Role="ProblemTag" EntitySet="ProblemTag" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TagCategory" Association="hoplaModel.Store.FK_TagCategory">
-            <End Role="CategorySet" EntitySet="CategorySet" />
-            <End Role="TagSet" EntitySet="TagSet" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="aspnet_Applications">
-          <Key>
-            <PropertyRef Name="ApplicationId" />
-          </Key>
-          <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="256" />
-        </EntityType>
-        <EntityType Name="aspnet_Membership">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="PasswordFormat" Type="int" Nullable="false" />
-          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
-          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
-          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
-          <Property Name="IsApproved" Type="bit" Nullable="false" />
-          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
-          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
-          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
-          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
-          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
-          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
-          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
-          <Property Name="Comment" Type="ntext" />
-        </EntityType>
-        <EntityType Name="aspnet_Paths">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationAllUsers">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PageSettings" Type="image" Nullable="false" />
-          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationPerUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PathId" Type="uniqueidentifier" />
-          <Property Name="UserId" Type="uniqueidentifier" />
-          <Property Name="PageSettings" Type="image" Nullable="false" />
-          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_Profile">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
-          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
-          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
-          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_Roles">
-          <Key>
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="Description" Type="nvarchar" MaxLength="256" />
-        </EntityType>
-        <EntityType Name="aspnet_SchemaVersions">
-          <Key>
-            <PropertyRef Name="Feature" />
-            <PropertyRef Name="CompatibleSchemaVersion" />
-          </Key>
-          <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_Users">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
-          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
-          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_UsersInRoles">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_WebEvent_Events">
-          <Key>
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
-          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
-          <Property Name="EventTime" Type="datetime" Nullable="false" />
-          <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" />
-          <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" />
-          <Property Name="EventCode" Type="int" Nullable="false" />
-          <Property Name="EventDetailCode" Type="int" Nullable="false" />
-          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
-          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
-          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
-          <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
-          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
-          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
-          <Property Name="Details" Type="ntext" />
-        </EntityType>
-        <EntityType Name="CategorySet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Department_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'hopla.dbo.CommentId_UserId' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="CommentId_UserId">
-          <Key>
-            <PropertyRef Name="CommentId" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="CommentId" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CommentSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="time" Type="datetime" Nullable="false" />
-          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Problem_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="DepartmentSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'hopla.dbo.ProblemId_UserId' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="ProblemId_UserId">
-          <Key>
-            <PropertyRef Name="Problem Id" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="Problem Id" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProblemSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="nvarchar(max)" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Added_date" Type="datetime" />
-          <Property Name="Deadline" Type="datetime" />
-          <Property Name="IsDeadlineApproved" Type="bit" />
-          <Property Name="AssignedTo" Type="nvarchar(max)" />
-          <Property Name="Reassignable" Type="bit" />
-          <Property Name="SolvedAtTime" Type="datetime" />
-        </EntityType>
-        <EntityType Name="ProblemSolution">
-          <Key>
-            <PropertyRef Name="Problems_Id" />
-            <PropertyRef Name="Solutions_Id" />
-          </Key>
-          <Property Name="Problems_Id" Type="int" Nullable="false" />
-          <Property Name="Solutions_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProblemTag">
-          <Key>
-            <PropertyRef Name="Problems_Id" />
-            <PropertyRef Name="Tags_Id" />
-          </Key>
-          <Property Name="Problems_Id" Type="int" Nullable="false" />
-          <Property Name="Tags_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SolutionSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="TagSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Priority" Type="smallint" Nullable="false" />
-          <Property Name="Category_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <Association Name="FK__aspnet_Me__Appli__21B6055D">
-          <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="hoplaModel.Store.aspnet_Membership" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Me__UserI__22AA2996">
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="hoplaModel.Store.aspnet_Membership" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
-          <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Paths" Type="hoplaModel.Store.aspnet_Paths" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Paths">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__628FA481">
-          <End Role="aspnet_Paths" Type="hoplaModel.Store.aspnet_Paths" Multiplicity="1" />
-          <End Role="aspnet_PersonalizationAllUsers" Type="hoplaModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationAllUsers">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__68487DD7">
-          <End Role="aspnet_Paths" Type="hoplaModel.Store.aspnet_Paths" Multiplicity="0..1" />
-          <End Role="aspnet_PersonalizationPerUser" Type="hoplaModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__UserI__693CA210">
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="0..1" />
-          <End Role="aspnet_PersonalizationPerUser" Type="hoplaModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pr__UserI__38996AB5">
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Profile" Type="hoplaModel.Store.aspnet_Profile" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Profile">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Ro__Appli__440B1D61">
-          <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Roles" Type="hoplaModel.Store.aspnet_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Roles">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
-          <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Users">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
-          <End Role="aspnet_Roles" Type="hoplaModel.Store.aspnet_Roles" Multiplicity="1" />
-          <End Role="aspnet_UsersInRoles" Type="hoplaModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Roles">
-              <PropertyRef Name="RoleId" />
-            </Principal>
-            <Dependent Role="aspnet_UsersInRoles">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Us__UserI__49C3F6B7">
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_UsersInRoles" Type="hoplaModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_UsersInRoles">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CommentId_UserId_aspnet_Users">
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="CommentId_UserId" Type="hoplaModel.Store.CommentId_UserId" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="CommentId_UserId">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CommentId_UserId_CommentSet">
-          <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="1" />
-          <End Role="CommentId_UserId" Type="hoplaModel.Store.CommentId_UserId" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CommentSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CommentId_UserId">
-              <PropertyRef Name="CommentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CommentProblem">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CommentSet">
-              <PropertyRef Name="Problem_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DepartmentCategory">
-          <End Role="DepartmentSet" Type="hoplaModel.Store.DepartmentSet" Multiplicity="1" />
-          <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartmentSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CategorySet">
-              <PropertyRef Name="Department_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemId_UserId_aspnet_Users">
-          <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
-          <End Role="ProblemId_UserId" Type="hoplaModel.Store.ProblemId_UserId" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="ProblemId_UserId">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemId_UserId_ProblemSet">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="ProblemId_UserId" Type="hoplaModel.Store.ProblemId_UserId" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemId_UserId">
-              <PropertyRef Name="Problem Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemSolution_Problem">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemSolution">
-              <PropertyRef Name="Problems_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemSolution_Solution">
-          <End Role="SolutionSet" Type="hoplaModel.Store.SolutionSet" Multiplicity="1" />
-          <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SolutionSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemSolution">
-              <PropertyRef Name="Solutions_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemTag_Problem">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemTag">
-              <PropertyRef Name="Problems_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemTag_Tag">
-          <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="1" />
-          <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TagSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemTag">
-              <PropertyRef Name="Tags_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TagCategory">
-          <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="1" />
-          <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CategorySet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TagSet">
-              <PropertyRef Name="Category_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="hoplaModelStoreContainer">
+    <EntitySet Name="aspnet_Applications" EntityType="hoplaModel.Store.aspnet_Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Membership" EntityType="hoplaModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Paths" EntityType="hoplaModel.Store.aspnet_Paths" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="hoplaModel.Store.aspnet_PersonalizationAllUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="hoplaModel.Store.aspnet_PersonalizationPerUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Profile" EntityType="hoplaModel.Store.aspnet_Profile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Roles" EntityType="hoplaModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_SchemaVersions" EntityType="hoplaModel.Store.aspnet_SchemaVersions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Users" EntityType="hoplaModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_WebEvent_Events" EntityType="hoplaModel.Store.aspnet_WebEvent_Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategorySet" EntityType="hoplaModel.Store.CategorySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentSet" EntityType="hoplaModel.Store.CommentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepartmentSet" EntityType="hoplaModel.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemSet" EntityType="hoplaModel.Store.ProblemSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SolutionSet" EntityType="hoplaModel.Store.SolutionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="hoplaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TagSet" EntityType="hoplaModel.Store.TagSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UsersInRoles" EntityType="hoplaModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentId_UserId" EntityType="hoplaModel.Store.CommentId_UserId" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemSolution" EntityType="hoplaModel.Store.ProblemSolution" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemTag" EntityType="hoplaModel.Store.ProblemTag" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_UsersProblem" EntityType="hoplaModel.Store.aspnet_UsersProblem" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__aspnet_Me__Appli__21B6055D" Association="hoplaModel.Store.FK__aspnet_Me__Appli__21B6055D">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pa__Appli__5AEE82B9" Association="hoplaModel.Store.FK__aspnet_Pa__Appli__5AEE82B9">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Ro__Appli__440B1D61" Association="hoplaModel.Store.FK__aspnet_Ro__Appli__440B1D61">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Us__Appli__0DAF0CB0" Association="hoplaModel.Store.FK__aspnet_Us__Appli__0DAF0CB0">
+      <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="hoplaModel.Store.FK__aspnet_Me__UserI__22AA2996">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__628FA481" Association="hoplaModel.Store.FK__aspnet_Pe__PathI__628FA481">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__PathI__68487DD7" Association="hoplaModel.Store.FK__aspnet_Pe__PathI__68487DD7">
+      <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pe__UserI__693CA210" Association="hoplaModel.Store.FK__aspnet_Pe__UserI__693CA210">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Pr__UserI__38996AB5" Association="hoplaModel.Store.FK__aspnet_Pr__UserI__38996AB5">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentCategory" Association="hoplaModel.Store.FK_DepartmentCategory">
+      <End Role="DepartmentSet" EntitySet="DepartmentSet" />
+      <End Role="CategorySet" EntitySet="CategorySet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TagCategory" Association="hoplaModel.Store.FK_TagCategory">
+      <End Role="CategorySet" EntitySet="CategorySet" />
+      <End Role="TagSet" EntitySet="TagSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentProblem" Association="hoplaModel.Store.FK_CommentProblem">
+      <End Role="ProblemSet" EntitySet="ProblemSet" />
+      <End Role="CommentSet" EntitySet="CommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_UsersInRoles_aspnet_Roles" Association="hoplaModel.Store.FK_aspnet_UsersInRoles_aspnet_Roles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_UsersInRoles_aspnet_Users" Association="hoplaModel.Store.FK_aspnet_UsersInRoles_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentId_UserId_aspnet_Users" Association="hoplaModel.Store.FK_CommentId_UserId_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="CommentId_UserId" EntitySet="CommentId_UserId" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentId_UserId_CommentSet" Association="hoplaModel.Store.FK_CommentId_UserId_CommentSet">
+      <End Role="CommentSet" EntitySet="CommentSet" />
+      <End Role="CommentId_UserId" EntitySet="CommentId_UserId" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemSolution_ProblemSet" Association="hoplaModel.Store.FK_ProblemSolution_ProblemSet">
+      <End Role="ProblemSet" EntitySet="ProblemSet" />
+      <End Role="ProblemSolution" EntitySet="ProblemSolution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemSolution_SolutionSet" Association="hoplaModel.Store.FK_ProblemSolution_SolutionSet">
+      <End Role="SolutionSet" EntitySet="SolutionSet" />
+      <End Role="ProblemSolution" EntitySet="ProblemSolution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemTag_ProblemSet" Association="hoplaModel.Store.FK_ProblemTag_ProblemSet">
+      <End Role="ProblemSet" EntitySet="ProblemSet" />
+      <End Role="ProblemTag" EntitySet="ProblemTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemTag_TagSet" Association="hoplaModel.Store.FK_ProblemTag_TagSet">
+      <End Role="TagSet" EntitySet="TagSet" />
+      <End Role="ProblemTag" EntitySet="ProblemTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_UsersProblem_aspnet_Users" Association="hoplaModel.Store.FK_aspnet_UsersProblem_aspnet_Users">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_UsersProblem" EntitySet="aspnet_UsersProblem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_aspnet_UsersProblem_Problem" Association="hoplaModel.Store.FK_aspnet_UsersProblem_Problem">
+      <End Role="Problem" EntitySet="ProblemSet" />
+      <End Role="aspnet_UsersProblem" EntitySet="aspnet_UsersProblem" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MobilePIN" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="aspnet_Paths">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredPath" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationAllUsers">
+    <Key>
+      <PropertyRef Name="PathId" />
+    </Key>
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PageSettings" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_PersonalizationPerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PathId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="PageSettings" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PropertyValuesString" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PropertyValuesBinary" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="aspnet_SchemaVersions">
+    <Key>
+      <PropertyRef Name="Feature" />
+      <PropertyRef Name="CompatibleSchemaVersion" />
+    </Key>
+    <Property Name="Feature" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CompatibleSchemaVersion" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="IsCurrentVersion" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" Nullable="true" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_WebEvent_Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="char" Nullable="false" MaxLength="32" />
+    <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
+    <Property Name="EventTime" Type="datetime" Nullable="false" />
+    <Property Name="EventType" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="EventSequence" Type="decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventOccurrence" Type="decimal" Nullable="false" Precision="19" Scale="0" />
+    <Property Name="EventCode" Type="int" Nullable="false" />
+    <Property Name="EventDetailCode" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" Nullable="true" MaxLength="1024" />
+    <Property Name="ApplicationPath" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="ApplicationVirtualPath" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="RequestUrl" Type="nvarchar" Nullable="true" MaxLength="1024" />
+    <Property Name="ExceptionType" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="time" Type="datetime" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Problem_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DepartmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Added_date" Type="datetime" Nullable="true" />
+    <Property Name="Deadline" Type="datetime" Nullable="true" />
+    <Property Name="IsDeadlineApproved" Type="bit" Nullable="true" />
+    <Property Name="AssignedTo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Reassignable" Type="bit" Nullable="true" />
+    <Property Name="SolvedAtTime" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SolutionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="TagSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Priority" Type="smallint" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersInRoles">
+    <Key>
+      <PropertyRef Name="aspnet_Roles_RoleId" />
+      <PropertyRef Name="aspnet_Users_UserId" />
+    </Key>
+    <Property Name="aspnet_Roles_RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="aspnet_Users_UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentId_UserId">
+    <Key>
+      <PropertyRef Name="aspnet_Users_UserId" />
+      <PropertyRef Name="Comments_Id" />
+    </Key>
+    <Property Name="aspnet_Users_UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Comments_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemSolution">
+    <Key>
+      <PropertyRef Name="Problems_Id" />
+      <PropertyRef Name="Solutions_Id" />
+    </Key>
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+    <Property Name="Solutions_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemTag">
+    <Key>
+      <PropertyRef Name="Problems_Id" />
+      <PropertyRef Name="Tags_Id" />
+    </Key>
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+    <Property Name="Tags_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnet_UsersProblem">
+    <Key>
+      <PropertyRef Name="aspnet_Users_UserId" />
+      <PropertyRef Name="Problems_Id" />
+    </Key>
+    <Property Name="aspnet_Users_UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__Appli__21B6055D">
+    <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="hoplaModel.Store.aspnet_Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pa__Appli__5AEE82B9">
+    <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Paths" Type="hoplaModel.Store.aspnet_Paths" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Paths">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Ro__Appli__440B1D61">
+    <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Roles" Type="hoplaModel.Store.aspnet_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Us__Appli__0DAF0CB0">
+    <End Role="aspnet_Applications" Type="hoplaModel.Store.aspnet_Applications" Multiplicity="1" />
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="aspnet_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__22AA2996">
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="hoplaModel.Store.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__628FA481">
+    <End Role="aspnet_Paths" Type="hoplaModel.Store.aspnet_Paths" Multiplicity="1" />
+    <End Role="aspnet_PersonalizationAllUsers" Type="hoplaModel.Store.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationAllUsers">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__PathI__68487DD7">
+    <End Role="aspnet_Paths" Type="hoplaModel.Store.aspnet_Paths" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="hoplaModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Paths">
+        <PropertyRef Name="PathId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="PathId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pe__UserI__693CA210">
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="0..1" />
+    <End Role="aspnet_PersonalizationPerUser" Type="hoplaModel.Store.aspnet_PersonalizationPerUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_PersonalizationPerUser">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Pr__UserI__38996AB5">
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Profile" Type="hoplaModel.Store.aspnet_Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentCategory">
+    <End Role="DepartmentSet" Type="hoplaModel.Store.DepartmentSet" Multiplicity="1" />
+    <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategorySet">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TagCategory">
+    <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="1" />
+    <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategorySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagSet">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentProblem">
+    <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CommentSet">
+        <PropertyRef Name="Problem_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_UsersInRoles_aspnet_Roles">
+    <End Role="aspnet_Roles" Type="hoplaModel.Store.aspnet_Roles" Multiplicity="1" />
+    <End Role="aspnet_UsersInRoles" Type="hoplaModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="aspnet_Roles_RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_UsersInRoles_aspnet_Users">
+    <End Role="aspnet_UsersInRoles" Type="hoplaModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersInRoles">
+        <PropertyRef Name="aspnet_Users_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentId_UserId_aspnet_Users">
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="CommentId_UserId" Type="hoplaModel.Store.CommentId_UserId" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CommentId_UserId">
+        <PropertyRef Name="aspnet_Users_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentId_UserId_CommentSet">
+    <End Role="CommentId_UserId" Type="hoplaModel.Store.CommentId_UserId" Multiplicity="*" />
+    <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CommentSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CommentId_UserId">
+        <PropertyRef Name="Comments_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemSolution_ProblemSet">
+    <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemSolution">
+        <PropertyRef Name="Problems_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemSolution_SolutionSet">
+    <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
+    <End Role="SolutionSet" Type="hoplaModel.Store.SolutionSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SolutionSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemSolution">
+        <PropertyRef Name="Solutions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemTag_ProblemSet">
+    <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemTag">
+        <PropertyRef Name="Problems_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemTag_TagSet">
+    <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
+    <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TagSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemTag">
+        <PropertyRef Name="Tags_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_UsersProblem_aspnet_Users">
+    <End Role="aspnet_Users" Type="hoplaModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_UsersProblem" Type="hoplaModel.Store.aspnet_UsersProblem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_UsersProblem">
+        <PropertyRef Name="aspnet_Users_UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_aspnet_UsersProblem_Problem">
+    <End Role="aspnet_UsersProblem" Type="hoplaModel.Store.aspnet_UsersProblem" Multiplicity="*" />
+    <End Role="Problem" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Problem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnet_UsersProblem">
+        <PropertyRef Name="Problems_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hoplaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -705,10 +689,6 @@
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="CommentSet" EntitySet="CommentSet" />
           </AssociationSet>
-          <AssociationSet Name="ProblemId_UserId" Association="hoplaModel.ProblemId_UserId">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-          </AssociationSet>
           <AssociationSet Name="ProblemSolution" Association="hoplaModel.ProblemSolution">
             <End Role="ProblemSet" EntitySet="ProblemSet" />
             <End Role="SolutionSet" EntitySet="SolutionSet" />
@@ -716,6 +696,10 @@
           <AssociationSet Name="ProblemTag" Association="hoplaModel.ProblemTag">
             <End Role="ProblemSet" EntitySet="ProblemSet" />
             <End Role="TagSet" EntitySet="TagSet" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersProblem" Association="hoplaModel.aspnet_UsersProblem">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Problem" EntitySet="ProblemSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
@@ -841,7 +825,7 @@
           <NavigationProperty Name="aspnet_Profile" Relationship="hoplaModel.FK__aspnet_Pr__UserI__38996AB5" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="aspnet_Roles" Relationship="hoplaModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
           <NavigationProperty Name="Comments" Relationship="hoplaModel.CommentId_UserId" FromRole="aspnet_Users" ToRole="CommentSet" />
-          <NavigationProperty Name="Problems" Relationship="hoplaModel.ProblemId_UserId" FromRole="aspnet_Users" ToRole="ProblemSet" />
+          <NavigationProperty Name="Problems" Relationship="hoplaModel.aspnet_UsersProblem" FromRole="aspnet_Users" ToRole="Problem" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -908,9 +892,9 @@
           <Property Name="Reassignable" Type="Boolean" />
           <Property Name="SolvedAtTime" Type="DateTime" />
           <NavigationProperty Name="CommentSet" Relationship="hoplaModel.FK_CommentProblem" FromRole="ProblemSet" ToRole="CommentSet" />
-          <NavigationProperty Name="aspnet_Users" Relationship="hoplaModel.ProblemId_UserId" FromRole="ProblemSet" ToRole="aspnet_Users" />
           <NavigationProperty Name="Solutions" Relationship="hoplaModel.ProblemSolution" FromRole="ProblemSet" ToRole="SolutionSet" />
           <NavigationProperty Name="Tags" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
+          <NavigationProperty Name="aspnet_Users" Relationship="hoplaModel.aspnet_UsersProblem" FromRole="Problem" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="Solution">
           <Key>
@@ -1094,10 +1078,6 @@
           <End Role="aspnet_Users" Type="hoplaModel.aspnet_Users" Multiplicity="*" />
           <End Role="CommentSet" Type="hoplaModel.Comment" Multiplicity="*" />
         </Association>
-        <Association Name="ProblemId_UserId">
-          <End Role="aspnet_Users" Type="hoplaModel.aspnet_Users" Multiplicity="*" />
-          <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
-        </Association>
         <Association Name="ProblemSolution">
           <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
           <End Role="SolutionSet" Type="hoplaModel.Solution" Multiplicity="*" />
@@ -1106,193 +1086,264 @@
           <End Role="ProblemSet" Type="hoplaModel.Problem" Multiplicity="*" />
           <End Role="TagSet" Type="hoplaModel.Tag" Multiplicity="*" />
         </Association>
+        <Association Name="aspnet_UsersProblem">
+          <End Type="hoplaModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+          <End Type="hoplaModel.Problem" Role="Problem" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="hoplaModelStoreContainer" CdmEntityContainer="hoplaEntities">
-          <EntitySetMapping Name="aspnet_Applications"><EntityTypeMapping TypeName="hoplaModel.aspnet_Applications"><MappingFragment StoreEntitySet="aspnet_Applications">
-            <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-            <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
-            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Membership"><EntityTypeMapping TypeName="hoplaModel.aspnet_Membership"><MappingFragment StoreEntitySet="aspnet_Membership">
-            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-            <ScalarProperty Name="UserId" ColumnName="UserId" />
-            <ScalarProperty Name="Password" ColumnName="Password" />
-            <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
-            <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
-            <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
-            <ScalarProperty Name="Email" ColumnName="Email" />
-            <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
-            <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
-            <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
-            <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-            <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
-            <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-            <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-            <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
-            <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
-            <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
-            <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
-            <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
-            <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
-            <ScalarProperty Name="Comment" ColumnName="Comment" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Paths"><EntityTypeMapping TypeName="hoplaModel.aspnet_Paths"><MappingFragment StoreEntitySet="aspnet_Paths">
-            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-            <ScalarProperty Name="PathId" ColumnName="PathId" />
-            <ScalarProperty Name="Path" ColumnName="Path" />
-            <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationAllUsers"><EntityTypeMapping TypeName="hoplaModel.aspnet_PersonalizationAllUsers"><MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
-            <ScalarProperty Name="PathId" ColumnName="PathId" />
-            <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationPerUser"><EntityTypeMapping TypeName="hoplaModel.aspnet_PersonalizationPerUser"><MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="PathId" ColumnName="PathId" />
-            <ScalarProperty Name="UserId" ColumnName="UserId" />
-            <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Profile"><EntityTypeMapping TypeName="hoplaModel.aspnet_Profile"><MappingFragment StoreEntitySet="aspnet_Profile">
-            <ScalarProperty Name="UserId" ColumnName="UserId" />
-            <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
-            <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
-            <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
-            <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Roles"><EntityTypeMapping TypeName="hoplaModel.aspnet_Roles"><MappingFragment StoreEntitySet="aspnet_Roles">
-            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-            <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-            <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_SchemaVersions"><EntityTypeMapping TypeName="hoplaModel.aspnet_SchemaVersions"><MappingFragment StoreEntitySet="aspnet_SchemaVersions">
-            <ScalarProperty Name="Feature" ColumnName="Feature" />
-            <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
-            <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Users"><EntityTypeMapping TypeName="hoplaModel.aspnet_Users"><MappingFragment StoreEntitySet="aspnet_Users">
-            <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-            <ScalarProperty Name="UserId" ColumnName="UserId" />
-            <ScalarProperty Name="UserName" ColumnName="UserName" />
-            <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
-            <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
-            <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
-            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="aspnet_WebEvent_Events"><EntityTypeMapping TypeName="hoplaModel.aspnet_WebEvent_Events"><MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
-            <ScalarProperty Name="EventId" ColumnName="EventId" />
-            <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
-            <ScalarProperty Name="EventTime" ColumnName="EventTime" />
-            <ScalarProperty Name="EventType" ColumnName="EventType" />
-            <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
-            <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
-            <ScalarProperty Name="EventCode" ColumnName="EventCode" />
-            <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
-            <ScalarProperty Name="Message" ColumnName="Message" />
-            <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
-            <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
-            <ScalarProperty Name="MachineName" ColumnName="MachineName" />
-            <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
-            <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
-            <ScalarProperty Name="Details" ColumnName="Details" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="CategorySet"><EntityTypeMapping TypeName="hoplaModel.Category"><MappingFragment StoreEntitySet="CategorySet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="CommentSet"><EntityTypeMapping TypeName="hoplaModel.Comment"><MappingFragment StoreEntitySet="CommentSet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="time" ColumnName="time" />
-            <ScalarProperty Name="description" ColumnName="description" />
-            <ScalarProperty Name="Problem_Id" ColumnName="Problem_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="DepartmentSet"><EntityTypeMapping TypeName="hoplaModel.Department"><MappingFragment StoreEntitySet="DepartmentSet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="ProblemSet"><EntityTypeMapping TypeName="hoplaModel.Problem"><MappingFragment StoreEntitySet="ProblemSet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Title" ColumnName="Title" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Added_date" ColumnName="Added_date" />
-            <ScalarProperty Name="Deadline" ColumnName="Deadline" />
-            <ScalarProperty Name="IsDeadlineApproved" ColumnName="IsDeadlineApproved" />
-            <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
-            <ScalarProperty Name="Reassignable" ColumnName="Reassignable" />
-            <ScalarProperty Name="SolvedAtTime" ColumnName="SolvedAtTime" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SolutionSet"><EntityTypeMapping TypeName="hoplaModel.Solution"><MappingFragment StoreEntitySet="SolutionSet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="hoplaModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
-            <ScalarProperty Name="name" ColumnName="name" />
-            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-            <ScalarProperty Name="version" ColumnName="version" />
-            <ScalarProperty Name="definition" ColumnName="definition" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TagSet"><EntityTypeMapping TypeName="hoplaModel.Tag"><MappingFragment StoreEntitySet="TagSet">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="Description" ColumnName="Description" />
-            <ScalarProperty Name="Priority" ColumnName="Priority" />
-            <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="hoplaModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
-            <EndProperty Name="aspnet_Roles">
-              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-            </EndProperty>
-            <EndProperty Name="aspnet_Users">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="CommentId_UserId" TypeName="hoplaModel.CommentId_UserId" StoreEntitySet="CommentId_UserId">
-            <EndProperty Name="aspnet_Users">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="CommentSet">
-              <ScalarProperty Name="Id" ColumnName="CommentId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="ProblemId_UserId" TypeName="hoplaModel.ProblemId_UserId" StoreEntitySet="ProblemId_UserId">
-            <EndProperty Name="aspnet_Users">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="ProblemSet">
-              <ScalarProperty Name="Id" ColumnName="Problem Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="ProblemSolution" TypeName="hoplaModel.ProblemSolution" StoreEntitySet="ProblemSolution">
-            <EndProperty Name="ProblemSet">
-              <ScalarProperty Name="Id" ColumnName="Problems_Id" />
-            </EndProperty>
-            <EndProperty Name="SolutionSet">
-              <ScalarProperty Name="Id" ColumnName="Solutions_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="ProblemTag" TypeName="hoplaModel.ProblemTag" StoreEntitySet="ProblemTag">
-            <EndProperty Name="ProblemSet">
-              <ScalarProperty Name="Id" ColumnName="Problems_Id" />
-            </EndProperty>
-            <EndProperty Name="TagSet">
-              <ScalarProperty Name="Id" ColumnName="Tags_Id" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hoplaModelStoreContainer" CdmEntityContainer="hoplaEntities">
+    <EntitySetMapping Name="aspnet_Applications">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_Applications)">
+        <MappingFragment StoreEntitySet="aspnet_Applications">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_Membership)">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Paths">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_Paths)">
+        <MappingFragment StoreEntitySet="aspnet_Paths">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_PersonalizationAllUsers)">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_PersonalizationPerUser">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_PersonalizationPerUser)">
+        <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PathId" ColumnName="PathId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Profile">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_Profile)">
+        <MappingFragment StoreEntitySet="aspnet_Profile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
+          <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_Roles)">
+        <MappingFragment StoreEntitySet="aspnet_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_SchemaVersions">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_SchemaVersions)">
+        <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
+          <ScalarProperty Name="Feature" ColumnName="Feature" />
+          <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
+          <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_Users)">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_WebEvent_Events">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.aspnet_WebEvent_Events)">
+        <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventType" ColumnName="EventType" />
+          <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
+          <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
+          <ScalarProperty Name="EventCode" ColumnName="EventCode" />
+          <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
+          <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
+          <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Category)">
+        <MappingFragment StoreEntitySet="CategorySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Comment)">
+        <MappingFragment StoreEntitySet="CommentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="Problem_Id" ColumnName="Problem_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Department)">
+        <MappingFragment StoreEntitySet="DepartmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProblemSet">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Problem)">
+        <MappingFragment StoreEntitySet="ProblemSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Added_date" ColumnName="Added_date" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="IsDeadlineApproved" ColumnName="IsDeadlineApproved" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="Reassignable" ColumnName="Reassignable" />
+          <ScalarProperty Name="SolvedAtTime" ColumnName="SolvedAtTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolutionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Solution)">
+        <MappingFragment StoreEntitySet="SolutionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.sysdiagrams)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TagSet">
+      <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Tag)">
+        <MappingFragment StoreEntitySet="TagSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="hoplaModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+      <EndProperty Name="aspnet_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="aspnet_Roles_RoleId" />
+      </EndProperty>
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="aspnet_Users_UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentId_UserId" TypeName="hoplaModel.CommentId_UserId" StoreEntitySet="CommentId_UserId">
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="aspnet_Users_UserId" />
+      </EndProperty>
+      <EndProperty Name="CommentSet">
+        <ScalarProperty Name="Id" ColumnName="Comments_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProblemSolution" TypeName="hoplaModel.ProblemSolution" StoreEntitySet="ProblemSolution">
+      <EndProperty Name="ProblemSet">
+        <ScalarProperty Name="Id" ColumnName="Problems_Id" />
+      </EndProperty>
+      <EndProperty Name="SolutionSet">
+        <ScalarProperty Name="Id" ColumnName="Solutions_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProblemTag" TypeName="hoplaModel.ProblemTag" StoreEntitySet="ProblemTag">
+      <EndProperty Name="ProblemSet">
+        <ScalarProperty Name="Id" ColumnName="Problems_Id" />
+      </EndProperty>
+      <EndProperty Name="TagSet">
+        <ScalarProperty Name="Id" ColumnName="Tags_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="aspnet_UsersProblem" TypeName="hoplaModel.aspnet_UsersProblem" StoreEntitySet="aspnet_UsersProblem">
+      <EndProperty Name="aspnet_Users">
+        <ScalarProperty Name="UserId" ColumnName="aspnet_Users_UserId" />
+      </EndProperty>
+      <EndProperty Name="Problem">
+        <ScalarProperty Name="Id" ColumnName="Problems_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
@@ -1392,11 +1443,6 @@
           <ConnectorPoint PointX="9.75" PointY="17.480646972656253" />
           <ConnectorPoint PointX="12.75" PointY="17.480646972656253" />
         </AssociationConnector>
-        <AssociationConnector Association="hoplaModel.ProblemId_UserId" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.4062525" PointY="18.835999348958332" />
-          <ConnectorPoint PointX="9.4062525" PointY="22.0380712890625" />
-          <ConnectorPoint PointX="10.5" PointY="22.0380712890625" />
-        </AssociationConnector>
         <AssociationConnector Association="hoplaModel.ProblemSolution" ManuallyRouted="false">
           <ConnectorPoint PointX="12" PointY="21.297841796875" />
           <ConnectorPoint PointX="12.75" PointY="21.297841796875" />
@@ -1405,6 +1451,11 @@
           <ConnectorPoint PointX="12" PointY="22.650940755208335" />
           <ConnectorPoint PointX="14.46875" PointY="22.650940755208335" />
           <ConnectorPoint PointX="14.46875" PointY="24.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="hoplaModel.aspnet_UsersProblem">
+          <ConnectorPoint PointX="9.320315625" PointY="18.835999348958335" />
+          <ConnectorPoint PointX="9.320315625" PointY="21.9948291015625" />
+          <ConnectorPoint PointX="10.5" PointY="21.9948291015625" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

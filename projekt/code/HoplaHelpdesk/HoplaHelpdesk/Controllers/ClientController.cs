@@ -13,7 +13,7 @@ namespace HoplaHelpdesk.Controllers
     {
         //
         // GET: /Client/
-
+        hoplaEntities db = new hoplaEntities();
         public ActionResult Index()
         {
 
@@ -23,18 +23,12 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult ViewProblems()
         {
-            var problemList =  new List<Problem>(){
-                new Problem(){
-                    
-                   Title = "John"
-                }, new Problem(){
-                    Title = "Mikael"
-                }
-            };
+            // Finds the loged in users problems. 
+            var problemList = db.ProblemSet.Where(x => x.aspnet_Users.Contains(db.aspnet_Users.FirstOrDefault(y => y.UserName == User.Identity.Name)));
 
             var problems = new ProblemListViewModel()
             {
-                Problems = problemList
+                Problems = problemList.ToList()
             };
          
 

@@ -1,0 +1,35 @@
+﻿
+-- Creating table 'aspnet_UsersProblem'
+CREATE TABLE [dbo].[aspnet_UsersProblem] (
+    [aspnet_Users_UserId] uniqueidentifier  NOT NULL,
+    [Problems_Id] int  NOT NULL
+);
+GO
+
+-- Creating primary key on [aspnet_Users_UserId], [Problems_Id] in table 'aspnet_UsersProblem'
+ALTER TABLE [dbo].[aspnet_UsersProblem]
+ADD CONSTRAINT [PK_aspnet_UsersProblem]
+    PRIMARY KEY NONCLUSTERED ([aspnet_Users_UserId], [Problems_Id] ASC);
+GO
+-- Creating foreign key on [aspnet_Users_UserId] in table 'aspnet_UsersProblem'
+ALTER TABLE [dbo].[aspnet_UsersProblem]
+ADD CONSTRAINT [FK_aspnet_UsersProblem_aspnet_Users]
+    FOREIGN KEY ([aspnet_Users_UserId])
+    REFERENCES [dbo].[aspnet_Users]
+        ([UserId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Problems_Id] in table 'aspnet_UsersProblem'
+ALTER TABLE [dbo].[aspnet_UsersProblem]
+ADD CONSTRAINT [FK_aspnet_UsersProblem_Problem]
+    FOREIGN KEY ([Problems_Id])
+    REFERENCES [dbo].[ProblemSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_aspnet_UsersProblem_Problem'
+CREATE INDEX [IX_FK_aspnet_UsersProblem_Problem]
+ON [dbo].[aspnet_UsersProblem]
+    ([Problems_Id]);
+GO
