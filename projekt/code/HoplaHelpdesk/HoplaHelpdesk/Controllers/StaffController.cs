@@ -69,10 +69,11 @@ namespace HoplaHelpdesk.Controllers
             //{
 
             int myID = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+
             List<Comment> comments = new List<Comment>();
 
             comments = (from Comment in DB.CommentSet
-                        where Comment.PersonsId == myID
+                        where Comment.Problem_Id == id
                         select Comment).ToList();
 
             //} catch (Exception) { return View("Error");}
