@@ -15,7 +15,6 @@ namespace HoplaHelpdesk.Tools
             var department = GetDepartment(Problem.Tags.ToList());
 
 
-
             var person = db.PersonSet.Single(x => x.Id == 1);
             return person;
         }
