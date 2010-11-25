@@ -96,7 +96,7 @@ namespace HoplaHelpdesk.Controllers
                 {
                     // Adds user to the Hopla database.
                     hoplaEntities hoplaDb = new hoplaEntities();
-                    hoplaDb.PersonSet.AddObject(new Person { Name = model.UserName, Email = model.Email });
+                    hoplaDb.PersonSet.AddObject(new Person { Name = model.UserName.ToLower(), Email = model.Email });
 
 
                     FormsService.SignIn(model.UserName, false /* createPersistentCookie */);

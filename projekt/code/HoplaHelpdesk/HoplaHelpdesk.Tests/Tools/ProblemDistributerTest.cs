@@ -184,11 +184,11 @@ namespace HoplaHelpdesk.Tests
             EntityCollection<Problem> worklist2 = new EntityCollection<Problem>() { new Problem(), new Problem(), new Problem(), new Problem() };
             EntityCollection<Problem> worklist3 = new EntityCollection<Problem>() {  new Problem() };
 
-
-            Person Johnny = new Person() { Worklist = worklist, Department = dept1};
-            Person MrT = new Person() { Worklist = worklist2, Department = dept1};
-            Person John = new Person() { Worklist = worklist3, Department = dept1, Name = "john"};
-            Person MrTt = new Person() { Worklist = worklist, Department = dept1 };
+            
+            IPerson Johnny = new TestPerson() { Worklist = worklist, Department = dept1};
+            IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
+            IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1, Name = "john" };
+            IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
             EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
             {
                John, MrT
@@ -229,9 +229,9 @@ namespace HoplaHelpdesk.Tests
                     Name = "Johlælæn",
                     Category = cat1
                 }, 
-                new Tag(){  Name = "Jælælohn", Category = cat1  }, 
-                new Tag(){  Name = "Jælælohn", Category = cat1  }, 
-                new Tag(){  Name = "Jælælohn", Category = cat1  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
                 new Tag(){  Name = "Jælælohn", Category = cat2  }, 
                 new Tag(){  Name = "Jælælohn", Category = cat2  }, 
             }; // TODO: Initialize to an appropriate value
@@ -243,9 +243,11 @@ namespace HoplaHelpdesk.Tests
             EntityCollection<Problem> worklist3 = new EntityCollection<Problem>() { new Problem() };
 
 
-            IPerson Johnny = new TestPerson() { Worklist = worklist, Department = dept1 };
+            // Johnny is the only one working in  dept 2, and his worklist is very heavy. 
+            // The problem belongs to dept2 so he should still get it.
+            IPerson Johnny = new TestPerson() { Worklist = worklist, Department = dept2 };
             IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
-            IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1, Name = "john" };
+            IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1 };
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
             EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
             {
