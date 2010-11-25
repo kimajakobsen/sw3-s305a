@@ -14,7 +14,7 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Index/
         
-        public ActionResult Index()
+        public ActionResult Index(string DepartmentName)
         {
             var DepartmentList = db.DepartmentSet.ToList();
 
@@ -43,6 +43,8 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
+
+
             return View();
         }
 
@@ -75,9 +77,10 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Department/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string DepartmentName)
         {
-            return View();
+            var departement = db.DepartmentSet.Single(x => x.DepartmentName == DepartmentName);
+            return View(departement);
         }
 
         //

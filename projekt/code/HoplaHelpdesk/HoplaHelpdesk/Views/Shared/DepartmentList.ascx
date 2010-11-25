@@ -4,7 +4,7 @@
  Select a department
     <% foreach (var item in Model) { %>
        
-               <p><%:  Html.ActionLink(item.DepartmentName, "Index", new { item.DepartmentName })%></p> 
+               <p><%:  Html.ActionLink(item.DepartmentName, "Edit", new { item.DepartmentName })%></p> 
 
     <% } %>
 
