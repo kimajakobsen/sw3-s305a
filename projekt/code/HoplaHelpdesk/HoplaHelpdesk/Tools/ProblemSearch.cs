@@ -6,6 +6,7 @@ using HoplaHelpdesk.Models;
 using HoplaHelpdesk.ViewModels;
 using System.Data.Linq;
 using HoplaHelpdesk.Helpers;
+using System.Data.Objects;
 
 namespace HoplaHelpdesk.Tools
 {
@@ -19,7 +20,7 @@ namespace HoplaHelpdesk.Tools
         /// <param name="catTag">A CategoryTagSelectionViewModel</param>
         /// <param name="db">Hopla entitites</param>
         /// <returns></returns>
-        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, hoplaEntities db)
+        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems, List<Tag> allTags)
         {
             List<Problem> result = new List<Problem>();
             int noOfTagsToRemove = 0;
@@ -33,7 +34,7 @@ namespace HoplaHelpdesk.Tools
             {
                 while (result.Count < _maxProblems && noOfTagsToRemove < tags.Count)
                 {
-                    temp = (db.ProblemSet.ToList());
+                    temp = allProblems.ToList();
                     tagsToRemove = new List<int>();
                     for (int i = 0; i < noOfTagsToRemove; i++)
                     {
@@ -46,7 +47,7 @@ namespace HoplaHelpdesk.Tools
                         {
                             foreach (Tag tag in currentSearch)
                             {
-                                temp = temp.Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList();
+                                temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
                             }
                             temp.SortProblemsByLeastTags();
                             currentSearch = tags.RemoveNext(ref tagsToRemove);
@@ -63,7 +64,7 @@ namespace HoplaHelpdesk.Tools
 
             if (result.Count() < _maxProblems)
             {
-                temp = (db.ProblemSet.Where(x => x.Tags.Count == 0).ToList());
+                temp = (allProblems.Where(x => x.Tags.Count == 0).ToList());
                 result.AddRangeNoDuplicates(temp);
             }
 
