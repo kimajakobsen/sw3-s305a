@@ -23,17 +23,19 @@ namespace HoplaHelpdesk.Tools
         public static Department GetDepartment(List<Tag> tags){
 
             var departments = new List<DepCount>();
+           
             foreach(var tag in tags){
-                tag.Categories.Departments
-
+               
+                var dept = departments.SingleOrDefault(x => x.Department == tag.Category.Department);
+                if(dept =
             }
 
             return new Department();
         }
 
         private struct DepCount{
-            Department Department { get; set;}
-            int Count { get; set; }
+            public Department Department { get; set;}
+            public int Count { get; set; }
         }
     }
 }

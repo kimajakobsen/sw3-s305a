@@ -397,7 +397,7 @@
           <NavigationProperty Name="CommentSet" Relationship="hoplaModel.FK_CommentProblem" FromRole="ProblemSet" ToRole="CommentSet" />
           <NavigationProperty Name="Solutions" Relationship="hoplaModel.ProblemSolution" FromRole="ProblemSet" ToRole="SolutionSet" />
           <NavigationProperty Name="Tags" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
-          <NavigationProperty Name="Person" Relationship="hoplaModel.PersonsProblem" FromRole="Problem" ToRole="Persons" />
+          <NavigationProperty Name="Persons" Relationship="hoplaModel.PersonsProblem" FromRole="Problem" ToRole="Persons" />
           <NavigationProperty Name="AssignedTo" Relationship="hoplaModel.ProblemPersons" FromRole="Problem" ToRole="Persons" />
           <Property Name="PersonsId" Nullable="false" Type="Int32" />
         </EntityType>
