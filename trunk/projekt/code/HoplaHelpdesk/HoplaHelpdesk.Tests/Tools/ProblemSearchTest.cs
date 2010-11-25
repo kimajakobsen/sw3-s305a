@@ -18,7 +18,8 @@ namespace HoplaHelpdesk.Tests
     public class ProblemSearchTest
     {
         CategoryTagSelectionViewModel catTag = null; // TODO: Initialize to an appropriate value
-        hoplaEntities db = null; // TODO: Initialize to an appropriate value
+        List<Problem> problems = null; // TODO: Initialize to an appropriate value
+        List<Tag> tags = null;
 
         private TestContext testContextInstance;
 
@@ -71,9 +72,7 @@ namespace HoplaHelpdesk.Tests
         #region Test Setup
         [TestInitialize()]
         public void MyTestInitialize()
-        {
-
-            
+        {    
             catTag = new CategoryTagSelectionViewModel
             {
                 Categories = new List<CategoryWithListViewModel>
@@ -116,7 +115,9 @@ namespace HoplaHelpdesk.Tests
                 }
             };
 
-            List<Tag> tags = new List<Tag>
+
+
+            tags = new List<Tag>
             {
                 catTag.Categories[0].TagList[0],
                 catTag.Categories[0].TagList[1],
@@ -124,61 +125,59 @@ namespace HoplaHelpdesk.Tests
                 catTag.Categories[1].TagList[1]
             };
 
-            db.ProblemSet.AddObject(new Problem
-            {
-                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
-                { 
-                    tags[0],
-                    tags[1]
-                },
-                Id = 1
-            });
 
-            db.ProblemSet.AddObject(new Problem
-            {
-                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
-                { 
-                    tags[0],
-                    tags[1]
-                },
-                Id = 2
-            });
-
-            db.ProblemSet.AddObject(new Problem
-            {
-                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+            problems = new List<Problem>{
+                new Problem
                 {
+                    Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                    { 
+                        tags[0],
+                        tags[1]
+                    },
+                    Id = 1
                 },
-                Id = 3
-            });
-
-            db.ProblemSet.AddObject(new Problem
-            {
-                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
-                { 
-                    tags[0]
-                },
-                Id = 4
-            });
-
-            db.ProblemSet.AddObject(new Problem
-            {
-                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                new Problem
                 {
-                    tags[1]
+                    Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                    { 
+                        tags[0],
+                        tags[1]
+                    },
+                    Id = 2
                 },
-                Id = 5
-            });
+                new Problem
+                {
+                    Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                    {
+                    },
+                    Id = 3
+                },
+                new Problem
+                {
+                    Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                    { 
+                        tags[0]
+                    },
+                    Id = 4
+                },
+                new Problem
+                {
+                    Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                    {
+                        tags[1]
+                    },
+                    Id = 5
+                },
+                new Problem
+                {
+                    Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                    { 
+                        tags[3]
+                    },
+                    Id = 6
+                }
+            };
 
-            db.ProblemSet.AddObject(new Problem
-            {
-                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
-                { 
-                    tags[3]
-                },
-                Id = 2
-            });
-            
         }
         #endregion
 
@@ -192,16 +191,24 @@ namespace HoplaHelpdesk.Tests
         [HostType("ASP.NET")]
         [AspNetDevelopmentServerHost("C:\\Documents and Settings\\aba\\My Documents\\3.SW\\P3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
         [UrlToTest("http://localhost:6399/")]
-        public void SearchTest()
+        public void SearchTest1()
         {
+            #region Test Setup
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
-            List<Problem> actual;
+            List<Problem> actual = null;
+            tags[0].IsSelected = true;
+            tags[0].IsSelected = true;
+            #endregion
+
 
             #region Test Run
-            actual = ProblemSearch.Search(catTag, db);
+            actual = ProblemSearch.Search(catTag,problems,tags);
             #endregion
+
+            #region Assertions
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
+            #endregion
         }
     }
 }

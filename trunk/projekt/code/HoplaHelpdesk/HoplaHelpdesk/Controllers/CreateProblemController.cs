@@ -72,7 +72,7 @@ namespace HoplaHelpdesk.Controllers
             }
             
             try {
-                var ProblemList = ProblemSearch.Search(catViewModel,db);
+                var ProblemList = ProblemSearch.Search(catViewModel,db.ProblemSet.ToList(),db.TagSet.ToList());
 
                 if(ProblemList.Count == 0 ||  ProblemList == null)
                 {
