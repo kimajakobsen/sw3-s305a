@@ -44,9 +44,10 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
         {
-            model.comment.Person = DB.PersonSet.Single(x => x.Name == User.Identity.Name.ToLower());
-            model.comment.Problem_Id = id;
-            model.comment.time = DateTime.Now;
+            /*model.comment.Problem_Id = id;
+            model.comment.Person = DB.PersonSet.Single(x => x.Name.ToLower() == User.Identity.Name.ToLower());
+            
+            model.comment.time = DateTime.Now;*/
 
             DB.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
 
