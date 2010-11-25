@@ -27,7 +27,7 @@ namespace HoplaHelpdesk.Tools
             foreach(var tag in tags){
                
                 var dept = departments.SingleOrDefault(x => x.Department == tag.Category.Department);
-                if(dept =
+                //if(dept =
             }
 
             return new Department();
