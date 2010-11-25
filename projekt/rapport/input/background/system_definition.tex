@@ -1,107 +1,54 @@
 \section{System Definition}
 \label{sec:factor}
-To better be able to define our system we will go through the factor medthod.
-
-\paragraph{\textbf{F}unctionality} Our program will contain features aimed at easing the problem-solving process of service employees. Therefor the system will have the following %features:
+To better be able to define our system we will go through the factor method. This model contains different parts of the requirements, and it will help us derive the system definition.  \\
+\ \\
+{\Large \textbf{F}}unctionality \\
+Our program will contain features aimed at easing the problem-solving process of service employees. Therefor the system will have the following features:
 \begin{itemize}
 \item Ranking of problems
-
-Unsolved Problems are displayed on a ranked list. The problems will be ranked based on the tags they contain and the time since they were committed.
+Unsolved Problems are displayed on a ranked list, depending on their importance.
 \item Keep track
-The system is able to keep track of all the information regarding a problem, this being
+The system should be able to keep track of all the information regarding a problem, this being
 \subitem Time the problem has been in the system
 \subsubitem Time it took to solve the problem
 \subitem Who has committed the problem
 \subitem Who has been assigned to the problem
 \subsubitem Who solved it
-\subitem The client feedback related to the problem
-
+\subitem Feedback related to the problem
 \item Knowledge saved
 
-The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted, thereby saving everyone the trouble of creating and solving a new problem.
+The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted. Furthermore the system should be able to run on all systems without any prior software installation.
 \item Time estimation
-
-The system will be able to estimate how fast a problem can be solved, based on the current workload of the employees and the description the problem has.
+\ \\
+The system should be able to estimate how fast a problem can be solved.
 \end{itemize}
-\paragraph{\textbf{A}pplication domain} This system will be applicable to different office environments as well as helpdesk- and IKT departments.
-
-\paragraph{\textbf{C}onditions} Users have varying technical experience. Users who are not trained to use our system will have to face a simple user-interface.
-
-\paragraph{\textbf{T}echnology} In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework that exists within the ASP.NET framework. We will set up a development server and use Team Foundation and Microsoft SQL server along with visual studio 2010.
-
-The end result will be a web interface running on a webserver, with underlying SQL database.
-
-\paragraph{\textbf{O}bjects} The system will contain a structure that can handle Problems, along with their solution, employees, supervisors, ordinary users and different department within an organization..
-
-\paragraph{\textbf{R}esponsibility} Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors.Finally it is also responsible for communication a solution to people who might be experiencing a particular problem.
-
+\ \\
+{\Large \textbf{A}}pplicationdomain \\
+This system will be applicable to different office environments as well as helpdesk- and IKT departments.\\
+\ \\
+{\Large \textbf{C}}onditions Users have varying technical experience. Users who are not trained to use our system will have to face a simple user-interface.\\
+\ \\
+{\Large \textbf{T}}echnology \\
+In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework 2 that exists within the ASP.NET framework. We will set up a development server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
+\\
+The end result will be a web interface running on a webserver, with underlying SQL database.\\
+\ \\
+{\Large \textbf{O}}bjects \\
+Problems, solution, employees, supervisors, ordinary users, departments \\
+\ \\
+{\Large \textbf{R}}esponsibility \\
+Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors. Finally it is also responsible for enabling users and technical staff to communicate about a problem and the following solution.\\
+\ \\
 \label{sec:systemdefinition}
-It is desired that our system should be as following: \\
-A webbased system used to ease the collaboration between client, who has a problem, and technical staff, related to solving the problem, where the main emphasis is on getting the problems to the persons who are best at solving them, as efficient as possible.
-
-%The system will automatic reassign problems if a staff member has become overloaded.
-
-Before a problem is actually submitted to the system, the client is asked to \textit{categorizes} the problem by selecting tags from categories which define and describe the problem as specific as possible. Based on this categorization, the system will search for similar problems which solution might help the client, and therefore remove the need for submitting an identical or almost identical problem to the system.
-
-If the client finds a problem which is identical to his/her own problem -- but without a solution -- the client is presented with the option to \textit{subscribe} to the problem, and receive notifications whenever new comments are made or a solution gets attached to the problem.
-
-If the client should not find a solution to his/her problem, he/she would be allowed to submit the problem, which would be assigned to an appropriate staff member, based on the clients selection of tags and categories, and the current workload of the staff members.
-
-If a client can not determine the correct category for a specific problem, it will simply be submitted without the categorization, and the system will from there do one of the following three things, which a system administrator specifies:\fixme{Hvor kan admin g\o re det henne? Jeg ar faktisk en ide: Hvad med at admin kan vælge 1 eller flere depts som skal tage sig af ukategoriserede problemer. S\aa{} kan det være alle departments eller en ghost department med en eller flere ansatte eller blot en almindelig department}
-
+Using these criteria, we arrive at the following system definition:
 \begin{itemize}
-	\item distribute between all staff members, based on their workload
-	\item distribute between all staff-personal associated with a specific department, based on their workload
-	\item distribute to a single staff member, regardless of his workload
+\item The system should be web-based so that we can create an application capable of running without prior installation.
+\item The system should contain prioritized tags, enabling us to determine the importance of problems
+\item The system should keep track of problem time, user feedback and responsibility. This will enable us to create detailed statistic about problem solving efficiency and individual employees.
+\item The system should be able to save and suggest prior problems and their solutions to users, saving everyone the trouble of creating a new problem and waiting for it's solution.
+\item The system should take into account, the workload of the employees and the similarity of problems, to be able to estimate how long a problem will take to finish.
+\item The system should only use dynamic data, in order to run in different environments.
+\subitem The system should contain a structure that can handle Problems, along with their solution, employees, supervisors, ordinary users and different department within an organization
+\item The graphical User Interface should be very intuitive, enabling all ordinary users to use the application without any skills that exceed basic computer skills..
 \end{itemize}
 
-Every time a problem is assigned to any staff member, he or she will get a notification about it.
-
-The system will generate priority sorted to-do lists for the staff.
-The priority of the problems will be based on the tags that they were given by the client who submitted the them.
-The client is able to suggest a deadline to the staff members, but this suggestion has no effect on the problem unless a staff member accepts the suggested deadline or sets one him/her self.
-
-%The priority will be based on a suggested priority by the client\fixme{Nej}, and a final priority evaluation by the staff member assigned to the problem.
-%The system will generate priority sorted to-do lists for the staff. The priority will be based on the category and the time since it were committed.
-
-
-The system will make estimations based on time for solving problems of the same or somewhat equal categorization, the current workload of the assigned staff member, and the priority of the specific problem versus the other problems of which the specific staff member has to solve as well. 
-% The estimation will be used to estimate a deadline. The staff member assigned to the problem will be notified when the deadline is near.\\
-
-When problems are committed to the system and assigned to a staff member, the staff and client can add notes to the problem as a way of communication. Every time a change is made to a problem or a comment has been added, all associated clients and the assigned staff member get notified.
-
-
-\label{sec:factor}
-
-\paragraph{R (Functionality)} Our program will contain features aimed at easing the problem-solving process of service employees. Therefor the system will have the following %features:
-\begin{itemize}
-\item Ranking of problems
-
-Unsolved Problems are displayed on a ranked list. The problems will be ranked based on the tags they contain and the time since they were committed.
-\item Keep track
-The system is able to keep track of all the information regarding a problem, this being
-\subitem Time the problem has been in the system
-\subsubitem Time it took to solve the problem
-\subitem Who has committed the problem
-\subitem Who has been assigned to the problem
-\subsubitem Who solved it
-\subitem The client feedback related to the problem
-
-\item Knowledge saved
-
-The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted, thereby saving everyone the trouble of creating and solving a new problem.
-\item Time estimation
-
-The system will be able to estimate how fast a problem can be solved, based on the current workload of the employees and the description the problem has.
-\end{itemize}
-\paragraph{\textbf{A}pplication domain)} This system will be applicable to different office environments as well as helpdesk- and IKT departments.
-
-\paragraph{\textbf{C}onditions)} Users have varying technical experience. Users who are not trained to use our system will have to face a simple user-interface.
-
-\paragraph{\textbf{T}echnology)} In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework that exists within the ASP.NET framework. We will set up a development server and use Team Foundation and Microsoft SQL server along with visual studio 2010.
-
-The end result will be a web interface running on a webserver, with underlying SQL database.
-
-\paragraph{\textbf{O}bjects)} The system will contain a structure that can handle Problems, along with their solution, employees, supervisors, ordinary users and different department within an organization..
-
-\paragraph{\textbf{R}esponsibility)} Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors.Finally it is also responsible for communication a solution to people who might be experiencing a particular problem.
