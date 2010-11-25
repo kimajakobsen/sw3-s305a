@@ -1405,7 +1405,7 @@ namespace HoplaHelpdesk.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("hoplaModel", "PersonsProblem", "Persons")]
-        public EntityCollection<Person> Person
+        public EntityCollection<Person> Persons
         {
             get
             {
