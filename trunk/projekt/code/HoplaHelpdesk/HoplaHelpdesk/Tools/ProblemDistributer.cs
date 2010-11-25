@@ -5,6 +5,7 @@ using System.Web;
 using HoplaHelpdesk.Models;
 using System.Web.Security;
 using System.Data.Objects.DataClasses;
+using System.Diagnostics.Contracts;
 
 namespace HoplaHelpdesk.Tools
 {
@@ -12,13 +13,40 @@ namespace HoplaHelpdesk.Tools
     {
         public static IPerson GetStaff(Problem Problem,  EntityCollection<IPerson> PersonSet)
         {
-
+            Contract.Invariant(PersonSet != null, "PersonSet were null");
             var department = GetDepartment(Problem.Tags);
+            IEnumerable<IPerson> persons = null;
+            if (department != null)
+            {
+                 persons = PersonSet.Where(x => x.Department == department && x.IsStaff() == true);
+                 if (persons == null || persons.Count() == 0)
+                 {
+                     persons = PersonSet.Where(x => x.IsStaff() == true);
+                 }
+            } else {
+                 persons = PersonSet.Where(x => x.IsStaff() == true);
+            }
             
 
-            var person = PersonSet.Single(x => x.Id == 1);
-
-            return person;
+            Double min = Double.MaxValue;
+            IPerson staff = persons.First();
+            foreach (var person in persons)
+            {
+              
+                    var workload = person.GetWorkload();
+                    if (workload < min)
+                    {
+                        min = workload;
+                        staff = person;
+                    }   
+            }
+            //var person = PersonSet.Single(x => x.Id == 1);
+            if (persons == null)
+            {
+                staff = persons.First();
+            }
+           
+            return staff;
         }
 
         /// <summary>
@@ -47,7 +75,10 @@ namespace HoplaHelpdesk.Tools
                 }
             }
 
-
+            if (departments.Count == 0 || departments == null)
+            {
+                return null;
+            }
             // returns the department with the highest count. 
             return departments.OrderByDescending(x => x.Count).First().Department;
         }

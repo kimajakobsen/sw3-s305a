@@ -44,7 +44,7 @@ namespace HoplaHelpdesk.Models
             }
         }
 
-        public double getWorkload()
+        public double GetWorkload()
         {
             return Worklist.Count;
         }
@@ -52,7 +52,7 @@ namespace HoplaHelpdesk.Models
 
     public interface IPerson {
         bool IsStaff();
-        double getWorkload();
+        double GetWorkload();
         string Name { get; set; }
         string Email { get; set; }
         EntityCollection<Problem> Worklist { get; set; }
