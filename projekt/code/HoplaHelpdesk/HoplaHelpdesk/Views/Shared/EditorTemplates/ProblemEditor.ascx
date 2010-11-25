@@ -15,11 +15,12 @@
                 <%: Html.TextBoxFor(model => model.Description) %>
                 <%: Html.ValidationMessageFor(model => model.Description) %>
             </div>
-
+           
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Deadline) %>
             </div>
             <div class="editor-field">
+               
                 <%: Html.TextBoxFor(model => model.Deadline, String.Format("{0:g}", Model.Deadline)) %>
                 <%: Html.ValidationMessageFor(model => model.Deadline) %>
             </div>

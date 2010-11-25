@@ -24,7 +24,7 @@
                 <%: Html.TextBoxFor(model => model.Added_date) %>
                 <%: Html.ValidationMessageFor(model => model.Added_date) %>
             </div>
-            
+               <%: Html.EditorFor(model => model.Deadline, "DateTime") %>
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Deadline) %>
             </div>
