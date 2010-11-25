@@ -12,7 +12,7 @@ namespace HoplaHelpdesk.Models
      [MetadataType(typeof(ProblemMetaData))]
     public partial class Problem
     {
-
+          
           
           public class ProblemMetaData
           {
