@@ -80,7 +80,7 @@ namespace HoplaHelpdesk.Tests
                     new CategoryWithListViewModel
                     {
                         Id = 1,
-                        Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                        TagList = new List<Tag>
                         {
                             new Tag
                             {
@@ -97,7 +97,7 @@ namespace HoplaHelpdesk.Tests
                     new CategoryWithListViewModel
                     {
                         Id = 2,
-                        Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                        TagList = new List<Tag>
                         {
                             new Tag
                             {
@@ -187,13 +187,11 @@ namespace HoplaHelpdesk.Tests
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Documents and Settings\\aba\\My Documents\\3.SW\\P3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("C:\\Documents and Settings\\aba\\My Documents\\3.SW\\P3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        //[UrlToTest("http://localhost:6399/")]
         public void SearchTest1()
         {
-            int john;
-            throw new Exception();
             #region Test Setup
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
             List<Problem> actual = null;
@@ -212,7 +210,8 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Assertions
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Count,actual.Count);
+            foreach(var item in )
             Assert.Inconclusive("Verify the correctness of this test method.");
             #endregion
         }
