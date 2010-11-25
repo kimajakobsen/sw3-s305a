@@ -1,0 +1,287 @@
+DELETE FROM PersonsProblem
+DELETE FROM CommentSet
+DELETE FROM ProblemTag
+DELETE FROM Tagset
+DELETE FROM ProblemSet
+DELETE FROM CategorySet
+DELETE FROM PersonSet
+DELETE FROM DepartmentSet
+
+-- This is DepartmentSet
+
+DELETE FROM DepartmentSet
+
+SET IDENTITY_INSERT DepartmentSet ON
+
+INSERT INTO DepartmentSet (Id, DepartmentName, Description)
+Values(1, 'Anlæg', 'Udendørs vedligeholdelse')
+
+INSERT INTO DepartmentSet (Id, DepartmentName, Description)
+Values(2, 'Indendør', 'Indendørs vedligeholdelse')
+
+INSERT INTO DepartmentSet (Id, DepartmentName, Description)
+Values(3, 'IKT', 'Vedligehold/oprettelse af computernetværk o. lign.')
+
+INSERT INTO DepartmentSet (Id, DepartmentName, Description)
+Values(4, 'F-klubben', 'Emner relateret til F-klubbens arbejde')
+
+SET IDENTITY_INSERT DepartmentSet OFF
+
+-- 
+
+-- This is CategorySet
+
+DELETE FROM CategorySet
+
+SET IDENTITY_INSERT CategorySet ON
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(1, 'Blomster og bier', 'Den gode snak', 1)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(2, 'Virkeligheden modeller', 'lame-ass emne', 2)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(3, 'Modellernes virkelighed', 'samme emne, even more lame-ass', 3)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(4, 'Kaffekop', 'til kaffe', 2)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(5, 'Øl-falske', 'nam nam', 2)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(6, 'Tuborg Classic', 'God øl', 1)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(7, 'Zepto', 'Hvor længe kan den holde strøm', 3)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(8, 'Hopla læskedrik', 'Ret dårlig læskedrik, som er navnelæggeren til vores system', 1)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(9, 'Cola', 'nice', 1)
+
+INSERT INTO CategorySet (Id, Name, Description, Department_Id)
+Values(10, 'Lenovo', 'Meget bedre end Zepto', 3)
+
+SET IDENTITY_INSERT CategorySet OFF
+
+--
+
+-- This is Tags
+
+DELETE FROM TagSet
+
+SET IDENTITY_INSERT TagSet ON
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(1, 'Bjørn', 'Farlig', 5, 1)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(2, 'Sabeltiger', 'Farlig', 5, 1)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(3, 'Haj', 'Farlig', 5, 1)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(4, 'Tiger', 'Farlig', 5, 1)
+
+--INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+-- Values(4, 'Visual Studio', 'Farlig', 5, 1)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(5, 'En kæmpe stor hund', 'Farlig', 5, 1)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(6, 'Hindbær', 'Smager Godt', 5, 2)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(7, 'Jordbær', 'Smager Godt', 5, 2)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(8, 'Blåbær', 'Smager Godt', 5, 2)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(9, 'Sortbær', 'Smager Godt', 5, 2)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(10, 'Tranebær', 'Smager Godt', 5, 2)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(11, 'Bluescreen', 'Er nederen', 5, 3)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(12, 'Redscreen', 'Er nederen', 5, 3)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(13, 'Greenscreen', 'Er nederen', 5, 3)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(14, 'purplescreen', 'Er nederen', 5, 3)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(15, 'oragescreen', 'Er nederen', 5, 3)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(16, 'Frøer', 'Grøn', 5, 4)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(17, 'Grønne Biler', 'Grøn', 5, 4)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(18, 'Carlsberg', 'Grøn', 5, 4)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(19, 'Tuborg', 'Grøn', 5, 4)
+
+INSERT INTO TagSet (Id, Name, Description, Priority, Category_Id)
+Values(20, 'Grøn Aalborg', 'Grøn', 5, 4)
+
+SET IDENTITY_INSERT TagSet OFF
+
+--
+
+-- Person-Creation
+
+DELETE FROM PersonSet
+
+SET IDENTITY_INSERT PersonSet ON
+
+INSERT INTO PersonSet(Id, Name, Email, DepartmentId)
+VALUES(1 ,'John', 'john@john.john', 1)
+
+INSERT INTO PersonSet(Id, Name, Email, DepartmentId)
+VALUES(2, 'spasserienrustning', 'sier@john.john', 2)
+
+INSERT INTO PersonSet(Id, Name, Email, DepartmentId)
+VALUES(3, 'fucktard', 'fucktard@john.john', 3)
+
+INSERT INTO PersonSet(Id, Name, Email, DepartmentId)
+VALUES(4, 'dummy', 'dummy@john.john', 4)
+
+SET IDENTITY_INSERT PersonSet OFF
+
+--
+
+-- This is ProblemSet
+
+DELETE FROM ProblemSet
+SET IDENTITY_INSERT ProblemSet ON
+
+INSERT INTO ProblemSet(Id, Title, Description, Added_date, Deadline, IsDeadlineApproved, Reassignable, SolvedAtTime, PersonsId)
+VALUES(1, 'Sodavand', 'Min sodavand virker ikke', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, NULL, 1)
+
+INSERT INTO ProblemSet(Id, Title, Description, Added_date, Deadline, IsDeadlineApproved, Reassignable, SolvedAtTime, PersonsId)
+VALUES(2, 'Jabba the hut', 'Fed tyk og klam. Han skal fjernes', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, NULL, 1)
+
+INSERT INTO ProblemSet(Id, Title, Description, Added_date, Deadline, IsDeadlineApproved, Reassignable, SolvedAtTime, PersonsId)
+VALUES(3, 'Bamse', 'Gul', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, NULL, 1)
+
+INSERT INTO ProblemSet(Id, Title, Description, Added_date, Deadline, IsDeadlineApproved, Reassignable, SolvedAtTime, PersonsId)
+VALUES(4, 'Tavlesvamp', 'Gul', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, NULL, 1)
+
+SET IDENTITY_INSERT ProblemSet OFF
+
+--
+
+-- This is Relations between problems and tags
+
+DELETE FROM ProblemTag 
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(1, 1)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(1, 2)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(1, 3)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(1, 4)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(1, 5)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(2, 20)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(2, 19)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(2, 10)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(2, 11)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(2, 15)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(3, 1)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(3, 16)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(3, 2)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(3, 19)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(3, 11)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 4)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 3)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 9)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 15)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 1)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 2)
+
+INSERT INTO ProblemTag (Problems_Id, Tags_Id)
+Values(4, 20)
+
+--
+
+INSERT INTO PersonsProblem (Persons_Id, Problems_Id)
+Values(1, 2)
+
+INSERT INTO PersonsProblem (Persons_Id, Problems_Id)
+Values(1, 3)
+
+INSERT INTO PersonsProblem (Persons_Id, Problems_Id)
+Values(1, 4)
+
+-- 
+
+INSERT INTO CommentSet(time, description, Problem_Id, PersonsId)
+Values ({ fn CURDATE() }, 'det er fucking awsome', 1, 1)
+
+INSERT INTO CommentSet(time, description, Problem_Id, PersonsId)
+Values ({ fn CURDATE() }, 'det virker stadig ikke', 1, 1)
+
+INSERT INTO CommentSet(time, description, Problem_Id, PersonsId)
+Values ({ fn CURDATE() }, 'det er fucking awsome', 2, 1)
+
+INSERT INTO CommentSet(time, description, Problem_Id, PersonsId)
+Values ({ fn CURDATE() }, 'det virker stadig ikke', 2, 1)
+
+INSERT INTO CommentSet(time, description, Problem_Id, PersonsId)
+Values ({ fn CURDATE() }, 'Alle support-mennesker er dårlige mennesker, fordi de ikke kan løse mit problem', 4, 1)
+
+INSERT INTO CommentSet(time, description, Problem_Id, PersonsId)
+Values ({ fn CURDATE() }, 'Det er da underligt, mit virker fint', 4, 1)
