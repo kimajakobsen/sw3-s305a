@@ -12,8 +12,20 @@ namespace HoplaHelpdesk.Tools
         public static Person GetStaff(Problem Problem, hoplaEntities db)
         {
 
+            var department = GetDepartment(Problem.Tags.ToList());
 
-            return new Person();
+
+
+            var person = db.PersonSet.Single(x => x.Id == 1);
+            return person;
+        }
+
+
+        public static Department GetDepartment(List<Tag> tags){
+
+
+
+            return new Department();
         }
     }
 }
