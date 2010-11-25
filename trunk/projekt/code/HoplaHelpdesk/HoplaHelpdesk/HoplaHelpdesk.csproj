@@ -257,9 +257,9 @@
     <Content Include="Views\CreateProblem\Succes.aspx" />
     <Content Include="Views\Department\Index.aspx" />
     <Content Include="Views\Shared\CommentList.ascx" />
+    <Content Include="Views\Shared\DepartmentList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategoryTagSelectEditor.ascx" />
-    <Content Include="Views\Shared\DepartmentList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CommentCreate.ascx" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ProblemCreate.ascx" />

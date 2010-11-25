@@ -13,12 +13,22 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities db = new hoplaEntities();
         //
         // GET: /Index/
-
+        
         public ActionResult Index()
         {
             var DepartmentList = db.DepartmentSet.ToList();
 
             var viewmodel = new DepartmentListViewModel() { Departments = DepartmentList };
+
+
+            
+           /* List<string> ListOfDepartments = new List<string>();
+                foreach (var item in db.DepartmentSet)
+                    {
+                        ListOfDepartments.Add(item.DepartmentName);
+                    }
+                ViewData["Departments"] = new SelectList(ListOfDepartments);
+           **/      
 
 
             return View(viewmodel);
