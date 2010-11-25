@@ -48,6 +48,7 @@ namespace HoplaHelpdesk.Tools
                             {
                                 temp = temp.Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList();
                             }
+                            temp.SortProblemsByLeastTags();
                             currentSearch = tags.RemoveNext(ref tagsToRemove);
                             result.AddRangeNoDuplicates(temp.ToList());
                         }

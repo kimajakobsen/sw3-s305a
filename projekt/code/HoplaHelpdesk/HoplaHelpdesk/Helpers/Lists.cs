@@ -102,8 +102,15 @@ namespace HoplaHelpdesk.Helpers
 
         public static void SortProblemsByLeastTags<T>(this List<T> list, int start, int length) where T : Problem
         {
-            QuickSort(list, start, start + length,
-                (x, y) => { return y.Tags.Count - x.Tags.Count; });
+            try
+            {
+                QuickSort(list, start, start + length,
+                    (x, y) => { return x.Tags.Count - y.Tags.Count; });
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                throw;
+            }
 
             return;
         }
@@ -124,8 +131,15 @@ namespace HoplaHelpdesk.Helpers
 
         public static void SortProblemsByMostTags<T>(this List<T> list, int start, int length) where T : Problem
         {
-            QuickSort(list, start, start + length,
-                (x, y) => { return x.Tags.Count - y.Tags.Count; });
+            try
+            {
+                QuickSort(list, start, start + length,
+                    (x, y) => { return y.Tags.Count - x.Tags.Count; });
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                throw;
+            }
 
             return;
         }
@@ -161,29 +175,29 @@ namespace HoplaHelpdesk.Helpers
             }
 
             Random rand = new Random();
-            T comperer = list[rand.Next(start,end)];
-            int i = start-1;
-            int j = end +1;
+            T pivot = list[rand.Next(start,end)];
+            int i = start;
+            int j = end;
 
-            while (i <= j)
+            while (i < j)
             {
-                if (compareFunction(list[i + 1], comperer) < 0)
+                if (compareFunction(list[i], pivot) < 0)
                 {
                     i++;
                 }
                 else
                 {
-                    Swap<T>(list, i + 1, j - 1);
+                    Swap<T>(list, i, j);
                     j--;
                 }
 
-                if (compareFunction(list[j - 1], comperer) > 0)
+                if (compareFunction(list[j], pivot) > 0)
                 {
                     j--;
                 }
                 else
                 {
-                    Swap<T>(list, i + 1, j - 1);
+                    Swap<T>(list, i, j);
                     i++;
                 }
             }
