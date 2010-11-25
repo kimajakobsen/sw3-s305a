@@ -11,8 +11,8 @@ namespace HoplaHelpdesk.Controllers
     //[Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
+
         hoplaEntities DB = new hoplaEntities();
-        
 
         public ActionResult CreateComment(FormCollection collection, int ProblemID)
         {
@@ -26,8 +26,6 @@ namespace HoplaHelpdesk.Controllers
 
             //try{
 
-            //problemList = DB.ProblemSet.Where(x => x.Name == User.Identity.Name).ToList();
-            
             int myID = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
             problemList = DB.ProblemSet.Where(x => x.PersonsId == myID).ToList();
