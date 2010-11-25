@@ -23,7 +23,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
         <h2>Add Comment:</h2>
 
-        <% Html.RenderPartial("EditorTemplates/CommentCreate", Model); %>
+        <% Html.RenderPartial("EditorTemplates/CommentCreate", Model.comment); %>
 
         
         <p> 
