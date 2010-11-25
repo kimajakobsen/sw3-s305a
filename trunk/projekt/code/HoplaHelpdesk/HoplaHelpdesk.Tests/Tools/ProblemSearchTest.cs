@@ -84,7 +84,54 @@ namespace HoplaHelpdesk.Tests
             hoplaEntities db = null; // TODO: Initialize to an appropriate value
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
             List<Problem> actual;
+
+            #region Test Setup
+            catTag = new CategoryTagSelectionViewModel
+            {
+                Categories = new List<CategoryWithListViewModel>
+                {
+                    new CategoryWithListViewModel
+                    {
+                        Id = 1,
+                        Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                        {
+                            new Tag
+                            {
+                                Id = 1,
+                                Category_Id = 1
+                            },
+                            new Tag
+                            {
+                                Id = 2,
+                                Category_Id = 1
+                            }
+                        }
+                    },
+                    new CategoryWithListViewModel
+                    {
+                        Id = 2,
+                        Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                        {
+                            new Tag
+                            {
+                                Id = 3,
+                                Category_Id = 2
+                            },
+                            new Tag
+                            {
+                                Id = 4,
+                                Category_Id = 2
+                            }
+                        }
+                    }
+
+                }
+            };
+            #endregion
+
+            #region Test Run
             actual = ProblemSearch.Search(catTag, db);
+            #endregion
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
