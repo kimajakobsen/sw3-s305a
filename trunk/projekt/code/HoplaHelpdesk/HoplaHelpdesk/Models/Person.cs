@@ -42,5 +42,10 @@ namespace HoplaHelpdesk.Models
                 return false;
             }
         }
+
+        public int getWorkload()
+        {
+            return Worklist.Count;
+        }
     }
 }

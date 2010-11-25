@@ -4,18 +4,20 @@ using System.Linq;
 using System.Web;
 using HoplaHelpdesk.Models;
 using System.Web.Security;
+using System.Data.Objects.DataClasses;
 
 namespace HoplaHelpdesk.Tools
 {
     public static class ProblemDistributer
     {
-        public static Person GetStaff(Problem Problem, hoplaEntities db)
+        public static Person GetStaff(Problem Problem,  EntityCollection<Person> PersonSet)
         {
 
             var department = GetDepartment(Problem.Tags.ToList());
 
 
-            var person = db.PersonSet.Single(x => x.Id == 1);
+            var person = PersonSet.Single(x => x.Id == 1);
+
             return person;
         }
 
