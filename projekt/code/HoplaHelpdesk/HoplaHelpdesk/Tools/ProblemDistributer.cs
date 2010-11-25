@@ -20,32 +20,33 @@ namespace HoplaHelpdesk.Tools
         }
 
         /// <summary>
-        /// 
+        /// Gets department from a list of tags.
         /// </summary>
-        /// <param name="tags"></param>
-        /// <returns></returns>
+        /// <param name="tags"> A list of tags.</param>
+        /// <returns>The department which has most tags included in the list.</returns>
         public static Department GetDepartment(List<Tag> tags){
 
             var departments = new List<DepCount>();
-           
-           
+           // Runs through all tags.
             foreach(var tag in tags){
-               
+               // Get the appropriete department for that tag.
                 var dept = departments.SingleOrDefault(x => x.Department == tag.Category.Department);
                 if (dept == null)
                 {
+                    // If it doesent exist add it.
                     departments.Add(new DepCount() { 
                          Department = tag.Category.Department,
                          Count = 1
                     });
 
                 } else {
+                    // increment it. 
                     dept.Count++;
                 }
             }
 
 
-
+            // returns the department with the highest count. 
             return departments.OrderByDescending(x => x.Count).First().Department;
         }
 
