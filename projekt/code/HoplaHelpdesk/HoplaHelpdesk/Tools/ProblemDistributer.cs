@@ -22,9 +22,18 @@ namespace HoplaHelpdesk.Tools
 
         public static Department GetDepartment(List<Tag> tags){
 
+            var departments = new List<DepCount>();
+            foreach(var tag in tags){
+                tag.Categories.Departments
 
+            }
 
             return new Department();
+        }
+
+        private struct DepCount{
+            Department Department { get; set;}
+            int Count { get; set; }
         }
     }
 }
