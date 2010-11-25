@@ -111,7 +111,6 @@ namespace HoplaHelpdesk.Tests
                             }
                         }
                     }
-
                 }
             };
 
@@ -193,16 +192,23 @@ namespace HoplaHelpdesk.Tests
         [UrlToTest("http://localhost:6399/")]
         public void SearchTest1()
         {
+            int john;
+            throw new Exception();
             #region Test Setup
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
             List<Problem> actual = null;
             tags[0].IsSelected = true;
-            tags[0].IsSelected = true;
+            tags[1].IsSelected = true;
+            expected = new List<Problem> 
+            { 
+                problems[0],
+                problems[1]
+            };
             #endregion
 
 
             #region Test Run
-            actual = ProblemSearch.Search(catTag,problems,tags);
+            actual = ProblemSearch.Search(catTag,problems,tags,2);
             #endregion
 
             #region Assertions

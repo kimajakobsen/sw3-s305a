@@ -12,15 +12,14 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemSearch
     {
-        private static int _maxProblems = 10;
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="catTag">A CategoryTagSelectionViewModel</param>
         /// <param name="db">Hopla entitites</param>
         /// <returns></returns>
-        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems, List<Tag> allTags)
+        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
+            List<Tag> allTags, int listMinSize)
         {
             List<Problem> result = new List<Problem>();
             int noOfTagsToRemove = 0;
@@ -32,7 +31,7 @@ namespace HoplaHelpdesk.Tools
 
             if (tags.Count != 0)
             {
-                while (result.Count < _maxProblems && noOfTagsToRemove < tags.Count)
+                while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
                 {
                     temp = allProblems.ToList();
                     tagsToRemove = new List<int>();
@@ -62,9 +61,10 @@ namespace HoplaHelpdesk.Tools
                 }
             }
 
-            if (result.Count() < _maxProblems)
+            int count = 0;
+            while (result.Count() < listMinSize && count <= allTags.Count)
             {
-                temp = (allProblems.Where(x => x.Tags.Count == 0).ToList());
+                temp = (allProblems.Where(x => x.Tags.Count == count).ToList());
                 result.AddRangeNoDuplicates(temp);
             }
 
