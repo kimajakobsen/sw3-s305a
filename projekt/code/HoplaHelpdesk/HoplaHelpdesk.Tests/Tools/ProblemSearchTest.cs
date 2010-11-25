@@ -17,7 +17,8 @@ namespace HoplaHelpdesk.Tests
     [TestClass()]
     public class ProblemSearchTest
     {
-
+        CategoryTagSelectionViewModel catTag = null; // TODO: Initialize to an appropriate value
+        hoplaEntities db = null; // TODO: Initialize to an appropriate value
 
         private TestContext testContextInstance;
 
@@ -67,25 +68,12 @@ namespace HoplaHelpdesk.Tests
         //
         #endregion
 
-
-        /// <summary>
-        ///A test for Search
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Documents and Settings\\aba\\My Documents\\3.SW\\P3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        public void SearchTest()
+        #region Test Setup
+        [TestInitialize()]
+        public void MyTestInitialize()
         {
-            CategoryTagSelectionViewModel catTag = null; // TODO: Initialize to an appropriate value
-            hoplaEntities db = null; // TODO: Initialize to an appropriate value
-            List<Problem> expected = null; // TODO: Initialize to an appropriate value
-            List<Problem> actual;
 
-            #region Test Setup
+            
             catTag = new CategoryTagSelectionViewModel
             {
                 Categories = new List<CategoryWithListViewModel>
@@ -127,7 +115,87 @@ namespace HoplaHelpdesk.Tests
 
                 }
             };
-            #endregion
+
+            List<Tag> tags = new List<Tag>
+            {
+                catTag.Categories[0].TagList[0],
+                catTag.Categories[0].TagList[1],
+                catTag.Categories[1].TagList[0],
+                catTag.Categories[1].TagList[1]
+            };
+
+            db.ProblemSet.AddObject(new Problem
+            {
+                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                { 
+                    tags[0],
+                    tags[1]
+                },
+                Id = 1
+            });
+
+            db.ProblemSet.AddObject(new Problem
+            {
+                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                { 
+                    tags[0],
+                    tags[1]
+                },
+                Id = 2
+            });
+
+            db.ProblemSet.AddObject(new Problem
+            {
+                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                {
+                },
+                Id = 3
+            });
+
+            db.ProblemSet.AddObject(new Problem
+            {
+                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                { 
+                    tags[0]
+                },
+                Id = 4
+            });
+
+            db.ProblemSet.AddObject(new Problem
+            {
+                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                {
+                    tags[1]
+                },
+                Id = 5
+            });
+
+            db.ProblemSet.AddObject(new Problem
+            {
+                Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
+                { 
+                    tags[3]
+                },
+                Id = 2
+            });
+            
+        }
+        #endregion
+
+        /// <summary>
+        ///A test for Search
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Documents and Settings\\aba\\My Documents\\3.SW\\P3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void SearchTest()
+        {
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual;
 
             #region Test Run
             actual = ProblemSearch.Search(catTag, db);
