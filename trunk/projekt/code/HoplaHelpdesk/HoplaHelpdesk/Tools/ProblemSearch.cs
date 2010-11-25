@@ -54,7 +54,7 @@ namespace HoplaHelpdesk.Tools
                             result.AddRangeNoDuplicates(temp.ToList());
                         }
                     }
-                    catch (NotSupportedException ex)
+                    catch (NotSupportedException)
                     {
                         noOfTagsToRemove++;
                         result.AddRangeNoDuplicates(temp.ToList());
