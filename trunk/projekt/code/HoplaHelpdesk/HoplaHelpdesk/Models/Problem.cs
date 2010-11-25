@@ -10,7 +10,7 @@ namespace HoplaHelpdesk.Models
 {
 
      [MetadataType(typeof(ProblemMetaData))]
-    public partial class Problem
+    public partial class Problem : IProblem
     {
           
           
@@ -42,7 +42,7 @@ namespace HoplaHelpdesk.Models
 
      public interface IProblem
      {
-         Double GetPriority();
+         short GetPriority();
 
 
      }
