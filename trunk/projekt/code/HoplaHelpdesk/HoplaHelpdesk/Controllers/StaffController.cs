@@ -14,12 +14,6 @@ namespace HoplaHelpdesk.Controllers
 
         hoplaEntities DB = new hoplaEntities();
 
-        public ActionResult CreateComment(FormCollection collection, int ProblemID)
-        {
-
-            return View();
-        }
-
         public ActionResult Worklist()
         {
             List<Problem> problemList;
@@ -48,8 +42,19 @@ namespace HoplaHelpdesk.Controllers
             return View();
         }
 
-        //
-        // GET: /Staff/Details/5
+        [HttpPost]
+        public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
+        {
+            model.comment.Person = DB.PersonSet.Single(x => x.Name == User.Identity.Name.ToLower());
+            model.comment.Problem_Id = id;
+            model.comment.time = DateTime.Now;
+
+            DB.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
+
+            DB.SaveChanges();
+
+            return View();
+        }
 
         public ActionResult Details(int id)
         {
