@@ -15,11 +15,9 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Admin/
         
-        public String index(String name,String role)
+        public ActionResult index()
         {
-            string msg = HttpUtility.HtmlEncode("Admin.index, Name = " + name + ", Role = " + role);
-            String both = "name: " + name + " Role: " + role;
-        return both;
+            return View();
         }
         
         
