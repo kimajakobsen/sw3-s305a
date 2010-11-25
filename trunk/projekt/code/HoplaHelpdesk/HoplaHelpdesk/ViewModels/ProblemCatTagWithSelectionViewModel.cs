@@ -10,5 +10,6 @@ namespace HoplaHelpdesk.ViewModels
     {
         public Problem Problem { get; set; }
         public CategoryTagSelectionViewModel CatTag { get; set; }
+        public Person Person { get; set; }
     }
 }
