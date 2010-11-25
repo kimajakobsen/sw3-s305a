@@ -13,60 +13,17 @@
                 <%: Html.LabelFor(model => model.Description) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextAreaFor(model => model.Description) %>
+                <%: Html.TextAreaFor(model => model.Description, new { width = 1000})%>
                 <%: Html.ValidationMessageFor(model => model.Description) %>
             </div>
             
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Added_date) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Added_date) %>
-                <%: Html.ValidationMessageFor(model => model.Added_date) %>
-            </div>
+            <div class="editor-label">  
+             <%= Html.LabelFor(model => model.Deadline) %>  
+                </div>      
                <%: Html.EditorFor(model => model.Deadline, "DateTime") %>
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Deadline) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Deadline) %>
-                <%: Html.ValidationMessageFor(model => model.Deadline) %>
-            </div>
+               
+           
           
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.IsDeadlineApproved) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.IsDeadlineApproved) %>
-                <%: Html.ValidationMessageFor(model => model.IsDeadlineApproved) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.AssignedTo) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.AssignedTo) %>
-                <%: Html.ValidationMessageFor(model => model.AssignedTo) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Reassignable) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Reassignable) %>
-                <%: Html.ValidationMessageFor(model => model.Reassignable) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.SolvedAtTime) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.SolvedAtTime) %>
-                <%: Html.ValidationMessageFor(model => model.SolvedAtTime) %>
-            </div>
-            
-    
 
 
 
