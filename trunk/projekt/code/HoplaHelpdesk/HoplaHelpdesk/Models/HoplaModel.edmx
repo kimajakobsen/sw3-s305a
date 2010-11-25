@@ -10,7 +10,7 @@
           <EntitySet Name="CommentSet" EntityType="hoplaModel.Store.CommentSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DepartmentSet" EntityType="hoplaModel.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PersonSet" EntityType="hoplaModel.Store.PersonSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PersonsProblem" EntityType="hoplaModel.Store.PersonsProblem" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonsProblem" EntityType="hoplaModel.Store.PersonsProblem" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProblemSet" EntityType="hoplaModel.Store.ProblemSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProblemSolution" EntityType="hoplaModel.Store.ProblemSolution" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProblemTag" EntityType="hoplaModel.Store.ProblemTag" store:Type="Tables" Schema="dbo" />
@@ -33,12 +33,12 @@
             <End Role="PersonSet" EntitySet="PersonSet" />
           </AssociationSet>
           <AssociationSet Name="FK_PersonsProblem_Persons" Association="hoplaModel.Store.FK_PersonsProblem_Persons">
-            <End Role="PersonSet" EntitySet="PersonSet" />
-            <End Role="PersonsProblem" EntitySet="PersonsProblem" />
+            <End EntitySet="PersonSet" Role="PersonSet" />
+            <End EntitySet="PersonsProblem" Role="PersonsProblem" />
           </AssociationSet>
           <AssociationSet Name="FK_PersonsProblem_Problem" Association="hoplaModel.Store.FK_PersonsProblem_Problem">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="PersonsProblem" EntitySet="PersonsProblem" />
+            <End EntitySet="ProblemSet" Role="ProblemSet" />
+            <End EntitySet="PersonsProblem" Role="PersonsProblem" />
           </AssociationSet>
           <AssociationSet Name="FK_ProblemPersons" Association="hoplaModel.Store.FK_ProblemPersons">
             <End Role="PersonSet" EntitySet="PersonSet" />
@@ -106,8 +106,8 @@
             <PropertyRef Name="Persons_Id" />
             <PropertyRef Name="Problems_Id" />
           </Key>
-          <Property Name="Persons_Id" Type="int" Nullable="false" />
-          <Property Name="Problems_Id" Type="int" Nullable="false" />
+          <Property Name="Persons_Id" Nullable="false" Type="int" />
+          <Property Name="Problems_Id" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="ProblemSet">
           <Key>
@@ -205,8 +205,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PersonsProblem_Persons">
-          <End Role="PersonSet" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
-          <End Role="PersonsProblem" Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" />
+          <End Type="hoplaModel.Store.PersonSet" Multiplicity="1" Role="PersonSet" />
+          <End Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" Role="PersonsProblem" />
           <ReferentialConstraint>
             <Principal Role="PersonSet">
               <PropertyRef Name="Id" />
@@ -217,8 +217,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PersonsProblem_Problem">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="PersonsProblem" Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" />
+          <End Type="hoplaModel.Store.ProblemSet" Multiplicity="1" Role="ProblemSet" />
+          <End Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" Role="PersonsProblem" />
           <ReferentialConstraint>
             <Principal Role="ProblemSet">
               <PropertyRef Name="Id" />
@@ -333,8 +333,8 @@
           </AssociationSet>
           <EntitySet Name="PersonSet" EntityType="hoplaModel.Person" />
           <AssociationSet Name="PersonsProblem" Association="hoplaModel.PersonsProblem">
-            <End Role="Persons" EntitySet="PersonSet" />
-            <End Role="Problem" EntitySet="ProblemSet" />
+            <End EntitySet="PersonSet" Role="Persons" />
+            <End EntitySet="ProblemSet" Role="Problem" />
           </AssociationSet>
           <AssociationSet Name="PersonsDepartment" Association="hoplaModel.PersonsDepartment">
             <End Role="Persons" EntitySet="PersonSet" />
@@ -399,7 +399,7 @@
           <NavigationProperty Name="Tags" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
           <NavigationProperty Name="Persons" Relationship="hoplaModel.PersonsProblem" FromRole="Problem" ToRole="Persons" />
           <NavigationProperty Name="AssignedTo" Relationship="hoplaModel.ProblemPersons" FromRole="Problem" ToRole="Persons" />
-          <Property Type="Int32" Name="PersonsId" Nullable="false" />
+          <Property Name="PersonsId" Nullable="false" Type="Int32" />
         </EntityType>
         <EntityType Name="Solution">
           <Key>
@@ -479,8 +479,8 @@
           <NavigationProperty Name="Comments" Relationship="hoplaModel.PersonsComment" FromRole="Persons" ToRole="Comment" />
         </EntityType>
         <Association Name="PersonsProblem">
-          <End Type="hoplaModel.Person" Role="Persons" Multiplicity="*" />
-          <End Type="hoplaModel.Problem" Role="Problem" Multiplicity="*" />
+          <End Type="hoplaModel.Person" Multiplicity="*" Role="Persons" />
+          <End Type="hoplaModel.Problem" Multiplicity="*" Role="Problem" />
         </Association>
         <Association Name="PersonsDepartment">
           <End Type="hoplaModel.Person" Role="Persons" Multiplicity="*" />

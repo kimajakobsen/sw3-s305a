@@ -23,6 +23,9 @@
             <legend>Categorization</legend>
 
               <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
+           
+              <% Model.Person.Name = Page.User.Identity.Name; %>
+              <%: Html.HiddenFor(model => model.Person.Name) %>
               </fieldset>
             <p>
                 <input type="submit" value="Create" />
