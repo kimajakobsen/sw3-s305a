@@ -57,9 +57,7 @@ namespace HoplaHelpdesk.Controllers
             try
             {
                 problem = DB.ProblemSet.FirstOrDefault(x => x.Id == id);
-                    
-                   
-
+                
                 //problem = DB.ProblemSet.Single(x => x.Id == id && x.AssignedTo == User.Identity.Name);
             }
             catch (Exception)
@@ -74,8 +72,9 @@ namespace HoplaHelpdesk.Controllers
             List<Comment> comments = new List<Comment>();
 
             comments = (from Comment in DB.CommentSet
-                        where Comment.Problem_Id == myID
+                        where Comment.PersonsId == myID
                         select Comment).ToList();
+
             //} catch (Exception) { return View("Error");}
 
             var viewModel = new ProblemDetailsCommentListViewModel()
