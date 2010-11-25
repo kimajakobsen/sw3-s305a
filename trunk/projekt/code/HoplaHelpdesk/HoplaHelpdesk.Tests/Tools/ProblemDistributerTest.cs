@@ -184,14 +184,14 @@ namespace HoplaHelpdesk.Tests
             EntityCollection<Problem> worklist2 = new EntityCollection<Problem>() { new Problem(), new Problem(), new Problem(), new Problem() };
             EntityCollection<Problem> worklist3 = new EntityCollection<Problem>() {  new Problem() };
 
-            
+            // In this test the problem belongs to dept1. John has the shorthest worklist, but is not staff. Mrt should get it.
             IPerson Johnny = new TestPerson() { Worklist = worklist, Department = dept1};
             IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
             IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1, Name = "john" };
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
             EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
             {
-               John, MrT
+               John, MrT, Johnny, MrTt
             };
 
            
@@ -251,11 +251,11 @@ namespace HoplaHelpdesk.Tests
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
             EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
             {
-               John, MrT
+               John, MrT, Johnny, MrTt
             };
 
 
-            IPerson expected = MrT; 
+            IPerson expected = Johnny; 
             IPerson actual;
             actual = ProblemDistributer.GetStaff(Problem, PersonSet);
             Assert.AreEqual(expected, actual);
