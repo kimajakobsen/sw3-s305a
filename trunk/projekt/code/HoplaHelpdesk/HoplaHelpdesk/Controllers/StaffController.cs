@@ -52,8 +52,6 @@ namespace HoplaHelpdesk.Controllers
             DB.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
             DB.SaveChanges();
 
-            model.comment.description = "";
-
             return this.Details(id);
         }
 
