@@ -1,0 +1,404 @@
+﻿using HoplaHelpdesk.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
+using System.Data.Objects.DataClasses;
+
+namespace HoplaHelpdesk.Tests
+{
+    
+    
+    /// <summary>
+    ///This is a test class for ProblemTest and is intended
+    ///to contain all ProblemTest Unit Tests
+    ///</summary>
+    [TestClass()]
+    public class ProblemTest
+    {
+
+
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        #region Additional test attributes
+        // 
+        //You can use the following additional attributes as you write your tests:
+        //
+        //Use ClassInitialize to run code before running the first test in the class
+        //[ClassInitialize()]
+        //public static void MyClassInitialize(TestContext testContext)
+        //{
+        //}
+        //
+        //Use ClassCleanup to run code after all tests in a class have run
+        //[ClassCleanup()]
+        //public static void MyClassCleanup()
+        //{
+        //}
+        //
+        //Use TestInitialize to run code before running each test
+        //[TestInitialize()]
+        //public void MyTestInitialize()
+        //{
+        //}
+        //
+        //Use TestCleanup to run code after each test has run
+        //[TestCleanup()]
+        //public void MyTestCleanup()
+        //{
+        //}
+        //
+        #endregion
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void GetPriorityTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            short expected = 0; // TODO: Initialize to an appropriate value
+            short actual;
+            actual = target.GetPriority();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Added_date
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void Added_dateTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            Nullable<DateTime> expected = new Nullable<DateTime>(); // TODO: Initialize to an appropriate value
+            Nullable<DateTime> actual;
+            target.Added_date = expected;
+            actual = target.Added_date;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for AssignedTo
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void AssignedToTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            Person expected = null; // TODO: Initialize to an appropriate value
+            Person actual;
+            target.AssignedTo = expected;
+            actual = target.AssignedTo;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for AssignedToReference
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void AssignedToReferenceTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            EntityReference<Person> expected = null; // TODO: Initialize to an appropriate value
+            EntityReference<Person> actual;
+            target.AssignedToReference = expected;
+            actual = target.AssignedToReference;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for CommentSet
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void CommentSetTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            EntityCollection<Comment> expected = null; // TODO: Initialize to an appropriate value
+            EntityCollection<Comment> actual;
+            target.CommentSet = expected;
+            actual = target.CommentSet;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Deadline
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void DeadlineTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            Nullable<DateTime> expected = new Nullable<DateTime>(); // TODO: Initialize to an appropriate value
+            Nullable<DateTime> actual;
+            target.Deadline = expected;
+            actual = target.Deadline;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Description
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void DescriptionTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            string expected = string.Empty; // TODO: Initialize to an appropriate value
+            string actual;
+            target.Description = expected;
+            actual = target.Description;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Id
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void IdTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            int expected = 0; // TODO: Initialize to an appropriate value
+            int actual;
+            target.Id = expected;
+            actual = target.Id;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for IsDeadlineApproved
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void IsDeadlineApprovedTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            Nullable<bool> expected = new Nullable<bool>(); // TODO: Initialize to an appropriate value
+            Nullable<bool> actual;
+            target.IsDeadlineApproved = expected;
+            actual = target.IsDeadlineApproved;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Persons
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void PersonsTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            EntityCollection<Person> expected = null; // TODO: Initialize to an appropriate value
+            EntityCollection<Person> actual;
+            target.Persons = expected;
+            actual = target.Persons;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for PersonsId
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void PersonsIdTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            int expected = 0; // TODO: Initialize to an appropriate value
+            int actual;
+            target.PersonsId = expected;
+            actual = target.PersonsId;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Reassignable
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void ReassignableTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            Nullable<bool> expected = new Nullable<bool>(); // TODO: Initialize to an appropriate value
+            Nullable<bool> actual;
+            target.Reassignable = expected;
+            actual = target.Reassignable;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Solutions
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void SolutionsTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            EntityCollection<Solution> expected = null; // TODO: Initialize to an appropriate value
+            EntityCollection<Solution> actual;
+            target.Solutions = expected;
+            actual = target.Solutions;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for SolvedAtTime
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void SolvedAtTimeTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            Nullable<DateTime> expected = new Nullable<DateTime>(); // TODO: Initialize to an appropriate value
+            Nullable<DateTime> actual;
+            target.SolvedAtTime = expected;
+            actual = target.SolvedAtTime;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Tags
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void TagsTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            EntityCollection<Tag> expected = null; // TODO: Initialize to an appropriate value
+            EntityCollection<Tag> actual;
+            target.Tags = expected;
+            actual = target.Tags;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Title
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        [HostType("ASP.NET")]
+        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        [UrlToTest("http://localhost:6399/")]
+        public void TitleTest()
+        {
+            Problem target = new Problem(); // TODO: Initialize to an appropriate value
+            string expected = string.Empty; // TODO: Initialize to an appropriate value
+            string actual;
+            target.Title = expected;
+            actual = target.Title;
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+    }
+}
