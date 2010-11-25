@@ -53,6 +53,8 @@ namespace HoplaHelpdesk.Controllers
 
             DB.SaveChanges();
 
+            this.Details(id);
+
             return View();
         }
 
