@@ -14,6 +14,12 @@ namespace HoplaHelpdesk.Helpers
 {
     public static class Lists
     {
+        /// <summary>
+        /// Converts the list to an <code>EntityCollection</code>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <returns> an <code>EntityColection</code> containing the same elements as the list</returns>
         public static EntityCollection<T> ToEntityCollection<T>(this List<T> list) where T : class
         {
             EntityCollection<T> result = new EntityCollection<T>();
@@ -48,7 +54,7 @@ namespace HoplaHelpdesk.Helpers
                 {
                     formerRemoved[j] = ++current;
                 }
-                if (formerRemoved[count] < list.Count)
+                if (formerRemoved[count-1] < list.Count)
                 {
                     return list.RemoveCurrent(formerRemoved);
                 }
@@ -92,6 +98,114 @@ namespace HoplaHelpdesk.Helpers
             }
 
             return result;
+        }
+
+        public static void SortProblemsByLeastTags<T>(this List<T> list, int start, int length) where T : Problem
+        {
+            QuickSort(list, start, start + length,
+                (x, y) => { return y.Tags.Count - x.Tags.Count; });
+
+            return;
+        }
+
+        public static void SortProblemsByLeastTags<T>(this List<T> list, int start) where T : Problem
+        {
+            list.SortProblemsByLeastTags(start, list.Count - 1);
+
+            return;
+        }
+
+        public static void SortProblemsByLeastTags<T>(this List<T> list) where T : Problem
+        {
+            list.SortProblemsByLeastTags(0);
+
+            return;
+        }
+
+        public static void SortProblemsByMostTags<T>(this List<T> list, int start, int length) where T : Problem
+        {
+            QuickSort(list, start, start + length,
+                (x, y) => { return x.Tags.Count - y.Tags.Count; });
+
+            return;
+        }
+
+        public static void AddRangeNoDuplicates<T>(this List<T> list, IEnumerable<T> range) where T : Problem
+        {
+            foreach (var item in range)
+            {
+                if (!list.Contains(item))
+                {
+                    list.Add(item);
+                }
+            }
+
+            return;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="compareFunction">This delegate must compare two elements of the type
+        /// <code>T</code> and return negative if the first element should be before the second,
+        ///  positive if the first one should be first in the list, and 0 if it doesn't matter</param>
+        private static void QuickSort<T>(List<T> list, int start, int end, Func<T,T,int> compareFunction)
+        {
+            if (start >= end)
+            {
+                return;
+            }
+
+            Random rand = new Random();
+            T comperer = list[rand.Next(start,end)];
+            int i = start-1;
+            int j = end +1;
+
+            while (i <= j)
+            {
+                if (compareFunction(list[i + 1], comperer) < 0)
+                {
+                    i++;
+                }
+                else
+                {
+                    Swap<T>(list, i + 1, j - 1);
+                    j--;
+                }
+
+                if (compareFunction(list[j - 1], comperer) > 0)
+                {
+                    j--;
+                }
+                else
+                {
+                    Swap<T>(list, i + 1, j - 1);
+                    i++;
+                }
+            }
+
+            QuickSort(list, start, j, compareFunction);
+            QuickSort(list, i, end, compareFunction);
+
+            return;
+        }
+
+        private static void Swap<T>(ref T input1, ref T input2)
+        {
+            T temp = input1;
+            input1 = input2;
+            input2 = temp;
+        }
+
+        private static void Swap<T>(List<T> list, int input1, int input2)
+        {
+            T temp = list[input1];
+            list[input1] = list[input2];
+            list[input2] = temp;
         }
     }
 }
