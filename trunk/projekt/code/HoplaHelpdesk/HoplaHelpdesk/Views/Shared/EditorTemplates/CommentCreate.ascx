@@ -2,16 +2,12 @@
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-
-        <fieldset>
-            <legend>Fields</legend>
-            
-            <%: Html.TextBoxFor(model => model.comment) %>
+        
+            <%: Html.TextBoxFor(model => model.comment.description) %>
 
             <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
+                <input type="submit" value="Create Comment" />
+            </p>       
 
     <% } %>
 
