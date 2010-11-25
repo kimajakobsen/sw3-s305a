@@ -255,6 +255,7 @@
     <Content Include="Views\Department\Edit.aspx" />
     <Content Include="Views\Department\Index.aspx" />
     <Content Include="Views\Shared\CommentList.ascx" />
+    <Content Include="Views\Shared\DepartmentCategoryList.ascx" />
     <Content Include="Views\Shared\DepartmentList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategorySelectEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\CategoryTagSelectEditor.ascx" />

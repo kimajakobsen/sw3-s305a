@@ -6,14 +6,19 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Edit</h2>
+    <h2><%: Model.DepartmentName %></h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
             <legend>Fields</legend>
-            
+            <% Html.RenderPartial("DepartmentCategoryList", Model.Categories);  %>
+
+           <%: Model.Categories.Count %>
+           
+
+
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Id) %>
             </div>
