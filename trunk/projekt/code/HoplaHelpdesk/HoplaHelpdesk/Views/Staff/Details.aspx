@@ -16,7 +16,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
         <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
 
-        <% Html.RenderPartial("CommentList", Model.Comments); %>
+        <% Html.RenderPartial("CommentList", Model.Comments.Single()); %>
 
         <h2>Add Comment:</h2>
 
