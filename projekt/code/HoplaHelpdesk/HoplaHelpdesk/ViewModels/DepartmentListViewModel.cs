@@ -10,5 +10,6 @@ namespace HoplaHelpdesk.ViewModels
     public class DepartmentListViewModel
     {
         public List<Department> Departments { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }
