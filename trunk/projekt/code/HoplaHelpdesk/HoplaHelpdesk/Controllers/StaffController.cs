@@ -11,7 +11,6 @@ namespace HoplaHelpdesk.Controllers
     //[Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
-
         hoplaEntities DB = new hoplaEntities();
 
         public ActionResult Worklist()
