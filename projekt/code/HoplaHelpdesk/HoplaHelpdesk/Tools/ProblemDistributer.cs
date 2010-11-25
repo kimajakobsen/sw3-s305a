@@ -10,11 +10,11 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemDistributer
     {
-        public static Person GetStaff(Problem Problem,  EntityCollection<Person> PersonSet)
+        public static IPerson GetStaff(Problem Problem,  EntityCollection<IPerson> PersonSet)
         {
 
-            var department = GetDepartment(Problem.Tags.ToList());
-
+            var department = GetDepartment(Problem.Tags);
+            
 
             var person = PersonSet.Single(x => x.Id == 1);
 
@@ -26,7 +26,7 @@ namespace HoplaHelpdesk.Tools
         /// </summary>
         /// <param name="tags"> A list of tags.</param>
         /// <returns>The department which has most tags included in the list.</returns>
-        public static Department GetDepartment(List<Tag> tags){
+        public static Department GetDepartment(EntityCollection<Tag> tags){
 
             var departments = new List<DepCount>();
            // Runs through all tags.
