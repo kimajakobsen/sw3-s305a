@@ -63,8 +63,6 @@ namespace HoplaHelpdesk.Controllers
             try
             {
                 problem = DB.ProblemSet.FirstOrDefault(x => x.Id == id);
-                
-                //problem = DB.ProblemSet.Single(x => x.Id == id && x.AssignedTo == User.Identity.Name);
             }
             catch (Exception)
             {
