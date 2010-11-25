@@ -357,7 +357,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Department_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Departments" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="CategorySet" ToRole="DepartmentSet" />
+          <NavigationProperty Name="Department" Relationship="hoplaModel.FK_DepartmentCategory" FromRole="CategorySet" ToRole="DepartmentSet" />
           <NavigationProperty Name="Tags" Relationship="hoplaModel.FK_TagCategory" FromRole="CategorySet" ToRole="TagSet" />
         </EntityType>
         <EntityType Name="Comment">
@@ -397,7 +397,7 @@
           <NavigationProperty Name="CommentSet" Relationship="hoplaModel.FK_CommentProblem" FromRole="ProblemSet" ToRole="CommentSet" />
           <NavigationProperty Name="Solutions" Relationship="hoplaModel.ProblemSolution" FromRole="ProblemSet" ToRole="SolutionSet" />
           <NavigationProperty Name="Tags" Relationship="hoplaModel.ProblemTag" FromRole="ProblemSet" ToRole="TagSet" />
-          <NavigationProperty Name="Persons" Relationship="hoplaModel.PersonsProblem" FromRole="Problem" ToRole="Persons" />
+          <NavigationProperty Name="Person" Relationship="hoplaModel.PersonsProblem" FromRole="Problem" ToRole="Persons" />
           <NavigationProperty Name="AssignedTo" Relationship="hoplaModel.ProblemPersons" FromRole="Problem" ToRole="Persons" />
           <Property Name="PersonsId" Nullable="false" Type="Int32" />
         </EntityType>
@@ -418,7 +418,7 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Priority" Type="Int16" Nullable="false" />
           <Property Name="Category_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categories" Relationship="hoplaModel.FK_TagCategory" FromRole="TagSet" ToRole="CategorySet" />
+          <NavigationProperty Name="Category" Relationship="hoplaModel.FK_TagCategory" FromRole="TagSet" ToRole="CategorySet" />
           <NavigationProperty Name="Problems" Relationship="hoplaModel.ProblemTag" FromRole="TagSet" ToRole="ProblemSet" />
         </EntityType>
         <Association Name="FK_DepartmentCategory">
