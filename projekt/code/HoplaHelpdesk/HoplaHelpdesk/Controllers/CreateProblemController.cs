@@ -144,7 +144,8 @@ namespace HoplaHelpdesk.Controllers
             var probCatviewModel = new ProblemCatTagWithSelectionViewModel()
             {
                 // The problem is left to null.
-                CatTag = viewModel
+                CatTag = viewModel,
+                Person = new Person()
             };
             return View(probCatviewModel);
         }
@@ -161,7 +162,9 @@ namespace HoplaHelpdesk.Controllers
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
                   model.Problem.Added_date = DateTime.Now;
-                  model.Problem.Persons.Add(db.PersonSet.Single(x => x.Name ==  User.Identity.Name));
+                  model.Problem.AssignedTo = db.PersonSet.Single(x => x.Id == 1);
+                  var person = db.PersonSet.Single(x => x.Name == User.Identity.Name.ToLower());
+                  model.Problem.Persons.Add(person);
               
                 
                 db.ProblemSet.AddObject(model.Problem);
