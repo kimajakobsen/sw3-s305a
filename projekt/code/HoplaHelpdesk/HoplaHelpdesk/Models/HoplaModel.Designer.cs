@@ -1721,6 +1721,78 @@ namespace HoplaHelpdesk.Models
         private global::System.Int32 _Category_Id;
         partial void OnCategory_IdChanging(global::System.Int32 value);
         partial void OnCategory_IdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SolvedProblems
+        {
+            get
+            {
+                return _SolvedProblems;
+            }
+            set
+            {
+                OnSolvedProblemsChanging(value);
+                ReportPropertyChanging("SolvedProblems");
+                _SolvedProblems = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SolvedProblems");
+                OnSolvedProblemsChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SolvedProblems;
+        partial void OnSolvedProblemsChanging(Nullable<global::System.Int32> value);
+        partial void OnSolvedProblemsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TimeConsumed
+        {
+            get
+            {
+                return _TimeConsumed;
+            }
+            set
+            {
+                OnTimeConsumedChanging(value);
+                ReportPropertyChanging("TimeConsumed");
+                _TimeConsumed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TimeConsumed");
+                OnTimeConsumedChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TimeConsumed;
+        partial void OnTimeConsumedChanging(Nullable<global::System.Decimal> value);
+        partial void OnTimeConsumedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AverageTimeSpent
+        {
+            get
+            {
+                return _AverageTimeSpent;
+            }
+            set
+            {
+                OnAverageTimeSpentChanging(value);
+                ReportPropertyChanging("AverageTimeSpent");
+                _AverageTimeSpent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AverageTimeSpent");
+                OnAverageTimeSpentChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AverageTimeSpent;
+        partial void OnAverageTimeSpentChanging(Nullable<global::System.Decimal> value);
+        partial void OnAverageTimeSpentChanged();
 
         #endregion
     
