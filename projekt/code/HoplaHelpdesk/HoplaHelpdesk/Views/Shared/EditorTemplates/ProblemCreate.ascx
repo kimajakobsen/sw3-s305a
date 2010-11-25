@@ -1,9 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Problem>" %>
 
-               
-            <%@ Register assembly="EO.Web" namespace="EO.Web" tagprefix="eo" %>
-
-               
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Title) %>
             </div>
