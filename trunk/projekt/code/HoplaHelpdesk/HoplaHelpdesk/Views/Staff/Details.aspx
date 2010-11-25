@@ -13,7 +13,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
             <%: Html.ActionLink("Edit", "Edit", new { id=Model.Problem.Id }) %> |
             <%: Html.ActionLink("Back to List", "Index") %>
         </p>
-    
+    '
         <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
 
         <% Html.RenderPartial("CommentList", Model.Comments); %>
