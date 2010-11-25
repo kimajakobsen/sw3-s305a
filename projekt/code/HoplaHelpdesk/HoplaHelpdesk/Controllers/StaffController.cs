@@ -50,12 +50,11 @@ namespace HoplaHelpdesk.Controllers
             model.comment.time = DateTime.Now;
 
             DB.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
-
             DB.SaveChanges();
 
-            this.Details(id);
+            model.comment.description = "";
 
-            return View();
+            return this.Details(id);
         }
 
         public ActionResult Details(int id)
