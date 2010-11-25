@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.Controllers
 {
     public class CategoryController : Controller
     {
+        hoplaEntities db = new hoplaEntities();
+
+
         //
         // GET: /Category/
 
@@ -53,9 +57,13 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Category/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string name)
         {
-            return View();
+            var Category = db.CategorySet.Single(x => x.Name == name);
+            return View(Category);
+
+
+           
         }
 
         //
