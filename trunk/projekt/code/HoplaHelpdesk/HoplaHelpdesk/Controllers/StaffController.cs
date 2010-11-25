@@ -12,6 +12,7 @@ namespace HoplaHelpdesk.Controllers
     public class StaffController : Controller
     {
         hoplaEntities DB = new hoplaEntities();
+        
 
         public ActionResult CreateComment(FormCollection collection, int ProblemID)
         {
@@ -25,7 +26,11 @@ namespace HoplaHelpdesk.Controllers
 
             //try{
 
-            problemList = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Problems.ToList();
+            //problemList = DB.ProblemSet.Where(x => x.Name == User.Identity.Name).ToList();
+            
+            int myID = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+
+            problemList = DB.ProblemSet.Where(x => x.PersonsId == myID).ToList();
 
             //}catch (Exception){return View("Error");}
 
