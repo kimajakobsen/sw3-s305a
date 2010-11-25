@@ -29,7 +29,7 @@ namespace HoplaHelpdesk.Tools
             List<Problem> temp = new List<Problem>();
             
 
-            if (catTag.AllTagsSelected().Count != 0)
+            if (tags.Count != 0)
             {
                 while (result.Count < _maxProblems && noOfTagsToRemove < tags.Count)
                 {
@@ -49,20 +49,21 @@ namespace HoplaHelpdesk.Tools
                                 temp = temp.Where(x => x.Tags.Contains(db.TagSet.FirstOrDefault(y => y.Id == tag.Id))).ToList();
                             }
                             currentSearch = tags.RemoveNext(ref tagsToRemove);
+                            result.AddRangeNoDuplicates(temp.ToList());
                         }
                     }
                     catch (NotSupportedException ex)
                     {
                         noOfTagsToRemove++;
-                        result.AddRange(temp.ToList());
+                        result.AddRangeNoDuplicates(temp.ToList());
                     }
                 }
             }
 
-            temp = (db.ProblemSet.ToList());
             if (result.Count() < _maxProblems)
             {
-                result.AddRange(temp.Where(x => x.Tags.Count == 0).ToList());
+                temp = (db.ProblemSet.Where(x => x.Tags.Count == 0).ToList());
+                result.AddRangeNoDuplicates(temp);
             }
 
             return result;
