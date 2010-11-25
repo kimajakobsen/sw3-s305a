@@ -15,7 +15,7 @@
             <legend>Fields</legend>
             <% Html.RenderPartial("DepartmentCategoryList", Model.Categories);  %>
 
-           <%: Model.Categories.Count %>
+           
            
 
 

@@ -4,7 +4,8 @@
     <% foreach (var item in Model) { %>
     
 
-               <p><%: Html.ActionLink(item.Name, "Edit", new { item.Name })%></p> 
+               <p><%: Html.ActionLink(item.Name, "Edit","Category", new { item.Name })%></p> 
+               <% Html.ActionLink( %>
 
     <% } %>
 
