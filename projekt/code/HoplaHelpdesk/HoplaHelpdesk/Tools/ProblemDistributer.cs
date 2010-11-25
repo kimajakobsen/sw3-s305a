@@ -19,21 +19,37 @@ namespace HoplaHelpdesk.Tools
             return person;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tags"></param>
+        /// <returns></returns>
         public static Department GetDepartment(List<Tag> tags){
 
             var departments = new List<DepCount>();
            
+           
             foreach(var tag in tags){
                
                 var dept = departments.SingleOrDefault(x => x.Department == tag.Category.Department);
-                //if(dept =
+                if (dept == null)
+                {
+                    departments.Add(new DepCount() { 
+                         Department = tag.Category.Department,
+                         Count = 1
+                    });
+
+                } else {
+                    dept.Count++;
+                }
             }
 
-            return new Department();
+
+
+            return departments.OrderByDescending(x => x.Count).First().Department;
         }
 
-        private struct DepCount{
+        private class DepCount{
             public Department Department { get; set;}
             public int Count { get; set; }
         }
