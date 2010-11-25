@@ -22,5 +22,28 @@ namespace HoplaHelpdesk.Models
 
 
           }
+
+
+         public short GetPriority(){
+             if (Tags != null || Tags.Count == 0)
+             {
+                 short sum = 0;
+                 foreach (var tag in Tags)
+                 {
+                     sum += tag.Priority;
+                 }
+                 return (short)(sum / (short)Tags.Count);
+             }
+             
+             return 0;
+         }
     }
+
+
+     public interface IProblem
+     {
+         Double GetPriority();
+
+
+     }
 }
