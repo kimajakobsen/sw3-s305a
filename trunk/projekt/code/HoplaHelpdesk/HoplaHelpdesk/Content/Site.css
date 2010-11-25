@@ -240,6 +240,48 @@ table th
   /*border: solid 1px #e8eef4;   */
 }
 
+table.problemlist
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
+    
+}
+table.problemlist th
+{
+    background-color:#AA700F;
+    color:White;
+}
+table.problemlist td
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
+}
+
+table.commentlist
+{
+    border-style:solid;
+    border-width:thin;
+    border-color:Gray;
+    border-collapse:collapse;
+    color:Black;
+    
+}
+table.commentlist th
+{
+    background-color:#AA700F;
+    color:White;
+    border-color:Gray;
+}
+table.commentlist td
+{
+    border-style:solid;
+    border-width:thin;
+    border-collapse:collapse;
+    border-color:Gray;
+}
+
 /* MISC  
 ----------------------------------------------------------*/
 .clear
@@ -353,25 +395,6 @@ div#title
 {
     font-family:Tahoma;
     padding:5px;
-}
-
-table.problemlist
-{
-    border-style:solid;
-    border-width:thin;
-    border-collapse:collapse;
-    
-}
-table.problemlist th
-{
-    background-color:#AA700F;
-    color:White;
-}
-table.problemlist td
-{
-    border-style:solid;
-    border-width:thin;
-    border-collapse:collapse;
 }
 
 .text-box
