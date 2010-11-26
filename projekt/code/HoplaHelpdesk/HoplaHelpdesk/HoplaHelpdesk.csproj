@@ -104,6 +104,7 @@
     <Compile Include="ViewModels\CategoryTagSelectionViewModel.cs" />
     <Compile Include="Tools\ProblemSearch.cs" />
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
+    <Compile Include="ViewModels\CommentListViewModel.cs" />
     <Compile Include="ViewModels\DepartmentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
     <Compile Include="ViewModels\ProblemDetailsCommentListViewModel.cs" />
