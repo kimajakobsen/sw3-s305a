@@ -82,18 +82,19 @@ namespace HoplaHelpdesk.Controllers
         // POST: /Category/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, Category category)
+        public ActionResult Edit(Category category)
         {
             try
             {
+                var cat = db.CategorySet.SingleOrDefault(x => x.Id == category.Id);
+                cat.Name = category.Name;
+                cat.Description = category.Description;
                 db.SaveChanges();
-
- 
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "Department", new { id=category.Department_Id });
             }
             catch
             {
-                return View();
+                return View(category);
             }
         }
 

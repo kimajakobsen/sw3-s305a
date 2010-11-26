@@ -23,11 +23,16 @@
         <div class="display-label">Department</div>
         <div class="display-field"><%: Model.Department.DepartmentName %></div>
 
+        <div class="display-label">Is Hidden</div>
+        <div class="display-field"><%: Model %></div>
+
+
         <% Html.RenderPartial("TagList", Model.Tags); %>
         <%: Html.ActionLink("Create new Tag", "Create", "Tag") %>
     </fieldset>
     <p>
-
+        <%: Html.ActionLink("Delete", "Delete",  new { id=Model.Id }) %> |
+        <%: Html.ActionLink("Hide", "Hide",  new { id=Model.Id }) %> |
         <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
         <%: Html.ActionLink("Back to List", "Edit", "Department") %>
     </p>
