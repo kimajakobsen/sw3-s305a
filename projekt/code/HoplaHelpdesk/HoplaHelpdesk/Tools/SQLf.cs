@@ -131,10 +131,19 @@ namespace HoplaHelpdesk.Tools
                 {
                     return false;
                 }
-            
+        }
 
+        public void UnRole (String user, String role){
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             
+            SqlCommand delete;
 
+            delete = new SqlCommand ("DELETE FROM aspnet_UsersInRoles WHERE(RoleId = '" + role + "') AND (UserId = '" + user + "')",cn);
+
+            delete.ExecuteNonQuery();
+            delete.Dispose();
+            cn.Close();
         }
 
     }
