@@ -71,6 +71,13 @@ namespace HoplaHelpdesk.Controllers
             return this.Details(id);
         }
 
+    
+        /*public ActionResult Details(int id,)
+        {
+
+            return this.Details(id);
+        }*/
+
         public ActionResult Details(int id)
         {
             Problem problem = new Problem();
