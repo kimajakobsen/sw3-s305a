@@ -89,7 +89,6 @@ namespace HoplaHelpdesk.Controllers
 
             //} catch (Exception) { return View("Error");}
 
-
             var viewModel = new ProblemDetailsCommentListViewModel()
             {
                 Problem = problem,
