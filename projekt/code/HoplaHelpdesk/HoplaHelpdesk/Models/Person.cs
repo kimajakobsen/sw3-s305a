@@ -46,11 +46,36 @@ namespace HoplaHelpdesk.Models
 
         public double GetWorkload()
         {
-            return Worklist.Count;
+            int NumberOfTags = 0;
+            decimal? TotalTagTime = 0;
+            decimal? AverageTagTime = 0;
+            decimal? TotalWorkTime = 0;
+            double Container = 0;
+
+            foreach (Problem problem in Problems)
+            {
+                foreach (Tag tag in problem.Tags)
+                {
+                    TotalTagTime = TotalTagTime + tag.AverageTimeSpent;
+                    NumberOfTags++;
+                }
+
+                AverageTagTime = (TotalTagTime / NumberOfTags);
+                TotalWorkTime = TotalWorkTime + AverageTagTime;
+                AverageTagTime = 0;
+                TotalTagTime = 0;
+                NumberOfTags = 0;
+
+            }
+
+            Container = (double)(TotalWorkTime); // Converts the deciaml? to double, in or der to be able to return it.
+
+            return (Container);
         }
     }
 
-    public interface IPerson {
+    public interface IPerson 
+    {
         bool IsStaff();
         double GetWorkload();
         string Name { get; set; }

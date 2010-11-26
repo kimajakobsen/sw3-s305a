@@ -1585,7 +1585,8 @@ namespace HoplaHelpdesk.Models
         /// <param name="description">Initial value of the Description property.</param>
         /// <param name="priority">Initial value of the Priority property.</param>
         /// <param name="category_Id">Initial value of the Category_Id property.</param>
-        public static Tag CreateTag(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int16 priority, global::System.Int32 category_Id)
+        /// <param name="hidden">Initial value of the Hidden property.</param>
+        public static Tag CreateTag(global::System.Int32 id, global::System.String name, global::System.String description, global::System.Int16 priority, global::System.Int32 category_Id, global::System.Boolean hidden)
         {
             Tag tag = new Tag();
             tag.Id = id;
@@ -1593,6 +1594,7 @@ namespace HoplaHelpdesk.Models
             tag.Description = description;
             tag.Priority = priority;
             tag.Category_Id = category_Id;
+            tag.Hidden = hidden;
             return tag;
         }
 
@@ -1793,6 +1795,30 @@ namespace HoplaHelpdesk.Models
         private Nullable<global::System.Decimal> _AverageTimeSpent;
         partial void OnAverageTimeSpentChanging(Nullable<global::System.Decimal> value);
         partial void OnAverageTimeSpentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Hidden
+        {
+            get
+            {
+                return _Hidden;
+            }
+            set
+            {
+                OnHiddenChanging(value);
+                ReportPropertyChanging("Hidden");
+                _Hidden = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Hidden");
+                OnHiddenChanged();
+            }
+        }
+        private global::System.Boolean _Hidden;
+        partial void OnHiddenChanging(global::System.Boolean value);
+        partial void OnHiddenChanged();
 
         #endregion
     

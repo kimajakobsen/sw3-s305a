@@ -9,11 +9,11 @@ using System.Web.Mvc;
 namespace HoplaHelpdesk.Models
 {
 
-     [MetadataType(typeof(ProblemMetaData))]
+    [MetadataType(typeof(ProblemMetaData))]
     public partial class Problem : IProblem
     {
-          
-          
+
+
         public class ProblemMetaData
         {
             [Required(ErrorMessage = "A problem Title is required")]
@@ -22,19 +22,46 @@ namespace HoplaHelpdesk.Models
 
         }
 
-         public Double GetPriority(){
-             if (Tags != null && Tags.Count != 0)
-             {
-                 short sum = 0;
-                 foreach (var tag in Tags)
-                 {
-                     sum += tag.Priority;
-                 }
-                 return Math.Round(sum / (double)Tags.Count,2);
-             }
-             
-             return 0;
-         }
+        public Double GetPriority()
+        {
+            if (Tags != null && Tags.Count != 0)
+            {
+                short sum = 0;
+                foreach (var tag in Tags)
+                {
+                    sum += tag.Priority;
+                }
+                return Math.Round(sum / (double)Tags.Count, 2);
+            }
+
+            return 0;
+        }
+
+        public void ManageTagTimes()
+        {
+            TimeSpan TimeConsumed = new TimeSpan();
+
+            try
+            {
+                TimeConsumed = (TimeSpan)(SolvedAtTime - Added_date);
+            }
+            catch
+            {
+                throw;
+            }
+
+            var MinutesConsumed = TimeConsumed.Minutes + (TimeConsumed.Hours * 60) + ((TimeConsumed.Days * 24) * 60);
+
+            foreach (var tag in Tags)
+            {
+                tag.SolvedProblems++;
+
+                tag.TimeConsumed = tag.TimeConsumed + MinutesConsumed;
+
+                tag.AverageTimeSpent = tag.TimeConsumed / tag.SolvedProblems;
+
+            }
+        }
     }
 
 
