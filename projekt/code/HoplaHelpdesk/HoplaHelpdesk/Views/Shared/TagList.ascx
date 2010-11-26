@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Tag>>" %>
 
-    <table>
+    <table class="problemList">
         <tr>
             <th></th>
             <th>
