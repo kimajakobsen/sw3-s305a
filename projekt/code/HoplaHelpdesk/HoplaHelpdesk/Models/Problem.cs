@@ -24,15 +24,15 @@ namespace HoplaHelpdesk.Models
           }
 
 
-         public short GetPriority(){
-             if (Tags != null || Tags.Count == 0)
+         public Double GetPriority(){
+             if (Tags != null && Tags.Count != 0)
              {
                  short sum = 0;
                  foreach (var tag in Tags)
                  {
                      sum += tag.Priority;
                  }
-                 return (short)(sum / (short)Tags.Count);
+                 return Math.Round(sum / (double)Tags.Count,2);
              }
              
              return 0;
@@ -42,7 +42,7 @@ namespace HoplaHelpdesk.Models
 
      public interface IProblem
      {
-         short GetPriority();
+         Double GetPriority();
 
 
      }

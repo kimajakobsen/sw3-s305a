@@ -156,7 +156,7 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Create(ProblemCatTagWithSelectionViewModel model)
         {
-            //try
+            try
             {
               foreach(var tag in model.CatTag.AllTagsSelected()){
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
@@ -174,15 +174,15 @@ namespace HoplaHelpdesk.Controllers
 
 
                 var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
-                return View("Details", problem);
+                //return View("Details", problem);
                 
-               // return View("Succes");
+                //return View("Succes");
             }
                 
-          //  catch
-           // {
-             //   return View(model);
-          //  }
+           catch
+           {
+               return View(model);
+            }
                  
         }
 
