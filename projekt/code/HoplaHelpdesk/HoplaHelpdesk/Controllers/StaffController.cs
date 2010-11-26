@@ -149,7 +149,15 @@ namespace HoplaHelpdesk.Controllers
                 return View();
             }
         }
-        
+
+        public ActionResult EditStaff(int id)
+        {
+            var staff = db.PersonSet.Single(x => x.Id == id);
+            
+            return View(staff);
+
+        }
+
         //
         // GET: /Staff/Edit/5
  

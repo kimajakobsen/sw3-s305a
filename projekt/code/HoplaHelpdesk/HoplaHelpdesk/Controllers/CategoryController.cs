@@ -53,6 +53,16 @@ namespace HoplaHelpdesk.Controllers
                 return View();
             }
         }
+
+        public ActionResult EditCat(int id)
+        {
+            var Category = db.CategorySet.Single(x => x.Id == id);
+            return View(Category);
+
+
+
+        }
+
         
         //
         // GET: /Category/Edit/5
