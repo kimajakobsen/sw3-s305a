@@ -2,7 +2,7 @@
 Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	ViewProblems
+	Problem Search
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -10,7 +10,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
     <h2>Problem Search</h2>
     
         <% using (Html.BeginForm()) {%>
-
+        <%: Html.ValidationSummary(true) %>
         <fieldset>
             <legend>Search</legend>
             <table class="ContentContainer">
@@ -20,9 +20,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
                         <div class="editor-field">
                             <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
                         </div>
-                        <p>
-                            <input type="submit" value="Search" />
-                        </p>
+                        
                     </th>
 
                     <th width="20%">
@@ -33,12 +31,22 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
                         <%: Html.CheckBoxFor(x => x.OnlySubscriber)%>
                         <p><br />Only unsolved problems<br/></p>
                         <%: Html.CheckBoxFor(x => x.OnlyUnsolvedProblems)%>
+
+                        <%: Html.HiddenFor(x => x.Subscriber) %>
+                        <%: Html.HiddenFor(x => x.ProblemList) %>
                     </th>
                 </tr>
             </table>
+            
+
+            <p>
+                <input type="submit" value="Search" />
+            </p>
         </fieldset>
 
     <% } %>
+
+    
     
     <% if (Model != null && Model.ProblemList != null && Model.ProblemList.Problems != null && Model.ProblemList.Problems.Count != 0)
        { %>
