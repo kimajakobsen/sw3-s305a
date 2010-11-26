@@ -25,7 +25,17 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                var category = db.CategorySet.Single(x => x.Id == id);
+                return View(category);
+            }
+            catch
+            {
+                ViewData["Error"] = "The user could not be found";
+                return View("Error");
+            }
+          
         }
 
         //
@@ -54,22 +64,14 @@ namespace HoplaHelpdesk.Controllers
             }
         }
 
-        public ActionResult EditCat(int id)
-        {
-            var Category = db.CategorySet.Single(x => x.Id == id);
-            return View(Category);
-
-
-
-        }
-
+    
         
         //
         // GET: /Category/Edit/5
  
-        public ActionResult Edit(string name)
+        public ActionResult Edit(int id)
         {
-            var Category = db.CategorySet.Single(x => x.Name == name);
+            var Category = db.CategorySet.Single(x => x.Id == id);
             return View(Category);
 
 

@@ -250,6 +250,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="Views\Admin\AddUserToRole1.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Category\Details.aspx" />
     <Content Include="Views\Category\EditCat.aspx" />
     <Content Include="Views\CreateProblem\CategorizeNewProblem.aspx" />
     <Content Include="Views\Client\Index.aspx" />
@@ -278,6 +279,7 @@
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
     <Content Include="Views\Shared\SolutionList.ascx" />
+    <Content Include="Views\Shared\TagList.ascx" />
     <Content Include="Views\Staff\AddSolution.aspx" />
     <Content Include="Views\Staff\Details.aspx" />
     <Content Include="Views\Staff\Edit.ascx" />
