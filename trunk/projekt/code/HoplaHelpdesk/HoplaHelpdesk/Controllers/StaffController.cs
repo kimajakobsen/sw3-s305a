@@ -13,6 +13,13 @@ namespace HoplaHelpdesk.Controllers
     {
         hoplaEntities DB = new hoplaEntities();
 
+
+        public ActionResult AddSolution(int problemID)
+        {
+
+            return View();
+        }
+
         public ActionResult Worklist()
         {
             List<Problem> problemList;
