@@ -27,9 +27,10 @@
             </div>
             <div class="editor-field">
                 <%: Html.TextBoxFor(model => model.Description) %>
+               
                 <%: Html.ValidationMessageFor(model => model.Description) %>
             </div>
-            
+              <%: Html.HiddenFor(model => model.Department_Id) %>
             
             <p>
                 <input type="submit" value="Create" />
