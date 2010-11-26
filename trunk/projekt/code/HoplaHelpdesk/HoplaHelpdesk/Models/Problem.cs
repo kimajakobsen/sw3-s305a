@@ -14,15 +14,13 @@ namespace HoplaHelpdesk.Models
     {
           
           
-          public class ProblemMetaData
-          {
-              [Required(ErrorMessage = "A problem Title is required")]
-              [StringLength(160)]
-              public object Title { get; set; }
+        public class ProblemMetaData
+        {
+            [Required(ErrorMessage = "A problem Title is required")]
+            [StringLength(160)]
+            public object Title { get; set; }
 
-
-          }
-
+        }
 
          public Double GetPriority(){
              if (Tags != null && Tags.Count != 0)
