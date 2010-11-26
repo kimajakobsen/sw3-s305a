@@ -6,45 +6,25 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2>Assign To</h2>
 
-    <table>
-        <tr>
-            <th></th>
-         
-            <th>
-                DepartmentName
-            </th>
-            <th>
-                Description
-            </th>
-        </tr>
+   
 
     <% foreach (var item in Model) { %>
     
-        <tr>
-            <td>
-                <%: Html.ActionLink("Assign", "Assign", new { id=0,dept=item.Id }) %> |
-            </td>
-          
-            <td>
+             <h3>
                 <%: item.DepartmentName %>
-            </td>
-            <td>
-                <%: item.Description %>
-            </td>
-        </tr>
-        <tr>
+          </h3> <%: Html.ActionLink("Assign To department", "Assign", new { id=0,dept=item.Id }) %> <br /><br />
+            
+          
+           
+           
+   
             <% Html.RenderPartial("StaffList", item.Persons); %>
-        </tr>
-    
+       
     <% } %>
 
-    </table>
-
-    <p>
-        <%: Html.ActionLink("Create New", "Create") %>
-    </p>
+   
 
 </asp:Content>
 
