@@ -9,7 +9,6 @@ namespace HoplaHelpdesk.ViewModels
     public class SolutionListViewModel
     {
         public List<Solution> Solutions { get; set; }
-        public bool Editable = false;
-        public bool Deletable = false;
+        public bool Deletable { get; set; }
     }
 }
