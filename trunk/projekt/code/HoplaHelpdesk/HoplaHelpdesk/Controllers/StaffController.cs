@@ -80,10 +80,21 @@ namespace HoplaHelpdesk.Controllers
 
             //} catch (Exception) { return View("Error");}
 
+            //try
+            //{
+
+            List<Solution> solutions = new List<Solution>();
+
+            solutions = DB.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.ToList();
+
+            //} catch (Exception) { return View("Error");}
+
+
             var viewModel = new ProblemDetailsCommentListViewModel()
             {
                 Problem = problem,
-                Comments = comments
+                Comments = comments,
+                Solutions = solutions
             };
 
             return View(viewModel);
