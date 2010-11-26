@@ -4,6 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Security.Principal;
+using System.Web.Routing;
+using System.Web.Security;
+
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -17,6 +23,45 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public String AddUserToRole(string user, string role)
+        {
+            Tools.SQLf sql = new Tools.SQLf();
+
+            string msg = HttpUtility.HtmlEncode("admin.AddUserToRole, User = " + user + "&role = " + role);
+
+            //Check if any username is provided
+            if (user == null || user == "")
+            {
+                msg = "No username is provided";
+            }
+            //Check if any role is provided
+            else if (role == null || role == "")
+            {
+                msg = "No role is provided";
+            }
+            //Check if RoleExists
+            else if (Roles.RoleExists(role) == false)
+            {
+                msg = "Role dont exists";
+            }
+            //Check User by username provided, if username equals null, the user dont exists
+            else if (sql.DoUserExists(user) == false)
+            {
+                msg = "User dont exists";
+            }
+            else if (sql.UserIsAlreadyInThatRole(user, role) == true)
+            {
+                msg = user + " is already assigned to " + role + ".";
+            }
+            else
+            {
+                sql.UserToRole(user, role);
+                //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
+                msg = user + " is assigned to " + role + ".";
+            }
+            return msg;
         }
 
         //
