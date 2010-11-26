@@ -274,6 +274,7 @@
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
     <Content Include="Views\Shared\SolutionList.ascx" />
+    <Content Include="Views\Staff\AddSolution.aspx" />
     <Content Include="Views\Staff\Details.aspx" />
     <Content Include="Views\Staff\Edit.ascx" />
     <Content Include="Views\Staff\Index.aspx" />
