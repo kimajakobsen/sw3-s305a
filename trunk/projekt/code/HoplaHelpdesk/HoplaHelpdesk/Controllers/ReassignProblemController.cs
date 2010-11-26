@@ -13,7 +13,22 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Index(int id)
         {
-        
+            if (id == 0)
+            {
+                return View("Error");
+            }
+
+            return View();
+
+        }
+
+
+        public ActionResult Assign(int id, int dept)
+        {
+
+            var niw = id; 
+            var nek = dept; 
+
             return View();
         }
 
