@@ -8,8 +8,8 @@ namespace HoplaHelpdesk.ViewModels
 {
     public class SolutionListViewModel
     {
-        public List<Comment> Solutions { get; set; }
+        public List<Solution> Solutions { get; set; }
         public bool Editable;
-        public bool Eeletable;
+        public bool Deletable;
     }
 }
