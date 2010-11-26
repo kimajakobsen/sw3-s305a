@@ -116,7 +116,8 @@ namespace HoplaHelpdesk.Controllers
             {
                 Problem = problem,
                 Commentlistviewmodel = new CommentListViewModel(){
-                    Comments = comments
+                    Comments = comments,
+                    Deletable = true
                 },
                 Solutionlistviewmodel = new SolutionListViewModel(){
                     Solutions = solutions,
