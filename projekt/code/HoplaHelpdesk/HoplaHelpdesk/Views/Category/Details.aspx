@@ -24,7 +24,7 @@
         <div class="display-field"><%: Model.Department.DepartmentName %></div>
 
         <div class="display-label">Is Hidden</div>
-        <div class="display-field"><%: Model %></div>
+        <div class="display-field"><%: Model.IsHidden() %></div>
 
 
         <% Html.RenderPartial("TagList", Model.Tags); %>
