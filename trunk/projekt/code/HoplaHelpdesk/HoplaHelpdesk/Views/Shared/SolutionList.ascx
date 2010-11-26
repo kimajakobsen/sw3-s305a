@@ -14,17 +14,17 @@
     <% foreach (var item in Model.Solutions) { %>
     
         <tr>
+            <% if (Model.Deletable) { %>       
             <td>
-
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
+                 <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%>
+                
             </td>
+            <% } %>
             <td>
                 <%: item.Id %>
             </td>
             <td>
-                <%: item.description %>
+                <%: item.Description %>
             </td>
         </tr>
     
