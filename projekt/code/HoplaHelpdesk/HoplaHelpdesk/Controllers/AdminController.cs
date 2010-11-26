@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.Models;
+
 namespace HoplaHelpdesk.Controllers
 {
     public class AdminController : Controller
