@@ -23,10 +23,8 @@ namespace HoplaHelpdesk.Controllers
             //problem.Solutions.Add(solution);
 
             db.SaveChanges();
+            return RedirectToAction("Details", id);
 
-
-
-            return View();
         }
 
 
