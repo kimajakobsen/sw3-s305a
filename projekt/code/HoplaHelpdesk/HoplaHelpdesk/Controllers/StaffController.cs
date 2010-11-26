@@ -11,14 +11,16 @@ namespace HoplaHelpdesk.Controllers
     //[Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
-        hoplaEntities DB = new hoplaEntities();
+        hoplaEntities db = new hoplaEntities();
 
 
         [HttpPost]
         public ActionResult AddSolution(int id, Solution solution)
         {
+            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
+            db.SaveChanges();
 
-            return PartialView("EditorTemplates/SolutionCreate");
+            return View("Details", new { id = id });
         }
 
         public ActionResult AddSolution(int id)
@@ -33,9 +35,9 @@ namespace HoplaHelpdesk.Controllers
 
             //try{
 
-            int myID = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            int myID = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
-            problemList = DB.ProblemSet.Where(x => x.PersonsId == myID).ToList();
+            problemList = db.ProblemSet.Where(x => x.PersonsId == myID).ToList();
 
             //}catch (Exception){return View("Error");}
 
@@ -59,12 +61,12 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
         {
             model.comment.Problem_Id = id;
-            model.comment.Person = DB.PersonSet.Single(x => x.Name.ToLower() == User.Identity.Name.ToLower());
+            model.comment.Person = db.PersonSet.Single(x => x.Name.ToLower() == User.Identity.Name.ToLower());
             
             model.comment.time = DateTime.Now;
 
-            DB.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
-            DB.SaveChanges();
+            db.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
+            db.SaveChanges();
 
             return this.Details(id);
         }
@@ -74,7 +76,7 @@ namespace HoplaHelpdesk.Controllers
             Problem problem = new Problem();
             try
             {
-                problem = DB.ProblemSet.FirstOrDefault(x => x.Id == id);
+                problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
             }
             catch (Exception)
             {
@@ -84,11 +86,11 @@ namespace HoplaHelpdesk.Controllers
             //try
             //{
 
-            int myID = DB.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            int myID = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
             List<Comment> comments = new List<Comment>();
 
-            comments = (from Comment in DB.CommentSet
+            comments = (from Comment in db.CommentSet
                         where Comment.Problem_Id == id
                         select Comment).ToList();
 
@@ -99,7 +101,7 @@ namespace HoplaHelpdesk.Controllers
 
             List<Solution> solutions = new List<Solution>();
 
-            solutions = DB.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.ToList();
+            solutions = db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.ToList();
 
             //} catch (Exception) { return View("Error");}
 
