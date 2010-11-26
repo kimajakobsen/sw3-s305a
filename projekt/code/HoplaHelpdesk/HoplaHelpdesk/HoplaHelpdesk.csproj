@@ -99,6 +99,7 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\ProblemDistributer.cs" />
+    <Compile Include="Tools\SQLf.cs" />
     <Compile Include="ViewModels\CategoryTagSelectionViewModel.cs" />
     <Compile Include="Tools\ProblemSearch.cs" />
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
@@ -244,6 +245,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.sortable.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Views\Admin\AddUserToRole1.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\CreateProblem\CategorizeNewProblem.aspx" />
     <Content Include="Views\Client\Index.aspx" />
