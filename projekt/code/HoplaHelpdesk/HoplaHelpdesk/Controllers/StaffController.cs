@@ -15,7 +15,7 @@ namespace HoplaHelpdesk.Controllers
 
 
         [HttpPost]
-        public ActionResult AddSolution(Solution solution)
+        public ActionResult AddSolution(int id, Solution solution)
         {
             //db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
             Problem problem = (Problem)Session["problem"];
