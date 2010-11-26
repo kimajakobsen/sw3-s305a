@@ -20,7 +20,7 @@ namespace HoplaHelpdesk.Controllers
             db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
             db.SaveChanges();
 
-            return View("Details", new { id = id });
+            return this.Details(id);
         }
 
         public ActionResult AddSolution(int id)
