@@ -198,6 +198,19 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Create");
         }
 
-        
+        public ActionResult Subscribe(int id)
+        {
+            try
+            {
+
+                return View("SubscribeSucces");
+            }
+            catch 
+            {
+
+                return View("Error");
+            }
+            
+        }
     }
 }
