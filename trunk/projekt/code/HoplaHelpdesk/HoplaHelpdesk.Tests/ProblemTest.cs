@@ -73,19 +73,187 @@ namespace HoplaHelpdesk.Tests
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        public void GetPriorityTest()
+          public void GetPriorityTest()
         {
-            Problem target = new Problem(); // TODO: Initialize to an appropriate value
-            short expected = 0; // TODO: Initialize to an appropriate value
-            short actual;
+            Problem target = new Problem()
+            {
+                Tags = new EntityCollection<Tag>()
+                {
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 }
+                }
+
+            };
+
+            Double expected = 3; // TODO: Initialize to an appropriate value
+            Double actual;
             actual = target.GetPriority();
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+           // Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void GetPriorityTest2()
+        {
+            Problem target = new Problem()
+            {
+                Tags = new EntityCollection<Tag>()
+                {
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 8 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 9 }
+                }
+
+            };
+
+            Double expected = Math.Round((Double)(3+3+8+3+9)/5, 2); // TODO: Initialize to an appropriate value
+            Double actual;
+            actual = target.GetPriority();
+            Assert.AreEqual(expected, actual);
+          //  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void GetPriorityTest3()
+        {
+            Problem target = new Problem()
+            {
+                Tags = new EntityCollection<Tag>()
+                {
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 8 },
+                    new Tag(){ Priority = 1 },
+                    new Tag(){ Priority = 9 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 8 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 9 }
+                }
+
+            };
+
+            Double expected = Math.Round((Double)(3+3+8+1+9+3+3+8+3+9) / 10, 2); // TODO: Initialize to an appropriate value
+            Double actual;
+            actual = target.GetPriority();
+            Assert.AreEqual(expected, actual);
+          ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void GetPriorityTest4()
+        {
+            Problem target = new Problem()
+            {
+                Tags = new EntityCollection<Tag>()
+                {
+                
+                }
+
+            };
+
+            Double expected = 0; // TODO: Initialize to an appropriate value
+            Double actual;
+            actual = target.GetPriority();
+            Assert.AreEqual(expected, actual);
+           // Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void GetPriorityTest5()
+        {
+            Problem target = new Problem()
+            {
+                Tags = new EntityCollection<Tag>()
+                {
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 },
+                    new Tag(){ Priority = 0 }
+                }
+
+            };
+
+            Double expected = 0; // TODO: Initialize to an appropriate value
+            Double actual;
+            actual = target.GetPriority();
+            Assert.AreEqual(expected, actual);
+      //      Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void GetPriorityTest6()
+        {
+            Problem target = new Problem()
+            {
+                Tags = new EntityCollection<Tag>()
+                {
+                    new Tag(){ Priority = 5 },
+                    new Tag(){ Priority = 3 },
+                    new Tag(){ Priority = 2 },
+                }
+
+            };
+
+            Double expected = 3.33; // TODO: Initialize to an appropriate value
+            Double actual;
+            actual = target.GetPriority();
+            Assert.AreEqual(expected, actual);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+
+        #region Not used
+        /*
         /// <summary>
         ///A test for Added_date
         ///</summary>
@@ -93,9 +261,6 @@ namespace HoplaHelpdesk.Tests
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
         public void Added_dateTest()
         {
             Problem target = new Problem(); // TODO: Initialize to an appropriate value
@@ -400,5 +565,8 @@ namespace HoplaHelpdesk.Tests
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
+         */
+        #endregion
     }
+         
 }
