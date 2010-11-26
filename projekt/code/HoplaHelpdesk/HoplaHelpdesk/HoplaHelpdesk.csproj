@@ -250,6 +250,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="Views\Admin\AddUserToRole1.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
+    <Content Include="Views\Category\Create.aspx" />
     <Content Include="Views\Category\Details.aspx" />
     <Content Include="Views\Category\Edit.aspx" />
     <Content Include="Views\Category\EditCat.aspx" />
