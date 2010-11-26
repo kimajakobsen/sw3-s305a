@@ -4,7 +4,7 @@
         <tr>
             <% if (Model.Deletable) { %>   <th></th> <% } %>
             <th>
-                Solution
+                Solutions
             </th>
         </tr>
 
