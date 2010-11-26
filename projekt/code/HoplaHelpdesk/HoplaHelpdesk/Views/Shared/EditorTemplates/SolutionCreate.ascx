@@ -6,13 +6,11 @@
         <fieldset>
             <legend>Add solution</legend>
 
-            </div>
-            
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Description) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Description) %>
+                <%: Html.TextAreaFor(model => model.Description) %>
                 <%: Html.ValidationMessageFor(model => model.Description) %>
             </div>
             
@@ -22,9 +20,3 @@
         </fieldset>
 
     <% } %>
-
-    <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </div>
-
-
