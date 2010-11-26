@@ -39,29 +39,34 @@ namespace HoplaHelpdesk.Controllers
         }
 
         //
-        // GET: /Category/Create
+        // GET: /Category/Create/id
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
 
-            return View(new Category());
+            return View(new Category() { Department_Id = id});
         } 
 
         //
         // POST: /Category/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Category category)
         {
             try
             {
-                // TODO: Add insert logic here
+                
+                category.Department = db.DepartmentSet.SingleOrDefault(x => x.Id == category.Department_Id);
+                db.CategorySet.AddObject(category);
 
-                return RedirectToAction("Index");
+                db.SaveChanges();
+
+
+                return RedirectToAction("Edit", "Department", new { id = category.Department_Id });
             }
             catch
             {
-                return View();
+                return View(category);
             }
         }
 
@@ -104,25 +109,49 @@ namespace HoplaHelpdesk.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
+
+            var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
+            if (category.Tags.Count == 0 || category.Tags == null)
+            {
+                return View("Details", new { id = id });
+
+            }
+            return View(category);
         }
 
         //
         // POST: /Category/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Category category)
         {
             try
             {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                db.CategorySet.DeleteObject(db.CategorySet.SingleOrDefault(x => x.Department_Id == category.Department_Id));
+                db.SaveChanges();
+                return RedirectToAction("Edit", "Department", new { id = category.Department_Id});
             }
             catch
             {
-                return View();
+
+                return View("Details", new { id = category.Id });
             }
         }
+
+
+
+        //
+        // GET: /Category/Delete/5
+
+        public ActionResult Hide(int id, string view)
+        {
+            return View(view);
+        }
+
+        public ActionResult UnHide(int id, string view)
+        {
+            return View(view);
+        }
+
     }
 }
