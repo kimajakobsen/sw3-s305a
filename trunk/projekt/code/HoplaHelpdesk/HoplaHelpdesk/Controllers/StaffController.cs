@@ -26,8 +26,10 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-            return View("Details",id);
+            return this.Details(id);
         }
+
+
 
         public ActionResult AddSolution(int id)
         {
