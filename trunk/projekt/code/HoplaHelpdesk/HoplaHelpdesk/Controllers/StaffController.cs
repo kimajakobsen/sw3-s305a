@@ -17,23 +17,23 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult AddSolution(int id, Solution solution)
         {
-            //db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
-            Problem problem = (Problem)Session["problem"];
+            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
+            //Problem problem = (Problem)Session["problem"];
 
-            problem.Solutions.Add(solution);
+            //problem.Solutions.Add(solution);
 
             db.SaveChanges();
 
 
 
-            return this.Details(id);
+            return View();
         }
 
 
 
         public ActionResult AddSolution(int id)
         {
-            Session["problem"] = db.ProblemSet.FirstOrDefault(x => x.Id == id);
+            //Session["problem"] = db.ProblemSet.FirstOrDefault(x => x.Id == id);
 
             return View();
         }
