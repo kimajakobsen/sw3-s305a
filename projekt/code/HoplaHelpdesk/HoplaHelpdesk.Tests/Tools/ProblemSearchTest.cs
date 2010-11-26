@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using HoplaHelpdesk.ViewModels;
 using HoplaHelpdesk.Models;
 using System.Collections.Generic;
-/*
+
 namespace HoplaHelpdesk.Tests
 {
     
@@ -25,7 +25,7 @@ namespace HoplaHelpdesk.Tests
 
         /// <summary>
         ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
+        ///information about and functionality for the current Act.
         ///</summary>
         public TestContext TestContext
         {
@@ -69,7 +69,7 @@ namespace HoplaHelpdesk.Tests
         //
         #endregion
 
-        #region Test Setup
+        #region Test Initialize
         [TestInitialize()]
         public void MyTestInitialize()
         {    
@@ -79,35 +79,39 @@ namespace HoplaHelpdesk.Tests
                 {
                     new CategoryWithListViewModel
                     {
-                        Id = 1,
+                        Id = 0,
                         TagList = new List<Tag>
                         {
                             new Tag
                             {
-                                Id = 1,
-                                Category_Id = 1
+                                Id = 0,
+                                Category_Id = 0,
+                                IsSelected = false
                             },
                             new Tag
                             {
-                                Id = 2,
-                                Category_Id = 1
+                                Id = 1,
+                                Category_Id = 0,
+                                IsSelected = false
                             }
                         }
                     },
                     new CategoryWithListViewModel
                     {
-                        Id = 2,
+                        Id = 1,
                         TagList = new List<Tag>
                         {
                             new Tag
                             {
-                                Id = 3,
-                                Category_Id = 2
+                                Id = 2,
+                                Category_Id = 1,
+                                IsSelected = false
                             },
                             new Tag
                             {
-                                Id = 4,
-                                Category_Id = 2
+                                Id = 3,
+                                Category_Id = 1,
+                                IsSelected = false
                             }
                         }
                     }
@@ -133,7 +137,7 @@ namespace HoplaHelpdesk.Tests
                         tags[0],
                         tags[1]
                     },
-                    Id = 1
+                    Id = 0
                 },
                 new Problem
                 {
@@ -142,14 +146,14 @@ namespace HoplaHelpdesk.Tests
                         tags[0],
                         tags[1]
                     },
-                    Id = 2
+                    Id = 1
                 },
                 new Problem
                 {
                     Tags = new System.Data.Objects.DataClasses.EntityCollection<Tag>
                     {
                     },
-                    Id = 3
+                    Id = 2
                 },
                 new Problem
                 {
@@ -157,7 +161,7 @@ namespace HoplaHelpdesk.Tests
                     { 
                         tags[0]
                     },
-                    Id = 4
+                    Id = 3
                 },
                 new Problem
                 {
@@ -165,7 +169,7 @@ namespace HoplaHelpdesk.Tests
                     {
                         tags[1]
                     },
-                    Id = 5
+                    Id = 4
                 },
                 new Problem
                 {
@@ -173,7 +177,7 @@ namespace HoplaHelpdesk.Tests
                     { 
                         tags[3]
                     },
-                    Id = 6
+                    Id = 5
                 }
             };
 
@@ -186,15 +190,15 @@ namespace HoplaHelpdesk.Tests
         // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
+        #region Test 1: Search for tag 0 and 1, minimum number of problems = 2
         [TestMethod()]
-        //[HostType("ASP.NET")]
-        //[AspNetDevelopmentServerHost("C:\\Documents and Settings\\aba\\My Documents\\3.SW\\P3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        //[UrlToTest("http://localhost:6399/")]
         public void SearchTest1()
         {
-            #region Test Setup
+            #region Arrange
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
             List<Problem> actual = null;
+            int minNoProb = 2;
+
             tags[0].IsSelected = true;
             tags[1].IsSelected = true;
             expected = new List<Problem> 
@@ -204,20 +208,94 @@ namespace HoplaHelpdesk.Tests
             };
             #endregion
 
-
-            #region Test Run
-            actual = ProblemSearch.Search(catTag,problems,tags,2);
+            #region Act
+            actual = ProblemSearch.Search(catTag,problems,tags,minNoProb);
             #endregion
 
             #region Assertions
+            Assert.IsTrue(actual.Count >= minNoProb);
             Assert.AreEqual(expected.Count,actual.Count);
             for (int i = 0 ; i < actual.Count; i++)
             {
                 Assert.AreEqual(expected[i].Id, actual[i].Id);
             }
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            //Assert.Inconclusive("Verify the correctness of this test method.");
             #endregion
         }
+        #endregion
+
+        #region Test 2: Search for tag 0 and 1, minimum number of problems = 4
+        [TestMethod()]
+        public void SearchTest2()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 4;
+
+            tags[0].IsSelected = true;
+            tags[1].IsSelected = true;
+            expected = new List<Problem> 
+            { 
+                problems[0],
+                problems[1],
+                problems[3],
+                problems[4]
+
+            };
+            #endregion
+
+
+            #region Act
+            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
+            Assert.IsTrue(actual.Count >= minNoProb);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Test 3: Search for tag 0, minimum number of problems = 6
+        [TestMethod()]
+        public void SearchTest3()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 6;
+
+            tags[0].IsSelected = true;
+            expected = new List<Problem> 
+            { 
+                problems[3],
+                problems[0],
+                problems[1],
+                problems[2],
+                problems[4],
+                problems[5]
+
+            };
+            #endregion
+
+            #region Act
+            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
+            Assert.IsTrue(actual.Count >= minNoProb);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            #endregion
+        }
+        #endregion
     }
 }
-*/
