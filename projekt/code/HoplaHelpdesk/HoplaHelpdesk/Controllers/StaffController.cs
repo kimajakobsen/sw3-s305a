@@ -17,7 +17,7 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult AddSolution(int id)
         {
 
-            return View();
+            return PartialView("EditorTemplates/");
         }
 
         public ActionResult Worklist()
