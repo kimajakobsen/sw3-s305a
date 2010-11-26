@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<int>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -15,7 +15,7 @@
     </li>
     
     <li>
-    <%: Html.ActionLink("My problems", "ViewProblems") %>
+    <%: Html.ActionLink("My problems", "ViewProblems", new { id = Model })%>
     </li>
     
     <li>

@@ -8,7 +8,10 @@ namespace HoplaHelpdesk.ViewModels
 {
     public class SearchViewModel
     {
-        CategoryTagSelectionViewModel CatTag { get; set; }
-        ProblemListViewModel ProblemList { get; set; }
+        public CategoryTagSelectionViewModel CatTag { get; set; }
+        public ProblemListViewModel ProblemList { get; set; }
+        public IPerson Subscriber { get; set; }
+        public bool OnlySubscriber { get; set; }
+        public bool OnlyUnsolvedProblems { get; set; }
     }
 }
