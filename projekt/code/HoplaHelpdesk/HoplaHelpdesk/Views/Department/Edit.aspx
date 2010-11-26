@@ -7,53 +7,32 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2><%: Model.DepartmentName %></h2>
+    <%: Model.Description %>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
-        <fieldset>
-            <legend>Fields</legend>
-            <% Html.RenderPartial("DepartmentCategoryList", Model.Categories);  %>
-            <% Html.RenderPartial("DepartmentStaffList", Model.Persons);  %>
+            <table border="1" class="ContentContainer" width="100%"> 
+                <th align="left">Staff members</th>
+                <th align="left">Categoryes</th>
+                <tr>
+                       
+                    <td valign="top"  width="45%">
+                    <% Html.RenderPartial("DepartmentStaffList", Model.Persons);  %> 
+                    <%: Html.ActionLink("Add staff", "Create","person") %>  
+                    </td>
 
-           
-           
-
-
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Id) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Id) %>
-                <%: Html.ValidationMessageFor(model => model.Id) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.DepartmentName) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.DepartmentName) %>
-                <%: Html.ValidationMessageFor(model => model.DepartmentName) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Description) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Description) %>
-                <%: Html.ValidationMessageFor(model => model.Description) %>
-            </div>
-            
-            <p>
-                <input type="submit" value="Save" />
-            </p>
-        </fieldset>
+                    
+                    <td valign="top" width="45%">
+                    <% Html.RenderPartial("DepartmentCategoryList", Model.Categories);  %>
+                    <%: Html.ActionLink("Create New Category", "Create","Category") %>
+                    </td> 
+                </tr>  
+            </table>
+        
 
     <% } %>
 
-    <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
-    </div>
 
 </asp:Content>
 
