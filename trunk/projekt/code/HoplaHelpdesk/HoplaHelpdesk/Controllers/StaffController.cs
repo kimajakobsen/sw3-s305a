@@ -14,10 +14,17 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities DB = new hoplaEntities();
 
 
+        [HttpPost]
+        public ActionResult AddSolution(int id, Solution solution)
+        {
+
+            return PartialView("EditorTemplates/SolutionCreate");
+        }
+
         public ActionResult AddSolution(int id)
         {
 
-            return PartialView("EditorTemplates/");
+            return PartialView("EditorTemplates/SolutionCreate");
         }
 
         public ActionResult Worklist()
