@@ -8,8 +8,6 @@ using System.Collections.Generic;
 
 namespace HoplaHelpdesk.Tests
 {
-    
-    
     /// <summary>
     ///This is a test class for ProblemSearchTest and is intended
     ///to contain all ProblemSearchTest Unit Tests
@@ -192,7 +190,7 @@ namespace HoplaHelpdesk.Tests
         // whether you are testing a page, web service, or a WCF service.
         #region Test 1: Search for tag 0 and 1, minimum number of problems = 2
         [TestMethod()]
-        public void SearchTest1()
+        public void SearchTestForStabilityOfSearch()
         {
             #region Arrange
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
@@ -226,7 +224,7 @@ namespace HoplaHelpdesk.Tests
 
         #region Test 2: Search for tag 0 and 1, minimum number of problems = 4
         [TestMethod()]
-        public void SearchTest2()
+        public void SearchTestForStabilityAndOrder()
         {
             #region Arrange
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
@@ -263,7 +261,7 @@ namespace HoplaHelpdesk.Tests
 
         #region Test 3: Search for tag 0, minimum number of problems = 6
         [TestMethod()]
-        public void SearchTest3()
+        public void SearchTestForOrderingOfFoundProbs()
         {
             #region Arrange
             List<Problem> expected = null; // TODO: Initialize to an appropriate value
@@ -289,6 +287,112 @@ namespace HoplaHelpdesk.Tests
 
             #region Assertions
             Assert.IsTrue(actual.Count >= minNoProb);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Test 4: Search for tag 3, minimum number of problems = 10
+        [TestMethod()]
+        public void SearchTestForBigMinNoProbValue()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 10;
+
+            tags[3].IsSelected = true;
+            expected = new List<Problem> 
+            { 
+                problems[5],
+                problems[2],
+                problems[3],
+                problems[4],
+                problems[0],
+                problems[1]
+
+            };
+            #endregion
+
+            #region Act
+            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Test 5: Search for tag 2, minimum number of problems = 10
+        [TestMethod()]
+        public void SearchForTagNoProblems()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 10;
+
+            expected = new List<Problem> 
+            { 
+                problems[2],
+                problems[3],
+                problems[4],
+                problems[5],
+                problems[0],
+                problems[1]
+
+            };
+            #endregion
+
+            #region Act
+            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Test 6: Search for no tag, minimum number of problems = 10
+        [TestMethod()]
+        public void SearchForNoTag()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 10;
+
+            expected = new List<Problem> 
+            { 
+                problems[2],
+                problems[3],
+                problems[4],
+                problems[5],
+                problems[0],
+                problems[1]
+
+            };
+            #endregion
+
+            #region Act
+            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < actual.Count; i++)
             {
