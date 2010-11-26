@@ -22,7 +22,7 @@ namespace HoplaHelpdesk.Controllers
         }
         
         
-        public string AddUserToRole (string user, string role)
+        public String AddUserToRole (string user, string role)
         {
             Tools.SQLf sql = new Tools.SQLf();
 
@@ -44,18 +44,22 @@ namespace HoplaHelpdesk.Controllers
                 msg = "Role dont exists";
             }
             //Check User by username provided, if username equals null, the user dont exists
-            else if (Membership.FindUsersByName(user) == null)
+            else if (sql.DoUserExists(user) == false)
             {
                 msg = "User dont exists";
+            } 
+            else if (sql.UserIsAlreadyInThatRole(user,role) == true)
+            {
+                msg = user + " is already assigned to " + role + ".";
             }
             else
             {
                 sql.UserToRole(user, role);
+                //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
                 msg = user + " is assigned to " + role + ".";
             }
-
             return msg;
-            
+                        
         }
 
     }

@@ -11,7 +11,7 @@
      <ul>
     <li>
     <%: Html.ActionLink("Administrate departments, categories and tags", "Index", "Department")%>
-    <%: Html.ActionLink("Administrate departments, categories and tags", "AddUserToRole")%>
+    <%: Html.ActionLink("Administrate departments, categories and tags", "AddUser")%>
     
     </li>
 
