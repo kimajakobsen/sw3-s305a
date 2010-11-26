@@ -10,6 +10,7 @@ namespace HoplaHelpdesk.Models
 
         public bool IsHidden()
         {
+            return false;
             bool isHidden = true;
             foreach (var tag in Tags)
             {
