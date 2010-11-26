@@ -77,9 +77,9 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Department/Edit/5
  
-        public ActionResult Edit(string DepartmentName)
+        public ActionResult Edit(int id)
         {
-            var departement = db.DepartmentSet.Single(x => x.DepartmentName == DepartmentName);
+            var departement = db.DepartmentSet.Single(x => x.Id == id);
             return View(departement);
         }
 
