@@ -22,14 +22,10 @@ namespace HoplaHelpdesk.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Details", new { id = id });
-
         }
-
-
 
         public ActionResult AddSolution(int id)
         {
-
             return View();
         }
 
