@@ -47,16 +47,17 @@ namespace HoplaHelpdesk.Controllers
             else
             {
                 staff = db.PersonSet.FirstOrDefault(x => x.Id == id);
+                problem.Reassignable = false;
                 if (staff.IsStaff() == false)
                 {
                     ViewData["Error"] = "The assigned person were not a staff!";
                     return View("Error");
                 }
             }
-
             problem.AssignedTo = (Person)staff;
+            db.SaveChanges();
 
-            return View();
+            return View("Succes");
         }
 
         //
