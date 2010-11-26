@@ -17,7 +17,9 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult AddSolution(int id, Solution solution)
         {
-            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
+            //db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
+            
+
             db.SaveChanges();
 
             return this.Details(id);
@@ -25,8 +27,9 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult AddSolution(int id)
         {
+            Session["problem"] = db.ProblemSet.FirstOrDefault(x => x.Id == id);
 
-            return PartialView("EditorTemplates/SolutionCreate");
+            return View();
         }
 
         public ActionResult Worklist()
