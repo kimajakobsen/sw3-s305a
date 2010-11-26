@@ -105,7 +105,14 @@ namespace HoplaHelpdesk.Helpers
             try
             {
                 QuickSort(list, start, start + length,
-                    (x, y) => { return x.Tags.Count - y.Tags.Count; });
+                    (x, y) => { 
+                        int dif = x.Tags.Count - y.Tags.Count;
+                        if (dif != 0)
+                        {
+                            return dif;
+                        }
+                        return x.Id - y.Id;
+                    });
             }
             catch (IndexOutOfRangeException)
             {
@@ -129,6 +136,7 @@ namespace HoplaHelpdesk.Helpers
             return;
         }
 
+        /*
         public static void SortProblemsByMostTags<T>(this List<T> list, int start, int length) where T : Problem
         {
             try
@@ -143,6 +151,7 @@ namespace HoplaHelpdesk.Helpers
 
             return;
         }
+         * */
 
         public static void AddRangeNoDuplicates<T>(this List<T> list, IEnumerable<T> range) where T : Problem
         {

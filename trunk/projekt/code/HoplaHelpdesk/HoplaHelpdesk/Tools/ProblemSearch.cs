@@ -22,6 +22,7 @@ namespace HoplaHelpdesk.Tools
             List<Tag> allTags, int listMinSize)
         {
             List<Problem> result = new List<Problem>();
+            List<Problem> tempResult;
             int noOfTagsToRemove = 0;
             List<int> tagsToRemove;
             List<Tag> tags = catTag.AllTagsSelected();
@@ -33,7 +34,7 @@ namespace HoplaHelpdesk.Tools
             {
                 while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
                 {
-                    temp = allProblems.ToList();
+                    tempResult = new List<Problem>();  
                     tagsToRemove = new List<int>();
                     for (int i = 0; i < noOfTagsToRemove; i++)
                     {
@@ -44,19 +45,20 @@ namespace HoplaHelpdesk.Tools
                         List<Tag> currentSearch = tags.RemoveCurrent(tagsToRemove);
                         while (true)
                         {
+                            temp = allProblems.ToList();
                             foreach (Tag tag in currentSearch)
                             {
                                 temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
                             }
-                            temp.SortProblemsByLeastTags();
+                            tempResult.AddRangeNoDuplicates(temp.ToList());
                             currentSearch = tags.RemoveNext(ref tagsToRemove);
-                            result.AddRangeNoDuplicates(temp.ToList());
                         }
                     }
                     catch (NotSupportedException)
                     {
                         noOfTagsToRemove++;
-                        result.AddRangeNoDuplicates(temp.ToList());
+                        tempResult.SortProblemsByLeastTags();
+                        result.AddRangeNoDuplicates(tempResult.ToList());
                     }
                 }
             }
