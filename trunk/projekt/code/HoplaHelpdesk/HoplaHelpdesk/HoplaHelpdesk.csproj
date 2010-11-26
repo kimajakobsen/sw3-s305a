@@ -269,6 +269,7 @@
     <Content Include="Views\Shared\EditorTemplates\DateTime.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ProblemCreate.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ProblemEditor.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\SolutionCreate.ascx" />
     <Content Include="Views\Shared\ProblemList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
