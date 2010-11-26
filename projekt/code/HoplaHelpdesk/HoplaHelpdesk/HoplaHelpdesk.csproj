@@ -265,6 +265,7 @@
     <Content Include="Views\CreateProblem\Succes.aspx" />
     <Content Include="Views\Department\Edit.aspx" />
     <Content Include="Views\Department\Index.aspx" />
+    <Content Include="Views\Department\Testtesttest.ascx" />
     <Content Include="Views\ReassignProblem\Index.aspx" />
     <Content Include="Views\ReassignProblem\StaffList.ascx" />
     <Content Include="Views\Shared\CommentList.ascx" />
