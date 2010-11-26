@@ -6,6 +6,7 @@ using HoplaHelpdesk.Models;
 using System.Web.Security;
 using System.Data.Objects.DataClasses;
 using System.Diagnostics.Contracts;
+using System.Data.Objects;
 
 namespace HoplaHelpdesk.Tools
 {
@@ -15,6 +16,46 @@ namespace HoplaHelpdesk.Tools
         {
             return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
         }
+
+        public static IPerson GetStaff(Problem Problem, EntityCollection<Person> PersonSet)
+        {
+            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+        }
+
+        public static IPerson GetStaff(Problem Problem, ObjectSet<Person> PersonSet)
+        {
+            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+        }
+
+
+
+
+        public static IPerson GetStaff(Problem Problem, Department department)
+        {
+            return GetStaff(Problem, department.Persons, GetDepartment(Problem.Tags));
+        }
+
+        public static IPerson GetStaff(Problem Problem, EntityCollection<Person> PersonSet, Department department)
+        {
+            var IPersonSet = new EntityCollection<IPerson>();
+            foreach (var person in PersonSet)
+            {
+                IPersonSet.Add(person);
+            }
+             return GetStaff(Problem, IPersonSet, GetDepartment(Problem.Tags));
+        }
+
+        public static IPerson GetStaff(Problem Problem, ObjectSet<Person> PersonSet, Department department)
+        {
+            var IPersonSet = new EntityCollection<IPerson>();
+            foreach (var person in PersonSet)
+            {
+                IPersonSet.Add(person);
+            }
+            return GetStaff(Problem, IPersonSet, GetDepartment(Problem.Tags));
+        }
+
+
 
         public static IPerson GetStaff(Problem Problem,  EntityCollection<IPerson> PersonSet, Department department)
         {
