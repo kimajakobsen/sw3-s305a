@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.Models;
-using HoplaHelpdesk.ViewModels;
-
 namespace HoplaHelpdesk.Controllers
 {
     public class AdminController : Controller
@@ -21,9 +22,12 @@ namespace HoplaHelpdesk.Controllers
         }
         
         
-        public ActionResult AddUserToRole (String user, String role)
+        public string AddUserToRole (string user, string role)
         {
-            String msg = "";
+            Tools.SQLf sql = new Tools.SQLf();
+
+            string msg = HttpUtility.HtmlEncode("admin.AddUserToRole, User = " + user + "&role = " + role );
+
             //Check if any username is provided
             if (user == null || user == "")
             {
@@ -46,11 +50,11 @@ namespace HoplaHelpdesk.Controllers
             }
             else
             {
-                Roles.AddUserToRole(user, role);
+                sql.UserToRole(user, role);
                 msg = user + " is assigned to " + role + ".";
             }
 
-            return View(msg);
+            return msg;
             
         }
 

@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using HoplaHelpdesk.ViewModels;
 using HoplaHelpdesk.Models;
 using System.Collections.Generic;
-
+/*
 namespace HoplaHelpdesk.Tests
 {
     
@@ -220,3 +220,4 @@ namespace HoplaHelpdesk.Tests
         }
     }
 }
+*/
