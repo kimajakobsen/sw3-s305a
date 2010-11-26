@@ -14,7 +14,7 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities DB = new hoplaEntities();
 
 
-        public ActionResult AddSolution(int problemID)
+        public ActionResult AddSolution(int id)
         {
 
             return View();
