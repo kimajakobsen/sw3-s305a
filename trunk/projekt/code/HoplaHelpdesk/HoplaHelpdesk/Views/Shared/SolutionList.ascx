@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Solution>>" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.ViewModels.SolutionListViewModel>" %>
 
     <table>
         <tr>
@@ -11,10 +11,11 @@
             </th>
         </tr>
 
-    <% foreach (var item in Model) { %>
+    <% foreach (var item in Model.Comments) { %>
     
         <tr>
             <td>
+
                 <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
                 <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
                 <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
@@ -23,7 +24,7 @@
                 <%: item.Id %>
             </td>
             <td>
-                <%: item.Description %>
+                <%: item.description %>
             </td>
         </tr>
     

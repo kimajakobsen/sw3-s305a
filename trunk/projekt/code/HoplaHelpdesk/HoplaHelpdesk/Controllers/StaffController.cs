@@ -51,6 +51,7 @@ namespace HoplaHelpdesk.Controllers
                 Problems = problemList,
                 Editable = true,
                 Deletable = true
+                
             };
 
             return View(viewModel);
@@ -113,7 +114,10 @@ namespace HoplaHelpdesk.Controllers
             {
                 Problem = problem,
                 Comments = comments,
-                Solutions = solutions
+                Solutionlistviewmodel = new SolutionListViewModel(){
+                    
+                };
+                
             };
 
             return View(viewModel);
