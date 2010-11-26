@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Solution>" %>
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Solution>" %>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>

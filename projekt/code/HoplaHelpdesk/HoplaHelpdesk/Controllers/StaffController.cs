@@ -24,7 +24,9 @@ namespace HoplaHelpdesk.Controllers
 
             db.SaveChanges();
 
-            return this.Details(id);
+
+
+            return View("Details",id);
         }
 
         public ActionResult AddSolution(int id)
