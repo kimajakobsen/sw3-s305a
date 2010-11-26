@@ -5,7 +5,7 @@
     
 
                <p><%: Html.ActionLink(item.Name, "Edit","Category", new { item.Name })%></p> 
-               <% Html.ActionLink( %>
+               
 
     <% } %>
 

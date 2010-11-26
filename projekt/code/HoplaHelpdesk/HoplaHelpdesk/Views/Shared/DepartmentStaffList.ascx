@@ -3,17 +3,15 @@
  
 
     <% foreach (var item in Model) { %>
-    
-        <% if (item.IsStaff() == true){ %>
-                <%: item.Name %>
-                <%} %>
+
+        <p><%:  Html.ActionLink(item.Name, "Edit","Staff", new { item.Name })%></p> 
 
     <% } %>
 
+
+       
+
    
 
-    <p>
-        <%: Html.ActionLink("Create New", "Create") %>
-    </p>
-
+  
 
