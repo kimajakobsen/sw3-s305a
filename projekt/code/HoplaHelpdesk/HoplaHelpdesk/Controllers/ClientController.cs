@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
 using HoplaHelpdesk.ViewModels;
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -20,7 +21,7 @@ namespace HoplaHelpdesk.Controllers
             return View();
         }
 
-        /*
+        
         public ActionResult ViewProblems()
         {
             
@@ -29,7 +30,8 @@ namespace HoplaHelpdesk.Controllers
 
             var problems = new ProblemListViewModel()
             {
-                Problems = problemList.ToList()
+                
+                
             };
          
             
@@ -38,7 +40,6 @@ namespace HoplaHelpdesk.Controllers
 
         //
         // GET: /Client/Details/5
-        */
 
         public ActionResult Details(int id)
         {

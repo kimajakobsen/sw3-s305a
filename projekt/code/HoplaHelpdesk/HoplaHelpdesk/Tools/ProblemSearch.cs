@@ -74,5 +74,16 @@ namespace HoplaHelpdesk.Tools
             return result;
         }
 
+        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
+            List<Tag> allTags, int listMinSize, IPerson subscriber, List<Person> allPersons)
+        {
+            if (subscriber == null)
+            {
+                throw new NullReferenceException("Subscriber is null, not so good");
+            }
+
+            return Search(catTag, allProblems.Where(x => x.Persons.Contains(allPersons.FirstOrDefault(y => y.Id == subscriber.Id))).ToList(),
+                allTags, listMinSize);
+        }
     }
 }

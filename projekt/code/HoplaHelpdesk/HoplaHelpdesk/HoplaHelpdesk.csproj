@@ -109,6 +109,7 @@
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
     <Compile Include="ViewModels\ProblemDetailsCommentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\hopla.png" />
