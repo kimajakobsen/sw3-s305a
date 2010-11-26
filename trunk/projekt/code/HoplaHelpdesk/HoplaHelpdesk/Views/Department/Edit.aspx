@@ -14,6 +14,7 @@
         <fieldset>
             <legend>Fields</legend>
             <% Html.RenderPartial("DepartmentCategoryList", Model.Categories);  %>
+            <% Html.RenderPartial("DepartmentStaffList", Model.Persons);  %>
 
            
            
