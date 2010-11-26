@@ -11,10 +11,15 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemDistributer
     {
-        public static IPerson GetStaff(Problem Problem,  EntityCollection<IPerson> PersonSet)
+        public static IPerson GetStaff(Problem Problem, EntityCollection<IPerson> PersonSet)
+        {
+            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+        }
+
+        public static IPerson GetStaff(Problem Problem,  EntityCollection<IPerson> PersonSet, Department department)
         {
             Contract.Invariant(PersonSet != null, "PersonSet were null");
-            var department = GetDepartment(Problem.Tags);
+            
             IEnumerable<IPerson> persons = null;
             if (department != null)
             {
@@ -26,13 +31,10 @@ namespace HoplaHelpdesk.Tools
             } else {
                  persons = PersonSet.Where(x => x.IsStaff() == true);
             }
-            
-
             Double min = Double.MaxValue;
             IPerson staff = persons.First();
             foreach (var person in persons)
             {
-              
                     var workload = person.GetWorkload();
                     if (workload < min)
                     {
