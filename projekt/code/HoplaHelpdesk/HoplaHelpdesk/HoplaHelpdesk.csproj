@@ -280,7 +280,7 @@
     <Content Include="Views\Shared\SolutionList.ascx" />
     <Content Include="Views\Staff\AddSolution.aspx" />
     <Content Include="Views\Staff\Details.aspx" />
-    <Content Include="Views\Staff\EditStaff.ascx" />
+    <Content Include="Views\Staff\Edit.ascx" />
     <Content Include="Views\Staff\Index.aspx" />
     <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Content\Site.css" />
