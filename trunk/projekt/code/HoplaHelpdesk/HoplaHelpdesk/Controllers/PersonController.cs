@@ -9,6 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Security.Principal;
 using System.Web.Routing;
 using System.Web.Security;
+using HoplaHelpdesk.ViewModels;
 
 
 namespace HoplaHelpdesk.Controllers
@@ -22,7 +23,12 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var DepartmentList = db.DepartmentSet.ToList();
+
+            var viewmodel = new DepartmentListViewModel() { Departments = DepartmentList };
+
+
+            return View(viewmodel);
         }
 
         public String AddUserToRole(string user, string role)
