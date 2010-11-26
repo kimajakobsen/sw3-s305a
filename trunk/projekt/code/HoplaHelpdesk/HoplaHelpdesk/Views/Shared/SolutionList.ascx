@@ -4,10 +4,7 @@
         <tr>
             <th></th>
             <th>
-                Id
-            </th>
-            <th>
-                Description
+                Solution
             </th>
         </tr>
 
@@ -20,9 +17,6 @@
                 
             </td>
             <% } %>
-            <td>
-                <%: item.Id %>
-            </td>
             <td>
                 <%: item.Description %>
             </td>
