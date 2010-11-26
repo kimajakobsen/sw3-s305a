@@ -10,8 +10,8 @@ namespace HoplaHelpdesk.ViewModels
     {
         public Problem Problem { get; set; }
 
-
-        public List<Comment> Comments { get; set; } // list of problems already added
+        public CommentListViewModel Commentlistviewmodel { get; set; }
+        
         public Comment comment { get; set; } // comment which is about to be added
 
         public SolutionListViewModel Solutionlistviewmodel { get; set; }

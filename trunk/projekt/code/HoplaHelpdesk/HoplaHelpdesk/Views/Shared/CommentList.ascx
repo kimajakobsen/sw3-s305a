@@ -20,22 +20,15 @@
     <% foreach (var item in Model) { %>
     
         <tr>
+        <% if ( %>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
                 <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
-            </td>
-            <td>
-                <%: item.Id %>
             </td>
             <td>
                 <%: String.Format("{0:g}", item.time) %>
             </td>
             <td>
                 <%: item.description %>
-            </td>
-            <td>
-                <%: item.Problem_Id %>
             </td>
         </tr>
     
