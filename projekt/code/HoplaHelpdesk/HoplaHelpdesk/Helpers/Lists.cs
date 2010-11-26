@@ -107,7 +107,7 @@ namespace HoplaHelpdesk.Helpers
                 QuickSort(list, start, start + length,
                     (x, y) => { return x.Tags.Count - y.Tags.Count; });
             }
-            catch (IndexOutOfRangeException ex)
+            catch (IndexOutOfRangeException)
             {
                 throw;
             }
@@ -206,6 +206,44 @@ namespace HoplaHelpdesk.Helpers
             QuickSort(list, i, end, compareFunction);
 
             return;
+        }
+
+        private static List<T> MergeSort<T>(List<T> list, Func<T, T, int> compareFunction)
+        {
+            if (list.Count <= 1)
+            {
+                return list;
+            }
+            int mid = list.Count/2;
+            List<T> first = new List<T>();
+            List<T> last = new List<T>();
+            int i = 0;
+            for (; i <= mid ; i++)
+            {
+                first.Add(list[i]);
+            }
+            for(;i< list.Count; i++)
+            {
+                last.Add(list[i]);
+            }
+
+            first = MergeSort(first, compareFunction);
+            last = MergeSort(last, compareFunction);
+
+            return Merge(first, last, compareFunction);
+        }
+
+        private static List<T> Merge<T>(List<T> first, List<T> last, Func<T, T, int> compareFunction)
+        {
+            int total = first.Count + last.Count;
+            List<T> result = new List<T>();
+
+            for (int i = 0; i < total; i++)
+            {
+
+            }
+
+            return result;
         }
 
         private static void Swap<T>(ref T input1, ref T input2)

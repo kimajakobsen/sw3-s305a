@@ -66,6 +66,7 @@ namespace HoplaHelpdesk.Tools
             {
                 temp = (allProblems.Where(x => x.Tags.Count == count).ToList());
                 result.AddRangeNoDuplicates(temp);
+                count++;
             }
 
             return result;

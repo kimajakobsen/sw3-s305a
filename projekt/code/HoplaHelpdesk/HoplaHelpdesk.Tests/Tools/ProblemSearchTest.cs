@@ -211,7 +211,10 @@ namespace HoplaHelpdesk.Tests
 
             #region Assertions
             Assert.AreEqual(expected.Count,actual.Count);
-           // foreach(var item in )
+            for (int i = 0 ; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
             Assert.Inconclusive("Verify the correctness of this test method.");
             #endregion
         }
