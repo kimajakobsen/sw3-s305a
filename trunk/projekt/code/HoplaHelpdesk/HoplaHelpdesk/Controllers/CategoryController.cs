@@ -82,11 +82,12 @@ namespace HoplaHelpdesk.Controllers
         // POST: /Category/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Category category)
         {
             try
             {
-                // TODO: Add update logic here
+                db.SaveChanges();
+
  
                 return RedirectToAction("Index");
             }

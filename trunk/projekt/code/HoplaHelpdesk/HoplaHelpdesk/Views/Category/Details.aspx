@@ -24,12 +24,12 @@
         <div class="display-field"><%: Model.Department.DepartmentName %></div>
 
         <% Html.RenderPartial("TagList", Model.Tags); %>
-        
+        <%: Html.ActionLink("Create new Tag", "Create", "Tag") %>
     </fieldset>
     <p>
 
         <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Back to List", "Edit", "Department") %>
     </p>
 
 </asp:Content>

@@ -252,6 +252,7 @@
     <Content Include="Views\Admin\AddUserToRole1.aspx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Category\Details.aspx" />
+    <Content Include="Views\Category\Edit.aspx" />
     <Content Include="Views\Category\EditCat.aspx" />
     <Content Include="Views\CreateProblem\CategorizeNewProblem.aspx" />
     <Content Include="Views\Client\Index.aspx" />
