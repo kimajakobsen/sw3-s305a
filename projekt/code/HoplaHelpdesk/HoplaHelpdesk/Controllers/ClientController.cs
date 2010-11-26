@@ -44,9 +44,9 @@ namespace HoplaHelpdesk.Controllers
                 catTag.Categories.Add(new CategoryWithListViewModel(item));
             }
 
-            
 
-            if (Session["SearchViewModel"] == null)
+
+            if (Session["SearchViewModel"] == null || !(Session["SearchViewModel"] is SearchViewModel))
             {
 
                 if (id != null)
@@ -75,6 +75,7 @@ namespace HoplaHelpdesk.Controllers
             else
             {
                 viewModel = (SearchViewModel)Session["SearchViewModel"];
+                viewModel.ProblemList = problems;
 
                 if (id != null && viewModel.OnlySubscriber)
                 {
@@ -82,31 +83,33 @@ namespace HoplaHelpdesk.Controllers
 
                     if (viewModel.OnlyUnsolvedProblems)
                     {
-                        problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.Where(x => x.SolvedAtTime != null).ToList(),
-                            db.TagSet.ToList(), 10, subscriber, db.PersonSet.ToList()));
+                        var allProblems = db.ProblemSet.Where(x => x.SolvedAtTime == null).ToList();
+                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag,
+                            allProblems, db.TagSet.ToList(), 10, subscriber, db.PersonSet.ToList()));
                     }
                     else
                     {
-                        problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), 10, subscriber,
-                            db.PersonSet.ToList()));
+                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(),
+                            db.TagSet.ToList(), 10, subscriber, db.PersonSet.ToList()));
                     }
                 }
                 else
                 {
                     if (viewModel.OnlyUnsolvedProblems)
                     {
-                        problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.Where(x => x.SolvedAtTime != null).ToList(),
-                            db.TagSet.ToList(), 10));
+                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag,
+                            db.ProblemSet.Where(x => x.SolvedAtTime == null).ToList(), db.TagSet.ToList(), 10));
                     }
                     else
                     {
-                        problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), 10));
+                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(),
+                            db.TagSet.ToList(), 10));
                     }
-                }
-
-                
+                }     
             }
-            
+
+            //Session["SearchViewModel"] = viewModel;
+
             return View(viewModel);
         }
 
@@ -114,9 +117,16 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult ViewProblems(SearchViewModel search)
         {
+            int myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            search.ProblemList = new ProblemListViewModel
+            {
+                Problems = new List<Problem>()
+            };
+            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Id == myId);
+
             Session["SearchViewModel"] = search;
 
-            return RedirectToAction("ViewProblems", new { id = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id });
+            return RedirectToAction("ViewProblems", new { id = myId });
         }
 
         //
