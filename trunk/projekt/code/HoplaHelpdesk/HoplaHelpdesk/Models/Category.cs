@@ -15,7 +15,7 @@ namespace HoplaHelpdesk.Models
             {
                 if (!tag.Hidden)
                 {
-                    isHidden = false;
+                    return false;
                 }
 
 
