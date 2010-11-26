@@ -11,7 +11,7 @@
             </th>
         </tr>
 
-    <% foreach (var item in Model.Comments) { %>
+    <% foreach (var item in Model.Solutions) { %>
     
         <tr>
             <td>
