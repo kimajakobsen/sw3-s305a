@@ -73,7 +73,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProblemTest.cs" />
+    <Compile Include="Models\ProblemTest.cs" />
     <Compile Include="Tools\ProblemDistributerTest.cs" />
     <Compile Include="Tools\ProblemSearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
