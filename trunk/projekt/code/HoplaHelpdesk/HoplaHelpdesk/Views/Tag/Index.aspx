@@ -1,6 +1,14 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Tag>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<HoplaHelpdesk.Models.Tag>>" %>
 
-    <table class="problemList">
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+	Index
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>Index</h2>
+
+    <table>
         <tr>
             <th></th>
             <th>
@@ -27,24 +35,21 @@
             <th>
                 AverageTimeSpent
             </th>
-          
+            <th>
+                Hidden
+            </th>
+            <th>
+                IsSelected
+            </th>
         </tr>
 
     <% foreach (var item in Model) { %>
     
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", "Tag", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", "Tag", new { id = item.Id })%> |
-                <% if (item.Hidden)
-                   { %>
-                <%: Html.ActionLink("Unhide", "HideUnHide", "Tag", new { id = item.Id, value = false })%> |
-                <% }
-                   else
-                   { %>
-                <%: Html.ActionLink("Hide", "HideUnHide", "Tag", new { id = item.Id, value = true })%> |
-                <% } %>
-                <%: Html.ActionLink("Delete", "Delete", "Tag", new { id = item.Id })%>
+                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
+                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
+                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
             </td>
             <td>
                 <%: item.Id %>
@@ -70,11 +75,21 @@
             <td>
                 <%: String.Format("{0:F}", item.AverageTimeSpent) %>
             </td>
-      
+            <td>
+                <%: item.Hidden %>
+            </td>
+            <td>
+                <%: item.IsSelected %>
+            </td>
         </tr>
     
     <% } %>
 
     </table>
 
+    <p>
+        <%: Html.ActionLink("Create New", "Create") %>
+    </p>
+
+</asp:Content>
 
