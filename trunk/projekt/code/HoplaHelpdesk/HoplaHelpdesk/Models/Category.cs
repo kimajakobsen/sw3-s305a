@@ -5,10 +5,16 @@ using System.Web;
 
 namespace HoplaHelpdesk.Models
 {
+
     public partial class Category
     {
 
-        public bool IsHidden()
+        public bool Hidden {
+            get { return IsHidden(); }
+            set { if (value == true) Hide(); else UnHide(); }
+        }
+
+        private bool IsHidden()
         {
             
             if (Tags == null || Tags.Count == 0)

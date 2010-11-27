@@ -156,21 +156,12 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-        //
-        // GET: /Category/Delete/5
+       
 
-        public ActionResult Hide(int id)
+        public ActionResult HideUnhide(int id, bool value)
         {
             var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
-            category.Hide();
-            db.SaveChanges();
-            return View("Details", category);
-        }
-
-        public ActionResult UnHide(int id)
-        {
-            var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
-            category.UnHide();
+            category.Hidden = value;
             db.SaveChanges();
             return View("Details", category);
         }
