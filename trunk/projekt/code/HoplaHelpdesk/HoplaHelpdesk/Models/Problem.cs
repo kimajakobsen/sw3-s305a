@@ -15,8 +15,10 @@ namespace HoplaHelpdesk.Models
         /// <summary>
         /// The Priority of the problem. Read-only.
         /// </summary>
-        public Double Priority {
+        public Double Priority
+        {
             get { return GetPriority(); }
+            private set;
         }
 
 

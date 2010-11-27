@@ -4,6 +4,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
+using HoplaHelpdesk.Controllers;
 
 namespace HoplaHelpdesk.Tests
 {
