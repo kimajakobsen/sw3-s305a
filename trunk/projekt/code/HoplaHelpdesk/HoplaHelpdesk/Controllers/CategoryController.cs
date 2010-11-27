@@ -54,14 +54,10 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Create(Category category)
         {
             try
-            {
-                
+            { 
                 category.Department = db.DepartmentSet.SingleOrDefault(x => x.Id == category.Department_Id);
                 db.CategorySet.AddObject(category);
-
                 db.SaveChanges();
-
-
                 return RedirectToAction("Edit", "Department", new { id = category.Department_Id });
             }
             catch
@@ -79,9 +75,6 @@ namespace HoplaHelpdesk.Controllers
         {
             var Category = db.CategorySet.Single(x => x.Id == id);
             return View(Category);
-
-
-           
         }
 
         //
