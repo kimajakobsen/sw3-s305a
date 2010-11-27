@@ -38,8 +38,8 @@
             
            
             <div class="editor-field">
-                <%: Html.HiddenFor(model => model.Department_Id) %>
-                <%: Html.ValidationMessageFor(model => model.Department_Id) %>
+                <%: Html.HiddenFor(model => model.Department) %>
+                <%: Html.ValidationMessageFor(model => model.Department) %>
             </div>
             
             <p>
