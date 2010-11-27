@@ -24,7 +24,7 @@
         <div class="display-field"><%: Model.Department.DepartmentName %></div>
 
         <div class="display-label">Is Hidden</div>
-        <div class="display-field"><%: Model.IsHidden() %></div>
+        <div class="display-field"><%: Model.Hidden %></div>
 
 
         <% Html.RenderPartial("TagList", Model.Tags); %>
@@ -32,11 +32,11 @@
     </fieldset>
     <p>
         <%: Html.ActionLink("Delete", "Delete",  new { id=Model.Id }) %> |
-        <% if(Model.IsHidden(){
+        <% if(Model.Hidden == true){
                 %>
-        <%: Html.ActionLink("Hide", "Hide",  new { id=Model.Id,view="Details" }) %> |
+        <%: Html.ActionLink("Hide", "HideUnhide",  new { id=Model.Id,value=true }) %> |
         <% } else { %>
-          <%: Html.ActionLink("Unhide", "UnHide",  new { id=Model.Id,view="Details" }) %> |
+          <%: Html.ActionLink("Unhide", "HideUnhide", new { id = Model.Id, value=false })%> |
           <% } %>
         <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
         <%: Html.ActionLink("Back to List", "Edit", "Department") %>

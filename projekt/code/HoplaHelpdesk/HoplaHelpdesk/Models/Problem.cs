@@ -12,6 +12,12 @@ namespace HoplaHelpdesk.Models
     [MetadataType(typeof(ProblemMetaData))]
     public partial class Problem : IProblem
     {
+        /// <summary>
+        /// The Priority of the problem. Read-only.
+        /// </summary>
+        public Double Priority {
+            get { return GetPriority(); }
+        }
 
 
         public class ProblemMetaData
@@ -67,6 +73,7 @@ namespace HoplaHelpdesk.Models
 
      public interface IProblem
      {
+         void ManageTagTimes();
          Double GetPriority();
 
 
