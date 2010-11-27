@@ -112,7 +112,8 @@ namespace HoplaHelpdesk.Controllers
             var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
             if (category == null)
             {
-                return RedirectToAction("Index", "Home");
+                ViewData["Error"] = "The category you attempted to delete did not exist";
+                return RedirectToAction("Error");
 
             }
             try
@@ -158,15 +159,20 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Category/Delete/5
 
-        public ActionResult Hide(int id, string view)
+        public ActionResult Hide(int id)
         {
-
-            return View(view);
+            var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
+            category.Hide();
+            db.SaveChanges();
+            return View("Details", category);
         }
 
-        public ActionResult UnHide(int id, string view)
+        public ActionResult UnHide(int id)
         {
-            return View(view);
+            var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
+            category.UnHide();
+            db.SaveChanges();
+            return View("Details", category);
         }
 
     }
