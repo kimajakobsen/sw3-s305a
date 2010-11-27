@@ -32,7 +32,12 @@
     </fieldset>
     <p>
         <%: Html.ActionLink("Delete", "Delete",  new { id=Model.Id }) %> |
-        <%: Html.ActionLink("Hide", "Hide",  new { id=Model.Id }) %> |
+        <% if(Model.IsHidden(){
+                %>
+        <%: Html.ActionLink("Hide", "Hide",  new { id=Model.Id,view="Details" }) %> |
+        <% } else { %>
+          <%: Html.ActionLink("Unhide", "UnHide",  new { id=Model.Id,view="Details" }) %> |
+          <% } %>
         <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
         <%: Html.ActionLink("Back to List", "Edit", "Department") %>
     </p>

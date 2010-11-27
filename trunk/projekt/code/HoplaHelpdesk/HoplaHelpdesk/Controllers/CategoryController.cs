@@ -160,6 +160,7 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Hide(int id, string view)
         {
+
             return View(view);
         }
 
