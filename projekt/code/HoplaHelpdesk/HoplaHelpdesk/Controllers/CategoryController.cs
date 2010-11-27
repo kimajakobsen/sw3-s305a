@@ -109,32 +109,47 @@ namespace HoplaHelpdesk.Controllers
  
         public ActionResult Delete(int id)
         {
-
             var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
-            if (category.Tags.Count == 0 || category.Tags == null)
+            if (category == null)
             {
-                return View("Details", new { id = id });
+                return RedirectToAction("Index", "Home");
 
             }
-            return View(category);
+            try
+            { 
+                if ( category.Tags == null || category.Tags.Count == 0)
+                {
+                    return View(category);
+                }
+                else
+                {
+                    return RedirectToAction("Details", new { id = id });
+                }
+            }
+            catch
+            {
+                return View(category);
+            }
+         
         }
 
         //
         // POST: /Category/Delete/5
 
         [HttpPost]
-        public ActionResult Delete(Category category)
+        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                db.CategorySet.DeleteObject(db.CategorySet.SingleOrDefault(x => x.Department_Id == category.Department_Id));
+                var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
+                db.CategorySet.DeleteObject(category);
                 db.SaveChanges();
                 return RedirectToAction("Edit", "Department", new { id = category.Department_Id});
             }
             catch
             {
 
-                return View("Details", new { id = category.Id });
+                return RedirectToAction("Details", new { id = id });
             }
         }
 
