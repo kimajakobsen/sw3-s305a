@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Models\CategoryTest.cs" />
     <Compile Include="Models\ProblemTest.cs" />
+    <Compile Include="TagControllerTest.cs" />
     <Compile Include="Tools\ProblemDistributerTest.cs" />
     <Compile Include="Tools\ProblemSearchTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

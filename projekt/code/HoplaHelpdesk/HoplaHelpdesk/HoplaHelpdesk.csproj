@@ -98,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="Models\IhoplaEntities.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Problem.cs" />
     <Compile Include="Models\Tag.cs" />

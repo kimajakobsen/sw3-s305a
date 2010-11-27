@@ -37,7 +37,7 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class hoplaEntities : ObjectContext
+    public partial class hoplaEntities : ObjectContext, IhoplaEntities
     {
         #region Constructors
     

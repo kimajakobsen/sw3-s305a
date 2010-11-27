@@ -115,7 +115,8 @@ namespace HoplaHelpdesk.Controllers
             }
             catch
             {
-                return RedirectToAction("Details", new { id = id });
+                ViewData["Error"] = "Some error occored.";
+                return RedirectToAction("Error");
             }
            
         }
