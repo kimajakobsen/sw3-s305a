@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
+﻿<%@ Page Title="Problem Search" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
 Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
@@ -7,15 +7,19 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script src="/Scripts/MicrosoftAjax.js" type="text/javascript"></script> 
+    <script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script> 
+    <script src="/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script> 
+
     <h2>Problem Search</h2>
     
+    <% Html.EnableClientValidation(); %> 
         <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
         <fieldset>
             <legend>Search</legend>
-            <table class="ContentContainer">
+            <table>
                 <tr>
-                    <th width="80%">
+                    <th>
                     
                         <div class="editor-field">
                             <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
@@ -23,14 +27,30 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
                         
                     </th>
 
-                    <th width="20%">
-                        <div class="editor-field">
+                    <th>
                         
+                        <div class="editor-label">
+                            <%: Html.LabelFor(model => model.OnlySubscriber) %>
                         </div>
-                        <p>Only your problems<br/></p>
                         <%: Html.CheckBoxFor(x => x.OnlySubscriber)%>
-                        <p><br />Only unsolved problems<br/></p>
+                        <div class="editor-label">
+                            <%: Html.LabelFor(model => model.OnlyUnsolvedProblems) %>
+                        </div>
                         <%: Html.CheckBoxFor(x => x.OnlyUnsolvedProblems)%>
+                        <div class="editor-label">
+                            <%: Html.LabelFor(model => model.OnlySolvedProblems) %>
+                        </div>
+                        <%: Html.CheckBoxFor(x => x.OnlySolvedProblems)%>
+
+                        <div class="editor-label">
+                            <%: Html.LabelFor(model => model.MinimumNumberOfProblems) %>
+                        </div>
+                        <div class="editor-field">
+                            <%: Html.TextBoxFor(model => model.MinimumNumberOfProblems)%>
+            
+                            <%: Html.ValidationMessageFor(model => model.MinimumNumberOfProblems)%>
+                        </div>
+
 
                         <%: Html.HiddenFor(x => x.Subscriber) %>
                         <%: Html.HiddenFor(x => x.ProblemList) %>
@@ -47,15 +67,21 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
     <% } %>
 
     
-    
-    <% if (Model != null && Model.ProblemList != null && Model.ProblemList.Problems != null && Model.ProblemList.Problems.Count != 0)
-       { %>
     <fieldset>
         <legend>Result</legend>
+    <% if (Model != null && Model.ProblemList != null && Model.ProblemList.Problems != null && Model.ProblemList.Problems.Count != 0)
+       { %>
+    
+        <p>There was found <%: Model.ProblemList.Problems.Count %> problems:</p>
     
         <% Html.RenderPartial("ProblemList", Model.ProblemList); %>
+    <% }
+       else
+       { %>     
+          <p class="error">No problem matched your search</p>
+            
+    <% } %>
     </fieldset> 
-    <% } %> 
 
 </asp:Content>
 

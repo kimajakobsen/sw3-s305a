@@ -17,8 +17,17 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities db = new hoplaEntities();
         public ActionResult Index()
         {
-
-            return View(db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id);
+            if (db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name) != null)
+            {
+                return View(db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id);
+            }
+            else
+            {
+                //This should be changed soon
+                //It is mainly for testing purposes atm
+                //What should happen when not logged in? Go to login screen?
+                return RedirectToAction("LogOn","Account");
+            }
         }
 
         
@@ -31,6 +40,8 @@ namespace HoplaHelpdesk.Controllers
             ProblemListViewModel problems;
             bool onlySubscriber;
             bool onlyUnsolvedProblems;
+            bool onlySolvedProblems;
+            int standardMinNumberOfProblems = 10;
 
             problems = new ProblemListViewModel
             {
@@ -39,16 +50,16 @@ namespace HoplaHelpdesk.Controllers
 
             var catTag = new CategoryTagSelectionViewModel();
             catTag.Categories = new List<CategoryWithListViewModel>();
-            foreach (var item in db.CategorySet)
-            {
-                catTag.Categories.Add(new CategoryWithListViewModel(item));
-            }
-
-
+            
 
             if (Session["SearchViewModel"] == null || !(Session["SearchViewModel"] is SearchViewModel))
             {
 
+                foreach (var item in db.CategorySet)
+                {
+                    catTag.Categories.Add(new CategoryWithListViewModel(item));
+                }
+                onlySolvedProblems = false;
                 if (id != null)
                 {
                     subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
@@ -61,6 +72,7 @@ namespace HoplaHelpdesk.Controllers
                     problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), 10));
                     onlySubscriber = false;
                     onlyUnsolvedProblems = false;
+
                 }
 
                 viewModel = new SearchViewModel
@@ -69,46 +81,44 @@ namespace HoplaHelpdesk.Controllers
                     ProblemList = problems,
                     Subscriber = subscriber,
                     OnlySubscriber = onlySubscriber,
-                    OnlyUnsolvedProblems = onlyUnsolvedProblems
+                    OnlyUnsolvedProblems = onlyUnsolvedProblems,
+                    OnlySolvedProblems = onlySolvedProblems,
+                    MinimumNumberOfProblems = standardMinNumberOfProblems
                 };
             }
             else
             {
                 viewModel = (SearchViewModel)Session["SearchViewModel"];
-                viewModel.ProblemList = problems;
+                problems.Problems = db.ProblemSet.ToList();
 
                 if (id != null && viewModel.OnlySubscriber)
-                {
+                { 
                     subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
-
-                    if (viewModel.OnlyUnsolvedProblems)
-                    {
-                        var allProblems = db.ProblemSet.Where(x => x.SolvedAtTime == null).ToList();
-                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag,
-                            allProblems, db.TagSet.ToList(), 10, subscriber, db.PersonSet.ToList()));
-                    }
-                    else
-                    {
-                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(),
-                            db.TagSet.ToList(), 10, subscriber, db.PersonSet.ToList()));
-                    }
+                    problems.Problems = problems.Problems.Where(x => x.Persons.Contains(subscriber)).ToList();
+                    viewModel.Subscriber = subscriber;
                 }
-                else
-                {
-                    if (viewModel.OnlyUnsolvedProblems)
-                    {
-                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag,
-                            db.ProblemSet.Where(x => x.SolvedAtTime == null).ToList(), db.TagSet.ToList(), 10));
-                    }
-                    else
-                    {
-                        viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(),
-                            db.TagSet.ToList(), 10));
-                    }
-                }     
-            }
 
-            //Session["SearchViewModel"] = viewModel;
+                if (viewModel.OnlySolvedProblems && viewModel.OnlyUnsolvedProblems)
+                {
+                    problems.Problems = new List<Problem>();
+                }
+                else if (viewModel.OnlySolvedProblems)
+                {
+                    problems.Problems = problems.Problems.Where(x => x.SolvedAtTime != null).ToList();
+                }
+                else if (viewModel.OnlyUnsolvedProblems)
+                {
+                    problems.Problems = problems.Problems.Where(x => x.SolvedAtTime == null).ToList();
+                }
+
+                viewModel.ProblemList = new ProblemListViewModel
+                {
+                    Problems = new List<Problem>()
+                };
+
+                viewModel.ProblemList.Problems.AddRange(ProblemSearch.Search( viewModel.CatTag,
+                    problems.Problems,db.TagSet.ToList(),viewModel.MinimumNumberOfProblems));            
+            }
 
             return View(viewModel);
         }
@@ -118,11 +128,11 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult ViewProblems(SearchViewModel search)
         {
             int myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Id == myId);
             search.ProblemList = new ProblemListViewModel
             {
                 Problems = new List<Problem>()
             };
-            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Id == myId);
 
             Session["SearchViewModel"] = search;
 
