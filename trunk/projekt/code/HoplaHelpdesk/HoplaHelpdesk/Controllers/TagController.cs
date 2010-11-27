@@ -69,13 +69,19 @@ namespace HoplaHelpdesk.Controllers
         // POST: /Tag/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Tag taget)
         {
             try
             {
                 // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
+                var tag = db.TagSet.SingleOrDefault(x => x.Id == taget.Id);
+                tag.Category = (Category)Session["Category"];
+                tag.Name = taget.Name;
+                tag.Description = taget.Description;
+                db.SaveChanges();
+              
+                return RedirectToAction("Details", "Category", new { id = tag.Category_Id });
+               
             }
             catch
             {
@@ -88,7 +94,30 @@ namespace HoplaHelpdesk.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
+            var tag = db.TagSet.SingleOrDefault(x => x.Id == id);
+         
+            if (tag == null)
+            {
+                ViewData["Error"] = "The tag you attempted to delete did not exist";
+                return RedirectToAction("Error");
+
+            }
+            try
+            {
+                if (tag.Problems == null || tag.Problems.Count == 0)
+                {
+                    return View(tag);
+                }
+                else
+                {
+                    return RedirectToAction("Details", new { id = id });
+                }
+            }
+            catch
+            {
+                return RedirectToAction("Details", new { id = id });
+            }
+           
         }
 
         //
@@ -99,13 +128,15 @@ namespace HoplaHelpdesk.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                var tag = db.TagSet.SingleOrDefault(x => x.Id == id);
+                db.TagSet.DeleteObject(tag);
+                db.SaveChanges();
+                return RedirectToAction("Details", "Category", new { id = tag.Category_Id });
             }
             catch
             {
-                return View();
+                ViewData["Error"] = "The tag could not be deleted.";
+                return View("Error");
             }
         }
     }

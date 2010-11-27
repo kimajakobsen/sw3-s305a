@@ -90,6 +90,7 @@ namespace HoplaHelpdesk.Controllers
                 var cat = db.CategorySet.SingleOrDefault(x => x.Id == category.Id);
                 cat.Name = category.Name;
                 cat.Description = category.Description;
+                cat.Department = category.Department;
                 db.SaveChanges();
                 Session["Category"] = category;
                 return RedirectToAction("Edit", "Department", new { id=category.Department_Id });
@@ -126,7 +127,7 @@ namespace HoplaHelpdesk.Controllers
             }
             catch
             {
-                return View(category);
+                return RedirectToAction("Details", new { id = id });
             }
          
         }
