@@ -25,9 +25,11 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details(int id)
         {
+           
             try
             {
                 var category = db.CategorySet.Single(x => x.Id == id);
+                Session["Category"] = category;
                 return View(category);
             }
             catch
@@ -89,6 +91,7 @@ namespace HoplaHelpdesk.Controllers
                 cat.Name = category.Name;
                 cat.Description = category.Description;
                 db.SaveChanges();
+                Session["Category"] = category;
                 return RedirectToAction("Edit", "Department", new { id=category.Department_Id });
             }
             catch
@@ -103,6 +106,7 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Delete(int id)
         {
             var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
+            Session["Category"] = category;
             if (category == null)
             {
                 ViewData["Error"] = "The category you attempted to delete did not exist";
@@ -155,6 +159,7 @@ namespace HoplaHelpdesk.Controllers
         {
             var category = db.CategorySet.SingleOrDefault(x => x.Id == id);
             category.Hidden = value;
+            Session["Category"] = category;
             db.SaveChanges();
             return View("Details", category);
         }
