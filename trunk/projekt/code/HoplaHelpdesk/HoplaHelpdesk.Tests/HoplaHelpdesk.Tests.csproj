@@ -73,6 +73,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CategoryTest.cs" />
     <Compile Include="Models\ProblemTest.cs" />
     <Compile Include="Tools\ProblemDistributerTest.cs" />
     <Compile Include="Tools\ProblemSearchTest.cs" />
@@ -88,6 +89,9 @@
       <Project>{C5EF8C0A-6E1D-42FE-9B1E-C37B8B22199E}</Project>
       <Name>HoplaHelpdesk</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Shadow Include="Test References\HoplaHelpdesk.accessor" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
