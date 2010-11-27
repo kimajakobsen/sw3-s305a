@@ -20,4 +20,11 @@
        <%
        } %>
 
+         <% if (ViewData["View"] != null)
+       {
+       %>
+      <%: Html.ActionLink("Back", ViewData["View"]) %>
+       <% }
+       
+
 </asp:Content>

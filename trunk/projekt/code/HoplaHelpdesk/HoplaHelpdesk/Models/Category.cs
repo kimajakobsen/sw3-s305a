@@ -10,8 +10,11 @@ namespace HoplaHelpdesk.Models
 
         public bool IsHidden()
         {
-            return false;
-            bool isHidden = true;
+            
+            if (Tags == null || Tags.Count == 0)
+            {
+                return true;
+            }
             foreach (var tag in Tags)
             {
                 if (!tag.Hidden)
@@ -21,7 +24,25 @@ namespace HoplaHelpdesk.Models
 
 
             }
-            return isHidden;
+            return true;
+        }
+
+
+        public void Hide()
+        {
+            foreach (var tag in Tags)
+            {
+                tag.Hidden = true;
+            }
+        }
+
+
+        public void UnHide()
+        {
+            foreach (var tag in Tags)
+            {
+                tag.Hidden = false;
+            }
         }
     }
 }
