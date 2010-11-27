@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
-
+using System.Data.Objects.DataClasses;
 namespace HoplaHelpdesk.Tests
 {
     
@@ -72,73 +72,218 @@ namespace HoplaHelpdesk.Tests
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
         public void HiddenTest()
         {
-            Category target = new Category(); // TODO: Initialize to an appropriate value
+            var tags = new EntityCollection<Tag>(){
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true}
+            };
+            Category target = new Category()
+            {
+                
+                Tags=tags
+            };// TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
             bool actual;
             target.Hidden = expected;
             actual = target.Hidden;
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+          //  Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
+
         /// <summary>
-        ///A test for Hide
+        ///A test for Hidden
         ///</summary>
         // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        public void HideTest()
+        public void HiddenTest2()
         {
-            Category target = new Category(); // TODO: Initialize to an appropriate value
-            target.Hide();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
+            var tags = new EntityCollection<Tag>(){
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = false},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true}
+            };
+            Category target = new Category()
+            {
 
-        /// <summary>
-        ///A test for UnHide
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        public void UnHideTest()
-        {
-            Category target = new Category(); // TODO: Initialize to an appropriate value
-            target.UnHide();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
-
-        /// <summary>
-        ///A test for IsHidden
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        [DeploymentItem("HoplaHelpdesk.dll")]
-        public void IsHiddenTest()
-        {
-            Category_Accessor target = new Category_Accessor(); // TODO: Initialize to an appropriate value
+                Tags = tags
+            };// TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
             bool actual;
-            actual = target.IsHidden();
+           // target.Hidden = expected;
+            actual = target.Hidden;
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+          //  Assert.Inconclusive("Verify the correctness of this test method.");
         }
+
+        /// <summary>
+        ///A test for Hidden
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void HiddenTest3()
+        {
+            var tags = new EntityCollection<Tag>(){
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true}
+            };
+            Category target = new Category()
+            {
+
+                Tags = tags
+            };// TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            // target.Hidden = expected;
+            actual = target.Hidden;
+            Assert.AreEqual(expected, actual);
+            //Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for Hidden
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void HiddenTest4()
+        {
+            var tags = new EntityCollection<Tag>(){
+                new Tag(){ Hidden = false},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true}
+            };
+            Category target = new Category()
+            {
+
+                Tags = tags
+            };// TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            target.Hidden = expected;
+            actual = target.Hidden;
+            Assert.AreEqual(expected, actual);
+           // Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for Hidden
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void HiddenTest5()
+        {
+            var tags = new EntityCollection<Tag>(){
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true}
+            };
+            Category target = new Category()
+            {
+
+                
+            };// TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            target.Hidden = false;
+            actual = target.Hidden;
+            Assert.AreEqual(expected, actual);
+           // Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for Hidden
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void HiddenTest6()
+        {
+            var tags = new EntityCollection<Tag>(){
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true},
+                new Tag(){ Hidden = true}
+            };
+            Category target = new Category()
+            {
+
+            
+            };// TODO: Initialize to an appropriate value
+            bool expected = true; // TODO: Initialize to an appropriate value
+            bool actual;
+            // target.Hidden = expected;
+            actual = target.Hidden;
+            Assert.AreEqual(expected, actual);
+          //  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
     }
 }

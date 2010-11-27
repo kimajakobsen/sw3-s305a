@@ -15,7 +15,7 @@
        <% }
        else
        { %>
-       <%:ViewData["Error"] %>
+       <%: ViewData["Error"] %>
 
        <%
        } %>
@@ -23,8 +23,8 @@
          <% if (ViewData["View"] != null)
        {
        %>
-      <%: Html.ActionLink("Back", ViewData["View"]) %>
-       <% }
+      <%: Html.ActionLink("Back", (string)ViewData["View"]) %>
+       <% } %>
        
 
 </asp:Content>

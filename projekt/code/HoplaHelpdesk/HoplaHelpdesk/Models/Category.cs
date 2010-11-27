@@ -34,7 +34,7 @@ namespace HoplaHelpdesk.Models
         }
 
 
-        public void Hide()
+        private void Hide()
         {
             foreach (var tag in Tags)
             {
@@ -43,7 +43,7 @@ namespace HoplaHelpdesk.Models
         }
 
 
-        public void UnHide()
+        private void UnHide()
         {
             foreach (var tag in Tags)
             {
