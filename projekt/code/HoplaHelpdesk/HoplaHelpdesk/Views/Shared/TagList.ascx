@@ -34,17 +34,17 @@
     
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", "Tag", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", "Tag", new { id = item.Id })%> |
+                <%: Html.ActionLink("Edit", "Edit", "Tag", new { id=item.Id }, null) %> |
+                <%: Html.ActionLink("Details", "Details", "Tag", new { id = item.Id }, null)%> |
                 <% if (item.Hidden)
                    { %>
-                <%: Html.ActionLink("Unhide", "HideUnHide", "Tag", new { id = item.Id, value = false })%> |
+                <%: Html.ActionLink("Unhide", "TagHideUnHide", new { id = item.Id, value = false })%> |
                 <% }
                    else
                    { %>
-                <%: Html.ActionLink("Hide", "HideUnHide", "Tag", new { id = item.Id, value = true })%> |
+                <%: Html.ActionLink("Hide", "TagHideUnHide", new { id = item.Id, value = true })%> | 
                 <% } %>
-                <%: Html.ActionLink("Delete", "Delete", "Tag", new { id = item.Id })%>
+                <%: Html.ActionLink("Delete", "Delete", "Tag", new { id = item.Id }, null)%>
             </td>
             <td>
                 <%: item.Id %>

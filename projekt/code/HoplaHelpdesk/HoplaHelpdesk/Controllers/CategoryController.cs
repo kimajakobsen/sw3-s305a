@@ -165,5 +165,17 @@ namespace HoplaHelpdesk.Controllers
             return View("Details", category);
         }
 
+
+
+
+
+        public ActionResult TagHideUnhide(int id, bool value)
+        {
+            var tag = db.TagSet.SingleOrDefault(x => x.Id == id);
+            tag.Hidden = value;
+            
+            db.SaveChanges();
+            return View("Details", tag.Category);
+        }
     }
 }

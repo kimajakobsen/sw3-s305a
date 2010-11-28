@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Tag>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Create
+	Edit
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Create</h2>
+    <h2>Edit</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-
+        
         <fieldset>
             <legend>Fields</legend>
             
-          
+         
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Name) %>
@@ -40,17 +40,18 @@
                 <%: Html.ValidationMessageFor(model => model.Priority) %>
             </div>
             
-          
-            <%: Html.HiddenFor(model => model.Category_Id) %>
+        
+        
+         
             <p>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Save" />
             </p>
         </fieldset>
 
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Back to List", "Details", new { id = Model.Id})%>
     </div>
 
 </asp:Content>
