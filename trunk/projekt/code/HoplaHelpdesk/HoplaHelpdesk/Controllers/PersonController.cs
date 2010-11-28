@@ -20,11 +20,11 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Person/
 
-        public ActionResult Index(string personname)
+        public ActionResult Index()
         {
-            var staffmember = db.PersonSet.ToList();
+            var personlist = db.PersonSet.ToList();
 
-            var viewmodel = new StaffListViewModel() { Staffmembers = staffmember };
+            var viewmodel = new PersonListViewModel() { Persons = personlist };
 
 
             return View(viewmodel);
@@ -81,7 +81,7 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Person/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
             return View();
         } 
