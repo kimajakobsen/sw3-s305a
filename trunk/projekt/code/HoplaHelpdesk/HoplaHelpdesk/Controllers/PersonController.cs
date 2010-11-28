@@ -22,9 +22,9 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Index()
         {
-            var personlist = db.PersonSet.ToList();
+            var Personlist = db.PersonSet.ToList();
 
-            var viewmodel = new PersonListViewModel() { Persons = personlist };
+            var viewmodel = new PersonListViewModel() { Persons = Personlist };
 
 
             return View(viewmodel);

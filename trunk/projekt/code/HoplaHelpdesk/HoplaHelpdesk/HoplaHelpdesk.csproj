@@ -271,6 +271,9 @@
     <Content Include="Views\CreateProblem\Succes.aspx" />
     <Content Include="Views\Department\Edit.aspx" />
     <Content Include="Views\Department\Index.aspx" />
+    <Content Include="Views\Person\Create.aspx" />
+    <Content Include="Views\Person\Delete.aspx" />
+    <Content Include="Views\Person\Edit.aspx" />
     <Content Include="Views\Person\Index.aspx" />
     <Content Include="Views\ReassignProblem\Index.aspx" />
     <Content Include="Views\ReassignProblem\StaffList.ascx" />

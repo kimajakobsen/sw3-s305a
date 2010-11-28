@@ -42,8 +42,6 @@
 
     </table>
 
-    <p>
-        <%: Html.ActionLink("Create New", "Create") %>
-    </p>
+
 
 
