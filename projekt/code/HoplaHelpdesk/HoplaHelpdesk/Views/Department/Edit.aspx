@@ -26,7 +26,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Department>" %>
                     
                     <td valign="top" width="45%">
                     <% Html.RenderPartial("DepartmentCategoryList", Model.Categories);  %>
-                    <%: Html.ActionLink("Create New Category", "Create","Category") %>
+                    <%: Html.ActionLink("Create New Category", "Create", "Category", new { id = Model.Id}, null)%>
                     </td> 
                 </tr>  
             </table>
