@@ -28,7 +28,7 @@
 
 
         <% Html.RenderPartial("TagList", Model.Tags); %>
-        <%: Html.ActionLink("Create new Tag", "Create", "Tag") %>
+        <%: Html.ActionLink("Create new Tag", "Create", "Tag", new { id = Model.Id }, null)%>
     </fieldset>
     <p>
         <%: Html.ActionLink("Delete", "Delete",  new { id=Model.Id }) %> |

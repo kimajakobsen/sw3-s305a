@@ -44,7 +44,7 @@
     <p>
 
         <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
-        <%: Html.ActionLink("Back to List", "Details", "Category", new{ id=Model.Category_Id })%>
+        <%: Html.ActionLink("Back to List", "Details", "Category", new{ id=Model.Category_Id },null)%>
     </p>
 
 </asp:Content>

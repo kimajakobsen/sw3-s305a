@@ -28,12 +28,12 @@ namespace HoplaHelpdesk.Controllers
         }
 
         //
-        // GET: /Tag/Create
+        // GET: /Tag/Create/4
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            
-            return View(new Tag());
+
+            return View(new Tag() { Category_Id = id });
         } 
 
         //
@@ -44,13 +44,14 @@ namespace HoplaHelpdesk.Controllers
         {
             try
             {
-               var category = (Category)Session["Category"];
-                tag.Category = category;
+               
+  
                 tag.Hidden = false;
                 db.TagSet.AddObject(tag);
-                return RedirectToAction("Details", "Category", new { id= category.Id });
+                db.SaveChanges();
+                return RedirectToAction("Details", "Category", new { id= tag.Category_Id });
             }
-            catch
+           catch
             {
                 return View();
             }
