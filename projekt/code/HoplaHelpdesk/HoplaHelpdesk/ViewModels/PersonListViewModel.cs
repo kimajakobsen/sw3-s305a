@@ -9,6 +9,6 @@ namespace HoplaHelpdesk.ViewModels
 {
     public class PersonListViewModel
     {
-        public EntityCollection<Person> Persons { get; set; }
+        public List<Person> Persons { get; set; }
     }
 }
