@@ -18,7 +18,7 @@ namespace HoplaHelpdesk.Models
         public Double Priority
         {
             get { return GetPriority(); }
-            private set;
+            private set{}
         }
 
 
@@ -30,7 +30,7 @@ namespace HoplaHelpdesk.Models
 
         }
 
-        public Double GetPriority()
+        private Double GetPriority()
         {
             if (Tags != null && Tags.Count != 0)
             {
@@ -76,7 +76,7 @@ namespace HoplaHelpdesk.Models
      public interface IProblem
      {
          void ManageTagTimes();
-         Double GetPriority();
+         Double Priority { get;  }
 
 
      }

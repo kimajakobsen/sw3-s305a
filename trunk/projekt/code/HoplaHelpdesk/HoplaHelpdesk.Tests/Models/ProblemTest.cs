@@ -90,7 +90,7 @@ namespace HoplaHelpdesk.Tests
 
             Double expected = 3; // TODO: Initialize to an appropriate value
             Double actual;
-            actual = target.GetPriority();
+            actual = target.Priority;
             Assert.AreEqual(expected, actual);
            // Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -119,7 +119,7 @@ namespace HoplaHelpdesk.Tests
 
             Double expected = Math.Round((Double)(3+3+8+3+9)/5, 2); // TODO: Initialize to an appropriate value
             Double actual;
-            actual = target.GetPriority();
+            actual = target.Priority;
             Assert.AreEqual(expected, actual);
           //  Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -155,7 +155,7 @@ namespace HoplaHelpdesk.Tests
 
             Double expected = Math.Round((Double)(3+3+8+1+9+3+3+8+3+9) / 10, 2); // TODO: Initialize to an appropriate value
             Double actual;
-            actual = target.GetPriority();
+            actual = target.Priority;
             Assert.AreEqual(expected, actual);
           ///  Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -181,7 +181,7 @@ namespace HoplaHelpdesk.Tests
 
             Double expected = 0; // TODO: Initialize to an appropriate value
             Double actual;
-            actual = target.GetPriority();
+            actual = target.Priority;
             Assert.AreEqual(expected, actual);
            // Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -217,7 +217,7 @@ namespace HoplaHelpdesk.Tests
 
             Double expected = 0; // TODO: Initialize to an appropriate value
             Double actual;
-            actual = target.GetPriority();
+            actual = target.Priority;
             Assert.AreEqual(expected, actual);
       //      Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -245,7 +245,7 @@ namespace HoplaHelpdesk.Tests
 
             Double expected = 3.33; // TODO: Initialize to an appropriate value
             Double actual;
-            actual = target.GetPriority();
+            actual = target.Priority;
             Assert.AreEqual(expected, actual);
             ///  Assert.Inconclusive("Verify the correctness of this test method.");
         }
