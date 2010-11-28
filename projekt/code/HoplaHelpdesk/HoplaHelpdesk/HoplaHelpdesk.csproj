@@ -115,6 +115,7 @@
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SolutionListViewModel.cs" />
+    <Compile Include="ViewModels\StaffListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\hopla.png" />
@@ -270,7 +271,7 @@
     <Content Include="Views\CreateProblem\Succes.aspx" />
     <Content Include="Views\Department\Edit.aspx" />
     <Content Include="Views\Department\Index.aspx" />
-    <Content Include="Views\Department\Testtesttest.ascx" />
+    <Content Include="Views\Person\Index.aspx" />
     <Content Include="Views\ReassignProblem\Index.aspx" />
     <Content Include="Views\ReassignProblem\StaffList.ascx" />
     <Content Include="Views\Shared\CommentList.ascx" />
@@ -289,6 +290,7 @@
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
     <Content Include="Views\Shared\SolutionList.ascx" />
+    <Content Include="Views\Shared\StaffList.ascx" />
     <Content Include="Views\Shared\TagList.ascx" />
     <Content Include="Views\Staff\AddSolution.aspx" />
     <Content Include="Views\Staff\Details.aspx" />
@@ -325,7 +327,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Person\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\HoplaModel.edmx">

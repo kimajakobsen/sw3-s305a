@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
-Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.DepartmentListViewModel>"  %>
+Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.StaffListViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -9,9 +9,9 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.DepartmentListViewMod
 
     <h2>Index</h2>
 
-
-     
-      <% Html.RenderPartial("DepartmentList", Model.Departments); %>
-
+     <% Html.RenderPartial("StaffList", Model.Staffmembers); %>
+    
+    
 
 </asp:Content>
+
