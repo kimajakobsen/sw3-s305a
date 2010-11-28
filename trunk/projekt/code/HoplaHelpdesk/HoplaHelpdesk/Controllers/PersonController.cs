@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
-using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Security.Principal;
 using System.Web.Routing;
@@ -21,14 +20,15 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Person/
 
-        public ActionResult Index()
+        public ActionResult Index(string personname)
         {
-            var DepartmentList = db.DepartmentSet.ToList();
+            var staffmember = db.PersonSet.ToList();
 
-            var viewmodel = new DepartmentListViewModel() { Departments = DepartmentList };
+            var viewmodel = new StaffListViewModel() { Staffmembers = staffmember };
 
 
             return View(viewmodel);
+            
         }
 
         public String AddUserToRole(string user, string role)

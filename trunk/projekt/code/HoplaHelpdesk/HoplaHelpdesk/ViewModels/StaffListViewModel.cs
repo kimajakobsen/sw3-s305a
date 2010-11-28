@@ -6,10 +6,8 @@ using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.ViewModels
 {
-    public class DepartmentListViewModel
+    public class StaffListViewModel
     {
-        public List<Department> Departments { get; set; }
-        public List<Category> Categories { get; set; }
         public List<Person> Staffmembers { get; set; }
     }
 }
