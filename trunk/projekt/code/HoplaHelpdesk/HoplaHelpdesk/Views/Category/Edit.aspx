@@ -37,11 +37,10 @@
             </div>
             
            
-            <div class="editor-field">
-                <%: Html.HiddenFor(model => model.Department) %>
-                <%: Html.ValidationMessageFor(model => model.Department) %>
-            </div>
-            
+        
+                <%: Html.HiddenFor(model => model.Department_Id) %>
+              
+         
             <p>
                 <input type="submit" value="Save" />
             </p>
