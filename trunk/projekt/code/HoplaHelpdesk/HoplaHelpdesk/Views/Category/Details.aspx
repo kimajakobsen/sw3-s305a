@@ -32,7 +32,7 @@
     </fieldset>
     <p>
         <%: Html.ActionLink("Delete", "Delete",  new { id=Model.Id }) %> |
-        <% if(Model.Hidden == true){
+        <% if(Model.Hidden == false){
                 %>
         <%: Html.ActionLink("Hide", "HideUnhide",  new { id=Model.Id,value=true }) %> |
         <% } else { %>
