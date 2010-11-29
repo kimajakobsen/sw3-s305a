@@ -9,10 +9,6 @@ namespace HoplaHelpdesk.Models
     {
         public string Name { get; set; }
 
-        public void GetRole()
-        {
-
-        }
     }
 
 
