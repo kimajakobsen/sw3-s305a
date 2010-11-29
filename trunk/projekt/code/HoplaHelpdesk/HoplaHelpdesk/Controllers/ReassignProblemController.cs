@@ -54,6 +54,7 @@ namespace HoplaHelpdesk.Controllers
                     return View("Error");
                 }
             }
+
             problem.AssignedTo = (Person)staff;
             db.SaveChanges();
 
