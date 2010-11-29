@@ -24,6 +24,13 @@ namespace HoplaHelpdesk.Tools
         }
 
 
+        public static IPerson GetStaff(Problem Problem, List<IPerson> PersonSet)
+        {
+          
+            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+        }
+
+
         public static IPerson GetStaff(Problem Problem, List<Person> PersonSet, Department department)
         {
             var persons = new List<IPerson>();
@@ -121,5 +128,7 @@ namespace HoplaHelpdesk.Tools
             public Department Department { get; set;}
             public int Count { get; set; }
         }
+
+      
     }
 }

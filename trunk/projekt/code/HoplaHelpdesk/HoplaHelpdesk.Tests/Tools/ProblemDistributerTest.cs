@@ -190,7 +190,7 @@ namespace HoplaHelpdesk.Tests
             IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
             IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1, Name = "john" };
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
-            EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
+            List<IPerson> PersonSet = new List<IPerson>()
             {
                John, MrT, Johnny, MrTt
             };
@@ -251,7 +251,7 @@ namespace HoplaHelpdesk.Tests
             IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
             IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1 };
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
-            EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
+            List<IPerson> PersonSet = new List<IPerson>()
             {
                John, MrT, Johnny, MrTt
             };
@@ -295,7 +295,7 @@ namespace HoplaHelpdesk.Tests
             IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
             IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1 };
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
-            EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
+            List<IPerson> PersonSet = new List<IPerson>()
             {
                John, MrT, Johnny, MrTt
             };
@@ -355,7 +355,7 @@ namespace HoplaHelpdesk.Tests
             IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
             IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1 };
             IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
-            EntityCollection<IPerson> PersonSet = new EntityCollection<IPerson>()
+            List<IPerson> PersonSet = new List<IPerson>()
             {
                John, MrT, Johnny, MrTt
             };
