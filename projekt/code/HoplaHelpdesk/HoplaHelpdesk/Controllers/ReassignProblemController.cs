@@ -41,9 +41,9 @@ namespace HoplaHelpdesk.Controllers
             var problem = (Problem)Session["Problem"];
             var from = problem.AssignedTo;
             IPerson staff = null;
-            if (dept == 0)
+            if (id == 0)
             {
-                staff = ProblemDistributer.GetStaff(problem, db.PersonSet);
+                staff = ProblemDistributer.GetStaff(problem, db.PersonSet.ToList());
             }
             else
             {
@@ -55,19 +55,19 @@ namespace HoplaHelpdesk.Controllers
                     return View("Error");
                 }
             }
-           
-           // problem.PersonsId = ((Person)staff).Id;
-           // problem.AssignedTo = ((Person)staff);
-            
-            from.Worklist.Remove(problem);
-            db.SaveChanges();
-            staff.Worklist.Add(problem);
+
+
+           var newprob =  db.ProblemSet.First(x => x.Id == problem.Id);
+            newprob.AssignedTo = ((Person)staff);
+ 
+           // from.Worklist.Remove(newprob);
+           // staff.Worklist.Add(problem);
             db.SaveChanges();
             var viewModel = new SuccesReassignViewModel()
             {
                 From = from,
              
-                Problem = problem
+                Problem = db.ProblemSet.First(x => x.Id == problem.Id)
 
             };
             return View("Succes", viewModel);
