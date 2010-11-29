@@ -41,15 +41,17 @@ namespace HoplaHelpdesk.Controllers
             bool onlySubscriber;
             bool onlyUnsolvedProblems;
             bool onlySolvedProblems;
-            int standardMinNumberOfProblems = 10;
+            int standardMinNumberOfProblems = Constants.MinimumNumberProblemsForSearch;
 
             problems = new ProblemListViewModel
             {
                 Problems = new List<Problem>()
             };
 
-            var catTag = new CategoryTagSelectionViewModel();
-            catTag.Categories = new List<CategoryWithListViewModel>();
+            var catTag = new CategoryTagSelectionViewModel
+            {
+                Categories = new List<CategoryWithListViewModel>()
+            };
             
 
             if (Session["SearchViewModel"] == null || !(Session["SearchViewModel"] is SearchViewModel))
@@ -63,13 +65,22 @@ namespace HoplaHelpdesk.Controllers
                 if (id != null)
                 {
                     subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
-                    problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), 10, subscriber, db.PersonSet.ToList()));
+
+                    List<Problem> tempProb = db.ProblemSet.ToList();
+                    problems.Problems.AddRange(ProblemSearch.Search(catTag, tempProb,
+                        db.TagSet.ToList(), standardMinNumberOfProblems, subscriber, db.PersonSet.ToList()));
+
+                    /*
+                    List<Problem> tempProb = db.ProblemSet.Where(x => x.Persons.Contains(subscriber)).ToList();
+                    problems.Problems.AddRange(ProblemSearch.Search(catTag, tempProb,
+                        db.TagSet.ToList(), Constants.MinimumNumberProblemsForSearch));
+                     */
                     onlySubscriber = true;
                     onlyUnsolvedProblems = true;
                 }
                 else
                 {
-                    problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), 10));
+                    problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), standardMinNumberOfProblems));
                     onlySubscriber = false;
                     onlyUnsolvedProblems = false;
 
@@ -89,26 +100,28 @@ namespace HoplaHelpdesk.Controllers
             else
             {
                 viewModel = (SearchViewModel)Session["SearchViewModel"];
-                problems.Problems = db.ProblemSet.ToList();
-
-                if (id != null && viewModel.OnlySubscriber)
-                { 
-                    subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
-                    problems.Problems = problems.Problems.Where(x => x.Persons.Contains(subscriber)).ToList();
-                    viewModel.Subscriber = subscriber;
-                }
+                problems.Problems = db.ProblemSet.ToList();  
 
                 if (viewModel.OnlySolvedProblems && viewModel.OnlyUnsolvedProblems)
                 {
                     problems.Problems = new List<Problem>();
                 }
-                else if (viewModel.OnlySolvedProblems)
+                else
                 {
-                    problems.Problems = problems.Problems.Where(x => x.SolvedAtTime != null).ToList();
-                }
-                else if (viewModel.OnlyUnsolvedProblems)
-                {
-                    problems.Problems = problems.Problems.Where(x => x.SolvedAtTime == null).ToList();
+                    if (id != null && viewModel.OnlySubscriber)
+                    {
+                        subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
+                        problems.Problems = problems.Problems.Where(x => x.Persons.Contains(subscriber)).ToList();
+                        viewModel.Subscriber = subscriber;
+                    }
+                    if (viewModel.OnlySolvedProblems)
+                    {
+                        problems.Problems = problems.Problems.Where(x => x.SolvedAtTime != null).ToList();
+                    }
+                    else if (viewModel.OnlyUnsolvedProblems)
+                    {
+                        problems.Problems = problems.Problems.Where(x => x.SolvedAtTime == null).ToList();
+                    }
                 }
 
                 viewModel.ProblemList = new ProblemListViewModel

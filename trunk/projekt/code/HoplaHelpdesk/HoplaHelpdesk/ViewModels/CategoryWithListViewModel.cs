@@ -37,7 +37,23 @@ namespace HoplaHelpdesk.ViewModels
             TagList = cat.Tags.ToList();
 
         }
-        
+
+        override protected bool IsHidden()
+        {
+
+            if (TagList == null || TagList.Count == 0)
+            {
+                return true;  
+            }
+            foreach (var tag in TagList)
+            {
+                if (!tag.Hidden)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
 }
