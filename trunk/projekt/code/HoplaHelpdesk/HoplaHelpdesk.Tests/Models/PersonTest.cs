@@ -89,9 +89,6 @@ namespace HoplaHelpdesk.Tests
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Lasse\\Documents\\Visual Studio 2010\\Projects\\HoplaHelpdesk\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
         public void CreatePersonTest()
         {
             int id = 0; // TODO: Initialize to an appropriate value
@@ -113,15 +110,15 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void GetWorkloadTest()
         {
-          //  Tag Bjørn = new Tag() { AverageTimeSpent = 60 };
-          //  Tag Hund = new Tag() { AverageTimeSpent = 120 };
-          //  Tag Kat = new Tag() { AverageTimeSpent = 180 };
+            Tag Bjørn = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
+            Tag Hund = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
+            Tag Kat = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
 
             Problem problem1 = new Problem()
             {
                 Tags = new EntityCollection<Tag>()
                 {
-                //    Bjørn, Kat
+                    Bjørn, Kat
                 }
 
             };
@@ -129,17 +126,17 @@ namespace HoplaHelpdesk.Tests
             {
                 Tags = new EntityCollection<Tag>()
                 {
-                 //   Hund
+                    Hund
                 }
             };
             var Rasmus = new Person()
             {
                 Problems = new EntityCollection<Problem>()
                 {
-                    problem1, problem2
+                    problem2
                 }
             };
-            double expected = 120; // TODO: Initialize to an appropriate value
+            double expected = 20; // TODO: Initialize to an appropriate value
             double actual;
             actual = Rasmus.GetWorkload();
             Assert.AreEqual(expected, actual);

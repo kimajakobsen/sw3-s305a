@@ -23,26 +23,37 @@ namespace HoplaHelpdesk.Models
             {
                 var max = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Max(x => x.GetWorkload()));
                 var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
+                if (max == min)
+                {
+                    return; 
+                }
                 bool couldStillMove = true;
                 do
                 {
 
 
                     // Finde the reassignable problem with the highest priority.
-                    var problemToBeMoved = max.Problems.FirstOrDefault(y => y.Priority == max.Problems.Max(x => x.Priority) && y.Reassignable == true);
-
+                    var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Priority == max.Worklist.Where(z => z.Reassignable == true && z.HasBeen == false).Max(x => x.Priority) && y.Reassignable == true && y.HasBeen == false);
+                  
                     if (problemToBeMoved == null)
                     {
                         couldStillMove = false;
                     }
                     else
                     {
+                        problemToBeMoved.HasBeen = true;
+
                         // Reassign the highest priority problem to staff called min.
                         problemToBeMoved.AssignedTo = min;
                         if (min.Workload > max.Workload)
                         {
                             // Move it back
                             problemToBeMoved.AssignedTo = max;
+                            couldStillMove = false;
+                        }
+                        else if (min.Workload == max.Workload)
+                        {
+                            // Don't move bakc if they are equal
                             couldStillMove = false;
                         }
                     }
