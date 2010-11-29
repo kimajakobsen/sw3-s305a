@@ -650,7 +650,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="HoplaModel" ZoomLevel="85">
+      <Diagram Name="HoplaModel" ZoomLevel="81">
         <EntityTypeShape EntityType="hoplaModel.Category" Width="1.5" PointX="10.625" PointY="23.625" Height="2.1725878906250031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="8.125" PointY="18" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Department" Width="1.5" PointX="8" PointY="24" Height="1.9802864583333353" IsExpanded="true" />
