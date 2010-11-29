@@ -29,22 +29,22 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
         <br /><br />
         <%: Html.ActionLink("Reassign", "Index", "ReassignProblem", new { id = Model.Problem.Id }, null)%>
+        <br /><br />
+                
 
-   
-
-          <% using (Html.BeginForm()) {%>
+        <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
-            <br /><br />
-        <%: Html.CheckBox("Reassignable", Model.Problem.Reassignable) %> Reassignable
+                <%: Html.CheckBox("Reassignable", Model.Problem.Reassignable) %> Reassignable
+
+                <%: Html.CheckBox("Reassignable", Model.Problem.IsDeadlineApproved) %> Deadline approved
 
 
+                <p>
+                    <input type="submit" value="Submit changes" />
+                </p>       
 
-            <p>
-                <input type="submit" value="Submit changes" />
-            </p>       
-
-    <% } %>
+        <% } %>
 
     </fieldset>
     
