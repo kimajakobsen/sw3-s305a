@@ -46,9 +46,13 @@ namespace HoplaHelpdesk.Models
             {
                 foreach (Tag tag in problem.Tags)
                 {
-                    ProblemTime = ProblemTime + tag.AverageTimeSpent;
+                    if (tag.AverageTimeSpent != null)
+                    {
+                        ProblemTime = ProblemTime + tag.AverageTimeSpent;
+                    }
                     TotalNumberOfTags++;
                 }
+
 
                 PersonTime = PersonTime + ProblemTime;
                 ProblemTime = 0;

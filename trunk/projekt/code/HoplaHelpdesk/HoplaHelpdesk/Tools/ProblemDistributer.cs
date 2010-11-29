@@ -12,19 +12,29 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemDistributer
     {
-        public static IPerson GetStaff(Problem Problem, EntityCollection<IPerson> PersonSet)
+    
+
+        public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
         {
-            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+            var persons = new List<IPerson>();
+            foreach (var item in PersonSet)
+            {
+                persons.Add(item);
+
+            }
+            return GetStaff(Problem, persons, GetDepartment(Problem.Tags));
         }
 
-        public static IPerson GetStaff(Problem Problem, EntityCollection<Person> PersonSet)
-        {
-            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
-        }
 
-        public static IPerson GetStaff(Problem Problem, ObjectSet<Person> PersonSet)
+        public static IPerson GetStaff(Problem Problem, List<Person> PersonSet, Department department)
         {
-            return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+            var persons = new List<IPerson>();
+            foreach (var item in PersonSet)
+            {
+                persons.Add(item);
+
+            }
+            return GetStaff(Problem, persons, department);
         }
 
 
@@ -32,32 +42,15 @@ namespace HoplaHelpdesk.Tools
 
         public static IPerson GetStaff(Problem Problem, Department department)
         {
-            return GetStaff(Problem, department.Persons, GetDepartment(Problem.Tags));
+
+            return GetStaff(Problem, department.Persons.ToList(), GetDepartment(Problem.Tags));
         }
 
-        public static IPerson GetStaff(Problem Problem, EntityCollection<Person> PersonSet, Department department)
-        {
-            var IPersonSet = new EntityCollection<IPerson>();
-            foreach (var person in PersonSet)
-            {
-                IPersonSet.Add(person);
-            }
-             return GetStaff(Problem, IPersonSet, GetDepartment(Problem.Tags));
-        }
+       
 
-        public static IPerson GetStaff(Problem Problem, ObjectSet<Person> PersonSet, Department department)
-        {
-            var IPersonSet = new EntityCollection<IPerson>();
-            foreach (var person in PersonSet)
-            {
-                IPersonSet.Add(person);
-            }
-            return GetStaff(Problem, IPersonSet, GetDepartment(Problem.Tags));
-        }
+     
 
-
-
-        public static IPerson GetStaff(Problem Problem,  EntityCollection<IPerson> PersonSet, Department department)
+        public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Department department)
         {
             Contract.Invariant(PersonSet != null, "PersonSet were null");
             
