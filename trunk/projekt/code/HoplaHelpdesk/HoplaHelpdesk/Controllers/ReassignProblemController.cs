@@ -55,7 +55,8 @@ namespace HoplaHelpdesk.Controllers
                 }
             }
 
-            problem.AssignedTo = (Person)staff;
+            problem.PersonsId = ((Person)staff).Id;
+               
             db.SaveChanges();
 
             return View("Succes");
