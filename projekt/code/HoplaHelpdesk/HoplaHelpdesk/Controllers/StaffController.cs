@@ -129,14 +129,14 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(int id)
         {
             Problem problem = new Problem();
-            try
-            {
+            /*try
+            {*/
                 problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
-            }
+            /*}
             catch (Exception)
             {
                 return View("Error");
-            }
+            }*/
 
             //try
             //{
@@ -168,7 +168,9 @@ namespace HoplaHelpdesk.Controllers
                 },
                 Solutionlistviewmodel = new SolutionListViewModel(){
                     Solutions = solutions,
-                    Deletable = true
+                    Deletable = true,
+                    Problem = problem
+
                 }  
             };
 
