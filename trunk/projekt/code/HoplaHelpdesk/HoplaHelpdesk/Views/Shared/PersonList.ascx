@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#"   Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
 
-    <table>
+    <table class="problemlist" width="90%">
         <tr>
             <th></th>
             <th>
@@ -14,6 +14,9 @@
             </th>
             <th>
                 DepartmentId
+            </th>
+            <th>
+                Workload
             </th>
         </tr>
 
@@ -34,7 +37,10 @@
                 <%: item.Email %>
             </td>
             <td>
-                <%: item.DepartmentId %>
+                <%: item.Department.Name %>
+            </td>
+             <td>
+                <%: item.GetWorkload() %>
             </td>
         </tr>
     

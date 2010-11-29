@@ -9,7 +9,13 @@ namespace HoplaHelpdesk.Models
     public partial class Department
     {
 
-        
+        public string Name
+        {
+            get { return DepartmentName; }
+            set { DepartmentName = value; }
+        }
+
+
         
     }
 }
