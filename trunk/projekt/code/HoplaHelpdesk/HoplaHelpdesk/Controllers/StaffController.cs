@@ -30,7 +30,7 @@ namespace HoplaHelpdesk.Controllers
 
             for (int i = 0; i == allSolutions.Count; i++)
             {
-                solutions.Add(allSolutions[i]);
+                //solutions.Add(allSolutions[i]);
                 for (int p = 0; p == allSolutions[i].Problems.Count; p++)
                 {
                     if (allSolutions[i].Problems.ToList()[p].Id == id)
