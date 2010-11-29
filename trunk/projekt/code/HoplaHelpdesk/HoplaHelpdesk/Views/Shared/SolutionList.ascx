@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.ViewModels.SolutionListViewModel>" %>
 
-    <table class="problemlist">
+    <table class="problemlist" width="100%">
         <tr>
             <% if (Model.Deletable) { %>   <th></th> <% } %>
             <th>
