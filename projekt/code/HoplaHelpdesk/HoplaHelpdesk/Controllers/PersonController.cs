@@ -147,7 +147,7 @@ namespace HoplaHelpdesk.Controllers
             }
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public String AddUserToRole(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
@@ -185,7 +185,7 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         public String UnRole(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.UnRole, User = " + user + "&role = " + role);
@@ -222,8 +222,8 @@ namespace HoplaHelpdesk.Controllers
             }
             return msg;
         }
-
-        //Aint working yet...
+        [Authorize(Roles = "admin")]
+        //ITS WORKING !!! WAAAOUUU !
         public String IsStaff(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.IsStaff, User = " + user);
