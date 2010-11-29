@@ -188,7 +188,7 @@ namespace HoplaHelpdesk.Controllers
         //[Authorize(Roles = "admin")]
         public String UnRole(string user, string role)
         {
-            string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
+            string msg = HttpUtility.HtmlEncode("Person.UnRole, User = " + user + "&role = " + role);
 
             //Check if any username is provided
             if (user == null || user == "")
@@ -226,7 +226,7 @@ namespace HoplaHelpdesk.Controllers
         //Aint working yet...
         public String IsStaff(string user, string role)
         {
-            string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user);
+            string msg = HttpUtility.HtmlEncode("Person.IsStaff, User = " + user);
 
             //Check if any username is provided
             if (user == null || user == "")
