@@ -78,9 +78,18 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
     <% }
        else
        { %>     
-          <p class="error">No problem matched your search</p>
+       <%if(ViewData["Message"] != null && ((string)ViewData["Message"]).Length != 0) 
+         {%>
+         <div>
+            <%: ViewData["Message"] %>
+         </div>
+       <%}
+         else
+         { %>
+          <p class="error">No problems where found</p>
             
-    <% } %>
+    <% }
+       } %>
     </fieldset> 
 
 </asp:Content>

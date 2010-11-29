@@ -24,7 +24,7 @@ namespace HoplaHelpdesk.Controllers
             }
             catch(SqlException)
             {
-                ViewData["Message"] = "Database could not be connected to!";
+                ViewData["Message"] = "Could not connect to database!";
 
                 return View();
             }
