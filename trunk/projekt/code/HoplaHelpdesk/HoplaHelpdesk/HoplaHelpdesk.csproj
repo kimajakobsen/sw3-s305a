@@ -276,7 +276,6 @@
     <Content Include="Views\Person\Create.aspx" />
     <Content Include="Views\Person\Delete.aspx" />
     <Content Include="Views\Person\Details.aspx" />
-    <Content Include="Views\Person\dummy.aspx" />
     <Content Include="Views\Person\Edit.aspx" />
     <Content Include="Views\Person\Index.aspx" />
     <Content Include="Views\ReassignProblem\Index.aspx" />
