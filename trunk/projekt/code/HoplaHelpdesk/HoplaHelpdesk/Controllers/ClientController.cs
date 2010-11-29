@@ -164,7 +164,7 @@ namespace HoplaHelpdesk.Controllers
         {
 
 
-            return RedirectToAction("Details","CreateProblem");
+            return RedirectToAction("Details", "CreateProblem", new { id });
         }
 
         //
