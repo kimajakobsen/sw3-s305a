@@ -301,6 +301,7 @@
     <Content Include="Views\Shared\EditorTemplates\SolutionCreate.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Person.ascx" />
     <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\ProblemClientList.ascx" />
     <Content Include="Views\Shared\ProblemList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
