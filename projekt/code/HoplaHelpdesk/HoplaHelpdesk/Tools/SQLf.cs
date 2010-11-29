@@ -114,17 +114,18 @@ namespace HoplaHelpdesk.Tools
             //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             SqlCommand userId;
-            SqlCommand userN;
+            //Creating two strings with diffrend values, so it is possible to compare later
             String userA = "0";
             String userB = "1";
             
-
+            //SQLcommand for userId for input UserName
             userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
-            userN = new SqlCommand("SELECT UserName FROM aspnet_Users WHERE (UserId = '" + userId + "')", cn);
             
             cn.Open();
             try
             {
+                //I try to assign userA and userB with new values
+                //If user exists userA and userB will have the same value
                 userA = userId.ExecuteScalar().ToString();
                 userB = userId.ExecuteScalar().ToString();
                 cn.Close();
@@ -155,18 +156,24 @@ namespace HoplaHelpdesk.Tools
             SqlCommand userId;
             SqlCommand roleId;
 
+            //Find the UserId and RoleId
             userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
             roleId = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = '" + role + "')", cn);
 
             cn.Open();
             String userA = userId.ExecuteScalar().ToString();
             String roleA = roleId.ExecuteScalar().ToString();
-
-            delete = new SqlCommand("DELETE FROM aspnet_UsersInRoles WHERE(RoleId = '" + roleA + "') AND (UserId = '" + userA + "')", cn);
-
-            delete.ExecuteNonQuery();
-            delete.Dispose();
-            cn.Close();
+            try
+            {
+                delete = new SqlCommand("DELETE FROM aspnet_UsersInRoles WHERE(RoleId = '" + roleA + "') AND (UserId = '" + userA + "')", cn);
+                delete.ExecuteNonQuery();
+                delete.Dispose();
+                cn.Close();
+            }
+            catch
+            {
+            }
+            
         }
 
     }
