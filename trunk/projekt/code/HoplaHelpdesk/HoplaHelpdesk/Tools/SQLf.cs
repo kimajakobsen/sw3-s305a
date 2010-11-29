@@ -228,7 +228,6 @@ namespace HoplaHelpdesk.Tools
                 cn.Open();
                 var temp = getRoles.ExecuteReader();
 
-
                 while (temp.Read())
                 {
                     result.Add(temp[0].ToString());
@@ -266,6 +265,7 @@ namespace HoplaHelpdesk.Tools
 
         }
 
+       
     }
 
     
