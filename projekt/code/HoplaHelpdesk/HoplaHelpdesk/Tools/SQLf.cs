@@ -19,7 +19,7 @@ namespace HoplaHelpdesk.Tools
             SqlCommand userId;
             SqlCommand roleId;
             SqlCommand DBroleId;
-            int i = 0;
+            
             String IsItTrue = "2";
 
             userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
@@ -33,7 +33,7 @@ namespace HoplaHelpdesk.Tools
                 IsItTrue = DBroleId.ExecuteScalar().ToString();
                 cn.Close();
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 
             }
@@ -117,7 +117,7 @@ namespace HoplaHelpdesk.Tools
             SqlCommand userN;
             String userA = "0";
             String userB = "1";
-            String what = "true";
+            
 
             userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
             userN = new SqlCommand("SELECT UserName FROM aspnet_Users WHERE (UserId = '" + userId + "')", cn);
@@ -129,7 +129,7 @@ namespace HoplaHelpdesk.Tools
                 userB = userId.ExecuteScalar().ToString();
                 cn.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 
             }

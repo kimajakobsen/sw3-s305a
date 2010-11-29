@@ -15,7 +15,8 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult AttachSolution(int id, string solutionID)
         {
-            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(db.SolutionSet.FirstOrDefault(z => z.Id == int.Parse(solutionID)));
+            int solID = int.Parse(solutionID);
+            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(db.SolutionSet.FirstOrDefault(z => z.Id == solID));
 
             return RedirectToAction("Details", new { id = id });
         }
@@ -25,7 +26,7 @@ namespace HoplaHelpdesk.Controllers
 
             Problem problem = db.ProblemSet.First(x => x.Id == id);
 
-            List<Solution> solutions = db.SolutionSet.ToList().Where(x => x.Problems.Contains(problem) == true).ToList();
+            List<Solution> solutions = db.SolutionSet.ToList().Where(x => !x.Problems.Contains(problem)).ToList();
             
             var viewModel = new AttachSolutionViewModel()
             {
