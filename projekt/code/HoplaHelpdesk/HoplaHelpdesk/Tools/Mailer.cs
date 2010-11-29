@@ -7,7 +7,6 @@ namespace HoplaHelpdesk.Tools
 {
     public class Mailer
     {
-
         /*public static void SendEmail(MailAddress fromAddress, MailAddress toAddress, string subject, string body)
         {
             var message = new MailMessage(fromAddress, toAddress)
