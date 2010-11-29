@@ -258,6 +258,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.sortable.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Views\Shared\ClientMenu.ascx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Category\Create.aspx" />
     <Content Include="Views\Category\Delete.aspx" />
@@ -281,6 +282,7 @@
     <Content Include="Views\Person\Index.aspx" />
     <Content Include="Views\ReassignProblem\Index.aspx" />
     <Content Include="Views\ReassignProblem\StaffList.ascx" />
+    <Content Include="Views\Shared\AdminMenu.ascx" />
     <Content Include="Views\ReassignProblem\Succes.aspx" />
     <Content Include="Views\Shared\CommentList.ascx" />
     <Content Include="Views\Shared\PersonAddList.ascx" />
@@ -302,6 +304,7 @@
     <Content Include="Views\Shared\SolutionList.ascx" />
     <Content Include="Views\Shared\PersonList.ascx" />
     <Content Include="Views\Shared\TagList.ascx" />
+    <Content Include="Views\Shared\StaffMenu.ascx" />
     <Content Include="Views\Staff\Details.aspx" />
     <Content Include="Views\Staff\Edit.ascx" />
     <Content Include="Views\Staff\Index.aspx" />
