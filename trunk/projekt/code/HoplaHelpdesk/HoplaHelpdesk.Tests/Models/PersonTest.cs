@@ -113,15 +113,15 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void GetWorkloadTest()
         {
-            Tag Bjørn = new Tag() { AverageTimeSpent = 60 };
-            Tag Hund = new Tag() { AverageTimeSpent = 120 };
-            Tag Kat = new Tag() { AverageTimeSpent = 180 };
+          //  Tag Bjørn = new Tag() { AverageTimeSpent = 60 };
+          //  Tag Hund = new Tag() { AverageTimeSpent = 120 };
+          //  Tag Kat = new Tag() { AverageTimeSpent = 180 };
 
             Problem problem1 = new Problem()
             {
                 Tags = new EntityCollection<Tag>()
                 {
-                    Bjørn, Kat
+                //    Bjørn, Kat
                 }
 
             };
@@ -129,7 +129,7 @@ namespace HoplaHelpdesk.Tests
             {
                 Tags = new EntityCollection<Tag>()
                 {
-                    Hund
+                 //   Hund
                 }
             };
             var Rasmus = new Person()
