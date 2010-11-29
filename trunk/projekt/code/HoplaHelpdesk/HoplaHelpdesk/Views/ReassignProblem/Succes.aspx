@@ -7,5 +7,5 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Succes</h2>
-    <p>Problem has been succesfully rassigned from <strong><%:Model.From.Name %></strong> to <strong><%: Model.To.Name %></strong></p>
+    <p>Problem has been succesfully rassigned from <strong><%:Model.From.Name %></strong> to <strong><%: Model.Problem.AssignedTo.Name %></strong></p>
 </asp:Content>

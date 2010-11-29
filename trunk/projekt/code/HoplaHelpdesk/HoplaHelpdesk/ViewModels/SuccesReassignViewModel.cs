@@ -9,7 +9,6 @@ namespace HoplaHelpdesk.ViewModels
     public class SuccesReassignViewModel
     {
         public Person From { get; set; }
-        public Person To { get; set; }
         public Problem Problem { get; set; }
     }
 }

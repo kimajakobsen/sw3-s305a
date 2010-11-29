@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
 using HoplaHelpdesk.Tools;
+using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -38,7 +39,7 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Assign(int id, int dept)
         {
             var problem = (Problem)Session["Problem"];
-
+            var from = problem.AssignedTo;
             IPerson staff = null;
             if (dept == 0)
             {
@@ -54,12 +55,18 @@ namespace HoplaHelpdesk.Controllers
                     return View("Error");
                 }
             }
-
+           
             problem.PersonsId = ((Person)staff).Id;
                
             db.SaveChanges();
+            var viewModel = new SuccesReassignViewModel()
+            {
+                From = from,
+             
+                Problem = problem
 
-            return View("Succes");
+            };
+            return View("Succes", viewModel);
         }
 
         //
