@@ -34,10 +34,29 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
         <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-        
-                <%: Html.CheckBox("Reassignable", Model.Problem.Reassignable) %> Reassignable
+                <p>
+                    <% if (Model.Problem.Reassignable == true)
+                       { %>
+                    <%: Html.CheckBox("reassignability", true)%> Reassignable
+                    <% }
+                       else
+                       { %>
+                       <%: Html.CheckBox("reassignability", false)%> Reassignable
+                    <% } %>
+                </p>
 
-                <%: Html.CheckBox("Reassignable", Model.Problem.IsDeadlineApproved) %> Deadline approved
+
+
+                <p>
+                    <% if (Model.Problem.IsDeadlineApproved == true)
+                       { %>
+                    <%: Html.CheckBox("approveDeadline", true)%> Deadline approve
+                    <% }
+                       else
+                       { %>
+                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approve
+                    <% } %>
+                </p>     
 
 
                 <p>
