@@ -1,6 +1,15 @@
-﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
+Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
 
-    <table>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+	Details
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>Details</h2>
+
+        <table>
         <tr>
             <th></th>
             <th>
@@ -12,17 +21,13 @@
             <th>
                 Email
             </th>
-            <th>
-                DepartmentId
-            </th>
         </tr>
 
     <% foreach (var item in Model) { %>
     
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id, name=item.Name, email=item.Email }) %> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
+                <%: Html.ActionLink("Add", "Edit") %> |
             </td>
             <td>
                 <%: item.Id %>
@@ -33,15 +38,12 @@
             <td>
                 <%: item.Email %>
             </td>
-            <td>
-                <%: item.DepartmentId %>
-            </td>
+
         </tr>
     
     <% } %>
 
     </table>
 
-
-
+</asp:Content>
 
