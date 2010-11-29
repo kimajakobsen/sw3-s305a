@@ -4,9 +4,6 @@
         <tr>
             <th></th>
             <th>
-                Id
-            </th>
-            <th>
                 Name
             </th>
             <th>
@@ -23,9 +20,6 @@
             <td>
                 <%: Html.ActionLink("Edit", "Edit", new { id=item.Id, name=item.Name, email=item.Email }) %> |
                 <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
-            </td>
-            <td>
-                <%: item.Id %>
             </td>
             <td>
                 <%: item.Name %>
