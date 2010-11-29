@@ -20,7 +20,7 @@
         <div class="display-field"><%: Model.IsDeadlineApproved %></div>
         
         <div class="display-label">AssignedTo</div>
-        <div class="display-field"><%: Model.AssignedTo %></div>
+        <div class="display-field"><%: Model.AssignedTo.Name %></div>
         
         <div class="display-label">Reassignable</div>
         <div class="display-field"><%: Model.Reassignable %></div>
