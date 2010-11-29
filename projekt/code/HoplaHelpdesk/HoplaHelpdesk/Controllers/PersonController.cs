@@ -36,7 +36,19 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Create(int? id)
         {
+
             return View();
+        }
+
+        //
+        // GET: /Person/Details
+
+        public ActionResult Details()
+        {
+            var Personlist = db.PersonSet.ToList();
+
+            var viewmodel = new PersonListViewModel() { Persons = Personlist };
+            return View(viewmodel);
         } 
 
         //
@@ -60,7 +72,7 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Person/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, string name, string email)
         {
             return View();
         }
