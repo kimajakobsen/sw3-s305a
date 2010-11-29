@@ -45,10 +45,11 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Details()
         {
-            var Personlist = db.PersonSet.ToList();
+           var Personlist = db.PersonSet.ToList();
 
-            var viewmodel = new PersonListViewModel() { Persons = Personlist };
-            return View(viewmodel);
+           var viewmodel = new PersonListViewModel() { Persons = Personlist };
+           return View(viewmodel);
+            
         } 
 
         //
