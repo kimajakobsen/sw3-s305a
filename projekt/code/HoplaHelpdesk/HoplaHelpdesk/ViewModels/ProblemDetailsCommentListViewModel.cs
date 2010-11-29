@@ -16,5 +16,7 @@ namespace HoplaHelpdesk.ViewModels
 
         public SolutionListViewModel Solutionlistviewmodel { get; set; }
         //public List<Solution> Solutions { get; set; } // list of solutions to this problem
+
+        public bool reassignability { get; set; }
     }
 }
