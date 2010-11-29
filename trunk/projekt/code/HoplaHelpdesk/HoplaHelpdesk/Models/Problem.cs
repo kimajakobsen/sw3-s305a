@@ -66,7 +66,7 @@ namespace HoplaHelpdesk.Models
 
                 tag.TimeConsumed = tag.TimeConsumed + MinutesConsumed;
 
-                tag.AverageTimeSpent = tag.TimeConsumed / tag.SolvedProblems;
+           //     tag.AverageTimeSpent = tag.TimeConsumed / tag.SolvedProblems;
 
             }
         }

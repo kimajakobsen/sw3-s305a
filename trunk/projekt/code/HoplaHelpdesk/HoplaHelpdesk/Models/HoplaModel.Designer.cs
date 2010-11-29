@@ -37,7 +37,7 @@ namespace HoplaHelpdesk.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class hoplaEntities : ObjectContext, IhoplaEntities
+    public partial class hoplaEntities : ObjectContext
     {
         #region Constructors
     
@@ -1771,30 +1771,6 @@ namespace HoplaHelpdesk.Models
         private Nullable<global::System.Decimal> _TimeConsumed;
         partial void OnTimeConsumedChanging(Nullable<global::System.Decimal> value);
         partial void OnTimeConsumedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> AverageTimeSpent
-        {
-            get
-            {
-                return _AverageTimeSpent;
-            }
-            set
-            {
-                OnAverageTimeSpentChanging(value);
-                ReportPropertyChanging("AverageTimeSpent");
-                _AverageTimeSpent = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("AverageTimeSpent");
-                OnAverageTimeSpentChanged();
-            }
-        }
-        private Nullable<global::System.Decimal> _AverageTimeSpent;
-        partial void OnAverageTimeSpentChanging(Nullable<global::System.Decimal> value);
-        partial void OnAverageTimeSpentChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
