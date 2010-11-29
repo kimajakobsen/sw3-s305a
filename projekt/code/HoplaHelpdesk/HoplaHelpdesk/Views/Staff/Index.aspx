@@ -6,14 +6,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Staff interface</h2>
-
     <ul>
-    <li>
-    <%: Html.ActionLink("Worklist", "Worklist") %>
-    </li>
-    
+        <li><%: Html.ActionLink("Worklist", "Worklist") %></li>
     </ul>
-
 
 </asp:Content>

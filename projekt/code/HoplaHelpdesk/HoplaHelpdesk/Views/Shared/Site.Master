@@ -34,15 +34,22 @@
         <table width="90%" border="0" cellpadding="10" cellspacing="10" align="center">
             <tr>
                 <td bgcolor="#E8AA5F">
-                    <div id="menucontainer">
-                        <ul id="menu">
-                            <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                            <li><%: Html.ActionLink("Client", "Index", "Client")  %></li>
-                            <li><%: Html.ActionLink("Staff", "Index", "Staff")  %></li>
-                            <li><%: Html.ActionLink("Admin", "Index", "Admin")  %></li>
-                            <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                        </ul>
-                    </div>
+                    <ul id="menu">
+                        <li> <%Html.ActionLink("Home", ""); %></li>
+                        <% 
+                        if (Page.User.IsInRole("Client"))
+                        {
+                            Html.RenderPartial("ClientMenu");
+                        }
+                        if (Page.User.IsInRole("Staff"))
+                        {
+                        Html.RenderPartial("StaffMenu");
+                        }
+                        if (Page.User.IsInRole("Admin"))
+                        {
+                        Html.RenderPartial("AdminMenu"); 
+                        }%>
+                    </ul>
                 </td>
             </tr>
             <tr>

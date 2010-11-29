@@ -6,22 +6,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Client interface</h2>
-
     <ul>
-    
-    <li>
-    <%: Html.ActionLink("Add problem", "CategorizeNewProblem", "CreateProblem") %>
-    </li>
-    
-    <li>
-    <%: Html.ActionLink("My problems", "ViewProblems", new { id = Model })%>
-    </li>
-    
-    <li>
-    <%: Html.ActionLink("Search for problems", "ViewProblems") %>
-    </li>
-    
+        <li><%: Html.ActionLink("Add problem", "CategorizeNewProblem", "CreateProblem") %></li>
+        <li><%: Html.ActionLink("My problems", "ViewProblems", new { id = Model })%></li>
+        <li><%: Html.ActionLink("Search for problems", "ViewProblems") %></li>
     </ul>
 
 </asp:Content>
