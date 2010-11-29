@@ -38,6 +38,40 @@ namespace HoplaHelpdesk.Models
 
         public double Workload { get { return GetWorkload(); } }
 
+
+
+        public double GetWorkload()
+        {
+            int NumberOfTags = 0;
+            decimal? ProblemTime = 0;
+            decimal? PersonTime = 0;
+
+            foreach (Problem problem in Problems)
+            {
+                foreach (Tag tag in problem.Tags)
+                {
+                    if (tag.AverageTimeSpent != null)
+                    {
+                        ProblemTime = ProblemTime + tag.AverageTimeSpent;
+                    }
+                    NumberOfTags++;
+                }
+
+                if(NumberOfTags == 0){
+                    NumberOfTags = 1;
+                    ProblemTime = 10;
+                }
+
+                PersonTime = PersonTime + ProblemTime/NumberOfTags;
+                
+                ProblemTime = 0;
+                 
+
+            }
+
+            return (double)PersonTime;
+        }
+        /*
         public double GetWorkload()
         {
             int TotalNumberOfTags = 0;
@@ -63,6 +97,7 @@ namespace HoplaHelpdesk.Models
 
             return ((double)(PersonTime)/TotalNumberOfTags);
         }
+         * */
     }
 
     public interface IPerson 
