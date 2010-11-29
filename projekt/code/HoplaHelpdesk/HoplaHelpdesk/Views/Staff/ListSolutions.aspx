@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>ListSolution</h2>
+    <h2>Attach solution to problem</h2>
 
     <table>
         <tr>

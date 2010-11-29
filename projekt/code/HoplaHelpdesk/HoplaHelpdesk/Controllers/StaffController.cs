@@ -15,6 +15,7 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult AttachSolution(int id, string solutionID)
         {
+            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(db.SolutionSet.FirstOrDefault(z => z.Id == int.Parse(solutionID)));
 
             return RedirectToAction("Details", new { id = id });
         }
