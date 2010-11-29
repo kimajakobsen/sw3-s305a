@@ -11,4 +11,10 @@
         <li><%: Html.ActionLink("Person Administrate", "Index","person")%></li>
     </ul>
 
+    <form name="input" action="../Person/AddUserToRole" method="get">
+Username: <input type="text" name="user" />
+Role:<input type="text" name="role" />
+<input type="submit" value="Submit" />
+</form>
+
 </asp:Content>
