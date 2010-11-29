@@ -46,7 +46,7 @@ namespace HoplaHelpdesk.Models
             decimal? ProblemTime = 0;
             decimal? PersonTime = 0;
 
-            foreach (Problem problem in Problems)
+            foreach (Problem problem in Worklist)
             {
                 foreach (Tag tag in problem.Tags)
                 {
@@ -63,7 +63,7 @@ namespace HoplaHelpdesk.Models
                 }
 
                 PersonTime = PersonTime + ProblemTime/NumberOfTags;
-                
+                NumberOfTags = 0;
                 ProblemTime = 0;
                  
 

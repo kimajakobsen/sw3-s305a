@@ -21,6 +21,10 @@ namespace HoplaHelpdesk.Models
             private set{}
         }
 
+        /// <summary>
+        /// Derived value to determine what has been selected and what has not.
+        /// </summary>
+        public bool HasBeen { get; set; }
 
         public class ProblemMetaData
         {
