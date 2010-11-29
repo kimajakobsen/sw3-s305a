@@ -20,7 +20,7 @@
     
         <tr>
             <td>
-                <%: Html.ActionLink("Attach", "AttachSolution", new { id = Model.ProblemID, solutionID=item.Id.ToString() })%> 
+                <%: Html.ActionLink("Attach", "AttachSolution", new { id = Model.ProblemID, solutionID=item.Id })%> 
             </td>
             <td>
                 <%: item.Description %>

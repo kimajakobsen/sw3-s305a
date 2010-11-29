@@ -13,11 +13,11 @@ namespace HoplaHelpdesk.Controllers
     {
         hoplaEntities db = new hoplaEntities();
 
-        public ActionResult AttachSolution(int id, string solutionID)
+        public ActionResult AttachSolution(int id, int solutionID)
         {
-            int solID = int.Parse(solutionID);
+            //int solID = int.Parse(solutionID);
 
-            Solution solution = db.SolutionSet.FirstOrDefault(x => x.Id == solID);
+            Solution solution = db.SolutionSet.FirstOrDefault(x => x.Id == solutionID);
 
             db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
             db.SaveChanges();
