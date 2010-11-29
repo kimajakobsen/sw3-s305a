@@ -83,16 +83,19 @@ namespace HoplaHelpdesk.Tools
             //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            SqlCommand Staff;
-            SqlCommand User;
+            SqlCommand StaffId;
+            SqlCommand UserId;
             SqlCommand DBroleId;
 
-            User = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
-            Staff = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = 'Staff')", cn);
+            //Gets the UserId and RoleId for staff
+            UserId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
+            StaffId = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = 'Staff')", cn);
 
             cn.Open();
-            String userA = User.ExecuteScalar().ToString();
-            String StaffA = Staff.ExecuteScalar().ToString();
+            //Making userId and StaffId to strings
+            String userA = UserId.ExecuteScalar().ToString();
+            String StaffA = StaffId.ExecuteScalar().ToString();
+
             DBroleId = new SqlCommand("SELECT RoleId FROM aspnet_UsersInRoles WHERE (RoleId = '" + StaffA + "') AND (UserId = '" + userA + "')", cn);
             String IsItTrue = DBroleId.ExecuteNonQuery().ToString();
                 cn.Close();
