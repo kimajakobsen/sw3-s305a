@@ -22,7 +22,23 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult ListSolutions(int id)
         {
-            List<Solution> solutions = db.SolutionSet.ToList();
+
+            //List<Solution> solutions = db.SolutionSet.Where(x => x.Problems.Where(y => y.Id != id).ToList() == ).ToList();
+
+            List<Solution> allSolutions = db.SolutionSet.ToList();
+            List<Solution> solutions = new List<Solution>();
+
+            for (int i = 0; i == allSolutions.Count; i++)
+            {
+                for (int p = 0; p == allSolutions[i].Problems.Count; p++)
+                {
+                    if (allSolutions[i].Problems.ToList()[p].Id != id)
+                    {
+                        solutions.Add(allSolutions[p]);
+                        break;
+                    }
+                }
+            }
 
             var viewModel = new AttachSolutionViewModel()
             {
