@@ -35,7 +35,7 @@
             <tr>
                 <td bgcolor="#E8AA5F">
                     <ul id="menu">
-                        <li> <% Html.ActionLink("Home", "Index", "Home" ); %></li>
+                        <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                         <% 
                         if (Page.User.IsInRole("Client"))
                         {
