@@ -162,6 +162,7 @@ namespace HoplaHelpdesk.Controllers
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
                   model.Problem.Added_date = DateTime.Now;
+                  model.Problem.Reassignable = true;
                   model.Problem.AssignedTo = (Person)ProblemDistributer.GetStaff(model.Problem, db.PersonSet.ToList());
                   var person = db.PersonSet.Single(x => x.Name == User.Identity.Name.ToLower());
                   model.Problem.Persons.Add(person);
