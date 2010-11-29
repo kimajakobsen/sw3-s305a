@@ -14,8 +14,8 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
         <br />
         <h2>Solutions:</h2>
         
-        <%: Html.ActionLink("Write new solution", "AddSolution", new { id= Model.Problem.Id })%>
-        <%: Html.ActionLink("Attach solution from database", "ListSolutions", new { id= Model.Problem.Id })%>
+        <%: Html.ActionLink("Write new solution", "AddSolution", new { id= Model.Problem.Id })%><br />
+        <%: Html.ActionLink("Attach solution from database", "ListSolutions", new { id= Model.Problem.Id })%><br />
 
         <% Html.RenderPartial("SolutionList", Model.Solutionlistviewmodel); %>
         <br />
