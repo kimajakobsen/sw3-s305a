@@ -134,12 +134,12 @@ namespace HoplaHelpdesk.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public String AddUserToRole(string user, string role)
         {
             Tools.SQLf sql = new Tools.SQLf();
 
-            string msg = HttpUtility.HtmlEncode("admin.AddUserToRole, User = " + user + "&role = " + role);
+            string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
 
             //Check if any username is provided
             if (user == null || user == "")
@@ -174,12 +174,12 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public String UnRole(string user, string role)
         {
             Tools.SQLf sql = new Tools.SQLf();
 
-            string msg = HttpUtility.HtmlEncode("admin.AddUserToRole, User = " + user + "&role = " + role);
+            string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
 
             //Check if any username is provided
             if (user == null || user == "")
@@ -213,5 +213,34 @@ namespace HoplaHelpdesk.Controllers
             }
             return msg;
         }
+
+        //Aint working yet...
+        public String IsStaff(string user, string role)
+        {
+            Tools.SQLf sql = new Tools.SQLf();
+
+            string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user);
+
+            //Check if any username is provided
+            if (user == null || user == "")
+            {
+                msg = "No username is provided";
+            }
+            //Check User by username provided, if username equals null, the user dont exists
+            else if (sql.DoUserExists(user) == false)
+            {
+                msg = "User dont exists";
+            }
+            else if (sql.IsStaff(user) == true)
+            {
+                msg = user + " is staff.";
+            }
+            else
+            {
+                //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
+                msg = user + " is not staff.";
+            }
+            return msg;
+    }
     }
 }
