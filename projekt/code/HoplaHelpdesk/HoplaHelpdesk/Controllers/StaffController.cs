@@ -70,8 +70,11 @@ namespace HoplaHelpdesk.Controllers
             //try{
 
             int myID = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            
+            //problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID).ToList();
+            problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null).ToList();
 
-            problemList = db.ProblemSet.Where(x => x.PersonsId == myID).ToList();
+            
 
             //}catch (Exception){return View("Error");}
 
@@ -118,6 +121,16 @@ namespace HoplaHelpdesk.Controllers
             else if (model.reassignability == false)
             {
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).Reassignable = false;
+            }
+
+            if (model.solved == true)
+            {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).SolvedAtTime = DateTime.Now;
+                //db.ProblemSet.FirstOrDefault(x => x.Id == id).PersonsId = null;
+            }
+            else
+            {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).SolvedAtTime = null;
             }
 
 

@@ -13,6 +13,17 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
                 <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
                 <p>
+                    <% if (Model.Problem.SolvedAtTime != null)
+                       { %>
+                    <%: Html.CheckBox("solved", true) %> Solved
+                    <% }
+                       else
+                       { %>
+                       <%: Html.CheckBox("solved", false)%> Solved
+                    <% } %>
+                </p>
+                
+                <p>
                     <% if (Model.Problem.Reassignable == true)
                        { %>
                     <%: Html.CheckBox("reassignability", true) %> Reassignable
