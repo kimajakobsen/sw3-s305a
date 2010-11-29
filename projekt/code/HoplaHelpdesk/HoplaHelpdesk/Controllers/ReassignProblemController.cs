@@ -43,7 +43,7 @@ namespace HoplaHelpdesk.Controllers
             IPerson staff = null;
             if (id == 0)
             {
-                staff = ProblemDistributer.GetStaff(problem, db.PersonSet.ToList());
+                staff = ProblemDistributer.GetStaff(problem, db.PersonSet.ToList(), db.DepartmentSet.FirstOrDefault(x => x.Id == dept));
             }
             else
             {
