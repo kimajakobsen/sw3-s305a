@@ -13,7 +13,7 @@
         <tr>
             <% if (Model.Deletable) { %>       
             <td>
-                 <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%>
+                 <%: Html.ActionLink("Detach", "DetachSolution", new { id = Model.Problem.Id, solutionID = item.Id})%>
                 
             </td>
             <% } %>
