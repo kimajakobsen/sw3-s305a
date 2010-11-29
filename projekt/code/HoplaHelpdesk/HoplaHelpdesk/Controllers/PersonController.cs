@@ -9,6 +9,7 @@ using System.Security.Principal;
 using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.ViewModels;
+using HoplaHelpdesk.Tools;
 
 
 namespace HoplaHelpdesk.Controllers
@@ -85,7 +86,18 @@ namespace HoplaHelpdesk.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View(new EditPersonViewModel { Person = db.PersonSet.FirstOrDefault(x => x.Id == id), AllDepartments = db.DepartmentSet.ToList() });
+            Person person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+            //ViewData["asp_User"] =Tools.SQLf.GetRoleOfUser(person.Name);
+
+            return View(new EditPersonViewModel
+            {
+                Person = person,
+                AllDepartments = db.DepartmentSet.ToList(),
+                Roles = Tools.SQLf.GetRoles(),
+                Role = new Role { Name = Tools.SQLf.GetRoleOfUser(person.Name) }
+            });
+
+            
         }
 
         //
@@ -138,8 +150,6 @@ namespace HoplaHelpdesk.Controllers
         //[Authorize(Roles = "admin")]
         public String AddUserToRole(string user, string role)
         {
-            Tools.SQLf sql = new Tools.SQLf();
-
             string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
 
             //Check if any username is provided
@@ -158,17 +168,17 @@ namespace HoplaHelpdesk.Controllers
                 msg = "Role dont exists";
             }
             //Check User by username provided, if username equals null, the user dont exists
-            else if (sql.DoUserExists(user) == false)
+            else if (SQLf.DoUserExists(user) == false)
             {
                 msg = "User dont exists";
             }
-            else if (sql.UserIsAlreadyInThatRole(user, role) == true)
+            else if (SQLf.UserIsAlreadyInThatRole(user, role) == true)
             {
                 msg = user + " is already assigned to " + role + ".";
             }
             else
             {
-                sql.UserToRole(user, role);
+                SQLf.UserToRole(user, role);
                 //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
                 msg = user + " is assigned to " + role + ".";
             }
@@ -178,8 +188,6 @@ namespace HoplaHelpdesk.Controllers
         //[Authorize(Roles = "admin")]
         public String UnRole(string user, string role)
         {
-            Tools.SQLf sql = new Tools.SQLf();
-
             string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
 
             //Check if any username is provided
@@ -198,17 +206,17 @@ namespace HoplaHelpdesk.Controllers
                 msg = "Role dont exists";
             }
             //Check User by username provided, if username equals null, the user dont exists
-            else if (sql.DoUserExists(user) == false)
+            else if (SQLf.DoUserExists(user) == false)
             {
                 msg = "User dont exists";
             }
-            else if (sql.UserIsAlreadyInThatRole(user, role) == false)
+            else if (SQLf.UserIsAlreadyInThatRole(user, role) == false)
             {
                 msg = user + " is not " + role + ", did you mean to remove " + user + " from another role?";
             }
             else
             {
-                sql.UnRole(user, role);
+                SQLf.UnRole(user, role);
                 //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
                 msg = user + " is no longer " + role + ".";
             }
@@ -218,8 +226,6 @@ namespace HoplaHelpdesk.Controllers
         //Aint working yet...
         public String IsStaff(string user, string role)
         {
-            Tools.SQLf sql = new Tools.SQLf();
-
             string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user);
 
             //Check if any username is provided
@@ -228,11 +234,11 @@ namespace HoplaHelpdesk.Controllers
                 msg = "No username is provided";
             }
             //Check User by username provided, if username equals null, the user dont exists
-            else if (sql.DoUserExists(user) == false)
+            else if (SQLf.DoUserExists(user) == false)
             {
                 msg = "User dont exists";
             }
-            else if (sql.IsStaff(user) == true)
+            else if (SQLf.IsStaff(user) == true)
             {
                 msg = user + " is staff.";
             }

@@ -17,7 +17,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
         <% using (Html.BeginForm()) {%>
         <fieldset>
             <legend>Search</legend>
-            <table>
+            <table class="ContentContainer">
                 <tr>
                     <th>
                     
