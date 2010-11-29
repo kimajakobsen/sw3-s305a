@@ -280,6 +280,7 @@
     <Content Include="Views\Person\Index.aspx" />
     <Content Include="Views\ReassignProblem\Index.aspx" />
     <Content Include="Views\ReassignProblem\StaffList.ascx" />
+    <Content Include="Views\ReassignProblem\Succes.aspx" />
     <Content Include="Views\Shared\CommentList.ascx" />
     <Content Include="Views\Shared\PersonAddList.ascx" />
     <Content Include="Views\Shared\DepartmentCategoryList.ascx" />
