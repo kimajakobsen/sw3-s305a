@@ -201,24 +201,34 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Subscribe(int PerId, int ProId )
         {
-            try
+            //try
+            //{
+            if (!(db.PersonSet.FirstOrDefault(x => x.Id == PerId).Problems.Contains(db.ProblemSet.FirstOrDefault(x => x.Id == ProId))))
             {
+
                 db.PersonSet.FirstOrDefault(x => x.Id == PerId).Problems.Add(db.ProblemSet.FirstOrDefault(x => x.Id == ProId));
-                
+
                 db.SaveChanges();
-            
+
+                return RedirectToAction("ViewProblems", "Client");
+            }
+            else
+            {
+                ViewData["Error"] = "You are allready subscribed to the problem";
+                return View("Error");
+            }
 
 
-                return RedirectToAction("Details", "CreateProblem");
+                
       
                 
                 
-            }
-            catch 
-            {
-                ViewData["Error"] = "An error occered, while trying to subscribe you to the problem";
-                return View("Error");
-            }
+            //}
+            //catch 
+            //{
+            //    ViewData["Error"] = "An error occered, while trying to subscribe you to the problem";
+            //    return View("Error");
+            //}
             
         }
     }
