@@ -8,6 +8,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.Models;
+using System.Security.Principal;
+using System.Web.Security;
+using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -87,6 +90,7 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            Tools.SQLf sql = new Tools.SQLf();
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -110,6 +114,7 @@ namespace HoplaHelpdesk.Controllers
 
             // If we got this far, something failed, redisplay form
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            sql.AddToClient(model.UserName);
             return View(model);
         }
 
