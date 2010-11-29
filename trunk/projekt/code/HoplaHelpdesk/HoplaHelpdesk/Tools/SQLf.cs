@@ -86,7 +86,7 @@ namespace HoplaHelpdesk.Tools
             SqlCommand StaffId;
             SqlCommand UserId;
             SqlCommand DBroleId;
-            String IsItTrue = "0";
+            String IsItTrue = "";
 
             //Gets the UserId and RoleId for staff
             UserId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
@@ -96,11 +96,11 @@ namespace HoplaHelpdesk.Tools
             //Making userId and StaffId to strings
             String userA = UserId.ExecuteScalar().ToString();
             String StaffA = StaffId.ExecuteScalar().ToString();
+            DBroleId = new SqlCommand("SELECT RoleId FROM aspnet_UsersInRoles WHERE (UserId = '" + userA + "') AND (RoleId = '" + StaffA + "')", cn);
 
             try
             {
-                DBroleId = new SqlCommand("SELECT RoleId FROM aspnet_UsersInRoles WHERE (RoleId = '" + StaffA + "') AND (UserId = '" + userA + "')", cn);
-                IsItTrue = DBroleId.ExecuteNonQuery().ToString();
+                IsItTrue = DBroleId.ExecuteScalar().ToString();
                 cn.Close();
             }
             catch
