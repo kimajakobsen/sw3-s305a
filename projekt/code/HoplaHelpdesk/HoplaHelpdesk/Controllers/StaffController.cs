@@ -93,23 +93,37 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
         {
-            model.comment.Problem_Id = id;
-            model.comment.Person = db.PersonSet.Single(x => x.Name.ToLower() == User.Identity.Name.ToLower());
-            
-            model.comment.time = DateTime.Now;
+            if (model.comment != null)
+            {
+                model.comment.Problem_Id = id;
+                model.comment.Person = db.PersonSet.Single(x => x.Name.ToLower() == User.Identity.Name.ToLower());
 
-            db.ProblemSet.Single(x => x.Id == id).CommentSet.Add(model.comment);
+                model.comment.time = DateTime.Now;
+
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).CommentSet.Add(model.comment);
+            }
+
+            if (model.approveDeadline == true)
+            {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).IsDeadlineApproved = true;
+            } else if (model.approveDeadline == false) {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).IsDeadlineApproved = false;
+            }
+
+            if (model.reassignability == true)
+            {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).Reassignable = true;
+            }
+            else if (model.reassignability == false)
+            {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).Reassignable = false;
+            }
+
+
             db.SaveChanges();
 
             return this.Details(id);
         }
-
-    
-        /*public ActionResult Details(int id,)
-        {
-
-            return this.Details(id);
-        }*/
 
         public ActionResult Details(int id)
         {

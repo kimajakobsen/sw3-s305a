@@ -10,6 +10,38 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
     <fieldset>
         <legend><%: Model.Problem.Title %></legend>
 
+                <% using (Html.BeginForm()) {%>
+        <%: Html.ValidationSummary(true) %>
+                <p>
+                    <% if (Model.Problem.Reassignable == true)
+                       { %>
+                    <%: Html.CheckBox("reassignability", true)%> Reassignable
+                    <% }
+                       else
+                       { %>
+                       <%: Html.CheckBox("reassignability", false)%> Reassignable
+                    <% } %>
+                </p>
+
+
+
+                <p>
+                    <% if (Model.Problem.IsDeadlineApproved == true)
+                       { %>
+                    <%: Html.CheckBox("approveDeadline", true)%> Deadline approved
+                    <% }
+                       else
+                       { %>
+                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approved
+                    <% } %>
+                </p>     
+
+
+                <p>
+                    <input type="submit" value="Submit changes" />
+                </p>       
+        <% } %>
+
         <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
         <br />
         <h2>Solutions:</h2>
@@ -32,38 +64,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
         <br /><br />
                 
 
-        <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
-                <p>
-                    <% if (Model.Problem.Reassignable == true)
-                       { %>
-                    <%: Html.CheckBox("reassignability", true)%> Reassignable
-                    <% }
-                       else
-                       { %>
-                       <%: Html.CheckBox("reassignability", false)%> Reassignable
-                    <% } %>
-                </p>
 
-
-
-                <p>
-                    <% if (Model.Problem.IsDeadlineApproved == true)
-                       { %>
-                    <%: Html.CheckBox("approveDeadline", true)%> Deadline approve
-                    <% }
-                       else
-                       { %>
-                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approve
-                    <% } %>
-                </p>     
-
-
-                <p>
-                    <input type="submit" value="Submit changes" />
-                </p>       
-
-        <% } %>
 
     </fieldset>
     
