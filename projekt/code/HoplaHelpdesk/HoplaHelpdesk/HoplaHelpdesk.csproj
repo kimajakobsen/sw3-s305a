@@ -302,7 +302,7 @@
     <Content Include="Views\Staff\Details.aspx" />
     <Content Include="Views\Staff\Edit.ascx" />
     <Content Include="Views\Staff\Index.aspx" />
-    <Content Include="Views\Staff\ListSolution.aspx" />
+    <Content Include="Views\Staff\ListSolutions.aspx" />
     <Content Include="Views\Staff\Worklist.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.4.1.js" />

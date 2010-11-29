@@ -13,13 +13,13 @@ namespace HoplaHelpdesk.Controllers
     {
         hoplaEntities db = new hoplaEntities();
 
-        public ActionResult AttachSolution(int id, Solution solution)
+        public ActionResult AttachSolution(int id, string solutionID)
         {
 
             return RedirectToAction("Details", new { id = id });
         }
 
-        public ActionResult ListSolution(int id)
+        public ActionResult ListSolutions(int id)
         {
             List<Solution> solutions = db.SolutionSet.ToList();
 
