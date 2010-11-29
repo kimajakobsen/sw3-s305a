@@ -9,6 +9,5 @@ namespace HoplaHelpdesk.ViewModels
     public class CommentListViewModel
     {
         public List<Comment> Comments { get; set; } // list of problems already added
-        public bool Deletable { get; set; }
     }
 }

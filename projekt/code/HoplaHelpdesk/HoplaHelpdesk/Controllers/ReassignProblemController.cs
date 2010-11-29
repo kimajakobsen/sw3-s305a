@@ -56,9 +56,8 @@ namespace HoplaHelpdesk.Controllers
                 }
             }
 
-
            var newprob =  db.ProblemSet.First(x => x.Id == problem.Id);
-            newprob.AssignedTo = ((Person)staff);
+           newprob.AssignedTo = ((Person)staff);
  
            // from.Worklist.Remove(newprob);
            // staff.Worklist.Add(problem);
