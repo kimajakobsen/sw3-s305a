@@ -10,5 +10,6 @@ namespace HoplaHelpdesk.ViewModels
     {
         public int ProblemID { get; set; }
         public List<Solution> Solutions { get; set; }
+        public Solution SolutionToAttach { get; set; }
     }
 }
