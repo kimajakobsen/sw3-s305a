@@ -11,10 +11,10 @@
     <% foreach (var item in Model.Problems) { %>        
             <tr>
                 <td>
-                    <%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>
+                    <%:  Html.ActionLink(item.Title, "Details","CreateProblem", new { item.Id }, null)%>
                 </td>
                 <td><%: item.Deadline %></td>
-                <td></td>
+                <td><%: item.Priority %></td>
                 <td></td>
                 <td><%: item.Description %></td>
             </tr>
