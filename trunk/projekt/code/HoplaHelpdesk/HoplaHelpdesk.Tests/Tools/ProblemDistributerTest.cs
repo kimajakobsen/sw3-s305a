@@ -1,4 +1,5 @@
-﻿using HoplaHelpdesk.Tools;
+﻿/*
+using HoplaHelpdesk.Tools;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
@@ -389,3 +390,4 @@ namespace HoplaHelpdesk.Tests
         public Department Department { get; set; }
     }
 }
+*/

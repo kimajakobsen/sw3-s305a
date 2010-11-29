@@ -101,6 +101,7 @@ namespace HoplaHelpdesk.Controllers
                     // Adds user to the Hopla database.
                     hoplaEntities hoplaDb = new hoplaEntities();
                     hoplaDb.PersonSet.AddObject(new Person { Name = model.UserName.ToLower(), Email = model.Email });
+                    sql.AddToClient(model.UserName);
                     hoplaDb.SaveChanges();
 
                     FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
@@ -114,7 +115,7 @@ namespace HoplaHelpdesk.Controllers
 
             // If we got this far, something failed, redisplay form
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
-            sql.AddToClient(model.UserName);
+            
             return View(model);
         }
 
