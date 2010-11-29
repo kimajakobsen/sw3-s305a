@@ -6,16 +6,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Admin interface</h2>
-
-     <ul>
-    <li>
-    <p><%: Html.ActionLink("Administrate departments, categories and tags", "Index", "Department")%></p>
-    <p><%: Html.ActionLink("Person Administrate", "Index","person")%></p>
-    
-    </li>
-
-    
+    <ul>
+        <li><%: Html.ActionLink("Administrate departments, categories and tags", "Index", "Department")%></li>
+        <li><%: Html.ActionLink("Person Administrate", "Index","person")%></li>
     </ul>
 
 </asp:Content>
