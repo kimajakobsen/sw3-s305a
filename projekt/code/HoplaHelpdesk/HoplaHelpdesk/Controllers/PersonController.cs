@@ -47,7 +47,7 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(int prevDepartment)
         {
            var Personlist = db.PersonSet.ToList();
-            ViewData["homeDepartment"] = prevDepartment;
+           ViewData["homeDepartment"] = prevDepartment;
            var viewmodel = new PersonListViewModel() { Persons = Personlist };
            return View(viewmodel);
             

@@ -111,7 +111,7 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(int id)
         {
             List<int> john = new List<int>();
-
+            ViewData["LoggedUser"] = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id; 
             try
             {
                 var problem = db.ProblemSet.Single(x => x.Id == id);
@@ -198,12 +198,20 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Create");
         }
 
-        public ActionResult Subscribe(int id)
+        public ActionResult Subscribe(int PerId, int ProId )
         {
             try
             {
+                db.PersonSet.FirstOrDefault(x => x.Id == PerId).Problems.Add(db.ProblemSet.FirstOrDefault(x => x.Id == ProId));
+                
+                db.SaveChanges();
+            
 
-                return View("SubscribeSucces");
+
+                return RedirectToAction("Details", "CreateProblem");
+      
+                
+                
             }
             catch 
             {
