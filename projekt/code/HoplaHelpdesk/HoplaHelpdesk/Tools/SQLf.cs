@@ -186,6 +186,31 @@ namespace HoplaHelpdesk.Tools
             
         }
 
+        public void AddToClient(String user)
+        {
+            SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
+            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            SqlCommand userId;
+            SqlCommand roleId;
+            SqlCommand cmd;
+
+            userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
+            roleId = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = 'client')", cn);
+
+
+            cn.Open();
+            String userA = userId.ExecuteScalar().ToString();
+            String roleA = roleId.ExecuteScalar().ToString();
+            cmd = new SqlCommand("INSERT INTO aspnet_UsersInRoles(UserId, RoleId)VALUES('" + userA + "','" + roleA + "')", cn);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            cn.Close();
+
+        }
+
     }
 
 }
