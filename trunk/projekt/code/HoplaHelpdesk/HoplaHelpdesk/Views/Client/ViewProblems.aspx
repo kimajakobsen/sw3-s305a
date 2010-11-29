@@ -74,7 +74,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
     
         <p>There was found <%: Model.ProblemList.Problems.Count %> problems:</p>
     
-        <% Html.RenderPartial("ProblemList", Model.ProblemList); %>
+        <% Html.RenderPartial("ProblemClientList", Model.ProblemList); %>
     <% }
        else
        { %>     
