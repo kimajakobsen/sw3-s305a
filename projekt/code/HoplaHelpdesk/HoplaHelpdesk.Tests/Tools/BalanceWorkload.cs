@@ -5,7 +5,11 @@ using System.Text;
 
 namespace HoplaHelpdesk.Tests.Tools
 {
-    class BalanceWorkload
+    static class BalanceWorkload
     {
+        
+
+
+
     }
 }

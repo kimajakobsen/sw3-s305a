@@ -36,6 +36,8 @@ namespace HoplaHelpdesk.Models
             }
         }
 
+        public double Workload { get { return GetWorkload(); } }
+
         public double GetWorkload()
         {
             int TotalNumberOfTags = 0;
