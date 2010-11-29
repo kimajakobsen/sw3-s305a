@@ -34,7 +34,7 @@ namespace HoplaHelpdesk.Controllers
                 {
                     if (allSolutions[i].Problems.ToList()[p].Id != id)
                     {
-                        solutions.Add(allSolutions[p]);
+                        solutions.Add(allSolutions[i]);
                         break;
                     }
                 }
