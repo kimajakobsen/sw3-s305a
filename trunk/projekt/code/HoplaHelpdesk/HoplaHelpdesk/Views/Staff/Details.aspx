@@ -9,15 +9,14 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
     <fieldset>
         <legend><%: Model.Problem.Title %></legend>
-        <p>
-            <%: Html.ActionLink("Edit", "Edit", new { id=Model.Problem.Id }) %> |
-            <%: Html.ActionLink("Back to List", "Index") %>
-        </p>
 
         <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
         <br />
         <h2>Solutions:</h2>
-        <%: Html.ActionLink("Add new solution", "AddSolution", new { id= Model.Problem.Id })%>
+        
+        <%: Html.ActionLink("Write new solution", "AddSolution", new { id= Model.Problem.Id })%>
+        <%: Html.ActionLink("Attach solution from database", "ListSolutions", new { id= Model.Problem.Id })%>
+
         <% Html.RenderPartial("SolutionList", Model.Solutionlistviewmodel); %>
         <br />
         <h2>Comments:</h2>
