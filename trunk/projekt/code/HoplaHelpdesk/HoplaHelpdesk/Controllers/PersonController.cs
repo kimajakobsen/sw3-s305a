@@ -122,7 +122,7 @@ namespace HoplaHelpdesk.Controllers
             }
         }
 
-
+        [Authorize(Roles = "admin")]
         public String AddUserToRole(string user, string role)
         {
             Tools.SQLf sql = new Tools.SQLf();
@@ -162,5 +162,44 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
+        [Authorize(Roles = "admin")]
+        public String UnRole(string user, string role)
+        {
+            Tools.SQLf sql = new Tools.SQLf();
+
+            string msg = HttpUtility.HtmlEncode("admin.AddUserToRole, User = " + user + "&role = " + role);
+
+            //Check if any username is provided
+            if (user == null || user == "")
+            {
+                msg = "No username is provided";
+            }
+            //Check if any role is provided
+            else if (role == null || role == "")
+            {
+                msg = "No role is provided";
+            }
+            //Check if RoleExists
+            else if (Roles.RoleExists(role) == false)
+            {
+                msg = "Role dont exists";
+            }
+            //Check User by username provided, if username equals null, the user dont exists
+            else if (sql.DoUserExists(user) == false)
+            {
+                msg = "User dont exists";
+            }
+            else if (sql.UserIsAlreadyInThatRole(user, role) == false)
+            {
+                msg = user + " is not " + role + ", did you mean to remove " + user + " from another role?";
+            }
+            else
+            {
+                sql.UnRole(user, role);
+                //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
+                msg = user + " is no longer " + role + ".";
+            }
+            return msg;
+        }
     }
 }
