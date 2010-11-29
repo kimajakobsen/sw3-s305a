@@ -145,8 +145,8 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult ViewProblems(SearchViewModel search)
         {
-            int myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
-            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Id == myId);
+            string myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Name;
+            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Name == myId);
             search.ProblemList = new ProblemListViewModel
             {
                 Problems = new List<Problem>()
