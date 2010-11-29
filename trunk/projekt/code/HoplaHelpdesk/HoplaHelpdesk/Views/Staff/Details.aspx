@@ -29,9 +29,9 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
         <% Html.RenderPartial("EditorTemplates/CommentCreate", Model.comment); %>
 
         
-        <p> 
+        <!--<p> 
             <input type="submit" value="Save" />  
-        </p>  
+        </p>  -->
 
     </fieldset>
     
