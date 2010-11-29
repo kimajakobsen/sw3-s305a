@@ -17,15 +17,14 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities db = new hoplaEntities();
         public ActionResult Index()
         {
+            Session["SearchViewModel"] = null;
+
             if (db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name) != null)
             {
                 return View(db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id);
             }
             else
             {
-                //This should be changed soon
-                //It is mainly for testing purposes atm
-                //What should happen when not logged in? Go to login screen?
                 return RedirectToAction("LogOn","Account");
             }
         }
@@ -33,7 +32,7 @@ namespace HoplaHelpdesk.Controllers
         
         public ActionResult ViewProblems(int? id)
         {
-            
+            ViewData["Message"] = null;
             // Finds the loged in users problems. 
             SearchViewModel viewModel;
             Person subscriber = null;
@@ -80,10 +79,10 @@ namespace HoplaHelpdesk.Controllers
                 }
                 else
                 {
-                    problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), standardMinNumberOfProblems));
+                    //problems.Problems.AddRange(ProblemSearch.Search(catTag, db.ProblemSet.ToList(), db.TagSet.ToList(), standardMinNumberOfProblems));
                     onlySubscriber = false;
                     onlyUnsolvedProblems = false;
-
+                    ViewData["Message"] = "Enter search criteria above and press search";
                 }
 
                 viewModel = new SearchViewModel
