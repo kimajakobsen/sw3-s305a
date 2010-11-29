@@ -10,7 +10,7 @@
                 Email
             </th>
             <th>
-                DepartmentId
+                Department name
             </th>
         </tr>
 
@@ -18,7 +18,7 @@
     
         <tr>
             <td>
-                <%: Html.ActionLink("Add", "ChangeDepartment", new { id=item.DepartmentId, person = item.Id}) %> |
+                <%: Html.ActionLink("Add", "ChangeDepartment", new { DepId = ViewData["homeDepartment"], PerId = item.Id}) %> |
             </td>
             <td>
                 <%: item.Name %>
