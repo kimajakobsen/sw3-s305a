@@ -8,5 +8,14 @@ namespace HoplaHelpdesk.Models
     public partial class Tag
     {
         public bool IsSelected { get; set; }
+
+        public decimal?  AverageTimeSpent {  
+        get{
+            return (TimeConsumed / SolvedProblems); }
+        }
+            
+            
+        
+
     }
 }
