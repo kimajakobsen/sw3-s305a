@@ -8,7 +8,7 @@ namespace HoplaHelpdesk.Tools
 {
     public static class SQLf
     {
-
+        //Function to check if user already got a specific
         public static Boolean UserIsAlreadyInThatRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
