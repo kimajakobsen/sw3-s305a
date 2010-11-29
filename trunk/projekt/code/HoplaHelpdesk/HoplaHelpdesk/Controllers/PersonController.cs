@@ -82,9 +82,9 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Person/Edit/5
  
-        public ActionResult Edit(int id, string name, string email)
+        public ActionResult Edit(int id)
         {
-            return View();
+            return View(new EditPersonViewModel { Person = db.PersonSet.FirstOrDefault(x => x.Id == id), AllDepartments = db.DepartmentSet.ToList() });
         }
 
         //
@@ -93,15 +93,18 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
+            var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+
             try
             {
-                // TODO: Add update logic here
+                UpdateModel(person,"Person");
+                db.SaveChanges();
  
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Edit",new {id});
             }
         }
 

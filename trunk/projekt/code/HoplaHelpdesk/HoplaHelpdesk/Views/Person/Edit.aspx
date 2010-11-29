@@ -1,51 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
-Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Person>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.EditPersonViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Edit
+	Edit Person
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Edit person</h2>
+    <h2>Edit Person</h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
-            <legend>Fields</legend>
+            <legend>Person</legend>
             
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Id) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Id) %>
-                <%: Html.ValidationMessageFor(model => model.Id) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Name) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Name) %>
-                <%: Html.ValidationMessageFor(model => model.Name) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Email) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Email) %>
-                <%: Html.ValidationMessageFor(model => model.Email) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.DepartmentId) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.DepartmentId) %>
-                <%: Html.ValidationMessageFor(model => model.DepartmentId) %>
-            </div>
+            <%: Html.EditorFor(x => x.Person, new { Departments = Model.AllDepartments})%>
             
             <p>
                 <input type="submit" value="Save" />
