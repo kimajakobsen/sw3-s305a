@@ -170,7 +170,6 @@ namespace HoplaHelpdesk.Controllers
                     Solutions = solutions,
                     Deletable = true,
                     Problem = problem
-
                 }  
             };
 
