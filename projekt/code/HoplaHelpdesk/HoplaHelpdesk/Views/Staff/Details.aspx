@@ -15,15 +15,13 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
                 <p>
                     <% if (Model.Problem.Reassignable == true)
                        { %>
-                    <%: Html.CheckBox("reassignability", true)%> Reassignable
+                    <%: Html.CheckBox("reassignability", true) %> Reassignable
                     <% }
                        else
                        { %>
-                       <%: Html.CheckBox("reassignability", false)%> Reassignable
+                       <%: Html.CheckBox("reassignability", false) %> Reassignable
                     <% } %>
                 </p>
-
-
 
                 <p>
                     <% if (Model.Problem.IsDeadlineApproved == true)
