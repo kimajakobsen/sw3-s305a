@@ -8,18 +8,18 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
-    [Authorize(Roles = "Staff")]
+    //[Authorize(Roles = "Staff")]
     public class StaffController : Controller
     {
         hoplaEntities db = new hoplaEntities();
 
-        public ActionResult AttachSolution(int id, int solutionID)
+        public ActionResult AttachSolution(int id, Solution solution)
         {
 
             return RedirectToAction("Details", new { id = id });
         }
 
-        public ActionResult AttachSolution(int id)
+        public ActionResult ListSolution(int id)
         {
             List<Solution> solutions = db.SolutionSet.ToList();
 
