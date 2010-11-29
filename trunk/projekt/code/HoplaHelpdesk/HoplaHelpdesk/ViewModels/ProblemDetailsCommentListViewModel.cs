@@ -19,5 +19,6 @@ namespace HoplaHelpdesk.ViewModels
 
         public bool reassignability { get; set; }
         public bool approveDeadline { get; set; }
+        public bool solved { get; set; }
     }
 }
