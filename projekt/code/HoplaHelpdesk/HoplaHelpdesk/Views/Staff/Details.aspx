@@ -27,7 +27,14 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
         <% Html.RenderPartial("EditorTemplates/CommentCreate", Model.comment); %>
 
-        <%: Html.ActionLink("Reassign", "Index", "ReassignProblem", new { id=Model.Problem.Id }, null)%>
+        <% if (Model.Problem.Reassignable == true)
+           { %>
+        <%: Html.ActionLink("Reassign", "Index", "ReassignProblem", new { id = Model.Problem.Id }, null)%>
+        <% }
+           else
+           { %>
+           This problem is not reassignable. Make it reassignable first before reassigning.
+        <% } %>
         <!--<p> 
             <input type="submit" value="Save" />  
         </p>  -->
