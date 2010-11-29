@@ -6,10 +6,10 @@ using System.Data.SqlClient;
 
 namespace HoplaHelpdesk.Tools
 {
-    public class SQLf
+    public static class SQLf
     {
 
-        public Boolean UserIsAlreadyInThatRole(String user, String role)
+        public static Boolean UserIsAlreadyInThatRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
@@ -51,7 +51,7 @@ namespace HoplaHelpdesk.Tools
             
         }
 
-        public void UserToRole(String user, String role)
+        public static void UserToRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
@@ -76,7 +76,7 @@ namespace HoplaHelpdesk.Tools
 
         }
         //This method is not done
-        public Boolean IsStaff(String user)
+        public static Boolean IsStaff(String user)
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
@@ -117,7 +117,7 @@ namespace HoplaHelpdesk.Tools
                 }
         }
 
-        public Boolean DoUserExists(String user){
+        public static Boolean DoUserExists(String user){
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
             //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
@@ -156,7 +156,7 @@ namespace HoplaHelpdesk.Tools
                 }
         }
 
-        public void UnRole (String user, String role){
+        public static void UnRole (String user, String role){
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
             //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
@@ -186,7 +186,62 @@ namespace HoplaHelpdesk.Tools
             
         }
 
-        public void AddToClient(String user)
+        public static string GetRoleOfUser(string userName)
+        {
+            SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
+            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            SqlCommand getRole;
+
+            getRole = new SqlCommand("SELECT RoleName FROM aspnet_Roles, aspnet_Users WHERE aspnet_Users.LoweredUserName = " + userName + "", cn);
+            string result;
+
+            try
+            {
+                cn.Open();
+                result = getRole.ExecuteScalar().ToString();
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return result;
+        }
+
+        public static List<string> GetRoles()
+        {
+            SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
+            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            SqlCommand getRoles;
+            var result = new List<string>();
+
+            getRoles = new SqlCommand("SELECT RoleName FROM aspnet_Roles", cn);
+
+            try
+            {
+                cn.Open();
+                var temp = getRoles.ExecuteReader();
+
+
+                while (temp.Read())
+                {
+                    result.Add(temp[0].ToString());
+                }
+            }
+            finally
+            {
+                cn.Close();
+            }
+
+            return result;
+        }
+        public static void AddToClient(String user)
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
@@ -213,4 +268,5 @@ namespace HoplaHelpdesk.Tools
 
     }
 
+    
 }

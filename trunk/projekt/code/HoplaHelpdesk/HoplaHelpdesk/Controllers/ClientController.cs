@@ -29,9 +29,15 @@ namespace HoplaHelpdesk.Controllers
             }
         }
 
-        
-        public ActionResult ViewProblems(int? id)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id">This is the name of the user, not actually the id, this may be confusing, but I don't
+        /// want to change it now.</param>
+        /// <returns></returns>
+        public ActionResult ViewProblems(string id)
         {
+            //Notice that the id is actually the name og the client
             ViewData["Message"] = null;
             // Finds the loged in users problems. 
             SearchViewModel viewModel;
@@ -61,9 +67,9 @@ namespace HoplaHelpdesk.Controllers
                     catTag.Categories.Add(new CategoryWithListViewModel(item));
                 }
                 onlySolvedProblems = false;
-                if (id != null)
+                if (id != null && id != "")
                 {
-                    subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
+                    subscriber = db.PersonSet.FirstOrDefault(x => x.Name == id);
 
                     List<Problem> tempProb = db.ProblemSet.ToList();
                     problems.Problems.AddRange(ProblemSearch.Search(catTag, tempProb,
@@ -109,7 +115,7 @@ namespace HoplaHelpdesk.Controllers
                 {
                     if (id != null && viewModel.OnlySubscriber)
                     {
-                        subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
+                        subscriber = db.PersonSet.FirstOrDefault(x => x.Name == id);
                         problems.Problems = problems.Problems.Where(x => x.Persons.Contains(subscriber)).ToList();
                         viewModel.Subscriber = subscriber;
                     }

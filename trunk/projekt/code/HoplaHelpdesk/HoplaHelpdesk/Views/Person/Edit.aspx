@@ -14,7 +14,8 @@
         <fieldset>
             <legend>Person</legend>
             
-            <%: Html.EditorFor(x => x.Person, new { Departments = Model.AllDepartments})%>
+            <%: Html.EditorFor(x => x.Person, new { Departments = Model.AllDepartments}) %>
+            <%: Html.EditorFor(x => x.Role, new {roles = Model.Roles} )%>
             
             <p>
                 <input type="submit" value="Save" />

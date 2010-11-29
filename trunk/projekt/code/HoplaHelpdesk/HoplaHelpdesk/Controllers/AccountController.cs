@@ -9,6 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.Models;
 using System.Security.Principal;
+using HoplaHelpdesk.Tools;
 
 
 namespace HoplaHelpdesk.Controllers
@@ -89,7 +90,6 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            Tools.SQLf sql = new Tools.SQLf();
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -100,7 +100,7 @@ namespace HoplaHelpdesk.Controllers
                     // Adds user to the Hopla database.
                     hoplaEntities hoplaDb = new hoplaEntities();
                     hoplaDb.PersonSet.AddObject(new Person { Name = model.UserName.ToLower(), Email = model.Email });
-                    sql.AddToClient(model.UserName);
+                    SQLf.AddToClient(model.UserName);
                     hoplaDb.SaveChanges();
 
                     FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
