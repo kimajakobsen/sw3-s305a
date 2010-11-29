@@ -56,8 +56,12 @@ namespace HoplaHelpdesk.Controllers
                 }
             }
            
-            problem.PersonsId = ((Person)staff).Id;
-               
+           // problem.PersonsId = ((Person)staff).Id;
+           // problem.AssignedTo = ((Person)staff);
+            
+            from.Worklist.Remove(problem);
+            db.SaveChanges();
+            staff.Worklist.Add(problem);
             db.SaveChanges();
             var viewModel = new SuccesReassignViewModel()
             {
