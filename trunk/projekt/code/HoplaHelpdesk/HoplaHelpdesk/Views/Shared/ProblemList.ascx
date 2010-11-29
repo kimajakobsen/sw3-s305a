@@ -11,7 +11,7 @@
     <% foreach (var item in Model.Problems) { %>        
             <tr>
                 <td>
-                    <%:  Html.ActionLink(item.Title, "Details","CreateProblem", new { item.Id }, null)%>
+                    <%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>
                 </td>
                 <td><%: item.Deadline %></td>
                 <td><%: item.Priority %></td>
