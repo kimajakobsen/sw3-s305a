@@ -20,7 +20,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Department>" %>
                        
                     <td valign="top"  width="45%">
                     <% Html.RenderPartial("DepartmentStaffList", Model.Persons);  %> 
-                    <%: Html.ActionLink("Add staff", "Details", "Person")%>  
+                    <%: Html.ActionLink("Add staff", "Details", "Person", new {PrevDepartment = Model.Id}, null)%>  
                     </td>
 
                     

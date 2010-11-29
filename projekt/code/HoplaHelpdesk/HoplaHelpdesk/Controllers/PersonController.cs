@@ -43,22 +43,23 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Person/Details
 
-        public ActionResult Details()
+        public ActionResult Details(int prevDepartment)
         {
            var Personlist = db.PersonSet.ToList();
-
+            ViewData["homeDepartment"] = prevDepartment;
            var viewmodel = new PersonListViewModel() { Persons = Personlist };
            return View(viewmodel);
             
         }
 
-        public ActionResult ChangeDepartment(int DepartmentId, int personId)
+        public ActionResult ChangeDepartment(int DepId, int PerId)
         {
 
+            db.PersonSet.FirstOrDefault(x => x.Id == PerId).DepartmentId = DepId;
+            db.SaveChanges();
 
 
-
-            return RedirectToAction("Edit", "Department", new { id = personId });
+            return RedirectToAction("Edit", "Department", new { id = DepId });
         }
 
         //
