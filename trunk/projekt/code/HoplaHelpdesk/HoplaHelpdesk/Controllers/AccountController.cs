@@ -9,8 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.Models;
 using System.Security.Principal;
-using System.Web.Security;
-using HoplaHelpdesk.ViewModels;
+
 
 namespace HoplaHelpdesk.Controllers
 {
