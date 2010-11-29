@@ -14,8 +14,7 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities db = new hoplaEntities();
 
         public ActionResult AttachSolution(int id, int solutionID)
-        {
-            //int solID = int.Parse(solutionID);
+        {   
 
             Solution solution = db.SolutionSet.FirstOrDefault(x => x.Id == solutionID);
 
@@ -43,8 +42,10 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult DetachSolution(int id, int solutionID)
         {
+            db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Remove(db.SolutionSet.FirstOrDefault(y => y.Id == solutionID));
+            db.SaveChanges();
 
-            return View();
+            return RedirectToAction("Details", new { id = id });
         }
 
         [HttpPost]
