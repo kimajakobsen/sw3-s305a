@@ -12,8 +12,6 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemDistributer
     {
-    
-
         public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
         {
             var persons = new List<IPerson>();
