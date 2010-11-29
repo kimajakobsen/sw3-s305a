@@ -2,7 +2,6 @@
 
     <table class="problemlist">
         <tr>
-            <% if (Model.Deletable) { %><th></th> <% } %>
 
             <th>
                 time
@@ -15,12 +14,6 @@
     <% foreach (var item in Model.Comments) { %>
     
         <tr>
-        <% if (Model.Deletable)
-           { %>
-            <td>
-                <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%>
-            </td>
-            <% } %>
             <td>
                 <%: String.Format("{0:g}", item.time) %>
             </td>
