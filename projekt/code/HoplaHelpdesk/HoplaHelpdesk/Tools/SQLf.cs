@@ -289,7 +289,12 @@ namespace HoplaHelpdesk.Tools
             cn.Close();
 
         }
-
+        /*
+         *  To-do:
+         *  Add new role
+         *  Remove role
+         *  Roles cant remove roles thats higher then himself
+         */
        
     }
 
