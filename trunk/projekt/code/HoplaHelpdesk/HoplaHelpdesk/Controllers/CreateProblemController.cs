@@ -162,7 +162,7 @@ namespace HoplaHelpdesk.Controllers
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
                   model.Problem.Added_date = DateTime.Now;
-                  model.Problem.AssignedTo = db.PersonSet.Single(x => x.Id == 1);
+                  model.Problem.AssignedTo = (Person)ProblemDistributer.GetStaff(model.Problem, db.PersonSet.ToList());
                   var person = db.PersonSet.Single(x => x.Name == User.Identity.Name.ToLower());
                   model.Problem.Persons.Add(person);
               
@@ -207,7 +207,7 @@ namespace HoplaHelpdesk.Controllers
             }
             catch 
             {
-
+                ViewData["Error"] = "An error occered, while trying to subscribe you to the problem";
                 return View("Error");
             }
             
