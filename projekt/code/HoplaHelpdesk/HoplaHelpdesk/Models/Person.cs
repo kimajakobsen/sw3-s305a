@@ -11,20 +11,16 @@ using System.Data.Objects.DataClasses;
 namespace HoplaHelpdesk.Models
 {
 
-    [MetadataType(typeof(PersonMetaData))]
+    //[MetadataType(typeof(PersonMetaData))]
     public partial class Person : IPerson
     {
 
-
-
-        
-
-        public class PersonMetaData
+        /*public class PersonMetaData
         {
            
 
 
-        }
+        }*/
 
 
         public bool IsStaff()

@@ -9,9 +9,12 @@ namespace HoplaHelpdesk.Models
     {
         public bool IsSelected { get; set; }
 
-        public decimal?  AverageTimeSpent {  
-        get{
-            return (TimeConsumed / SolvedProblems); }
+        public decimal?  AverageTimeSpent 
+        {  
+            get
+            {
+                return (TimeConsumed / SolvedProblems); 
+            }
         }
             
             
