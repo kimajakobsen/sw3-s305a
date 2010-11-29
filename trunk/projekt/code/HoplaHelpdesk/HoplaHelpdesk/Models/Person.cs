@@ -25,18 +25,14 @@ namespace HoplaHelpdesk.Models
 
         public bool IsStaff()
         {
-         
-            if (Roles.IsUserInRole("Staff", Membership.GetUserNameByEmail(Email)))
+            if (DepartmentId == 0)
             {
-                return true;
-            }
-            else if (Roles.IsUserInRole("staff", Membership.GetUserNameByEmail(Email)))
-            {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+
+                return true;
             }
         }
 
