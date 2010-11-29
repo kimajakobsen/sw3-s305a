@@ -3,17 +3,12 @@
     <table class="problemlist">
         <tr>
             <% if (Model.Deletable) { %><th></th> <% } %>
-            <th>
-                Id
-            </th>
+
             <th>
                 time
             </th>
             <th>
                 description
-            </th>
-            <th>
-                Problem_Id
             </th>
         </tr>
 
