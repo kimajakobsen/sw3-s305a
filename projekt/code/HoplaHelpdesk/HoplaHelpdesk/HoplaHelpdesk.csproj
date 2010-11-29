@@ -112,6 +112,7 @@
     <Compile Include="ViewModels\CategoryWithListViewModel.cs" />
     <Compile Include="ViewModels\CommentListViewModel.cs" />
     <Compile Include="ViewModels\DepartmentListViewModel.cs" />
+    <Compile Include="ViewModels\EditPersonViewModel.cs" />
     <Compile Include="ViewModels\ProblemCatTagWithSelectionViewModel.cs" />
     <Compile Include="ViewModels\ProblemDetailsCommentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
@@ -293,6 +294,7 @@
     <Content Include="Views\Shared\EditorTemplates\ProblemCreate.ascx" />
     <Content Include="Views\Shared\EditorTemplates\ProblemEditor.ascx" />
     <Content Include="Views\Shared\EditorTemplates\SolutionCreate.ascx" />
+    <Content Include="Views\Shared\EditorTemplates\Person.ascx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\ProblemList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
