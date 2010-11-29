@@ -12,6 +12,9 @@ namespace HoplaHelpdesk.Tools
         public Boolean UserIsAlreadyInThatRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             SqlCommand userId;
             SqlCommand roleId;
@@ -51,6 +54,9 @@ namespace HoplaHelpdesk.Tools
         public void UserToRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             SqlCommand userId;
             SqlCommand roleId;
@@ -73,6 +79,9 @@ namespace HoplaHelpdesk.Tools
         public Boolean IsStaff(String user)
         {
             SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             SqlCommand Staff;
             SqlCommand User;
@@ -100,6 +109,9 @@ namespace HoplaHelpdesk.Tools
 
         public Boolean DoUserExists(String user){
             SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             SqlCommand userId;
             SqlCommand userN;
@@ -135,11 +147,22 @@ namespace HoplaHelpdesk.Tools
 
         public void UnRole (String user, String role){
             SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            //Connection ze local!
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            
             SqlCommand delete;
+            SqlCommand userId;
+            SqlCommand roleId;
 
-            delete = new SqlCommand ("DELETE FROM aspnet_UsersInRoles WHERE(RoleId = '" + role + "') AND (UserId = '" + user + "')",cn);
+            userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
+            roleId = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = '" + role + "')", cn);
+
+            cn.Open();
+            String userA = userId.ExecuteScalar().ToString();
+            String roleA = roleId.ExecuteScalar().ToString();
+
+            delete = new SqlCommand("DELETE FROM aspnet_UsersInRoles WHERE(RoleId = '" + roleA + "') AND (UserId = '" + userA + "')", cn);
 
             delete.ExecuteNonQuery();
             delete.Dispose();
