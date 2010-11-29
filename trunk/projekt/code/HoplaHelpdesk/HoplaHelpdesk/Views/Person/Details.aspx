@@ -9,47 +9,6 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.PersonListViewModel>"
 
     <h2>Details</h2>
 
-     <table>
-        <tr>
-            <th></th>
-            <th>
-                Id
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                DepartmentId
-            </th>
-        </tr>
-
-    <% foreach (var item in Model) { %>
-    
-        <tr>
-            <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.Id })%> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
-            </td>
-            <td>
-                <%: item.Id %>
-            </td>
-            <td>
-                <%: item.Name %>
-            </td>
-            <td>
-                <%: item.Email %>
-            </td>
-            <td>
-                <%: item.DepartmentId %>
-            </td>
-        </tr>
-    
-    <% } %>
-
-    </table>
+    <% Html.RenderPartial("PersonAddList", Model.Persons); %>
 
 </asp:Content>
