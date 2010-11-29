@@ -11,7 +11,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSele
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-        <fieldset>
+
             <fieldset>
             
             <legend>Description</legend>
@@ -31,7 +31,6 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSele
             <p>
                 <input type="submit" value="Create" />
             </p>
-        </fieldset>
     <% } %>
     
     <div>
