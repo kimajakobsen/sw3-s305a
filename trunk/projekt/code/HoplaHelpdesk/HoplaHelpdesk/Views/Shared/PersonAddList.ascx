@@ -18,8 +18,7 @@
     
         <tr>
             <td>
-                <%: Html.ActionLink("Edit", "Edit", new { id=item.Id, name=item.Name, email=item.Email }) %> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
+                <%: Html.ActionLink("Add", "ChangeDepartment", new { id=item.DepartmentId, person = item.Id}) %> |
             </td>
             <td>
                 <%: item.Name %>

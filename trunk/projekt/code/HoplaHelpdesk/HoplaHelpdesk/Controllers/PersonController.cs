@@ -50,7 +50,16 @@ namespace HoplaHelpdesk.Controllers
            var viewmodel = new PersonListViewModel() { Persons = Personlist };
            return View(viewmodel);
             
-        } 
+        }
+
+        public ActionResult ChangeDepartment(int DepartmentId, int personId)
+        {
+
+
+
+
+            return RedirectToAction("Edit", "Department", new { id = personId });
+        }
 
         //
         // POST: /Person/Create
