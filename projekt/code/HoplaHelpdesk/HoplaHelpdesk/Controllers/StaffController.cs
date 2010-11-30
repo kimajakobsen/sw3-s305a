@@ -124,7 +124,7 @@ namespace HoplaHelpdesk.Controllers
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).Reassignable = false;
             }
 
-            if (model.hoursTaken != null)
+            if (model.hoursTaken != 0.0)
             {
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).ManageTagTimes(model.hoursTaken);
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).SolvedAtTime = DateTime.Now;
