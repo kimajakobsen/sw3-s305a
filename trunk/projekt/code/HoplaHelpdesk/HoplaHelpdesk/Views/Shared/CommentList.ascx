@@ -6,7 +6,10 @@
             <th width="10%">
                 time
             </th>
-            <th width="90%">
+            <th width="10%">
+                Author
+            </th>
+            <th width="80%">
                 description
             </th>
         </tr>
