@@ -108,6 +108,22 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /CreateProblem/Details/5
 
+        [HttpPost]
+        public ActionResult Details(ClientProblemDetailsViewModel model, int id)
+        {
+            if (model.Comment != null)
+            {
+                model.Comment.Problem_Id = id;
+                model.Comment.Person = db.PersonSet.Single(x => x.Name.ToLower() == User.Identity.Name.ToLower());
+                model.Comment.time = DateTime.Now;
+
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).CommentSet.Add(model.Comment);
+                db.SaveChanges();
+            }
+
+            return View();
+        }
+
         public ActionResult Details(int id)
         {
             //List<int> john = new List<int>();
