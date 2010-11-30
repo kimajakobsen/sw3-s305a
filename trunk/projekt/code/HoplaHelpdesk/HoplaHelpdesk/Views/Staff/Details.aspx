@@ -9,23 +9,25 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
     <fieldset>
         <legend><%: Model.Problem.Title %></legend>
+        <fieldset>
+            <legend>Problem Status</legend>
+             <% using (Html.BeginForm()) {%>
+            <%: Html.ValidationSummary(true) %>
+                <% if (Model.Problem.SolvedAtTime != null)
+                   { %>
+                        This problem has already been solved!<br />It happened at <%: Model.Problem.SolvedAtTime %>
+                <% }
+                   else
+                   { %>
+                        Enter the number of hours it took for you to solve the problem: <br />Hours: <%: Html.TextBoxFor(model => model.hoursTaken) %>
 
-         <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
-            <% if (Model.Problem.SolvedAtTime != null)
-               { %>
-                    This problem has already been solved!<br />It happened at <%: Model.Problem.SolvedAtTime %>
-            <% }
-               else
-               { %>
-                    Enter the number of hours it took for you to solve the problem: <br />Hours: <%: Html.TextBoxFor(model => model.hoursTaken) %>
+                        <p>
+                            <input type="submit" value="Solve" />
+                        </p> 
 
-                    <p>
-                        <input type="submit" value="Solve" />
-                    </p> 
-
-            <% } %>  
-        <% } %>
+                <% } %>  
+            <% } %>
+        </fieldset>
         <br /><br />
 
 
