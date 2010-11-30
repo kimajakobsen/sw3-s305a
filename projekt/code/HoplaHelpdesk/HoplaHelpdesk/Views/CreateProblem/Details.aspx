@@ -9,7 +9,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ClientProblemDetailsV
 
     <h2>Details</h2>
 
-    <% Html.RenderPartial("ClientProblemDetails", Model.Problem); %><br /><br />
+    <% Html.RenderPartial("ProblemDetails", Model.Problem); %><br /><br />
     <% Html.RenderPartial("SolutionList", Model.Solutionlistviewmodel); %><br /><br />
     
     <h2>Comments</h2>

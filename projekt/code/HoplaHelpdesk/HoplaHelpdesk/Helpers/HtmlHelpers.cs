@@ -34,7 +34,7 @@ namespace HoplaHelpdesk.Helpers
             foreach (var cat in cats)
             {
                 s += "<strong>" + cat.Name + "</strong><br /> ";
-                foreach(var tag in cat.Tags)
+                foreach(var tag in tags.Where(x => x.Category == cat))
                 {
                     s += tag.Name + "<br />";
                 } 
