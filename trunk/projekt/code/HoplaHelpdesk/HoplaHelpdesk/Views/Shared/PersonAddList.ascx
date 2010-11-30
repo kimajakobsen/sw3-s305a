@@ -11,7 +11,13 @@ Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person
                 Email
             </th>
             <th>
-                Roles
+                Client
+            </th>
+            <th>
+                Staff
+            </th>
+            <th>
+                Admin
             </th>
             <th>
                 Department name
@@ -22,6 +28,7 @@ Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person
     
         <tr>
             <td>
+                <!-- lav en if statement der tjekker om personen kan tilføjes til en department -->
                 <%: Html.ActionLink("Add", "ChangeDepartment", new { DepId = ViewData["homeDepartment"], PerId = item.Id}) %> |
             </td>
             <td>
@@ -31,12 +38,31 @@ Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person
                 <%: item.Email %>
             </td>
             <td>
-                <% foreach (var role in item.Roles)
-                    { 
-                     if (role.Selected){ %>
-                       <%: role.Name.ToString();%>
-                        <%}
-                   }%>
+            <% foreach (var role in item.Roles)
+               {%>
+            <%    if (role.Selected && role.Name.ToString() == "Client")
+                  {%>
+                    x
+                <% } %>
+            <% } %>
+            </td>
+            <td>
+            <% foreach (var role in item.Roles)
+               {%>
+            <%    if (role.Selected && role.Name.ToString() == "Staff")
+                  {%>
+                    x
+                <% } %>
+            <% } %>
+            </td>
+            <td>
+            <% foreach (var role in item.Roles)
+               {%>
+            <%    if (role.Selected && role.Name.ToString() == "Admin")
+                  {%>
+                    x
+                <% } %>
+            <% } %>
             </td>
             <td>
                 <%: item.DepartmentId %>
