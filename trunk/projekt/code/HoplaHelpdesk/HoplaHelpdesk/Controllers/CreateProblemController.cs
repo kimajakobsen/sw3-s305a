@@ -218,6 +218,8 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Create");
         }
 
+
+
         public ActionResult Subscribe(int PerId, int ProId )
         {
             //try
@@ -235,13 +237,7 @@ namespace HoplaHelpdesk.Controllers
             {
                 ViewData["Error"] = "You are allready subscribed to the problem";
                 return View("Error");
-            }
-
-
-                
-      
-                
-                
+            }  
             //}
             //catch 
             //{
@@ -249,6 +245,26 @@ namespace HoplaHelpdesk.Controllers
             //    return View("Error");
             //}
             
+        }
+        public ActionResult Unsubscribe(int PerId, int ProId)
+        {
+            //try
+            //{
+            if (db.PersonSet.FirstOrDefault(x => x.Id == PerId).Problems.Contains(db.ProblemSet.FirstOrDefault(x => x.Id == ProId)) 
+                && (db.ProblemSet.FirstOrDefault(x => x.Id == ProId).Persons.Count > 1 ))
+            {
+
+                db.PersonSet.FirstOrDefault(x => x.Id == PerId).Problems.Remove(db.ProblemSet.FirstOrDefault(x => x.Id == ProId));
+
+                db.SaveChanges();
+
+                return RedirectToAction("ViewProblems", "Client");
+            }
+            else
+            {
+                ViewData["Error"] = "You cannot subscribe from this problem";
+                return View("Error");
+            }
         }
     }
 }

@@ -15,4 +15,5 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ClientProblemDetailsV
      <% Html.RenderPartial("CommentList", Model.Commentlistviewmodel); %><br /><br />
 
     <%: Html.ActionLink("Subscribe to this problem", "Subscribe", new {PerId = ViewData["LoggedUser"] , ProId = Model.Problem.Id })%>
+    <%: Html.ActionLink("Unsubscribe to this problem", "Unsubscribe", new {PerId = ViewData["LoggedUser"] , ProId = Model.Problem.Id })%>
 </asp:Content>
