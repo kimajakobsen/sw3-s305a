@@ -78,10 +78,9 @@ namespace HoplaHelpdesk.Models
 
         private DateTime CalculateETA()
         {
-            TimeSpan Time = new TimeSpan(2, 12, 30, 30);
+            DateTime DateTime = new DateTime(2011, 2, 3, 10, 43, 18);
 
-
-            return (Time);
+            return (DateTime);
         }
 
         public class ProblemComparer<T> : IComparer<T>
