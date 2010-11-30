@@ -301,10 +301,10 @@ namespace HoplaHelpdesk.Tools
             
             //Executing the SqlCommand
             
-            cn.Open();
+            //cn.Open();
             //cmd.ExecuteNonQuery();
-            cmd.Dispose();
-            cn.Close();
+            //cmd.Dispose();
+            //cn.Close();
 
         }
         
