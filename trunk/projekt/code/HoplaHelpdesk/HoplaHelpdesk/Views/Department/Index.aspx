@@ -11,6 +11,6 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.DepartmentListViewMod
 
       <% Html.RenderPartial("DepartmentList", Model.Departments); %>
       
-      <%: Html.ActionLink("Create", "Create"); %>
+      <%: Html.ActionLink("Create", "Create")%>
 
 </asp:Content>

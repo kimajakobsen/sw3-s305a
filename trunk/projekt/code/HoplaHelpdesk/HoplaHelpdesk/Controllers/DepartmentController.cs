@@ -51,13 +51,26 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Department/Create
 
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
-
             return View(new Department());
         }
 
-
+        [HttpPost]
+        public ActionResult Create(Department department)
+        {
+            try
+            {
+                //department = db.DepartmentSet.SingleOrDefault(x => x.Id == department.Id);
+                db.DepartmentSet.AddObject(department);
+                db.SaveChanges();
+                return RedirectToAction("index", "Department");
+            }
+            catch
+            {
+                return View(department);
+            }
+        }
         
         //
         // GET: /Department/Edit/5

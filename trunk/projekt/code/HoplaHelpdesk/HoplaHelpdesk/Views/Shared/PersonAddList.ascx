@@ -1,4 +1,5 @@
-﻿<%@ Control Language="C#"   Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
+﻿<%@ Control Language="C#"   
+Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
 
     <table>
         <tr>
@@ -8,6 +9,9 @@
             </th>
             <th>
                 Email
+            </th>
+            <th>
+                Roles
             </th>
             <th>
                 Department name
@@ -25,6 +29,14 @@
             </td>
             <td>
                 <%: item.Email %>
+            </td>
+            <td>
+                <% foreach (var role in item.Roles)
+                    { 
+                     if (role.Selected){ %>
+                       <%: role.Name.ToString();%>
+                        <%}
+                   }%>
             </td>
             <td>
                 <%: item.DepartmentId %>
