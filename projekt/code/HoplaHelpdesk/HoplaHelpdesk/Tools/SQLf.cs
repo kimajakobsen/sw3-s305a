@@ -296,9 +296,10 @@ namespace HoplaHelpdesk.Tools
             //Preparing SqlCommand
             SqlCommand cmd;
             SqlCommand AppId;
+            desription = "";
 
             //SqlCommand for getting ApplicationId
-            AppId = new SqlCommand("SELECT ApplicationId FROM aspnet_Applications)", cn);
+            AppId = new SqlCommand("SELECT ApplicationId FROM aspnet_Applications", cn);
             //Executing the SqlCommand
             
             cn.Open();
