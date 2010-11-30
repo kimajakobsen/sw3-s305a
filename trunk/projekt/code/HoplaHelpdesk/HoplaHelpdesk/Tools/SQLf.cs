@@ -302,7 +302,7 @@ namespace HoplaHelpdesk.Tools
             //Executing the SqlCommand
             
             cn.Open();
-            cmd.ExecuteNonQuery();
+            //cmd.ExecuteNonQuery();
             cmd.Dispose();
             cn.Close();
 
