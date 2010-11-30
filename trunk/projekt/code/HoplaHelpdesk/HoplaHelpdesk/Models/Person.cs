@@ -29,17 +29,26 @@ namespace HoplaHelpdesk.Models
                 if (_roles == null)
                 {
                     _roles = Tools.SQLf.GetRoles();
-                    var allRoles = Tools.SQLf.GetRolesOfUser(this.Name);
-                    foreach (var role in _roles)
+                    List<Role> allRoles;
+                    try
                     {
-                        foreach (var item in allRoles)
+                        allRoles = Tools.SQLf.GetRolesOfUser(this.Name);
+              
+                        foreach (var role in _roles)
                         {
-                            if (item.Name == role.Name)
+                            foreach (var item in allRoles)
                             {
-                                role.Selected = true;
-                                break;
+                                if (item.Name == role.Name)
+                                {
+                                    role.Selected = true;
+                                    break;
+                                }
                             }
                         }
+                    }
+                    catch (ArgumentException)
+                    {
+
                     }
                 }
                 
