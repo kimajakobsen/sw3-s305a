@@ -19,12 +19,11 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
                 <% }
                    else
                    { %>
-                        Enter the number of hours it took for you to solve the problem: <br />Hours: <%: Html.TextBoxFor(model => model.hoursTaken) %>
+                        Enter the number of hours it took for you to solve the problem: <br />Hours: <%: Html.TextBoxFor(model => model.hoursTaken) %><br />
 
                         <p>
                             <input type="submit" value="Solve" />
                         </p> 
-
                 <% } %>  
             <% } %>
         </fieldset>
