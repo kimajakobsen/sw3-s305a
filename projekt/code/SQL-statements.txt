@@ -181,6 +181,9 @@ VALUES(3, 'Bamse', 'Gul', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, NULL, 1)
 INSERT INTO ProblemSet(Id, Title, Description, Added_date, Deadline, IsDeadlineApproved, Reassignable, SolvedAtTime, PersonsId)
 VALUES(4, 'Tavlesvamp', 'Gul', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, NULL, 1)
 
+INSERT INTO ProblemSet(Id, Title, Description, Added_date, Deadline, IsDeadlineApproved, Reassignable, SolvedAtTime, PersonsId)
+VALUES(4, 'Tavlesvamp', 'Gul', { fn CURDATE() }, 17 - 12 - 2010, 1, 0, 10 - 12 - 2010, 1)
+
 SET IDENTITY_INSERT ProblemSet OFF
 
 --
