@@ -15,19 +15,25 @@ namespace HoplaHelpdesk.Models
             get { return DepartmentName; }
             set { DepartmentName = value; }
         }
-
+        /// <summary>
+        /// Balance the workload between all stafs in  a department. 
+        /// </summary>
         public void BalanceWorkload()
         {
 
-
+            // Run through all persons.
             for (var i = 0; i < Persons.Count; i++)
             {
-             
+                    // Find the person with the highest workload
                     var max = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Max(x => x.GetWorkload()));
+
+                    // If there is no person. 
                     if (max.Worklist == null)
                     {
                         return;
                     }
+
+                    //
                     max.Worklist.ToList().Sort(Problem.GetComparer());
                     var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
                     if (max == min)
