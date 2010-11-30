@@ -129,7 +129,6 @@ namespace HoplaHelpdesk.Controllers
             //List<int> john = new List<int>();
             ViewData["LoggedUser"] = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
-
             /*try
             {*/
                 Problem problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
