@@ -387,6 +387,36 @@ namespace HoplaHelpdesk.Tests
             ///  Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void ProblemSortTest6()
+        {
+            Problem prob1 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 4 } } };
+            Problem prob2 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 3 } } };
+            Problem prob3 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 2 } } };
+            Problem prob4 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+
+            var list = new List<Problem>() { prob4, prob3, prob2, prob1 };
+            /*  list.Sort(delegate(Problem p1, Problem p2)
+                {
+                    return p2.Priority.CompareTo(p1.Priority);
+                });
+             * */
+            list.Sort(Problem.GetComparer());
+            Assert.AreEqual(list[0], prob1);
+            Assert.AreEqual(list[1], prob2);
+            Assert.AreEqual(list[2], prob3);
+            Assert.AreEqual(list[3], prob4);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
         #region Not used
         /*
         /// <summary>
