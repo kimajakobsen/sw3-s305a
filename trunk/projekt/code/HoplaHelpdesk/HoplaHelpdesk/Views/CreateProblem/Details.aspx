@@ -11,8 +11,13 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ClientProblemDetailsV
 
     <% Html.RenderPartial("ClientProblemDetails", Model.Problem); %><br /><br />
     <% Html.RenderPartial("SolutionList", Model.Solutionlistviewmodel); %><br /><br />
+    
     <h2>Comments</h2>
     <% Html.RenderPartial("CommentList", Model.Commentlistviewmodel); %><br /><br />
+
+    <h2>Add Comment</h2>
+    <% Html.RenderPartial("EditorTemplates/CommentCreate", Model.Comment); %>
+
 
     <br /><br />
     <%: Html.ActionLink("Subscribe to this problem", "Subscribe", new {PerId = ViewData["LoggedUser"] , ProId = Model.Problem.Id })%>
