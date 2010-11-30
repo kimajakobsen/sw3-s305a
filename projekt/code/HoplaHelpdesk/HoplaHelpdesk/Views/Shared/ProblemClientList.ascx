@@ -16,7 +16,7 @@
                 <% else 
                    { %><td>Deadline not approved</td><% } %>
                 
-                <td></td>
+                <td><%: item.CalculateETA()%></td> 
                 
                 <% if (!(item.SolvedAtTime == null))
                    
