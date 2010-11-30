@@ -122,7 +122,7 @@ namespace HoplaHelpdesk.Controllers
                 Person = person,
                 AllDepartments = db.DepartmentSet.ToList(),
                 Roles = Tools.SQLf.GetRoles(),
-                Role = Tools.SQLf.GetRolesOfUser(person.Name)[0]
+                //Role = Tools.SQLf.GetRolesOfUser(person.Name)[0]
             });
 
             
@@ -139,15 +139,61 @@ namespace HoplaHelpdesk.Controllers
             try
             {
                 UpdateModel(person, "Person");
-                Tools.SQLf.UserToRole(person.Name, collection.Role.Name);
                 db.SaveChanges();
- 
+                //Tools.SQLf.UserToRole(person.Name, collection.Role.Name);
+                foreach (var role in collection.Person.Roles)
+                {
+                    if (role.Selected)
+                    {
+                        AddUserToRole(person.Name, role.Name);
+                    }
+                    else
+                    {
+                        UnRole(person.Name, role.Name);
+                    }
+                }
+
+                if (person.IsStaff() && person.Department == null)
+                {
+                    return RedirectToAction("ChooseDepartment", new { id });
+                }
                 return RedirectToAction("Index");
             }
             catch
             {
                 return RedirectToAction("Edit",new {id});
             }
+        }
+
+        /// <summary>
+        /// This is called when a person is made staff and has no department
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult ChooseDepartment(int id)
+        {
+            ViewData["Departments"] = db.DepartmentSet.ToList();
+            return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
+        }
+
+        [HttpPost]
+        public ActionResult ChooseDepartment(int id, Person temp)
+        {
+            var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+ 
+            try
+            {
+                person.DepartmentId = temp.DepartmentId;
+                db.SaveChanges();
+
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("ChooseDepartment", new { id });
+            }
+
         }
 
         //
@@ -210,6 +256,18 @@ namespace HoplaHelpdesk.Controllers
                 SQLf.UserToRole(user, role);
                 //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
                 msg = user + " is assigned to " + role + ".";
+
+                /*
+                if (SQLf.IsStaff(user))
+                {
+                    Person person = db.PersonSet.FirstOrDefault(x => x.Name == user);
+                    if (person.Department == null)
+                    {
+                        person.Department = db.DepartmentSet.FirstOrDefault();
+                        db.SaveChanges();
+                    }
+                }
+                 */
             }
             return msg;
         }
@@ -248,7 +306,16 @@ namespace HoplaHelpdesk.Controllers
                 SQLf.UnRole(user, role);
                 //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
                 msg = user + " is no longer " + role + ".";
+
+                if (!SQLf.IsStaff(user))
+                {
+                    Person person = db.PersonSet.FirstOrDefault(x => x.Name == user);
+                    person.Department = null;
+                    person.DepartmentId = null;
+                    db.SaveChanges();
+                }
             }
+            
             return msg;
         }
         [Authorize(Roles = "admin")]

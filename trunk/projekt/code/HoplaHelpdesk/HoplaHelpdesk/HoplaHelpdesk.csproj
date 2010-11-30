@@ -264,6 +264,7 @@
     <Content Include="Scripts\ui\minified\jquery.ui.tabs.min.js" />
     <Content Include="Scripts\ui\minified\jquery.ui.widget.min.js" />
     <Content Include="Views\CreateProblem\ClientCommentCreate.ascx" />
+    <Content Include="Views\Person\ChooseDepartment.aspx" />
     <Content Include="Views\Shared\ClientMenu.ascx" />
     <Content Include="Views\Admin\Index.aspx" />
     <Content Include="Views\Category\Create.aspx" />
