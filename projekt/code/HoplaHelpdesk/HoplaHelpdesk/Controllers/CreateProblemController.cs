@@ -128,7 +128,10 @@ namespace HoplaHelpdesk.Controllers
                         Solutions = solutions,
                         Deletable = false
                     },
-                    Comments = comments
+                    Commentlistviewmodel = new CommentListViewModel()
+                    {
+                        Comments = comments
+                    }
                 };
 
                 return View(viewModel);

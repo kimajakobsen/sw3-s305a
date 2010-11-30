@@ -10,7 +10,8 @@ namespace HoplaHelpdesk.ViewModels
     {
         public Problem Problem { get; set; }
         public SolutionListViewModel Solutionlistviewmodel { get; set; }
-        public List<Comment> Comments { get; set; }
+        public CommentListViewModel Commentlistviewmodel { get; set; }
+        
 
     }
 }
