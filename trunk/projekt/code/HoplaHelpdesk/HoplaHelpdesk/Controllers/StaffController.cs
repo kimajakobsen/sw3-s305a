@@ -72,6 +72,7 @@ namespace HoplaHelpdesk.Controllers
             
             //problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID).ToList();
             problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null).ToList();
+
             problemList.Sort(Problem.GetComparer());
 
             
