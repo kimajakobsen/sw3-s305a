@@ -96,10 +96,7 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
         {
-            if (model.hoursTaken != null)
-            {
-                db.ProblemSet.FirstOrDefault(x => x.Id == id).ManageTagTimes(model.hoursTaken);
-            }
+           
 
             if (model.comment != null)
             {
@@ -127,14 +124,10 @@ namespace HoplaHelpdesk.Controllers
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).Reassignable = false;
             }
 
-            if (model.solved == true)
+            if (model.hoursTaken != null)
             {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).ManageTagTimes(model.hoursTaken);
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).SolvedAtTime = DateTime.Now;
-                //db.ProblemSet.FirstOrDefault(x => x.Id == id).PersonsId = null;
-            }
-            else
-            {
-                db.ProblemSet.FirstOrDefault(x => x.Id == id).SolvedAtTime = null;
             }
 
 
