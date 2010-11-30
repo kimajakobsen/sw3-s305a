@@ -86,7 +86,7 @@ namespace HoplaHelpdesk.Tests
         }
 
 
-
+        #region Two Person test
         /// <summary>
         /// In this test we test that the tags will be moved around currectly. Mike has a workload of 30 and john's is 10. The problem with the highest priority should be moved to john, that'll be prob3
         ///</summary>
@@ -641,6 +641,315 @@ namespace HoplaHelpdesk.Tests
 
         }
 
+
+
+
+
+        /// <summary>
+        /// Extreme workload
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+
+        public void BalanceWorkloadTest14()
+        {
+            var tag1 = new Tag() { TimeConsumed = 2000000, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
+
+
+
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true }; /// 20
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 20
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //20
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
+            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag5 }, Reassignable = true }; // 10
+
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2 } }; // Workload = 60
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { prob3, prob4 } };               // = 20
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john
+                }
+            };
+            target.BalanceWorkload();
+          
+            
+            Assert.IsTrue(mike.Worklist.Contains(prob1));
+            Assert.IsTrue(john.Worklist.Contains(prob2));
+            Assert.IsTrue(john.Worklist.Contains(prob3));
+            Assert.IsTrue(john.Worklist.Contains(prob4));
+            
+
+        }
+
+
+
+
+
+        /// <summary>
+        /// Extreme workload
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+
+        public void BalanceWorkloadTest15()
+        {
+            var tag1 = new Tag() { TimeConsumed = 2000000, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
+
+
+
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true, SolvedAtTime = new DateTime() }; /// 20
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 20
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //20
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
+            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag5 }, Reassignable = true }; // 10
+
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() {  } }; // Workload = 60
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { prob3, prob1, prob4, prob2 } };               // = 20
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john
+                }
+            };
+            target.BalanceWorkload();
+
+
+            Assert.IsTrue(john.Worklist.Contains(prob1));
+            Assert.IsTrue(mike.Worklist.Contains(prob2));
+            Assert.IsTrue(mike.Worklist.Contains(prob3));
+            Assert.IsTrue(mike.Worklist.Contains(prob4));
+
+
+        }
+
+
+
+        /// <summary>
+        /// Extreme workload
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+
+        public void BalanceWorkloadTest16()
+        {
+            var tag1 = new Tag() { TimeConsumed = 2000000, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
+
+
+
+            var prob1 = new Problem() { Title = "1", Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true }; /// 20
+            var prob2 = new Problem() { Title = "2", Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true, SolvedAtTime = new DateTime() };  // 20
+            var prob3 = new Problem() { Title = "3", Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //20
+            var prob4 = new Problem() { Title = "4", Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
+            var prob5 = new Problem() { Title = "5", Tags = new EntityCollection<Tag> { tag5 }, Reassignable = true }; // 10
+
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { } }; // Workload = 60
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { prob3, prob1, prob4, prob2 } };               // = 20
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john
+                }
+            };
+            target.BalanceWorkload();
+
+
+            Assert.IsTrue(john.Worklist.Contains(prob1));
+            Assert.IsTrue(john.Worklist.Contains(prob2));
+            Assert.IsTrue(mike.Worklist.Contains(prob3));
+            Assert.IsTrue(mike.Worklist.Contains(prob4));
+
+
+        }
+
+
+        /// <summary>
+        /// only one person
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+
+        public void BalanceWorkloadTest17()
+        {
+            var tag1 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
+
+
+
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1, tag5, tag6 }, Reassignable = true, SolvedAtTime = new DateTime() }; /// 20
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true, SolvedAtTime = new DateTime() };  // 20
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true, SolvedAtTime = new DateTime() };   //20
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true, SolvedAtTime = new DateTime() };    //10
+            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag7, tag8 }, Reassignable = true, SolvedAtTime = new DateTime() }; // 10
+
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } }; // Workload = 60
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { } };               // = 20
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john
+                }
+            };
+            target.BalanceWorkload();
+            Assert.IsTrue(mike.Worklist.Contains(prob1));
+            Assert.IsTrue(mike.Worklist.Contains(prob2));
+            Assert.IsTrue(mike.Worklist.Contains(prob4));
+            Assert.IsTrue(mike.Worklist.Contains(prob5));
+            Assert.IsTrue(mike.Worklist.Contains(prob3));
+        }
+
+
+        /// <summary>
+        /// only one person
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+
+        public void BalanceWorkloadTest18()
+        {
+            var tag1 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
+
+
+
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1, tag5, tag6 }, Reassignable = true }; /// 20
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 20
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //20
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
+            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag7, tag8 }, Reassignable = true }; // 10
+
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } }; // Workload = 60
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { } };               // = 20
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john
+                }
+            };
+            target.BalanceWorkload();
+            Assert.IsTrue(john.Worklist.Contains(prob1));
+            Assert.IsTrue(john.Worklist.Contains(prob2));
+            Assert.IsTrue(mike.Worklist.Contains(prob4));
+            Assert.IsTrue(mike.Worklist.Contains(prob5));
+            Assert.IsTrue(mike.Worklist.Contains(prob3));
+            Assert.AreEqual(mike.Workload, 40);
+            Assert.AreEqual(john.Workload, 40);
+        }
+        #endregion
+
+        #region Multiple person Tests
+        /// <summary>
+        /// In this test we test that the tags will be moved around currectly. Mike has a workload of 30 and john's is 10. The problem with the highest priority should be moved to john, that'll be prob3
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+
+        public void BalanceWorkloadTest19()
+        {
+            var tag1 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 20
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true };
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };
+            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true };
+            var prob6 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };
+            var prob7 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };
+            var prob8 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };
+            var prob9 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true };
+            var prob10 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };
+            var prob11 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };
+            var prob12 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3 } }; // Workload = 40
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { prob4 } };               // = 10
+            var hans = new Person() { Name = "hans", Worklist = new EntityCollection<Problem>() { prob5, prob6, prob7,prob12 } }; // Workload = 40
+            var kurt = new Person() { Name = "kurt", Worklist = new EntityCollection<Problem>() { prob8 } };               // = 10
+            var ulla = new Person() { Name = "ulla", Worklist = new EntityCollection<Problem>() { prob9 } };               // = 10
+            var peer = new Person() { Name = "peer", Worklist = new EntityCollection<Problem>() { prob10, prob11 } };  
+
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john, hans, kurt, ulla, peer
+                }
+            };
+            target.BalanceWorkload();
+            Assert.AreEqual(20, mike.Workload);
+            Assert.AreEqual(20, john.Workload);
+            Assert.AreEqual(20, hans.Workload);
+            Assert.AreEqual(20, ulla.Workload);
+            Assert.AreEqual(20, peer.Workload);
+            Assert.AreEqual(20, kurt.Workload);
+        }
+
+
+        #endregion
     }
 
     
