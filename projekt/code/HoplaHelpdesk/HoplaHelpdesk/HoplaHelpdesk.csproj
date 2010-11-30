@@ -125,7 +125,7 @@
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SolutionListViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
-    <Compile Include="ViewModels\SuccesReassignViewModel.cs" />
+    <Compile Include="Views\SuccesReassignViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\hopla.png" />

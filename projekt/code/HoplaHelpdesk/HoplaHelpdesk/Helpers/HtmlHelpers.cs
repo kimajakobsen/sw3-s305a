@@ -20,7 +20,7 @@ namespace HoplaHelpdesk.Helpers
             return input;
         }
 
-        public static string CatTagDisplay(this HtmlHelper helper, EntityCollection<Tag> tags)
+        public static MvcHtmlString CatTagDisplay(this HtmlHelper helper, EntityCollection<Tag> tags)
         {
             var s = "";
             var cats = new List<Category>();
@@ -39,7 +39,9 @@ namespace HoplaHelpdesk.Helpers
                     s += tag.Name + "<br />";
                 } 
             }
-            return s;
+            var str =  MvcHtmlString.Create(s);
+            
+            return str;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace HoplaHelpdesk.Models
 {
     public partial class Comment
     {
+        
         public string PersonsName
         {
             get
