@@ -297,7 +297,7 @@ namespace HoplaHelpdesk.Tools
             SqlCommand cmd;
 
             //SqlCommand for adding a role
-            //cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + role + "','','" + role + "','" + role.ToLower + "','" + desription + "')", cn);
+            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + role + "','','" + role + "','" + role.ToLower + "','" + desription + "')", cn);
             
             //Executing the SqlCommand
             
