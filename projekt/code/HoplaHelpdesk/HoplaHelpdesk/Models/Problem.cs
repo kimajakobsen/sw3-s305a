@@ -86,7 +86,7 @@ namespace HoplaHelpdesk.Models
 
      public interface IProblem
      {
-         void ManageTagTimes();
+         void ManageTagTimes(string StaffTimeSpent);
          Double Priority { get;  }
 
 
