@@ -74,9 +74,9 @@ namespace HoplaHelpdesk.Models
         }
 
 
-        public TimeSpan Eta { get { return CalculateETA(); } } 
+        public DateTime Eta { get { return CalculateETA(); } } 
 
-        private TimeSpan CalculateETA()
+        private DateTime CalculateETA()
         {
             TimeSpan Time = new TimeSpan(2, 12, 30, 30);
 
