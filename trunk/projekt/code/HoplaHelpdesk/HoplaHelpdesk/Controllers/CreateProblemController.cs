@@ -121,7 +121,7 @@ namespace HoplaHelpdesk.Controllers
                 db.SaveChanges();
             }
 
-            return View();
+            return RedirectToAction("Details", new { id = id });
         }
 
         public ActionResult Details(int id)
