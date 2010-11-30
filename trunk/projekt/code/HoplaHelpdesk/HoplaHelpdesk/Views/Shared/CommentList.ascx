@@ -18,8 +18,12 @@
                 <%: String.Format("{0:g}", item.time) %>
             </td>
             <td>
+                <%: item.PersonsName %>
+            </td>
+            <td>
                 <%: item.description %>
             </td>
+
         </tr>
     
     <% } %>
