@@ -7,7 +7,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-        
             <%: Html.TextBoxFor(model => model.Comment.description) %>
 
             <p>
