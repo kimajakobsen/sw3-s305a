@@ -18,52 +18,59 @@ namespace HoplaHelpdesk.Models
 
         public void BalanceWorkload()
         {
-           
 
-            for (var i = 0; i < Persons.Count; i++ )
+
+            for (var i = 0; i < Persons.Count; i++)
             {
-                var max = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Max(x => x.GetWorkload()));
-                var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
-                if (max == min)
-                {
-                    return; 
-                }
-                bool couldStillMove = true;
-                do
-                {
-
-
-                    // Finde the reassignable problem with the highest priority which has not been moved yet. 
+             
+                    var max = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Max(x => x.GetWorkload()));
+                    if (max.Worklist == null)
+                    {
+                        return;
+                    }
                     max.Worklist.ToList().Sort(Problem.GetComparer());
-                    var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Reassignable == true && y.HasBeen == false);
-                    //var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Priority == max.Worklist.Where(z => z.Reassignable == true && z.HasBeen == false).Max(x => x.Priority) && y.Reassignable == true && y.HasBeen == false);
-                  
-                    if (problemToBeMoved == null)
+                    var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
+                    if (max == min)
                     {
-                        couldStillMove = false;
+                        return;
                     }
-                    else
+                    bool couldStillMove = true;
+                    do
                     {
-                        problemToBeMoved.HasBeen = true;
 
-                        // Reassign the highest priority problem to staff called min.
-                        problemToBeMoved.AssignedTo = min;
-                        if (min.Workload > max.Workload)
+
+                        // Finde the reassignable problem with the highest priority which has not been moved yet. 
+
+                        var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Reassignable == true && y.HasBeen == false && y.SolvedAtTime == null);
+                        //var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Priority == max.Worklist.Where(z => z.Reassignable == true && z.HasBeen == false).Max(x => x.Priority) && y.Reassignable == true && y.HasBeen == false);
+
+                        if (problemToBeMoved == null)
                         {
-                            // Move it back
-                            problemToBeMoved.AssignedTo = max;
                             couldStillMove = false;
                         }
-                        else if (min.Workload == max.Workload)
+                        else
                         {
-                            // Don't move bakc if they are equal
-                            couldStillMove = false;
-                        }
-                    }
+                            problemToBeMoved.HasBeen = true;
 
-                } while (couldStillMove);
-            } 
-        }
+                            // Reassign the highest priority problem to staff called min.
+                            problemToBeMoved.AssignedTo = min;
+                            if (min.Workload > max.Workload)
+                            {
+                                // Move it back
+                                problemToBeMoved.AssignedTo = max;
+                                couldStillMove = false;
+                            }
+                            else if (min.Workload == max.Workload)
+                            {
+                                // Don't move bakc if they are equal
+                                couldStillMove = false;
+                            }
+                        }
+
+                    } while (couldStillMove);
+                }
+            }
+        
         
     }
 }
