@@ -36,14 +36,23 @@
             <td>
                 <%: item.Email %>
             </td>
-            <td><% if (item.Department != null)
-                   { %>
+            <% if (item.Department != null)
+               { %>
+            <td>
+                   
                 <%: item.Department.Name%>
+
             </td>
              <td>
                 <%: item.GetWorkload()%>
             </td>
-            <% } %>
+            <% }
+               else
+               {%>
+               <td>-- Client --</td>
+               <td>-- Client --</td>
+               <%} %>
+
         </tr>
     
     <% } %>
