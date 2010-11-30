@@ -53,7 +53,6 @@ namespace HoplaHelpdesk.Models
                 }
                 return Math.Round(sum / (double)Tags.Count, 2);
             }
-
             return 0;
         }
 
