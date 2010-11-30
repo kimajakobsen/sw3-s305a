@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.Tools
 {
     public static class SQLf
     {
         //Function to check if user already got a specific role
+        // ConnectionStrinGlobal will connect to the db via Kiel
+        private static string connString = Constants.ConnectionStringLocal;
+
         public static Boolean UserIsAlreadyInThatRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
-            //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            cn.ConnectionString = connString;
             //Preparing SqlCommands
             SqlCommand userId;
             SqlCommand roleId;
@@ -59,10 +60,7 @@ namespace HoplaHelpdesk.Tools
         public static void UserToRole(String user, String role)
         {
             SqlConnection cn = new SqlConnection();
-            //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+            cn.ConnectionString = connString;
             //Preparing SqlCommands
             SqlCommand userId;
             SqlCommand roleId;
@@ -88,9 +86,9 @@ namespace HoplaHelpdesk.Tools
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+
+
+            cn.ConnectionString = connString;
             //Preparing SqlCommands
             SqlCommand StaffId;
             SqlCommand UserId;
@@ -133,9 +131,9 @@ namespace HoplaHelpdesk.Tools
         public static Boolean DoUserExists(String user){
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+
+
+            cn.ConnectionString = connString;
             //Preparing SqlCommand
             SqlCommand userId;
             //Creating two strings with diffrend values, so it is possible to compare later
@@ -174,9 +172,9 @@ namespace HoplaHelpdesk.Tools
         public static void UnRole (String user, String role){
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+
+
+            cn.ConnectionString = connString;
             //Preparing SqlCommands
             SqlCommand delete;
             SqlCommand userId;
@@ -206,40 +204,37 @@ namespace HoplaHelpdesk.Tools
             
         }
 
-        public static string GetRoleOfUser(string userName)
+        public static List<Role> GetRolesOfUser(string userName)
         {
-            SqlConnection cn = new SqlConnection();
-            //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            SqlCommand getRole;
+            List<Role> roles = GetRoles();
+            List<Role> result = new List<Role>();
 
-            getRole = new SqlCommand("SELECT RoleName FROM aspnet_Roles, aspnet_Users WHERE aspnet_Users.LoweredUserName = " + userName + "", cn);
-            string result;
-
-            try
-            {
-                cn.Open();
-                result = getRole.ExecuteScalar().ToString();
+            foreach (var role in roles)
+            { 
+                if(UserIsAlreadyInThatRole(userName,role.Name))
+                {
+                    result.Add(role);
+                }
             }
-            finally
+
+            if (result.Count == 0)
             {
-                cn.Close();
+                throw new ArgumentException("The user with the name " + userName + " does not have any roles");
             }
 
             return result;
         }
+
         //Function to provide a List of Roles
-        public static List<string> GetRoles()
+        public static List<Role> GetRoles()
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+
+
+            cn.ConnectionString = connString;
             SqlCommand getRoles;
-            var result = new List<string>();
+            var result = new List<Role>();
 
             getRoles = new SqlCommand("SELECT RoleName FROM aspnet_Roles", cn);
 
@@ -250,7 +245,7 @@ namespace HoplaHelpdesk.Tools
 
                 while (temp.Read())
                 {
-                    result.Add(temp[0].ToString());
+                    result.Add(new Role { Name = temp[0].ToString() });
                 }
             }
             finally
@@ -265,9 +260,9 @@ namespace HoplaHelpdesk.Tools
         {
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
-            //cn.ConnectionString = "Data Source=81.209.164.151,61433;Initial Catalog=hopla;User Id=John;Password=Trekant01";
-            //Connection ze local!
-            cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
+
+
+            cn.ConnectionString = connString;
             //Preparing SqlCommands
             SqlCommand userId;
             SqlCommand roleId;
