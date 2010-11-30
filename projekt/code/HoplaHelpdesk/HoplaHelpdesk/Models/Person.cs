@@ -14,7 +14,7 @@ namespace HoplaHelpdesk.Models
     //[MetadataType(typeof(PersonMetaData))]
     public partial class Person : IPerson
     {
-
+        private List<Role> _roles;
         /*public class PersonMetaData
         {
            
@@ -22,6 +22,35 @@ namespace HoplaHelpdesk.Models
 
         }*/
 
+        public List<Role> Roles
+        {
+            get
+            {
+                if (_roles == null)
+                {
+                    _roles = Tools.SQLf.GetRolesOfUser(this.Name);
+                    foreach (var role in _roles)
+                    {
+                        role.Selected = true;
+                    }
+                    List<Role> allRoles = Tools.SQLf.GetRoles();
+                    foreach (var role in allRoles)
+                    {
+                        if (!_roles.Contains(role))
+                        {
+                            _roles.Add(role);
+                        }
+                    }
+                }
+                
+                return _roles;
+            }
+
+            private set
+            {
+                _roles = value;
+            }
+        }
 
         public bool IsStaff()
         {

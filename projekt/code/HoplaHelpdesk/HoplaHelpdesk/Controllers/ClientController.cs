@@ -71,9 +71,9 @@ namespace HoplaHelpdesk.Controllers
                 {
                     subscriber = db.PersonSet.FirstOrDefault(x => x.Name == id);
 
-                    List<Problem> tempProb = db.ProblemSet.ToList();
+                    List<Problem> tempProb = db.ProblemSet.ToList().Where(x => x.Persons.Contains(subscriber) && x.SolvedAtTime == null).ToList();
                     problems.Problems.AddRange(ProblemSearch.Search(catTag, tempProb,
-                        db.TagSet.ToList(), standardMinNumberOfProblems, subscriber, db.PersonSet.ToList()));
+                        db.TagSet.ToList(), standardMinNumberOfProblems));
 
                     /*
                     List<Problem> tempProb = db.ProblemSet.Where(x => x.Persons.Contains(subscriber)).ToList();

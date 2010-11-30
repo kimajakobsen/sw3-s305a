@@ -16,13 +16,16 @@
             
             <%: Html.EditorFor(x => x.Person, new { Departments = Model.AllDepartments}) %>
 
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Role.Name)%> 
-            </div>
-            <div class="editor-field">
-                <%: Html.DropDownList("Name", new SelectList(Model.Roles as IEnumerable,
-                    "this", "Name", Model.Role))%>
-            </div>
+            <% foreach (var role in Model.Roles)
+               { %>
+                <div class="editor-label">
+                    <%: Html.LabelFor(model => role.Name)%> 
+                </div>
+                <div class="editor-field">
+                    <%: Html.DropDownList("Name", new SelectList(Model.Roles as IEnumerable,
+                        "this", "Name", Model.Role))%>
+                </div>
+             <% } %>
             
             <p>
                 <input type="submit" value="Save" />
