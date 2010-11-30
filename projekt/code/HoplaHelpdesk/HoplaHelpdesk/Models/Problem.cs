@@ -74,9 +74,11 @@ namespace HoplaHelpdesk.Models
             }
         }
 
-        public int CalculateETA()
+        public TimeSpan CalculateETA()
         {
-            return (1);
+            TimeSpan Time = new TimeSpan(2, 12, 30, 30);
+
+            return (Time);
         }
 
         public class ProblemComparer<T> : IComparer<T>
