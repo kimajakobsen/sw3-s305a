@@ -59,14 +59,24 @@ namespace HoplaHelpdesk.Models
 
         public void ManageTagTimes(string StaffTimeSpent)
         {
+<<<<<<< .mine
+            string[] split = StaffTimeSpent.Split(",".ToCharArray());
+            
+            int HoursUsed = Int32.Parse(split[0]);
+            int MinutesUsed = (int)(0.6*(double.Parse(split[1]))) + (HoursUsed*60);
+=======
             //StringBuilder();
-
+>>>>>>> .r1368
 
             foreach (var tag in Tags)
             {
                 tag.SolvedProblems++;
 
+<<<<<<< .mine
+                tag.TimeConsumed = tag.TimeConsumed + MinutesUsed;
+=======
                 //tag.TimeConsumed = tag.TimeConsumed + MinutesConsumed;
+>>>>>>> .r1368
 
             }
         }
