@@ -10,7 +10,8 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ClientProblemDetailsV
     <h2>Details</h2>
 
     <% Html.RenderPartial("ProblemDetails", Model.Problem); %>
-     <% Html.RenderPartial("SolutionList", Model.); %>
+     <% Html.RenderPartial("SolutionList", Model.Solutionlistviewmodel); %>
+     <% Html.RenderPartial("CommentList", Model.Comments); %>
 
     <%: Html.ActionLink("Subscribe to this problem", "Subscribe", new {PerId = ViewData["LoggedUser"] , ProId = Model.Id })%>
 </asp:Content>
