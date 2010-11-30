@@ -6,10 +6,10 @@
         <fieldset>
             <legend>Fields</legend>
             
-            <%: Html.TextBoxFor(model => model.Comment.description) %>
+            <%: Html.TextAreaFor(model => model.Comment.description) %>
 
             <p>
-                <input type="submit" value="SUBMIT CLIENT COMMENT" />
+                <input type="submit" value="Submit comment" />
             </p>
         </fieldset>
 
