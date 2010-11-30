@@ -11,16 +11,19 @@
     <% foreach (var item in Model.Problems) { %>        
             <tr>
                 <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%></td>
-                <td><%: item.Deadline %></td>
+                <% if (item.IsDeadlineApproved == true)
+                   { %> <td><%: item.Deadline%></td> <% } %>
+                <% else 
+                   { %><td>Deadline not approved</td><% } %>
+                
                 <td></td>
+                
                 <% if (!(item.SolvedAtTime == null))
-                   { %>
-                <td><%: item.SolvedAtTime%></td>
-                <% } %>
+                   
+                   { %><td><%: item.SolvedAtTime%></td><% } %>
                 <% else
-                   { %>
-                    <td>Unsolved</td>
-                <% } %>
+                   { %><td>Unsolved</td><% } %>
+
                 <td><%: item.Description %></td>
             </tr>
     <% } %>
