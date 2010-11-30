@@ -8,7 +8,7 @@ namespace HoplaHelpdesk.Models
     public class Role
     {
         public string Name { get; set; }
-
+        public bool Selected { get; set; }
     }
 
 

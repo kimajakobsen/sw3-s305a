@@ -15,7 +15,14 @@
             <legend>Person</legend>
             
             <%: Html.EditorFor(x => x.Person, new { Departments = Model.AllDepartments}) %>
-            <%: Html.EditorFor(x => x.Role, new {roles = Model.Roles} )%>
+
+            <div class="editor-label">
+                <%: Html.LabelFor(model => model.Role.Name)%> 
+            </div>
+            <div class="editor-field">
+                <%: Html.DropDownList("Name", new SelectList(Model.Roles as IEnumerable,
+                    "this", "Name", Model.Role))%>
+            </div>
             
             <p>
                 <input type="submit" value="Save" />

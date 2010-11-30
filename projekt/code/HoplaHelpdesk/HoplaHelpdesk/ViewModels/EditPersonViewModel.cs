@@ -10,7 +10,7 @@ namespace HoplaHelpdesk.ViewModels
     {
         public Person Person { get; set; }
         public List<Department> AllDepartments { get; set; }
-        public List<string> Roles { get; set; }
+        public List<Role> Roles { get; set; }
         public Role Role { get; set; }
     }
 }

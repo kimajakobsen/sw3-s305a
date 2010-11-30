@@ -94,7 +94,7 @@ namespace HoplaHelpdesk.Controllers
                 Person = person,
                 AllDepartments = db.DepartmentSet.ToList(),
                 Roles = Tools.SQLf.GetRoles(),
-                Role = new Role { Name = Tools.SQLf.GetRoleOfUser(person.Name) }
+                Role = Tools.SQLf.GetRolesOfUser(person.Name)[0]
             });
 
             
@@ -104,13 +104,14 @@ namespace HoplaHelpdesk.Controllers
         // POST: /Person/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, EditPersonViewModel collection)
         {
             var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
 
             try
             {
-                UpdateModel(person,"Person");
+                UpdateModel(person, "Person");
+                Tools.SQLf.UserToRole(person.Name, collection.Role.Name);
                 db.SaveChanges();
  
                 return RedirectToAction("Index");
