@@ -20,7 +20,6 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         public void BalanceWorkload()
         {
-
             // Run through all persons.
             for (var i = 0; i < Persons.Count; i++)
             {
@@ -33,29 +32,32 @@ namespace HoplaHelpdesk.Models
                         return;
                     }
 
-                    //
+                    // Sort his worklist so that the highest priority is the first.
                     max.Worklist.ToList().Sort(Problem.GetComparer());
+
+                    // Find the person with the lowest workload
                     var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
+                 
+                    // If max and min is the same person.
                     if (max == min)
                     {
                         return;
                     }
+
+                    // To determine the while loop.
                     bool couldStillMove = true;
                     do
                     {
-
-
                         // Finde the reassignable problem with the highest priority which has not been moved yet. 
-
                         var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Reassignable == true && y.HasBeen == false && y.SolvedAtTime == null);
-                        //var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Priority == max.Worklist.Where(z => z.Reassignable == true && z.HasBeen == false).Max(x => x.Priority) && y.Reassignable == true && y.HasBeen == false);
-
+                        // If none can be moved, move on to the next iteration.
                         if (problemToBeMoved == null)
                         {
                             couldStillMove = false;
                         }
                         else
                         {
+                            // Mark as has been moved
                             problemToBeMoved.HasBeen = true;
 
                             // Reassign the highest priority problem to staff called min.
