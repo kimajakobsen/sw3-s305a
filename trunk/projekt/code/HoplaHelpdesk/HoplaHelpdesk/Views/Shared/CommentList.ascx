@@ -1,12 +1,12 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.ViewModels.CommentListViewModel>" %>
 
-    <table class="problemlist">
+    <table width="100%" class="problemlist">
         <tr>
 
-            <th>
+            <th width="10%">
                 time
             </th>
-            <th>
+            <th width="90%">
                 description
             </th>
         </tr>
