@@ -29,9 +29,7 @@ namespace HoplaHelpdesk.Models
 
         public static ProblemComparer<Problem> GetComparer()
         {
-
             return new ProblemComparer<Problem>();
-
         }
 
         public class ProblemMetaData
