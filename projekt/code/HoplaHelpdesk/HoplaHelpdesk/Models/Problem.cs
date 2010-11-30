@@ -27,6 +27,13 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         public bool HasBeen { get; set; }
 
+        public static ProblemComparer<Problem> GetComparer()
+        {
+
+            return new ProblemComparer<Problem>();
+
+        }
+
         public class ProblemMetaData
         {
             [Required(ErrorMessage = "A problem Title is required")]
@@ -63,6 +70,17 @@ namespace HoplaHelpdesk.Models
 
             }
         }
+
+        private class ProblemComparer<T> : IComparer<T>
+        {
+            public int Compare(T a, T b)
+            {
+                Problem proA = a as Problem;
+                Problem proB = a as Problem;
+                return proB.Priority.CompareTo(proA.Priority);
+            }
+        }
+
     }
 
 
