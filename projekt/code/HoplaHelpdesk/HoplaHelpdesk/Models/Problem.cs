@@ -59,19 +59,19 @@ namespace HoplaHelpdesk.Models
 
         public void ManageTagTimes(string StaffTimeSpent)
         {
-            StringBuilder();
+            //StringBuilder();
 
 
             foreach (var tag in Tags)
             {
                 tag.SolvedProblems++;
 
-                tag.TimeConsumed = tag.TimeConsumed + MinutesConsumed;
+                //tag.TimeConsumed = tag.TimeConsumed + MinutesConsumed;
 
             }
         }
 
-        private class ProblemComparer<T> : IComparer<T>
+        public class ProblemComparer<T> : IComparer<T>
         {
             public int Compare(T a, T b)
             {
