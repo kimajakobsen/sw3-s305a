@@ -61,7 +61,7 @@ namespace HoplaHelpdesk.Models
         {
             string StaffTimeSpent = StaffTimeSpentInput.ToString();
 
-            string[] split = StaffTimeSpent.Split(",".ToCharArray());
+            string[] split = StaffTimeSpent.Split(".".ToCharArray());
             
             int HoursUsed = Int32.Parse(split[0]);
             int MinutesUsed = (int)(0.6*(double.Parse(split[1]))) + (HoursUsed*60);
@@ -72,6 +72,11 @@ namespace HoplaHelpdesk.Models
 
                 tag.TimeConsumed = tag.TimeConsumed + MinutesUsed;
             }
+        }
+
+        public int CalculateETA()
+        {
+            return (1);
         }
 
         public class ProblemComparer<T> : IComparer<T>
