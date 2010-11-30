@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.Models.Problem>" %>
 
-<!-- Dette er kun til staff -->
 
         <div class="display-label">Description</div>
         <div class="display-field"><%: Model.Description %></div>

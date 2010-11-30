@@ -289,6 +289,7 @@
     <Content Include="Views\ReassignProblem\StaffList.ascx" />
     <Content Include="Views\Shared\AdminMenu.ascx" />
     <Content Include="Views\ReassignProblem\Succes.aspx" />
+    <Content Include="Views\Shared\ClientProblemDetails.ascx" />
     <Content Include="Views\Shared\CommentList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\Role.ascx" />
     <Content Include="Views\Shared\PersonAddList.ascx" />

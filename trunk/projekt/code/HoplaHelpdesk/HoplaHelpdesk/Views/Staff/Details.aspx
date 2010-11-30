@@ -6,6 +6,8 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+    
 
     <fieldset>
         <legend><%: Model.Problem.Title %></legend>
