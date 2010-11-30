@@ -57,8 +57,10 @@ namespace HoplaHelpdesk.Models
             return 0;
         }
 
-        public void ManageTagTimes(string StaffTimeSpent)
+        public void ManageTagTimes(double StaffTimeSpentInput)
         {
+            string StaffTimeSpent = StaffTimeSpentInput.ToString();
+
             string[] split = StaffTimeSpent.Split(",".ToCharArray());
             
             int HoursUsed = Int32.Parse(split[0]);
@@ -69,8 +71,6 @@ namespace HoplaHelpdesk.Models
                 tag.SolvedProblems++;
 
                 tag.TimeConsumed = tag.TimeConsumed + MinutesUsed;
-
-
             }
         }
 
