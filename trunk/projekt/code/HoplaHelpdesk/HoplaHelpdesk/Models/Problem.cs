@@ -42,6 +42,11 @@ namespace HoplaHelpdesk.Models
 
         private Double GetPriority()
         {
+            if (DateTime.Now > Deadline)
+            { // Whenever a 
+                return 10.0;
+            }
+
             if (Tags != null && Tags.Count != 0)
             {
                 short sum = 0;
