@@ -28,8 +28,17 @@ namespace HoplaHelpdesk.Tools
             roleId = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = '" + role + "')", cn);
             cn.Open();
             //Converting userId and roleId into strings
-            String userA = userId.ExecuteScalar().ToString();
-            String roleA = roleId.ExecuteScalar().ToString();
+             String userA;
+             String roleA;
+            try
+            {
+                userA = userId.ExecuteScalar().ToString();
+                roleA = roleId.ExecuteScalar().ToString();
+            }
+            catch
+            {
+                throw;
+            }
             //Preparing SqlCommand to check if user already got a specific role
             DBroleId = new SqlCommand("SELECT RoleId FROM aspnet_UsersInRoles WHERE (RoleId = '" + roleA + "') AND (UserId = '" + userA + "')", cn);
             //Running the above SqlCommand in a try catch, since it aint sure that the user already got the specific role
@@ -208,6 +217,10 @@ namespace HoplaHelpdesk.Tools
         {
             List<Role> roles = GetRoles();
             List<Role> result = new List<Role>();
+            if (!DoUserExists(userName))
+            {
+                throw new ArgumentException("No user named " + userName + " exists in aspnet_Users");
+            }
 
             foreach (var role in roles)
             { 

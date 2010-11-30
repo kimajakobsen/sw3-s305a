@@ -28,17 +28,17 @@ namespace HoplaHelpdesk.Models
             {
                 if (_roles == null)
                 {
-                    _roles = Tools.SQLf.GetRolesOfUser(this.Name);
+                    _roles = Tools.SQLf.GetRoles();
+                    var allRoles = Tools.SQLf.GetRolesOfUser(this.Name);
                     foreach (var role in _roles)
                     {
-                        role.Selected = true;
-                    }
-                    List<Role> allRoles = Tools.SQLf.GetRoles();
-                    foreach (var role in allRoles)
-                    {
-                        if (!_roles.Contains(role))
+                        foreach (var item in allRoles)
                         {
-                            _roles.Add(role);
+                            if (item.Name == role.Name)
+                            {
+                                role.Selected = true;
+                                break;
+                            }
                         }
                     }
                 }
@@ -54,15 +54,15 @@ namespace HoplaHelpdesk.Models
 
         public bool IsStaff()
         {
-            if (DepartmentId == 0)
+            foreach (var role in Roles)
             {
-                return false;
+                if (role.Name == "Staff" && role.Selected)
+                {
+                    return true;
+                }
             }
-            else
-            {
 
-                return true;
-            }
+            return false;
         }
 
         public double Workload { get { return GetWorkload(); } }
