@@ -250,5 +250,35 @@ namespace HoplaHelpdesk.Controllers
             }
             return msg;
     }
+
+        [Authorize(Roles = "admin")]
+        public String AddRole(String role, String description)
+        {
+            string msg = HttpUtility.HtmlEncode("Person.AddRole, role = " + role + "&description = " + description);
+
+            //Check if any role is provided
+            if (role == null || role == "")
+            {
+                msg = "No role is provided";
+            }
+            //Check if RoleExists
+            else if (Roles.RoleExists(role) == false)
+            {
+                msg = "Role dont exists";
+            }
+            //Check User by username provided, if username equals null, the user dont exists
+            else if (description == null || description == "")
+            {
+                SQLf.AddRole(role, description);
+                msg = role + " is created without a desciption.";
+            }
+            else
+            {
+                SQLf.AddRole(role, description);
+                msg = role + " is created with following desciption:" + description;
+            }
+            return msg;
+        }
+
     }
 }
