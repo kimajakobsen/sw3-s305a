@@ -21,7 +21,7 @@
                 <%: String.Format("{0:g}", item.time) %>
             </td>
             <td>
-                <%: item.PersonsName %>
+                <%: item.Person.Name %>
             </td>
             <td>
                 <%: item.description %>

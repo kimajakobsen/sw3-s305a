@@ -92,7 +92,6 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\HoplaModel.Designer.cs">
