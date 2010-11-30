@@ -27,9 +27,9 @@ namespace HoplaHelpdesk.Models
         /// </summary>
         public bool HasBeen { get; set; }
 
-        public static ProblemComparer<Problem> GetComparer()
+        public static ProblemComparer GetComparer()
         {
-            return new ProblemComparer<Problem>();
+            return new ProblemComparer();
         }
 
         public class ProblemMetaData
@@ -103,13 +103,12 @@ namespace HoplaHelpdesk.Models
             return (DateTime);
         }
 
-        public class ProblemComparer<T> : IComparer<T>
+        public class ProblemComparer : IComparer<Problem>
         {
-            public int Compare(T a, T b)
+            public int Compare(Problem a, Problem b)
             {
-                Problem proA = a as Problem;
-                Problem proB = a as Problem;
-                return proB.Priority.CompareTo(proA.Priority);
+              
+                return b.Priority.CompareTo(a.Priority);
             }
         }
 
