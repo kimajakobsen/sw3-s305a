@@ -107,6 +107,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\BalanceWorkload.cs" />
     <Compile Include="Tools\Mailer.cs" />
+    <Compile Include="Tools\PriorityComparer.cs" />
+    <Compile Include="Tools\ProblemComparer.cs" />
     <Compile Include="Tools\ProblemDistributer.cs" />
     <Compile Include="Tools\SQLf.cs" />
     <Compile Include="ViewModels\AttachSolutionViewModel.cs" />

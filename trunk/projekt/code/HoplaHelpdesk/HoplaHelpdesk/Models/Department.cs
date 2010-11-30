@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Objects.DataClasses;
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Models
 {
@@ -33,7 +34,9 @@ namespace HoplaHelpdesk.Models
 
 
                     // Finde the reassignable problem with the highest priority.
-                    var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Priority == max.Worklist.Where(z => z.Reassignable == true && z.HasBeen == false).Max(x => x.Priority) && y.Reassignable == true && y.HasBeen == false);
+                    max.Worklist.ToList().Sort(new ProblemComparer<Problem>());
+                    var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Reassignable == true && y.HasBeen == false);
+                    //var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Priority == max.Worklist.Where(z => z.Reassignable == true && z.HasBeen == false).Max(x => x.Priority) && y.Reassignable == true && y.HasBeen == false);
                   
                     if (problemToBeMoved == null)
                     {
