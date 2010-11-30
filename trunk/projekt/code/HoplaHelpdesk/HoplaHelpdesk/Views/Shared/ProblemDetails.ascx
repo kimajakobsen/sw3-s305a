@@ -13,3 +13,4 @@
         <div class="display-label">SolvedAtTime</div>
         <div class="display-field"><%: String.Format("{0:g}", Model.SolvedAtTime) %></div>
 
+        
