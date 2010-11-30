@@ -168,8 +168,8 @@ namespace HoplaHelpdesk.Tools
                     return false;
                 }
         }
-        //Function to remove a role from a user
-        public static void UnRole (String user, String role){
+            //Function to remove a role from a user
+            public static void UnRole (String user, String role){
             SqlConnection cn = new SqlConnection();
             //Connection ze internet way!
 
