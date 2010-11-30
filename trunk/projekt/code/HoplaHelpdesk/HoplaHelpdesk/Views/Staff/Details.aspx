@@ -77,7 +77,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
         <h2>Add Comment:</h2>
 
-        <% Html.RenderPartial("EditorTemplates/CommentCreate", Model.comment); %>
+        <% Html.RenderPartial("EditorTemplates/CommentCreate", Model); %>
 
         <br /><br />
         <%: Html.ActionLink("Reassign", "Index", "ReassignProblem", new { id = Model.Problem.Id }, null)%>
