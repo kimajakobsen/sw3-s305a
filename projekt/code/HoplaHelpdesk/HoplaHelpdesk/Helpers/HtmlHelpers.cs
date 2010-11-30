@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Objects.DataClasses;
+using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.Helpers
 {
@@ -16,6 +18,28 @@ namespace HoplaHelpdesk.Helpers
             }
 
             return input;
+        }
+
+        public static string CatTagDisplay(this HtmlHelper helper, EntityCollection<Tag> tags)
+        {
+            var s = "";
+            var cats = new List<Category>();
+            foreach (var tag in tags)
+            {
+                if(!cats.Contains(tag.Category)){
+                    cats.Add(tag.Category);
+                }
+            }
+
+            foreach (var cat in cats)
+            {
+                s += "<strong>" + cat.Name + "</strong><br /> ";
+                foreach(var tag in cat.Tags)
+                {
+                    s += tag.Name + "<br />";
+                } 
+            }
+            return s;
         }
     }
 }
