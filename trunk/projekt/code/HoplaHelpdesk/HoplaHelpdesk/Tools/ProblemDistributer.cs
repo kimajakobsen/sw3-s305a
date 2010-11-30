@@ -10,6 +10,12 @@ using System.Data.Objects;
 
 namespace HoplaHelpdesk.Tools
 {
+
+    /// <summary>
+    /// Main function is getStaff which gets a person who should solve the inputtet problem.
+    /// If a is not specified it determines the currect departmen by itself. 
+    /// The function overrules the Reassignable property of the problem... 
+    /// </summary>
     public static class ProblemDistributer
     {
         public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
@@ -48,16 +54,22 @@ namespace HoplaHelpdesk.Tools
         public static IPerson GetStaff(Problem Problem, Department department)
         {
 
-            return GetStaff(Problem, department.Persons.ToList(), GetDepartment(Problem.Tags));
+            return GetStaff(Problem, department.Persons.ToList(), department);
         }
 
        
 
      
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Problem"></param>
+        /// <param name="PersonSet">Persons the problem will be distributed to. </param>
+        /// <param name="department">Only people from this department will be assigned to the problem. </param>
+        /// <returns></returns>
         public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Department department)
         {
-            Contract.Invariant(PersonSet != null, "PersonSet were null");
+            
             
             IEnumerable<IPerson> persons = null;
             if (department != null)
@@ -71,6 +83,10 @@ namespace HoplaHelpdesk.Tools
                  persons = PersonSet.Where(x => x.IsStaff() == true);
             }
             Double min = Double.MaxValue;
+            if (persons.Count() == 0 || persons == null)
+            {
+                throw new ArgumentNullException("The Person List were empty");
+            }
             IPerson staff = persons.First();
             foreach (var person in persons)
             {

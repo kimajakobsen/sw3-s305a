@@ -368,6 +368,136 @@ namespace HoplaHelpdesk.Tests
             // Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
+        /// <summary>
+        /// Nobody is working in dept 2
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        // [HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        //[UrlToTest("http://localhost:6399/")]
+        public void GetStaffTest5()
+        {
+            var dept1 = new Department() { DepartmentName = "Names" };
+            var cat1 = new Category() { Name = "Name", Department = dept1 };
+            var dept2 = new Department() { DepartmentName = "Names2" };
+            var cat2 = new Category() { Name = "Nam2e", Department = dept2 };
+            EntityCollection<Tag> tags = new EntityCollection<Tag>()
+            {
+                new Tag(){
+                    Name = "Jolælhn",
+                    Category = cat1
+                }, 
+               new Tag(){
+                    Name = "Johlælæn",
+                    Category = cat1
+                }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+            }; // TODO: Initialize to an appropriate value
+
+            Problem Problem = new Problem() { Tags = tags }; // TODO: Initialize to an appropriate value
+
+            EntityCollection<Problem> worklist = new EntityCollection<Problem>() { new Problem(), new Problem(), new Problem(), new Problem(), new Problem(), new Problem(), new Problem() };
+            EntityCollection<Problem> worklist2 = new EntityCollection<Problem>() { new Problem(), new Problem(), new Problem(), new Problem() };
+            EntityCollection<Problem> worklist3 = new EntityCollection<Problem>() { new Problem() };
+
+
+            // Nobody is working in dept 2
+            IPerson Johnny = new TestPerson() { Worklist = worklist, Department = dept1 };
+            IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
+            IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1 };
+            IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
+            List<IPerson> PersonSet = new List<IPerson>()
+            {
+               
+            };
+
+
+            IPerson expected = Johnny;
+            IPerson actual;
+
+            try
+            {
+                actual = ProblemDistributer.GetStaff(Problem, PersonSet);
+                Assert.Fail();
+            }
+            catch (ArgumentNullException)
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// Nobody is working in dept 2
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        // [HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("C:\\Users\\John\\Documents\\sw3\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
+        //[UrlToTest("http://localhost:6399/")]
+        public void GetStaffTest6()
+        {
+            var dept1 = new Department() { DepartmentName = "Names" };
+            var cat1 = new Category() { Name = "Name", Department = dept1 };
+            var dept2 = new Department() { DepartmentName = "Names2" };
+            var cat2 = new Category() { Name = "Nam2e", Department = dept2 };
+            EntityCollection<Tag> tags = new EntityCollection<Tag>()
+            {
+                new Tag(){
+                    Name = "Jolælhn",
+                    Category = cat1
+                }, 
+               new Tag(){
+                    Name = "Johlælæn",
+                    Category = cat1
+                }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+                new Tag(){  Name = "Jælælohn", Category = cat2  }, 
+            }; // TODO: Initialize to an appropriate value
+
+            Problem Problem = new Problem() { Tags = tags }; // TODO: Initialize to an appropriate value
+
+            EntityCollection<Problem> worklist = new EntityCollection<Problem>() { new Problem(), new Problem(), new Problem(), new Problem(), new Problem(), new Problem(), new Problem() };
+            EntityCollection<Problem> worklist2 = new EntityCollection<Problem>() { new Problem(), new Problem(), new Problem(), new Problem() };
+            EntityCollection<Problem> worklist3 = new EntityCollection<Problem>() { new Problem() };
+
+
+            // Nobody is working in dept 2
+            IPerson Johnny = new TestPerson() { Worklist = worklist, Department = dept1 };
+            IPerson MrT = new TestPerson() { Worklist = worklist2, Department = dept1 };
+            IPerson John = new TestPerson() { Worklist = worklist3, Department = dept1 };
+            IPerson MrTt = new TestPerson() { Worklist = worklist, Department = dept1 };
+            List<IPerson> PersonSet = new List<IPerson>()
+            {
+               John, MrT, Johnny, MrTt
+            };
+
+            
+            IPerson expected = Johnny;
+            IPerson actual;
+            try
+            {
+                actual = ProblemDistributer.GetStaff(Problem, new Department());
+                Assert.Fail();
+            }
+            catch (ArgumentNullException)
+            {
+              
+            }
+            // Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
     }
     public class TestPerson : IPerson{
         public  bool IsStaff()
