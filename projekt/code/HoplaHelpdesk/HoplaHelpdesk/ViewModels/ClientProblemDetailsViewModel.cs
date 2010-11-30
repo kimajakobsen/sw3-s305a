@@ -9,7 +9,7 @@ namespace HoplaHelpdesk.ViewModels
     public class ClientProblemDetailsViewModel
     {
         public Problem Problem { get; set; }
-        public List<Solution> Solutions { get; set; }
+        public SolutionListViewModel Solutionlistviewmodel { get; set; }
         public List<Comment> Comments { get; set; }
 
     }

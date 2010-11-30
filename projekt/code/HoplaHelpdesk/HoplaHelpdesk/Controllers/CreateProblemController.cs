@@ -116,8 +116,22 @@ namespace HoplaHelpdesk.Controllers
 
             /*try
             {*/
-                var problem = db.ProblemSet.Single(x => x.Id == id);
-                return View(problem);
+                Problem problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
+                List<Solution> solutions = db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.ToList();
+                List<Comment> comments = db.ProblemSet.FirstOrDefault(x => x.Id == id).CommentSet.ToList();
+
+                ClientProblemDetailsViewModel viewModel = new ClientProblemDetailsViewModel()
+                {
+                    Problem = problem,
+                    Solutionlistviewmodel = new SolutionListViewModel()
+                    {
+                        Solutions = solutions,
+                        Deletable = false
+                    },
+                    Comments = comments
+                };
+
+                return View(viewModel);
             /*}
             catch
             {
