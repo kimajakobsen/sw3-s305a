@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using System.Data.Objects.DataClasses;
+using System.Collections.Generic;
 
 namespace HoplaHelpdesk.Tests
 {
@@ -251,6 +252,140 @@ namespace HoplaHelpdesk.Tests
         }
 
 
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void ProblemSortTest()
+        {
+            Problem prob1 = new Problem() { Tags = new EntityCollection<Tag>(){ new Tag(){ Priority = 1 }     }    };
+            Problem prob2 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 2 } } };
+            Problem prob3 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 3 } } };
+            Problem prob4 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 4 } } };
+
+            var list = new List<Problem>() { prob1, prob2, prob3, prob4 };
+            
+          
+            Assert.AreEqual(list[0], prob1);
+            Assert.AreEqual(list[1], prob2);
+            Assert.AreEqual(list[2], prob3);
+            Assert.AreEqual(list[3], prob4);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void ProblemSortTest2()
+        {
+            Problem prob1 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 4 } } };
+            Problem prob2 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 3 } } };
+            Problem prob3 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 2 } } };
+            Problem prob4 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+
+            var list = new List<Problem>() { prob1, prob2, prob3, prob4 };
+          /*  list.Sort(delegate(Problem p1, Problem p2)
+              {
+                  return p2.Priority.CompareTo(p1.Priority);
+              });
+           * */
+            list.Sort(Problem.GetComparer());
+            Assert.AreEqual(list[0], prob1);
+            Assert.AreEqual(list[1], prob2);
+            Assert.AreEqual(list[2], prob3);
+            Assert.AreEqual(list[3], prob4);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void ProblemSortTest3()
+        {
+            Problem prob1 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+            Problem prob2 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 2 } } };
+            Problem prob3 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 3 } } };
+            Problem prob4 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 4 } } };
+
+            var list = new List<Problem>() { prob1, prob2, prob3, prob4 };
+            list.Sort(Problem.GetComparer());
+
+            Assert.AreEqual(list[0], prob4);
+            Assert.AreEqual(list[1], prob3);
+            Assert.AreEqual(list[2], prob2);
+            Assert.AreEqual(list[3], prob1);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void ProblemSortTest4()
+        {
+            Problem prob1 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+            Problem prob2 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 2 } } };
+            Problem prob3 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 3 } } };
+            Problem prob4 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 4 } } };
+            Problem prob5 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 5 } } };
+            var list = new List<Problem>() { prob3, prob1,prob5, prob2, prob4 };
+            list.Sort(Problem.GetComparer());
+
+            Assert.AreEqual(list[0], prob5);
+            Assert.AreEqual(list[1], prob4);
+            Assert.AreEqual(list[2], prob3);
+            Assert.AreEqual(list[3], prob2);
+            Assert.AreEqual(list[4], prob1);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+
+        /// <summary>
+        ///A test for GetPriority
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void ProblemSortTest5()
+        {
+            Problem prob1 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+            Problem prob2 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 2 } } };
+            Problem prob3 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 3 } } };
+            Problem prob4 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 4 } } };
+            Problem prob5 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 5 } } };
+            Problem prob6 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+            Problem prob7 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+            Problem prob8 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+            Problem prob9 = new Problem() { Tags = new EntityCollection<Tag>() { new Tag() { Priority = 1 } } };
+           
+            var list = new List<Problem>() { prob8, prob9,prob3, prob1, prob5, prob2, prob4, prob6 };
+            
+            list.Sort(Problem.GetComparer());
+
+            Assert.AreEqual(list[0], prob5);
+            Assert.AreEqual(list[1], prob4);
+            Assert.AreEqual(list[2], prob3);
+            Assert.AreEqual(list[3], prob2);
+          //  Assert.AreEqual(list[4], prob1);
+            ///  Assert.Inconclusive("Verify the correctness of this test method.");
+        }
 
         #region Not used
         /*
