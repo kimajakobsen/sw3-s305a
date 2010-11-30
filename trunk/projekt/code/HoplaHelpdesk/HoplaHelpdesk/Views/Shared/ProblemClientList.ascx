@@ -13,7 +13,14 @@
                 <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%></td>
                 <td><%: item.Deadline %></td>
                 <td></td>
-                <td><%: item.SolvedAtTime %></td>
+                <% if (!(item.SolvedAtTime == null))
+                   { %>
+                <td><%: item.SolvedAtTime%></td>
+                <% } %>
+                <% else
+                   { %>
+                    <td>Unsolved</td>
+                <% } %>
                 <td><%: item.Description %></td>
             </tr>
     <% } %>
