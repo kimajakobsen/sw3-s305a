@@ -51,28 +51,13 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Department/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View();
-        } 
 
-        //
-        // POST: /Department/Create
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(new Department());
         }
+
+
         
         //
         // GET: /Department/Edit/5
