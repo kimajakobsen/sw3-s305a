@@ -10,19 +10,27 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
     <fieldset>
         <legend><%: Model.Problem.Title %></legend>
 
+         <% using (Html.BeginForm()) {%>
+        <%: Html.ValidationSummary(true) %>
+            <% if (Model.Problem.SolvedAtTime != null)
+               { %>
+                    This problem has already been solved!<br />It happened at <%: Model.Problem.SolvedAtTime %>
+            <% }
+               else
+               { %>
+                    Enter the number of hours it took for you to solve the problem: <br />Hours: <%: Html.TextBoxFor(model => model.hoursTaken) %>
+
+                    <p>
+                        <input type="submit" value="Solve" />
+                    </p> 
+
+            <% } %>  
+        <% } %>
+        <br /><br />
+
+
                 <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-                <p>
-                    <% if (Model.Problem.SolvedAtTime != null)
-                       { %>
-                    <%: Html.CheckBox("solved", true) %> Solved
-                    <% }
-                       else
-                       { %>
-                       <%: Html.CheckBox("solved", false)%> Solved
-                    <% } %>
-                </p>
-                
                 <p>
                     <% if (Model.Problem.Reassignable == true)
                        { %>

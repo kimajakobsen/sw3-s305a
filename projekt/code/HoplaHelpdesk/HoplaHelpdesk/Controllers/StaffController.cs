@@ -96,6 +96,11 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
         {
+            if (model.hoursTaken != null)
+            {
+                db.ProblemSet.FirstOrDefault(x => x.Id == id).ManageTagTimes(model.hoursTaken);
+            }
+
             if (model.comment != null)
             {
                 model.comment.Problem_Id = id;
