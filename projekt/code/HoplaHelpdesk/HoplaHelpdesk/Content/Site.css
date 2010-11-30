@@ -282,6 +282,20 @@ table.commentlist td
     border-color:Gray;
 }
 
+table.ContentContainer
+{
+    border:none;
+    
+    
+}
+table.ContentContainer th
+{
+
+}
+table.ContentContainer td
+{
+
+}
 /* MISC  
 ----------------------------------------------------------*/
 .clear
