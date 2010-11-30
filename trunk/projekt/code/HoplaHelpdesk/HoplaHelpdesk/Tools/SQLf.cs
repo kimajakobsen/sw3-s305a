@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using HoplaHelpdesk.Models;
+using System.Security.Principal;
+using System.Web.Security;
 
 namespace HoplaHelpdesk.Tools
 {
@@ -318,13 +320,15 @@ namespace HoplaHelpdesk.Tools
             cn.Open();
             //Converting Application into a String
             String Application = AppId.ExecuteScalar().ToString();
+            
             //Executing add role command
-            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + Application + "','','" + role + "','" + role.ToLower() + "','" + desription + "')", cn);
+            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + "" + "','','" + role + "','" + role.ToLower() + "','" + desription + "')", cn);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             cn.Close();
 
         }
+
 
         public static void RemoveUserFromAspnet(string userName)
         {
@@ -356,7 +360,81 @@ namespace HoplaHelpdesk.Tools
 
         }
 
-        
+         public static String ResetPassword(String user)
+        {
+             SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = connString;
+            //Preparing SqlCommand
+            SqlCommand password;
+            SqlCommand userId;
+            SqlCommand email;
+
+            //SqlCommand for getting ApplicationId
+            userId = new SqlCommand ("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')" ,cn);
+
+            //Executing the SqlCommand
+
+            cn.Open();
+            String userA = userId.ExecuteScalar().ToString();
+            password = new SqlCommand("SELECT Password FROM aspnet_Membership WHERE (UserId = '" + userA + "')", cn);
+            String passA = password.ExecuteScalar().ToString();
+            //Converting Application into a String
+            cn.Close();
+
+            return passA;
+
+            String[] passarray =
+            {
+                "a","b","c","d","e","f","g","h","j","k",
+                "l","m","n","o","p","q","r","s","t","u",
+                "v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"
+            };
+            String setPass = "";
+            Random RandomNumber = new Random();
+            Random RandomPass = new Random();
+            int x = RandomNumber.Next(5) * 10;
+
+            for (int i = 0; i < x; i++)
+            {
+                int y = RandomPass.Next(passarray.Length);
+                setPass += passarray[y].ToString();
+            }
+            
+            return setPass;
+
+        }
+
+        public static String GetEmail(String user)
+        {
+            SqlConnection cn = new SqlConnection();
+            //Connection ze internet way!
+
+
+            cn.ConnectionString = connString;
+            //Preparing SqlCommand
+            SqlCommand password;
+            SqlCommand userId;
+            SqlCommand email;
+
+            //SqlCommand for getting ApplicationId
+            userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
+
+            //Executing the SqlCommand
+
+            cn.Open();
+            String userA = userId.ExecuteScalar().ToString();
+            email = new SqlCommand("SELECT Email FROM aspnet_Membership WHERE (UserId = '" + userA + "')", cn);
+            String emailA = email.ExecuteScalar().ToString();
+            
+            cn.Close();
+
+
+
+            return emailA;
+            
+        }
+
+
 
 
         /*

@@ -10,7 +10,10 @@ using System.Web.Routing;
 using System.Web.Security;
 using HoplaHelpdesk.ViewModels;
 using HoplaHelpdesk.Tools;
-
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -410,6 +413,39 @@ namespace HoplaHelpdesk.Controllers
                 msg = role + " is created with following desciption:" + description;
             }
             return msg;
+        }
+
+        [Authorize(Roles = "admin")]
+        public void ResetPassword(String user)
+        {
+            String msg;
+            //Check if any username is provided
+            if (user == null || user == "")
+            {
+                msg = "No username is provided";
+            }
+            //Check User by username provided, if username equals null, the user dont exists
+            else if (SQLf.DoUserExists(user) == false)
+            {
+                msg = "User dont exists";
+            }
+            else
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("DoNotReply@helpdesk.dk");
+                mail.To.Add(SQLf.GetEmail(user));
+                mail.Subject = "Hopla Helpdesk reset password";
+                mail.Body = "Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+
         }
 
     }
