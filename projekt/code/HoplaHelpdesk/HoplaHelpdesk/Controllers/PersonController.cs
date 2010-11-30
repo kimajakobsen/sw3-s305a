@@ -198,28 +198,65 @@ namespace HoplaHelpdesk.Controllers
 
         //
         // GET: /Person/Delete/5
- 
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
         }
 
         //
         // POST: /Person/Delete/5
 
+        [Authorize(Roles="Admin")]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            Person person = null;
             try
             {
-                // TODO: Add delete logic here
- 
+                person = db.PersonSet.SingleOrDefault(x => x.Id == id);
+                db.PersonSet.DeleteObject(person);
+                RemoveUserFromAspnet(person.Name);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                throw;
+                if (person != null && person.Name != null && person.Name != "")
+                {
+                    ViewData["Error"] = "The person '" + person.Name + "' could not be deleted.";
+                }
+                else
+                {
+                    ViewData["Error"] = "The person could not be deleted.";
+                }
+                return View("Error");
             }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public string RemoveUserFromAspnet(string user)
+        {
+            string msg;//HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
+
+            //Check if any username is provided
+            if (user == null || user == "")
+            {
+                msg = "No username is provided";
+            }
+            //Check User by username provided, if username equals null, the user dont exists
+            else if (SQLf.DoUserExists(user) == false)
+            {
+                msg = "User dont exists";
+            }
+            else
+            {
+                SQLf.RemoveUserFromAspnet(user);
+                //msg = "|"+sql.UserIsAlreadyInThatRole(user, role)+"|";
+                msg = user + " is removed from aspnet_Users";
+            }
+            return msg;
         }
 
         [Authorize(Roles = "admin")]

@@ -326,6 +326,36 @@ namespace HoplaHelpdesk.Tools
 
         }
 
+        public static void RemoveUserFromAspnet(string userName)
+        {
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = connString;
+
+            //Preparing SqlCommand
+            SqlCommand cmd;
+            SqlCommand getId;
+            string userId;
+            //SqlCommand for getting ApplicationId
+            
+            //Executing the SqlCommand
+
+            cn.Open();
+            getId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE UserName='" + userName + "'",cn);
+            userId = getId.ExecuteScalar().ToString();
+            cmd = new SqlCommand("DELETE FROM aspnet_UsersInRoles WHERE UserId='" + userId + "'", cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("DELETE FROM aspnet_Membership WHERE UserId='" + userId + "'", cn);
+            cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("DELETE FROM aspnet_Users WHERE UserId='" + userId + "'", cn);
+            if (cmd.ExecuteNonQuery() != 1)
+            {
+                throw new ArgumentException("A user named '" + userName + "' does not exsist in aspnet_Users");
+            }
+            cmd.Dispose();
+            cn.Close();
+
+        }
+
         
 
 
