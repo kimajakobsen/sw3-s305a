@@ -17,7 +17,7 @@
         <% if (!(Model.IsDeadlineApproved == null))
            { %>
             <div class="display-label">Deadline</div>
-            <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
+            <div class="display-field6"><%: String.Format("{0:g}", Model.Deadline) %></div>
         <% } %>
         <% else 
            { %>
@@ -34,4 +34,16 @@
            { %>
             <div class="display-label">SolvedAtTime</div>
             <div class="display-field"><%: String.Format("{0:g}", "Unsolved")%></div>
+        <% } %>
+
+        
+        <% if (Model.Tags == null || Model.Tags.Count == 0)
+           { %>
+                <div class="display-label">Tags</div>
+                <div class="display-field">No tags</div>
+        <% } %>
+        <% else 
+           { %>
+            <div class="display-label">SolvedAtTime</div>
+            <div class="display-field"><%: Html.CatTagDisplay(Model.Tags) %>  </div>
         <% } %>
