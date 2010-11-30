@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using System.Text;
 
 namespace HoplaHelpdesk.Models
 {
@@ -49,28 +50,16 @@ namespace HoplaHelpdesk.Models
             return 0;
         }
 
-        public void ManageTagTimes()
+        public void ManageTagTimes(string StaffTimeSpent)
         {
-            TimeSpan TimeConsumed = new TimeSpan();
+            StringBuilder();
 
-            try
-            {
-                TimeConsumed = (TimeSpan)(SolvedAtTime - Added_date);
-            }
-            catch
-            {
-                throw;
-            }
-
-            var MinutesConsumed = TimeConsumed.Minutes + (TimeConsumed.Hours * 60) + ((TimeConsumed.Days * 24) * 60);
 
             foreach (var tag in Tags)
             {
                 tag.SolvedProblems++;
 
                 tag.TimeConsumed = tag.TimeConsumed + MinutesConsumed;
-
-           //     tag.AverageTimeSpent = tag.TimeConsumed / tag.SolvedProblems;
 
             }
         }
