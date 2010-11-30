@@ -230,10 +230,10 @@ namespace HoplaHelpdesk.Tools
                 }
             }
 
-            if (result.Count == 0)
-            {
-                throw new ArgumentException("The user with the name " + userName + " does not have any roles");
-            }
+            //if (result.Count == 0)
+            //{
+            //    throw new ArgumentException("The user with the name " + userName + " does not have any roles");
+            //}
 
             return result;
         }

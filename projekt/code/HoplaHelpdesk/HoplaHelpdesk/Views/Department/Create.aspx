@@ -16,14 +16,6 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Department>" %>
             <legend>Fields</legend>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.Id) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Id) %>
-                <%: Html.ValidationMessageFor(model => model.Id) %>
-            </div>
-            
-            <div class="editor-label">
                 <%: Html.LabelFor(model => model.DepartmentName) %>
             </div>
             <div class="editor-field">
@@ -38,15 +30,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Department>" %>
                 <%: Html.TextBoxFor(model => model.Description) %>
                 <%: Html.ValidationMessageFor(model => model.Description) %>
             </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Name) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Name) %>
-                <%: Html.ValidationMessageFor(model => model.Name) %>
-            </div>
-            
+    
             <p>
                 <input type="submit" value="Create" />
             </p>
