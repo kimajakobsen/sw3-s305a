@@ -285,7 +285,7 @@ namespace HoplaHelpdesk.Tools
 
         }
 
-
+        //Function to add a new role
         public static void AddRole(String role, String desription)
         {
             SqlConnection cn = new SqlConnection();
@@ -295,16 +295,18 @@ namespace HoplaHelpdesk.Tools
             cn.ConnectionString = "Data Source=win-k5l8cpbier1;Initial Catalog=hopla;User Id=John;Password=Trekant01";
             //Preparing SqlCommand
             SqlCommand cmd;
+            SqlCommand AppId;
 
-            //SqlCommand for adding a role
-            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + role + "','','" + role + "','" + role.ToLower + "','" + desription + "')", cn);
-            
+            //SqlCommand for getting ApplicationId
+            AppId = new SqlCommand("SELECT ApplicationId FROM aspnet_Applications)", cn);
             //Executing the SqlCommand
             
-            //cn.Open();
-            //cmd.ExecuteNonQuery();
-            //cmd.Dispose();
-            //cn.Close();
+            cn.Open();
+            String Application = AppId.ExecuteScalar().ToString();
+            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + Application + "','','" + role + "','" + role.ToLower() + "','" + desription + "')", cn);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            cn.Close();
 
         }
         
