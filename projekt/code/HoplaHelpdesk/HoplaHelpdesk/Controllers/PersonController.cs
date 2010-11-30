@@ -264,7 +264,7 @@ namespace HoplaHelpdesk.Controllers
             //Check if RoleExists
             else if (Roles.RoleExists(role) == true)
             {
-                msg = role + "already exists.";
+                msg = role + "already exists";
             }
             //Check User by username provided, if username equals null, the user dont exists
             else if (description == null || description == "")
