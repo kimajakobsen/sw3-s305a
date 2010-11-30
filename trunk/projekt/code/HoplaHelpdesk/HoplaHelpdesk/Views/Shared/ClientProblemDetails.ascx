@@ -11,7 +11,7 @@
         <div class="display-field"><%: String.Format("{0:g}", Model.AssignedTo.Name) %></div>
 
         <div class="display-label">ETA</div>
-        <div class="display-field"><%: String.Format("{0:g}", Model.CalculateETA()) %></div>
+        <div class="display-field"><%: String.Format("{0:g}", Model.Eta) %></div>
         
         <% if (!(Model.IsDeadlineApproved == null))
            { %>
