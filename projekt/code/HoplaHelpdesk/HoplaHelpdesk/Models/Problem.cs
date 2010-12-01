@@ -112,16 +112,7 @@ namespace HoplaHelpdesk.Models
 
         }
 
-
-        public DateTime Eta 
-        {
-            get
-            {
-                return CalculateETA();
-            } 
-        } 
-
-        private DateTime CalculateETA()
+        public DateTime CalculateETA()
         {
             DateTime DateTime = DateTime.Now;
 
