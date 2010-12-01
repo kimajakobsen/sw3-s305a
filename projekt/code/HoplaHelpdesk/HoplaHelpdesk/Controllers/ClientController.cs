@@ -37,6 +37,8 @@ namespace HoplaHelpdesk.Controllers
         /// <returns></returns>
         public ActionResult ViewProblems(string id)
         {
+            //int userid = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+
             //Notice that the id is actually the name og the client
             ViewData["Message"] = null;
             // Finds the loged in users problems. 
