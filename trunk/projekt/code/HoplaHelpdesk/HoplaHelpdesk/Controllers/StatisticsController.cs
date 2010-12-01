@@ -16,14 +16,19 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Index()
         {
             var departments = db.DepartmentSet.ToList();
-          
+            int TotalTime = 0;
+            int TotalTimeLastWeek = 0;
+            int problems = 0;
             foreach(var dep in departments){
-                dep.AverageTimePerProblem();
-
+               TotalTimeLastWeek = (int)dep.AverageTimePerProblem().TotalMinutes;
+               TotalTime = (int)dep.AverageTimePerProblem().TotalMinutes;
+               problems++;
             }
+
             var viewModels = new StatisticViewModel()
             {
-               AllStaff = new TimeSpan(),
+                AverageLastWeek = new TimeSpan(0,TotalTimeLastWeek/problems,0),
+                AverageAllTime = new TimeSpan(0,TotalTime/problems,0),
                 Departments = departments
                 
             };

@@ -9,6 +9,7 @@ namespace HoplaHelpdesk.ViewModels
     public class StatisticViewModel
     {
         public List<Department> Departments;
-        public TimeSpan AllStaff;
+        public TimeSpan AverageAllTime;
+        public TimeSpan AverageLastWeek;
     }
 }
