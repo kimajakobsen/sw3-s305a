@@ -607,6 +607,30 @@ namespace HoplaHelpdesk.Models
         private global::System.Int32 _PersonsId;
         partial void OnPersonsIdChanging(global::System.Int32 value);
         partial void OnPersonsIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PersonsName
+        {
+            get
+            {
+                return _PersonsName;
+            }
+            set
+            {
+                OnPersonsNameChanging(value);
+                ReportPropertyChanging("PersonsName");
+                _PersonsName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PersonsName");
+                OnPersonsNameChanged();
+            }
+        }
+        private global::System.String _PersonsName;
+        partial void OnPersonsNameChanging(global::System.String value);
+        partial void OnPersonsNameChanged();
 
         #endregion
     
