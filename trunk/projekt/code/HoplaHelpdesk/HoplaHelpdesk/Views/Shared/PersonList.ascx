@@ -1,64 +1,60 @@
 ﻿<%@ Control Language="C#"   Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
 
-    <table class="problemlist" width="90%">
-        <tr>
-            <th></th>
-            <th>
-                Id
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                DepartmentId
-            </th>
-            <th>
-                Workload
-            </th>
-        </tr>
+<table class="problemlist" width="90%">
+    <tr>
+        <th></th>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            DepartmentId
+        </th>
+        <th>
+            Workload
+        </th>
+    </tr>
 
-    <% foreach (var item in Model) { %>
+<% foreach (var item in Model) { %>
     
-        <tr>
-            <td>
-                <%: Html.ActionLink("Edit", "Edit","Person", new { id=item.Id },null) %> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
-            </td>
-            <td>
-                <%: item.Id %>
-            </td>
-            <td>
-                <%: item.Name %>
-            </td>
-            <td>
-                <%: item.Email %>
-            </td>
-            <% if (item.Department != null)
-               { %>
-            <td>
+    <tr>
+        <td>
+            <%: Html.ActionLink("Edit", "Edit","Person", new { id=item.Id },null) %> |
+            <%: Html.ActionLink("Delete", "Delete", new { id=item.Id })%>
+        </td>
+        <td>
+            <%: item.Id %>
+        </td>
+        <td>
+            <%: item.Name %>
+        </td>
+        <td>
+            <%: item.Email %>
+        </td>
+        <% if (item.Department != null)
+            { %>
+        <td>
                    
-                <%: item.Department.Name%>
+            <%: item.Department.Name%>
 
-            </td>
-             <td>
-                <%: item.GetWorkload()%>
-            </td>
-            <% }
-               else
-               {%>
-               <td>-- Client --</td>
-               <td>-- Client --</td>
-               <%} %>
+        </td>
+            <td>
+            <%: item.GetWorkload()%>
+        </td>
+        <% }
+            else
+            {%>
+            <td>N/A</td>
+            <td>N/A</td>
+            <%} %>
 
-        </tr>
+    </tr>
     
-    <% } %>
+<% } %>
 
-    </table>
-
-
-
-
+</table>
