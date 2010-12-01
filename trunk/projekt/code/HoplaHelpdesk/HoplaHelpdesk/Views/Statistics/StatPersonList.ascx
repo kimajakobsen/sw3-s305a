@@ -1,13 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	StatPersonList
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-    <h2>StatPersonList</h2>
-
+﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person>>" %>
     <table>
         <tr>
             <th></th>
@@ -58,10 +49,4 @@
     <% } %>
 
     </table>
-
-    <p>
-        <%: Html.ActionLink("Create New", "Create") %>
-    </p>
-
-</asp:Content>
 

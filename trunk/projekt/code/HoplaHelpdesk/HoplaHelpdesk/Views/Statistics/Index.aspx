@@ -6,8 +6,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
-
-    <% Html.RenderPartial("StatPersonList", Model.Staff); %>
-
+    <h2>Person Statistic</h2>
+    <% foreach(var department in Model.Departments){ %>
+    <h3><%: department.Name %></h3>
+    <% Html.RenderPartial("StatPersonList", department.Persons); %>
+     <br /> 
+    <p> Department in average: <%: department.AverageTimePerProblem() %>. In last week <%: department.AverageTimePerProblemLastWeek() %> </p>
+    <% } %>
+    <br />  
+   
+   
 </asp:Content>
