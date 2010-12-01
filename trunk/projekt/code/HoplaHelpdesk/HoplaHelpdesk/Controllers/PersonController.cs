@@ -553,8 +553,9 @@ namespace HoplaHelpdesk.Controllers
 
 
         [Authorize(Roles = "admin")]
-        public static void PassMail(String user)
+        public static String PassMail(String user)
         {
+            HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user);
             //Used for password if implemented correctly
                String msg;
                //Check if any username is provided
@@ -586,7 +587,9 @@ namespace HoplaHelpdesk.Controllers
                    SmtpServer.EnableSsl = true;
 
                    SmtpServer.Send(mail);
+                   msg = user + "'s password has been resetted and sent to: " + SQLf.GetEmail(user); 
                }
+               return msg;
         }
 
         }
