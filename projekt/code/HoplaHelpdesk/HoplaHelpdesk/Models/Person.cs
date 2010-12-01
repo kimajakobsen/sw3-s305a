@@ -195,6 +195,6 @@ namespace HoplaHelpdesk.Models
         string Email { get; set; }
         EntityCollection<Problem> Worklist { get; set; }
         int Id { get; set; }
-        Department Department { get; set; }
+        Department Department { get;  }
     }
 }

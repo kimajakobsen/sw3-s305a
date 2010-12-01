@@ -481,7 +481,7 @@
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Email" Nullable="false" />
           <NavigationProperty Name="Problems" Relationship="hoplaModel.PersonsProblem" FromRole="Persons" ToRole="Problem" />
-          <NavigationProperty Name="Department" Relationship="hoplaModel.PersonsDepartment" FromRole="Persons" ToRole="Department" />
+          <NavigationProperty Name="Department" Relationship="hoplaModel.PersonsDepartment" FromRole="Persons" ToRole="Department" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <Property Type="Int32" Name="DepartmentId" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Worklist" Relationship="hoplaModel.ProblemPersons" FromRole="Persons" ToRole="Problem" />
           <NavigationProperty Name="Comments" Relationship="hoplaModel.PersonsComment" FromRole="Persons" ToRole="Comment" />
