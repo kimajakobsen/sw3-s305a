@@ -22,14 +22,14 @@ namespace HoplaHelpdesk.Models
             private set{}
         }
 
-        public int NumOfMatchingTags(Problem otherProblem)
+        public int NumOfMatchingTags(List<Tag> listTags)
         {
             int count = 0;
             int i = 0;
 
-            for (i = 0; i < otherProblem.Tags.Count; i++)
+            for (i = 0; i < listTags.Count; i++)
             {
-                if (Tags.Contains(otherProblem.Tags.ElementAt(i)))
+                if (Tags.Contains(listTags.ElementAt(i)))
                 {
                     count++;
                 }
