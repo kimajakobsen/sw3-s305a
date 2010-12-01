@@ -61,6 +61,8 @@ namespace HoplaHelpdesk.Controllers
  
            // from.Worklist.Remove(newprob);
            // staff.Worklist.Add(problem);
+           String abc = db.ProblemSet.FirstOrDefault(x => x.Id == id).AssignedTo.Name;
+           PersonController.StringMail(abc, id, 3);
             db.SaveChanges();
             var viewModel = new SuccesReassignViewModel()
             {
