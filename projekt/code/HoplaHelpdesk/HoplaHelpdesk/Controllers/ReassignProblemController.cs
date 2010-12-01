@@ -58,11 +58,12 @@ namespace HoplaHelpdesk.Controllers
 
            var newprob =  db.ProblemSet.First(x => x.Id == problem.Id);
            newprob.AssignedTo = ((Person)staff);
+           
+           String abc = ((Person)staff).Name.ToString(); ;
+           PersonController.StringMail(abc, newprob.Id, 3);
  
            // from.Worklist.Remove(newprob);
            // staff.Worklist.Add(problem);
-           String abc = db.ProblemSet.FirstOrDefault(x => x.Id == id).AssignedTo.Name;
-           PersonController.StringMail(abc, id, 3);
             db.SaveChanges();
             var viewModel = new SuccesReassignViewModel()
             {
