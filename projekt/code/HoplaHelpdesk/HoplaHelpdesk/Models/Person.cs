@@ -211,7 +211,7 @@ namespace HoplaHelpdesk.Models
             foreach(var problem in worklist)
             {
                 problems++;
-                totalTime = (int)((TimeSpan)(problem.Added_date - problem.SolvedAtTime)).TotalMinutes;
+                totalTime = totalTime + (int)((TimeSpan)(problem.SolvedAtTime - problem.Added_date)).TotalMinutes;
             }
             if (problems == 0)
                 return new TimeSpan();

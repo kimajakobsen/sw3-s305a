@@ -66,40 +66,6 @@ namespace HoplaHelpdesk.Tests
         #endregion
 
 
-        /// <summary>
-        ///A test for Person Constructor
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Lasse\\Documents\\Visual Studio 2010\\Projects\\HoplaHelpdesk\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        public void PersonConstructorTest()
-        {
-            Person target = new Person();
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
-
-        /// <summary>
-        ///A test for CreatePerson
-        ///</summary>
-        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
-        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
-        // whether you are testing a page, web service, or a WCF service.
-        [TestMethod()]
-        public void CreatePersonTest()
-        {
-            int id = 0; // TODO: Initialize to an appropriate value
-            string name = string.Empty; // TODO: Initialize to an appropriate value
-            string email = string.Empty; // TODO: Initialize to an appropriate value
-            Person expected = null; // TODO: Initialize to an appropriate value
-            Person actual;
-            actual = Person.CreatePerson(id, name, email);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
 
         /// <summary>
         ///A test for GetWorkload
@@ -110,20 +76,13 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void GetWorkloadTest()
         {
-            Tag Bjørn = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
+            Tag Bjørn = new Tag() { TimeConsumed = 20, SolvedProblems = 1  };
             Tag Hund = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
             Tag Kat = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
 
-            Problem problem1 = new Problem()
-            {
-                Tags = new EntityCollection<Tag>()
-                {
-                    Bjørn, Kat
-                }
-
-            };
             Problem problem2 = new Problem() 
             {
+                
                 Tags = new EntityCollection<Tag>()
                 {
                     Hund
@@ -136,30 +95,99 @@ namespace HoplaHelpdesk.Tests
                     problem2
                 }
             };
-            double expected = 20; // TODO: Initialize to an appropriate value
+            double expected = 60; // TODO: Initialize to an appropriate value
             double actual;
             actual = Rasmus.GetWorkload();
             Assert.AreEqual(expected, actual);
         }
 
+
         /// <summary>
-        ///A test for IsStaff
+        ///A test for GetWorkload
         ///</summary>
         // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-        [HostType("ASP.NET")]
-        [AspNetDevelopmentServerHost("C:\\Users\\Lasse\\Documents\\Visual Studio 2010\\Projects\\HoplaHelpdesk\\projekt\\code\\HoplaHelpdesk\\HoplaHelpdesk", "/")]
-        [UrlToTest("http://localhost:6399/")]
-        public void IsStaffTest()
+        public void AverageTimePerProblemTest()
         {
-            Person target = new Person(); // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsStaff();
+            var prob1 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
+            var prob2 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
+            var prob3 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
+            var prob4 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
+            var prob5 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
+            var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
+            TimeSpan expected = new TimeSpan(1,0,0,0);
+            TimeSpan actual;
+            actual = target.AverageTimePerProblem();
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
+
+
+
+
+        /// <summary>
+        ///A test for GetWorkload
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void AverageTimePerProblemLastweekTest()
+        {
+            var prob1 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
+            var prob2 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
+            var prob3 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
+            var prob4 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
+            var prob5 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
+            var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
+            TimeSpan expected = new TimeSpan(10, 0, 0, 0);
+            TimeSpan actual;
+            actual = target.AverageTimePerProblemLastWeek();
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        
+
+        /// <summary>
+        ///A test for GetWorkload
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void AverageTimePerProblemLastweekTest2()
+        {
+            var prob1 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
+            var prob2 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
+            var prob3 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
+            var prob4 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
+            var prob5 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
+            var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
+            TimeSpan expected = new TimeSpan();
+            TimeSpan actual;
+            actual = target.AverageTimePerProblemLastWeek();
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        /// <summary>
+        ///A test for GetWorkload
+        ///</summary>
+        // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
+        // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
+        // whether you are testing a page, web service, or a WCF service.
+        [TestMethod()]
+        public void AverageTimePerProblemTes2()
+        {
+            var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() {} };
+            TimeSpan expected = new TimeSpan();
+            TimeSpan actual;
+            actual = target.AverageTimePerProblem();
+            Assert.AreEqual(expected, actual);
+        }
+
+
     }
 }
