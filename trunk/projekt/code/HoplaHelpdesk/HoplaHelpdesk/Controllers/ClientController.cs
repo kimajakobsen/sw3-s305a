@@ -9,44 +9,36 @@ using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Controllers
 {
-    //[Authorize(Roles = HoplaHelpdesk.Models.Constants.ClientRoleName)]
+    [Authorize(Roles = HoplaHelpdesk.Models.Constants.ClientRoleName)]
     public class ClientController : Controller
     {
         // GET: /Client/
         hoplaEntities db = new hoplaEntities();
+        
         public ActionResult Index()
         {
             Session["SearchViewModel"] = null;
 
-            if (db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name) != null)
-            {
-                return View(db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id);
-            }
-            else
-            {
-                return RedirectToAction("LogOn","Account");
-            }
+            return RedirectToAction("ViewProblems", new { id=-1});
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="id">This is the name of the user, not actually the id, this may be confusing, but I don't
-        /// want to change it now.</param>
+        /// <param name="id"></param>
         /// <returns></returns>
         public ActionResult ViewProblems(int? id)
         {
-            //int userid = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
-
-            //Notice that the id is actually the name og the client
             if (id != null && id < 0)
             {
                 id = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+                return RedirectToAction("ViewProblems", new { id });
             }
             else if (id != null && id == 0)
             {
                 id = null;
                 Session["SearchViewModel"] = null;
+                return RedirectToAction("ViewProblems", new { id });
             }
             ViewData["Message"] = null;
             // Finds the loged in users problems. 

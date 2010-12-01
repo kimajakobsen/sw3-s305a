@@ -95,6 +95,13 @@ namespace HoplaHelpdesk.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.UserName == HoplaHelpdesk.Models.Constants.RootName)
+                {
+                    ViewData["Error"] = "The username '" + HoplaHelpdesk.Models.Constants.RootName + "' is reserved.";
+                    ViewData["View"] = "Register";
+
+                    return View("Error");
+                }
                 // Attempt to register the user
                 MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
 
