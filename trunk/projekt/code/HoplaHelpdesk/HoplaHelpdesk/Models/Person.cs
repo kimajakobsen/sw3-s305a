@@ -163,26 +163,30 @@ namespace HoplaHelpdesk.Models
         public void SetNewDepartment(Department newDep)
         {
             var oldDep = Department;
-            oldDep.Persons.Remove(this);
-            Department = newDep;
-            if (Worklist != null)
+            if (oldDep != null)
             {
-                foreach (var problem in Worklist)
-                {
-                    if (oldDep.Persons.Count == 0)
-                    {
-                        problem.Reassignable = false;
-                    }
-                    else
-                    {
-                        if (problem.Reassignable == true)
-                        {
-                            problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
-                        }
-                    }
+                oldDep.Persons.Remove(this);
 
+                if (Worklist != null)
+                {
+                    foreach (var problem in Worklist.ToList())
+                    {
+                        if (oldDep.Persons.Count == 0)
+                        {
+                            problem.Reassignable = false;
+                        }
+                        else
+                        {
+                            if (problem.Reassignable == true)
+                            {
+                                problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
+                            }
+                        }
+
+                    }
                 }
             }
+            Department = newDep;
         }
 
     }
