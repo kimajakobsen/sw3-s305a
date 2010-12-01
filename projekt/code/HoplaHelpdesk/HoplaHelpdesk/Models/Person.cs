@@ -110,7 +110,7 @@ namespace HoplaHelpdesk.Models
         {
             TimeSpan PersonTime = new TimeSpan(0,0,0,0);
 
-            foreach (Problem problem in Worklist)
+            foreach (Problem problem in Worklist.Where(x => x.SolvedAtTime != null))
             {
                 PersonTime = PersonTime.Add(problem.EstimatedTimeConsumption);
             }
@@ -118,33 +118,6 @@ namespace HoplaHelpdesk.Models
             return PersonTime.TotalMinutes;
 
         }
-        /*
-        public double GetWorkload()
-        {
-            int TotalNumberOfTags = 0;
-            decimal? ProblemTime = 0;
-            decimal? PersonTime = 0;
-
-            foreach (Problem problem in Problems)
-            {
-                foreach (Tag tag in problem.Tags)
-                {
-                    if (tag.AverageTimeSpent != null)
-                    {
-                        ProblemTime = ProblemTime + tag.AverageTimeSpent;
-                    }
-                    TotalNumberOfTags++;
-                }
-
-
-                PersonTime = PersonTime + ProblemTime;
-                ProblemTime = 0;
-
-            }
-
-            return ((double)(PersonTime)/TotalNumberOfTags);
-        }
-         * */
 
         public void SetNewDepartment(Department newDep)
         {
