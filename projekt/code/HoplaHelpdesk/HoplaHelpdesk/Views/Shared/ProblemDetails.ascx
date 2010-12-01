@@ -12,7 +12,7 @@
         <div class="display-field"><%: String.Format("{0:g}", Model.AssignedTo.Name) %>  from  <%: Model.AssignedTo.Department.Name %> </div>
 
         <div class="display-label">ETA</div>
-        <div class="display-field"><%: String.Format("{0:g}", Model.Eta) %></div>
+        <div class="display-field"><%: String.Format("{0:g}", Model.EstimatedTimeConsumption) %></div>
         
         <div class="display-label">Deadline</div>
         <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
