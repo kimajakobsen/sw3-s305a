@@ -15,7 +15,15 @@
                     <%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>
                 </td>
                 <td><%: item.Deadline %></td>
-                <td><%: item.IsDeadlineApproved %></td>
+                <td>
+                <% if (item.IsDeadlineApproved == true)
+                   { %>
+                Approved
+                <% }
+                   else
+                   { %>
+                   Not approved
+                <% } %></td>
                 <td><%: item.Priority %></td>
                 <td></td>
                 <td><%: item.Description %></td>
