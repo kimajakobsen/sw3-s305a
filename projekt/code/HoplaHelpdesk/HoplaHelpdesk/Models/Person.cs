@@ -76,7 +76,22 @@ namespace HoplaHelpdesk.Models
 
         public double Workload { get { return GetWorkload(); } }
 
+        public List<Problem> SortedWorklist { get { return GetSortedList(); } }
 
+        private List<Problem> GetSortedList(){
+            List<Problem> problemList = Worklist.ToList().Where(x =>  x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
+
+            List<Problem> problemWithoutDeadline = Worklist.ToList().Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
+
+
+            problemList.Sort(Problem.GetComparer());
+
+            problemWithoutDeadline.Sort(Problem.GetComparer());
+
+            problemList.AddRange(problemWithoutDeadline);
+
+            return problemList;
+        }
 
         public double GetWorkload()
         {
