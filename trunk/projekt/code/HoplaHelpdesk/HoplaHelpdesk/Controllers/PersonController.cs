@@ -109,8 +109,8 @@ namespace HoplaHelpdesk.Controllers
             }
             if (!person.IsStaff() && person.Department != null)
             {
-                person.Department = null;
-                person.DepartmentId = null;
+                person.SetNewDepartment(null);
+                
             }
 
             return View(new EditPersonViewModel
@@ -190,7 +190,7 @@ namespace HoplaHelpdesk.Controllers
  
             try
             {
-                person.DepartmentId = temp.DepartmentId;
+                person.SetNewDepartment(temp.Department);
                 db.SaveChanges();
 
 
@@ -354,8 +354,7 @@ namespace HoplaHelpdesk.Controllers
                 if (!SQLf.IsStaff(user))
                 {
                     Person person = db.PersonSet.FirstOrDefault(x => x.Name == user);
-                    person.Department = null;
-                    person.DepartmentId = null;
+                    person.SetNewDepartment(null);
                     db.SaveChanges();
                 }
             }
