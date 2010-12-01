@@ -81,7 +81,39 @@ namespace HoplaHelpdesk.Models
                     } while (couldStillMove);
                 }
             }
-        
+
+
+
+        public TimeSpan AverageTimePerProblem()
+        {
+            return AverageTimePerProblem(null);
+
+        }
+
+        public TimeSpan AverageTimePerProblemLastWeek()
+        {
+            return AverageTimePerProblem("LastWeek");
+
+        }
+
+        private TimeSpan AverageTimePerProblem(string method)
+        {
+            int people = 0;
+            int totalTime = 0;
+            foreach (var person in Persons)
+            {
+                people++;
+                if (method == "LastWeek")
+                    totalTime = (int)person.AverageTimePerProblemLastWeek().TotalMinutes;
+                 else 
+                    totalTime = (int)person.AverageTimePerProblem().TotalMinutes;
+            }
+            if (people == 0)
+                return new TimeSpan();
+            else
+                return new TimeSpan(0, totalTime / people, 0);
+
+        }
         
     }
 }

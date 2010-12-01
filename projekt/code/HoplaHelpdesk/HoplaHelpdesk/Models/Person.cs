@@ -18,6 +18,7 @@ namespace HoplaHelpdesk.Models
     {
 
 
+        #region Sort stuff
 
         private List<Problem> GetSortedList()
         {
@@ -35,6 +36,8 @@ namespace HoplaHelpdesk.Models
             return problemList;
         }
         public List<Problem> SortedWorklist { get { return GetSortedList(); } }
+
+        #endregion
 
         #region Role Stuff
         private List<Role> _roles;
@@ -169,19 +172,52 @@ namespace HoplaHelpdesk.Models
 
         #region Statistics
 
-        public double AverageTimePerProblem()
+        /// <summary>
+        /// Get the average time per problem solved by the staff
+        /// </summary>
+        /// <returns></returns>
+        public TimeSpan AverageTimePerProblem()
         {
-            foreach(var problem in Worklist.Where(x => x.SolvedAtTime != null))
-            {
+            return AverageTime("PerProblem");
+        }
 
-
-
-            }
-
-            return 0.0;
+        /// <summary>
+        ///  Gets the average solving time per problem solved in the last week.
+        /// </summary>
+        /// <returns></returns>
+        public TimeSpan AverageTimePerProblemLastWeek()
+        {
+            return AverageTime("LastWeek");
         }
 
 
+        private TimeSpan AverageTime(string method)
+        {
+            int totalTime = 0;
+            int problems = 0;
+              IEnumerable<Problem> worklist = null;
+              if (method == "LastWeek")
+              {
+                  var lastWeek = DateTime.Now;
+                  var aWeek = new TimeSpan(7,0, 0, 0);
+                  lastWeek = lastWeek.Subtract(aWeek);
+                  worklist = Worklist.Where(x => x.SolvedAtTime > lastWeek);
+              }
+              else
+              {
+                  worklist = Worklist.Where(x => x.SolvedAtTime != null);
+              }
+
+            foreach(var problem in worklist)
+            {
+                problems++;
+                totalTime = (int)((TimeSpan)(problem.Added_date - problem.SolvedAtTime)).TotalMinutes;
+            }
+            if (problems == 0)
+                return new TimeSpan();
+            else 
+                return new TimeSpan(0, totalTime / problems,0);
+        }
 
         #endregion
 
