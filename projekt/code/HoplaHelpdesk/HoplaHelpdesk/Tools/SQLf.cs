@@ -14,7 +14,7 @@ namespace HoplaHelpdesk.Tools
     {
         //Function to check if user already got a specific role
         // ConnectionStrinGlobal will connect to the db via Kiel
-        private static string connString = Constants.ConnectionStringLocal;
+        private static string connString = Constants.ConnectionString;
 
         public static Boolean UserIsAlreadyInThatRole(String user, String role)
         {
