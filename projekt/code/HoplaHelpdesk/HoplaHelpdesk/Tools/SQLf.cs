@@ -312,7 +312,10 @@ namespace HoplaHelpdesk.Tools
             //Preparing SqlCommand
             SqlCommand cmd;
             SqlCommand AppId;
-            desription = "";
+            if (desription == null)
+            {
+                desription = "";
+            }
 
             //SqlCommand for getting ApplicationId
             AppId = new SqlCommand("SELECT ApplicationId FROM aspnet_Applications", cn);
@@ -320,10 +323,10 @@ namespace HoplaHelpdesk.Tools
             
             cn.Open();
             //Converting Application into a String
-            String Application = AppId.ExecuteScalar().ToString();
+            var Application = AppId.ExecuteScalar();
             
             //Executing add role command
-            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleId, RoleName, LoweredRoleName, Description)VALUES('" + "" + "','','" + role + "','" + role.ToLower() + "','" + desription + "')", cn);
+            cmd = new SqlCommand("INSERT INTO aspnet_Roles(ApplicationId, RoleName, LoweredRoleName, Description)VALUES('" + Application + "','" + role + "','" + role.ToLower() + "','" + desription + "')", cn);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             cn.Close();

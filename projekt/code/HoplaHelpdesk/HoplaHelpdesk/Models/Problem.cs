@@ -118,7 +118,6 @@ namespace HoplaHelpdesk.Models
 
         }
 
-        private DateTime CalculateETA()
         public DateTime Eta 
 
         {
