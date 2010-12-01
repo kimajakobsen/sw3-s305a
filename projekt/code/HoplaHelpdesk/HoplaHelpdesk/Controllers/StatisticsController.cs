@@ -15,11 +15,16 @@ namespace HoplaHelpdesk.Controllers
         hoplaEntities db = new hoplaEntities();
         public ActionResult Index()
         {
-            var persons = db.PersonSet.Where(x => x.IsStaff());
+            var departments = db.DepartmentSet.ToList();
+          
+            foreach(var dep in departments){
+                dep.AverageTimePerProblem();
+
+            }
             var viewModels = new StatisticViewModel()
             {
                AllStaff = new TimeSpan(),
-                Staff = persons.ToList()
+                Departments = departments
                 
             };
             return View();

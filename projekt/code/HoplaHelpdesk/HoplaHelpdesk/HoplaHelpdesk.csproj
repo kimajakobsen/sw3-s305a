@@ -348,7 +348,7 @@
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Statistics\Index.aspx" />
-    <Content Include="Views\Statistics\StatPersonList.aspx" />
+    <Content Include="Views\Statistics\StatPersonList.ascx" />
     <Content Include="Views\Tag\Create.aspx" />
     <Content Include="Views\Tag\Delete.aspx" />
     <Content Include="Views\Tag\Details.aspx" />
