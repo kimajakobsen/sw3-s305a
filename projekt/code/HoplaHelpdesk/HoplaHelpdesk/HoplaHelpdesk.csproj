@@ -145,7 +145,6 @@
     <Content Include="Content\jquery-ui\redmond\images\ui-icons_f9bd01_256x240.png" />
     <Content Include="Content\jquery-ui\redmond\jquery-ui-1.8.custom.css" />
     <Content Include="Models\HoplaModel.edmx.sql" />
-    <Content Include="Models\Model.edmx.sql" />
     <Content Include="Global.asax" />
     <Content Include="Models\TextFile1.txt" />
     <Content Include="Scripts\jquery.ui.datepicker.min.js" />
