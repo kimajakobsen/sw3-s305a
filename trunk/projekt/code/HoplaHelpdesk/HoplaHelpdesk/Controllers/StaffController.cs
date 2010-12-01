@@ -64,17 +64,22 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult Worklist()
         {
-            List<Problem> problemList;
-
             //try{
 
             int myID = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
             
             //problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID).ToList();
-            problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null).ToList();
+            
+            List<Problem> problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null).ToList();
+
+            List<Problem> problemWithoutDeadline = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null).ToList();
+
 
             problemList.Sort(Problem.GetComparer());
 
+            problemWithoutDeadline.Sort(Problem.GetComparer());
+
+            problemList.AddRange(problemWithoutDeadline);
             
 
             //}catch (Exception){return View("Error");}
