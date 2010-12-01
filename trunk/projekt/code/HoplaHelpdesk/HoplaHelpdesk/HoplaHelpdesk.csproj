@@ -125,6 +125,7 @@
     <Compile Include="ViewModels\SimilairProblemListViewModel.cs" />
     <Compile Include="ViewModels\SolutionListViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
+    <Compile Include="ViewModels\StatisticViewModel.cs" />
     <Compile Include="Views\SuccesReassignViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -342,6 +343,8 @@
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Statistics\Index.aspx" />
+    <Content Include="Views\Statistics\StatPersonList.aspx" />
     <Content Include="Views\Tag\Create.aspx" />
     <Content Include="Views\Tag\Delete.aspx" />
     <Content Include="Views\Tag\Details.aspx" />
