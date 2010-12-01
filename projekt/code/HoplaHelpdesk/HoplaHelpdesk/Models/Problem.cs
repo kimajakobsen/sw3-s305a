@@ -22,6 +22,19 @@ namespace HoplaHelpdesk.Models
             private set{}
         }
 
+        public int NumOfMatchingTags(Problem OtherProblem)
+        {
+            int count = 0;
+            for (int i = 0; i < OtherProblem.Tags.Count; i++)
+            {
+                if (Tags.Contains(OtherProblem.Tags.ElementAt(i)))
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         /// <summary>
         /// Derived value to determine what has been selected and what has not.
         /// </summary>
