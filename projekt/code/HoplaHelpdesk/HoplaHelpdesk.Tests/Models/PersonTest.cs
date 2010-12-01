@@ -76,10 +76,7 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void GetWorkloadTest()
         {
-            Tag Bjørn = new Tag() { TimeConsumed = 20, SolvedProblems = 1  };
             Tag Hund = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
-            Tag Kat = new Tag() { TimeConsumed = 20, SolvedProblems = 1 };
-
             Problem problem2 = new Problem() 
             {
                 
@@ -90,12 +87,12 @@ namespace HoplaHelpdesk.Tests
             };
             var Rasmus = new Person()
             {
-                Problems = new EntityCollection<Problem>()
+                Worklist = new EntityCollection<Problem>()
                 {
                     problem2
                 }
             };
-            double expected = 60; // TODO: Initialize to an appropriate value
+            double expected = 20; // TODO: Initialize to an appropriate value
             double actual;
             actual = Rasmus.GetWorkload();
             Assert.AreEqual(expected, actual);
