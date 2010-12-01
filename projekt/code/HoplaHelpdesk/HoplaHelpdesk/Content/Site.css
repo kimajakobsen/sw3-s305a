@@ -284,17 +284,15 @@ table.commentlist td
 
 table.ContentContainer
 {
-    border:none;
-    
-    
+    border:none;    
 }
 table.ContentContainer th
 {
-
+    font-weight:bolder;
 }
 table.ContentContainer td
 {
-
+    
 }
 /* MISC  
 ----------------------------------------------------------*/
