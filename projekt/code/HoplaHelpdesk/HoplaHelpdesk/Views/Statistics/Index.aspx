@@ -13,7 +13,10 @@
      <br /> 
     <p> Department in average: <%: department.AverageTimePerProblem() %>. In last week <%: department.AverageTimePerProblemLastWeek() %> </p>
     <% } %>
-    <br />  
+    <br />   <br />   <br />  
    
-   
+    <p>
+    In total all staff solved a problem in average of <%: Model.AverageAllTime %>. 
+    Last week in average were <%: Model.AverageLastWeek %>
+    </p>
 </asp:Content>
