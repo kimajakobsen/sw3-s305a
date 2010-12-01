@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Data.Objects.DataClasses;
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Models
 {
@@ -158,6 +159,32 @@ namespace HoplaHelpdesk.Models
             return ((double)(PersonTime)/TotalNumberOfTags);
         }
          * */
+
+        public void SetNewDepartment(Department newDep)
+        {
+            var oldDep = Department;
+            oldDep.Persons.Remove(this);
+            Department = newDep;
+            if (Worklist != null)
+            {
+                foreach (var problem in Worklist)
+                {
+                    if (oldDep.Persons.Count == 0)
+                    {
+                        problem.Reassignable = false;
+                    }
+                    else
+                    {
+                        if (problem.Reassignable == true)
+                        {
+                            problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
+                        }
+                    }
+
+                }
+            }
+        }
+
     }
 
     public interface IPerson 

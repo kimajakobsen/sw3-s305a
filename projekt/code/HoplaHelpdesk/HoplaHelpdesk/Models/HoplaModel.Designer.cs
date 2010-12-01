@@ -983,7 +983,7 @@ namespace HoplaHelpdesk.Models
             {
                 return _DepartmentId;
             }
-            set
+            private set
             {
                 OnDepartmentIdChanging(value);
                 ReportPropertyChanging("DepartmentId");
