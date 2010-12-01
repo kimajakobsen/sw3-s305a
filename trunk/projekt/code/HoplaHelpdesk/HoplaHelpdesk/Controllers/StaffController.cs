@@ -72,7 +72,7 @@ namespace HoplaHelpdesk.Controllers
             
             List<Problem> problemList               = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
 
-            List<Problem> problemWithoutDeadline    = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null && x.IsDeadlineApproved != null).ToList();
+            List<Problem> problemWithoutDeadline    = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
 
 
             problemList.Sort(Problem.GetComparer());
