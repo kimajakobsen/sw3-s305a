@@ -140,10 +140,12 @@ namespace HoplaHelpdesk.Models
 
             foreach (Problem problem in AssignedTo.SortedWorklist)
             {
+                DateTime = DateTime.Add(EstimatedTimeConsumption);
+
                 if (problem.Id == Id)
                     break;
 
-                DateTime.Add(EstimatedTimeConsumption);
+                
 
             }
 
