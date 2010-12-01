@@ -136,6 +136,51 @@ namespace HoplaHelpdesk.Helpers
             return;
         }
 
+        public static void SortProblemsByLeastTagsSolvedFirst<T>(this List<T> list, int start, int length) where T : Problem
+        {
+            try
+            {
+                QuickSort(list, start, start + length,
+                    (x, y) =>
+                    {
+                        if (x.SolvedAtTime != null && y.SolvedAtTime == null)
+                        {
+                            return -1;
+                        }
+                        else if (x.SolvedAtTime == null && y.SolvedAtTime != null)
+                        {
+                            return 1;
+                        }
+                        int dif = x.Tags.Count - y.Tags.Count;
+                        if (dif != 0)
+                        {
+                            return dif;
+                        }
+                        return x.Id - y.Id;
+                    });
+            }
+            catch (IndexOutOfRangeException)
+            {
+                throw;
+            }
+
+            return;
+        }
+
+        public static void SortProblemsByLeastTagsSolvedFirst<T>(this List<T> list, int start) where T : Problem
+        {
+            list.SortProblemsByLeastTagsSolvedFirst(start, list.Count - 1);
+
+            return;
+        }
+
+        public static void SortProblemsByLeastTagsSolvedFirst<T>(this List<T> list) where T : Problem
+        {
+            list.SortProblemsByLeastTagsSolvedFirst(0);
+
+            return;
+        }
+
         /*
         public static void SortProblemsByMostTags<T>(this List<T> list, int start, int length) where T : Problem
         {

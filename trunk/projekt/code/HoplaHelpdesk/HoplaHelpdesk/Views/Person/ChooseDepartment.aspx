@@ -7,6 +7,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Choose Department</h2>
+    <div>
+        <%: Model.Name %> is a staff, but is not in any department. <br />
+        Please choose a department for him/her.
+    </div>
 
      <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
