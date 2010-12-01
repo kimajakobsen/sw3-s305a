@@ -41,11 +41,11 @@
                         {
                             Html.RenderPartial("ClientMenu");
                         }
-                        if (Page.User.IsInRole("Staff"))
+                        if (Page.User.IsInRole(HoplaHelpdesk.Models.Constants.StaffRoleName))
                         {
                         Html.RenderPartial("StaffMenu");
                         }
-                        if (Page.User.IsInRole("Admin"))
+                        if (Page.User.IsInRole(HoplaHelpdesk.Models.Constants.AdminRoleName))
                         {
                         Html.RenderPartial("AdminMenu"); 
                         }%>

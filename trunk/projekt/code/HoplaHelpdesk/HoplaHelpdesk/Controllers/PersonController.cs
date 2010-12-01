@@ -133,8 +133,30 @@ namespace HoplaHelpdesk.Controllers
         {
             var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
 
+            if (person.Name == HoplaHelpdesk.Models.Constants.RootName)
+            { 
+                foreach(var item in person.Roles)
+                {
+                    if (item.Name == HoplaHelpdesk.Models.Constants.AdminRoleName)
+                    {
+                        if (!item.Selected)
+                        {
+                            item.Selected = true;
+                            ViewData["Error"] = "You cannot remove the " + HoplaHelpdesk.Models.Constants.AdminRoleName
+                                + " role from the " + HoplaHelpdesk.Models.Constants.RootName + " user!";
+                            ViewData["View"] = "Index";
+
+                            return View("Error");
+                        }
+                    }
+                }
+            }
             try
             {
+                if (collection.Person.DepartmentId != person.DepartmentId)
+                {
+                    person.CascadeProblems(person.Department, collection.Person.Department);
+                }
                 UpdateModel(person, "Person");
                 db.SaveChanges();
                 //Tools.SQLf.UserToRole(person.Name, collection.Role.Name);
@@ -167,7 +189,7 @@ namespace HoplaHelpdesk.Controllers
             Person person = db.PersonSet.FirstOrDefault(x => x.Id == id);
             if (person.IsStaff() && person.Department == null)
             {
-                UnRole(person.Name, "Staff");
+                UnRole(person.Name, HoplaHelpdesk.Models.Constants.StaffRoleName);
             }
 
             return RedirectToAction("Edit", new { id });
@@ -207,7 +229,7 @@ namespace HoplaHelpdesk.Controllers
 
         //
         // GET: /Person/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public ActionResult Delete(int id)
         {
             return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
@@ -216,7 +238,7 @@ namespace HoplaHelpdesk.Controllers
         //
         // POST: /Person/Delete/5
 
-        [Authorize(Roles="Admin")]
+        [Authorize(Roles=HoplaHelpdesk.Models.Constants.AdminRoleName)]
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
@@ -244,7 +266,7 @@ namespace HoplaHelpdesk.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public string RemoveUserFromAspnet(string user)
         {
             string msg;//HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
@@ -268,7 +290,7 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public String AddUserToRole(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
@@ -318,7 +340,7 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public String UnRole(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.UnRole, User = " + user + "&role = " + role);
@@ -363,7 +385,7 @@ namespace HoplaHelpdesk.Controllers
             
             return msg;
         }
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         //ITS WORKING !!! WAAAOUUU !
         public String IsStaff(string user, string role)
         {
@@ -391,7 +413,7 @@ namespace HoplaHelpdesk.Controllers
             return msg;
     }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public String AddRole(String role, String description)
         {
             string msg = HttpUtility.HtmlEncode("Person.AddRole, role = " + role + "&description = " + description);
@@ -420,7 +442,7 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public static void PersonMail(Person [] user, int problemid, int kindofmail)
         {
             //Used for password if implemented correctly
@@ -475,7 +497,7 @@ namespace HoplaHelpdesk.Controllers
                 SmtpServer.Send(mail);
             }
 
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public static void StringMail(String user, int problemid, int kindofmail)
         {
             //Used for password if implemented correctly

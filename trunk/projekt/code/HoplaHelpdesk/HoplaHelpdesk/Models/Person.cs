@@ -91,7 +91,7 @@ namespace HoplaHelpdesk.Models
         {
             foreach (var role in Roles)
             {
-                if (role.Name == "Staff")
+                if (role.Name == HoplaHelpdesk.Models.Constants.StaffRoleName)
                 {
                     if (role.Selected)
                     {

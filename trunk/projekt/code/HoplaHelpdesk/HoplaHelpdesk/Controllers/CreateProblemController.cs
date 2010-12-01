@@ -127,7 +127,7 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
-        [Authorize(Roles = "Client")]
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.ClientRoleName)]
         public ActionResult Details(int id)
         {   
             ViewData["LoggedUser"] = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;

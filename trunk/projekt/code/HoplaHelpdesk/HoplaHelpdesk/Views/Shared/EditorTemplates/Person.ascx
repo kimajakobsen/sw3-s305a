@@ -3,7 +3,12 @@
 <table class="ContentContainer" cellspacing="0" width="100%">
     <tr>
         <td>
-            
+            <div class="display-label">
+                <%: Html.LabelFor(model => model.Id)%>
+            </div>
+            <div class="display-field">
+                <%: Model.Id %>
+            </div>
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Name)%>
             </div>

@@ -9,7 +9,7 @@ using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Controllers
 {
-    //[Authorize(Roles = "Client")]
+    //[Authorize(Roles = HoplaHelpdesk.Models.Constants.ClientRoleName)]
     public class ClientController : Controller
     {
         // GET: /Client/
