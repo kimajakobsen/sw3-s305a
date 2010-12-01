@@ -1,43 +1,42 @@
 \section{System Definition}
 \label{sec:factor}
-To better be able to define our system we will go through the factor method. This model contains different parts of the requirements, and it will help us derive the system definition.  \\
+To better be able to define our system we will use the FACTOR method\cite[p. 39]{roedeaalborg}. This model contains different parts of the requirements, and it will help us derive the system definition.  \\
 \ \\
 {\Large \textbf{F}}unctionality \\
-Our program will contain features aimed at easing the problem-solving process of service employees. Therefor the system will have the following features:
+Our program will contain features aimed at easing the problem-solving process for service employees. Therefor the system will have the following features:
 \begin{itemize}
-\item Ranking of problems
+\item Ranking of problems \\
 Unsolved Problems are displayed on a ranked list, depending on their importance.
-\item Keep track
+\item Keep track \\
 The system should be able to keep track of all the information regarding a problem, this being
-\subitem Time the problem has been in the system
-\subsubitem Time it took to solve the problem
-\subitem Who has committed the problem
-\subitem Who has been assigned to the problem
-\subsubitem Who solved it
-\subitem Feedback related to the problem
-\item Knowledge saved
-
-The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted. Furthermore the system should be able to run on all systems without any prior software installation.
-\item Time estimation
-\ \\
-The system should be able to estimate how fast a problem can be solved.
+\begin{itemize}
+	\item When it approximately will be solved
+	\item Who is assigned to solve the problem
+	\item What the deadline is, if the staff approved it, and if it is exceeded
+	\item What tags and categories are related to the problem 
+	\item Comments related to the problem
+\end{itemize}
+\item Knowledge saved \\
+The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted. Furthermore the system should be able to run on all systems without any prior software installation.\fixme{hvorfor staar der noget om platform under Knowladge saved? }
+\fixme{Indskriv flere features}
 \end{itemize}
 \ \\
 {\Large \textbf{A}}pplicationdomain \\
-This system will be applicable to different office environments as well as helpdesk- and IKT departments.\\
+This system will be applicable to office environments which deals with solving of problems.\\
 \ \\
-{\Large \textbf{C}}onditions Users have varying technical experience. Users who are not trained to use our system will have to face a simple user-interface.\\
+{\Large \textbf{C}}onditions \\ 
+The problem submitting users are not required to have any expert knowledge to use the helpdesk. The service personal will have to learn to use the staff interface to solve problems. The administrators will have to learn to use the functionality in the administrator interface.   \\
 \ \\
 {\Large \textbf{T}}echnology \\
-In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework 2 that exists within the ASP.NET framework. We will set up a development server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
+In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework 2 that exists within the ASP.NET framework\fixme{er mvc 2 et framework i asp.net frameworket?}. We will set up a development server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
 \\
 The end result will be a web interface running on a webserver, with underlying SQL database.\\
 \ \\
 {\Large \textbf{O}}bjects \\
-Problems, solution, employees, supervisors, ordinary users, departments \\
+Problems, solution, \aclient s, \astaff members, \admin s, departments, categories and tags \\
 \ \\
 {\Large \textbf{R}}esponsibility \\
-Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors. Finally it is also responsible for enabling users and technical staff to communicate about a problem and the following solution.\\
+Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors. Finally it is also responsible for enabling users and technical staff to communicate about a problem and the following solution.\\ \fixme{skal vi aendre users, employees og supervisors = clients, staff og admin ?}
 \ \\
 \label{sec:systemdefinition}
 Using these criteria, we arrive at the following system definition:
