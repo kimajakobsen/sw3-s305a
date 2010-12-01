@@ -8,7 +8,7 @@
     <% foreach (var item in Model.Problems) { %>        
             <tr>
                 <td><% if (item.IsDeadlineApproved == true) { %>  <%: String.Format("{0:g}", item.Deadline) %>  <% } %></td>
-                <td><%: String.Format("{0:g}", item.Eta) %></td>
+                <td><%: String.Format("{0:g}", item.EstimatedTimeConsumption) %></td>
                 <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>:<br /><br /><%: item.Description %></td>
             </tr>
     <% } %>
