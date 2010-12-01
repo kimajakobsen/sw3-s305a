@@ -3,13 +3,6 @@
 <table class="ContentContainer" cellspacing="0" width="100%">
     <tr>
         <td>
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Id) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Id)%>
-                <%: Html.ValidationMessageFor(model => model.Id)%>
-            </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Name)%>

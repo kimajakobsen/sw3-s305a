@@ -46,6 +46,7 @@ namespace HoplaHelpdesk.Controllers
             else if (id != null && id == 0)
             {
                 id = null;
+                Session["SearchViewModel"] = null;
             }
             ViewData["Message"] = null;
             // Finds the loged in users problems. 
@@ -70,11 +71,8 @@ namespace HoplaHelpdesk.Controllers
 
             if (Session["SearchViewModel"] == null || !(Session["SearchViewModel"] is SearchViewModel))
             {
+                catTag.Categories = CategoryTagSelectionViewModel.ConvertTo(db.CategorySet.ToList());
 
-                foreach (var item in db.CategorySet)
-                {
-                    catTag.Categories.Add(new CategoryWithListViewModel(item));
-                }
                 onlySolvedProblems = false;
                 if (id != null)
                 {
@@ -158,8 +156,8 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult ViewProblems(SearchViewModel search)
         {
-            string myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Name;
-            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Name == myId);
+            int myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Id == myId);
             search.ProblemList = new ProblemListViewModel
             {
                 Problems = new List<Problem>()

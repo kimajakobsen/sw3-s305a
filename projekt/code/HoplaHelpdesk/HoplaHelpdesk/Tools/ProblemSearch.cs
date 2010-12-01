@@ -12,6 +12,40 @@ namespace HoplaHelpdesk.Tools
 {
     public static class ProblemSearch
     {
+        private static Comparison<Problem> LeastTagsSolvedFirst = (x, y) =>
+                    {
+                        if (x.SolvedAtTime != null && y.SolvedAtTime == null)
+                        {
+                            return -1;
+                        }
+                        else if (x.SolvedAtTime == null && y.SolvedAtTime != null)
+                        {
+                            return 1;
+                        }
+                        int dif = x.Tags.Count - y.Tags.Count;
+                        if (dif != 0)
+                        {
+                            return dif;
+                        }
+                        return x.Id - y.Id;
+                    };
+
+        private static Comparison<Problem> LeastTags = (x, y) =>
+                    {
+                        int dif = x.Tags.Count - y.Tags.Count;
+                        if (dif != 0)
+                        {
+                            return dif;
+                        }
+                        return x.Id - y.Id;
+                    };
+
+        public static List<Problem> SearchSolvedFirst(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
+            List<Tag> allTags, int listMinSize)
+        {
+            return InternalSearch(catTag, allProblems, allTags, listMinSize, LeastTagsSolvedFirst);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -21,6 +55,14 @@ namespace HoplaHelpdesk.Tools
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
             List<Tag> allTags, int listMinSize)
         {
+            
+
+            return InternalSearch(catTag,allProblems,allTags,listMinSize,LeastTags);
+        }
+
+        private static List<Problem> InternalSearch(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
+            List<Tag> allTags, int listMinSize, Comparison<Problem> compare)
+        {
             List<Problem> result = new List<Problem>();
             List<Problem> tempResult;
             int noOfTagsToRemove = 0;
@@ -28,13 +70,13 @@ namespace HoplaHelpdesk.Tools
             List<Tag> tags = catTag.AllTagsSelected();
 
             List<Problem> temp = new List<Problem>();
-            
+
 
             if (tags.Count != 0)
             {
                 while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
                 {
-                    tempResult = new List<Problem>();  
+                    tempResult = new List<Problem>();
                     tagsToRemove = new List<int>();
                     for (int i = 0; i < noOfTagsToRemove; i++)
                     {
@@ -57,7 +99,7 @@ namespace HoplaHelpdesk.Tools
                     catch (NotSupportedException)
                     {
                         noOfTagsToRemove++;
-                        tempResult.SortProblemsByLeastTags();
+                        tempResult.Sort(compare);
                         result.AddRangeNoDuplicates(tempResult.ToList());
                     }
                 }
