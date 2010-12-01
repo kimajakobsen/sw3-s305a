@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" 
-Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemListViewModel>" %>
+Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SimilairProblemListViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Similar Problems
@@ -17,7 +17,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemListViewModel>
           
 
     
-    <% Html.RenderPartial("ProblemList", Model); %>
+    <% Html.RenderPartial("SimilairProblemList", Model); %>
     
      <p>
        <input type="submit" value="No Problem Suffice" />

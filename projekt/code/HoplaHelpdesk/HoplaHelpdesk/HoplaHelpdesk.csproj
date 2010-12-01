@@ -122,6 +122,7 @@
     <Compile Include="ViewModels\ProblemDetailsCommentListViewModel.cs" />
     <Compile Include="ViewModels\ProblemListViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\SimilairProblemListViewModel.cs" />
     <Compile Include="ViewModels\SolutionListViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
     <Compile Include="Views\SuccesReassignViewModel.cs" />
@@ -310,6 +311,7 @@
     <Content Include="Views\Shared\ProblemList.ascx" />
     <Content Include="Views\Shared\EditorTemplates\TagSelectEditor.ascx" />
     <Content Include="Views\Shared\ProblemDetails.ascx" />
+    <Content Include="Views\Shared\SimilairProblemList.ascx" />
     <Content Include="Views\Shared\SolutionList.ascx" />
     <Content Include="Views\Shared\PersonList.ascx" />
     <Content Include="Views\Shared\TagList.ascx" />
