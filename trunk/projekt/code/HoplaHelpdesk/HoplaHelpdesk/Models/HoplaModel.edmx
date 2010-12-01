@@ -83,6 +83,7 @@
           <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Problem_Id" Type="int" Nullable="false" />
           <Property Name="PersonsId" Type="int" Nullable="false" />
+          <Property Name="PersonsName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DepartmentSet">
           <Key>
@@ -374,6 +375,7 @@
           <NavigationProperty Name="Problems" Relationship="hoplaModel.FK_CommentProblem" FromRole="CommentSet" ToRole="ProblemSet" />
           <NavigationProperty Name="Person" Relationship="hoplaModel.PersonsComment" FromRole="Comment" ToRole="Persons" />
           <Property Type="Int32" Name="PersonsId" Nullable="false" />
+          <Property Type="String" Name="PersonsName" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -543,7 +545,8 @@
     <EntitySetMapping Name="CommentSet">
       <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Comment)">
         <MappingFragment StoreEntitySet="CommentSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonsName" ColumnName="PersonsName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="time" ColumnName="time" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="Problem_Id" ColumnName="Problem_Id" />
