@@ -80,7 +80,7 @@ namespace HoplaHelpdesk.Controllers
                     throw new ArgumentNullException();
                 }
                 
-                var viewModel = new ProblemListViewModel(){
+                var viewModel = new SimilairProblemListViewModel(){
                     Problems = ProblemList,
                     SelectedCatTag = catViewModel
                 };

@@ -6,13 +6,10 @@ using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.ViewModels
 {
-    /// <summary>
-    /// ViewModel for a  Problem List containing attributes for Deletable and Editable
-    /// </summary>
-    public class ProblemListViewModel
+    public class SimilairProblemListViewModel
     {
 
-        public List<Problem> Problems {get;set;}
+        public List<Problem> Problems { get; set; }
         public bool Deletable { get; set; }
         public CategoryTagSelectionViewModel SelectedCatTag { get; set; }
 
