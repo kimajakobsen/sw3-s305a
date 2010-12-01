@@ -7,6 +7,10 @@
            { %>
          
            <%: Html.EditorFor(x => x.TagList[i], "TagSelectEditor") %>
+           <% if(i+1 < Model.TagList.Count) 
+              {%>
+              ||
+              <%} %>
 
              <%: Html.HiddenFor(x => x.Name)  %>
 

@@ -39,7 +39,7 @@ Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person
                     <td>
                     <% foreach (var role in item.Roles)
                        {%>
-                    <%    if (role.Selected && role.Name.ToString() == "Staff")
+                    <%    if (role.Selected && role.Name.ToString() == HoplaHelpdesk.Models.Constants.StaffRoleName)
                           {%>
                             x
                         <% } %>
@@ -48,7 +48,7 @@ Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person
                     <td>
                     <% foreach (var role in item.Roles)
                        {%>
-                    <%    if (role.Selected && role.Name.ToString() == "Admin")
+                    <%    if (role.Selected && role.Name.ToString() == HoplaHelpdesk.Models.Constants.AdminRoleName)
                           {%>
                             x
                         <% } %>

@@ -10,12 +10,12 @@
     <% if (ViewData["Error"] == null)
        {
        %>
-       <p>Some Error occured while processing your request!</p>
+       <p class="error">Some Error occured while processing your request!</p>
 
        <% }
        else
        { %>
-       <%: ViewData["Error"] %>
+       <p class="error"><%: ViewData["Error"] %></p>
 
        <%
        } %>

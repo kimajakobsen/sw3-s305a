@@ -8,7 +8,7 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
-    [Authorize(Roles = "Staff")]
+    [Authorize(Roles = HoplaHelpdesk.Models.Constants.StaffRoleName)]
     public class StaffController : Controller
     {
         hoplaEntities db = new hoplaEntities();

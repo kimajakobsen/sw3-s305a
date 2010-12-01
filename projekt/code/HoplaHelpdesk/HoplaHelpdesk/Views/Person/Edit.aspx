@@ -16,8 +16,6 @@
             
             <%: Html.EditorFor(x => x.Person, new { Departments = Model.AllDepartments}) %>
 
-            
-            
             <p>
                 <input type="submit" value="Save" />
             </p>

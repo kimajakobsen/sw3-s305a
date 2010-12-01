@@ -144,9 +144,6 @@ namespace HoplaHelpdesk.Models
 
                 if (problem.Id == Id)
                     break;
-
-                
-
             }
 
             return DateTime;
