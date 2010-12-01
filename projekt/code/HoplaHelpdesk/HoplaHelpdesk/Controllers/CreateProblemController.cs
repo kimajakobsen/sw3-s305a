@@ -79,7 +79,9 @@ namespace HoplaHelpdesk.Controllers
                 {
                     throw new ArgumentNullException();
                 }
-                
+
+                var bla = catViewModel.AllTagsSelected();
+
                 var viewModel = new SimilairProblemListViewModel(){
                     Problems = ProblemList,
                     SelectedCatTag = catViewModel
