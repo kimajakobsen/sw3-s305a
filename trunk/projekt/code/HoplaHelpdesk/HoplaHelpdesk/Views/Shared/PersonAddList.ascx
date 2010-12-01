@@ -55,7 +55,7 @@ Inherits="System.Web.Mvc.ViewUserControl<IEnumerable<HoplaHelpdesk.Models.Person
                     <% } %>
                     </td>
                     <td>
-                        <%: item.Name%>
+                        <%: item.Department.Name%>
                     </td>
                 </tr>
     
