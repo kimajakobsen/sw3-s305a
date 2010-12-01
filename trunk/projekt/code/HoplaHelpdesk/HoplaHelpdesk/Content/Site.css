@@ -289,10 +289,15 @@ table.ContentContainer
 table.ContentContainer th
 {
     font-weight:bolder;
+    border-style:solid;
+    border-collapse:collapse;
+    border-color:Gray;
 }
 table.ContentContainer td
 {
-    
+    border-style:solid;
+    border-collapse:collapse;
+    border-color:Gray;
 }
 /* MISC  
 ----------------------------------------------------------*/

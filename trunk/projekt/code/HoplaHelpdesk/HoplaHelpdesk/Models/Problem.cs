@@ -118,12 +118,9 @@ namespace HoplaHelpdesk.Models
 
         }
 
-<<<<<<< .mine
         private DateTime CalculateETA()
-=======
         public DateTime Eta 
 
->>>>>>> .r1502
         {
             get
             {
