@@ -1,10 +1,10 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.ViewModels.SimilairProblemListViewModel>" %>
     <table class="problemlist" width="90%">
             <tr>
-                <th width="10%"># of solutions</th>
-                <th width="20%">Deadline</th>
+                <th width="5%"># of solutions</th>
+                <th width="10%">Deadline</th>
                 <th width="10%">ETA</th>
-                <th width="60%">Titel and description</th>
+                <th width="75%">Titel and description</th>
             </tr>
     <% foreach (var item in Model.Problems) { %>        
             <tr>
@@ -15,7 +15,4 @@
             </tr>
     <% } %>
     </table>
-
-
-
 
