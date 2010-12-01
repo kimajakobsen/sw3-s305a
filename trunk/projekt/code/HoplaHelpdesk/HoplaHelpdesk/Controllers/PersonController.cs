@@ -66,25 +66,9 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult ChangeDepartment(int DepId, int PerId)
         {
             var person = db.PersonSet.FirstOrDefault(x => x.Id == PerId);
-            
-            var oldDep = person.Department;
-            person.DepartmentId = DepId;
-            db.SaveChanges();
-            foreach (var problem in person.Worklist)
-            {
-                if (oldDep.Persons.Count == 0)
-                {
-                    problem.Reassignable = false;
-                }
-                else
-                {
-                    if (problem.Reassignable == true)
-                    {
-                        problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
-                    }
-                }
-                
-            }
+
+
+            person.SetNewDepartment(db.DepartmentSet.FirstOrDefault(x => x.Id == DepId));
             db.SaveChanges();
 
            

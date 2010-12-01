@@ -20,6 +20,12 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ClientProblemDetailsV
 
 
     <br /><br />
-    <%: Html.ActionLink("Subscribe to this problem", "Subscribe", new {PerId = ViewData["LoggedUser"] , ProId = Model.Problem.Id })%>
-    <%: Html.ActionLink("Unsubscribe to this problem", "Unsubscribe", new {PerId = ViewData["LoggedUser"] , ProId = Model.Problem.Id })%>
+    <% if (Model.Problem.Persons.FirstOrDefault(x => x.Id == (int)ViewData["LoggedUser"]) == null)
+       { %>
+    <%: Html.ActionLink("Subscribe to this problem", "Subscribe", new { PerId = ViewData["LoggedUser"], ProId = Model.Problem.Id })%>
+   <%  }
+       else
+       { %>
+    <%: Html.ActionLink("Unsubscribe to this problem", "Unsubscribe", new { PerId = ViewData["LoggedUser"], ProId = Model.Problem.Id })%>
+    <% } %>
 </asp:Content>

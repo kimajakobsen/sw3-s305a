@@ -2,4 +2,4 @@
         <%: Model.Name %>
       <%: Html.CheckBoxFor(x => x.IsSelected)%>
       <%: Html.HiddenFor(x => x.Id) %>
-    <%: Html.HiddenFor(x => x.Name) %>
+    <%: Html.HiddenFor(x => x.Name) %> |

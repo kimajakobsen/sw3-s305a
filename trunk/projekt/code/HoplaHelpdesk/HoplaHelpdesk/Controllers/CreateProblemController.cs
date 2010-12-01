@@ -217,7 +217,7 @@ namespace HoplaHelpdesk.Controllers
                 
            catch
            {
-               throw;
+          
                return View(model);
            }
                  
