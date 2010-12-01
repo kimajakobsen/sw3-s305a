@@ -12,6 +12,7 @@ namespace HoplaHelpdesk.Controllers
     public class StaffController : Controller
     {
         hoplaEntities db = new hoplaEntities();
+        PersonController mailf = new PersonController();
 
         public ActionResult AttachSolution(int id, int solutionID)
         {   
@@ -19,7 +20,8 @@ namespace HoplaHelpdesk.Controllers
 
             db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
             db.SaveChanges();
-
+            Person [] abc = db.ProblemSet.FirstOrDefault(x => x.Id == id).Persons.ToArray();
+            mailf.Mail(abc, id);
             return RedirectToAction("Details", new { id = id });
         }
 

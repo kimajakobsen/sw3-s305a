@@ -416,9 +416,10 @@ namespace HoplaHelpdesk.Controllers
         }
 
         [Authorize(Roles = "admin")]
-        public void ResetPassword(String user)
+        public void Mail(Person [] user, int problemid)
         {
-            String msg;
+            //Used for password if implemented correctly
+         /*   String msg;
             //Check if any username is provided
             if (user == null || user == "")
             {
@@ -430,14 +431,21 @@ namespace HoplaHelpdesk.Controllers
                 msg = "User dont exists";
             }
             else
-            {
+            { */
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
                 mail.From = new MailAddress("DoNotReply@helpdesk.dk");
-                mail.To.Add(SQLf.GetEmail(user));
-                mail.Subject = "Hopla Helpdesk reset password";
-                mail.Body = "Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
+            for(int i = 0; i < user.Length; i++)
+            {    
+            
+            mail.To.Add(SQLf.GetEmail(user[i].Name));
+            }
+
+            mail.Subject = "Hopla Helpdesk reset password";
+            mail.Body = "A solution has been found for following problem: \thttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    
+                //"Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
@@ -449,4 +457,4 @@ namespace HoplaHelpdesk.Controllers
         }
 
     }
-}
+

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using HoplaHelpdesk.Models;
 using System.Security.Principal;
 using System.Web.Security;
+using System.Web.ApplicationServices;
 
 namespace HoplaHelpdesk.Tools
 {
@@ -380,8 +381,8 @@ namespace HoplaHelpdesk.Tools
             String passA = password.ExecuteScalar().ToString();
             //Converting Application into a String
             cn.Close();
-
-            return passA;
+            //HOW THE FUCK DO I DECRYPT IT THE USERS PASSWORD, TELLLLL ME !?
+            //return passA;
 
             String[] passarray =
             {
@@ -399,7 +400,8 @@ namespace HoplaHelpdesk.Tools
                 int y = RandomPass.Next(passarray.Length);
                 setPass += passarray[y].ToString();
             }
-            
+            MembershipUser u = Membership.GetUser(userA);
+            u.ChangePassword(u.GetPassword().ToString(), setPass);
             return setPass;
 
         }
