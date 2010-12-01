@@ -80,11 +80,12 @@ namespace HoplaHelpdesk.Controllers
                     throw new ArgumentNullException();
                 }
 
-                var bla = catViewModel.AllTagsSelected();
+                List<Tag> selectedTags = catViewModel.AllTagsSelected();
 
                 var viewModel = new SimilairProblemListViewModel(){
                     Problems = ProblemList,
-                    SelectedCatTag = catViewModel
+                    SelectedCatTag = catViewModel,
+                    SelectedTags = selectedTags
                 };
 
                 return View(viewModel);

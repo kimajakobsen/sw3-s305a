@@ -8,7 +8,7 @@ namespace HoplaHelpdesk.ViewModels
 {
     public class SimilairProblemListViewModel
     {
-        public Problem Problem { get; set; }
+        public List<Tag> SelectedTags { get; set; }
         public List<Problem> Problems { get; set; }
         public bool Deletable { get; set; }
         public CategoryTagSelectionViewModel SelectedCatTag { get; set; }
