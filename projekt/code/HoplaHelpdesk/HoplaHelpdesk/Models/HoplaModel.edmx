@@ -5,306 +5,306 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="hoplaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="hoplaModelStoreContainer">
-          <EntitySet Name="CategorySet" EntityType="hoplaModel.Store.CategorySet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CommentSet" EntityType="hoplaModel.Store.CommentSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DepartmentSet" EntityType="hoplaModel.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PersonSet" EntityType="hoplaModel.Store.PersonSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PersonsProblem" EntityType="hoplaModel.Store.PersonsProblem" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProblemSet" EntityType="hoplaModel.Store.ProblemSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProblemSolution" EntityType="hoplaModel.Store.ProblemSolution" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProblemTag" EntityType="hoplaModel.Store.ProblemTag" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SolutionSet" EntityType="hoplaModel.Store.SolutionSet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TagSet" EntityType="hoplaModel.Store.TagSet" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_CommentProblem" Association="hoplaModel.Store.FK_CommentProblem">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="CommentSet" EntitySet="CommentSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DepartmentCategory" Association="hoplaModel.Store.FK_DepartmentCategory">
-            <End Role="DepartmentSet" EntitySet="DepartmentSet" />
-            <End Role="CategorySet" EntitySet="CategorySet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonsComment" Association="hoplaModel.Store.FK_PersonsComment">
-            <End Role="PersonSet" EntitySet="PersonSet" />
-            <End Role="CommentSet" EntitySet="CommentSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonsDepartment" Association="hoplaModel.Store.FK_PersonsDepartment">
-            <End Role="DepartmentSet" EntitySet="DepartmentSet" />
-            <End Role="PersonSet" EntitySet="PersonSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonsProblem_Persons" Association="hoplaModel.Store.FK_PersonsProblem_Persons">
-            <End Role="PersonSet" EntitySet="PersonSet" />
-            <End Role="PersonsProblem" EntitySet="PersonsProblem" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PersonsProblem_Problem" Association="hoplaModel.Store.FK_PersonsProblem_Problem">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="PersonsProblem" EntitySet="PersonsProblem" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemPersons" Association="hoplaModel.Store.FK_ProblemPersons">
-            <End Role="PersonSet" EntitySet="PersonSet" />
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemSolution_ProblemSet" Association="hoplaModel.Store.FK_ProblemSolution_ProblemSet">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="ProblemSolution" EntitySet="ProblemSolution" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemSolution_SolutionSet" Association="hoplaModel.Store.FK_ProblemSolution_SolutionSet">
-            <End Role="SolutionSet" EntitySet="SolutionSet" />
-            <End Role="ProblemSolution" EntitySet="ProblemSolution" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemTag_ProblemSet" Association="hoplaModel.Store.FK_ProblemTag_ProblemSet">
-            <End Role="ProblemSet" EntitySet="ProblemSet" />
-            <End Role="ProblemTag" EntitySet="ProblemTag" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProblemTag_TagSet" Association="hoplaModel.Store.FK_ProblemTag_TagSet">
-            <End Role="TagSet" EntitySet="TagSet" />
-            <End Role="ProblemTag" EntitySet="ProblemTag" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TagCategory" Association="hoplaModel.Store.FK_TagCategory">
-            <End Role="CategorySet" EntitySet="CategorySet" />
-            <End Role="TagSet" EntitySet="TagSet" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="CategorySet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Department_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CommentSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="time" Type="datetime" Nullable="false" />
-          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Problem_Id" Type="int" Nullable="false" />
-          <Property Name="PersonsId" Type="int" Nullable="false" />
-          <Property Name="PersonsName" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="DepartmentSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PersonSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DepartmentId" Type="int" />
-        </EntityType>
-        <EntityType Name="PersonsProblem">
-          <Key>
-            <PropertyRef Name="Persons_Id" />
-            <PropertyRef Name="Problems_Id" />
-          </Key>
-          <Property Name="Persons_Id" Type="int" Nullable="false" />
-          <Property Name="Problems_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProblemSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="nvarchar(max)" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Added_date" Type="datetime" />
-          <Property Name="Deadline" Type="datetime" />
-          <Property Name="IsDeadlineApproved" Type="bit" />
-          <Property Name="Reassignable" Type="bit" />
-          <Property Name="SolvedAtTime" Type="datetime" />
-          <Property Name="PersonsId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProblemSolution">
-          <Key>
-            <PropertyRef Name="Problems_Id" />
-            <PropertyRef Name="Solutions_Id" />
-          </Key>
-          <Property Name="Problems_Id" Type="int" Nullable="false" />
-          <Property Name="Solutions_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ProblemTag">
-          <Key>
-            <PropertyRef Name="Problems_Id" />
-            <PropertyRef Name="Tags_Id" />
-          </Key>
-          <Property Name="Problems_Id" Type="int" Nullable="false" />
-          <Property Name="Tags_Id" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="SolutionSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TagSet">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Priority" Type="smallint" Nullable="false" />
-          <Property Name="Category_Id" Type="int" Nullable="false" />
-          <Property Name="SolvedProblems" Type="int" />
-          <Property Name="TimeConsumed" Type="decimal" />
-          <Property Name="Hidden" Type="bit" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_CommentProblem">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CommentSet">
-              <PropertyRef Name="Problem_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DepartmentCategory">
-          <End Role="DepartmentSet" Type="hoplaModel.Store.DepartmentSet" Multiplicity="1" />
-          <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartmentSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CategorySet">
-              <PropertyRef Name="Department_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonsComment">
-          <End Role="PersonSet" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
-          <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PersonSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CommentSet">
-              <PropertyRef Name="PersonsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonsDepartment">
-          <End Role="DepartmentSet" Type="hoplaModel.Store.DepartmentSet" Multiplicity="0..1" />
-          <End Role="PersonSet" Type="hoplaModel.Store.PersonSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DepartmentSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PersonSet">
-              <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonsProblem_Persons">
-          <End Role="PersonSet" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
-          <End Role="PersonsProblem" Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PersonSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PersonsProblem">
-              <PropertyRef Name="Persons_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PersonsProblem_Problem">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="PersonsProblem" Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PersonsProblem">
-              <PropertyRef Name="Problems_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemPersons">
-          <End Role="PersonSet" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PersonSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemSet">
-              <PropertyRef Name="PersonsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemSolution_ProblemSet">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemSolution">
-              <PropertyRef Name="Problems_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemSolution_SolutionSet">
-          <End Role="SolutionSet" Type="hoplaModel.Store.SolutionSet" Multiplicity="1" />
-          <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SolutionSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemSolution">
-              <PropertyRef Name="Solutions_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemTag_ProblemSet">
-          <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
-          <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProblemSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemTag">
-              <PropertyRef Name="Problems_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProblemTag_TagSet">
-          <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="1" />
-          <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TagSet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ProblemTag">
-              <PropertyRef Name="Tags_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TagCategory">
-          <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="1" />
-          <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CategorySet">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TagSet">
-              <PropertyRef Name="Category_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="hoplaModelStoreContainer">
+    <EntitySet Name="CategorySet" EntityType="hoplaModel.Store.CategorySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommentSet" EntityType="hoplaModel.Store.CommentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DepartmentSet" EntityType="hoplaModel.Store.DepartmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemSet" EntityType="hoplaModel.Store.ProblemSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SolutionSet" EntityType="hoplaModel.Store.SolutionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TagSet" EntityType="hoplaModel.Store.TagSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonSet" EntityType="hoplaModel.Store.PersonSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemSolution" EntityType="hoplaModel.Store.ProblemSolution" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProblemTag" EntityType="hoplaModel.Store.ProblemTag" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonsProblem" EntityType="hoplaModel.Store.PersonsProblem" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_DepartmentCategory" Association="hoplaModel.Store.FK_DepartmentCategory">
+      <End Role="DepartmentSet" EntitySet="DepartmentSet" />
+      <End Role="CategorySet" EntitySet="CategorySet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TagCategory" Association="hoplaModel.Store.FK_TagCategory">
+      <End Role="CategorySet" EntitySet="CategorySet" />
+      <End Role="TagSet" EntitySet="TagSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommentProblem" Association="hoplaModel.Store.FK_CommentProblem">
+      <End Role="ProblemSet" EntitySet="ProblemSet" />
+      <End Role="CommentSet" EntitySet="CommentSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemSolution_ProblemSet" Association="hoplaModel.Store.FK_ProblemSolution_ProblemSet">
+      <End Role="ProblemSet" EntitySet="ProblemSet" />
+      <End Role="ProblemSolution" EntitySet="ProblemSolution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemSolution_SolutionSet" Association="hoplaModel.Store.FK_ProblemSolution_SolutionSet">
+      <End Role="SolutionSet" EntitySet="SolutionSet" />
+      <End Role="ProblemSolution" EntitySet="ProblemSolution" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemTag_ProblemSet" Association="hoplaModel.Store.FK_ProblemTag_ProblemSet">
+      <End Role="ProblemSet" EntitySet="ProblemSet" />
+      <End Role="ProblemTag" EntitySet="ProblemTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProblemTag_TagSet" Association="hoplaModel.Store.FK_ProblemTag_TagSet">
+      <End Role="TagSet" EntitySet="TagSet" />
+      <End Role="ProblemTag" EntitySet="ProblemTag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonsProblem_Persons" Association="hoplaModel.Store.FK_PersonsProblem_Persons">
+      <End Role="Persons" EntitySet="PersonSet" />
+      <End Role="PersonsProblem" EntitySet="PersonsProblem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonsProblem_Problem" Association="hoplaModel.Store.FK_PersonsProblem_Problem">
+      <End Role="Problem" EntitySet="ProblemSet" />
+      <End Role="PersonsProblem" EntitySet="PersonsProblem" />
+    </AssociationSet>
+    <AssociationSet Name="PersonsDepartment" Association="hoplaModel.Store.PersonsDepartment">
+      <End Role="Persons" EntitySet="PersonSet" />
+      <End Role="Department" EntitySet="DepartmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProblemPersons" Association="hoplaModel.Store.ProblemPersons">
+      <End Role="Problem" EntitySet="ProblemSet" />
+      <End Role="Persons" EntitySet="PersonSet" />
+    </AssociationSet>
+    <AssociationSet Name="PersonsComment" Association="hoplaModel.Store.PersonsComment">
+      <End Role="Persons" EntitySet="PersonSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CategorySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="time" Type="datetime" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Problem_Id" Type="int" Nullable="false" />
+    <Property Name="PersonsId" Type="int" Nullable="false" />
+    <Property Name="PersonsName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DepartmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Added_date" Type="datetime" Nullable="true" />
+    <Property Name="Deadline" Type="datetime" Nullable="true" />
+    <Property Name="IsDeadlineApproved" Type="bit" Nullable="true" />
+    <Property Name="Reassignable" Type="bit" Nullable="true" />
+    <Property Name="SolvedAtTime" Type="datetime" Nullable="true" />
+    <Property Name="PersonsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SolutionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TagSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Priority" Type="smallint" Nullable="false" />
+    <Property Name="Category_Id" Type="int" Nullable="false" />
+    <Property Name="SolvedProblems" Type="int" Nullable="true" />
+    <Property Name="TimeConsumed" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="Hidden" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ProblemSolution">
+    <Key>
+      <PropertyRef Name="Problems_Id" />
+      <PropertyRef Name="Solutions_Id" />
+    </Key>
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+    <Property Name="Solutions_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProblemTag">
+    <Key>
+      <PropertyRef Name="Problems_Id" />
+      <PropertyRef Name="Tags_Id" />
+    </Key>
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+    <Property Name="Tags_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonsProblem">
+    <Key>
+      <PropertyRef Name="Persons_Id" />
+      <PropertyRef Name="Problems_Id" />
+    </Key>
+    <Property Name="Persons_Id" Type="int" Nullable="false" />
+    <Property Name="Problems_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DepartmentCategory">
+    <End Role="DepartmentSet" Type="hoplaModel.Store.DepartmentSet" Multiplicity="1" />
+    <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CategorySet">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TagCategory">
+    <End Role="CategorySet" Type="hoplaModel.Store.CategorySet" Multiplicity="1" />
+    <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategorySet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TagSet">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommentProblem">
+    <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <End Role="CommentSet" Type="hoplaModel.Store.CommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CommentSet">
+        <PropertyRef Name="Problem_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonsDepartment">
+    <End Role="Persons" Type="hoplaModel.Store.PersonSet" Multiplicity="*" />
+    <End Role="Department" Type="hoplaModel.Store.DepartmentSet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Persons">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProblemPersons">
+    <End Role="Problem" Type="hoplaModel.Store.ProblemSet" Multiplicity="*" />
+    <End Role="Persons" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Problem">
+        <PropertyRef Name="PersonsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonsComment">
+    <End Role="Persons" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
+    <End Role="Comment" Type="hoplaModel.Store.CommentSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="PersonsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemSolution_ProblemSet">
+    <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemSolution">
+        <PropertyRef Name="Problems_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemSolution_SolutionSet">
+    <End Role="ProblemSolution" Type="hoplaModel.Store.ProblemSolution" Multiplicity="*" />
+    <End Role="SolutionSet" Type="hoplaModel.Store.SolutionSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SolutionSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemSolution">
+        <PropertyRef Name="Solutions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemTag_ProblemSet">
+    <End Role="ProblemSet" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProblemSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemTag">
+        <PropertyRef Name="Problems_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProblemTag_TagSet">
+    <End Role="ProblemTag" Type="hoplaModel.Store.ProblemTag" Multiplicity="*" />
+    <End Role="TagSet" Type="hoplaModel.Store.TagSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TagSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProblemTag">
+        <PropertyRef Name="Tags_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonsProblem_Persons">
+    <End Role="Persons" Type="hoplaModel.Store.PersonSet" Multiplicity="1" />
+    <End Role="PersonsProblem" Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonsProblem">
+        <PropertyRef Name="Persons_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonsProblem_Problem">
+    <End Role="PersonsProblem" Type="hoplaModel.Store.PersonsProblem" Multiplicity="*" />
+    <End Role="Problem" Type="hoplaModel.Store.ProblemSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Problem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonsProblem">
+        <PropertyRef Name="Problems_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="hoplaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -545,12 +545,12 @@
     <EntitySetMapping Name="CommentSet">
       <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Comment)">
         <MappingFragment StoreEntitySet="CommentSet">
-          <ScalarProperty Name="PersonsName" ColumnName="PersonsName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="time" ColumnName="time" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="Problem_Id" ColumnName="Problem_Id" />
           <ScalarProperty Name="PersonsId" ColumnName="PersonsId" />
+          <ScalarProperty Name="PersonsName" ColumnName="PersonsName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -589,14 +589,14 @@
     <EntitySetMapping Name="TagSet">
       <EntityTypeMapping TypeName="IsTypeOf(hoplaModel.Tag)">
         <MappingFragment StoreEntitySet="TagSet">
-          <ScalarProperty Name="Hidden" ColumnName="Hidden" />
-                <ScalarProperty Name="TimeConsumed" ColumnName="TimeConsumed" />
-                <ScalarProperty Name="SolvedProblems" ColumnName="SolvedProblems" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
           <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="SolvedProblems" ColumnName="SolvedProblems" />
+          <ScalarProperty Name="TimeConsumed" ColumnName="TimeConsumed" />
+          <ScalarProperty Name="Hidden" ColumnName="Hidden" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -653,7 +653,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="HoplaModel" ZoomLevel="81">
+      <Diagram Name="HoplaModel" ZoomLevel="12">
         <EntityTypeShape EntityType="hoplaModel.Category" Width="1.5" PointX="10.625" PointY="23.625" Height="2.1725878906250031" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="8.125" PointY="18" Height="2.3648893229166674" IsExpanded="true" />
         <EntityTypeShape EntityType="hoplaModel.Department" Width="1.5" PointX="8" PointY="24" Height="1.9802864583333353" IsExpanded="true" />
