@@ -129,22 +129,25 @@ namespace HoplaHelpdesk.Models
 
         public void CascadeProblems(Department oldDep, Department newDep)
         {
-            if (Worklist != null)
+               if (oldDep != null)
             {
-                foreach (var problem in Worklist.ToList())
+                if (Worklist != null)
                 {
-                    if (oldDep.Persons.Count == 0 || newDep == null)
+                    foreach (var problem in Worklist.ToList())
                     {
-                        problem.Reassignable = false;
-                    }
-                    else
-                    {
-                        if (problem.Reassignable == true)
+                        if (oldDep.Persons.Count == 0 || newDep == null)
                         {
-                            problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
+                            problem.Reassignable = false;
                         }
-                    }
+                        else
+                        {
+                            if (problem.Reassignable == true)
+                            {
+                                problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
+                            }
+                        }
 
+                    }
                 }
             }
         }
@@ -153,10 +156,9 @@ namespace HoplaHelpdesk.Models
         {
             var oldDep = Department; 
             Department = newDep;
-            if (oldDep != null)
-            {
+         
                 CascadeProblems(oldDep, newDep);
-            }
+          
 
         }
         #endregion
