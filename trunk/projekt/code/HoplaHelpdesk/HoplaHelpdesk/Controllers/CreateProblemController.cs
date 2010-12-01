@@ -125,8 +125,12 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
+        [Authorize(Roles = "Client")]
         public ActionResult Details(int id)
         {
+            
+        
+        
             //List<int> john = new List<int>();
             ViewData["LoggedUser"] = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
@@ -191,8 +195,8 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Create(ProblemCatTagWithSelectionViewModel model)
         {
-            try
-            {
+            //try
+            //{
               foreach(var tag in model.CatTag.AllTagsSelected()){
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
@@ -213,13 +217,13 @@ namespace HoplaHelpdesk.Controllers
                 //return View("Details", problem);
                 
                 return View("Succes");
-            }
+            //}
                 
-           catch
+          /* catch
            {
           
                return View(model);
-           }
+           }*/
                  
         }
 
