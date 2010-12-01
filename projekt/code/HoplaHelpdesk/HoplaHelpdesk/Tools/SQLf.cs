@@ -391,19 +391,22 @@ namespace HoplaHelpdesk.Tools
             {
                 "a","b","c","d","e","f","g","h","j","k",
                 "l","m","n","o","p","q","r","s","t","u",
-                "v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"
+                "w","x","y","z","A","B","C","D","E","F",
+                "G","H","I","J","K","L","M","N","O","P","Q",
+                "R","S","T","U","V","W","X","Y","Z",
+                "0","1","2","3","4","5","6","7","8","9"
             };
             String setPass = "";
             Random RandomNumber = new Random();
             Random RandomPass = new Random();
-            int x = RandomNumber.Next(5) * 10;
+            int x = RandomNumber.Next(10,25);
 
             for (int i = 0; i < x; i++)
             {
                 int y = RandomPass.Next(passarray.Length);
                 setPass += passarray[y].ToString();
             }
-            MembershipUser u = Membership.GetUser(userA);
+            MembershipUser u = Membership.GetUser(user);
             String np = u.ResetPassword();
             u.ChangePassword(np, setPass);
             return setPass;

@@ -290,7 +290,7 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
 
-        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
+       // [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public String AddUserToRole(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user + "&role = " + role);
@@ -552,12 +552,12 @@ namespace HoplaHelpdesk.Controllers
         }
 
 
-        [Authorize(Roles = "admin")]
-        public static String PassMail(String user)
+       
+        public String PassMail(String user)
         {
-            HttpUtility.HtmlEncode("Person.AddUserToRole, User = " + user);
+            string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
             //Used for password if implemented correctly
-               String msg;
+               
                //Check if any username is provided
                if (user == null || user == "")
                {
