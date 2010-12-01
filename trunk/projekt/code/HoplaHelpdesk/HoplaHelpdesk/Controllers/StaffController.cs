@@ -131,9 +131,9 @@ namespace HoplaHelpdesk.Controllers
 
             if (model.hoursTaken != 0.0)
             {
-                db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Department.BalanceWorkload();
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).ManageTagTimes(model.hoursTaken);
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).SolvedAtTime = DateTime.Now;
+                db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Department.BalanceWorkload();
             }
 
 
