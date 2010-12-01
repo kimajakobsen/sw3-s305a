@@ -129,8 +129,7 @@ namespace HoplaHelpdesk.Controllers
 
         [Authorize(Roles = "Client")]
         public ActionResult Details(int id)
-        {
-            
+        {   
             ViewData["LoggedUser"] = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
             /*try
