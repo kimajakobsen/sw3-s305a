@@ -983,7 +983,7 @@ namespace HoplaHelpdesk.Models
             {
                 return _DepartmentId;
             }
-            private set
+            set
             {
                 OnDepartmentIdChanging(value);
                 ReportPropertyChanging("DepartmentId");
@@ -1035,7 +1035,7 @@ namespace HoplaHelpdesk.Models
             {
                 return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.PersonsDepartment", "Department").Value;
             }
-            private set
+            set
             {
                 ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.PersonsDepartment", "Department").Value = value;
             }
@@ -1051,7 +1051,7 @@ namespace HoplaHelpdesk.Models
             {
                 return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.PersonsDepartment", "Department");
             }
-            private set
+            set
             {
                 if ((value != null))
                 {
