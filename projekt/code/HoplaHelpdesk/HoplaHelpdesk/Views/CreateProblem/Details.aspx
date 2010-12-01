@@ -7,7 +7,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ClientProblemDetailsV
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Details</h2>
+    <h2><%: Model.Problem.Title %></h2>
 
     <% Html.RenderPartial("ProblemDetails", Model.Problem); %><br /><br />
     <% Html.RenderPartial("SolutionList", Model.Solutionlistviewmodel); %><br /><br />
