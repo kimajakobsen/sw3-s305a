@@ -416,7 +416,7 @@ namespace HoplaHelpdesk.Controllers
         }
 
         [Authorize(Roles = "admin")]
-        public void Mail(Person [] user, int problemid)
+        public void SMail(Person [] user, int problemid)
         {
             //Used for password if implemented correctly
          /*   String msg;
@@ -442,8 +442,8 @@ namespace HoplaHelpdesk.Controllers
             mail.To.Add(SQLf.GetEmail(user[i].Name));
             }
 
-            mail.Subject = "Hopla Helpdesk reset password";
-            mail.Body = "A solution has been found for following problem: \thttp://localhost:6399/CreateProblem/Details/" + problemid;
+            mail.Subject = "Hopla Helpdesk: A solution has been found!";
+            mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     
                 //"Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
 

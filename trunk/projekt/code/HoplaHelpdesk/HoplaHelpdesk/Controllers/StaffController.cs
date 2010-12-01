@@ -21,7 +21,7 @@ namespace HoplaHelpdesk.Controllers
             db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
             db.SaveChanges();
             Person [] abc = db.ProblemSet.FirstOrDefault(x => x.Id == id).Persons.ToArray();
-            mailf.Mail(abc, id);
+            mailf.SMail(abc, id);
             return RedirectToAction("Details", new { id = id });
         }
 
@@ -58,6 +58,9 @@ namespace HoplaHelpdesk.Controllers
             db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.Add(solution);
 
             db.SaveChanges();
+
+            Person[] abc = db.ProblemSet.FirstOrDefault(x => x.Id == id).Persons.ToArray();
+            mailf.SMail(abc, id);
 
             return RedirectToAction("Details", new { id = id });
         }
