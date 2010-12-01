@@ -17,7 +17,7 @@ namespace HoplaHelpdesk.ViewModels
         public ProblemListViewModel ProblemList { get; set; }
         public IPerson Subscriber { get; set; }
 
-        [DisplayName("Only your problems")]
+        [DisplayName("Only my problems")]
         public bool OnlySubscriber { get; set; }
 
         [DisplayName("Only unsolved problems")]

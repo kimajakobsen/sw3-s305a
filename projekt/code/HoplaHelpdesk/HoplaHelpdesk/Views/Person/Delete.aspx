@@ -21,8 +21,11 @@
         <div class="display-label">Email</div>
         <div class="display-field"><%: Model.Email %></div>
         
+        <% if (Model.IsStaff())
+           {%>
         <div class="display-label">DepartmentId</div>
-        <div class="display-field"><%: Model.DepartmentId %></div>
+        <div class="display-field"><%: Model.DepartmentId%></div>
+        <% } %>
         
     </fieldset>
     <% using (Html.BeginForm()) { %>
