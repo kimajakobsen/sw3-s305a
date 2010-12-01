@@ -62,6 +62,9 @@ namespace HoplaHelpdesk.Controllers
             return View();
         }
 
+        /// <summary>
+        /// This method's purpose is to display the list of problems which the staff member is assigned to solve.
+        /// </summary>
         public ActionResult Worklist()
         {
             //try{
@@ -100,6 +103,10 @@ namespace HoplaHelpdesk.Controllers
             return View();
         }
 
+        /// <summary>
+        /// This method is called whenever we've updated some information on
+        /// the problem, eg added comments, approved deadline and so forth.
+        /// </summary>
         [HttpPost]
         public ActionResult Details(ProblemDetailsCommentListViewModel model, int id)
         {
@@ -142,12 +149,15 @@ namespace HoplaHelpdesk.Controllers
             return this.Details(id);
         }
 
+        /// <summary>
+        /// This method is called whenever we click on a specific problem and would like to see it's details.
+        /// </summary>
         public ActionResult Details(int id)
         {
             Problem problem = new Problem();
             /*try
             {*/
-                problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
+            problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
             /*}
             catch (Exception)
             {
