@@ -13,10 +13,29 @@ namespace HoplaHelpdesk.Models
 {
 
     //[MetadataType(typeof(PersonMetaData))]
+
     public partial class Person : IPerson
     {
 
-      
+
+
+        private List<Problem> GetSortedList()
+        {
+            List<Problem> problemList = Worklist.ToList().Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
+
+            List<Problem> problemWithoutDeadline = Worklist.ToList().Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
+
+
+            problemList.Sort(Problem.GetComparer());
+
+            problemWithoutDeadline.Sort(Problem.GetComparer());
+
+            problemList.AddRange(problemWithoutDeadline);
+
+            return problemList;
+        }
+        public List<Problem> SortedWorklist { get { return GetSortedList(); } }
+
         #region Role Stuff
         private List<Role> _roles;
         /*public class PersonMetaData
@@ -89,22 +108,7 @@ namespace HoplaHelpdesk.Models
         #region Workload and ETA
         public double Workload { get { return GetWorkload(); } }
 
-        public List<Problem> SortedWorklist { get { return GetSortedList(); } }
-
-        private List<Problem> GetSortedList(){
-            List<Problem> problemList = Worklist.ToList().Where(x =>  x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
-
-            List<Problem> problemWithoutDeadline = Worklist.ToList().Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
-
-
-            problemList.Sort(Problem.GetComparer());
-
-            problemWithoutDeadline.Sort(Problem.GetComparer());
-
-            problemList.AddRange(problemWithoutDeadline);
-
-            return problemList;
-        }
+    
 
         /// <summary>
         /// 
@@ -115,7 +119,7 @@ namespace HoplaHelpdesk.Models
         {
             TimeSpan PersonTime = new TimeSpan(0,0,0,0);
 
-            foreach (Problem problem in Worklist.Where(x => x.SolvedAtTime != null))
+            foreach (Problem problem in Worklist.Where(x => x.SolvedAtTime == null))
             {
                 PersonTime = PersonTime.Add(problem.EstimatedTimeConsumption);
             }
@@ -162,6 +166,25 @@ namespace HoplaHelpdesk.Models
 
         }
         #endregion
+
+        #region Statistics
+
+        public double AverageTimePerProblem()
+        {
+            foreach(var problem in Worklist.Where(x => x.SolvedAtTime != null))
+            {
+
+
+
+            }
+
+            return 0.0;
+        }
+
+
+
+        #endregion
+
     }
 
     public interface IPerson 
