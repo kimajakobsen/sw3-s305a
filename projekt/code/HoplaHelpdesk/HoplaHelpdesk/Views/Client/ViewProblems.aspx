@@ -11,15 +11,15 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
     <script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script> 
     <script src="/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script> 
 
-    <h2>Problem Search</h2>
+    <h2><%: ViewData["Header"] %></h2>
     
     <% Html.EnableClientValidation(); %> 
         <% using (Html.BeginForm()) {%>
         <fieldset>
             <legend>Search</legend>
-            <table class="ContentContainer">
-                <tr>
-                    <th>
+            <table class="ContentContainer" width="100%">
+                <tr align="left">
+                    <th >
                     
                         <div class="editor-field">
                             <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
@@ -47,7 +47,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SearchViewModel>" %>
                         </div>
                         <div class="editor-field">
                             <%: Html.TextBoxFor(model => model.MinimumNumberOfProblems)%>
-            
+                            <br />
                             <%: Html.ValidationMessageFor(model => model.MinimumNumberOfProblems)%>
                         </div>
 
