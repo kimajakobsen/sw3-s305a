@@ -118,7 +118,23 @@ namespace HoplaHelpdesk.Models
 
         }
 
-        public DateTime CalculateETA()
+        public DateTime Eta 
+
+        {
+            get
+            {
+                try
+                {
+                    return CalculateETA();
+                }
+                catch (NullReferenceException)
+                {
+                    return DateTime.Today.Add(new TimeSpan(100,0,0,0,0));
+                }
+            } 
+        } 
+
+        private DateTime CalculateETA()
         {
             DateTime DateTime = DateTime.Now;
 
