@@ -17,7 +17,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
             <%: Html.ValidationSummary(true) %>
                 <% if (Model.Problem.SolvedAtTime != null)
                    { %>
-                        This problem has already been solved!<br />It happened at <%: Model.Problem.SolvedAtTime %>
+                        This problem has been solved!<br />It happened at <%: Model.Problem.SolvedAtTime %>
                 <% }
                    else
                    { %>
@@ -52,8 +52,8 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
                     <% }
                        else
                        { %>
-                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approved
-                    <% } %>
+                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approved <
+                    <% } %> <%: String.Format("{0:g}", Model.Problem.Deadline) %>
                 </p>     
 
 
