@@ -111,13 +111,71 @@ namespace HoplaHelpdesk.Models
         }
 
 
-        public DateTime Eta { get { return CalculateETA(); } } 
+        public DateTime Eta 
+        {
+            get
+            {
+                return CalculateETA();
+            } 
+        } 
 
         private DateTime CalculateETA()
         {
-            DateTime DateTime = new DateTime(2011, 2, 3, 10, 43, 18);
+            DateTime DateTime = DateTime.Now;
 
-            return (DateTime);
+            foreach (Problem problem in AssignedTo.SortedWorklist)
+            {
+                if (problem.Id == Id)
+                    break;
+
+                DateTime.Add(EstimatedTimeConsumption);
+
+            }
+
+            return DateTime;
+        }
+
+        public TimeSpan EstimatedTimeConsumption
+        {
+            get
+            {
+                return CalculateEstimatedTimeConsumption();
+            }
+        }
+
+        private TimeSpan CalculateEstimatedTimeConsumption()
+        {
+            int NumberOfTags = 0;
+            decimal? ProblemTime = 0;
+            int Minutes = 0;
+            int Hours = 0;
+            int Days = 0;
+
+            decimal? average = 0;
+
+            foreach (Tag tag in Tags)
+            {
+                if (tag.AverageTimeSpent != null)
+                {
+                    ProblemTime = ProblemTime + tag.AverageTimeSpent;
+                }
+                NumberOfTags++;
+            }
+
+            if(NumberOfTags == 0)
+            {
+                NumberOfTags = 1;
+                ProblemTime = 10;
+            }
+
+            average = ProblemTime / NumberOfTags;
+
+            Hours = (int)average % 60;
+            Minutes = (int)average - (Hours*60);
+            Days = Hours % 24;
+            Hours = Hours - (Days * 24);
+
+            return new TimeSpan(Days, Hours, Minutes, 0);
         }
 
         public class ProblemComparer : IComparer<Problem>

@@ -101,36 +101,28 @@ namespace HoplaHelpdesk.Models
             return problemList;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+
         public double GetWorkload()
         {
-            int NumberOfTags = 0;
-            decimal? ProblemTime = 0;
-            decimal? PersonTime = 0;
+            TimeSpan PersonTime = new TimeSpan(0,0,0,0);
+            double Minutes = 0;
 
             foreach (Problem problem in Worklist)
             {
-                foreach (Tag tag in problem.Tags)
-                {
-                    if (tag.AverageTimeSpent != null)
-                    {
-                        ProblemTime = ProblemTime + tag.AverageTimeSpent;
-                    }
-                    NumberOfTags++;
-                }
-
-                if(NumberOfTags == 0){
-                    NumberOfTags = 1;
-                    ProblemTime = 10;
-                }
-
-                PersonTime = PersonTime + ProblemTime/NumberOfTags;
-                NumberOfTags = 0;
-                ProblemTime = 0;
-                 
-
+                //PersonTime.Add(problem.EstimatedTimeConsumption);
+                //For some unknown reason, this .Add does not seems to work. 
+                //It always returns zero.
+                Minutes = Minutes + problem.EstimatedTimeConsumption.TotalMinutes;
             }
 
-            return (double)PersonTime;
+            return Minutes; //Returns the curent workload for the Person in minutes.
+            //return PersonTime.TotalMinutes;
+            //Read above. 
+
         }
         /*
         public double GetWorkload()
