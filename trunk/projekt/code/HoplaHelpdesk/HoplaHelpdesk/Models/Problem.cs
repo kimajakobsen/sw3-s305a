@@ -22,6 +22,8 @@ namespace HoplaHelpdesk.Models
             private set{}
         }
 
+        /*
+         * stupid piece of crapcode! 
         public int NumOfMatchingTags(List<Tag> listTags)
         {
             int count = 0;
@@ -29,13 +31,17 @@ namespace HoplaHelpdesk.Models
 
             for (i = 0; i < listTags.Count; i++)
             {
-                if (Tags.Contains(listTags.ElementAt(i)))
+                for (int p = 0; p < Tags.Count; p++)
                 {
-                    count++;
+                    if (Tags.ElementAt(p).Id == listTags.ElementAt(i).Id)
+                    {
+                        count++;
+                    }
                 }
+                
             }
             return count;
-        }
+        }*/
 
         /// <summary>
         /// Derived value to determine what has been selected and what has not.

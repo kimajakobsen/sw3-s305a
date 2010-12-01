@@ -73,19 +73,16 @@ namespace HoplaHelpdesk.Controllers
             
             try {
 
-                var ProblemList = ProblemSearch.Search(catViewModel,db.ProblemSet.ToList(),db.TagSet.ToList(),10);
+                var ProblemList = ProblemSearch.SearchSolvedFirst(catViewModel,db.ProblemSet.ToList(),db.TagSet.ToList(),10);
                 
                 if(ProblemList.Count == 0 ||  ProblemList == null)
                 {
                     throw new ArgumentNullException();
                 }
 
-                List<Tag> selectedTags = catViewModel.AllTagsSelected();
-
                 var viewModel = new SimilairProblemListViewModel(){
                     Problems = ProblemList,
-                    SelectedCatTag = catViewModel,
-                    SelectedTags = selectedTags
+                    SelectedCatTag = catViewModel
                 };
 
                 return View(viewModel);
