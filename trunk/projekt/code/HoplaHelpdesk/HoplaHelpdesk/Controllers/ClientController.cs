@@ -12,7 +12,6 @@ namespace HoplaHelpdesk.Controllers
     //[Authorize(Roles = "Client")]
     public class ClientController : Controller
     {
-        //
         // GET: /Client/
         hoplaEntities db = new hoplaEntities();
         public ActionResult Index()

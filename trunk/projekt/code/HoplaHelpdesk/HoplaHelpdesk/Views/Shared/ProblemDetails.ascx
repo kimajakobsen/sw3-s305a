@@ -14,16 +14,11 @@
         <div class="display-label">ETA</div>
         <div class="display-field"><%: String.Format("{0:g}", Model.Eta) %></div>
         
-        <% if (!(Model.IsDeadlineApproved == null))
-           { %>
-            <div class="display-label">Deadline</div>
-            <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
-        <% } %>
-        <% else 
-           { %>
-            <div class="display-label">Deadline</div>
-            <div class="display-field"><%: String.Format("{0:g}", "Deadline not approved") %></div>
-        <% } %>
+        <div class="display-label">Deadline</div>
+        <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
+
+        <div class="display-label">Deadline</div>
+        <div class="display-field"><%: String.Format("{0:g}", "Deadline not approved") %></div>
 
         <% if (!(Model.SolvedAtTime == null))
            { %>
