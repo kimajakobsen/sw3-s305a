@@ -446,20 +446,20 @@ namespace HoplaHelpdesk.Controllers
             }
             switch (kindofmail)
             {
-                case 1: 
+                case 1:
                     mail.Subject = "Hopla Helpdesk: A solution has been found!";
                     mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 2:
-                    mail.Subject = "Hopla Helpdesk - Comment Added: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: Comment Added: id!";
                     mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 3:
-                    mail.Subject = "Hopla Helpdesk - Reassigned problem: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: Reassigned problem!";
                     mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 4:
-                    mail.Subject = "Hopla Helpdesk - Your problem status has been changed: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: Your problem status has been changed!";
                     mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
 
@@ -501,19 +501,19 @@ namespace HoplaHelpdesk.Controllers
             switch (kindofmail)
             {
                 case 1:
-                    mail.Subject = "Hopla Helpdesk - A solution has been found: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: A solution has been found!";
                     mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 2:
-                    mail.Subject = "Hopla Helpdesk - Comment Added: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: Comment Added: id!";
                     mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 3:
-                    mail.Subject = "Hopla Helpdesk - Reassigned problem: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: Reassigned problem!";
                     mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 4:
-                    mail.Subject = "Hopla Helpdesk - Your problem status has been changed: id = " + problemid;
+                    mail.Subject = "Hopla Helpdesk: Your problem status has been changed!";
                     mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
 
