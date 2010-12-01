@@ -15,6 +15,9 @@ namespace HoplaHelpdesk.Models
     //[MetadataType(typeof(PersonMetaData))]
     public partial class Person : IPerson
     {
+
+      
+        #region Role Stuff
         private List<Role> _roles;
         /*public class PersonMetaData
         {
@@ -81,7 +84,9 @@ namespace HoplaHelpdesk.Models
 
             return false;
         }
+        #endregion
 
+        #region Workload and ETA
         public double Workload { get { return GetWorkload(); } }
 
         public List<Problem> SortedWorklist { get { return GetSortedList(); } }
@@ -118,36 +123,43 @@ namespace HoplaHelpdesk.Models
             return PersonTime.TotalMinutes;
 
         }
+        #endregion
+
+        #region Cascade Problem
+
+        public void CascadeProblems(Department oldDep, Department newDep)
+        {
+            if (Worklist != null)
+            {
+                foreach (var problem in Worklist.ToList())
+                {
+                    if (oldDep.Persons.Count == 0 || newDep == null)
+                    {
+                        problem.Reassignable = false;
+                    }
+                    else
+                    {
+                        if (problem.Reassignable == true)
+                        {
+                            problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
+                        }
+                    }
+
+                }
+            }
+        }
 
         public void SetNewDepartment(Department newDep)
         {
-            var oldDep = Department;
+            var oldDep = Department; 
+            Department = newDep;
             if (oldDep != null)
             {
-                oldDep.Persons.Remove(this);
-
-                if (Worklist != null)
-                {
-                    foreach (var problem in Worklist.ToList())
-                    {
-                        if (oldDep.Persons.Count == 0)
-                        {
-                            problem.Reassignable = false;
-                        }
-                        else
-                        {
-                            if (problem.Reassignable == true)
-                            {
-                                problem.AssignedTo = (Person)ProblemDistributer.GetStaff(problem, oldDep);
-                            }
-                        }
-
-                    }
-                }
+                CascadeProblems(oldDep, newDep);
             }
-            Department = newDep;
-        }
 
+        }
+        #endregion
     }
 
     public interface IPerson 

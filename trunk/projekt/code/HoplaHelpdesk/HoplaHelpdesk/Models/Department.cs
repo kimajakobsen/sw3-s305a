@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Data.Objects.DataClasses;
 using HoplaHelpdesk.Tools;
+using System.ComponentModel;
+using System.Web.Mvc;
 
 namespace HoplaHelpdesk.Models
 {
     public partial class Department
     {
+       
 
         public string Name
         {
