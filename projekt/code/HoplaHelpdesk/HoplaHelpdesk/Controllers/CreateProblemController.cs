@@ -215,7 +215,7 @@ namespace HoplaHelpdesk.Controllers
 
 
 
-                var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
+                //var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
                 //return View("Details", problem);
                 
                 return View("Succes");
