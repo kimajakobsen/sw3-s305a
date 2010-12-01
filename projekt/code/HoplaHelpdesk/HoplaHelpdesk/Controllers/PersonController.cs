@@ -419,7 +419,7 @@ namespace HoplaHelpdesk.Controllers
         }
 
         [Authorize(Roles = "admin")]
-        public void SMail(Person [] user, int problemid)
+        public static void PersonMail(Person [] user, int problemid, int kindofmail)
         {
             //Used for password if implemented correctly
          /*   String msg;
@@ -444,10 +444,26 @@ namespace HoplaHelpdesk.Controllers
             
             mail.To.Add(SQLf.GetEmail(user[i].Name));
             }
+            switch (kindofmail)
+            {
+                case 1: 
+                    mail.Subject = "Hopla Helpdesk: A solution has been found!";
+                    mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+                case 2:
+                    mail.Subject = "Hopla Helpdesk - Comment Added: id = " + problemid;
+                    mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+                case 3:
+                    mail.Subject = "Hopla Helpdesk - Reassigned problem: id = " + problemid;
+                    mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+                case 4:
+                    mail.Subject = "Hopla Helpdesk - Your problem status has been changed: id = " + problemid;
+                    mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
 
-            mail.Subject = "Hopla Helpdesk: A solution has been found!";
-            mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
-                    
+            }                    
                 //"Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
 
                 SmtpServer.Port = 587;
@@ -456,6 +472,60 @@ namespace HoplaHelpdesk.Controllers
 
                 SmtpServer.Send(mail);
             }
+
+        [Authorize(Roles = "admin")]
+        public static void StringMail(String user, int problemid, int kindofmail)
+        {
+            //Used for password if implemented correctly
+            /*   String msg;
+               //Check if any username is provided
+               if (user == null || user == "")
+               {
+                   msg = "No username is provided";
+               }
+               //Check User by username provided, if username equals null, the user dont exists
+               else if (SQLf.DoUserExists(user) == false)
+               {
+                   msg = "User dont exists";
+               }
+               else
+               { */
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            mail.From = new MailAddress("DoNotReply@helpdesk.dk");
+            
+
+                mail.To.Add(SQLf.GetEmail(user));
+            
+            switch (kindofmail)
+            {
+                case 1:
+                    mail.Subject = "Hopla Helpdesk: A solution has been found!";
+                    mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+                case 2:
+                    mail.Subject = "Hopla Helpdesk - Comment Added: id = " + problemid;
+                    mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+                case 3:
+                    mail.Subject = "Hopla Helpdesk - Reassigned problem: id = " + problemid;
+                    mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+                case 4:
+                    mail.Subject = "Hopla Helpdesk - Your problem status has been changed: id = " + problemid;
+                    mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                    break;
+
+            }
+            //"Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+        }
 
         }
 

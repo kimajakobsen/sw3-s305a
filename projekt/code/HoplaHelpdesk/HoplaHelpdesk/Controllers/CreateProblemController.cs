@@ -119,6 +119,8 @@ namespace HoplaHelpdesk.Controllers
                 model.Comment.time = DateTime.Now;
 
                 db.ProblemSet.FirstOrDefault(x => x.Id == id).CommentSet.Add(model.Comment);
+                String abc = db.ProblemSet.FirstOrDefault(x => x.Id == id).AssignedTo.Name;
+                PersonController.StringMail(abc, id, 2);
                 db.SaveChanges();
             }
 
