@@ -59,6 +59,10 @@ namespace HoplaHelpdesk.Models
             return 0;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="StaffTimeSpentInput"></param>
         public void ManageTagTimes(double StaffTimeSpentInput)
         {
 
