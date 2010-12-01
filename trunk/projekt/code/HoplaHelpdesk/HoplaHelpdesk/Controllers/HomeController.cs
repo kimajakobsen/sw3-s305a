@@ -5,6 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.Models;
 using System.Data.SqlClient;
+using System.Diagnostics.CodeAnalysis;
+using System.Security.Principal;
+using System.Web.Routing;
+using System.Web.Security;
+
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -12,6 +18,8 @@ namespace HoplaHelpdesk.Controllers
     public class HomeController : Controller
     {
         hoplaEntities db = new hoplaEntities();
+        public IFormsAuthenticationService FormsService { get; set; }
+        public IMembershipService MembershipService { get; set; }
 
         public ActionResult Index()
         {
@@ -75,22 +83,54 @@ namespace HoplaHelpdesk.Controllers
                         break;
                 }
 
-                
-                if (db.PersonSet.FirstOrDefault(x => x.Roles.FirstOrDefault(y => y.Name == HoplaHelpdesk.Models.Constants.AdminRoleName).Selected) == null)
+                bool anyAdmins = false;
+                var persons = db.PersonSet.ToList();
+                foreach (Person per in persons)
+                {
+                    if (HoplaHelpdesk.Tools.SQLf.UserIsAlreadyInThatRole(per.Name, HoplaHelpdesk.Models.Constants.AdminRoleName))
+                    {
+                        anyAdmins = true;
+                        break;
+                    }
+                }
+
+                if (!anyAdmins)
                 {
                     //There is no admins, so we will add root if he does not exist and add him to admin role if he does
                     Person root = db.PersonSet.FirstOrDefault(x => x.Name == HoplaHelpdesk.Models.Constants.RootName);
                     if (root == null || !Tools.SQLf.DoUserExists(root.Name))
                     {
                         //The root user does not exist, add him
-                        var regModel = new RegisterModel
+                        var model = new RegisterModel
                         {
                             UserName = HoplaHelpdesk.Models.Constants.RootName,
                             Password = HoplaHelpdesk.Models.Constants.RootPassword,
                             ConfirmPassword = HoplaHelpdesk.Models.Constants.RootPassword,
                             Email = "N/A"
                         };
-                        return RedirectToAction("Register", "Account", new { model = regModel });
+
+                        if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
+                        if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+
+                        MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+
+                        if (createStatus == MembershipCreateStatus.Success)
+                        {
+                            // Adds user to the Hopla database.
+                            hoplaEntities hoplaDb = new hoplaEntities();
+                            hoplaDb.PersonSet.AddObject(new Person { Name = model.UserName.ToLower(), Email = model.Email });
+                            SQLf.AddToClient(model.UserName);
+                            hoplaDb.SaveChanges();
+
+                            FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", AccountValidation.ErrorCodeToString(createStatus));
+                        }
+
+                        //return RedirectToAction("Register", "Account", new { model = regModel });
                     }
                     if (!root.Roles.FirstOrDefault(x => x.Name == HoplaHelpdesk.Models.Constants.AdminRoleName).Selected)
                     { 

@@ -135,7 +135,7 @@ namespace HoplaHelpdesk.Controllers
 
             if (person.Name == HoplaHelpdesk.Models.Constants.RootName)
             { 
-                foreach(var item in person.Roles)
+                foreach(var item in collection.Person.Roles)
                 {
                     if (item.Name == HoplaHelpdesk.Models.Constants.AdminRoleName)
                     {
