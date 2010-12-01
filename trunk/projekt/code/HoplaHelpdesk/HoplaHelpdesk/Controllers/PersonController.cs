@@ -119,6 +119,15 @@ namespace HoplaHelpdesk.Controllers
         {
             Person person = db.PersonSet.FirstOrDefault(x => x.Id == id);
             //ViewData["asp_User"] =Tools.SQLf.GetRoleOfUser(person.Name);
+            if (person.IsStaff() && person.Department == null)
+            {
+                return RedirectToAction("ChooseDepartment", new { id });
+            }
+            if (!person.IsStaff() && person.Department != null)
+            {
+                person.Department = null;
+                person.DepartmentId = null;
+            }
 
             return View(new EditPersonViewModel
             {
@@ -129,6 +138,17 @@ namespace HoplaHelpdesk.Controllers
             });
 
             
+        }
+
+        public ActionResult BackToEdit(int id)
+        {
+            Person person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+            if (person.IsStaff() && person.Department == null)
+            {
+                person.Roles.FirstOrDefault(x => x.Name == "Staff").Selected = false;
+            }
+
+            return RedirectToAction("Edit", new { id });
         }
 
         //

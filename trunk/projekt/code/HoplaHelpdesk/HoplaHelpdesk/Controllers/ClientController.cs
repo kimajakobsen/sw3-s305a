@@ -35,11 +35,19 @@ namespace HoplaHelpdesk.Controllers
         /// <param name="id">This is the name of the user, not actually the id, this may be confusing, but I don't
         /// want to change it now.</param>
         /// <returns></returns>
-        public ActionResult ViewProblems(string id)
+        public ActionResult ViewProblems(int? id)
         {
             //int userid = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
 
             //Notice that the id is actually the name og the client
+            if (id != null && id < 0)
+            {
+                id = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+            }
+            else if (id != null && id == 0)
+            {
+                id = null;
+            }
             ViewData["Message"] = null;
             // Finds the loged in users problems. 
             SearchViewModel viewModel;
@@ -69,9 +77,9 @@ namespace HoplaHelpdesk.Controllers
                     catTag.Categories.Add(new CategoryWithListViewModel(item));
                 }
                 onlySolvedProblems = false;
-                if (id != null && id != "")
+                if (id != null)
                 {
-                    subscriber = db.PersonSet.FirstOrDefault(x => x.Name == id);
+                    subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
 
                     List<Problem> tempProb = db.ProblemSet.ToList().Where(x => x.Persons.Contains(subscriber) && x.SolvedAtTime == null).ToList();
                     problems.Problems.AddRange(ProblemSearch.Search(catTag, tempProb,
@@ -84,6 +92,7 @@ namespace HoplaHelpdesk.Controllers
                      */
                     onlySubscriber = true;
                     onlyUnsolvedProblems = true;
+                    ViewData["Header"] = "My Problems";
                 }
                 else
                 {
@@ -91,6 +100,7 @@ namespace HoplaHelpdesk.Controllers
                     onlySubscriber = false;
                     onlyUnsolvedProblems = false;
                     ViewData["Message"] = "Enter search criteria above and press search";
+                    ViewData["Header"] = "Problem Search";
                 }
 
                 viewModel = new SearchViewModel
@@ -115,11 +125,13 @@ namespace HoplaHelpdesk.Controllers
                 }
                 else
                 {
+                    ViewData["Header"] = "Problem Search";
                     if (id != null && viewModel.OnlySubscriber)
                     {
-                        subscriber = db.PersonSet.FirstOrDefault(x => x.Name == id);
+                        subscriber = db.PersonSet.FirstOrDefault(x => x.Id == id);
                         problems.Problems = problems.Problems.Where(x => x.Persons.Contains(subscriber)).ToList();
                         viewModel.Subscriber = subscriber;
+                        ViewData["Header"] = "My Problems";
                     }
                     if (viewModel.OnlySolvedProblems)
                     {

@@ -26,6 +26,6 @@
             </p>
     <% } %>
 
-    <%: Html.ActionLink("Go Back", "Edit", new{id = Model.Id}) %>
+    <%: Html.ActionLink("Go Back", "BackToEdit", new{id = Model.Id}) %>
 
 </asp:Content>

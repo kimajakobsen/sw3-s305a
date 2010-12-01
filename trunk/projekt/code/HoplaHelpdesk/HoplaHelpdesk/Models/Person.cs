@@ -65,9 +65,16 @@ namespace HoplaHelpdesk.Models
         {
             foreach (var role in Roles)
             {
-                if (role.Name == "Staff" && role.Selected)
+                if (role.Name == "Staff")
                 {
-                    return true;
+                    if (role.Selected)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
 
