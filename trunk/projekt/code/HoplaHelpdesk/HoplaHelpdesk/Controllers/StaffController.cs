@@ -74,22 +74,9 @@ namespace HoplaHelpdesk.Controllers
         {
             //try{
 
-            int myID = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+             var problemList =  db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).SortedWorklist;
             
-            //problemList = db.ProblemSet.ToList().Where(x => x.PersonsId == myID).ToList();
-            
-            List<Problem> problemList               = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
-
-            List<Problem> problemWithoutDeadline    = db.ProblemSet.ToList().Where(x => x.PersonsId == myID && x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
-
-
-            problemList.Sort(Problem.GetComparer());
-
-            problemWithoutDeadline.Sort(Problem.GetComparer());
-
-            problemList.AddRange(problemWithoutDeadline);
-            
-
+           
             //}catch (Exception){return View("Error");}
 
 
