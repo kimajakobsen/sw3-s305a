@@ -529,6 +529,44 @@ namespace HoplaHelpdesk.Controllers
             SmtpServer.Send(mail);
         }
 
+
+        [Authorize(Roles = "admin")]
+        public static void PassMail(String user)
+        {
+            //Used for password if implemented correctly
+               String msg;
+               //Check if any username is provided
+               if (user == null || user == "")
+               {
+                   msg = "No username is provided";
+               }
+               //Check User by username provided, if username equals null, the user dont exists
+               else if (SQLf.DoUserExists(user) == false)
+               {
+                   msg = "User dont exists";
+               }
+               else
+               {
+                   MailMessage mail = new MailMessage();
+                   SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                   mail.From = new MailAddress("DoNotReply@helpdesk.dk");
+
+
+                   mail.To.Add(SQLf.GetEmail(user));
+
+
+                   mail.Subject = "Hopla Helpdesk: Your password has been changed!";
+                   mail.Body = "Your password is: \n Username: " + user + "\n Password: " + SQLf.ResetPassword(user);
+
+                   SmtpServer.Port = 587;
+                   SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
+                   SmtpServer.EnableSsl = true;
+
+                   SmtpServer.Send(mail);
+               }
+        }
+
         }
 
     }

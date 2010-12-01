@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/24/2010 17:16:55
--- Generated from EDMX file: C:\Users\John\Documents\sw3\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\HoplaModel.edmx
+-- Date Created: 12/01/2010 16:15:51
+-- Generated from EDMX file: C:\Users\Mudde\Documents\Visual Studio 2010\Projects\HoplaHelpdesk\projekt\code\HoplaHelpdesk\HoplaHelpdesk\Models\HoplaModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,14 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_CommentProblem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CommentSet] DROP CONSTRAINT [FK_CommentProblem];
+GO
 IF OBJECT_ID(N'[dbo].[FK_DepartmentCategory]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CategorySet] DROP CONSTRAINT [FK_DepartmentCategory];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TagCategory]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[TagSet] DROP CONSTRAINT [FK_TagCategory];
+IF OBJECT_ID(N'[dbo].[FK_PersonsComment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CommentSet] DROP CONSTRAINT [FK_PersonsComment];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CommentProblem]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CommentSet] DROP CONSTRAINT [FK_CommentProblem];
+IF OBJECT_ID(N'[dbo].[FK_PersonsDepartment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonSet] DROP CONSTRAINT [FK_PersonsDepartment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonsProblem_Persons]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonsProblem] DROP CONSTRAINT [FK_PersonsProblem_Persons];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonsProblem_Problem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PersonsProblem] DROP CONSTRAINT [FK_PersonsProblem_Problem];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProblemPersons]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProblemSet] DROP CONSTRAINT [FK_ProblemPersons];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ProblemSolution_ProblemSet]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProblemSolution] DROP CONSTRAINT [FK_ProblemSolution_ProblemSet];
@@ -38,20 +50,8 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ProblemTag_TagSet]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProblemTag] DROP CONSTRAINT [FK_ProblemTag_TagSet];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PersonsProblem_Persons]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PersonsProblem] DROP CONSTRAINT [FK_PersonsProblem_Persons];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PersonsProblem_Problem]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PersonsProblem] DROP CONSTRAINT [FK_PersonsProblem_Problem];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PersonsDepartment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PersonSet] DROP CONSTRAINT [FK_PersonsDepartment];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ProblemPersons]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProblemSet] DROP CONSTRAINT [FK_ProblemPersons];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PersonsComment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CommentSet] DROP CONSTRAINT [FK_PersonsComment];
+IF OBJECT_ID(N'[dbo].[FK_TagCategory]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TagSet] DROP CONSTRAINT [FK_TagCategory];
 GO
 
 -- --------------------------------------------------
@@ -67,17 +67,14 @@ GO
 IF OBJECT_ID(N'[dbo].[DepartmentSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DepartmentSet];
 GO
-IF OBJECT_ID(N'[dbo].[ProblemSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ProblemSet];
-GO
-IF OBJECT_ID(N'[dbo].[SolutionSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[SolutionSet];
-GO
-IF OBJECT_ID(N'[dbo].[TagSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TagSet];
-GO
 IF OBJECT_ID(N'[dbo].[PersonSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PersonSet];
+GO
+IF OBJECT_ID(N'[dbo].[PersonsProblem]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonsProblem];
+GO
+IF OBJECT_ID(N'[dbo].[ProblemSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProblemSet];
 GO
 IF OBJECT_ID(N'[dbo].[ProblemSolution]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProblemSolution];
@@ -85,8 +82,11 @@ GO
 IF OBJECT_ID(N'[dbo].[ProblemTag]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProblemTag];
 GO
-IF OBJECT_ID(N'[dbo].[PersonsProblem]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PersonsProblem];
+IF OBJECT_ID(N'[dbo].[SolutionSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SolutionSet];
+GO
+IF OBJECT_ID(N'[dbo].[TagSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TagSet];
 GO
 
 -- --------------------------------------------------
@@ -109,7 +109,7 @@ CREATE TABLE [dbo].[CommentSet] (
     [description] nvarchar(max)  NOT NULL,
     [Problem_Id] int  NOT NULL,
     [PersonsId] int  NOT NULL,
-    [PersonsName] nvarchar(max)  NOT NULL
+    [PersonsName] nvarchar(max)  NULL
 );
 GO
 
@@ -131,8 +131,7 @@ CREATE TABLE [dbo].[ProblemSet] (
     [IsDeadlineApproved] bit  NULL,
     [Reassignable] bit  NULL,
     [SolvedAtTime] datetime  NULL,
-    [PersonsId] int  NOT NULL,
-    [PersonsName] nvarchar(max)  NOT NULL
+    [PersonsId] int  NOT NULL
 );
 GO
 
@@ -149,7 +148,10 @@ CREATE TABLE [dbo].[TagSet] (
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Priority] smallint  NOT NULL,
-    [Category_Id] int  NOT NULL
+    [Category_Id] int  NOT NULL,
+    [SolvedProblems] int  NULL,
+    [TimeConsumed] decimal(18,0)  NULL,
+    [Hidden] bit  NOT NULL
 );
 GO
 

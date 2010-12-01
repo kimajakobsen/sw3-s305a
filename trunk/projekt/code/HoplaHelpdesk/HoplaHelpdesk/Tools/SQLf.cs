@@ -401,7 +401,8 @@ namespace HoplaHelpdesk.Tools
                 setPass += passarray[y].ToString();
             }
             MembershipUser u = Membership.GetUser(userA);
-            u.ChangePassword(u.GetPassword().ToString(), setPass);
+            String np = u.ResetPassword();
+            u.ChangePassword(np, setPass);
             return setPass;
 
         }
