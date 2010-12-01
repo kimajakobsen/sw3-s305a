@@ -1035,7 +1035,7 @@ namespace HoplaHelpdesk.Models
             {
                 return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.PersonsDepartment", "Department").Value;
             }
-            set
+            private set
             {
                 ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.PersonsDepartment", "Department").Value = value;
             }
@@ -1051,7 +1051,7 @@ namespace HoplaHelpdesk.Models
             {
                 return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("hoplaModel.PersonsDepartment", "Department");
             }
-            set
+            private set
             {
                 if ((value != null))
                 {
