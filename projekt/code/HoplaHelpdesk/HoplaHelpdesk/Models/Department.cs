@@ -16,7 +16,7 @@ namespace HoplaHelpdesk.Models
             set { DepartmentName = value; }
         }
         /// <summary>
-        /// Balance the workload between all stafs in  a department. 
+        /// Balance the workload between all staffs in  a department. 
         /// </summary>
         public void BalanceWorkload()
         {
