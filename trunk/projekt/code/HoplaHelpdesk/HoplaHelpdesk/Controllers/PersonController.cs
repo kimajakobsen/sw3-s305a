@@ -17,13 +17,13 @@ using System.Text;
 
 namespace HoplaHelpdesk.Controllers
 {
+    [Authorize(Roles=Constants.AdminRoleName)]
     public class PersonController : Controller
     {
         hoplaEntities db = new hoplaEntities();
 
         //
         // GET: /Person/
-
         public ActionResult Index()
         {
             var Personlist = db.PersonSet.ToList();
@@ -141,14 +141,28 @@ namespace HoplaHelpdesk.Controllers
                     {
                         if (!item.Selected)
                         {
-                            item.Selected = true;
-                            ViewData["Error"] = "You cannot remove the " + HoplaHelpdesk.Models.Constants.AdminRoleName
-                                + " role from the " + HoplaHelpdesk.Models.Constants.RootName + " user!";
+                            ViewData["Error"] = "You cannot remove the '" + HoplaHelpdesk.Models.Constants.AdminRoleName
+                                + "' role from the " + HoplaHelpdesk.Models.Constants.RootName + " user!"
+                                + "This user can be removed only if another person is assigned the '"
+                                +  HoplaHelpdesk.Models.Constants.AdminRoleName + "' role.";
                             ViewData["View"] = "Index";
 
                             return View("Error");
                         }
                     }
+
+                        if (item.Selected)
+                        {
+                            ViewData["Error"] = "You cannot add the '" + item.Name
+                                + "' role to the " + HoplaHelpdesk.Models.Constants.RootName + " user!\n\n"
+                                + "This user can only have the '" + HoplaHelpdesk.Models.Constants.AdminRoleName
+                                + "' role, but the user can be removed if another person is assigned the '"
+                                +  HoplaHelpdesk.Models.Constants.AdminRoleName + "' role.";
+                            ViewData["View"] = "Index";
+
+                            return View("Error");
+                        }
+
                 }
             }
             try
@@ -211,10 +225,16 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult ChooseDepartment(int id, Person temp)
         {
             var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+            var newDep = db.DepartmentSet.FirstOrDefault(x => x.Id == temp.DepartmentId);
+
+            if (temp.DepartmentId != person.DepartmentId)
+            {
+                person.CascadeProblems(person.Department, newDep);
+            }
  
             try
             {
-                person.SetNewDepartment(temp.Department);
+                person.SetNewDepartment(newDep);
                 db.SaveChanges();
 
 
@@ -246,6 +266,15 @@ namespace HoplaHelpdesk.Controllers
             try
             {
                 person = db.PersonSet.SingleOrDefault(x => x.Id == id);
+                if (person.Name == Constants.RootName && db.PersonSet.ToList().Where(x => x.Roles.FirstOrDefault(y=> y.Name == Constants.AdminRoleName).Selected).Count() <= 1)
+                {
+                    ViewData["Error"] = "You cannot delete the " + HoplaHelpdesk.Models.Constants.RootName
+                        + " user when no other person is assigned the '" + HoplaHelpdesk.Models.Constants.AdminRoleName + "' role!";
+
+                    ViewData["View"] = "Index";
+
+                    return View("Error");
+                }
                 db.PersonSet.DeleteObject(person);
                 RemoveUserFromAspnet(person.Name);
                 db.SaveChanges();
@@ -464,9 +493,13 @@ namespace HoplaHelpdesk.Controllers
 
                 mail.From = new MailAddress("DoNotReply@helpdesk.dk");
             for(int i = 0; i < user.Length; i++)
-            {    
-            
-            mail.To.Add(SQLf.GetEmail(user[i].Name));
+            {
+                try
+                {
+                    mail.To.Add(SQLf.GetEmail(user[i].Name));
+                }
+                catch (FormatException)
+                { }
             }
             switch (kindofmail)
             {

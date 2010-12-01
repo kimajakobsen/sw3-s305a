@@ -27,9 +27,9 @@ namespace HoplaHelpdesk.Controllers
             {
                 if (!db.DatabaseExists())
                 {
-                    ViewData["Message"] = "Database does not exist!";
+                    ViewData["Error"] = "Database does not exist!";
 
-                    return View();
+                    return View("Error");
                 }
 
                 switch (Tools.SQLf.GetRoles().Count)
@@ -122,7 +122,7 @@ namespace HoplaHelpdesk.Controllers
                             SQLf.AddToClient(model.UserName);
                             hoplaDb.SaveChanges();
 
-                            FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                            //FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
                             return RedirectToAction("Index", "Home");
                         }
                         else
@@ -137,14 +137,24 @@ namespace HoplaHelpdesk.Controllers
                         //Root exists but is not an admin, he is therefore added to the admin role
                         (new HoplaHelpdesk.Controllers.PersonController()).AddUserToRole(HoplaHelpdesk.Models.Constants.RootName,HoplaHelpdesk.Models.Constants.AdminRoleName);
                     }
+                    if (root.Roles.FirstOrDefault(x => x.Name == HoplaHelpdesk.Models.Constants.StaffRoleName).Selected)
+                    {
+                        //Root exists but is not an admin, he is therefore added to the admin role
+                        (new HoplaHelpdesk.Controllers.PersonController()).UnRole(HoplaHelpdesk.Models.Constants.RootName, HoplaHelpdesk.Models.Constants.StaffRoleName);
+                    }
+                    if (root.Roles.FirstOrDefault(x => x.Name == HoplaHelpdesk.Models.Constants.ClientRoleName).Selected)
+                    {
+                        //Root exists but is not an admin, he is therefore added to the admin role
+                        (new HoplaHelpdesk.Controllers.PersonController()).UnRole(HoplaHelpdesk.Models.Constants.RootName, HoplaHelpdesk.Models.Constants.ClientRoleName);
+                    }
                 }
 
             }
             catch(SqlException)
             {
-                ViewData["Message"] = "Could not connect to database!";
+                ViewData["Error"] = "Could not connect to database!";
 
-                return View();
+                return View("Error");
             }
             ViewData["Message"] = "Welcome to Hopla Helpdesk";
 

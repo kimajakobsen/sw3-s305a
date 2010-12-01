@@ -250,7 +250,7 @@ namespace HoplaHelpdesk.Controllers
 
                 db.SaveChanges();
 
-                return RedirectToAction("ViewProblems", "Client");
+                return RedirectToAction("ViewProblems", "Client", new { id = PerId });
             }
             else
             {
@@ -277,7 +277,7 @@ namespace HoplaHelpdesk.Controllers
 
                 db.SaveChanges();
 
-                return RedirectToAction("ViewProblems", "Client");
+                return RedirectToAction("ViewProblems", "Client", new { id = PerId});
             }
             else
             {

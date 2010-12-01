@@ -17,8 +17,17 @@
         <div class="display-label">Deadline</div>
         <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
 
-        <div class="display-label">Deadline</div>
-        <div class="display-field"><%: String.Format("{0:g}", "Deadline not approved") %></div>
+        <div class="display-label">Deadline Approval</div>
+        <div class="display-field">
+            <% if (Model.IsDeadlineApproved.GetValueOrDefault())
+               {%>
+                     <%: String.Format("{0:g}", "Deadline approved")%>
+               <%}
+               else
+               { %>
+                     <%: String.Format("{0:g}", "Deadline not approved")%>
+            <%} %>
+        </div>
 
         <% if (!(Model.SolvedAtTime == null))
            { %>

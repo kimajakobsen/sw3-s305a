@@ -35,6 +35,10 @@ namespace HoplaHelpdesk.Controllers
 
         public ActionResult LogOn()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
