@@ -1,5 +1,6 @@
 \section{System Definition}
 \label{sec:factor}
+\label{sec:systemdefinition}
 To better be able to define our system we will use the FACTOR method\cite[p. 39]{roedeaalborg}. This model contains different parts of the requirements, and it will help us derive the system definition.  \\
 \ \\
 {\Large \textbf{F}}unctionality \\
@@ -17,7 +18,9 @@ The system should be able to keep track of all the information regarding a probl
 	\item Comments related to the problem
 \end{itemize}
 \item Knowledge saved \\
-The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted. Furthermore the system should be able to run on all systems without any prior software installation.\fixme{hvorfor staar der noget om platform under Knowladge saved? }
+The system will focus on the ease of use for all users, saving and suggesting solutions to problems before a similar problem is submitted. Furthermore the system should be able to run on all systems without any prior software installation.\fixme{hvorfor staar der noget om platform under Knowledge saved? }
+\item Statistics \\
+Allow the supervisor to monitor the work process of the employees.
 \fixme{Indskriv flere features}
 \end{itemize}
 \ \\
@@ -33,21 +36,20 @@ In the development of our program we are going to use the programming language C
 The end result will be a web interface running on a webserver, with underlying SQL database.\\
 \ \\
 {\Large \textbf{O}}bjects \\
-Problems, solution, \aclient s, \astaff members, \admin s, departments, categories and tags \\
+Problems, solution, \aclient s, \astaff members, \admin s, departments, categories and tags. \\
 \ \\
 {\Large \textbf{R}}esponsibility \\
 Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors. Finally it is also responsible for enabling users and technical staff to communicate about a problem and the following solution.\\ \fixme{skal vi aendre users, employees og supervisors = clients, staff og admin ?}
-\ \\
-\label{sec:systemdefinition}
-Using these criteria, we arrive at the following system definition:
+\ \\ 
+
+Using these FACTOR criteria, we arrive at the following system definition:
 \begin{itemize}
 \item The system should be web-based so that we can create an application capable of running without prior installation.
 \item The system should contain prioritized tags, enabling us to determine the importance of problems
-\item The system should keep track of problem time, user feedback and responsibility. This will enable us to create detailed statistic about problem solving efficiency and individual employees.
-\item The system should be able to save and suggest prior problems and their solutions to users, saving everyone the trouble of creating a new problem and waiting for it's solution.
-\item The system should take into account, the workload of the employees and the similarity of problems, to be able to estimate how long a problem will take to finish.
+\item The system should keep track of the problems Estemated time of compleation, comments and what employee is responsible for the problem. This will enable us to create detailed statistic about problem solving efficiency and individual employees.\fixme{skriv hvad statistics skal gore}
+\item The system should be able to save and suggest prior problems and their solutions to users.
+\item The system should take into account, the workload of the employees to be able to estimate how long a problem will take to finish.
 \item The system should only use dynamic data, in order to run in different environments.
-\subitem The system should contain a structure that can handle Problems, along with their solution, employees, supervisors, ordinary users and different department within an organization
-\item The graphical User Interface should be very intuitive, enabling all ordinary users to use the application without any skills that exceed basic computer skills..
+\item The system should contain a structure that can handle problems, categories, tags, employees, supervisors, ordinary users and department.
 \end{itemize}
 
