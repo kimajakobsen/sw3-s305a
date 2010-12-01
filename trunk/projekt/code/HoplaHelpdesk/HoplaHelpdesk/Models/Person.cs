@@ -109,19 +109,13 @@ namespace HoplaHelpdesk.Models
         public double GetWorkload()
         {
             TimeSpan PersonTime = new TimeSpan(0,0,0,0);
-            double Minutes = 0;
 
             foreach (Problem problem in Worklist)
             {
-                //PersonTime.Add(problem.EstimatedTimeConsumption);
-                //For some unknown reason, this .Add does not seems to work. 
-                //It always returns zero.
-                Minutes = Minutes + problem.EstimatedTimeConsumption.TotalMinutes;
+                PersonTime = PersonTime.Add(problem.EstimatedTimeConsumption);
             }
 
-            return Minutes; //Returns the curent workload for the Person in minutes.
-            //return PersonTime.TotalMinutes;
-            //Read above. 
+            return PersonTime.TotalMinutes;
 
         }
         /*
