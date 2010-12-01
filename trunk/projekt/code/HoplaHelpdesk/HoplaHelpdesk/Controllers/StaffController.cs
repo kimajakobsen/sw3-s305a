@@ -47,6 +47,9 @@ namespace HoplaHelpdesk.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
+        /// <summary>
+        /// This method is called whenever a new solution has been written and should be saved to the problem.
+        /// </summary>
         [HttpPost]
         public ActionResult AddSolution(int id, Solution solution)
         {
