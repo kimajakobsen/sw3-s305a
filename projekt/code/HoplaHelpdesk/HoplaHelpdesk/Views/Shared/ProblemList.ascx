@@ -4,7 +4,7 @@
             <tr>
                 <th width="20%">Title</th>
                 <th width="10%">Deadline</th>
-                <th width="10%">Is deadline approved</th>
+                <th width="10%">Deadline</th>
                 <th width="10%">Priority</th>
                 <th width="10%">ETA</th>
                 <th width="40%">Description</th>
