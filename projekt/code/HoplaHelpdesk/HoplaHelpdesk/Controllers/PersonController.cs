@@ -501,7 +501,7 @@ namespace HoplaHelpdesk.Controllers
             switch (kindofmail)
             {
                 case 1:
-                    mail.Subject = "Hopla Helpdesk: A solution has been found!";
+                    mail.Subject = "Hopla Helpdesk - A solution has been found: id = " + problemid;
                     mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 2:
