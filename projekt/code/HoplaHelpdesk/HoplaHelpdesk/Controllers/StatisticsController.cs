@@ -25,14 +25,14 @@ namespace HoplaHelpdesk.Controllers
                problems++;
             }
 
-            var viewModels = new StatisticViewModel()
+            var viewModel = new StatisticViewModel()
             {
                 AverageLastWeek = new TimeSpan(0,TotalTimeLastWeek/problems,0),
                 AverageAllTime = new TimeSpan(0,TotalTime/problems,0),
                 Departments = departments
                 
             };
-            return View();
+            return View(viewModel);
         }
 
     }
