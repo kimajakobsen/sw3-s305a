@@ -1,0 +1,95 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=cont-en 2010.10.28)  2 DEC 2010 12:52
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+ (/usr/local/texlive/2010/texmf/web2c/natural.tcx)
+**balance_workload.tex \emergencyend
+(./balance_workload.tex
+
+ConTeXt  ver: 2010.05.24 13:05 MKII  fmt: 2010.10.28  int: english/english
+
+system          : cont-new loaded
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/cont-new.tex
+systems         : beware: some patches loaded from cont-new.tex
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/cont-new.mkii))
+system          : cont-fil loaded
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/cont-fil.tex
+loading         : ConTeXt File Synonyms
+)
+system          : cont-sys loaded
+(/usr/local/texlive/2010/texmf-config/tex/context/user/cont-sys.tex
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/type-def.mkii)
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/type-siz.mkii)
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/type-one.mkii))
+system          : balance_workload.top loaded
+(./balance_workload.top)
+bodyfont        : 12pt rm is loaded
+language        : patterns nl->texnansi:texnansi->1->2:2 nl->ec:ec->2->2:2 us->
+ec:ec->3->2:3 de->texnansi:texnansi->4->3:3 de->ec:ec->5->3:3 da->ec:ec->6->2:2
+ sv->ec:ec->7->2:2 gb->ec:ec->8->2:2 fr->texnansi:texnansi->9->2:2 fr->ec:ec->1
+0->2:2 es->ec:ec->11->2:2 ca->ec:ec->12->2:2 it->texnansi:texnansi->13->2:2 it-
+>ec:ec->14->2:2 la->ec:ec->15->2:2 pt->texnansi:texnansi->16->2:2 pt->ec:ec->17
+->2:2 ro->ec:ec->18->2:2 pl->pl0:pl0->19->2:2 pl->ec:ec->20->2:2 pl->qx:qx->21-
+>2:2 cs->il2:il2->22->2:2 cs->ec:ec->23->2:2 sk->il2:il2->24->2:2 sk->ec:ec->25
+->2:2 hr->ec:ec->26->2:2 sl->ec:ec->27->2:2 tr->ec:ec->28->2:2 tk->ec:ec->29->1
+:2 lt->l7x:l7x->30->2:2 agr->agr:agr->32->2:2 fi->ec:ec->33->2:2 hu->ec:ec->34-
+>2:2 ru->t2a:t2a->36->2:2 uk->t2a:t2a->37->3:3 loaded
+specials        : dvips loaded
+\openout3 = `balance_workload.tui'.
+
+\openout0 = `balance_workload-mpgraph.mp'.
+
+\openout0 = `mpgraph.mp'.
+
+systems         : system commands are enabled
+language        : language en is active
+specials        : loading definition file tpd
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/spec-tpd.mkii
+specials        : loading definition file fdf
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/spec-fdf.mkii))
+section         : 1 Balance Workload
+)
+systems         : invalid \starttext...\stoptext structure
+fonts           : resetting map file list
+{/usr/local/texlive/2010/texmf-dist/fonts/map/pdftex/context/original-empty.map
+}
+fonts           : using map file: original-base
+{/usr/local/texlive/2010/texmf-dist/fonts/map/pdftex/context/original-base.map}
+fonts           : using map file: original-ams-base
+{/usr/local/texlive/2010/texmf-dist/fonts/map/pdftex/context/original-ams-base.
+map}
+fonts           : using map file: original-public-lm
+{/usr/local/texlive/2010/texmf-dist/fonts/map/pdftex/context/original-public-lm
+.map}
+fonts           : using map file: lm-ec
+{/usr/local/texlive/2010/texmf-dist/fonts/map/dvips/lm/lm-ec.map}
+fonts           : using map file: lm-math
+{/usr/local/texlive/2010/texmf-dist/fonts/map/dvips/lm/lm-math.map}
+fonts           : using map file: lm-rm
+{/usr/local/texlive/2010/texmf-dist/fonts/map/dvips/lm/lm-rm.map}
+fonts           : using map file: original-ams-euler
+{/usr/local/texlive/2010/texmf-dist/fonts/map/pdftex/context/original-ams-euler
+.map} (./balance_workload.tuo)
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/sort-def.mkii)
+(/usr/local/texlive/2010/texmf-dist/tex/context/base/sort-lan.mkii) [1.1]
+systems         : end file balance_workload at line 0
+ 
+Here is how much of TeX's memory you used:
+ 917 strings out of 456096
+ 14986 string characters out of 2520603
+ 4851770 words of memory out of 7259294
+ 41823 multiletter control sequences out of 15000+200000
+ 85417 words of font info for 38 fonts, out of 3000000 for 9000
+ 396 hyphenation exceptions out of 8191
+ 45i,17n,49p,251b,603s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2010/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/lm/lmr12.pfb>
+
+pdfTeX warning: pdftex: no GlyphToUnicode entry has been inserted yet!
+Output written on balance_workload.pdf (1 page, 22576 bytes).
+PDF statistics:
+ 13 PDF objects out of 1000 (max. 8388607)
+ 9 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
