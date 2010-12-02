@@ -20,8 +20,8 @@ namespace HoplaHelpdesk.Models
 
         virtual protected bool IsHidden()
         {
-            
-            if (Tags == null || Tags.Count == 0 || Department.Persons.Count == 0 || Department.Persons == null)
+
+            if (Tags == null || Tags.Count == 0 || Department.Persons == null || Department.Persons.Count == 0)
             {
                 return true;
             }
