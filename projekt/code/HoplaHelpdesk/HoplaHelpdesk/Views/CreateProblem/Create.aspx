@@ -2,7 +2,7 @@
 Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSelectionViewModel>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Create
+	Create Problem
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -10,7 +10,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSele
     <h2>Create Problem</h2>
 
     <% using (Html.BeginForm()) {%>
-        <%: Html.ValidationSummary(true) %>
+        
 
             <fieldset>
             
@@ -21,20 +21,19 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemCatTagWithSele
            
             <fieldset>
 
-            <legend>Categorization</legend>
-
-              <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
+                <legend>Categorization</legend>
+                <%: Html.EditorFor(model => model.CatTag,"CategoryTagSelectEditor") %>
            
-              <% Model.Person.Name = Page.User.Identity.Name; %>
-              <%: Html.HiddenFor(model => model.Person.Name) %>
-              </fieldset>
+                  <% Model.Person.Name = Page.User.Identity.Name; %>
+                  <%: Html.HiddenFor(model => model.Person.Name) %>
+            </fieldset>
             <p>
                 <input type="submit" value="Create" />
             </p>
     <% } %>
     
     <div>
-        <%: Html.ActionLink("Back to List", "Index") %>
+        <%: Html.ActionLink("Back to Categorization", "CategorizeNewProblem") %>
     </div>
 
 </asp:Content>

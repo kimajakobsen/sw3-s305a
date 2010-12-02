@@ -18,17 +18,14 @@ namespace HoplaHelpdesk.ViewModels
         public List<Tag> TagList { get; set; }
 
         /// <summary>
-        /// This is used to hold the department to check if it contains staff. The Department property can not be used since the mapper will try to map it which is impossible do to relations. 
-        /// </summary>
-        public Department DepartmentHolder { get; set; }
-
-        /// <summary>
         /// Empty constructor
         /// </summary>
         public CategoryWithListViewModel():base()
         {
 
         }
+
+        public Department DepartmentHolder { get; set; }
 
         /// <summary>
         /// This maps a Category to a CategoryWithListViewModel. Beware that it does not map all Category Properties. 
@@ -39,9 +36,7 @@ namespace HoplaHelpdesk.ViewModels
             Id = cat.Id;
             Name = cat.Name;
             TagList = cat.Tags.ToList();
-           DepartmentHolder = cat.Department;
-
-
+            DepartmentHolder = cat.Department;
         }
 
         override protected bool IsHidden()
