@@ -31,8 +31,8 @@ namespace HoplaHelpdesk.Tools
             roleId = new SqlCommand("SELECT RoleId FROM aspnet_Roles WHERE (RoleName = '" + role + "')", cn);
             cn.Open();
             //Converting userId and roleId into strings
-            String userA = "";
-             String roleA = "1";
+            string userA = "";
+             string roleA = "1";
             try
             {
                 userA = userId.ExecuteScalar().ToString();
