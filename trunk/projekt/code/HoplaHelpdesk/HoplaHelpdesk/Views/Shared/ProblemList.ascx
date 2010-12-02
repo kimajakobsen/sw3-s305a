@@ -3,8 +3,7 @@
     <table class="problemlist" width="90%">
             <tr>
                 <th width="20%">Title</th>
-                <th width="10%">Deadline</th>
-                <th width="10%">Deadline</th>
+                <th width="20%">Deadline</th>
                 <th width="10%">Priority</th>
                 <th width="10%">ETA</th>
                 <th width="40%">Description</th>
@@ -14,16 +13,17 @@
                 <td>
                     <%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>
                 </td>
-                <td><%: item.Deadline %></td>
                 <td>
                 <% if (item.IsDeadlineApproved == true)
                    { %>
-                Approved
+                Approved:
                 <% }
                    else
                    { %>
-                   Not approved
-                <% } %></td>
+                   Not approved:
+                <% } %>
+                <br />
+                <%: item.Deadline %></td>
                 <td><%: item.Priority %></td>
                 <td></td>
                 <td><%: item.Description %></td>
