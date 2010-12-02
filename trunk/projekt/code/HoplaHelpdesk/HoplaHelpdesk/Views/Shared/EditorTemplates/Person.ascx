@@ -9,19 +9,18 @@
             <div class="display-field">
                 <%: Model.Id %>
             </div>
-            <div class="editor-label">
+            <div class="display-label">
                 <%: Html.LabelFor(model => model.Name)%>
             </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Name)%>
-                <%: Html.ValidationMessageFor(model => model.Name)%>
+            <div class="display-field">
+                <%: Model.Name %>
             </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Email)%>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Email)%>
+                <%: Html.TextBoxFor(model => model.Email)%> <br />
                 <%: Html.ValidationMessageFor(model => model.Email)%>
             </div>
 

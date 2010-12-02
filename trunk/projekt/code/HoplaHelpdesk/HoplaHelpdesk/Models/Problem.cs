@@ -22,26 +22,22 @@ namespace HoplaHelpdesk.Models
             private set{}
         }
 
-        /*
-         * stupid piece of crapcode! 
         public int NumOfMatchingTags(List<Tag> listTags)
         {
             int count = 0;
-            int i = 0;
 
-            for (i = 0; i < listTags.Count; i++)
+            foreach (var probTag in Tags)
             {
-                for (int p = 0; p < Tags.Count; p++)
+                foreach (var compareTag in listTags)
                 {
-                    if (Tags.ElementAt(p).Id == listTags.ElementAt(i).Id)
+                    if (compareTag.Id == probTag.Id)
                     {
                         count++;
                     }
                 }
-                
             }
             return count;
-        }*/
+        }
 
         /// <summary>
         /// Derived value to determine what has been selected and what has not.
