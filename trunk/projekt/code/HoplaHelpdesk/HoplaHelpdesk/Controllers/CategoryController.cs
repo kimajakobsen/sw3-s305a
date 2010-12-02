@@ -7,6 +7,7 @@ using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.Controllers
 {
+    [Authorize(Roles=Constants.AdminRoleName)]
     public class CategoryController : Controller
     {
         hoplaEntities db = new hoplaEntities();

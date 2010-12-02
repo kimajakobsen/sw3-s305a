@@ -9,6 +9,7 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
+    [Authorize(Roles = Constants.StaffRoleName)]
     public class ReassignProblemController : Controller
     {
         hoplaEntities db = new hoplaEntities();

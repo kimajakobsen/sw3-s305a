@@ -8,6 +8,7 @@ using HoplaHelpdesk.ViewModels;
 
 namespace HoplaHelpdesk.Controllers
 {
+    [Authorize(Roles = Constants.AdminRoleName)]
     public class DepartmentController : Controller
     {
         hoplaEntities db = new hoplaEntities();
