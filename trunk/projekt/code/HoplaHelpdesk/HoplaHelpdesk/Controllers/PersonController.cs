@@ -280,8 +280,9 @@ namespace HoplaHelpdesk.Controllers
                     return View("Error");
                 }
                 db.PersonSet.DeleteObject(person);
-                RemoveUserFromAspnet(person.Name);
                 db.SaveChanges();
+                RemoveUserFromAspnet(person.Name);
+               
                 return RedirectToAction("Index");
             }
             catch

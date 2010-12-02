@@ -25,6 +25,9 @@ namespace HoplaHelpdesk.Controllers
         {
             try
             {
+                if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
+                if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+
                 if (!db.DatabaseExists())
                 {
                     ViewData["Error"] = "Database does not exist!";
@@ -109,8 +112,6 @@ namespace HoplaHelpdesk.Controllers
                             Email = "N/A"
                         };
 
-                        if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
-                        if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
 
                         MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
 
