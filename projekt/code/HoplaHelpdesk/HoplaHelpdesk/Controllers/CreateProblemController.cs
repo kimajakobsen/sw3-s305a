@@ -71,8 +71,9 @@ namespace HoplaHelpdesk.Controllers
                 catViewModel = (CategoryTagSelectionViewModel)Session["SelectedCatTag"];
             }
             
-            try {
-
+            try
+            {
+                ViewData["AllTags"] = catViewModel.AllTagsSelected();
                 var ProblemList = ProblemSearch.SearchSolvedFirst(catViewModel,db.ProblemSet.ToList(),db.TagSet.ToList(),10);
                 
                 if(ProblemList.Count == 0 ||  ProblemList == null)

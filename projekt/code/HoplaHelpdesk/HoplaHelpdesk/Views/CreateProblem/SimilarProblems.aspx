@@ -17,7 +17,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.SimilairProblemListVi
           
 
     
-    <% Html.RenderPartial("SimilairProblemList", Model); %>
+    <% Html.RenderPartial("SimilairProblemList", Model,ViewData); %>
     
      <p>
        <input type="submit" value="No Problem Suffice" />
