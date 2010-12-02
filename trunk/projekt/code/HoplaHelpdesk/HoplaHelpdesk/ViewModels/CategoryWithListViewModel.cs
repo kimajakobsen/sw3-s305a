@@ -42,7 +42,7 @@ namespace HoplaHelpdesk.ViewModels
 
         override protected bool IsHidden()
         {
-            if (TagList.First().Category.Department.Persons == null || TagList == null || TagList.Count == 0 || TagList.First().Category.Department.Persons.Count == 0)
+            if (TagList == null || TagList.Count == 0 || TagList.First().Category.Department.Persons == null || TagList.First().Category.Department.Persons.Count == 0)
             {
                 return true;  
             }
