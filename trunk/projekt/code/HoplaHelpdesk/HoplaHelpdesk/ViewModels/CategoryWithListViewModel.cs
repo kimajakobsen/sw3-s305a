@@ -35,14 +35,14 @@ namespace HoplaHelpdesk.ViewModels
             Id = cat.Id;
             Name = cat.Name;
             TagList = cat.Tags.ToList();
-            Department = cat.Department;
+           // Department = cat.Department;
 
 
         }
 
         override protected bool IsHidden()
         {
-            if (Department.Persons == null || TagList == null || TagList.Count == 0 || Department.Persons.Count == 0)
+            if (TagList.First().Category.Department.Persons == null || TagList == null || TagList.Count == 0 || TagList.First().Category.Department.Persons.Count == 0)
             {
                 return true;  
             }
