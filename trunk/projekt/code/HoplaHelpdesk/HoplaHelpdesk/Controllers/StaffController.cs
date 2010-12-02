@@ -50,18 +50,41 @@ namespace HoplaHelpdesk.Controllers
                         OnlySolvedProblems = false,
                         OnlySubscriber = false,
                         OnlyUnsolvedProblems = false,
+                        Subscriber = null,
                         ProblemList = new ProblemListViewModel
                         {
-                            Problems = db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList()
-                        },
-                        Subscriber = null
-
+                            Problems = Tools.ProblemSearch.Search(viewModel.Search.CatTag,
+                                db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(),viewModel.Search.CatTag.AllTags(),
+                                Models.Constants.MinimumNumberProblemsForSearch)
+                        }
                     },
                     SolutionToAttach = null
                 };
             }
+            else
+            {
+                ProblemListViewModel problems = new ProblemListViewModel();
+                viewModel = (AttachSolutionViewModel)Session["AttachList"];
+                problems.Problems = db.ProblemSet.ToList();
+                viewModel.Search.OnlySolvedProblems = false;
+                viewModel.Search.OnlySubscriber = false;
+                viewModel.Search.OnlyUnsolvedProblems = false;
+                viewModel.Search.Subscriber = null;
+
+                viewModel.Search.ProblemList.Problems = Tools.ProblemSearch.Search(viewModel.Search.CatTag,
+                    db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(), viewModel.Search.CatTag.AllTags(),
+                    Models.Constants.MinimumNumberProblemsForSearch);
+            }
 
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult ListSolutions(int id, AttachSolutionViewModel viewModel)
+        {
+            Session["AttachList"] = viewModel;
+
+            return RedirectToAction("ListSolution", new { id });
         }
 
         public ActionResult DetachSolution(int id, int solutionID)
@@ -176,14 +199,15 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Details(int id)
         {
             Problem problem = new Problem();
-            /*try
-            {*/
-            problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
-            /*}
+            try
+            {
+                problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
+            }
             catch (Exception)
             {
+                ViewData["Error"] = "Problem could not be found";
                 return View("Error");
-            }*/
+            }
 
             //try
             //{
@@ -227,6 +251,60 @@ namespace HoplaHelpdesk.Controllers
 
         //
         // GET: /Staff/Create
+
+        public ActionResult ProblemDetailsWithAttach(int id)
+        {
+            Problem problem = new Problem();
+            try
+            {
+                problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
+                ViewData["AttachToProblem"] = problem;
+            }
+            catch (Exception)
+            {
+                ViewData["Error"] = "Problem could not be found";
+                return View("Error");
+            }
+
+            //try
+            //{
+
+            int myID = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
+
+            List<Comment> comments = new List<Comment>();
+
+            comments = (from Comment in db.CommentSet
+                        where Comment.Problem_Id == id
+                        select Comment).ToList();
+
+            //} catch (Exception) { return View("Error");}
+
+            //try
+            //{
+
+            List<Solution> solutions = new List<Solution>();
+
+            solutions = db.ProblemSet.FirstOrDefault(x => x.Id == id).Solutions.ToList();
+
+            //} catch (Exception) { return View("Error");}
+
+            var viewModel = new ProblemDetailsCommentListViewModel()
+            {
+                Problem = problem,
+                Commentlistviewmodel = new CommentListViewModel(){
+                    Comments = comments
+                },
+                Solutionlistviewmodel = new SolutionListViewModel(){
+                    Solutions = solutions,
+                    Deletable = false,
+                    Problem = problem
+                },
+                reassignability = problem.Reassignable.GetValueOrDefault(),
+                approveDeadline = problem.IsDeadlineApproved.GetValueOrDefault()
+            };
+
+            return View(viewModel);
+        }
 
         public ActionResult Create()
         {

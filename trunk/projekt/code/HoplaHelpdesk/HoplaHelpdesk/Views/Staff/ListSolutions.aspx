@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.AttachSolutionViewModel>"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	ListSolution
+	List Solution
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -10,24 +10,21 @@
     <script src="/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script> 
     <script src="/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script> 
 
-    <h2><%: ViewData["Header"] %></h2>
+    <h2>Problem Search</h2>
     
     <% Html.EnableClientValidation(); %> 
         <% using (Html.BeginForm()) {%>
         <fieldset>
             <legend>Search</legend>
-                        <div class="editor-field">
-                            <%: Html.EditorFor(model => model.Search.CatTag,"CategoryTagSelectEditor") %>
-                        </div>
-                        <%: Html.HiddenFor(x => x.Search.MinimumNumberOfProblems)%>
-                        <%: Html.HiddenFor(x => x.Search.OnlyUnsolvedProblems)%>
-                        <%: Html.HiddenFor(x => x.Search.OnlySubscriber)%>
-                        <%: Html.HiddenFor(x => x.Search.OnlySolvedProblems)%>
-                        <%: Html.HiddenFor(x => x.Search.Subscriber)%>
-                        <%: Html.HiddenFor(x => x.Search.ProblemList)%>
-            </table>
-            
-
+            <div class="editor-field">
+                <%: Html.EditorFor(model => model.Search.CatTag,"CategoryTagSelectEditor") %>
+            </div>
+            <%: Html.HiddenFor(x => x.Search.MinimumNumberOfProblems)%>
+            <%: Html.HiddenFor(x => x.Search.OnlyUnsolvedProblems)%>
+            <%: Html.HiddenFor(x => x.Search.OnlySubscriber)%>
+            <%: Html.HiddenFor(x => x.Search.OnlySolvedProblems)%>
+            <%: Html.HiddenFor(x => x.Search.Subscriber)%>
+            <%: Html.HiddenFor(x => x.Search.ProblemList)%> 
             <p>
                 <input type="submit" value="Search" />
             </p>
@@ -43,7 +40,7 @@
     
         <p>There was found <%: Model.Search.ProblemList.Problems.Count%> problems:</p>
     
-        <% Html.RenderPartial("ProblemClientList", Model.Search.ProblemList); %>
+        <% Html.RenderPartial("ProblemListWithAttach", Model.Search.ProblemList); %>
     <% }
        else
        { %>     

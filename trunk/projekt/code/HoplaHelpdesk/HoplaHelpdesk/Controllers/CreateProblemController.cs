@@ -44,10 +44,14 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult CategorizeNewProblem(CategoryTagSelectionViewModel  cats)
         {
+            foreach (var item in cats.Categories)
+            {
+                item.DepartmentHolder = db.DepartmentSet.FirstOrDefault(x => x.Id == db.CategorySet.FirstOrDefault(y => y.Id == item.Id).Department_Id);
+            }
            
-                 Session["SelectedCatTag"] = cats;
+            Session["SelectedCatTag"] = cats;
   
-                 return RedirectToAction("SimilarProblems");
+            return RedirectToAction("SimilarProblems");
             
 
             // return RedirectToAction("Index");
@@ -74,7 +78,8 @@ namespace HoplaHelpdesk.Controllers
             try
             {
                 ViewData["AllTags"] = catViewModel.AllTagsSelected();
-                var ProblemList = ProblemSearch.SearchSolvedFirst(catViewModel,db.ProblemSet.ToList(),db.TagSet.ToList(),10);
+                var ProblemList = ProblemSearch.SearchSolvedFirst(catViewModel,db.ProblemSet.ToList(),
+                    db.TagSet.ToList(),Models.Constants.MinimumNumberProblemsForSearch);
                 
                 if(ProblemList.Count == 0 ||  ProblemList == null)
                 {

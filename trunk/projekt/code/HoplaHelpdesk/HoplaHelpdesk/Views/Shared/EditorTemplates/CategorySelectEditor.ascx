@@ -2,7 +2,11 @@
 <h2> <%: Model.Name %></h2>
  
         <%: Html.ValidationSummary(true) %>
-     
+
+         <%: Html.HiddenFor(x => x.Name)  %>
+             <%: Html.HiddenFor(x => x.Id)  %>
+             <%: Html.HiddenFor(x => x.Department)  %>
+     <%: Html.HiddenFor(x => x.DepartmentHolder)  %>
         <% for (int i = 0; i < Model.TagList.Count; i++)
            { %>
          
@@ -12,7 +16,9 @@
               ||
               <%} %>
 
-             <%: Html.HiddenFor(x => x.Name)  %>
+            
+              
+
 
         <%  } %>
       

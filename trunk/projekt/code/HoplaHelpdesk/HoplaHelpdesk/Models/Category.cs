@@ -8,6 +8,10 @@ namespace HoplaHelpdesk.Models
 
     public partial class Category
     {
+        /// <summary>
+        /// This is used to hold the department to check if it contains staff. The Department property can not be used since the mapper will try to map it which is impossible do to relations. 
+        /// </summary>
+        
 
         public bool Hidden {
             get { return IsHidden(); }
