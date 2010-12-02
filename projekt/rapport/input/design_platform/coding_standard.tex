@@ -7,19 +7,18 @@ Input variables are like private variables except for the absence of the undersc
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{SampleClass.cs}, label=lst:sampleclass]
 class SampleClass
 {
-    // private variables should written as smallCamelCase
+    // private variables should be written as smallCamelCase
 		// with an underscore as prefix
     private int _privateVariable;
 
-    // properties should written as BigCamelCase
+    // properties should be written as BigCamelCase
     public int DummyProperty
     {
         get { return _privateVariable; }
-				
         set { _privateVariable = value; }
     }
 
-    // functions should written as BigCamelCase
+    // functions should be written as BigCamelCase
 		// input variables should be written as smallCamelCase
     public int DummyFunction(int inputVariable)
     {
