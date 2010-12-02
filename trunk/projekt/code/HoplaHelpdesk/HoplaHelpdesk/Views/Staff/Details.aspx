@@ -87,7 +87,5 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
 
 
     </fieldset>
-    
-
 
 </asp:Content>
