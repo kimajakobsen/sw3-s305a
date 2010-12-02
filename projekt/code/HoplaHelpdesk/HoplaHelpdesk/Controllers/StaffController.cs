@@ -102,6 +102,10 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult ListSolutions(int id, AttachSolutionViewModel viewModel)
         {
+            foreach (var item in viewModel.Search.CatTag.Categories)
+            {
+                item.DepartmentHolder = db.DepartmentSet.FirstOrDefault(x => x.Id == db.CategorySet.FirstOrDefault(y => y.Id == item.Id).Department_Id);
+            }
             Session["AttachList"] = viewModel;
 
             return RedirectToAction("ListSolutions", new { id });
