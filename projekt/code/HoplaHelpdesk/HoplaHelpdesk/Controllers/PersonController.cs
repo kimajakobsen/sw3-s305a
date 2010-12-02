@@ -70,6 +70,7 @@ namespace HoplaHelpdesk.Controllers
 
             person.SetNewDepartment(db.DepartmentSet.FirstOrDefault(x => x.Id == DepId));
             db.SaveChanges();
+            
 
            
           
