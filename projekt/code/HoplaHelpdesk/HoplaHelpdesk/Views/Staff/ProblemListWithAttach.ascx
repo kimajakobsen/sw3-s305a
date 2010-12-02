@@ -20,7 +20,7 @@
                 </td>
                 <td><% if (item.IsDeadlineApproved == true) { %>  <%: String.Format("{0:g}", item.Deadline) %>  <% } %></td>
                 <td><%: String.Format("{0:g}", item.Eta) %></td>
-                <td><%:  Html.ActionLink(item.Title, "ProblemDetailsWithAttach", new { item.Id })%>:<br /><br /><%: item.Description %></td>
+                <td><%:  Html.ActionLink(item.Title, "ProblemDetailsWithAttach", new { id = item.Id, attachToProblem = ((HoplaHelpdesk.Models.Problem)ViewData["AttachToProblem"]).Id })%>:<br /><br /><%: item.Description %></td>
             </tr>
     <% } %>
     </table>

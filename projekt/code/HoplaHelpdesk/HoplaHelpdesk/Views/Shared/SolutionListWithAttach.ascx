@@ -3,6 +3,7 @@ Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.ViewModels.SolutionListVi
 
     <table class="problemlist" width="100%">
         <tr>
+            <th></th>
             <th>
                 Solutions
             </th>
@@ -12,7 +13,7 @@ Inherits="System.Web.Mvc.ViewUserControl<HoplaHelpdesk.ViewModels.SolutionListVi
     
         <tr>      
             <td>
-                 <%: Html.ActionLink("Attach", "AttachSolution", new { id = (HoplaHelpdesk.Models.Problem)ViewData["AttachToProblem"], solutionID = item.Id })%>
+                 <%: Html.ActionLink("Attach", "AttachSolution", new { id = ((HoplaHelpdesk.Models.Problem)ViewData["AttachToProblem"]).Id, solutionID = item.Id })%>
             </td>
             <td>
                 <%: item.Description %>
