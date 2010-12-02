@@ -598,6 +598,7 @@ namespace HoplaHelpdesk.Controllers
         // POST: /Person/Delete/5
 
         [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
+  
         public ActionResult PassMail(int id)
         {
             var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
