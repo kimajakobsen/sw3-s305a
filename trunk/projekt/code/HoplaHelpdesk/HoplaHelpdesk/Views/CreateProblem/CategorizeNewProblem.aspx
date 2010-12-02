@@ -15,9 +15,6 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.CategoryTagSelectionV
         <div class="editor-field">
         <%: Html.EditorForModel("CategoryTagSelectEditor") %>
         </div>
-
-        
-            
             <p>
                 <input type="submit" value="Search for this kind of problems" />
             </p>
