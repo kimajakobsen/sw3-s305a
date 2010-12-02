@@ -31,12 +31,35 @@ namespace HoplaHelpdesk.Controllers
             Problem problem = db.ProblemSet.First(x => x.Id == id);
 
             List<Solution> solutions = db.SolutionSet.ToList().Where(x => !x.Problems.Contains(problem)).ToList();
-            
-            var viewModel = new AttachSolutionViewModel()
+            AttachSolutionViewModel viewModel = new AttachSolutionViewModel();
+
+            if (Session["AttachList"] == null || !(Session["AttachList"] is AttachSolutionViewModel))
             {
-                ProblemID = id,
-                Solutions = solutions
-            };
+
+                viewModel = new AttachSolutionViewModel()
+                {
+                    Problem = problem,
+                    //Solutions = solutions
+                    Search = new SearchViewModel
+                    {
+                        CatTag = new CategoryTagSelectionViewModel
+                        {
+                            Categories = CategoryTagSelectionViewModel.ConvertTo(db.CategorySet.Where(x => !x.Hidden).ToList())
+                        },
+                        MinimumNumberOfProblems = Constants.MinimumNumberProblemsForSearch,
+                        OnlySolvedProblems = false,
+                        OnlySubscriber = false,
+                        OnlyUnsolvedProblems = false,
+                        ProblemList = new ProblemListViewModel
+                        {
+                            Problems = db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList()
+                        },
+                        Subscriber = null
+
+                    },
+                    SolutionToAttach = null
+                };
+            }
 
             return View(viewModel);
         }

@@ -8,8 +8,9 @@ namespace HoplaHelpdesk.ViewModels
 {
     public class AttachSolutionViewModel
     {
-        public int ProblemID { get; set; }
-        public List<Solution> Solutions { get; set; }
+        public Problem Problem { get; set; }
+        //public List<Solution> Solutions { get; set; }
+        public SearchViewModel Search {get;set;}
         public Solution SolutionToAttach { get; set; }
     }
 }
