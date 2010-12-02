@@ -15,8 +15,8 @@ namespace HoplaHelpdesk.Models
         {
             get
             { 
-                return ConnectionStringGlobal;
-                //return ConnectionStringLocal;
+                //return ConnectionStringGlobal;
+                return ConnectionStringLocal;
             }
         }
         public const string RootName = "root";
