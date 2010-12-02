@@ -587,48 +587,44 @@ namespace HoplaHelpdesk.Controllers
             SmtpServer.Send(mail);
         }
 
-
-       
-        public String PassMail(String user)
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
+        public ActionResult PassMail(int id)
         {
-            string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
-            //Used for password if implemented correctly
-               
-               //Check if any username is provided
-               if (user == null || user == "")
-               {
-                   msg = "No username is provided";
-               }
-               //Check User by username provided, if username equals null, the user dont exists
-               else if (SQLf.DoUserExists(user) == false)
-               {
-                   msg = "User dont exists";
-               }
-               else
-               {
-                   MailMessage mail = new MailMessage();
-                   SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
-                   mail.From = new MailAddress("DoNotReply@helpdesk.dk");
-
-
-                   mail.To.Add(SQLf.GetEmail(user));
-
-
-                   mail.Subject = "Hopla Helpdesk: Your password has been changed!";
-                   mail.Body = "Your password is: \n Username: " + user + "\n Password: " + SQLf.ResetPassword(user);
-
-                   SmtpServer.Port = 587;
-                   SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
-                   SmtpServer.EnableSsl = true;
-
-                   SmtpServer.Send(mail);
-                   msg = user + "'s password has been resetted and sent to: " + SQLf.GetEmail(user); 
-               }
-               return msg;
+            return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
         }
 
+        //
+        // POST: /Person/Delete/5
+
+        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
+        [HttpPost]
+        public ActionResult PassMail(int id, FormCollection collection)
+        {
+            var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+            String user = person.Name.ToString();
+            string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
+            //Used for password if implemented correctly
+
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            mail.From = new MailAddress("DoNotReply@helpdesk.dk");
+
+
+            mail.To.Add(SQLf.GetEmail(user));
+
+
+            mail.Subject = "Hopla Helpdesk: Your password has been changed!";
+            mail.Body = "Your password is: \n Username: " + user + "\n Password: " + SQLf.ResetPassword(user);
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
+            msg = user + "'s password has been resetted and sent to: " + SQLf.GetEmail(user);
+            return RedirectToAction("Index");
+        }
         }
 
     }
-
