@@ -40,7 +40,7 @@
     <% } %>
 
     <div>
-        <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }) %>
+        <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }, null) %>
     </div>
 
 </asp:Content>

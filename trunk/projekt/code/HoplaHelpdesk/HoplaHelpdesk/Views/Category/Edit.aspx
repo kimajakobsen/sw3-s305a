@@ -48,8 +48,8 @@
 
     <% } %>
 
-    <div>
-        <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }) %>
+   <div>
+        <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }, null) %>
     </div>
 
 </asp:Content>
