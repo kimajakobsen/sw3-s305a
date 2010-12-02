@@ -286,7 +286,6 @@ namespace HoplaHelpdesk.Controllers
             }
             catch
             {
-                throw;
                 if (person != null && person.Name != null && person.Name != "")
                 {
                     ViewData["Error"] = "The person '" + person.Name + "' could not be deleted.";
