@@ -84,7 +84,7 @@
     <Compile Include="Controllers\CreateProblemController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Models\PersonController.cs" />
     <Compile Include="Controllers\ReassignProblemController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Helpers\Lists.cs" />
