@@ -57,6 +57,7 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
                 </p>     
 
 
+
                 <p>
                     <input type="submit" value="Submit changes" />
                 </p>       
