@@ -19,7 +19,17 @@
                    <%} %>
                 </td>
                 <td><% if (item.IsDeadlineApproved == true) { %>  <%: String.Format("{0:g}", item.Deadline) %>  <% } %></td>
-                <td><%: String.Format("{0:g}", item.Eta) %></td>
+                <td>
+                <%if (item.Eta > DateTime.Now.Add(new TimeSpan(1, 0, 0)))
+                  {%>
+                    <%: String.Format("{0:g}", item.Eta)%>
+                  <%
+                  }
+                  else
+                  {
+                  %>N/A<%    
+                  } %>
+                </td>
                 <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>:<br /><br /><%: item.Description %></td>
             </tr>
     <% } %>

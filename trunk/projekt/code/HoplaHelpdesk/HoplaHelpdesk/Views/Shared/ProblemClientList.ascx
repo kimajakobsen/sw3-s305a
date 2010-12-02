@@ -16,7 +16,18 @@
                 <% else 
                    { %><td>Deadline not approved</td><% } %>
                 
-                <td><%: item.Eta%></td> 
+                <td>
+                <% if (item.Eta > DateTime.Now.Add(new TimeSpan(1, 0, 0)))
+                   { %>
+                   <%: item.Eta%>
+                   <%
+                    }
+                   else
+                   {
+                   %>N/A<%
+                   }
+                   %>
+                </td> 
                 
                 <% if (!(item.SolvedAtTime == null))
                    
