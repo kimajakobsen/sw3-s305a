@@ -508,7 +508,7 @@ namespace HoplaHelpdesk.Controllers
                     mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 2:
-                    mail.Subject = "Hopla Helpdesk: Comment Added: id!";
+                    mail.Subject = "Hopla Helpdesk: Comment Added!";
                     mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 3:
@@ -562,7 +562,7 @@ namespace HoplaHelpdesk.Controllers
                     mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 2:
-                    mail.Subject = "Hopla Helpdesk: Comment Added: id!";
+                    mail.Subject = "Hopla Helpdesk: Comment Added!";
                     mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
                     break;
                 case 3:
@@ -584,22 +584,28 @@ namespace HoplaHelpdesk.Controllers
             SmtpServer.Send(mail);
         }
 
-
-       
-        public String PassMail(String user)
+        public ActionResult PassMail(int id)
         {
-            string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
+            return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
+        }
+
+        public ActionResult PassMail(int id, FormCollection collection)
+        {
+            var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+            String user = person.Name;
+            String msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
             //Used for password if implemented correctly
-               
                //Check if any username is provided
                if (user == null || user == "")
                {
-                   msg = "No username is provided";
+                   ViewData["Error"] = "No username is provided.";
+                   return View("Error");
                }
                //Check User by username provided, if username equals null, the user dont exists
                else if (SQLf.DoUserExists(user) == false)
                {
-                   msg = "User dont exists";
+                   ViewData["Error"] = "User dont exists.";
+                   return View("Error");
                }
                else
                {
@@ -620,9 +626,10 @@ namespace HoplaHelpdesk.Controllers
                    SmtpServer.EnableSsl = true;
 
                    SmtpServer.Send(mail);
-                   msg = user + "'s password has been resetted and sent to: " + SQLf.GetEmail(user); 
+                   msg = user + "'s password has been resetted and sent to: " + SQLf.GetEmail(user);
+                   return RedirectToAction("Index");
                }
-               return msg;
+        
         }
 
         }
