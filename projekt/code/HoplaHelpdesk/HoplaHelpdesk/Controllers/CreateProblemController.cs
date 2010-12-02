@@ -11,7 +11,7 @@ using System.Data.Objects.DataClasses;
 
 namespace HoplaHelpdesk.Controllers
 {
-  
+    [Authorize(Roles = Constants.ClientRoleName)]
     public class CreateProblemController : Controller
     {
         hoplaEntities db = new hoplaEntities();

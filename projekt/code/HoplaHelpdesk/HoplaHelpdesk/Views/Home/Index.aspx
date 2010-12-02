@@ -18,8 +18,9 @@
     else {
 %> 
 <p>
-         You are not logged on right now. To do this click <%: Html.ActionLink("here", "LogOn", "Account") %> or at top right corner.
+         You are not logged on right now. If you have a user, you can login <%: Html.ActionLink("here", "LogOn", "Account") %> or at top right corner.
          </p>
+         <p>If you do not have a user, you can add one <%: Html.ActionLink("here", "Register", "Account") %>.</p>
 <%
     }
 %>

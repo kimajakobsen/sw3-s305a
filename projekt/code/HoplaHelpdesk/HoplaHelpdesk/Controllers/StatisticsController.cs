@@ -8,6 +8,7 @@ using HoplaHelpdesk.Models;
 
 namespace HoplaHelpdesk.Controllers
 {
+    [Authorize(Roles = Constants.AdminRoleName)]
     public class StatisticsController : Controller
     {
         //
