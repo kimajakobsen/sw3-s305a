@@ -28,7 +28,9 @@
     <% using (Html.BeginForm()) { %>
         <p>
 		    <input type="submit" value="Delete" /> |
-		    <%: Html.ActionLink("Back to List", "Index") %>
+		    <div>
+        <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }, null) %>
+    </div>
         </p>
     <% } %>
 

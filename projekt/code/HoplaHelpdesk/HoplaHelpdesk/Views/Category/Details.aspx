@@ -39,7 +39,9 @@
           <%: Html.ActionLink("Unhide", "HideUnhide", new { id = Model.Id, value=false })%> |
           <% } %>
         <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
-        <%: Html.ActionLink("Back to List", "Edit", "Department") %>
+        <div>
+        <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }, null) %>
+    </div>
     </p>
 
 </asp:Content>
