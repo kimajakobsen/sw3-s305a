@@ -129,7 +129,7 @@ namespace HoplaHelpdesk.Models
                 }
                 catch (NullReferenceException)
                 {
-                    return DateTime.Today.Add(new TimeSpan(100,0,0,0,0));
+                    return DateTime.Today.Add(new TimeSpan(1,0,0,0,0));
                 }
             } 
         } 
