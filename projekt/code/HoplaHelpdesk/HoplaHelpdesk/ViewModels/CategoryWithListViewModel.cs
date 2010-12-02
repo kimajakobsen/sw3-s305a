@@ -35,6 +35,8 @@ namespace HoplaHelpdesk.ViewModels
             Id = cat.Id;
             Name = cat.Name;
             TagList = cat.Tags.ToList();
+            Department = cat.Department;
+
 
         }
 
