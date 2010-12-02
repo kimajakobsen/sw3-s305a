@@ -35,29 +35,35 @@ namespace HoplaHelpdesk.Controllers
 
             if (Session["AttachList"] == null || !(Session["AttachList"] is AttachSolutionViewModel))
             {
+                var catTag = new CategoryTagSelectionViewModel
+                {
+                    Categories = CategoryTagSelectionViewModel.ConvertTo(db.CategorySet.ToList().Where(x => !x.Hidden).ToList())
+                };
 
+                var problems = Tools.ProblemSearch.Search(catTag,
+                    db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(), catTag.AllTags(),
+                    Models.Constants.MinimumNumberProblemsForSearch);
+
+                var search = new SearchViewModel
+                {
+                    CatTag = catTag,
+                    MinimumNumberOfProblems = Constants.MinimumNumberProblemsForSearch,
+                    OnlySolvedProblems = false,
+                    OnlySubscriber = false,
+                    OnlyUnsolvedProblems = false,
+                    Subscriber = null,
+                    ProblemList = new ProblemListViewModel
+                    {
+                        Problems = problems,
+                        SelectedCatTag = catTag,
+                        Deletable = false
+                    }                    
+                };
                 viewModel = new AttachSolutionViewModel()
                 {
                     Problem = problem,
                     //Solutions = solutions
-                    Search = new SearchViewModel
-                    {
-                        CatTag = new CategoryTagSelectionViewModel
-                        {
-                            Categories = CategoryTagSelectionViewModel.ConvertTo(db.CategorySet.Where(x => !x.Hidden).ToList())
-                        },
-                        MinimumNumberOfProblems = Constants.MinimumNumberProblemsForSearch,
-                        OnlySolvedProblems = false,
-                        OnlySubscriber = false,
-                        OnlyUnsolvedProblems = false,
-                        Subscriber = null,
-                        ProblemList = new ProblemListViewModel
-                        {
-                            Problems = Tools.ProblemSearch.Search(viewModel.Search.CatTag,
-                                db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(),viewModel.Search.CatTag.AllTags(),
-                                Models.Constants.MinimumNumberProblemsForSearch)
-                        }
-                    },
+                    Search = search,
                     SolutionToAttach = null
                 };
             }
