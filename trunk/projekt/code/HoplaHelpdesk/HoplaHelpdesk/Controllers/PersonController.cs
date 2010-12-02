@@ -495,7 +495,7 @@ namespace HoplaHelpdesk.Controllers
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("DoNotReply@helpdesk.dk");
+                
             for(int i = 0; i < user.Length; i++)
             {
                 try
@@ -554,7 +554,7 @@ namespace HoplaHelpdesk.Controllers
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-            mail.From = new MailAddress("DoNotReply@helpdesk.dk");
+            
             
 
                 mail.To.Add(SQLf.GetEmail(user));
@@ -601,33 +601,42 @@ namespace HoplaHelpdesk.Controllers
   
         public ActionResult PassMail(int id)
         {
-            var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
-            String user = person.Name.ToString();
-            string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
-            //Used for password if implemented correctly
+            try
+            {
+                var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
+                String user = person.Name.ToString();
+                string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
+                //Used for password if implemented correctly
 
-            MailMessage mail = new MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-            mail.From = new MailAddress("DoNotReply@helpdesk.dk");
-
-
-            mail.To.Add(SQLf.GetEmail(user));
-
-
-            mail.Subject = "Hopla Helpdesk: Your password has been changed!";
-            mail.Body = "Your password is: \n Username: " + user + "\n Password: " + SQLf.ResetPassword(user);
-
-            SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
-            SmtpServer.EnableSsl = true;
-
-            SmtpServer.Send(mail);
+                
 
 
-            ViewData["Success"] = "The users password was reset to a random value and emailed to the user.";
-            ViewData["View"] = "Index";
-            return View("Success");
+                mail.To.Add(SQLf.GetEmail(user));
+
+
+                mail.Subject = "Hopla Helpdesk: Your password has been changed!";
+                mail.Body = "Username: " + user + "\n Password: " + SQLf.ResetPassword(user);
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+
+
+                ViewData["Success"] = "The users password was reset to a random value and emailed to the user.";
+                ViewData["View"] = "Index";
+                return View("Success");
+            }
+            catch
+            {
+                ViewData["Error"] = "The password cannot be resetted, " + User +" don't have a mail";
+
+                return View("Error");
+            }
         }
         }
 
