@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Error</h2>
+    <h2>Success</h2>
     <% if (ViewData["Success"] == null)
        {
        %>
