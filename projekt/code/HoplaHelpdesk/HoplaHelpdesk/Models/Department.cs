@@ -82,7 +82,7 @@ namespace HoplaHelpdesk.Models
                 }
             }
 
-
+        #region Statistics
 
         public TimeSpan AverageTimePerProblem()
         {
@@ -114,6 +114,7 @@ namespace HoplaHelpdesk.Models
                 return new TimeSpan(0, totalTime / people, 0);
 
         }
-        
+        #endregion
+
     }
 }
