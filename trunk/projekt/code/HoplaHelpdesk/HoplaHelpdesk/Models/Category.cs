@@ -21,12 +21,9 @@ namespace HoplaHelpdesk.Models
         virtual protected bool IsHidden()
         {
             
-            if (Tags == null || Tags.Count == 0)
+            if (Tags == null || Tags.Count == 0 || Department.Persons.Count == 0 || Department.Persons == null)
             {
-                //Something is worng, every Category is hidden because tag count is 0, wierd :S
-                //return true;
-                //Should of course return true, but this is for debuging purposes
-                return false;
+                return true;
             }
             foreach (var tag in Tags)
             {

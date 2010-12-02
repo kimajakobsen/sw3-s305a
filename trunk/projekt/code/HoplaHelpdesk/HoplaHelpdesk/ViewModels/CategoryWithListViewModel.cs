@@ -21,7 +21,7 @@ namespace HoplaHelpdesk.ViewModels
         /// <summary>
         /// Empty constructor
         /// </summary>
-        public CategoryWithListViewModel()
+        public CategoryWithListViewModel():base()
         {
 
         }
@@ -30,7 +30,7 @@ namespace HoplaHelpdesk.ViewModels
         /// This maps a Category to a CategoryWithListViewModel. Beware that it does not map all Category Properties. 
         /// </summary>
         /// <param name="cat">A category, which will be mapped to a CategoryWithListViewModel</param>
-        public CategoryWithListViewModel(Category cat)
+        public CategoryWithListViewModel(Category cat):base()
         {
             Id = cat.Id;
             Name = cat.Name;
@@ -41,7 +41,7 @@ namespace HoplaHelpdesk.ViewModels
         override protected bool IsHidden()
         {
 
-            if (TagList == null || TagList.Count == 0)
+            if (TagList == null || TagList.Count == 0 || Department.Persons.Count == 0 || Department.Persons == null)
             {
                 return true;  
             }
