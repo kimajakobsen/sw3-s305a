@@ -30,7 +30,10 @@
                   %>N/A<%    
                   } %>
                 </td>
-                <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>:<br /><br /><%: item.Description %></td>
+                <td><%:  Html.ActionLink(item.Title, "Details", new { item.Id })%>: <% if (item.SolvedAtTime != null) { %> <b>(Marked as solved)</b><% } %>
+                
+                
+                <br /><br /><%: item.Description %></td>
             </tr>
     <% } %>
     </table>
