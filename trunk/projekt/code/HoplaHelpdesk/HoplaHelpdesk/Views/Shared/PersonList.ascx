@@ -31,11 +31,10 @@
 
 <% foreach (var item in Model)
    {%>
-    
     <tr>
         <td>
             <%: Html.ActionLink("Edit", "Edit", "Person", new { id = item.Id }, null)%> |
-            <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%> | <%: Html.ActionLink("Reset password","PassMail","Person",new { item.Id }) %>
+            <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%> | <%: Html.ActionLink("Reset password","PassMail",new { item.Id }) %>
         </td>
         <td>
             <%: item.Id%>
