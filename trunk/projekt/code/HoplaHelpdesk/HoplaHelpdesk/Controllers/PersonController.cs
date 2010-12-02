@@ -588,18 +588,18 @@ namespace HoplaHelpdesk.Controllers
             SmtpServer.Send(mail);
         }
 
-        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
+/*        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public ActionResult PassMail(int id)
         {
             return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
-        }
+        }*/
 
         //
         // POST: /Person/Delete/5
 
         [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         [HttpPost]
-        public ActionResult PassMail(int id, FormCollection collection)
+        public ActionResult PassMail(int id)
         {
             var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
             String user = person.Name.ToString();
@@ -623,8 +623,11 @@ namespace HoplaHelpdesk.Controllers
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
-            msg = user + "'s password has been resetted and sent to: " + SQLf.GetEmail(user);
-            return RedirectToAction("Index");
+
+
+            ViewData["Success"] = "The users password was reset to a random value and emailed to the user.";
+            ViewData["View"] = "Index";
+            return View("Success");
         }
         }
 
