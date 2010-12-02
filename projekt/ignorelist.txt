@@ -18,3 +18,8 @@
 rapport.pdf
 rasmus.*
 *.gz
+*.log
+*.tmp
+*.tui
+*.log
+*.tuo
