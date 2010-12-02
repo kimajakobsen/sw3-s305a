@@ -123,12 +123,16 @@ namespace HoplaHelpdesk.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Details", new { id = id });
+                    ViewData["Error"] = "The category you tried to delete contains tags. Delete all tags before trying to delete the category.";
+                    return View("Error");
+                    //return RedirectToAction("Details", new { id = id });
                 }
             }
             catch
             {
-                return RedirectToAction("Details", new { id = id });
+                //return RedirectToAction("Details", new { id = id });
+                ViewData["Error"] = "Error Occured.<br />The category you tried to delete contains tags. Delete all tags before trying to delete the category.";
+                return View("Error");
             }
          
         }
@@ -147,8 +151,7 @@ namespace HoplaHelpdesk.Controllers
                 return RedirectToAction("Edit", "Department", new { id = category.Department_Id});
             }
             catch
-            {
-
+            {    
                 return RedirectToAction("Details", new { id = id });
             }
         }
