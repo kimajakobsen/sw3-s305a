@@ -2,7 +2,7 @@
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
-        
+            
             <%: Html.TextBoxFor(model => model.comment.description) %>
 
             <p>

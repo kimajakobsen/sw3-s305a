@@ -194,7 +194,9 @@ namespace HoplaHelpdesk.Controllers
                     Solutions = solutions,
                     Deletable = true,
                     Problem = problem
-                }  
+                },
+                reassignability = problem.Reassignable.GetValueOrDefault(),
+                approveDeadline = problem.IsDeadlineApproved.GetValueOrDefault()
             };
 
             return View(viewModel);
