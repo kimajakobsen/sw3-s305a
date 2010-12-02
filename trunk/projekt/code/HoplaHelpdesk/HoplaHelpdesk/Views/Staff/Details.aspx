@@ -52,8 +52,8 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.ViewModels.ProblemDetailsComment
                     <% }
                        else
                        { %>
-                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approved <
-                    <% } %> <%: String.Format("{0:g}", Model.Problem.Deadline) %>
+                       <%: Html.CheckBox("approveDeadline", false)%> Deadline approved (deadline: 
+                    <% } %> <%: String.Format("{0:g}", Model.Problem.Deadline) %>)
                 </p>     
 
 
