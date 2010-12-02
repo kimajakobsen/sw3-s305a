@@ -1,8 +1,17 @@
 \section{Classes and Events}
 \label{cap:classesevents}
-In the process of finding classes and events we made up several classes and events who are not used in the actual program. To come up with the classes and events we talk about different possible scenarios and based on that we developed our class diagram. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
+In the process of finding classes and events we made up several classes and events some of which are not used in the actual program. To come up with the classes and events we talk about different possible scenarios and based on that we developed our class diagram. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.6]{input/problem_domain_analysis/newest_class_diagram.pdf}
+\caption{Class diagram}
+\label{fig:pdaclassdiagram}
+\end{center}
+\end{figure}
 
 \subsection{Classes}
+The following is a list of the classes from the class diagram \ref{fig:pdaclassdiagram}.
 
 \paragraph{Problem}
 Problem is the basic building brick in our system. It is used to hold information about the specific problems which it represents.
@@ -17,13 +26,13 @@ Contains state and information about a given solution
 \paragraph{Person}
 This contains attributes about the users in the system, name, address, phone number ect. We will look into the details later in the report.
 
-\paragraph{Client} A \cl{client} can be subscribed to a \cl{problem} and be associated with the comments that the actor client posts.  
+\paragraph{Client} A \aclient[] can be subscribed to a problem and be associated with the comments that the actor \aclient[] posts.  
  
 \paragraph{Staff}
-The \cl{Staff} class inherits from the \cl{Client} class.
-\cl{Staff} can be assigned to a problem. 
+The \astaff[] class inherits from the \aclient[] class.
+\astaff[] can be assigned to problems. 
 
-\paragraph{Admin} The admin is not associated with any other classes and is only used to administrate the users. 
+\paragraph{\Admin[]} The \admin[] is not associated with any other classes and is only used to administrate the users. 
 
 \paragraph{Department}
 Contains information about staff and categories. 
@@ -90,6 +99,7 @@ Event that occurs when a staff-member is fired.
 This event triggers when a solution is assigned to a problem.
 
 \paragraph{Problem categorized}
+
 This event occurs when a problem is tagged.
 \end{comment}
 
