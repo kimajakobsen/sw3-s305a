@@ -29,6 +29,7 @@ namespace HoplaHelpdesk.Controllers
         {
 
             Problem problem = db.ProblemSet.First(x => x.Id == id);
+            ViewData["AttachToProblem"] = problem;
 
             List<Solution> solutions = db.SolutionSet.ToList().Where(x => !x.Problems.Contains(problem)).ToList();
             AttachSolutionViewModel viewModel = new AttachSolutionViewModel();
@@ -37,8 +38,19 @@ namespace HoplaHelpdesk.Controllers
             {
                 var catTag = new CategoryTagSelectionViewModel
                 {
-                    Categories = CategoryTagSelectionViewModel.ConvertTo(db.CategorySet.ToList().Where(x => !x.Hidden).ToList())
+                    Categories = CategoryTagSelectionViewModel.ConvertTo(db.CategorySet.ToList())
                 };
+
+                foreach (var probTag in problem.Tags)
+                {
+                    foreach (var tag in catTag.AllTags())
+                    {
+                        if (tag.Id == probTag.Id)
+                        {
+                            tag.IsSelected = true;
+                        }
+                    }
+                }
 
                 var problems = Tools.ProblemSearch.Search(catTag,
                     db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(), catTag.AllTags(),
@@ -76,12 +88,14 @@ namespace HoplaHelpdesk.Controllers
                 viewModel.Search.OnlySubscriber = false;
                 viewModel.Search.OnlyUnsolvedProblems = false;
                 viewModel.Search.Subscriber = null;
+                viewModel.Search.ProblemList = new ProblemListViewModel();
 
                 viewModel.Search.ProblemList.Problems = Tools.ProblemSearch.Search(viewModel.Search.CatTag,
                     db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(), viewModel.Search.CatTag.AllTags(),
                     Models.Constants.MinimumNumberProblemsForSearch);
             }
 
+            ViewData["AllTags"] = viewModel.Search.CatTag.AllTagsSelected();
             return View(viewModel);
         }
 
@@ -90,7 +104,7 @@ namespace HoplaHelpdesk.Controllers
         {
             Session["AttachList"] = viewModel;
 
-            return RedirectToAction("ListSolution", new { id });
+            return RedirectToAction("ListSolutions", new { id });
         }
 
         public ActionResult DetachSolution(int id, int solutionID)
@@ -258,13 +272,13 @@ namespace HoplaHelpdesk.Controllers
         //
         // GET: /Staff/Create
 
-        public ActionResult ProblemDetailsWithAttach(int id)
+        public ActionResult ProblemDetailsWithAttach(int id, int attachToProblem)
         {
             Problem problem = new Problem();
             try
             {
                 problem = db.ProblemSet.FirstOrDefault(x => x.Id == id);
-                ViewData["AttachToProblem"] = problem;
+                ViewData["AttachToProblem"] = db.ProblemSet.FirstOrDefault(x => x.Id == attachToProblem);
             }
             catch (Exception)
             {

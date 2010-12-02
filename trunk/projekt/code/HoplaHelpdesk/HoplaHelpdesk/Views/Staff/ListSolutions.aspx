@@ -40,7 +40,7 @@
     
         <p>There was found <%: Model.Search.ProblemList.Problems.Count%> problems:</p>
     
-        <% Html.RenderPartial("ProblemListWithAttach", Model.Search.ProblemList); %>
+        <% Html.RenderPartial("ProblemListWithAttach", Model.Search.ProblemList, ViewData); %>
     <% }
        else
        { %>     
