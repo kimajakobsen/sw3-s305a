@@ -188,7 +188,6 @@ namespace HoplaHelpdesk.Controllers
             return View(probCatviewModel);
         }
 
-        //
         // POST: /CreateProblem/Create
 
         [HttpPost]
@@ -209,8 +208,6 @@ namespace HoplaHelpdesk.Controllers
                 db.ProblemSet.AddObject(model.Problem);
               
                 db.SaveChanges();
-
-
 
                 //var problem = db.ProblemSet.Where(x => x.Description == model.Problem.Description).Single(x => x.Title == model.Problem.Title);
                 //return View("Details", problem);
