@@ -13,32 +13,32 @@ namespace HoplaHelpdesk.Tools
     public static class ProblemSearch
     {
         private static Comparison<Problem> LeastTagsSolvedFirst = (x, y) =>
-                    {
-                        if (x.SolvedAtTime != null && y.SolvedAtTime == null)
-                        {
-                            return -1;
-                        }
-                        else if (x.SolvedAtTime == null && y.SolvedAtTime != null)
-                        {
-                            return 1;
-                        }
-                        int dif = x.Tags.Count - y.Tags.Count;
-                        if (dif != 0)
-                        {
-                            return dif;
-                        }
-                        return x.Id - y.Id;
-                    };
+        {
+            if (x.SolvedAtTime != null && y.SolvedAtTime == null)
+            {
+                return -1;
+            }
+            else if (x.SolvedAtTime == null && y.SolvedAtTime != null)
+            {
+                return 1;
+            }
+            int dif = x.Tags.Count - y.Tags.Count;
+            if (dif != 0)
+            {
+                return dif;
+            }
+            return x.Id - y.Id;
+        };
 
         private static Comparison<Problem> LeastTags = (x, y) =>
-                    {
-                        int dif = x.Tags.Count - y.Tags.Count;
-                        if (dif != 0)
-                        {
-                            return dif;
-                        }
-                        return x.Id - y.Id;
-                    };
+        {
+            int dif = x.Tags.Count - y.Tags.Count;
+            if (dif != 0)
+            {
+                return dif;
+            }
+            return x.Id - y.Id;
+        };
 
         public static List<Problem> SearchSolvedFirst(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
             List<Tag> allTags, int listMinSize)
@@ -55,8 +55,6 @@ namespace HoplaHelpdesk.Tools
         public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
             List<Tag> allTags, int listMinSize)
         {
-            
-
             return InternalSearch(catTag,allProblems,allTags,listMinSize,LeastTags);
         }
 
