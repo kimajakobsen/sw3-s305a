@@ -114,9 +114,10 @@ namespace HoplaHelpdesk.Models
     
 
         /// <summary>
-        /// 
+        /// Calculates a staffmembers workload based on the specific time of the problems he has to solve.
+        /// The Return value is the total minutes of a timespan.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A Double.</returns>
 
         public double GetWorkload()
         {

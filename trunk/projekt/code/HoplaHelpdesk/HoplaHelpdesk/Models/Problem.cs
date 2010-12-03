@@ -77,9 +77,10 @@ namespace HoplaHelpdesk.Models
         }
 
         /// <summary>
-        /// 
+        /// When a member of Staff submits how much time is spent solving a specific problem,
+        /// this void submits the time to the problem's tags for later statistics.
         /// </summary>
-        /// <param name="StaffTimeSpentInput"></param>
+        /// <param name="StaffTimeSpentInput">Hours as a double, seperated with ".".</param>
         public void ManageTagTimes(double StaffTimeSpentInput)
         {
 
@@ -114,6 +115,11 @@ namespace HoplaHelpdesk.Models
 
         }
 
+        /// <summary>
+        /// Returns when in time a problem is most likely solved
+        /// </summary>
+        /// <returns>Returns a variable of type DateTime</returns>
+
         public DateTime Eta 
 
         {
@@ -145,6 +151,12 @@ namespace HoplaHelpdesk.Models
             return DateTime;
         }
 
+        /// <summary>
+        /// Returns how much time one person shall spend solving a specific problem.
+        /// The assumption is based on the average time it's tags as taken to solve in the past.
+        /// </summary>
+        /// <returns>Returns a variable of Type TimeSpan</returns>
+
         public TimeSpan EstimatedTimeConsumption
         {
             get
@@ -172,13 +184,14 @@ namespace HoplaHelpdesk.Models
                 NumberOfTags++;
             }
 
-            if(NumberOfTags == 0)
+            if (NumberOfTags == 0)
             {
-                NumberOfTags = 1;
-                ProblemTime = 10;
+                average = 10;
             }
-
-            average = ProblemTime / NumberOfTags;
+            else
+            {
+                average = ProblemTime / NumberOfTags;
+            }
 
             Hours = (int)average % 60;
             Minutes = (int)average - (Hours*60);
