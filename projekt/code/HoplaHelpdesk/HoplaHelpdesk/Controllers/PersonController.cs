@@ -502,19 +502,19 @@ namespace HoplaHelpdesk.Controllers
                 {
                     case 1:
                         mail.Subject = "Hopla Helpdesk: A solution has been found!";
-                        mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                        mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
                     case 2:
                         mail.Subject = "Hopla Helpdesk: Comment Added!";
-                        mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/Staff/Details/" + problemid;
+                        mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/Staff/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
                     case 3:
                         mail.Subject = "Hopla Helpdesk: Reassigned problem!";
-                        mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/Staff/Details/" + problemid;
+                        mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/Staff/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
                     case 4:
                         mail.Subject = "Hopla Helpdesk: Your problem status has been changed!";
-                        mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                        mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
 
                 }
@@ -549,19 +549,19 @@ namespace HoplaHelpdesk.Controllers
                 {
                     case 1:
                         mail.Subject = "Hopla Helpdesk: A solution has been found!";
-                        mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                        mail.Body = "A solution has been found for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
                     case 2:
                         mail.Subject = "Hopla Helpdesk: Comment Added!";
-                        mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/Staff/Details/" + problemid;
+                        mail.Body = "A comment has been added to one of your assigned problem: \nhttp://localhost:6399/Staff/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
                     case 3:
                         mail.Subject = "Hopla Helpdesk: Reassigned problem!";
-                        mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/Staff/Details/" + problemid;
+                        mail.Body = "A problem has been reassigned to your workload! \nhttp://localhost:6399/Staff/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
                     case 4:
                         mail.Subject = "Hopla Helpdesk: Your problem status has been changed!";
-                        mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid;
+                        mail.Body = "Your problem status has been changed for following problem: \nhttp://localhost:6399/CreateProblem/Details/" + problemid + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
                         break;
 
                 }
@@ -600,7 +600,7 @@ namespace HoplaHelpdesk.Controllers
 
                 //Adding a subject and a message for the mail
                 mail.Subject = "Hopla Helpdesk: Your password has been changed!";
-                mail.Body = "Username: " + user + "\nPassword: " + SQLf.ResetPassword(user);
+                mail.Body = "Username: " + user + "\nPassword: " + SQLf.ResetPassword(user) + "\n\nDo not reply to this email.\n--\nKind Regards\nHopla Helpdesk - Staff Team";
 
                 //Config the Smtpserver details
                 SmtpServer.Port = 587;
