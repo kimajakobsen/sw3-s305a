@@ -10,7 +10,7 @@ body
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
-    color: #696969;
+    color: #000000;
 }
 
 a:link
@@ -299,6 +299,28 @@ table.ContentContainer td
     border-collapse:collapse;
     border-color:Gray;
 }
+
+table.Statistics
+{
+    border-collapse:collapse;
+    border-color:Silver;
+    border-width:thin;
+}
+table.Statistics th
+{
+    border-collapse:collapse;  
+    border-color:Silver;
+    border-width:thin;
+    font-weight:bold;
+    /*border-bottom-style:solid;*/
+}
+table.Statistics td
+{
+    border-collapse:collapse;  
+    border-color:Silver;
+    border-width:thin;
+    /*border-bottom-style:solid;*/
+}
 /* MISC  
 ----------------------------------------------------------*/
 .clear
@@ -314,7 +336,6 @@ table.ContentContainer td
 #menucontainer
 {
     margin-top:0px;
-    /*background-color:#E8AA5F;*/
 }
 
 div#title
@@ -331,6 +352,9 @@ div#title
     text-align:right;
     margin:2px;
     color:White;
+    position: absolute;
+    right:7px;
+    top:4px;
 }
 
 #logindisplay a:link
