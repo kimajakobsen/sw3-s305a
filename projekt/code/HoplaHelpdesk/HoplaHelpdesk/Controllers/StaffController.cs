@@ -91,8 +91,10 @@ namespace HoplaHelpdesk.Controllers
                 viewModel.Search.ProblemList = new ProblemListViewModel();
 
                 viewModel.Search.ProblemList.Problems = Tools.ProblemSearch.Search(viewModel.Search.CatTag,
-                    db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(), viewModel.Search.CatTag.AllTags(),
+                    db.ProblemSet.ToList().Where(x => x.Solutions.Count != 0).ToList(), db.TagSet.ToList(),
                     Models.Constants.MinimumNumberProblemsForSearch);
+                viewModel.Problem = problem;
+                viewModel.SolutionToAttach = null;
             }
 
             ViewData["AllTags"] = viewModel.Search.CatTag.AllTagsSelected();
@@ -222,6 +224,7 @@ namespace HoplaHelpdesk.Controllers
         /// </summary>
         public ActionResult Details(int id)
         {
+            Session["AttachList"] = null;
             Problem problem = new Problem();
             try
             {
