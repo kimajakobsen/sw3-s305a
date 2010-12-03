@@ -343,7 +343,6 @@ namespace HoplaHelpdesk.Tools
             SqlCommand cmd;
             SqlCommand getId;
             string userId;
-            //SqlCommand for getting ApplicationId
             
             //Executing the SqlCommand
 
@@ -363,95 +362,85 @@ namespace HoplaHelpdesk.Tools
             cn.Close();
 
         }
-
-         public static String ResetPassword(String user)
-        {
-             SqlConnection cn = new SqlConnection();
+        //Function for reseting password for a specific user
+        public static String ResetPassword(String user)
+        {   
+            //Connection
+            SqlConnection cn = new SqlConnection();
             cn.ConnectionString = connString;
             //Preparing SqlCommand
             SqlCommand password;
             SqlCommand userId;
-            SqlCommand email;
 
-            //SqlCommand for getting ApplicationId
-            userId = new SqlCommand ("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')" ,cn);
-
+            //SqlCommand to find UserId
+            userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
+            
             //Executing the SqlCommand
-
             cn.Open();
             String userA = userId.ExecuteScalar().ToString();
+            //
             password = new SqlCommand("SELECT Password FROM aspnet_Membership WHERE (UserId = '" + userA + "')", cn);
             String passA = password.ExecuteScalar().ToString();
             //Converting Application into a String
             cn.Close();
-            //HOW THE FUCK DO I DECRYPT IT THE USERS PASSWORD, TELLLLL ME !?
-            //return passA;
+            // - - - - - - - - - - - - - - - - - - - - - - - - - \\
 
             String[] passarray =
             {
-                "a","b","c","d","e","f","g","h","j","k",
+                "a","b","c","d","e","f","g","h","j", "i" ,"k",
                 "l","m","n","o","p","q","r","s","t","u",
                 "w","x","y","z","A","B","C","D","E","F",
                 "G","H","I","J","K","L","M","N","O","P","Q",
                 "R","S","T","U","V","W","X","Y","Z",
                 "0","1","2","3","4","5","6","7","8","9"
             };
+
             String setPass = "";
+            //Preparing a two randoms, one for password length and one for picking a char from passarray.
             Random RandomNumber = new Random();
             Random RandomPass = new Random();
             int x = RandomNumber.Next(10,25);
-
+            //Putting the passowrd together
             for (int i = 0; i < x; i++)
             {
                 int y = RandomPass.Next(passarray.Length);
                 setPass += passarray[y].ToString();
             }
+            //Finding the user
             MembershipUser u = Membership.GetUser(user);
+            //Generating a new password for the user
             String np = u.ResetPassword();
+            //Changing the password for the user by using the the resetted password as old password
             u.ChangePassword(np, setPass);
             return setPass;
 
         }
-
+        //Function for finding email for a users
         public static String GetEmail(String user)
         {
+            //Connection
             SqlConnection cn = new SqlConnection();
-            //Connection ze internet way!
-
-
             cn.ConnectionString = connString;
+            
             //Preparing SqlCommand
-            SqlCommand password;
             SqlCommand userId;
             SqlCommand email;
 
-            //SqlCommand for getting ApplicationId
+            //SqlCommand to find UserId
             userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
 
             //Executing the SqlCommand
-
             cn.Open();
             String userA = userId.ExecuteScalar().ToString();
+            //Using the userId to find the user's email
             email = new SqlCommand("SELECT Email FROM aspnet_Membership WHERE (UserId = '" + userA + "')", cn);
             String emailA = email.ExecuteScalar().ToString();
             
             cn.Close();
-
-
-
+            //Returning the email
             return emailA;
             
         }
-
-
-
-
-        /*
-         *  To-do:
-         *  Add new role
-         *  Remove role
-         *  Roles cant remove roles thats higher then himself
-         */
        
     }
 
