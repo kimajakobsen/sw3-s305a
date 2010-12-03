@@ -343,6 +343,7 @@ namespace HoplaHelpdesk.Tools
             SqlCommand cmd;
             SqlCommand getId;
             string userId;
+
             
             //Executing the SqlCommand
 
