@@ -90,7 +90,13 @@ namespace HoplaHelpdesk.Tests
             };
             Category target = new Category()
             {
-                
+                Department = new Department
+                {
+                    Persons = new EntityCollection<Person>
+                    {
+                        new Person()
+                    }
+                },
                 Tags=tags
             };// TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
@@ -127,7 +133,13 @@ namespace HoplaHelpdesk.Tests
             };
             Category target = new Category()
             {
-
+                Department = new Department
+                {
+                    Persons = new EntityCollection<Person>
+                    {
+                        new Person()
+                    }
+                },
                 Tags = tags
             };// TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
@@ -163,7 +175,13 @@ namespace HoplaHelpdesk.Tests
             };
             Category target = new Category()
             {
-
+                Department = new Department
+                {
+                    Persons = new EntityCollection<Person>
+                    {
+                        new Person()
+                    }
+                },
                 Tags = tags
             };// TODO: Initialize to an appropriate value
             bool expected = true; // TODO: Initialize to an appropriate value
@@ -199,7 +217,13 @@ namespace HoplaHelpdesk.Tests
             };
             Category target = new Category()
             {
-
+                Department = new Department
+                {
+                    Persons = new EntityCollection<Person>
+                    {
+                        new Person()
+                    }
+                },
                 Tags = tags
             };// TODO: Initialize to an appropriate value
             bool expected = true; // TODO: Initialize to an appropriate value
