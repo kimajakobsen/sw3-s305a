@@ -15,7 +15,7 @@
             <% Html.RenderPartial("StatPersonList", department.Persons); %><br/>
             <p> Department in average: <%: department.AverageTimePerProblem() %>. In last week <%: department.AverageTimePerProblemLastWeek() %> </p>
             </fieldset>
-    <% } %>s
+    <% } %>
    
     <p>
     In total all staff solved a problem in average of <%: Model.AverageAllTime %>. 
