@@ -419,7 +419,6 @@ namespace HoplaHelpdesk.Controllers
             return msg;
         }
         [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
-        //ITS WORKING !!! WAAAOUUU !
         public String IsStaff(string user, string role)
         {
             string msg = HttpUtility.HtmlEncode("Person.IsStaff, User = " + user);
@@ -478,13 +477,16 @@ namespace HoplaHelpdesk.Controllers
         [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public static void PersonMail(Person[] user, int problemid, int kindofmail)
         {
+            //Adding a try catch to avoid errors
             try
             {
+                //Preparing mail
                 MailMessage mail = new MailMessage();
+                //Adding smtpserver
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-
+                //adding a mail from 
                 mail.From = new MailAddress("helps305a@gmail.com");
-
+                //Running a for loop to add all users in the user array
                 for (int i = 0; i < user.Length; i++)
                 {
                     try
@@ -494,6 +496,8 @@ namespace HoplaHelpdesk.Controllers
                     catch (FormatException)
                     { }
                 }
+
+                //Switch to choose from diffrend kind of subjects and message
                 switch (kindofmail)
                 {
                     case 1:
@@ -514,12 +518,11 @@ namespace HoplaHelpdesk.Controllers
                         break;
 
                 }
-                //"Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
-
+                //Config smtpserver
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
                 SmtpServer.EnableSsl = true;
-
+                //Sending mail
                 SmtpServer.Send(mail);
             }
             catch
@@ -530,13 +533,18 @@ namespace HoplaHelpdesk.Controllers
         [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
         public static void StringMail(String user, int problemid, int kindofmail)
         {
+            //Adding a try catch for avoiding errors
             try
             {
+                //Preparing a mail
                 MailMessage mail = new MailMessage();
+                //Adding a smptclient
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                //Adding a from mailaddress
                 mail.From = new MailAddress("helps305a@gmail.com");
+                //Adding user to maillist, by using getmail function.
                 mail.To.Add(SQLf.GetEmail(user));
-
+                //Creating a switch, so it is possible to change subject and message for the mail
                 switch (kindofmail)
                 {
                     case 1:
@@ -557,60 +565,59 @@ namespace HoplaHelpdesk.Controllers
                         break;
 
                 }
-                //"Your password is: " + SQLf.ResetPassword(user) + "\nThis function is not implemented correctly, so the password don't work";
-
+                //Condig the smtpserver
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
                 SmtpServer.EnableSsl = true;
-
+                //Sending the mail
                 SmtpServer.Send(mail);
             }
             catch
             { }
         }
 
-/*        [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
-        public ActionResult PassMail(int id)
-        {
-            return View(db.PersonSet.FirstOrDefault(x => x.Id == id));
-        }*/
-
-        //
         // POST: /Person/Delete/5
-
+        //Function for resetting for a user and sent him a new one with mail
         [Authorize(Roles = HoplaHelpdesk.Models.Constants.AdminRoleName)]
-  
         public ActionResult PassMail(int id)
         {
+            //Getting name from person user
             var person = db.PersonSet.FirstOrDefault(x => x.Id == id);
             String user = person.Name.ToString();
             try
             {
+                //Used for testing
                 string msg = HttpUtility.HtmlEncode("Person.PassMail, User = " + user);
-                //Used for password if implemented correctly
-
+                
+                //Preparing mail
                 MailMessage mail = new MailMessage();
+                //Setting up a smtp client
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                //Adding a from mailaddress
                 mail.From = new MailAddress("helps305a@gmail.com");
+                //Adding user to maillist, by using getmail function.
                 mail.To.Add(SQLf.GetEmail(user));
 
-
+                //Adding a subject and a message for the mail
                 mail.Subject = "Hopla Helpdesk: Your password has been changed!";
                 mail.Body = "Username: " + user + "\nPassword: " + SQLf.ResetPassword(user);
 
+                //Config the Smtpserver details
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("helps305a", "trekant01");
                 SmtpServer.EnableSsl = true;
 
+                //Sending mail
                 SmtpServer.Send(mail);
 
-
+                //Adding view if mail was success
                 ViewData["Success"] = "The users password was reset to a random value and emailed to the user.";
                 ViewData["View"] = "Index";
                 return View("Success");
             }
             catch
             {
+                //An error view will be added if an error occurred
                 ViewData["Error"] = "The password cannot be resetted, " + user + " don't have a mail";
                 ViewData["View"] = "Index";
                 return View("Error");
