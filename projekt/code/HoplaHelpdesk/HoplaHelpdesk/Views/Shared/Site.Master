@@ -22,14 +22,14 @@
                     <div id="title">
                         <a href="<%: Url.Action("Index", "Home")%>"><img alt="Hopla Helpdesk" border="0" height="150" src="<%: Url.Action("hopla.png", "Content") %>" /></a>
                     </div>
-              
-                    <div id="logindisplay">
-                        <% Html.RenderPartial("LogOnUserControl"); %>
-                    </div> 
                 </div>
                 </td>
             </tr>
         </table>
+
+        <div id="logindisplay">
+            <% Html.RenderPartial("LogOnUserControl"); %>
+        </div>
 
         <table width="90%" border="0" cellpadding="10" cellspacing="10" align="center">
             <tr>
