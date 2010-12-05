@@ -9,13 +9,13 @@ The use cases from figure \ref{tab:actoreventtable} are described below.
 First he has to select a category and choose one or more tags, he can select tags from more then one category. 
 When the \aclient{} is done selecting tags the system compares the selected tags with other problems. 
 If similar problems is found the \aclient{} is presented with these.
-If one of these matches his particular problem, he can subscribe to the problem if it is \open, reopen problem(if \closed{})\fixme{Udem\ae{}rket her, vi skal bare huske at den i stedet laver et nyt problem}, or use the information in the old problem to solve his problem independently. 
+If one of these matches his particular problem, he can subscribe to the problem if it is \open or read the solutions if the porblem already is \closed{}, thus hopeing that this will lead to solving the problem without the \aclient[] having to create a problem.
 If no similar problem was found the \aclient{} creates a problem with a description and the previously selected tags. 
 Hereafter the problem gets assigned to a \astaff{}. 
 
-\item \sadb{Objects:} Problem, solution, tag, category, \client, \staff. (Department)\fixme{Hvad betyder det at den er i parentes}
+\item \sadb{Objects:} Problem, solution, tag, category, \client, \staff. Department \fixme{WTF is objects? er det classer?}
 
-\item \sadb{Functions:} Search existing problems, compare problems, create problem, attach user to problem.
+\item \sadb{Functions:} Search existing problems, compare problems, create problem, subscribe to problem. \fixme{fix saa det stemmer med funktions listen, naar den er blevet opdateret}
 \end{itemize}
 
 \paragraph{My problems} The use case ``My problems'' is used by  \aclient 's, \astaff 's, and \admin 's. It show a list all problems submitted by the user. From there details can be viewed for each problem. 
@@ -24,21 +24,6 @@ Hereafter the problem gets assigned to a \astaff{}.
 
 \paragraph{\gstat[c]} The use case \gstat[] is trivial and is a list of different views each showing a kind of statistics. The use case can be accessed by \sadmin{}, \aclient{}, and \astaff{}, but they cannot access all the same statistics.
 
-
-\paragraph{\ucsproblem[c]} The use case \ucsproblem[] is only used be the actor \aclient. Except for cases when \astaff{} or \sadmin{}  acts as \aclient{}. A use case diagram is shown in figure \ref{fig:submit_problem_use_case}. 
-\begin{itemize}
-\item \sadb{Use Case:} \ucsproblem[c] is initialized when a \aclient{} has a problem and wishes to submit that problem to the system in order to get help from the \astaff{}. 
-He first has to select a category and from that choose one or more tags, he can change category and select even more tags. 
-When the \aclient{} is done selecting tags the system compares the selected tags with other problems. 
-If similar problems is found the \aclient{} is presented with these.
-If one of these matches his particular problem, he can subscribe to the problem(if \open), reopen problem(if \closed{})\fixme{Udem\ae{}rket her, vi skal bare huske at den i stedet laver et nyt problem}, or use the information in the old problem to solve his problem independently. 
-If no similar problem was found the \aclient{} creates a problem with a description and the previously selected tags. 
-Hereafter the problem gets assigned to a \astaff{}. 
-
-\item \sadb{Objects:} Problem, solution, tag, category, \client, \staff. (Department)\fixme{Hvad betyder det at den er i parentes}
-
-\item \sadb{Functions:} Search existing problems, compare problems, create problem, attach user to problem.
-\end{itemize}
 
 %%%%%%%%% BEGIN COMMENT
 \begin{comment}
