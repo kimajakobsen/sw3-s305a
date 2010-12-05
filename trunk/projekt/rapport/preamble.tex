@@ -208,7 +208,9 @@ pdfborder=0 0 0
 	breaklines=true,
 	showstringspaces=false,
 	emph=[1]{value},%%%%%%%%%%% Add new keywords here
+	emph=[2]{Tag,Problem,Person,List},%%Classes
 	emphstyle=[1]{\color[rgb]{0,0,1}},
+	emphstyle=[2]{\color[rgb]{0.1,0.1,0.5}\bf\ttfamily},
 	float=htb,
 	breakindent=20pt
 }
@@ -216,6 +218,7 @@ pdfborder=0 0 0
 
 \renewcommand{\lstlistingname}{Code snippet}%%Changing the caption to read ``Code snippet''
 \renewcommand{\lstlistlistingname}{Code snippets}
+\lstset{escapeinside={(*}{*)}}%%Defines the escape and unescape chars
 
 %%%%%%%%%% To use with copy-paste:
 \begin{comment}
