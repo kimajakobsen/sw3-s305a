@@ -1,2 +1,46 @@
 \section{Problem Search}
-The system needs to be able to search for problems. This search is based on tags. It will find 
+The system needs to be able to search for problems.
+This search is based on tags.
+It will find an amount of problems which match the specified tags and order them by number of tags matching.
+The amount of problems this function will find is depending on a specified number know as ``Minimum number of problems'', which determines when the function should stop searching for more problems.
+
+The input for this function is:
+
+\begin{itemize}
+	\item Selected tags
+	\item Problems to search among
+	\item All tags
+	\item Minimum number of problems to find
+\end{itemize}
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{}, label=src:search]
+while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
+{
+	tempResult = new List<Problem>();
+	tagsToRemove = new List<int>();
+	for (int i = 0; i < noOfTagsToRemove; i++)
+	{
+		tagsToRemove.Add(i);
+	}
+	try
+	{
+		List<Tag> currentSearch = tags.RemoveCurrent(tagsToRemove);
+		while (true)
+		{
+			temp = allProblems.ToList();
+			foreach (Tag tag in currentSearch)
+			{
+				temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
+			}
+			tempResult.AddRangeNoDuplicates(temp.ToList());
+			currentSearch = tags.RemoveNext(ref tagsToRemove);
+		}
+	}
+	catch (NotSupportedException)
+	{
+			noOfTagsToRemove++;
+			tempResult.Sort(compare);
+			result.AddRangeNoDuplicates(tempResult.ToList());
+	}
+}
+\end{lstlistning}

@@ -69,39 +69,36 @@ namespace HoplaHelpdesk.Tools
 
             List<Problem> temp = new List<Problem>();
 
-
-            if (tags.Count != 0)
+            while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
             {
-                while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
+                tempResult = new List<Problem>();
+                tagsToRemove = new List<int>();
+                for (int i = 0; i < noOfTagsToRemove; i++)
                 {
-                    tempResult = new List<Problem>();
-                    tagsToRemove = new List<int>();
-                    for (int i = 0; i < noOfTagsToRemove; i++)
+                    tagsToRemove.Add(i);
+                }
+                try
+                {
+                    List<Tag> currentSearch = tags.RemoveCurrent(tagsToRemove);
+                    while (true)
                     {
-                        tagsToRemove.Add(i);
-                    }
-                    try
-                    {
-                        List<Tag> currentSearch = tags.RemoveCurrent(tagsToRemove);
-                        while (true)
+                        temp = allProblems.ToList();
+                        foreach (Tag tag in currentSearch)
                         {
-                            temp = allProblems.ToList();
-                            foreach (Tag tag in currentSearch)
-                            {
-                                temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
-                            }
-                            tempResult.AddRangeNoDuplicates(temp.ToList());
-                            currentSearch = tags.RemoveNext(ref tagsToRemove);
+                            temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
                         }
-                    }
-                    catch (NotSupportedException)
-                    {
-                        noOfTagsToRemove++;
-                        tempResult.Sort(compare);
-                        result.AddRangeNoDuplicates(tempResult.ToList());
+                        tempResult.AddRangeNoDuplicates(temp.ToList());
+                        currentSearch = tags.RemoveNext(ref tagsToRemove);
                     }
                 }
+                catch (NotSupportedException)
+                {
+                    noOfTagsToRemove++;
+                    tempResult.Sort(compare);
+                    result.AddRangeNoDuplicates(tempResult.ToList());
+                }
             }
+            
 
             int count = 0;
             while (result.Count() < listMinSize && count <= allTags.Count)
