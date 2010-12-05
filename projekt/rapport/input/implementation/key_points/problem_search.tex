@@ -13,10 +13,11 @@ The input for this function is:
 	\item Minimum number of problems to find
 \end{itemize}
 
-
-
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{}, label=src:search]
-while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The while loop which finds and sorts problems matching the input tags}, label=src:search, numbers=left, numberstyle=\footnotesize]
+.
+.
+.
+while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)(*\label{search:whileStart}*)
 {
 	tempResult = new List<Problem>();
 	tagsToRemove = new List<int>();
@@ -44,5 +45,14 @@ while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
 			tempResult.Sort(compare);
 			result.AddRangeNoDuplicates(tempResult.ToList());
 	}
-}
+}(*\label{search:whileEnd}*)
+.
+.
+.
 \end{lstlisting}
+
+The most important part of the search function is the while loop shown in figure \ref{src:search}.
+Generally, this loop finds problems which matches the tags input into the function and orders them with the problems with the most amount of match tags in the beginning of the result list.
+The while loop beginning in line \ref{search:whileStart} will continue to run as long as there has not been found enough problems to suffice the minimum number of problems input.
+Further more the loop will also exit if it about to search for problems with no tags matching -- this phenomena is dealt with later in the function.
+At the beginning  of each iteration the 
