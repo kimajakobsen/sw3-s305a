@@ -71,7 +71,7 @@ namespace HoplaHelpdesk.Models
                             }
                             else if (min.Workload == max.Workload)
                             {
-                                // Don't move bakc if they are equal
+                                // Don't move back if they are equal
                                 couldStillMove = false;
                             }
                         }
