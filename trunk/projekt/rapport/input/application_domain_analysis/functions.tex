@@ -9,43 +9,44 @@ The purpose of this section is to ``determine the system's information processin
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Add comment &   Simple & Update/signal   \\ \hline%
-Reassign Problem & Simple   & Update/signal \\ \hline%
-Change problem status &   Simple & Update/signal \\ \hline%
-Delete problem & Simple &   Update \\   \hline%
-Search problems & Complex &   Read/compute \\ \hline%
-Create solution & Simple &   Update \\   \hline%
-Attach solution & Simple &   Update/signal \\   \hline%
-Detach solution & Simple &   Update/signal \\   \hline%
-Distribute problems &   Complex & Read/update/signal \\   \hline%
-%Compare problems & Complex & Read/Compute \\ \hline%
-Create problem & Medium & Update/compute \\   \hline%
-%Attach client to problem & Simple & Update \\ \hline%
-Get staff todo list & Simple & Read \\   \hline%
-Create tag & Simple &   Update \\ \hline%
-Create category & Simple & Update \\ \hline%
-Change visibility of category &   Simple &   Update \\   \hline%
-Change visibility of tag &   Simple &  Update \\ \hline%
-Delete tag & Simple &   Update \\ \hline%
-Delete category & Simple & Update \\ \hline%
-%Attach tag to category & Simple & Update \\ \hline%
-Create department & Simple & Update \\ \hline%
-Delete department & Simple & Update \\ \hline%
-Add person & Simple & Update \\ \hline%
-Rename person & Simple & Update \\ \hline%
-Rename department & Simple & Update \\ \hline%
-Remove person & Simple & Update \\ \hline%
-%Assign staff to department & Simple & Update \\ \hline%
-Get statistics & Complex & Compute \\ \hline%
-Subscribe client & Simple & Update/signal \\ \hline%
-Get priority & Complex & Compute/read \\ \hline%
-Set priority & Simple & Update \\ \hline%
-%Add client & Simple & Update \\ \hline%
-%Remove client & Simple & Update \\ \hline%
-Set role & Simple & Update \\ \hline%
-Approve deadline & Simple & Update \\ \hline%
-Get staff workload & Simple & Update \\ \hline%
-
+Get all categories 					&   Simple & Read   \\ \hline%
+Get problem tags 						&   Simple & Read   \\ \hline%
+Search for problems 				&   Complex & Read/Calculate   \\ \hline%
+Get / set problem Deadline 	&   Simple & Read/Update  \\ \hline%
+Get problem matching tags 	&   Medium & Read/Calculate   \\ \hline%
+Get / set problem ETC 			&   Medium & Read/Update/Calculate   \\ \hline%
+Get / set problem Title 		&   Simple & Read/Update   \\ \hline%
+Get / set problem Description & Simple & Read/Update   \\ \hline%
+Create problem 							&   Medium & Update   \\ \hline%
+Get / set problem status 		&   Simple & Read/Update   \\ \hline%
+Get / set  problem added date & Simple & Read/Update   \\ \hline%
+Assign / unassign  staff to / from problem 		&   Simple & Read/Update/Signal   \\ \hline%
+Get problem assigned staff 	&   Simple & Read   \\ \hline%
+Get / set problem solutions &   Simple & Read/Update/Signal   \\ \hline%
+Get problem comments 				&   Simple & Read   \\ \hline%
+Add comment to problem 			&   Simple & Update/Signal   \\ \hline%
+Subscribe / unsubscribe  to problem 				&   Simple & Update   \\ \hline%
+Get worklist 								&   Simple & Read   \\ \hline%
+Get / set problem priority 	&   Simple & Read/Update   \\ \hline%
+Approve deadline 						&   Simple & Update   \\ \hline%
+Attach / detach solution to / from problem	&   Simple & Read/Update   \\ \hline%
+Get list of departments 		&   Simple & Read   \\ \hline%
+Create department 					&   Simple & Update   \\ \hline%
+Create tag									&   Simple & Update   \\ \hline%
+Hide tag										&   Simple & Update   \\ \hline%
+Hide category								&   Simple & Update   \\ \hline%
+Get department staffs 			&   Simple & Read   \\ \hline%
+Get department categories 	&   Simple & Read   \\ \hline%
+Create category 						&   Simple & Update   \\ \hline%
+Get / set person email 			&   Simple & Read/Update   \\ \hline%
+Get / set person department &   Simple & Read/Update   \\ \hline%
+Get / set person role 			&   Simple & Read/Update   \\ \hline%
+Delete person 							&   Simple & Update   \\ \hline%
+Get person name 						&   Simple & Read   \\ \hline%
+Get person workload 				&   Simple & Read   \\ \hline%
+Reset person password 			&   Medium & Update/Signal   \\ \hline%
+Balance workload 						&   Complex & Calculate   \\ \hline%
+Get statistics							&   Medium & Read/Calculate   \\ \hline%
 \end{tabular}
 \end{center}
 \morscaption{Function list}
