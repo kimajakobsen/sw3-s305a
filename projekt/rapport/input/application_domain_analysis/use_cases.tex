@@ -9,21 +9,14 @@ The use cases from figure \ref{tab:actoreventtable} are described below.
 First he has to select a category and choose one or more tags, he can select tags from more then one category. 
 When the \aclient{} is done selecting tags the system compares the selected tags with other problems. 
 If similar problems is found the \aclient{} is presented with these.
-If one of these matches his particular problem, he can subscribe to the problem if it is \open or read the solutions if the porblem already is \closed{}, thus hoping that this will lead to solving the problem without the \aclient[] having to create a problem.
-If no similar problem was found the \aclient{} creates a problem with a description and the previously selected tags. 
+If one of these matches his particular problem, he can subscribe to the problem if it is \open[] or read the solution(s) if the problem is \closed{}, thus hoping that this will lead to solving the \aclient s problem.
+If no similar problem was found the \aclient{} creates a problem with a title, description and the previously selected tags. 
 Hereafter the problem gets assigned to a \astaff{}. 
 
 \item \sadb{Objects:} Problem, tag, category, \aclient[], \astaff[].
 
 \item \sadb{Functions:} Search existing problems, compare problems, create problem, subscribe to problem. \fixme{fix saa det stemmer med functions listen, naar den er blevet opdateret}
 \end{itemize}
-
-\paragraph{My problems} The use case ``My problems'' is used by  \aclient 's, \astaff 's, and \admin 's. It show a list all problems submitted by the user. From there details can be viewed for each problem. 
-
-%\paragraph{\bloadwork[c]} \bloadwork[c] is the operation of the \wmon{}. It checks and compares all staff members workload and redistribute problems in order to equally balance the workload in each department. 
-
-\paragraph{\gstat[c]} The use case \gstat[] is assessable by the \admin[]. It shows statistics about how much time each \astaff[] use to solve problems.
-
 
 \begin{figure}[htbp]
 \begin{center}
@@ -32,16 +25,21 @@ Hereafter the problem gets assigned to a \astaff{}.
 \label{fig:submit_problem_use_case}
 \end{center}
 \end{figure}
-\fixme{aendre figur saa der ikke staar ``To-do-list'' men worklist}
 
-\paragraph{\ucsolproblem[c]} The use case \ucsolproblem{} is the \astaff{}s primary working usage of the system. This is where he goes to get his \todolist{} and to solve problems. A diagram is shown in figure \ref{fig:solve_problem_use_case}.
+\paragraph{My problems} The use case my problems is used by  \aclient s, \astaff s, and \admin s. It show a list all problems submitted by the user. From there details can be viewed for each problem. 
+
+%\paragraph{\bloadwork[c]} \bloadwork[c] is the operation of the \wmon{}. It checks and compares all staff members workload and redistribute problems in order to equally balance the workload in each department. 
+
+\paragraph{\gstat[c]} The use case \gstat[] is accessible by the \admin[]. It shows statistics about how much time each \astaff[] use to solve problems.
+
+\paragraph{\ucsolproblem[c]} The use case \ucsolproblem{} is the \astaff{}s primary usage of the system. When the \astaff[] get his \todolist[] he can select a problem and solve the problem. A statechart diagram is shown in figure \ref{fig:solve_problem_use_case}.
 
 \begin{itemize}
-\item \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[].the \astaff[] is then presented with a list of unsolved problems assigned to him. The \astaff[] can then click on one of the problems to read the problem, see status of it, add comments to it, search the database for similar problem, reassign it, delete it, or write a new solution. 
+\item \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[]. The \astaff[] is then presented with a list of unsolved problems assigned to him. The \astaff[] can then click on one of the problems to read the problem, see status of it, add comments to it, search the database for similar problem, reassign it, or write a new solution. 
 
 \item \sadb{Objects:} Problem, solution, comment, \client[], and \staff[].
 
-\item \sadb{Functions:} Add comment, reassign, change status, delete problem, search database, create solution, attach solution and get staff \todolist{}.\fixme{make it right, when the functions are updated.}
+\item \sadb{Functions:} Add comment, reassign, change status, search database, create solution, attach solution and get staff \todolist{}.\fixme{make it right, when the functions are updated.}
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -53,7 +51,7 @@ Hereafter the problem gets assigned to a \astaff{}.
 \end{figure}
 
 
-\paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories and departments. A statechart diagram is depicted on figure \ref{fig:use_case_diagram}.
+\paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories, departments and view statistics about the specific \astaff members. A statechart diagram is depicted on figure \ref{fig:use_case_diagram}.
 
 \begin{itemize}
 \item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove persons and departments. The \sadmin{} can select departments and from the selected department he can add or remove \staff[]s and categories. From both a selected department and the main window he can select a person to edit. 
