@@ -38,8 +38,9 @@ Hereafter the problem gets assigned to a \astaff{}.
 \item \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[]. The \astaff[] is then presented with a list of unsolved problems assigned to him. The \astaff[] can then click on one of the problems to read the problem, see status of it, add comments to it, search the database for similar problem, reassign it, or write a new solution. 
 
 \item \sadb{Objects:} Problem, solution, comment, \client[], and \staff[].
+fixme{staff must at least have the same objects as client}
 
-\item \sadb{Functions:} Add comment, reassign, change status, search database, create solution, attach solution and get staff \todolist{}.\fixme{make it right, when the functions are updated.}
+\item \sadb{Functions:} Add comment, reassign, change status, search database, create solution, attach solution and get staff \todolist{}.\fixme{make it right, when the functions are updated.} \fixme{staff must at least have the same functions as client}
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -54,29 +55,15 @@ Hereafter the problem gets assigned to a \astaff{}.
 \paragraph{\tucadmin[c]} The use case \tucadmin[] is used by the \sadmin[] to administrate persons, tags, categories, departments and view statistics about the specific \astaff members. A statechart diagram is depicted on figure \ref{fig:use_case_diagram}.
 
 \begin{itemize}
-\item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. He can add/remove persons and departments. The \sadmin{} can select departments and from the selected department he can add or remove \staff[]s and categories. From both a selected department and the main window he can select a person to edit. 
-If he selects a department he can select a category to change and from that category select, add, and remove tags. 
-From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
+\item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. The \admin[] can manage people by change role, department, email and delete the person from the system. The \admin[] is also able to create new  departments and add categories thereto. To each category new tags can be added. Tags have a priority which can be changed at anytime. Tags cannot be removed when they have been used, but they can be hidden so they cannot be used to categories new problems.  
 
-\item\sadb{Objects:} \staff[c], \client[c], category, tag, department.
+\item\sadb{Objects:} \staff[c], \client[c], category, tag, department. 
+\fixme{admin must at least have the same objects as client}
 
-\item\sadb{Functions:} Delete person, Add person, create department, set permissions, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag.
+\item\sadb{Functions:} Delete person, Add person, create department, set permissions, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag. \fixme{admin must at least have the same functions as client}
+\fixme{admin must at least have the same functions as client}
 \end{itemize}
 
-
-
-%%%%%%%%%%%% BEGIN COMMENT
-\begin{comment}
-\begin{sadlist}[h]{\tucadmin[c]}{Description of the use case \tucadmin{}.}{fig:tucadmin}
-\sadb{Use Case:} The use case starts as the \sadmin{} enters the system. He can add/remove users and depertments. The \sadmin{} can select departments and from the select department add or remove staffs and categories. He can from the department select a category to change and from that category select, add, and remove tags. From a selected tag the \sadmin{} can set/change the priority of the specific tag. From any point he can go back or leave the administration. 
-
-\sadb{Objects:} \staff[c], \client[c], category, tag, department.
-
-\sadb{Functions:} Remove user, remove client, add client, add staff, create department, delete department, set priority, add category, delete category, set tag visibility, set category visibility, create tag, delete tag.
-
-\end{sadlist}
-\end{comment}
-%%%%%%%%%%%%%% END COMMENT
 
 \begin{figure}[htbp]
 \begin{center}
