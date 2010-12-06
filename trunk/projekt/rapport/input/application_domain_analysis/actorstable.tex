@@ -1,5 +1,5 @@
 %Overview
-We have identified three actors and picked out the five most relevant use cases. The Three actors are: \aclient[], \astaff[], and \admin[]. The use cases we picked are: Submit problem, My problems, Worklist, Solve problem, Administrate, and Statistics.
+We have identified three actors and picked out the six most relevant use cases. The three actors are: \aclient[], \astaff[], and \admin[]. The use cases we picked are: Submit problem, My problems, Worklist, Solve problem, Administrate, and Statistics.
 
 
 
@@ -21,7 +21,7 @@ Solve problem 			&     			& $\checkmark$	& $\checkmark$ \\ %
 %Delete category 		&     &  & & $\checkmark$ \\%
 %Administrate Staff		&     &  & & $\checkmark$ \\ %
 Administrate			&    			&				& $\checkmark$ \\%
-\gstat[]			&				& 	& $\checkmark$ \\ \hline%
+\gstat[c]			&				& 	& $\checkmark$ \\ \hline%
 
 \end{tabular}
 \end{center}
@@ -59,7 +59,7 @@ Administrate			&    			&				& $\checkmark$ \\%
 %\end{figure}
 
 
-Figure \ref{tab:actoreventtable} shows the relationship between use cases and the actors of our system. Note that \astaff{} members also are able to submit problems. This is due to the fact that both \aclient{} and \astaff{} simply are \textit{roles}. Persons associated with the role called \astaff{} can therefore also be associated with the role \aclient{}, which are able to submit problems to the systems.
+Figure \ref{tab:actoreventtable} shows the relationship between use cases and the actors of our system. All three roles are able to ``Submit problems'' and see ``My problems''. The \astaff[] and \admin[] have a ``Worklist'' and can ``Solve problem''. The \admin[] can ``Administrate'' the system and access the ``Statistics''
 
 The use cases in figure \ref{tab:actoreventtable} are described in subsection \ref{sec:usecase}.
 

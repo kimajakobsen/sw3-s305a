@@ -3,7 +3,7 @@
 
 The system has two primary actors:   \aclient{} and \astaff. \aclient[c] is the lowest privileges human actor, his primary use case is to submit new problems. The \aclient[] is also able to track his problems and communicate with the \astaff[]. \\
 
-The \astaff{} members are more privileged and can solve and delete problems. 
+The \astaff{} members are more privileged and can solve problems. 
 All \astaff{} members can act as \aclient{}s if they themselves has a problem which should be addressed to another department. 
 E.g. the lightbulp in the IT-administrators office is broken and the maintenance officer should fix it. \\
 
@@ -18,26 +18,16 @@ The \sadmin{} can manage tags, categories, departments and view statistics of ea
 
 \begin{sadlist}[h]{\Aclient}{Description of the actor \aclient.}{fig:actorclient}
 \sadb{Goal:} A person who has a problem, and his goal is to get his problem(s) solved.
-
 \sadb{Characteristics:} The \aclient{}s are employees or students with different knowledge and experience with similar systems.% The clients prefer different ways of communication.%Skal nok overvejes.
-
-\sadb{Examples:} \Aclient{} A prefers face-to-face communication with the working \astaff{} whenever he has got a problem. \fixme{Hvorfor fortaeller vi det her naar der ikke staar mere om det? hvad er pointen med at fortaelle det?}
-
+\sadb{Examples:} \Aclient{} A prefers face-to-face communication with the working \astaff{} whenever he has got a problem.\\
 \aclient[c] B prefers web/mail communication as a substitution of face-to-face communication so he does not have to leave his working space in order to get help. 
-
 \end{sadlist} 
 
-
 \begin{figure}[h]
-
 \begin{sadlistar}{\Astaff}
-
 \sadb{Goal:} The \astaff{} solves the \aclient[]s problems and use the system as a taskmanager.  
-
 \sadb{Characteristics:} The \astaff[] are employees and has various levels of technical knowledge.
-
-\sadb{Examples:} \astaff[c] A prefers to speak to his manager and the \aclient[] face-to-face.
-
+\sadb{Examples:} \astaff[c] A prefers to speak to his manager and the \aclient[] face-to-face.\\
 \astaff[c] B enjoys getting his daily tasks from a computer system, 
  \end{sadlistar}
  \caption{\myCaption{Description of the actor \astaff.}}
@@ -46,15 +36,10 @@ The \sadmin{} can manage tags, categories, departments and view statistics of ea
 
 
 \begin{figure}[h]
-
 \begin{sadlistar}{\Admin[]}
-
 \sadb{Goal:} The \Admin[] is a manager of the system and the \astaff[].
-
 \sadb{Characteristics:} Responsible for the \hdesk[] or \astaff[] manager. 
-
 \sadb{Examples:} \fixme{mangler at skrive examples}
-
  \end{sadlistar}
  \caption{\myCaption{Description of the actor \admin.}}
  \label{fig:actoradmin}
