@@ -16,8 +16,14 @@ E.g. if there are two staffs it is ran once, if there is three it yields two etc
 The pseudo code is displayed in code snippet \ref{lst:balanceWorkload}.
 
 The primary concern of the algorithm is to distribute the problems so each staff has as balanced workload as possible. 
-This balance is based on the time approximated that all problems on his workload consumes. 
-Balancen er baseret p\aa{} den tid alle staff problemer er approximeret til at tage tilsammen. 
+This balance is based on the time of all the individual staff members problems are approximated to take.
+
+
+%This balance is based on the time approximated that all problems on his workload consumes. 
+%							den tid alle de individuelle staff medlemmers problemer er approximeret til at tage, tilsammen.
+%Balancen er baseret p\aa{} den tid alle staff problemer er approximeret til at tage tilsammen. 
+
+
 We also wanted the algorithm to take the individual priority of the problems into account. 
 This algorithm makes sure that the high priority problems will be distributed. 
 If the priority was unrelevant the algorithm would take the problem with lowest time consume, since this would give the most balanced workload. 
