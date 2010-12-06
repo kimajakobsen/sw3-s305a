@@ -62,6 +62,7 @@ namespace HoplaHelpdesk.Models
 
                             // Reassign the highest priority problem to staff called min.
                             problemToBeMoved.AssignedTo = min;
+
                             if (min.Workload > max.Workload)
                             {
                                 // Move it back
