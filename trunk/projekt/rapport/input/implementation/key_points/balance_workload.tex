@@ -34,7 +34,7 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 \end{figure}
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{To be}, label=lst:balanceWorkload]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running each for every staff minus one}, label=lst:balanceWorkload]
 var max = Persons.FirstOrDefault(y => 	
 		y.GetWorkload() == Persons.Max(x => 
 		x.GetWorkload()));                  
