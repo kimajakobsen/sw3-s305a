@@ -88,7 +88,8 @@ namespace HoplaHelpdesk.Tests
 
         #region Two Person test
         /// <summary>
-        /// In this test we test that the tags will be moved around currectly. Mike has a workload of 30 and john's is 10. The problem with the highest priority should be moved to john, that'll be prob3
+        /// In this test we test that the tags will be moved around currectly.
+        /// Mike has a workload of 30 and john's is 10. The problem with the highest priority should be moved to john, that'll be prob3
         ///</summary>
         // TODO: Ensure that the UrlToTest attribute specifies a URL to an ASP.NET page (for example,
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
