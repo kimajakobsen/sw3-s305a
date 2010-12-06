@@ -98,15 +98,17 @@ namespace HoplaHelpdesk.Tools
                     result.AddRangeNoDuplicates(tempResult.ToList());
                 }
             }
-            
 
+            tempResult = new List<Problem>();
             int count = 0;
             while (result.Count() < listMinSize && count <= allTags.Count)
             {
                 temp = (allProblems.Where(x => x.Tags.Count == count).ToList());
-                result.AddRangeNoDuplicates(temp);
+                tempResult.AddRangeNoDuplicates(temp);
                 count++;
             }
+            tempResult.Sort(compare);
+            result.AddRangeNoDuplicates(tempResult);
 
             return result;
         }

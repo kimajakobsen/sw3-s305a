@@ -144,7 +144,8 @@ namespace HoplaHelpdesk.Tests
                         tags[0],
                         tags[1]
                     },
-                    Id = 1
+                    Id = 1,
+                    SolvedAtTime = new DateTime(2010,12,5)
                 },
                 new Problem
                 {
@@ -167,7 +168,8 @@ namespace HoplaHelpdesk.Tests
                     {
                         tags[1]
                     },
-                    Id = 4
+                    Id = 4,
+                    SolvedAtTime = new DateTime(2010,12,5)
                 },
                 new Problem
                 {
@@ -390,6 +392,77 @@ namespace HoplaHelpdesk.Tests
 
             #region Act
             actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Test 7: SearchSolvedFirst for tag 0 and 1, minimum number of problems = 4
+        [TestMethod()]
+        public void SearchSolvedFirstBasicTest()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 4;
+
+            tags[0].IsSelected = true;
+            tags[1].IsSelected = true;
+            expected = new List<Problem> 
+            { 
+                problems[1],
+                problems[0],
+                problems[4],
+                problems[3]
+            };
+            #endregion
+
+            #region Act
+            actual = ProblemSearch.SearchSolvedFirst(catTag, problems, tags, minNoProb);
+            #endregion
+
+            #region Assertions
+            Assert.IsTrue(actual.Count >= minNoProb);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Id, actual[i].Id);
+            }
+            //Assert.Inconclusive("Verify the correctness of this test method.");
+            #endregion
+        }
+        #endregion
+
+        #region Test 8: SearchSolvedFirst for no tag, minimum number of problems = 10
+        [TestMethod()]
+        public void SearchSolvedFirstForNoTag()
+        {
+            #region Arrange
+            List<Problem> expected = null; // TODO: Initialize to an appropriate value
+            List<Problem> actual = null;
+            int minNoProb = 10;
+
+            expected = new List<Problem> 
+            { 
+                problems[4],
+                problems[1],
+                problems[2],
+                problems[3],
+                problems[5],
+                problems[0]
+
+            };
+            #endregion
+
+            #region Act
+            actual = ProblemSearch.SearchSolvedFirst(catTag, problems, tags, minNoProb);
             #endregion
 
             #region Assertions

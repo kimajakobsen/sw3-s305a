@@ -653,49 +653,49 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="HoplaModel" ZoomLevel="12">
-        <EntityTypeShape EntityType="hoplaModel.Category" Width="1.5" PointX="10.625" PointY="23.625" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="8.125" PointY="18" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Department" Width="1.5" PointX="8" PointY="24" Height="1.9802864583333353" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Problem" Width="1.5" PointX="10.5" PointY="19.625" Height="3.7109993489583353" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Solution" Width="1.5" PointX="12.625" PointY="19.375" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="hoplaModel.Tag" Width="1.5" PointX="12.75" PointY="22.75" Height="2.9417936197916674" IsExpanded="true" />
+      <Diagram Name="HoplaModel" ZoomLevel="83">
+        <EntityTypeShape EntityType="hoplaModel.Category" Width="1.5" PointX="10.5" PointY="23.875" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Comment" Width="1.5" PointX="8.25" PointY="18.5" Height="2.2496956380208353" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Department" Width="1.5" PointX="8.25" PointY="24" Height="1.7566536458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Problem" Width="1.5" PointX="10.5" PointY="20.125" Height="3.2357796223958353" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Solution" Width="1.5" PointX="12.625" PointY="20.5" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="hoplaModel.Tag" Width="1.5" PointX="12.625" PointY="22.75" Height="2.5783902994791674" IsExpanded="true" />
         <AssociationConnector Association="hoplaModel.FK_DepartmentCategory" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.5" PointY="24.8987939453125" />
-          <ConnectorPoint PointX="10.625" PointY="24.8987939453125" />
+          <ConnectorPoint PointX="9.75" PointY="24.878326822916669" />
+          <ConnectorPoint PointX="10.5" PointY="24.878326822916669" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.FK_TagCategory" ManuallyRouted="false">
-          <ConnectorPoint PointX="12.125" PointY="24.658396809895834" />
-          <ConnectorPoint PointX="12.75" PointY="24.658396809895834" />
+          <ConnectorPoint PointX="12" PointY="24.601695149739584" />
+          <ConnectorPoint PointX="12.625" PointY="24.601695149739584" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.FK_CommentProblem" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.5" PointY="19.994944661458334" />
-          <ConnectorPoint PointX="9.625" PointY="19.994944661458334" />
+          <ConnectorPoint PointX="10.5" PointY="20.437347819010419" />
+          <ConnectorPoint PointX="9.75" PointY="20.437347819010419" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.ProblemSolution" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="20.297841796875" />
-          <ConnectorPoint PointX="12.625" PointY="20.297841796875" />
+          <ConnectorPoint PointX="12" PointY="21.2139794921875" />
+          <ConnectorPoint PointX="12.625" PointY="21.2139794921875" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.ProblemTag" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="23.042999674479169" />
-          <ConnectorPoint PointX="12.75" PointY="23.042999674479169" />
+          <ConnectorPoint PointX="12" PointY="23.055389811197919" />
+          <ConnectorPoint PointX="12.625" PointY="23.055389811197919" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="hoplaModel.Person" Width="1.5" PointX="8.25" PointY="20.875" Height="2.5571907552083353" />
+        <EntityTypeShape EntityType="hoplaModel.Person" Width="1.5" PointX="8.25" PointY="21.25" Height="2.2496956380208353" />
         <AssociationConnector Association="hoplaModel.PersonsProblem">
-          <ConnectorPoint PointX="9.75" PointY="22.105499674479169" />
-          <ConnectorPoint PointX="10.5" PointY="22.105499674479169" />
+          <ConnectorPoint PointX="9.75" PointY="22.305389811197919" />
+          <ConnectorPoint PointX="10.5" PointY="22.305389811197919" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.PersonsDepartment">
-          <ConnectorPoint PointX="8.875" PointY="23.432190755208335" />
-          <ConnectorPoint PointX="8.875" PointY="24" />
+          <ConnectorPoint PointX="9" PointY="23.499695638020835" />
+          <ConnectorPoint PointX="9" PointY="24" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.ProblemPersons">
-          <ConnectorPoint PointX="10.5" PointY="21.427749837239585" />
-          <ConnectorPoint PointX="9.75" PointY="21.427749837239585" />
+          <ConnectorPoint PointX="10.5" PointY="21.71519490559896" />
+          <ConnectorPoint PointX="9.75" PointY="21.71519490559896" />
         </AssociationConnector>
         <AssociationConnector Association="hoplaModel.PersonsComment">
-          <ConnectorPoint PointX="8.9375" PointY="20.875" />
-          <ConnectorPoint PointX="8.9375" PointY="20.364889322916667" />
+          <ConnectorPoint PointX="9" PointY="21.25" />
+          <ConnectorPoint PointX="9" PointY="20.749695638020835" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
