@@ -13,6 +13,7 @@ The input for this function is:
 	\item Minimum number of problems to find
 \end{itemize}
 
+\subsection{Search for Problems by Tags}
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The while loop which finds and sorts problems matching the input tags}, label=src:search, numbers=left, numberstyle=\footnotesize]
 .
 .
@@ -21,29 +22,29 @@ while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)(*\label{sear
 {
 	tempResult = new List<Problem>();
 	tagsToRemove = new List<int>();
-	for (int i = 0; i < noOfTagsToRemove; i++)
+	for (int i = 0; i < noOfTagsToRemove; i++)(*\label{search:forStart}*)
 	{
 		tagsToRemove.Add(i);
-	}
-	try
+	}(*\label{search:forEnd}*)
+	try(*\label{search:tryStart}*)
 	{
 		List<Tag> currentSearch = tags.RemoveCurrent(tagsToRemove);
-		while (true)
+		while (true)(*\label{search:innerWhileStart}*)
 		{
 			temp = allProblems.ToList();
-			foreach (Tag tag in currentSearch)
+			foreach (Tag tag in currentSearch)(*\label{search:foreachStart}*)
 			{
 				temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
-			}
+			}(*\label{search:foreachEnd}*)
 			tempResult.AddRangeNoDuplicates(temp.ToList());
-			currentSearch = tags.RemoveNext(ref tagsToRemove);
-		}
+			currentSearch = tags.RemoveNext(ref tagsToRemove);(*\label{search:removeNext}*)
+		}(*\label{search:innerWhileEnd}*)
 	}
 	catch (NotSupportedException)
 	{
-			noOfTagsToRemove++;
-			tempResult.Sort(compare);
-			result.AddRangeNoDuplicates(tempResult.ToList());
+		noOfTagsToRemove++;
+		tempResult.Sort(compare);
+		result.AddRangeNoDuplicates(tempResult.ToList());
 	}
 }(*\label{search:whileEnd}*)
 .
@@ -51,8 +52,43 @@ while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)(*\label{sear
 .
 \end{lstlisting}
 
-The most important part of the search function is the while loop shown in figure \ref{src:search}.
-Generally, this loop finds problems which matches the tags input into the function and orders them with the problems with the most amount of match tags in the beginning of the result list.
-The while loop beginning in line \ref{search:whileStart} will continue to run as long as there has not been found enough problems to suffice the minimum number of problems input.
-Further more the loop will also exit if it about to search for problems with no tags matching -- this phenomena is dealt with later in the function.
-At the beginning  of each iteration the 
+The most important part of the search function is the while loop shown in code snippet \ref{src:search}.
+Generally, this loop finds problems which matches the tags specified in the input the function and orders them with the problems with the most amount of matching tags in the beginning of the result list.
+The while loop beginning in line \ref{search:whileStart} will continue to run as long as there has not been found enough problems to suffice the minimum number of problems input and there still is at least one tag to search for.
+If there still is not enough problems another part of the search function will take care of this.
+This part is described in subsection \ref{sub:noTags}
+
+The function will increase the number of tags to remove from the tag list which was input to the function every time an iteration ends in the outer while loop; lines \ref{search:whileStart}-\ref{search:whileEnd}.
+In the first iteration no tags are removed, this means that the function will find every problem which has every tag which is being search for and put these in the beginning of the result list.
+Further more the function sort each step by least amount of tags, the reason for this is that the less tags not searched for on a given problem, the more likely it is that the given problem matches the search.
+For example if a search is run for the tags ``Computer'' and ``Harddisk'', the problems only containing these tags will be listed first and if a problem contains the tags ``Computer'', ``Harddisk'', ``Database'', and ``Connection'' will be listed further down on the result list because it has unrelated tags attached to it.
+See a more detailed example of a run of the search function in appendix \ref{something}\fixme{Tilf\o j dette eksempel eller fjern denne linje}.
+
+The while loop spanning lines \ref{search:innerWhileStart}-\ref{search:innerWhileEnd} iterates over the tags to remove, this does not have any effect when no tags are to be removed.
+However if the function gets the tags ``Computer'' and ``Harddisk'' as input, we first want to find every problem with both tags, then find every problem with the ``Harddisk'' tag, and finally find every tag with the ``Computer'' tag.
+The order of the last two is not important because they are sorted in a single list, which is then inserted into the result list.
+The \me{RemoveNext} function called in line \ref{search:removeNext} is responsible removing the tags which are not to be search for in the in the next iteration of the inner while loop in lines \ref{search:innerWhileStart}-\ref{search:innerWhileEnd}.
+It will throw a \cl{NotSupportedException} selection when it has removed every combination of tags, which will break the inner while loop and add the problems found in the current iteration of the outer while loop to the result, which will be returned to the call site.
+The function \me{AddRangeNoDuplicates}, is used instead of the in-build \me{AddRange} method, because else one problem can be added several times, which is not wanted.
+One problem should only appear one time in the list returned from the function, because it would simply not make sense int relation to the minimum number of problems, since a single problem would be counted several times towards finding enough problems.
+
+The for-each loop in the lines \ref{search:foreachStart}-\ref{search:foreachEnd} finds all the problems match the current search.
+The current search is the tags being input to the function without the tags to be removed.
+The for-each loop removes every problem not containing a specific tag in each iteration, until every tag in the current search is covered.
+
+The initialization of the tags to remove is done in the for loop in the lines \ref{search:forStart}-\ref{search:forEnd}.
+It sets the first $x$ tags to be removed where $x$ is the current number tags to remove.
+This means that if e.g. three tags should be removed it will initially be the first, second and third tag, which are removed.
+
+\subsection{No Tags to Remove}
+\label{sub:noTags}
+If there has not been found enough problems to suffice the minimum number of problems during the search in tags the function will start to look for problems with no tags at all, then problems with one tag etc.
+The function will start by finding every problem with no tags and add them to the result list, then every problem with a single tag is found and added.
+Here the problems are also added using the \me{AddRangeNoDuplicates} applying the same reasoning as above.
+This part of the function will continue to run until enough problems are found or it is about to search for more tags then there is in the ``All tags'' input.
+This means that i can actually return less problems than minimum number of problems if it cannot find them, but at this point is has searched every problem, this means that it will actually return every problem in the ``Problems to search among'' sorted.
+
+\subsection{Order by Solved}
+In some cases we want to order the problems by whether or not the problems are solved.
+E.g. we want to show the solved problems first to clients who are categorizing a problem, which might already exist.
+This reason for this is that 
