@@ -48,7 +48,8 @@ var max = Persons.FirstOrDefault(y =>
 var min = Persons.FirstOrDefault(y => 
 		y.GetWorkload() == Persons.Min(x => 
 		x.GetWorkload()));
-    
+
+// orts the list after priority
 max.Worklist.ToList().Sort(Problem.GetComparer());             
 while(true)
 {
