@@ -65,8 +65,25 @@ namespace HoplaHelpdesk.Models
 
                             if (min.Workload >= max.Workload)
                             {
+                                // Initialize variables for checking whether or not to move the last problem back
+                                double beforeMoveBack = 0.0;
+                                double afterMoveBack = 0.0;
+
+                                // Calculate difference before moving
+                                beforeMoveBack = Math.Abs(max.Workload - min.Workload);
+
                                 // Move it back
                                 problemToBeMoved.AssignedTo = max;
+
+                                // Calculate difference after moving
+                                afterMoveBack = Math.Abs(max.Workload - min.Workload);
+
+                                // Compare
+                                if (beforeMoveBack < afterMoveBack)
+                                {
+                                    problemToBeMoved.AssignedTo = min;
+                                }
+
                                 couldStillMove = false;
                             }
                             else if (min.Workload == max.Workload)
