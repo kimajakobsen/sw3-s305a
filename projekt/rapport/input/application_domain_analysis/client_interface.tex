@@ -54,7 +54,7 @@ This window contains information about the selected problem. The window contains
 	\item A subscription check-box, clients subscribed to the problem will receive notifications when then problem changes. 
 	\item A text field with all the previous entered comments if any.
 	\item A field to write new comments in.
-	\item The button ``Add comment'' which submits the comment.
+	\item The button ``Submit comment'' which submits the comment.
 	\item A field with non or more solutions written by the staff members.  
 \end{itemize}
 
@@ -65,7 +65,7 @@ This window contains information about the selected problem. The window contains
 To add a new problem the \aclient[] need to select the tags which best describes the problem. The window contains the following elements:
 \begin{itemize}
 	\item The frame ``Categories and tags''.
-	\item The button ``Add problem'' which send the \aclient[] to the window ``Search for similar problems''
+	\item The button ``Search for this kind of problems'' which sends the \aclient[] to the window ``Search for similar problems''
 \end{itemize}
 %This window contains  and a search button. When a search is conducted the window ``Search for similar problems'' is opened. 
 
@@ -73,13 +73,9 @@ To add a new problem the \aclient[] need to select the tags which best describes
 A search is preformed with the selected tags from the previous window, a list with similar problems are displayed. This window includes the following: 
 \begin{itemize}
 	\item The window ``Search'' with all it elements.
-	\item A button called ``No suitable problem found'' which send loads the window ``Create new problem''.
+	\item A button called ``No problem suffice'' which loads the window ``Create new problem''.
 \end{itemize}
 The found problems can be double clicked and the window ``Client problem view''. 
-%The ``Search for similar problems'' window use the previous selected tags and preforms a search 
-%The ``Search for similar problems'' contains a button called ``No suitable problem found'' and the window ``Search'' which contains the frame ``Categories and tags''.
-%This window is actually just ``Search'' with an additional button added. The search results showed in the ``Problems found'' column can be selected and the window ``Client problem view'' is shown. The button ``No suitable problem found'' directs the user to ``Create new problem''. 
-
 
 \subsubsection{Create new problem}
 The ``Create new problem'' window's purpose is to describe, categorize, suggest deadline and submit the problem. The window contains the following elements:
@@ -87,73 +83,12 @@ The ``Create new problem'' window's purpose is to describe, categorize, suggest 
 	\item A text field where information about the problem can be entered.
 	\item The frame ``Categories and tags'' enables the \aclient to change and add tags so the problem is best describe.
 	\item A calender where a deadline can be suggested to the \astaff member.
-	\item ``Add problem'' submits the problem and send the user to the ``Client problem view''.
+	\item ``Create'' submits the problem and send the user to the ``Client problem view''.
 \end{itemize}
 
 %The frame ``Categories and tags'' enables the \aclient to pick what tags describe the problem best, the . When the ``Add problem'' is pressed the problem is send and the user is directed to the ``Client problem view'' where he can see the final description of the problem and relevant statistics.    
 
 
-
-
-\begin{comment} %%%%%%%%%%%%%%%%%%%COMMENT
-
-
-
-The client interface is illustrated in figure \ref{fig:client_interface}.
-After login, the \aclient[] is presented with the \textit{main} screen, which gives four possibilities:
-\fixme{hvis client ikke skal kunne tilgå statistics så skal dette stykke ændres}
-%After login, the \aclient[] is greeted with the \textit{main} screen, wich gives three posebilities:
-\begin{itemize}
-	\item Add problem
-	\item My problems
-	\item Search for problem(s)
-	\item Statistics
-\end{itemize}
-
-The four options reflect the use cases of the \aclient[] in section \ref{sec:usage}
-%These main possibilities are thoroughly described in the following sub-subsection, since they are the reflect the three use cases of the \aclient[] in section \ref{sec:usage}; submit problem, see all problems, and get statistics.
-Due to the nature of our webbased system, the \aclient[] can anytime terminate the session and logout/close.
-
-
-\subsubsection{Add Problem}
-As the name indicates, this button initiates the process of adding a specific problem to the system.
-%The process starts by selecting what kind of problem the \aclient[] has.
-
-This is done by selecting \textit{tags} which describes the problem. Tags are grouped under categories. %Each tag can only exist under one category, however if the need arises, it is possible to create a duplicate tag under another category.\fixme{Er det smart at have to tags der hedder det samme?}
-We say that the problem is ``categorized'' when it has tags associated with it.
-
-When the \aclient[] is satisfied with the categorization of the problem, the ``Search'' button can be clicked, which will make the system search for problems with similar categorization, prioritizing \fixme{skriv om hvordan det gøres} the most relevant problems.
-The \aclient[] is then presented with a list of all similar problems.
-
-identical problems
-similar problems with solution
-similar problems without solution
-
- 
-If a similar problem is found, the \aclient[] has the option to \textit{``subcribe''} to the problem, making the \aclient[] receive all the same notifications as the person who created the problem.
-This dramatically reduces redundancy in a case where multiple users has the same or similar problem.
-This also saves the \aclient s the time to create and describe a new problem in the system.
-If no suitable problem is found, the \aclient[] is allowed to describe his problem with words, as well as alter the tags which he/she selected earlier, in case he/she changed his/her mind.
-Ultimately, the problem is added to the database after fully described. This process will initialize the workload monitor, for distributing the problem to a \astaff[] member, who is likely to solve the problem.
-
-\subsubsection{My Problems}
-This button navigates to a window where the problems created by the \aclient[] as well as the problems which the \aclient[] has subscribed to is shown.
-
-\subsubsection{Search for Problem(s)}
-Clicking this button will bring the \aclient[] to the problems search-screen, where he/she can search by specifying tags which possibly are attached to the problems that the \aclient[] wishes to find.
-
-\subsubsection{Statistics}
-\fixme{Der skal laves et interface til statistics, ellers det skal i hvert fald beskrives.}
-
-\end{comment} %%%%%%%%%%%%%%%%%%%COMMENT
-
-\begin{figure}[H]
-\begin{center}
- \includegraphics[width = \textwidth , clip=true, trim=0 5cm 5cm 0]{input/application_domain_analysis/Navigation_DiagramClient.pdf}
-\morscaption{\cinterface[]}
-\label{fig:client_interface}
-\end{center}
-\end{figure}
 
 
 
