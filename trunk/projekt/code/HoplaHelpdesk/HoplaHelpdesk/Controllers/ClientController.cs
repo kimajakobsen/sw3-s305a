@@ -148,6 +148,11 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult ViewProblems(SearchViewModel search)
         {
+            foreach (var item in search.CatTag.Categories)
+            {
+                item.DepartmentHolder = db.DepartmentSet.FirstOrDefault(x => x.Id == db.CategorySet.FirstOrDefault(y => y.Id == item.Id).Department_Id);
+            }
+
             int myId = db.PersonSet.FirstOrDefault(x => x.Name == User.Identity.Name).Id;
             search.Subscriber = db.PersonSet.FirstOrDefault(x => x.Id == myId);
             search.ProblemList = new ProblemListViewModel

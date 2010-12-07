@@ -3,15 +3,12 @@
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
 
-        <fieldset>
-            <legend>Fields</legend>
-            
-            <%: Html.TextAreaFor(model => model.Comment.description) %>
 
-            <p>
-                <input type="submit" value="Submit comment" />
-            </p>
-        </fieldset>
+        <%: Html.TextAreaFor(model => model.Comment.description) %>
+
+        <p>
+            <input type="submit" value="Submit comment" />
+        </p>
 
     <% } %>
 
