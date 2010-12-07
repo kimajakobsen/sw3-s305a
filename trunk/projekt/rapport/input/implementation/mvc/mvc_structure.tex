@@ -4,7 +4,15 @@
 
 \subsection{Structure}
 
-The Model-View-Controller (MVC) framework consists of three different types of components; Views, controllers and models. Each created with a different purpose:
+The Model-View-Controller (MVC) framework consists of three different types of components; Views, controllers and models. Each created with a different purpose, see figure \ref{fig:mvc-drawing}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.90\textwidth]{input/implementation/mvc/MVC.pdf}
+	\morscaption{These are the three main components in the MVC}}
+	\label{fig:mvc-drawing}
+\end{figure}
+
 
 \begin{itemize}
 \item Models
@@ -23,9 +31,12 @@ The Controllers reacts to user interaction, and select which view should be rend
 
 Because of the seperation into three independent modules, developers are able to create different parts of the application with different kind of logic, thus enabling them to better manage complexity. It also enables developers to create applications with a high maintainability, because it is easy to alter any of them without effecting the others.
 
-\paragraph{Displaying actual content}
+\subsubsection{Displaying actual content}
 Another interesting thing about MVC is that there are no actual HTML files. When entering an URL your actually calling mothods in controllers, you can even add parameters if you want. These controllers then redirects you to the correct view. This is possbile beacuse everything is displayed inside of a Master page, which is basically a HTML document, with the addition of content containers. These containers can be created anywehere on the Master page, and act as spaces where views can put their HTML output, the entire page is then created as HTML output, and sent to the browser which requested the page via the URL.
 
-\paragraph{Data validation}
+\subsubsection{Data validation}
+Client side validation
+Server Side validation
 
-\paragraph{Testing}
+\subsubsection{Testing}
+When creating web applications with MVC you have the possibility of creating unit tests to thoroughly test your code. These tests can be automatically generated from within Visual Studio, and run as a seperate function, in order to allow the developer to test for all possible inputs. For a more detailed description of Unit-testing in MVC, look in the section \ref{chap:unittest}
