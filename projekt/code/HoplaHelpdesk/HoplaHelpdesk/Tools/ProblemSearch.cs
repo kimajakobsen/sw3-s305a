@@ -46,6 +46,18 @@ namespace HoplaHelpdesk.Tools
             return InternalSearch(catTag, allProblems, allTags, listMinSize, LeastTagsSolvedFirst);
         }
 
+        public static List<Problem> SearchSolvedFirst(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
+            int listMinSize)
+        {
+            List<Tag> allTags = new List<Tag>();
+            foreach (var prob in allProblems)
+            {
+                allTags.AddRange(prob.Tags);
+            }
+
+            return InternalSearch(catTag, allProblems, allTags, listMinSize, LeastTagsSolvedFirst);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -56,6 +68,18 @@ namespace HoplaHelpdesk.Tools
             List<Tag> allTags, int listMinSize)
         {
             return InternalSearch(catTag,allProblems,allTags,listMinSize,LeastTags);
+        }
+
+        public static List<Problem> Search(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
+            int listMinSize)
+        {
+            List<Tag> allTags = new List<Tag>();
+            foreach (var prob in allProblems)
+            {
+                allTags.AddRange(prob.Tags);
+            }
+
+            return InternalSearch(catTag, allProblems, allTags, listMinSize, LeastTags);
         }
 
         private static List<Problem> InternalSearch(CategoryTagSelectionViewModel catTag, List<Problem> allProblems,
