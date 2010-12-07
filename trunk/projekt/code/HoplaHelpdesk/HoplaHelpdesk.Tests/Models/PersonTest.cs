@@ -132,11 +132,14 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void AverageTimePerProblemLastweekTest()
         {
-            var prob1 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
-            var prob2 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
-            var prob3 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
-            var prob4 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
-            var prob5 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 30) };
+            DateTime addDate = DateTime.Now.Subtract(new TimeSpan(15, 0, 0, 0));
+            DateTime solveDate = DateTime.Now.Subtract(new TimeSpan(5, 0, 0, 0));
+
+            var prob1 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob2 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob3 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob4 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob5 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
             var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
             TimeSpan expected = new TimeSpan(10, 0, 0, 0);
             TimeSpan actual;
@@ -156,11 +159,20 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void AverageTimePerProblemLastweekTest2()
         {
+            DateTime addDate = DateTime.Now.Subtract(new TimeSpan(15, 0, 0, 0));
+            DateTime solveDate = DateTime.Now.Subtract(new TimeSpan(14, 0, 0, 0));
+
+            var prob1 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob2 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob3 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob4 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            var prob5 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
+            /*
             var prob1 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
             var prob2 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
             var prob3 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
             var prob4 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
-            var prob5 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
+            var prob5 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };*/
             var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
             TimeSpan expected = new TimeSpan();
             TimeSpan actual;
