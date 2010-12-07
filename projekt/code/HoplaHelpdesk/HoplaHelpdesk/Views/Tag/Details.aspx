@@ -9,7 +9,7 @@
     <h2>Details</h2>
 
     <fieldset>
-        <legend>Fields</legend>
+        <legend>Tag</legend>
         
         <div class="display-label">Id</div>
         <div class="display-field"><%: Model.Id %></div>

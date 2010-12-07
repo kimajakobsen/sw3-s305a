@@ -9,7 +9,7 @@
     <h2>Details</h2>
 
     <fieldset>
-        <legend>Fields</legend>
+        <legend>Category</legend>
         
         <div class="display-label">Id</div>
         <div class="display-field"><%: Model.Id %></div>
@@ -38,7 +38,7 @@
         <% } else { %>
           <%: Html.ActionLink("Unhide", "HideUnhide", new { id = Model.Id, value=false })%> |
           <% } %>
-        <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %> |
+        <%: Html.ActionLink("Edit", "Edit", new { id=Model.Id }) %>
         <div>
         <%: Html.ActionLink("Back to List", "Edit", "Department", new {id=Model.Department_Id }, null) %>
     </div>
