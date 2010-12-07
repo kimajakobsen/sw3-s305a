@@ -1,25 +1,25 @@
 \section{Balance Workload}
-Whenever a staff is removed from a department or has marked a problem as solved, 
+Whenever a staff member is removed from a department or has marked a problem as solved, 
 it becomes necessary to balance the workload of each staff member in the department, since we do not want the staff members to be overloaded with problems. 
 
-To balance the workload, each staffs workload must be calculated. 
-The workload of a staff is defined by the amount of time estimated that each problem on his workload takes to be solved. 
+To balance the workload, each staff members workload must be calculated. 
+The workload of a staff member is defined by the amount of time estimated that each problem on his workload takes to be solved. 
 The workload is calculated by the \me{GetWorkload} method.
 
 The time a problem takes to be solved is estimated by the average time consumption of the tags connected to the problem. 
 This is calculated by the \me{CalculateTimeConsumption} method.
 
-The \me{BalanceWorkload} method works by finding the staff in the department with the minimum workload and the staff with the maximum workload. Then it moves the highest priority problems from the maximum staff to the minimum. 
-It keeps reassigning problems until the minimum staff member has a higher or equal workload than the maximum staff member. If the minimum staff member has a higher workload, then the algorithm checks if the balance can be balanced even further by calculating if the last moved problem should be moved back or not, and moves it accordingly.
+The \me{BalanceWorkload} method works by finding the staff member in the department with the minimum workload and the staff member with the maximum workload. Then it moves the highest priority problems from the maximum staff member to the minimum. 
+It keeps reassigning problems until the minimum staff member has a higher or equal workload than the maximum staff member. If the minimum staff member has a higher workload, then the algorithm checks if the balance can be balanced even further by calculating if the last moved problem should be moved back or not, and moves it accordingly. See lines 25 to 42 in code snippet \ref{lst:balanceWorkload}.
 
 %The original idea was that this would ensure that bad last reassignments would be omitted by switching them backwards. However, later we discovered that this approach is not sufficient to prevent bad last reassignments. An example is illustrated in figure \ref{fig:balanceWorkload_strangecase}. The dark grey colored box is representing a high priority problem which in the first scenario, the workload is most balanced if it is moved back after the final iteration of the loop, whereas the workload is most balanced if it is not moved back in on the scenario to the right, marked ``Move back Bad idea''. Although that this seems like a trivial bug to fix afterwards, we chose not to fix it, as it would make.
 
 
-All this is iterated once per staff minus one in the department. 
-E.g. if there are two staffs it is ran once, if there is three it yields two etc. 
+All this is iterated once per staff member minus one in the department. 
+E.g. if there are two staff members it is ran once, if there is three it yields two etc. 
 The pseudo code is displayed in code snippet \ref{lst:balanceWorkload}.
 
-The primary concern of the algorithm is to distribute the problems so each staff has as balanced workload as possible.
+The primary concern of the algorithm is to distribute the problems so each staff member has as balanced workload as possible.
 
  
 %This balance is based on the time of all the individual staff members problems are approximated to take.
@@ -40,7 +40,7 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 \begin{figure}
 	\centering
 		\includegraphics[scale=0.8]{input/implementation/key_points/balanceWorkloadDiagram.pdf}
-	\morscaption{A diagram of the balance workload method. Each collumn represents a staffs workload. Each box is a problem. The upper number is the estimated time consumed of that problem. The lower is the priority. The problem colored dark grey is not reassignable.  There are tree staffs a, b, and c. The problems that will be moved is colored light grey.}
+	\morscaption{A diagram of the balance workload method. Each collumn represents a staff members workload. Each box is a problem. The upper number is the estimated time consumed of that problem. The lower is the priority. The problem colored dark grey is not reassignable.  There are tree staff members a, b, and c. The problems that will be moved is colored light grey.}
 	\label{fig:balanceWorkloadDiagram}
 \end{figure}
 
@@ -73,7 +73,7 @@ do
         // Mark as has been moved
         problemToBeMoved.HasBeen = true;
 
-        // Reassign the highest priority problem to staff called min.
+        // Reassign the highest priority problem to staff member called min.
         problemToBeMoved.AssignedTo = min;
 
         if (min.Workload >= max.Workload)
