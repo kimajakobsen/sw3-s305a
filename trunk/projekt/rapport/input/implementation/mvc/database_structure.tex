@@ -9,9 +9,8 @@ We use this provider since it saves time instead of building our own login syste
 Security is not a big concern in this project and therefore we do not want to spend time creating a secure login system. 
 The major disadvantage is that including the membership providers database scheme with the model is not supported and will not work proper. 
 Therefore we had to add a person entity and change the register functionality to also save the registered person in our person table. 
-This gives some redundant data, but only the username. 
-When we needed to access data from the membership tables we had to use SQL statements and not the object oriented approached we used for the rest. This is limited since our main functionality depends on the model. 
-
-
+This gives some redundant data, but only the username and email. 
+When we needed to access data from the membership tables we had to use SQL statements and not the object oriented approached we used for the rest. 
+This is limited since our main functionality depends on the model. 
 
 \include{input/implementation/mvc/adonet}
