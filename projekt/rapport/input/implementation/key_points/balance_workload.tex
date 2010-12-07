@@ -10,12 +10,10 @@ The time a problem takes to be solved is estimated by the average time consumpti
 This is calculated by the \me{CalculateTimeConsumption} method.
 
 The \me{BalanceWorkload} method works by finding the staff in the department with the minimum workload and the staff with the maximum workload. Then it moves the highest priority problems from the maximum staff to the minimum. 
-It keeps reassigning problems until the minimum staff has a higher or equal workload than the maximum staff. If it is higher the problem is reassigned back. 
+It keeps reassigning problems until the minimum staff member has a higher or equal workload than the maximum staff member. If the minimum staff member has a higher workload, then the algorithm checks if the balance can be balanced even further by calculating if the last moved problem should be moved back or not, and moves it accordingly.
 
-The original idea was that this would ensure that bad last reassignments would be omitted by switching them backwards. However, later we discovered that this approach is not sufficient to prevent bad last reassignments. An example is illustrated in figure \ref{fig:balanceWorkload_strangecase}. The dark grey colored box is representing a high priority problem which in the first scenario, the workload is most balanced if it is moved back after the final iteration of the loop, whereas the workload is most balanced if it is not moved back in on the scenario to the right, marked ``Move back Bad idea''. Although that this seems like a trivial bug to fix afterwards, we chose not to fix it, as it would make.
-%%%%%%%%%%%%%%%%
------ ret efter at rasmus har omsrkevet funktionen
-%%%%%%%%%%%%%%%%
+%The original idea was that this would ensure that bad last reassignments would be omitted by switching them backwards. However, later we discovered that this approach is not sufficient to prevent bad last reassignments. An example is illustrated in figure \ref{fig:balanceWorkload_strangecase}. The dark grey colored box is representing a high priority problem which in the first scenario, the workload is most balanced if it is moved back after the final iteration of the loop, whereas the workload is most balanced if it is not moved back in on the scenario to the right, marked ``Move back Bad idea''. Although that this seems like a trivial bug to fix afterwards, we chose not to fix it, as it would make.
+
 
 All this is iterated once per staff minus one in the department. 
 E.g. if there are two staffs it is ran once, if there is three it yields two etc. 
@@ -46,47 +44,70 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 	\label{fig:balanceWorkloadDiagram}
 \end{figure}
 
-\begin{figure}
-	\centering
-		\includegraphics[scale=1.0]{input/implementation/key_points/balanceWorkload_strangecase.pdf}
-	\morscaption{Diagram illustrating the result of the \me{BalanceWorkload} method, executed in two different scenarios, where the final ``moveback'' in the loop is good and bad idea.}
-	\label{fig:balanceWorkload_strangecase}
-\end{figure}
+%\begin{figure}
+%	\centering
+%\includegraphics[scale=1.0]{input/implementation/key_points/balanceWorkload_strangecase.pdf}
+%	\morscaption{Diagram illustrating the result of the \me{BalanceWorkload} method, executed in two different scenarios, where the final ``moveback'' in the loop is good and bad idea.}
+%	\label{fig:balanceWorkload_strangecase}
+%\end{figure}
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running each for every staff minus one}, label=lst:balanceWorkload]
-var max = Persons.FirstOrDefault(y => 	
-		y.GetWorkload() == Persons.Max(x => 
-		x.GetWorkload()));                  
 
-var min = Persons.FirstOrDefault(y => 
-		y.GetWorkload() == Persons.Min(x => 
-		x.GetWorkload()));
-
-// Sorts the list after priority
-max.Worklist.ToList().Sort(Problem.GetComparer());             
-while(true)
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running for each staff member minus one. ``min'' and ``max'' are the person objects of which the algorithm are currently moving problems between.}, label=lst:balanceWorkload]
+bool couldStillMove = true;
+do
 {
-    var problemToBeMoved = max.Worklist.FirstOrDefault(y => 
-		y.Reassignable == true && 
-		y.HasBeen == false && 
-		y.SolvedAtTime == null);
-                   
-    if (problemToBeMoved == null)     break; 
-    problemToBeMoved.HasBeen = true;
-    problemToBeMoved.AssignedTo = min;
-    
-    if (min.Workload > max.Workload)
+    // Finde the reassignable problem with the highest priority which has not been moved yet. 
+    var problemToBeMoved = max.Worklist.FirstOrDefault(y =>
+	    y.Reassignable == true &&
+	    y.HasBeen == false &&
+	    y.SolvedAtTime == null);
+                  
+    // If none can be moved leave the while loop
+    if (problemToBeMoved == null)
     {
-	    // Move problem back
-    	problemToBeMoved.AssignedTo = max;
-    	break;
+        couldStillMove = false;
     }
-    else if (min.Workload == max.Workload)
+    else
     {
-		break;
+        // Mark as has been moved
+        problemToBeMoved.HasBeen = true;
+
+        // Reassign the highest priority problem to staff called min.
+        problemToBeMoved.AssignedTo = min;
+
+        if (min.Workload >= max.Workload)
+        {
+            // Initialize variables for checking whether or not to move the last problem back
+            double beforeMoveBack = 0.0;
+            double afterMoveBack = 0.0;
+
+            // Calculate difference before moving
+            beforeMoveBack = Math.Abs(max.Workload - min.Workload);
+
+            // Move it back
+            problemToBeMoved.AssignedTo = max;
+
+            // Calculate difference after moving
+            afterMoveBack = Math.Abs(max.Workload - min.Workload);
+
+            // Compare
+            if (beforeMoveBack < afterMoveBack)
+            {
+                problemToBeMoved.AssignedTo = min;
+            }
+            couldStillMove = false;
+        }
+        else if (min.Workload == max.Workload)
+        {
+            // Don't move back if they are equal
+            couldStillMove = false;
+        }
     }
-} 
+} while (couldStillMove);
+
+
+
 \end{lstlisting}
 
 
