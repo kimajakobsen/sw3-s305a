@@ -126,7 +126,6 @@
     <Compile Include="ViewModels\SolutionListViewModel.cs" />
     <Compile Include="ViewModels\PersonListViewModel.cs" />
     <Compile Include="ViewModels\StatisticViewModel.cs" />
-    <Compile Include="Views\SuccesReassignViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\hopla.png" />
@@ -319,6 +318,8 @@
     <Content Include="Views\Shared\Success.aspx" />
     <Content Include="Views\Shared\TagList.ascx" />
     <Content Include="Views\Shared\StaffMenu.ascx" />
+    <Content Include="Views\Staff\AddSolution.aspx" />
+    <Content Include="Views\Staff\AttachSolution.aspx" />
     <Content Include="Views\Staff\Details.aspx" />
     <Content Include="Views\Staff\Edit.ascx" />
     <Content Include="Views\Staff\Index.aspx" />
