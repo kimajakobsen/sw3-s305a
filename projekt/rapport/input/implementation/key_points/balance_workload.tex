@@ -11,6 +11,12 @@ This is calculated by the \me{CalculateTimeConsumption} method.
 
 The \me{BalanceWorkload} method works by finding the staff in the department with the minimum workload and the staff with the maximum workload. Then it moves the highest priority problems from the maximum staff to the minimum. 
 It keeps reassigning problems until the minimum staff has a higher or equal workload than the maximum staff. If it is higher the problem is reassigned back. 
+
+The original idea was that this would ensure that bad last reassignments would be omitted by switching them backwards. However, later we discovered that this approach is not sufficient to prevent bad last reassignments. An example is illustrated in figure \ref{fig:balanceWorkload_strangecase}. The dark grey colored box is representing a high priority problem which in the first scenario, the workload is most balanced if it is moved back after the final iteration of the loop, whereas the workload is most balanced if it is not moved back in on the scenario to the right, marked ``Move back Bad idea''. Although that this seems like a trivial bug to fix afterwards, we chose not to fix it, as it would make.
+%%%%%%%%%%%%%%%%
+----- ret efter at rasmus har omsrkevet funktionen
+%%%%%%%%%%%%%%%%
+
 All this is iterated once per staff minus one in the department. 
 E.g. if there are two staffs it is ran once, if there is three it yields two etc. 
 The pseudo code is displayed in code snippet \ref{lst:balanceWorkload}.
@@ -32,11 +38,19 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 %There is one weakness though and that is if a staff has a highly time consuming problem with low priority. Then he will be left with only that problem. Assuming it is as time consuming as all the other problems. 
 
 
+
 \begin{figure}
 	\centering
 		\includegraphics[scale=0.8]{input/implementation/key_points/balanceWorkloadDiagram.pdf}
 	\morscaption{A diagram of the balance workload method. Each collumn represents a staffs workload. Each box is a problem. The upper number is the estimated time consumed of that problem. The lower is the priority. The problem colored dark grey is not reassignable.  There are tree staffs a, b, and c. The problems that will be moved is colored light grey. }
 	\label{fig:balanceWorkloadDiagram}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics[scale=1.0]{input/implementation/key_points/balanceWorkload_strangecase.pdf}
+	\morscaption{Diagram illustrating the result of the \me{BalanceWorkload} method, executed in two different scenarios, where the final ``moveback'' in the loop is good and bad idea.}
+	\label{fig:balanceWorkload_strangecase}
 \end{figure}
 
 
@@ -49,7 +63,7 @@ var min = Persons.FirstOrDefault(y =>
 		y.GetWorkload() == Persons.Min(x => 
 		x.GetWorkload()));
 
-// orts the list after priority
+// Sorts the list after priority
 max.Worklist.ToList().Sort(Problem.GetComparer());             
 while(true)
 {
@@ -64,6 +78,7 @@ while(true)
     
     if (min.Workload > max.Workload)
     {
+	    // Move problem back
     	problemToBeMoved.AssignedTo = max;
     	break;
     }
