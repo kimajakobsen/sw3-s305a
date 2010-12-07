@@ -13,9 +13,9 @@ Inherits="System.Web.Mvc.ViewPage<HoplaHelpdesk.Models.Department>" %>
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
-            <table border="1" class="ContentContainer" width="100%"> 
+            <table border="0" class="ContentContainer" width="100%"> 
                 <th align="left">Staff members</th>
-                <th align="left">Categoryes</th>
+                <th align="left">Categories</th>
                 <tr>
                        
                     <td valign="top"  width="45%">

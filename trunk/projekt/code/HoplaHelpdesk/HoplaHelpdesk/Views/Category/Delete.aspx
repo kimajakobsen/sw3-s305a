@@ -10,7 +10,7 @@
 
     <h3>Are you sure you want to delete this?</h3>
     <fieldset>
-        <legend>Fields</legend>
+        <legend>Category</legend>
         
         <div class="display-label">Id</div>
         <div class="display-field"><%: Model.Id %></div>

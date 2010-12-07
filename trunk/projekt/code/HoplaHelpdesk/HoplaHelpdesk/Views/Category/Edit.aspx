@@ -12,7 +12,7 @@
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
-            <legend>Fields</legend>
+            <legend>Category</legend>
             
           
             <div class="editor-field">

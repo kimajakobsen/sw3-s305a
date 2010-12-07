@@ -12,9 +12,7 @@
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Fields</legend>
-            
-          
+            <legend>Tag</legend>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Name) %>
