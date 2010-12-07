@@ -1,3 +1,14 @@
 \section{Distribute Problems}
 \label{sec:dispro}
+Whenever a new problem is added it needs to be distributed to the correct staff member.
+This means the staff in the right apartment with the lowest workload. 
+The right department is the department with most categories represented by the submitted problem's tags.
+From the analysis we know that a tag belongs to a category which belongs to a department and with this knowledge the algorithm counts the number of times a department is represented in the problem.
 
+There are two special cases which requires some attention. 
+The case where two or more departments are equally represented in a problem and the case where a problem has no tags. 
+In the first case one is simply chosen by the order in which the department is in the unsorted list of possible departments. 
+In the second case the problem is distributed among all staff members and the staff member with the lowest workload will get the problem. 
+
+If a problem is assigned to an inappropriate department we assume that any staff member would have the acquired knowledge to reassign the problem to the appropriate department. 
+The problem is always assigned to the staff member with the lowest workload and therefore he has the time to read the problem and determine the correct department.

@@ -11,26 +11,30 @@ All functions with a medium or complex complexity are explained below.
 \begin{tabular}{|l|l|l|}
 \hline
 \textbf{Name}								&\textbf{Complexity} & \textbf{Operations}   \\ \hline%
-Get all categories 					&   Simple & Read   \\ \hline%
+%Get all categories 					&   Simple & Read   \\ \hline%
 Get problem tags						&   Simple & Read   \\ \hline%
 Search for problems 				&  Complex & Read/Calculate   \\ \hline%
 Create problem 							&   simple & Update   \\ \hline%
-Get problem matching tags 	&   simple & Read/Calculate   \\ \hline%
+%Get problem matching tags 	&   simple & Read/Calculate   \\ \hline%
 Get problem tags 						&   Simple & Read   \\ \hline%
 Get / set problem Deadline 	&   Simple & Read/Update  \\ \hline%
 Get / set problem Title 		&   Simple & Read/Update   \\ \hline%
 Get / set problem Description & Simple & Read/Update   \\ \hline%
 Get / set problem status 		&   Simple & Read/Update   \\ \hline%
 Get / set problem added date& 	Simple & Read/Update   \\ \hline%
-Get / set problem solutions &   Simple & Read/Update/Signal   \\ \hline%
+Get / add problem solutions &   Simple & Read/Update/Signal   \\ \hline%
 Get / add problem comments 	&   Simple & Read/Update/Signal   \\ \hline%	
 Get / set problem priority 	&   Simple & Read/Update   \\ \hline%
-Assign / unassign  staff to problem 	&   Simple & Read/Update/Signal   \\ \hline%
+Reassign staff to problem 	&   Simple & Read/Update/Signal   \\ \hline%
 Subscribe / unsubscribe  to problem 	&   Simple & Update   \\ \hline%
 Get problem assigned staff 	&   Simple & Read   \\ \hline%
 Attach / detach solution to problem	&   Simple & Read/Update   \\ \hline%
-Get / set ETC 							&   Medium & Read/Update/Calculate   \\ \hline%
+Manage Tag Times &   Medium & Update/Calculate
+Get Problem Est. Time Consumption 					&   Medium & Read/Calculate   \\ \hline%
+Get Problem Expected Time of Completion 					&   Medium & Read/Calculate   \\ \hline%
+Get Tag average time consumption					&   Simple & Read/Calculate   \\ \hline%
 Get worklist 								&   Simple & Read   \\ \hline%
+Get sorted worklist 								&   Medium & Read/Calculate   \\ \hline%
 Approve deadline 						&   Simple & Update   \\ \hline%
 Get list of departments 		&   Simple & Read   \\ \hline%
 Create department 					&   Simple & Update   \\ \hline%
@@ -45,10 +49,11 @@ Get / set person department &   Simple & Read/Update   \\ \hline%
 Get / set person role 			&   Simple & Read/Update   \\ \hline%
 Delete person 							&   Simple & Update   \\ \hline%
 Get person name 						&   Simple & Read   \\ \hline%
-Get person workload 				&   Simple & Read   \\ \hline%
+Get persons workload 				&   Simple & Read   \\ \hline%
 Reset person password 			&   Medium & Update/Signal   \\ \hline%
 Balance workload 						&   Complex & Calculate   \\ \hline%
 Get statistics							&   Medium & Read/Calculate   \\ \hline%
+Distribute Problem & Medium & Read/Calculate/Update \\ \hline%
 \end{tabular}
 \end{center}
 \morscaption{Function list}
@@ -56,20 +61,47 @@ Get statistics							&   Medium & Read/Calculate   \\ \hline%
 \end{figure}
 
 \paragraph{Search for problems }
-This function searches the model for problems with specific tags, then presents them in an ordered list assorted after problems with most similar tags. It is both \textit{read} and \textit{calculate} because it reads in the model and compute which problems are most similar. This function is \textit{complex}.
+This function searches the model for problems with specific tags, then presents them in an ordered list assorted after problems with most similar tags. 
+It is both \textit{read} and \textit{calculate} because it reads in the model and compute which problems are most similar. 
+This function is \textit{complex}.
 
-\paragraph{Get / set  ETC }
-This function calculate the estimated time of completion. Each tag have a ETC, and a problem will have the ETC equaling to the average of the tags attached to the problem. This function is read, update, and calculate because it reads from the database and calculate a problems ETC. When a problem is marked as solved the \astaff[] enters how long the problem took to solve, this value is then added to the attached tags. This function is \textit{medium}.  
+\paragraph{Get Estimated Time Consumption of Problem }
+This function calculates the amount of time a specific problems acquires to be solved. This is based upon the related tags. 
+The tags has property describing the average time consumption.  
+
+\paragraph{Get ExpectedTime of Completion of Problem}
+This function takes all the problems of the assigned staff member which are expected to be solved prior this problem and adding up the amount each is estimated time each problem will consume.
+
+\paragraph{Get Average Time Consumption of a Tag }
+This function calculates the average time consumption of a tag. 
+It has to divide the number of problem solved and the total amount of time all problems with this tag required to be solved. 
+
+
+\paragraph{Get Sorted Worklist}
+This function returns the work list of a staff member in sorted order after priority. 
+
+\paragraph{Manage Tag Time of Problem }
+This function takes the time a staff has used to solve a problem and adds to the related tags time consumption and increments the solved problems property. 
 
 \paragraph{Reset person password}
-If a person forgets his password, then he can gets a new password send to his mail. The password is randomly generated.	This function is updates the model to match the computed password. This function is \textit{medium}.
+If a person forgets his password, then he can gets a new password send to his mail. The password is randomly generated. This function is updates the model to match the computed password. This function is \textit{medium}.
 
 \paragraph{Balance workload}
 This function compares the workload of staff and distributes their problems equally among other \astaff members in the same department. This function calculate the the workload of \astaff s and then moves problems in the most optimal way. This function is Complex.   
 
-\paragraph{Get statistics	}
+\paragraph{Get statistics}
 The statistics function calculate how long each \astaff[] use to solve a problem in average. The function can also find the total average for departments. By reading values form the model and calculating the best way to balance the workload, problems will be solved faster. This function is medium.
 
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{comment}
 \paragraph{Add Comment} This function simply adds a comment to an existing problem, making the comment visible for other \client{} and \astaff[] members. This function is marked as an \textit{signal}-function because a notification is sent to the assigned \astaff[] member.
 
