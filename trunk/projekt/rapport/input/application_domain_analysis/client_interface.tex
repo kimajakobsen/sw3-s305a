@@ -7,7 +7,7 @@ After login, the \aclient[] is presented with the \textit{main} window. All the 
 \subsubsection{Main}
 The \aclient s main window allows the \aclient to choose what to do in the helpdesk system. The ``Main'' window have three buttons:
 \begin{itemize}
-	\item The ``Add problem'' button which sends the user to the ``Categorize new problem'' window.
+	\item The ``Commit Problem'' button which sends the user to the ``Categorize new problem'' window.
 	\item The ``My problems'' button which sends the user to ``Search'' window.
 	\item The ``Search for problems'' button which sends the user to ``Search'' window.
 \end{itemize}
@@ -17,27 +17,33 @@ The \aclient s main window allows the \aclient to choose what to do in the helpd
 %The ``My problems'' and ``Search for problems'' button sends the user to ``Search'' window.
 
 \subsubsection{Search}
-The search windows is used to search for problems containing specific tags or posting by the client self. The ``Search'' window contains the following elements:
+The search windows is used to search for problems containing specific tags or problems posted by the client self. The ``Search'' window contains the following elements:
 \begin{itemize}
 	\item The ``Categories and tags'' frame, see paragraph below.
 	\item A settings panel.
-	\item A search button that triggers the search
+	\item A search button that triggers the search, see paragraph below.
 	\item A list containing the problems matching the settings and tags.
 \end{itemize}
 A problem can be double clicked to view details about the problem in the ``Client problem view'' windows.
 %The search window contains a search button, a list where found problems are displayed, a settings and the frame ``Categories and tags''
 %The search button will start a search with the current configuration and show the results in the list. 
 
-\paragraph{Settings}\fixme{dette skal uddybes}
-solved problems
-my problems
-
+\paragraph{Settings}
+The ``Settings'' frame contains configurations options for the search.
+The frame contains the following elements:
+\begin{itemize}
+	\item My problems 
+	\item Unsolved problems
+	\item Solved problems 
+	\item Number of search results
+\end{itemize}
+When a search is preformed these options are checked and they will effect the result of the search.
 
 \paragraph{Categories and tags} 
-This frame is used in a few other windows. 
+This frame is used in a few other windows as well. 
 The frame contains:
 \begin{itemize}
-	\item A list of categories, when a category is selected the tags connected to it is shown.  
+	\item A list of categories and the tags attached to it. 
 	\item A checkbox for each tag.
 \end{itemize} 
 
@@ -45,7 +51,7 @@ The frame contains:
 This window contains information about the selected problem. The window contains the following:
 \begin{itemize}
 	\item A info field which contains relevant information about the problem e.g. the description of the problem.
-	\item A subscription check-box, clients subscribed to the problem will receive notifications when then problem changes. The creator of the problem is not able to unsubscribe.
+	\item A subscription check-box, clients subscribed to the problem will receive notifications when then problem changes. 
 	\item A text field with all the previous entered comments if any.
 	\item A field to write new comments in.
 	\item The button ``Add comment'' which submits the comment.
