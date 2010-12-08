@@ -24,7 +24,7 @@ namespace HoplaHelpdesk.Models
         public void BalanceWorkload()
         {
             // Run through all persons.
-            for (var i = 0; i < Persons.Count; i++)
+            for (var i = 0; i < Persons.Count - 1; i++)
             {
                     // Find the person with the highest workload
                     var max = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Max(x => x.GetWorkload()));
