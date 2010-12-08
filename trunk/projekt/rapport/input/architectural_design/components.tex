@@ -1,6 +1,31 @@
 \section{Component Architecture}
 \label{sec:components}
-With basis in our system definition in chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. To obtain high flexibility we created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or \fixme{eller hvad?}. 
+With basis in our system definition in chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. 
+To obtain high flexibility we will use ASP.NET Mvc framework. Which is a model view controller design pattern based framework. 
+The database will be access by the system though ADO.NET data provider. This give a component design as seen on figure \ref{fig:system_component_mvc}. 
+
+\paragraph{View}
+The view component consist of all views. 
+This component's responsibility is to present the user with interfaces. 
+The interfaces consist of buttons, links, forms and data from a controller, the model, or a view model. View models are dependent on the model since it is a container of elements from the model. 
+
+\paragraph{Controller}
+The controller consist of several controllers with independent responsibilities, but the general responsibility of the controller component is to process the data in the model and return this in to the view. 
+
+\paragraph{Model}
+The Models responsibility is to 
+The model component is described in detail in \fixme{Link til model componenten i component design}
+
+\paragraph{View Model}
+
+\paragraph{Tools}
+
+%%%%%%%% Alt herunder er gammelt
+
+created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or \fixme{eller hvad?}. 
+
+
+
 The architecture has three layers: User- and System-interfaces, Functions, Model as shown on figure \ref{fig:SystemComponent}. The figures components will be explained in section \ref{sub:SystemComponent}.
 
 \begin{figure}
