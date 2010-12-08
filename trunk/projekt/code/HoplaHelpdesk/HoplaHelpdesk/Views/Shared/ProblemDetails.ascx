@@ -12,21 +12,20 @@
         <div class="display-field"><%: String.Format("{0:g}", Model.AssignedTo.Name) %>  from  <%: Model.AssignedTo.Department.Name %> </div>
 
         <div class="display-label">ETC</div>
-        <div class="display-field"><% if (Model.Eta > DateTime.Now.Add(new TimeSpan(0, 1, 0, 0)))
+        <div class="display-field"><% if (Model.Eta > DateTime.Now.Add(new TimeSpan(0, 0, 10, 0)))
                                       {%><%: String.Format("{0:g}", Model.Eta)%>
                                       <%
                                       }
                                       else
                                       {%>
-                                      <p>
+                              
                                         Unfortuntly, our system does not have enough data to predict when your problem will be solved.
-                                      </p>
+                                     
                                       <% 
                                       }
                                       %></div>
         
-        <div class="display-label">Deadline</div>
-        <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
+        
 
         <div class="display-label">Deadline Approval</div>
         <div class="display-field">
@@ -39,6 +38,13 @@
                      <%: String.Format("{0:g}", "Deadline not approved")%>
             <%} %>
         </div>
+
+        <% if (Model.IsDeadlineApproved.GetValueOrDefault())
+               {%>
+        <div class="display-label">Deadline</div>
+        <div class="display-field"><%: String.Format("{0:g}", Model.Deadline) %></div>
+        <%} %>
+
 
         <% if (!(Model.SolvedAtTime == null))
            { %>

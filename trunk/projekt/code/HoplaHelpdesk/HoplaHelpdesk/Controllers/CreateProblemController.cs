@@ -198,8 +198,8 @@ namespace HoplaHelpdesk.Controllers
         [HttpPost]
         public ActionResult Create(ProblemCatTagWithSelectionViewModel model)
         {
-            //try
-            //{
+            try
+            {
               foreach(var tag in model.CatTag.AllTagsSelected()){
                   model.Problem.Tags.Add(db.TagSet.Single(x => x.Id == tag.Id));
                 }
@@ -218,13 +218,15 @@ namespace HoplaHelpdesk.Controllers
                 //return View("Details", problem);
                 
                 return View("Succes");
-            //}
-                
-          /* catch
-           {
-          
-               return View(model);
-           }*/
+            }
+            catch
+            {
+                ViewData["Error"] = "An error occur durring the creation of the problem with the title: '"
+                    + model.Problem.Title + "' and description: '"
+                    + model.Problem.Description + "'";
+                ViewData["View"] = "Create";
+                return View("Error");
+            }
                  
         }
 
