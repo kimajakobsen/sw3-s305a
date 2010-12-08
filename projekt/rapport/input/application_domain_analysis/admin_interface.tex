@@ -6,71 +6,59 @@ After login, the \admin[] is presented with the \textit{main} window. All the wi
 \subsubsection{Main}
 The ``Main'' \admin window gives access to administration options and the functionality from the \astaff and \aclient main windows. The window contains: 
 \begin{itemize}
-	\item The button ``Administrate departments, categories, and tags'' which directs the \admin[] to the ``Department Administration'' window.  
-	\item The button ``Administrate persons'' directs the \admin[] to the ``Person Administration'' window.
+	\item The button ``Manage Deparments'' directs the \admin[] to the ``Department Administration'' window.  
+	\item The button ``Manage People'' directs the \admin[] to the ``Person Administration'' window.
+	\item The button ``statistics'' directs the \admin[] to the ``statistics'' window.
 \end{itemize}
 plus the buttons from the \astaff[] and \aclient[] ``main'' window.
 %The ``Main'' administrator window contains two new  and ``Administrate persons''. The buttons from the ``Main'' \astaff and \aclient window are also shown.  
 
 \subsubsection{Person administration}
-When the ``person Administrate'' window is opened, the \admin is able to browse through all \astaff members. The window contain three elements:
+When the ``person Administrate'' window is opened, the \admin is able to browse through all \astaff members. The window contain the following element:
 \begin{itemize}
-	\item A dropdown menu where departments or ``Clients'' can be selected.
-	\item A list with all the \astaff members or \aclient s which belongs to the selected group.
-	\item The ``New person'' 
+	\item A list with all the persons in the system.
 \end{itemize}
 
 \subsubsection{Department administration}
-This window 
+This window shows a list of staff and categories for the selected department.
+The ``Department administration'' contains the following:
+\begin{itemize}
+	\item A dropdown menu where department can be selected.
+	\item A list of \astaff[] members who are a part of the selected department.
+	\item A list of categories which is related to the department.
+\end{itemize}
+When the \astaff[] is clicked the \admin[] is send to the ``person view''.
+When a category is clicked the \admin[] is send to the ``Category view''. 
 
 
 \subsubsection{Person view}
+The ``person view'' shows information about a selected person.
+The window contains the following elements:
+\begin{itemize}
+	\item A info field where relevant information is displayed about the person
+	\item A dropdown where roles can be set.
+	\item A dropdown where departments can be set.
+	\item The button ``delete'' which deletes the person and sends the user back to the previous window. 
+\end{itemize}
 
 \subsubsection{Category view}
 The ``Category View'' window shows information about the selected category and allows it to be modified. The window contains the following: 
 
 \begin{itemize}
-	\item 
-	\item save
-	\item new tag
+	\item An info field where relevant information is displayed.
+	\item A list with all the tags belonging to the category.
+	\item The ``Create new tag'' which send the \admin[] to ``Tag View'' window.
+	\item The ``hide'' button which hide category and its tags. 
 \end{itemize}
+Each tag have an ``edit'' button which allows a tag to be modified, the button sends the \admin to the ``Tag view'' window. 
 
 \subsubsection{Tag view}
-
+This window is used to create new tags and edit already existing tags.
+It contains the following:
 \begin{itemize}
-	\item save
+	\item A info field which can be edited.
+	\item An ``Hide'' button which hide the tag.
+	\item An ``save'' button which save the changes made.
 \end{itemize}
+When the hidden button is pressed then the \admin[] is directed back to the ``category view'' window.
 
-
-\begin{comment}
-
-The \ainterface[] is an extension of the \sinterface[], as the \ainterface[] is entered through the \sinterface[].
-This makes sense because all persons given the permissions to enter the \ainterface[], will also be \astaff[] members.
-There are two major fields\fixme{Foretr\ae kker noget andet her. M\aa{}ske bare classes?} of which the \admin[] has influence on, departments and persons.
-These two are described in the following.
-
-\subsubsection{Administrate Persons}
-When an \admin[] enters the administrate-persons window the \admin[] is presented with a list of persons and a ``New Person'' button. From this window the \admin[] can select an existing person and change the data of him or her.
-
-\subsubsection{Administrate Departments}
-
-\end{comment}
-
-
-\begin{figure}[H]
-	\centering
-		\includegraphics[width = \textwidth, clip=true, trim=0 5cm 3cm 0]{input/application_domain_analysis/Navigation_DiagramAdmin.pdf}
-	\morscaption{\ainterface[c]}
-	\label{fig:Navigation_DiagramAdmin}
-\end{figure}
-
-\begin{comment}
-\begin{itemize}
-	\item department, including:
-	\begin{itemize}
-		\item categories
-		\item tags
-	\end{itemize}
-	\item persons
-\end{itemize}
-\end{comment}
