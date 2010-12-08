@@ -48,7 +48,7 @@ namespace HoplaHelpdesk.ViewModels
             }
             foreach (var tag in TagList)
             {
-                if (!tag.Hidden)
+                if (tag != null && !tag.Hidden)
                 {
                     return false;
                 }
