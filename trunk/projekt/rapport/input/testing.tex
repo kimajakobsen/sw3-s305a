@@ -1,8 +1,9 @@
 \chapter{Testing}
 \label{chap:testing}
-\myTop{Top}
+\myTop{This chapter will outline the testing we did during and after the development of our system, as well as an example. We have utilized testing as correctness of the key methods are crucial to our system.}
 
-Throughout the development, we've used Visual Studios built in Team Test, which is Visual Studios built integrated unit-testing framework. \cite{teamtest} \\
+Throughout the development, we've used Visual Studios built in Team Test, which is an integrated unit-testing framework. \cite{teamtest} \\
+The idea behind unit testing is to check an individual method by executing it with approproate input, and afterwards check that its output corresponds to what it should.
 
 All major functions have been tested with Team Test, an example is shown in code snipper \ref{lst:balanceWorkloadTest19}. The example unit test creates four problems, all attached to four individual tags, all with the same time \verb+TimeConsumed+ setting. Two persons are then created, where one of them gets three out of the four problems, and the last person gets the remaining problem. The \verb+BlanceWorkload+ method is then used, to balance the workload of the two persons. Afterwards, the test checks that the problems have been evenly distributed between the persons.
 
@@ -39,4 +40,4 @@ public void BalanceWorkloadTest2()
 }
 \end{lstlisting}
 
-\myTail{Tail}
+\myTail{This chapter will outline the testing we did during and after the development of our system, as well as an example.}
