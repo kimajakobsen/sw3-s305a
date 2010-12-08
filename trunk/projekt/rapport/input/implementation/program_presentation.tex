@@ -12,7 +12,19 @@ As described there are three roles a user of our system can have:
 
 As with all users of the system, the first thing which the user is greeted with, is the welcome page, followed by the login screen.
 After that, the path is split up according to the role the user has.
-All the pages of our system shares the same master file, which means that 
+All the pages of our system shares the same master file, particularly the menu which holds the functionality of the logged in user.
+The shared master gives a top of every page, which is seen on figure \ref{fig:master}.
+The points in the menu changes depending on which privileges the current user has.
+
+\begin{figure}
+	\centering
+		\includegraphics[width=1.00\textwidth, clip=true, trim=0cm 27.5cm 0cm 0cm]{input/implementation/program_presentation/commit.png}
+	\morscaption{The menu which the master file is responsible for making.
+	The Commit Problem, My Problems, and Search for Problems are menu points which are allow for clients.
+	The My Worklist menu point is a menu point for the staff users.
+	The Mange Department, Mange People, and Statistics menu points are allowed for admins only}
+	\label{fig:master}
+\end{figure}
 
 Below the most common usages of our system is described.
 These are based on the use cases from our analysis in section \ref{sec:usecase}.
