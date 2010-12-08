@@ -1,7 +1,7 @@
 \section{Quality Goals}
 \label{sec:criteria}
 The design of \hdesk[] is specified from the following quality goals: Usable, secure, efficient, consistence, reliable, maintainable, testable, comprehensible, reusable, portable, and interoperable.
-The definition of these quality goals -- or simply criteria -- is shown in table \ref{fig:defOfCrit}.
+The definition of these quality goals -- or simply criteria -- is shown in figure \ref{fig:defOfCrit}.
 \cite[p.~178]{roedeaalborg}
 
 \begin{sable}[htbp]{0.3}{0.7}{Definition of criteria}{fig:defOfCrit}
@@ -21,7 +21,7 @@ The definition of these quality goals -- or simply criteria -- is shown in table
   Interoperable&How well the system cooperates with other systems \\
 \end{sable}
 
-\subsection{Prioritizing Quality Goals}
+\subsection{Quality Goals}
 Since it is not possible to prioritize each criterion equally, we have chosen to use a four step priority scale: Very important, important, less important, and irrelevant.
 Each criterion defined in figure \ref{fig:defOfCrit} is prioritized in figure \ref{fig:prioritizedCrit}.
 Further the figure \ref{fig:prioritizedCrit} shows a column labeled ``Easily Fulfilled''
@@ -54,7 +54,7 @@ How we have prioritized the criteria is based on our system definition, which is
 It is important that our \hdesk[] is user friendly because it can be used in any organization, it is however not very important since we during this project primarily will tailor it to the university's system.
 Further more we are more concerned with the functionality of the system than the usability, hence; important 
 \paragraph{Secure}
-For the \hdesk[] security is less important. We want to make sure whether it is a client or a staff member who is using the system -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
+For the \hdesk[] security is less important. We want to distinguish between \aclient s \astaff s and \admin s -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
 We do however not have any sensitive information, so we take no measures to prevent data interception or any other serious security flaw.
 \paragraph{Efficient}
 We do not care for the efficiency of our system, but only that it works which lead us to irrelevant for this criterion 
@@ -74,6 +74,9 @@ We want our system to work and to make sure it does, we will run tests.
 Therefore we want our system to be testable.
 \paragraph{Flexible}
 It is very central to our system that it is flexible, because we want it be generic -- that it can be adapted to any organization without much or any cost.
+
+person management, reset password, new tags and cats, 
+
 We have chosen this to be a very important criteria.
 \paragraph{Comprehensible}
 Since the \hdesk[] system is supposed to be generic, it should be easy for the user to understand it.
