@@ -586,6 +586,7 @@ namespace HoplaHelpdesk.Tests
                     mike, john
                 }
             };
+
             target.BalanceWorkload();
             Assert.IsTrue(mike.Worklist.Contains(prob1));
             Assert.IsTrue(john.Worklist.Contains(prob2));
@@ -790,7 +791,7 @@ namespace HoplaHelpdesk.Tests
             target.BalanceWorkload();
 
 
-            Assert.IsTrue(john.Worklist.Contains(prob1));
+            Assert.IsTrue(mike.Worklist.Contains(prob1));
             Assert.IsTrue(john.Worklist.Contains(prob2));
             Assert.IsTrue(mike.Worklist.Contains(prob3));
             Assert.IsTrue(mike.Worklist.Contains(prob4));
