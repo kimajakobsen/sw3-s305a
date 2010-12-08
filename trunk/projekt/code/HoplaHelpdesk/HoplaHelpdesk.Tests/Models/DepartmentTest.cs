@@ -903,7 +903,6 @@ namespace HoplaHelpdesk.Tests
         // http://.../Default.aspx). This is necessary for the unit test to be executed on the web server,
         // whether you are testing a page, web service, or a WCF service.
         [TestMethod()]
-
         public void BalanceWorkloadTest19()
         {
             var tag1 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 20
