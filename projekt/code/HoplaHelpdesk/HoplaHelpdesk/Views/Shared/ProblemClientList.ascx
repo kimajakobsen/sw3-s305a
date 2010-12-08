@@ -4,7 +4,7 @@
             <tr>
                 <th width="20%">Title</th>
                 <th width="10%">Deadline</th>
-                <th width="10%">ETA</th>
+                <th width="10%">ETC</th>
                 <th width="10%">Solved</th>
                 <th width="50%">Description</th>
             </tr>
