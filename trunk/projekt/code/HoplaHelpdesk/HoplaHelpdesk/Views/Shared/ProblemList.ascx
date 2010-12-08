@@ -5,7 +5,7 @@
                 <th width="20%">Title</th>
                 <th width="20%">Deadline</th>
                 <th width="10%">Priority</th>
-                <th width="10%">ETA</th>
+                <th width="10%">ETC</th>
                 <th width="40%">Description</th>
             </tr>
     <% foreach (var item in Model.Problems) { %>        
@@ -25,7 +25,18 @@
                 <br />
                 <%: item.Deadline %></td>
                 <td><%: item.Priority %></td>
-                <td></td>
+                <td><% if (item.Eta != null && item.Eta > DateTime.Now.Add(new TimeSpan(0, 0, 10, 0)))
+                                      {%><%: String.Format("{0:g}", item.Eta)%>
+                                      <%
+                                      }
+                                      else
+                                      {%>
+                              
+                                        N/A
+                                     
+                                      <% 
+                                      }
+                                      %></td>
                 <td><%: item.Description %></td>
             </tr>
     <% } %>
