@@ -13,7 +13,7 @@ These two are described in following subsections.
 \subsection{DBMS}
 \label{subsec:dbms}
 
-Using an external DBMS allows the system to be installed across multiple machines instead on a single computer. This is a good thing as it makes our system more flexible, allowing it to be either installed on a single computer, or two computers.
+Using an external DBMS allows the system to be installed across multiple machines instead on a single computer. This is a good thing as it makes our system portable, allowing it to be either installed on a single computer, or two computers.
 
 The differences which we have considered between these two DBMS's are listed in figure \ref{fig:DBMS}\cite{postgres08}
 
@@ -23,16 +23,16 @@ The differences which we have considered between these two DBMS's are listed in 
 		\begin{tabularx}{\textwidth}{L|L|L}
 			\textbf{Feature}&\textbf{PostgreSQL}&\textbf{Microsoft SQL Server} \\
 			\hline
-			Accessible&BSD Open source&Requires license, but we do have this through the university \\
-			Cooperative with our tools&Hard to incorporate into Visual Studio 2010&Easy to incorporate into Visual studio 2010 \\
-			Experience in our work group&We have had a course based on PostgreSQL&None, but resembles other SQL DBMS's \\
+			Accessible&BSD Open source&Requires license, but we do have this through the university. \\ 
+			Cooperative with our tools&Hard to incorporate into Visual Studio 2010. & Easy to incorporate into Visual studio 2010. \\ 
+			Experience in our work group&We have had a course based on PostgreSQL. & None, but resembles other SQL DBMS's. \\ 
 		\end{tabularx}
 	\morscaption{DBMS's compared}
 	\label{fig:DBMS}
 \end{figure}
 
-Our system requires a DBMS supporting the query language \sql[] as well as the relational database storage model.
-We have chosen Microsoft SQL Server\fixme{Inds\ae t Microsoft SQL Server versionsnummer} in favor of \posgresql[], which we have past experience with due to a university course.
+Our system requires a DBMS supporting the query language \sql[] as well as the relational database storage model \fixme{hvad menes der med dette? evt kilde hvis det er en bestem model}.
+We have chosen Microsoft SQL Server version 10.50.1600.1 in favor of \posgresql[], which we have past experience with due to a university course.
 However \posgresql[] is less integrated with Visual Studio 2010, which we are using for developing our system.
 
 \subsection{Web Server}
