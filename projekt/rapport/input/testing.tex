@@ -4,6 +4,39 @@
 
 Throughout the development, we've used Visual studios built in Team Test, which is Visual Studios built integrated unit-testing framework. \cite{teamtest}
 
-All major functions have been tested with Team Test, an example is shown ..
+All major functions have been tested with Team Test, an example is shown in code snipper \ref{lst:balanceWorkloadTest19}. The example unit test creates four problems, all attached to four individual tags, all with the same time \verb+TimeConsumed+ setting. Two persons are then created, where one of them gets three out of the four problems, and the last person gets the remaining problem. The \verb+BlanceWorkload+ method is then used,  
+
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{An example unit test which tests a specific instance of the balanceWorkload method.}, label=lst:balanceWorkloadTest19]
+[TestMethod()]
+public void BalanceWorkloadTest2()
+{
+    var tag1 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 1 , Priority = 1  };  //(TimeConsumed / SolvedProblems) = 20
+    var tag2 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 2 , Priority = 2  };  //(TimeConsumed / SolvedProblems) = 10
+    var tag3 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 2 , Priority = 3  };  //(TimeConsumed / SolvedProblems) = 10
+    var tag4 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 2 , Priority = 4  };  //(TimeConsumed / SolvedProblems) = 10
+
+    var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true };
+    var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };
+    var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };
+    var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };
+   
+    var mike = new Person() { Name="mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3 } }; // Workload = 40
+    var john = new Person() { Name= "John", Worklist = new EntityCollection<Problem>() { prob4 } };               // = 10
+
+    Department target = new Department()
+    {
+        Persons = new EntityCollection<Person>()
+        {
+            mike, john
+        }
+    };
+    target.BalanceWorkload();
+    Assert.IsTrue(john.Worklist.Contains(prob1));
+    Assert.IsTrue(mike.Worklist.Contains(prob2));
+    Assert.IsTrue(john.Worklist.Contains(prob4));
+    Assert.IsTrue(mike.Worklist.Contains(prob3));
+}
+\end{lstlisting}
 
 \myTail{Tail}
