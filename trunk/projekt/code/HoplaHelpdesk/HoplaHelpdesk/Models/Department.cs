@@ -27,12 +27,14 @@ namespace HoplaHelpdesk.Models
 
             foreach (var member in staffMembers)
             {
-                foreach (var problem in member.Problems)
+                for (int i = 0; i < member.Worklist.Count; i++)
                 {
-                    if (problem.Reassignable == true && problem.SolvedAtTime == null)
+                    if (member.Worklist.ElementAt(0).Reassignable == true && member.Worklist.ElementAt(0).SolvedAtTime == null)
                     {
-                        problem.AssignedTo = dummyPerson;
-                        dummyPerson.Worklist.Add(problem);
+
+                        dummyPerson.Problems.Add(member.Worklist.ElementAt(0));
+                        member.Worklist.ElementAt(0).AssignedTo.Worklist.Remove(member.Worklist.ElementAt(0));
+                        member.Worklist.ElementAt(0).AssignedTo = dummyPerson;
                     }
                 }
             }
@@ -95,6 +97,7 @@ namespace HoplaHelpdesk.Models
                             problemToBeMoved.HasBeen = true;
 
                             // Reassign the highest priority problem to staff called min.
+                            problemToBeMoved.AssignedTo.Worklist.Remove(problemToBeMoved);
                             problemToBeMoved.AssignedTo = min;
 
                             if (min.Workload >= max.Workload)
@@ -107,6 +110,7 @@ namespace HoplaHelpdesk.Models
                                 beforeMoveBack = Math.Abs(max.Workload - min.Workload);
 
                                 // Move it back
+                                problemToBeMoved.AssignedTo.Worklist.Remove(problemToBeMoved);
                                 problemToBeMoved.AssignedTo = max;
 
                                 // Calculate difference after moving
