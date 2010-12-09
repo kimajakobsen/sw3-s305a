@@ -22,6 +22,7 @@ namespace HoplaHelpdesk.Models
 
         public void FUTUREIMPLEMENTATIONBalanceWorkload()
         {
+            Person dummyPerson = new Person();
             List<Person> staffMembers = Persons.ToList();
             List<Problem> problemListTmp = null;
 
@@ -32,21 +33,12 @@ namespace HoplaHelpdesk.Models
                     if (problem.Reassignable == true && problem.SolvedAtTime == null)
                     {
                         problemListTmp.Add(problem);
-                        problem.AssignedTo = null;
+                        problem.AssignedTo = dummyPerson;
                     }
                 }
             }
 
-            // collect the different problems
-            List<Problem> problemList = problemListTmp.Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
-            List<Problem> problemWithoutDeadline = problemListTmp.Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
-
-            // sort them
-            problemList.Sort(Problem.GetComparer());
-            problemWithoutDeadline.Sort(Problem.GetComparer());
-
-            // concatinate problems into a single list
-            problemList.AddRange(problemWithoutDeadline);
+            List<Problem> problemList = dummyPerson.SortedWorklist;
 
             while (problemList.Count > 0)
             {
