@@ -24,7 +24,6 @@ namespace HoplaHelpdesk.Models
         {
             Person dummyPerson = new Person();
             List<Person> staffMembers = Persons.ToList();
-            List<Problem> problemListTmp = null;
 
             foreach (var member in staffMembers)
             {
@@ -32,8 +31,9 @@ namespace HoplaHelpdesk.Models
                 {
                     if (problem.Reassignable == true && problem.SolvedAtTime == null)
                     {
-                        problemListTmp.Add(problem);
                         problem.AssignedTo = dummyPerson;
+                        dummyPerson.Worklist.Add(problem);
+
                     }
                 }
             }
