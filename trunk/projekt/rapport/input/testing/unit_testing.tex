@@ -1,0 +1,99 @@
+\chapter{Black box testing}
+\label{chap:testing}
+\myTop{This chapter outlines the black box testing we did during and after the development of our system, as well as an example. We have utilized testing as correctness of the key methods are crucial to our system.}
+
+Throughout the development, we have used Visual Studios built in Team Test, which is an integrated unit-testing framework. \cite{teamtest} 
+The idea behind unit testing is to check an individual method by executing it with appropriate input, and afterwards check that its output corresponds to the expected.
+
+All major functions have been tested with Team Test. This mean that we have not made any unit testing on controllers. We considered controller unit testing as inefficient because it is easier to test controllers by running the program and see that they behave as expected. If any controller has very complex code a method will be made instead and this will be unit tested. 
+This is done with for example the search and the problem distribution methods. 
+Controller unit testing requires a great deal of independency injection and mocking since most controllers uses a database entity which we have to mock in order to make proper testing. 
+
+A unit test consist of three parts, an arrange phase, an act phase, and a assert phase. 
+The arrange phase sets up the input and requirements for the test. 
+The act is the run of the method and the assert is the actual testing.  
+
+In section \ref{sec:balWorUniTes} a black box test of the balance workload method is presented and in section \ref{sec:independencyInjection} a unit test with independency injection is explained. 
+
+
+
+\section{Balance workload unit test}
+\label{sec:balWorUniTes}
+The department class has a method called balance workload, which balances the workload between all staff members in the department. 
+The method is described fully in section \ref{sec:balanceworkload}. 
+To arrange the test a department object is initialized and the required properties is set. This means the \vari{persons} property is set to a list of \cl{persons} and each person is assigned a number of problem with tags. 
+The arrange can be seen in code snippet \ref{lst:balanceWorkloadTest2arrange}. 
+%\begin{comment}
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The arrange phase of the unit test of balance workload}, label=lst:balanceWorkloadTest2arrange]
+var tag1 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 1 , Priority = 1  };  
+var tag2 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 2  }; 
+var tag3 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 3  }; 
+var tag4 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 4  }; 
+
+var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true };
+var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };
+var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };
+var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };
+   
+var mike = new Person() { Name="mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3 } }; // Workload = 40
+var john = new Person() { Name= "John", Worklist = new EntityCollection<Problem>() { prob4 } };               // = 10
+
+Department target = new Department()
+{
+    Persons = new EntityCollection<Person>()
+    {
+        mike, john
+    }
+};
+\end{lstlisting}
+%\end{comment}
+
+Now the expected result needs to be calculated. 
+Mike has three problems and this gives him a total workload of $20/1 + 20/2 + 20/2 = 40$. 
+John has 1 problem which gives him a total workload of $20 / 2 = 10$. 
+This implies that Mike's workload is overbalanced. 
+The algorithm is expected to reassign the problems so the workload is balanced. 
+The most balanced possible with the given problems is when one has 30($10 + 20$) workload and the other has 20($10 + 10$). 
+This can be expressed with a boolean expression which can be tested with the assert method \me{IsTrue}. 
+This assert can be seen on code snippet \ref{lst:balanceWorkloadTestAssert}.
+
+%\begin{comment}
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{An example unit test which tests a specific instance of the balanceWorkload method.}, label=lst:balanceWorkloadTestAssert]
+.
+.
+.
+target.BalanceWorkload();
+Assert.IsTrue(
+		(john.Worklist.Contains(john.Workload == 30 && mike.Workload == 20) || 
+		(mike.Workload == 30 && john.Workload == 20)
+	));
+.
+.
+.
+\end{lstlisting}
+%\end{comment}
+
+It is necessary to test various scenarios e.g. test cases where problems are solved, not reassignable, problems with extreme estimated time consumption, staff members with no problems, an empty department, various estimate time consumptions, and different priorities. 
+
+
+\section{Independency injection}
+\label{sec:independencyInjection}
+For some methods independency injection must be made in order to execute a proper test. 
+In the example with \me{BalanceWorkload}, independency injection could have been made on the workload property of \cl{person}. 
+This was not made because the workload method were already tested at the time \me{BalanceWorkload} were tested.
+
+To properly make a independency injection the method in action should be programmed to an interface. 
+This makes it easy to swap the implemented class with another class. 
+We did this to test the method \me{GetStaff} in the \cl{ProblemDistributer} class. 
+The method is described in section \ref{sec:dispro}.
+
+\me{GetStaff} were designed to be more testable and therefore it acts on the \cl{IPerson} interface. 
+The method depends on the \vari{Workload} property of \cl{person} and at the time of the unit test for this method the \vari{workload} were not fully implemented and neither were the \vari{isStaff} property. 
+Therefore we made a \cl{TestPerson} class which implemented the \cl{IPerson} interface.
+The \cl{TestStaff} implementation of the \me{isStaff} method returns true unless the \vari{name} is ``john''. 
+The \me{workload} property just counts the number of items in the \cl{person} class's \vari{worklist}. 
+
+In this way it is possible to make a unit test work. 
+
+\myTail{This chapter outlines the testing we did during and after the development of our system, as well as an example.}
