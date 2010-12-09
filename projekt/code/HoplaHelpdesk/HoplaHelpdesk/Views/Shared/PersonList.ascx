@@ -2,7 +2,7 @@
 
 <table class="problemlist" width="90%">
     <tr>
-        <th></th>
+        <th>Actions</th>
         <th>
             Id
         </th>
@@ -10,10 +10,10 @@
             Name
         </th>
         <th>
-            Email
+            E-mail
         </th>
         <th>
-            DepartmentId
+            Department Name
         </th>
         <th>
             Workload
@@ -34,7 +34,8 @@
     <tr>
         <td>
             <%: Html.ActionLink("Edit", "Edit", "Person", new { id = item.Id }, null)%> |
-            <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%> | <%: Html.ActionLink("Reset password","PassMail",new { item.Id }) %>
+            <%: Html.ActionLink("Delete", "Delete", new { id = item.Id })%> |
+            <%: Html.ActionLink("Reset password","PassMail",new { item.Id }) %>
         </td>
         <td>
             <%: item.Id%>

@@ -100,8 +100,8 @@ namespace HoplaHelpdesk.Controllers
          
             if (tag == null)
             {
-                ViewData["Error"] = "The tag you attempted to delete did not exist";
-                return RedirectToAction("Error");
+                ViewData["Error"] = "The tag you attempted to delete does not exist";
+                return View("Error");
 
             }
             try
@@ -112,13 +112,17 @@ namespace HoplaHelpdesk.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Details", new { id = id });
+                    ViewData["Error"] = "The tag has problems associated with it and cannot be deleted";
+                    ViewData["View"] = "Details";
+                    ViewData["Id"] = id;
+                    ViewData["Back"] = "Go to details";
+                    return View("Error");
                 }
             }
             catch
             {
-                ViewData["Error"] = "Some error occored.";
-                return RedirectToAction("Error");
+                ViewData["Error"] = "Some error occured.";
+                return View("Error");
             }
            
         }
