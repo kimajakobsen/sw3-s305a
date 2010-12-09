@@ -23,14 +23,13 @@ The department class has a method called balance workload, which balances the wo
 The method is described fully in section \ref{sec:balanceworkload}. 
 To arrange the test a department object is initialized and the required properties is set. This means the \vari{persons} property is set to a list of \cl{persons} and each person is assigned a number of problem with tags. 
 The arrange can be seen in code snippet \ref{lst:balanceWorkloadTest2arrange}. 
-\begin{comment}
+%\begin{comment}
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The arrange phase of the unit test of balance workload}, label=lst:balanceWorkloadTest2arrange]
-[TestMethod()]
 var tag1 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 1 , Priority = 1  };  
 var tag2 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 2  }; 
-var tag3 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 3  };  //(TimeConsumed / SolvedProblems) = 10
-var tag4 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 4  };  //(TimeConsumed / SolvedProblems) = 10
+var tag3 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 3  }; 
+var tag4 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 4  }; 
 
 var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true };
 var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };
@@ -48,7 +47,7 @@ Department target = new Department()
     }
 };
 \end{lstlisting}
-\end{comment}
+%\end{comment}
 
 Now the expected result needs to be calculated. 
 Mike has three problems and this gives him a total workload of $20/1 + 20/2 + 20/2 = 40$. 
@@ -59,22 +58,22 @@ The most balanced possible with the given problems is when one has 30($10 + 20$)
 This can be expressed with a boolean expression which can be tested with the assert method \me{IsTrue}. 
 This assert can be seen on code snippet \ref{lst:balanceWorkloadTestAssert}.
 
-\begin{comment}
+%\begin{comment}
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{An example unit test which tests a specific instance of the balanceWorkload method.}, label=lst:balanceWorkloadTestAssert]
-[TestMethod()]
 .
 .
 .
 target.BalanceWorkload();
 Assert.IsTrue(
-			(john.Worklist.Contains(john.Workload == 30 && mike.Workload == 20) || 
-			(mike.Workload == 30 && john.Workload == 20)
-		     ));
+		(john.Worklist.Contains(john.Workload == 30 && mike.Workload == 20) || 
+		(mike.Workload == 30 && john.Workload == 20)
+	));
 .
 .
 .
 \end{lstlisting}
-\end{comment}
+%\end{comment}
+
 It is necessary to test various scenarios e.g. test cases where problems are solved, not reassignable, problems with extreme estimated time consumption, staff members with no problems, an empty department, various estimate time consumptions, and different priorities. 
 
 
