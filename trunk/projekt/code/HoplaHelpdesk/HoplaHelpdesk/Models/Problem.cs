@@ -49,6 +49,11 @@ namespace HoplaHelpdesk.Models
             return new ProblemComparer();
         }
 
+        public static ProblemETCComparer GetETCComparer()
+        {
+            return new ProblemETCComparer();
+        }
+
         public class ProblemMetaData
         {
             [Required(ErrorMessage = "A problem Title is required")]

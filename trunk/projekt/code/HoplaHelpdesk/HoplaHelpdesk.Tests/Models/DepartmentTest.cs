@@ -116,6 +116,8 @@ namespace HoplaHelpdesk.Tests
             Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
         }
 
+
+
         /// <summary>
         /// In this test we test that the tags will be moved around currectly.
         /// Mike has a workload of 30 and john's is 10. The problem with the highest priority should be moved to john, that'll be prob3
