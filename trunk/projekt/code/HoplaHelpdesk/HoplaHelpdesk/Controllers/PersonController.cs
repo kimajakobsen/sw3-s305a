@@ -74,7 +74,7 @@ namespace HoplaHelpdesk.Controllers
 
             if (person.Department != null)
             {
-                person.Department.BalanceWorkload();
+                person.Department.FUTUREIMPLEMENTBalanceWorkload();
             }
           
            
