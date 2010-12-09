@@ -19,11 +19,22 @@
 
        <%
        } %>
+        <%if (ViewData["Back"] == null || ViewData["Back"] == "")
+          {
+              ViewData["Back"] = "Back";
+          } %>
 
          <% if (ViewData["View"] != null)
        {
        %>
-      <%: Html.ActionLink("Back", (string)ViewData["View"]) %>
+            <% if (ViewData["Id"] != null)
+               {%>
+                <%: Html.ActionLink((string)ViewData["Back"], (string)ViewData["View"], new { id = ViewData["Id"] })%>
+               <%}
+               else
+               { %>
+      <%: Html.ActionLink((string)ViewData["Back"], (string)ViewData["View"]) %>
+       <% } %>
        <% } %>
        
 
