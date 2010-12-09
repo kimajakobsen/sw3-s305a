@@ -92,8 +92,8 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void FUTUREIMPLEMENTATIONBalanceWorkloadTestBlackBox1()
         {
-            var tag1 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 10 };
-            var tag2 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 9 };
+            var tag1 = new Tag() { TimeConsumed = 100, SolvedProblems = 1, Priority = 10 };
+            var tag2 = new Tag() { TimeConsumed = 500, SolvedProblems = 1, Priority = 9 };
             var tag3 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 8 };
             var tag4 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 7 };
 
@@ -114,12 +114,12 @@ namespace HoplaHelpdesk.Tests
             };
 
             target.FUTUREIMPLEMENTATIONBalanceWorkload();
-            //Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
 
-            Assert.IsTrue(prob1.AssignedTo == bbbb);
+            Assert.IsTrue(prob1.AssignedTo == aaaa);
             Assert.IsTrue(prob2.AssignedTo == bbbb);
             Assert.IsTrue(prob3.AssignedTo == aaaa);
             Assert.IsTrue(prob4.AssignedTo == aaaa);
+
         }
 
 
