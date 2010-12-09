@@ -1,6 +1,6 @@
 \section{MVC Framework}
 \label{sec:mvc}
-The Model-View-Controller (MVC) was originally designed by Trygve M. H. Reenskaug in 1979, who was at that time working for Xerox PARC. The goal was to create an envoirontment in which the users (developer, customer ect.) could preserve the original perception of the datastructure, while being able to view and edit portions of it.
+The Model-View-Controller (MVC) was originally designed by Trygve M. H. Reenskaug in 1979, who was at that time working for Xerox PARC. The goal was to create an environment in which the users (developer, customer ect.) could preserve the original perception of the data structure, while being able to view and edit portions of it.
 
 \subsection{Components}
 
@@ -17,25 +17,25 @@ The (MVC) framework consists of three different types of components; Views, cont
 \begin{itemize}
 \item Models
 \end{itemize}
-The models are the components that handle the data domain of the application, , from which it reads and writes data. This way developers can handle the data, without worrying about the actual data connection.
+The models are the components that handle the data domain of the application, it is typically mapped to a database from which it reads and writes data. This way developers can handle the data, without worrying about the actual data connection.
 
 \begin{itemize}
 \item Views
 \end{itemize}
-The views display the data and UI. They are typically created with data provided from the model. These views are full-featured (X)HTML, with the addtion of C\# or Basic code, to fetch content from the model.
+The views display the data and UI. They are typically created with data provided from the model. These views are full-featured (X)HTML, with the addition of C\# or Basic code, to fetch content from the model.
 
 \begin{itemize}
 \item Controllers
 \end{itemize}
-The Controllers reacts to user requests the users provides through the UI. Based on this they deside which view should be rendered. If the data the view should display does not exist in the model (input, ect.) the controller can also provide this data to the view to display.
+The Controllers reacts to user requests the users provides through the UI. Based on this they decide which view should be rendered. If the data the view should display does not exist in the model (input, ect.) the controller can also provide this data to the view to display.
 
 \subsubsection{Master-page}
-Master-pages is not a part of MVC as a design-idea, it is a component implemented by Microsoft. The master-page is a page that is always loaded when displaying a view. Like the view, it consists of (X)HTML and C\#/Basic, however, it also has content-containers. These containers can be created anywhere on the webpage, and are filled with content by views.
+Master-pages is not a part of MVC as a design-idea, it is a component implemented by Microsoft. The master-page is a page that is always loaded when displaying a view. Like the view, it consists of (X)HTML and C\#/Basic, however, it also has content-containers. These containers can be created anywhere on the web page, and are filled with content by views.
 
 \subsection{Structure}
-An interesting thing about MVC is that there are no actual HTML files, all content is generated generically as the users interacts with the diferent components within the webpage. When entering an URL you actually call mothods in controllers, you can even add parameters to the calls. The controllers then redirects you to the correct view based on the input and the method called. The view then executes, which results in a plain webpages that can be displayed in a browser.
+An interesting thing about MVC is that there are no actual HTML files, all content is generated generically as the users interacts with the different components within the web page. When entering an URL you actually call methods in controllers, you can even add parameters to the calls. The controllers then redirects you to the correct view based on the input and the method called. The view then executes, which results in a plain web pages that can be displayed in a browser.
 
-Because of the seperation into three independent modules, developers are able to create different parts of the application with different kind of approches, thus enabling them to better manage complexity, create applications with a high maintainability, and create UI that does not have to show the actual datastructure, which can often be confusing for an ordinary user of the webpage.
+Because of the separation into three independent modules, developers are able to create different parts of the application with different kind of approaches, thus enabling them to better manage complexity, create applications with a high maintainability, and create UI that does not have to show the actual data structure, which can often be confusing for an ordinary user of the webpage.
 
 \subsubsection{Data validation}
 Client side validation
