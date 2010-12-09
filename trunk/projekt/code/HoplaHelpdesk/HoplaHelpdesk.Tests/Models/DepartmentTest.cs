@@ -149,10 +149,7 @@ namespace HoplaHelpdesk.Tests
                 }
             };
             target.BalanceWorkload();
-            Assert.IsTrue(john.Worklist.Contains(prob1));
-            Assert.IsTrue(mike.Worklist.Contains(prob2));
-            Assert.IsTrue(john.Worklist.Contains(prob4));
-            Assert.IsTrue(mike.Worklist.Contains(prob3));
+            Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
         }
 
         /// <summary>
@@ -185,10 +182,6 @@ namespace HoplaHelpdesk.Tests
                 }
             };
             target.BalanceWorkload();
-            Assert.IsTrue(john.Worklist.Contains(prob1));
-            Assert.IsTrue(mike.Worklist.Contains(prob2));
-            Assert.IsTrue(john.Worklist.Contains(prob4));
-            Assert.IsTrue(mike.Worklist.Contains(prob3));
             Assert.AreEqual(mike.Workload, 20);
             Assert.AreEqual(john.Workload, 20);
         }
@@ -257,19 +250,13 @@ namespace HoplaHelpdesk.Tests
             var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
             var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
             var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 20
 
-
-
-            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1, tag5, tag6 }, Reassignable = true }; /// 20
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true }; /// 20
             var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 20
             var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //20
             var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
-            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag7, tag8 }, Reassignable = true }; // 10
-
+            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag5 }, Reassignable = true }; // 10
 
             var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3 } }; // Workload = 60
             var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { prob4, prob5 } };               // = 20
@@ -282,11 +269,8 @@ namespace HoplaHelpdesk.Tests
                 }
             };
             target.BalanceWorkload();
-            Assert.IsTrue(john.Worklist.Contains(prob1));
-            Assert.IsTrue(mike.Worklist.Contains(prob2));
-            Assert.IsTrue(john.Worklist.Contains(prob4));
-            Assert.IsTrue(john.Worklist.Contains(prob5));
-            Assert.IsTrue(mike.Worklist.Contains(prob3));
+            Assert.AreEqual(40, john.Workload);
+            Assert.AreEqual(40, mike.Workload);
         }
 
 
@@ -376,11 +360,6 @@ namespace HoplaHelpdesk.Tests
                 }
             };
             target.BalanceWorkload();
-            Assert.IsTrue(john.Worklist.Contains(prob1));
-            Assert.IsTrue(john.Worklist.Contains(prob2));
-            Assert.IsTrue(mike.Worklist.Contains(prob4));
-            Assert.IsTrue(mike.Worklist.Contains(prob5));
-            Assert.IsTrue(mike.Worklist.Contains(prob3));
             Assert.AreEqual(mike.Workload, 40);
             Assert.AreEqual(john.Workload, 40);
         }
@@ -739,18 +718,11 @@ namespace HoplaHelpdesk.Tests
             var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 20
             var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
             var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 20
-            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 20
-            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
-
-
 
             var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true, SolvedAtTime = new DateTime() }; /// 200000
             var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 20
             var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //20
             var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
-            var prob5 = new Problem() { Tags = new EntityCollection<Tag> { tag5 }, Reassignable = true }; // 10
 
 
             var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { } }; //Workload = 0
@@ -767,11 +739,7 @@ namespace HoplaHelpdesk.Tests
 
 
             Assert.IsTrue(john.Worklist.Contains(prob1));
-            Assert.IsTrue(john.Worklist.Contains(prob2));
-            Assert.IsTrue(john.Worklist.Contains(prob3));
-            Assert.IsTrue(john.Worklist.Contains(prob4));
-
-
+            Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
         }
 
 
@@ -910,11 +878,6 @@ namespace HoplaHelpdesk.Tests
                 }
             };
             target.BalanceWorkload();
-            Assert.IsTrue(john.Worklist.Contains(prob1));
-            Assert.IsTrue(john.Worklist.Contains(prob2));
-            Assert.IsTrue(mike.Worklist.Contains(prob4));
-            Assert.IsTrue(mike.Worklist.Contains(prob5));
-            Assert.IsTrue(mike.Worklist.Contains(prob3));
             Assert.AreEqual(mike.Workload, 40);
             Assert.AreEqual(john.Workload, 40);
         }
