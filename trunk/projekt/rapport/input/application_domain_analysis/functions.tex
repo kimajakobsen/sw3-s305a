@@ -29,12 +29,10 @@ Reassign staff to problem 	&   Simple & Read/Update/Signal   \\ \hline%
 Subscribe / unsubscribe  to problem 	&   Simple & Update   \\ \hline%
 %Get problem assigned staff 	&   Simple & Read   \\ \hline%
 Attach / detach solution to problem	&   Simple & Read/Update   \\ \hline%
-Manage Tag Times &   Medium & Update/Calculate \\ \hline
-Get Problem Est. Time Consumption 		&   Medium & Read/Calculate   \\ \hline%
-Manage Tag Times &   Medium & Update/Calculate \\ \hline
-Get  Est. Time Consumption of Problem					&   Medium & Read/Calculate   \\ \hline%
-Get  Expected Time of Completion of Problem					&   Medium & Read/Calculate   \\ \hline%
-Get Tag average time consumption					&   Simple & Read/Calculate   \\ \hline%
+Manage tag times &   Medium & Update/Calculate \\ \hline
+Get est. time consumption of problem					&   Medium & Read/Calculate   \\ \hline%
+Get expected time of completion of problem					&   Medium & Read/Calculate   \\ \hline%
+Get tag average time consumption					&   Simple & Read/Calculate   \\ \hline%
 %Get worklist 								&   Simple & Read   \\ \hline%
 Get sorted worklist 								&   Medium & Read/Calculate   \\ \hline%
 Approve deadline 						&   Simple & Update   \\ \hline%
@@ -55,7 +53,7 @@ Delete person 							&   Simple & Update   \\ \hline%
 Reset person password 			&   Medium & Update/Signal   \\ \hline%
 Balance workload 						&   Complex & Calculate   \\ \hline%
 Get statistics							&   Medium & Read/Calculate   \\ \hline%
-Distribute Problem & Medium & Read/Calculate/Update \\ \hline%
+Distribute problem & Medium & Read/Calculate/Update \\ \hline%
 \end{tabular}
 \end{center}
 \morscaption{Function list}
@@ -67,21 +65,21 @@ This function searches the model for problems with specific tags, then presents 
 It is both \textit{read} and \textit{calculate} because it reads in the model and compute which problems are most similar. 
 This function is \textit{complex}.
 
-\paragraph{Get Average Time Consumption of a Tag }
+\paragraph{Get tag average time Consumption of a tag }
 This function calculates the average time consumption of a tag. 
 It has to divide the number of problem solved and the total amount of time all problems with this tag required to be solved. 
 
-\paragraph{Manage Tag Time of Problem }
+\paragraph{Manage tag time}
 This function takes the time a staff has used to solve a problem and adds to the related tags time consumption and increments the solved problems property. 
 
-\paragraph{Get Estimated Time Consumption of Problem }
+\paragraph{Get estimated time consumption of problem }
 This function calculates the amount of time a specific problems acquires to be solved. This is based upon the related tags. 
 The tags has a property describing the average time consumption.  
 
-\paragraph{Get Expected Time of Completion of Problem}
+\paragraph{Get expected time of completion of problem}
 This function takes all the problems of the assigned staff member which are expected to be solved prior this problem and adding up the amount each is estimated time each problem will consume.
 
-\paragraph{Get Sorted Worklist}
+\paragraph{Get sorted worklist}
 This function returns the work list of a staff member in sorted order after priority. 
 
 \paragraph{Reset person password}
