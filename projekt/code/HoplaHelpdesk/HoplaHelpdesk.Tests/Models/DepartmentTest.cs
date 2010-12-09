@@ -90,6 +90,38 @@ namespace HoplaHelpdesk.Tests
         #region Two Person test
 
         [TestMethod()]
+        public void FUTUREIMPLEMENTATIONBalanceWorkloadTestBlackBox1()
+        {
+            var tag1 = new Tag() { TimeConsumed = 15, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 20
+            var tag2 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 2 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag3 = new Tag() { TimeConsumed = 10, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
+            var tag4 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
+
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true }; /// 20
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 10
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };   //10
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };    //10
+
+            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3 } }; // Workload = 40
+            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() { prob4 } };               // = 10
+
+            Department target = new Department()
+            {
+                Persons = new EntityCollection<Person>()
+                {
+                    mike, john
+                }
+            };
+            target.FUTUREIMPLEMENTATIONBalanceWorkload();
+            //Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
+            Assert.IsTrue(prob4.AssignedTo == mike);
+            Assert.IsTrue(prob3.AssignedTo == john);
+            Assert.IsTrue(prob2.AssignedTo == mike);
+            Assert.IsTrue(prob1.AssignedTo == john);
+        }
+
+
+        [TestMethod()]
         public void BalanceWorkloadTestBlackBox1()
         {
             var tag1 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 1 };  //(TimeConsumed / SolvedProblems) = 20
