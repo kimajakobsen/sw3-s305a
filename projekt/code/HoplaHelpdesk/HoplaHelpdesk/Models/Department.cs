@@ -70,7 +70,9 @@ namespace HoplaHelpdesk.Models
                     if (max.Worklist == null) return;
                     
                     // Sort his worklist so that the highest priority is the first.
-                    max.Worklist.ToList().Sort(Problem.GetETCComparer());
+
+                    var maxWorklist = max.Worklist.ToList();
+                    maxWorklist.Sort(Problem.GetETCComparer());
 
                     // Find the person with the lowest workload
                     var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
@@ -83,7 +85,7 @@ namespace HoplaHelpdesk.Models
                     do
                     {
                         // Finde the reassignable problem with the highest priority which has not been moved yet. 
-                        var problemToBeMoved = max.Worklist.FirstOrDefault(y => y.Reassignable == true && 
+                        var problemToBeMoved = maxWorklist.FirstOrDefault(y => y.Reassignable == true && 
 																		   		y.HasBeen == false && 
 																				y.SolvedAtTime == null);
                    
