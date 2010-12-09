@@ -24,7 +24,7 @@ namespace HoplaHelpdesk.Models
         public void BalanceWorkload()
         {
             // Run through all persons.
-            for (var i = 0; i < Persons.Count; i++)
+            for (var i = 0; i < Persons.Count -1; i++)
             {
                     // Find the person with the highest workload
                     var max = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Max(x => x.GetWorkload()));
@@ -33,7 +33,7 @@ namespace HoplaHelpdesk.Models
                     if (max.Worklist == null) return;
                     
                     // Sort his worklist so that the highest priority is the first.
-                    max.Worklist.ToList().Sort(Problem.GetComparer());
+                    max.Worklist.ToList().Sort(Problem.GetETCComparer());
 
                     // Find the person with the lowest workload
                     var min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
