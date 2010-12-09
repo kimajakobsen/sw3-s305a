@@ -102,8 +102,8 @@ namespace HoplaHelpdesk.Tests
             var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };  
             var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };  
 
-            var mike = new Person() { Name = "mike", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4 } };
-            var john = new Person() { Name = "John", Worklist = new EntityCollection<Problem>() };               
+            var john = new Person() { Name = "johnlallaa", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4 } };
+            var mike = new Person() { Name = "mikedwadwa", Worklist = new EntityCollection<Problem>() };               
 
             Department target = new Department()
             {
@@ -116,10 +116,10 @@ namespace HoplaHelpdesk.Tests
             target.FUTUREIMPLEMENTATIONBalanceWorkload();
             //Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
 
-            Assert.IsTrue(prob4.AssignedTo == mike);
-            Assert.IsTrue(prob3.AssignedTo == mike);
-            Assert.IsTrue(prob2.AssignedTo == mike);
-            Assert.IsTrue(prob1.AssignedTo == mike);
+            Assert.IsTrue(prob4.AssignedTo == john);
+            Assert.IsTrue(prob3.AssignedTo == john);
+            Assert.IsTrue(prob2.AssignedTo == john);
+            Assert.IsTrue(prob1.AssignedTo == john);
         }
 
 
