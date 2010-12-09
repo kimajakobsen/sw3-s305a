@@ -24,22 +24,22 @@ namespace HoplaHelpdesk.Models
         {
             Person dummyPerson = new Person();
             List<Person> staffMembers = Persons.ToList();
+            List<Problem> problemList = new List<Problem>();
 
             foreach (var member in staffMembers)
             {
-                for (int i = 0; i < member.Worklist.Count; i++)
+                foreach (var problem in member.Worklist)
                 {
-                    if (member.Worklist.ElementAt(0).Reassignable == true && member.Worklist.ElementAt(0).SolvedAtTime == null)
-                    {
-
-                        dummyPerson.Problems.Add(member.Worklist.ElementAt(0));
-                        member.Worklist.ElementAt(0).AssignedTo.Worklist.Remove(member.Worklist.ElementAt(0));
-                        member.Worklist.ElementAt(0).AssignedTo = dummyPerson;
-                    }
+                    problemList.Add(problem);
                 }
             }
 
-            List<Problem> problemList = dummyPerson.SortedWorklist;
+            problemList = problemList.Where(x => x.Reassignable == true && x.SolvedAtTime == null).ToList();
+
+            foreach (var problem in problemList)
+            {
+                problem.AssignedTo = dummyPerson;
+            }
 
             while (problemList.Count > 0)
             {
@@ -47,6 +47,7 @@ namespace HoplaHelpdesk.Models
                 Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
 
                 // assign the most important problem to the person
+                //min.Problems.Add(problemList[0]);
                 problemList[0].AssignedTo = min;
                 problemList.RemoveAt(0);
             }
@@ -97,7 +98,6 @@ namespace HoplaHelpdesk.Models
                             problemToBeMoved.HasBeen = true;
 
                             // Reassign the highest priority problem to staff called min.
-                            problemToBeMoved.AssignedTo.Worklist.Remove(problemToBeMoved);
                             problemToBeMoved.AssignedTo = min;
 
                             if (min.Workload >= max.Workload)
@@ -110,7 +110,6 @@ namespace HoplaHelpdesk.Models
                                 beforeMoveBack = Math.Abs(max.Workload - min.Workload);
 
                                 // Move it back
-                                problemToBeMoved.AssignedTo.Worklist.Remove(problemToBeMoved);
                                 problemToBeMoved.AssignedTo = max;
 
                                 // Calculate difference after moving
