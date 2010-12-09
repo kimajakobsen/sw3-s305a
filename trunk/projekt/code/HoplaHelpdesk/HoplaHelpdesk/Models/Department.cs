@@ -32,6 +32,7 @@ namespace HoplaHelpdesk.Models
                     if (problem.Reassignable == true && problem.SolvedAtTime == null)
                     {
                         problemListTmp.Add(problem);
+                        problem.AssignedTo = null;
                     }
                 }
             }
