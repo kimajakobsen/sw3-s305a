@@ -4,13 +4,12 @@ With basis in our system definition in chapter \ref{sec:systemdefinition} and ou
 As a part of obtaining high flexibility we will use ASP.NET Mvc 2 framework, which is a model view controller design pattern based framework.
 The database will be access by the system though the ADO.NET data provider. This gives us a component design as seen on figure \ref{fig:system_component_mvc}. 
 
-\paragraph{View}
-The view component consist of all views. 
-This component's responsibility is to present the user with interfaces. 
+\paragraph{View} 
+This components' responsibility is to structure the information and layout in the GUI. 
 The interfaces consist of buttons, links, forms and data from a controller, the model, or a view model. View models are dependent on the model since it is a container of elements from the model. 
 
 \paragraph{Controller}
-The controller consist of several controllers with independent responsibilities, but the general responsibility of the controller component is to process the data in the model and return this in to the view. 
+The controllers all have independent responsibilities, but the general responsibility of the controller components is to process the data in the model and return this to a specific view, possibly threw a viewmodel. 
 
 \paragraph{Model}
 The Models responsibility is to 
@@ -30,7 +29,7 @@ created a closed-strict layers component architecture, we did this to avoid comp
 	\centering
 		\includegraphics[scale=0.5]{input/architectural_design/system_component_mvc.pdf}
 	\morscaption{Our Component }
-	\label{}
+	\label{fig:system_component_mvc}
 \end{figure}
 %system_component_mvc.pdf
 
