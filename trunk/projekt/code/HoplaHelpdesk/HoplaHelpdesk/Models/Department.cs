@@ -37,22 +37,25 @@ namespace HoplaHelpdesk.Models
                 }
             }
 
+            // collect the different problems
             List<Problem> problemList = problemListTmp.Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
             List<Problem> problemWithoutDeadline = problemListTmp.Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
 
+            // sort them
             problemList.Sort(Problem.GetComparer());
-
             problemWithoutDeadline.Sort(Problem.GetComparer());
 
+            // concatinate problems into a single list
             problemList.AddRange(problemWithoutDeadline);
 
             while (problemList.Count > 0)
             {
-                // Find the person with the lowest workload
+                // find the person with the lowest workload
                 Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
 
-                // assign the most important problem to the person.
+                // assign the most important problem to the person
                 problemList[0].AssignedTo = min;
+                problemList.RemoveAt(0);
             }
         }
 
