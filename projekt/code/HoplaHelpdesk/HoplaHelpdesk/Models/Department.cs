@@ -18,6 +18,43 @@ namespace HoplaHelpdesk.Models
             get { return DepartmentName; }
             set { DepartmentName = value; }
         }
+
+
+        public void FUTUREIMPLEMENTATIONBalanceWorkload()
+        {
+            List<Person> staffMembers = Persons.ToList();
+            List<Problem> problemListTmp = null;
+
+            foreach (var member in staffMembers)
+            {
+                foreach (var problem in member.Problems)
+                {
+                    if (problem.Reassignable == true && problem.SolvedAtTime == null)
+                    {
+                        problemListTmp.Add(problem);
+                    }
+                }
+            }
+
+            List<Problem> problemList = problemListTmp.Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
+            List<Problem> problemWithoutDeadline = problemListTmp.Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
+
+            problemList.Sort(Problem.GetComparer());
+
+            problemWithoutDeadline.Sort(Problem.GetComparer());
+
+            problemList.AddRange(problemWithoutDeadline);
+
+            while (problemList.Count > 0)
+            {
+                // Find the person with the lowest workload
+                Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
+
+                // assign the most important problem to the person.
+                problemList[0].AssignedTo = min;
+            }
+        }
+
         /// <summary>
         /// Balance the workload between all staffs in  a department. 
         /// </summary>
