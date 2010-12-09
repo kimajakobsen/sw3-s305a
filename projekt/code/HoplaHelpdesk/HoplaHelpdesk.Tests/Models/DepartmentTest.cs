@@ -594,11 +594,6 @@ namespace HoplaHelpdesk.Tests
             var tag3 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 3 };  //(TimeConsumed / SolvedProblems) = 10
             var tag4 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 4 };  //(TimeConsumed / SolvedProblems) = 10
             var tag5 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 5 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag6 = new Tag() { TimeConsumed = 20, SolvedProblems = 1, Priority = 6 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag7 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 7 };  //(TimeConsumed / SolvedProblems) = 10
-            var tag8 = new Tag() { TimeConsumed = 20, SolvedProblems = 2, Priority = 8 };  //(TimeConsumed / SolvedProblems) = 10
-
-
 
             var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true }; /// 20
             var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true };  // 20
