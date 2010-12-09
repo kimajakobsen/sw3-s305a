@@ -210,6 +210,15 @@ namespace HoplaHelpdesk.Models
             }
         }
 
+        public class ProblemETCComparer : IComparer<Problem>
+        {
+            public int Compare(Problem a, Problem b)
+            {
+
+                return a.EstimatedTimeConsumption.CompareTo(b.EstimatedTimeConsumption);
+            }
+        }
+
     }
 
 
