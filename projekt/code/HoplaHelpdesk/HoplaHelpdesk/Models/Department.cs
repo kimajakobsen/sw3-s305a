@@ -33,7 +33,6 @@ namespace HoplaHelpdesk.Models
                     {
                         problem.AssignedTo = dummyPerson;
                         dummyPerson.Worklist.Add(problem);
-
                     }
                 }
             }
