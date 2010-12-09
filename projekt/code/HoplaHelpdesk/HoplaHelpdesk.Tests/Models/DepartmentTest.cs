@@ -92,34 +92,34 @@ namespace HoplaHelpdesk.Tests
         [TestMethod()]
         public void FUTUREIMPLEMENTATIONBalanceWorkloadTestBlackBox1()
         {
-            var tag1 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 1 };
-            var tag2 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 2 };
-            var tag3 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 3 };
-            var tag4 = new Tag() { TimeConsumed = 100, SolvedProblems = 1, Priority = 4 };
+            var tag1 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 10 };
+            var tag2 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 9 };
+            var tag3 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 8 };
+            var tag4 = new Tag() { TimeConsumed = 5, SolvedProblems = 1, Priority = 7 };
 
-            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true }; 
-            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true }; 
-            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true };  
-            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true };  
+            var prob1 = new Problem() { Tags = new EntityCollection<Tag> { tag1 }, Reassignable = true, Description = "prob1" }; 
+            var prob2 = new Problem() { Tags = new EntityCollection<Tag> { tag2 }, Reassignable = true, Description = "prob2" }; 
+            var prob3 = new Problem() { Tags = new EntityCollection<Tag> { tag3 }, Reassignable = true, Description = "prob3" };  
+            var prob4 = new Problem() { Tags = new EntityCollection<Tag> { tag4 }, Reassignable = true, Description = "prob4" };
 
-            var john = new Person() { Name = "johnlallaa", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4 } };
-            var mike = new Person() { Name = "mikedwadwa", Worklist = new EntityCollection<Problem>() };               
+            var aaaa = new Person() { Name = "aaaa", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4 } };
+            var bbbb = new Person() { Name = "bbbb", Worklist = new EntityCollection<Problem>()  };               
 
             Department target = new Department()
             {
                 Persons = new EntityCollection<Person>()
                 {
-                    mike, john
+                    aaaa, bbbb
                 }
             };
 
             target.FUTUREIMPLEMENTATIONBalanceWorkload();
             //Assert.IsTrue((john.Workload == 30 && mike.Workload == 20) || (john.Workload == 20 && mike.Workload == 30));
 
-            Assert.IsTrue(prob4.AssignedTo == john);
-            Assert.IsTrue(prob3.AssignedTo == john);
-            Assert.IsTrue(prob2.AssignedTo == john);
-            Assert.IsTrue(prob1.AssignedTo == john);
+            Assert.IsTrue(prob1.AssignedTo == bbbb);
+            Assert.IsTrue(prob2.AssignedTo == bbbb);
+            Assert.IsTrue(prob3.AssignedTo == aaaa);
+            Assert.IsTrue(prob4.AssignedTo == aaaa);
         }
 
 
