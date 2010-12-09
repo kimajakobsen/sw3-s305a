@@ -768,7 +768,7 @@ namespace HoplaHelpdesk.Tests
 
             Assert.IsTrue(john.Worklist.Contains(prob1));
             Assert.IsTrue(john.Worklist.Contains(prob2));
-            Assert.IsTrue(mike.Worklist.Contains(prob3));
+            Assert.IsTrue(john.Worklist.Contains(prob3));
             Assert.IsTrue(john.Worklist.Contains(prob4));
 
 
