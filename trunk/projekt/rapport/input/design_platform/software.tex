@@ -31,7 +31,7 @@ The differences which we have considered between these two DBMS's are listed in 
 	\label{fig:DBMS}
 \end{figure}
 
-The \hdesk requires a DBMS supporting the query language \sql[] and relational database storage model \fixme{hvad menes der med dette? evt kilde hvis det er en bestem model}.
+The \hdesk requires a DBMS supporting the query language \sql[] and relational database model\cite{Sudershan2011}.
 We have chosen Microsoft SQL Server version 10.50.1600.1 in favor of \posgresql[], which we have past experience with due to a university course.
 However \posgresql[] is less integrated with Visual Studio 2010, which we are using for developing our system.
 
@@ -41,17 +41,16 @@ However \posgresql[] is less integrated with Visual Studio 2010, which we are us
 %The required software for our system consists of two major applications; a DBMS supporting the query language \sql[], and a web server capable of running our web-scripting interface of choice. 
 %The data storage model will be the relational database model and the DBMS we will be using is \posgresql[] version 8.4.5 as our only DBMS. \fixme{Ret s\aa snar vi ved hvad pokker vi vil bruge}
 
-We have chosen to implement our system as a webapplication, as it minimizes the amount of software which the users of our system has to install before using our system. 
-For the web server we will be using  \wholeiis[] (\iis[]). 
-The language of choice will be C\# using the ASP.NET MVC2(Model-View-Controller) framework.
+We have chosen to implement our system as a webapplication, as it minimizes the amount of software which the users of our system has to install before using our system.
+The language of choice will be C\# using the ASP.NET MVC2(Model-View-Controller) framework, therefore should the webserver support this.
 
 We could have used other web-frameworks, but chose ASP.NET MVC2 because we could use Visual Studio 2010 and C\# which we have all used during a course in object oriented programing.
 
 We also discussed not using a framework at all, and simply build everything from ground.
-We chose not do this because we might as well use what is already available, further more the framework has been developed for a long time and is therefore likely to be more effective and secure than what we could make within in this limited timeframe.
-Also we might as well use it to save time on the creation of trivial things such as how a view is shown.
+We chose not do this because we assessed it is best to use what is already available, further more the framework has been developed for a long time and is therefore likely to be more effective and secure than what we could make within in this limited timeframe.
+
 
 \subsection{Operating System}
 \label{subsec:operating_system}
 It is a quite natural decision to choose a operating system from Microsoft, as we have chosen a Windows based programming language, C\#. See section \ref{sec:design_language} for more.
-We are using Microsoft Windows server 2008 R2 Standard. \fixme{Ret dette s\aa snart vi ved hvad vi bruger}
+We are using Microsoft Windows server 2008 R2 Enterprise. 
