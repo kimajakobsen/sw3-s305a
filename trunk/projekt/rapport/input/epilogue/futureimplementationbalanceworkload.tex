@@ -5,7 +5,9 @@ The original \me{BalanceWorkload} method distributes the problems by looking at 
 
 The main idea behind the \me{FutureImplementationBalanceWorkload} method -- which is seen in code snippet \ref{lst:futureimplementationbalanceworkload} -- is that the algorithm only has to balance the workload by some extension, which is by always choosing the person with the minimum workload, whenever a problem is about to be distributed. The argument behind this idea is that whenever a staff member solves a problem, then the algorithm will be executed again, which then autimatically will assign him/her new problems.
 
-This simple approach of distributing problems allows us to choose which problems to distribute first. From here, all we have to do is to sort the list of problems to distribute in the manner we want. In the \me{FutureImplementationBalanceWorkload} method, we've chosen to have the problems with an approved deadline at the top of a list, sorted by highest priority at top. Below that, all other problems -- problems without an approved deadline.
+This simple approach of distributing problems allows us to choose which problems to distribute first. From here, all we have to do is to sort the list of problems to distribute in the manner we want. In the \me{FutureImplementationBalanceWorkload} method, we've chosen to have the problems with an approved deadline at the top of a temporary list, sorted by highest priority at top. Below that, all other problems -- problems without an approved deadline.
+
+In short, the \me{FutureImplementationBalanceWorkload} method does the above explained by first unassigning all the reassignable problems from all members of the specific department, followed by sorting them in the fashion explained above, and at last continually assigns the problem from the top of the temporary list, until the temporary list is empty.
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{A possible future implementation of the \me{BalanceWorkload} algorithm.}, label=lst:futureimplementationbalanceworkload]
 public void FutureImplementationBalanceWorkload()
