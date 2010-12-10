@@ -13,7 +13,7 @@ If one of these matches his particular problem, he can subscribe to the problem 
 If no similar problem was found the \aclient{} creates a problem with a title, description and the previously selected tags. 
 Hereafter the problem gets assigned to a \astaff{}. 
 
-\item \sadb{Objects:} \cl{Problem, tag, category, \aclient[], \astaff[]}.
+\item \sadb{Objects:} \cl{Problem, tag, comment, category, deadline, \aclient[], and \astaff[]}.
 
 \item \sadb{Functions:} Get problem tags, Search for problems, Create problem, Subscribe / unsubscribe to problem, and Get Est. Time Consumption of Problem. 
 \end{itemize}
@@ -37,13 +37,9 @@ Hereafter the problem gets assigned to a \astaff{}.
 \begin{itemize}
 \item \sadb{Use Case:} The use case is initialized when the \astaff[] wants to check his \todolist[]. The \astaff[] is then presented with a list of unsolved problems assigned to him. The \astaff[] can then click on one of the problems to read the problem, see status of it, add comments to it, search the database for similar problem, reassign it, or write a new solution. 
 
-\item \sadb{Objects:} Problem, solution, comment, \client[], and \staff[].
-fixme{staff must at least have the same objects as client}
+\item \sadb{Objects:}\cl{Problem, tag, comment, category, deadline, \aclient[], \astaff[], department, and solution}
 
 \item \sadb{Functions:}Get problem tags, Search for problems, Create problem, Subscribe / unsubscribe to problem, Get est. time consumption of problem, Manage tag times, Get expected time of completion of problem, Get tag average time consumption, Get sorted worklist and Approve deadline. 
-
-
- Add comment, reassign, change status, search database, create solution, attach solution and get staff \todolist{}.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -59,8 +55,7 @@ fixme{staff must at least have the same objects as client}
 \begin{itemize}
 \item\sadb{Use Case:} The use case starts as the \sadmin{} enters the site. The \admin[] can manage people by change role, department, email and delete the person from the system. The \admin[] is also able to create new  departments and add categories thereto. To each category new tags can be added. Tags have a priority which can be changed at anytime. Tags cannot be removed when they have been used, but they can be hidden so they cannot be used to categories new problems.  
 
-\item\sadb{Objects:} \cl{ \staff[c], \client[c], category, tag, department}. 
-\fixme{admin must at least have the same objects as client}
+\item\sadb{Objects:} \cl{Problem, tag, comment, category, deadline, \aclient[], \astaff[], department, and solution}
 
 \item\sadb{Functions:} Get problem tags, Search for problems, Create problem, Subscribe / unsubscribe to problem, Get est. time consumption of problem, Manage tag times, Get expected time of completion of problem, Get tag average time consumption, Get sorted worklist, Approve deadline, Create department, Create category, Create tag, Hide / show category, Hide / show tag, Delete person, Reset person password, Balance workload, Get statistics, and Distribute problem. 
 \end{itemize}
