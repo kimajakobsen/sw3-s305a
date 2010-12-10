@@ -1,45 +1,15 @@
 \chapter{Future Work}
 \label{chap:future_work}
-\myTop{top}
+\myTop{This chapter outlines and discusses possible future enhancements, which we for various reasons did not implement in our system.}
 
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{A possible future implementation of the BalanceWorkload algorithm.}, label=lst:futureimplementationbalanceWorkload]
-public void FUTUREIMPLEMENTATIONBalanceWorkload()
-{
-    Person dummyPerson = new Person();
-    List<Person> staffMembers = Persons.ToList();
-    List<Problem> problemList = new List<Problem>();
-
-    foreach (var member in staffMembers)
-    {
-        foreach (var problem in member.Worklist)
-        {
-            problemList.Add(problem);
-        }
-    }
-
-    problemList = problemList.Where(x => x.Reassignable == true && x.SolvedAtTime == null).ToList();
-
-    foreach (var problem in problemList)
-    {
-        problem.AssignedTo = dummyPerson;
-    }
-
-    while (problemList.Count > 0)
-    {
-        // find the person with the lowest workload
-        Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
-
-        problemList[0].AssignedTo = min;
-        problemList.RemoveAt(0);
-    }
-}
-\end{lstlisting}
+\input{input/epilogue/futureimplementationbalanceworkload}
 
 
 
 
 
 
-\myTail{tail}
+
+\myTail{This chapter outlines and discusses possible future enhancements.}

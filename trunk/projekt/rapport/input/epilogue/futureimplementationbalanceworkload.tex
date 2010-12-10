@@ -1,0 +1,40 @@
+\section{BalanceWorkload}
+\label{sec:futureimplementationbalanceworkload}
+
+The original \me{BalanceWorkload} method only distributes the problems by looking at the staff member which has the highest workload
+
+The idea behind the \me{FutureImplementationBalanceWorkload} method -- which is seen in code snippet \ref{lst:futureimplementationbalanceworkload} -- is that the algorithm itself doesn't have to balance the workload, other than always choosing the person with the smallest workload, whenever a problem is about to be distributed. 
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{A possible future implementation of the \me{BalanceWorkload} algorithm.}, label=lst:futureimplementationbalanceworkload]
+public void FutureImplementationBalanceWorkload()
+{
+    Person dummyPerson = new Person();
+    List<Person> staffMembers = Persons.ToList();
+    List<Problem> problemList = new List<Problem>();
+
+    foreach (var member in staffMembers)
+    {
+        foreach (var problem in member.Worklist)
+        {
+            problemList.Add(problem);
+        }
+    }
+
+    problemList = problemList.Where(x => x.Reassignable == true && x.SolvedAtTime == null).ToList();
+
+    foreach (var problem in problemList)
+    {
+        problem.AssignedTo = dummyPerson;
+    }
+
+    while (problemList.Count > 0)
+    {
+        // find the person with the lowest workload
+        Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
+
+        // assign the most important problem to the person
+        problemList[0].AssignedTo = min;
+        problemList.RemoveAt(0);
+    }
+}
+\end{lstlisting}
