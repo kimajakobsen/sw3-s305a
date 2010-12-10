@@ -90,7 +90,7 @@ namespace HoplaHelpdesk.Tests
         #region Two Person test
 
         [TestMethod()]
-        public void FutureImplementationBalanceWorkloadTestBlackBox1()
+        public void FutureImplementationBalanceWorkloadTest1()
         {
             var tag1 = new Tag() { TimeConsumed = 100, SolvedProblems = 1, Priority = 10 };
             var tag2 = new Tag() { TimeConsumed = 500, SolvedProblems = 1, Priority = 9 };
