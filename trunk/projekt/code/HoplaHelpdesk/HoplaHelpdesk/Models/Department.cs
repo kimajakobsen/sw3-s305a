@@ -20,7 +20,7 @@ namespace HoplaHelpdesk.Models
         }
 
 
-        public void FUTUREIMPLEMENTATIONBalanceWorkload()
+        public void FutureImplementationBalanceWorkload()
         {
             Person dummyPerson = new Person();
             List<Person> staffMembers = Persons.ToList();
