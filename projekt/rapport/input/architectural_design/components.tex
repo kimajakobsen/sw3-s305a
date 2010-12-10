@@ -4,19 +4,29 @@ With basis in our system definition in chapter \ref{sec:systemdefinition} and ou
 As a part of obtaining high flexibility we will use ASP.NET Mvc 2 framework, which is a model view controller design pattern based framework.
 The database will be access by the system though the ADO.NET data provider. This gives us a component design as seen on figure \ref{fig:system_component_mvc}. 
 
-\paragraph{View} 
-This components' responsibility is to structure the information and layout in the GUI. 
-The interfaces consist of buttons, links, forms and data from a controller, the model, or a view model. View models are dependent on the model since it is a container of elements from the model. 
-
-\paragraph{Controller}
-The controllers all have independent responsibilities, but the general responsibility of the controller components is to process the data in the model and return this to a specific view, possibly threw a viewmodel. 
 
 \paragraph{Model}
-The Models responsibility is to represent the objects and their data which is stored in the DBMS, fetched from the DBMS. The result is an interface which enables the controllers and vie
+The Models responsibility is to represent the objects and their data which is stored in the database, fetched from the database. The result is an interface which enables the controllers and \viewmodel[] to access the data in the database in a nice and comprehensible way. This component is further described in \ref{sub:modelComponent}.
 
 \paragraph{View Model}
+\viewmodel[c]s are dependent on the model since it is a container of elements from the model.
+
+
+\paragraph{View} 
+This components' responsibility is to structure the information and layout in the GUI. 
+The interfaces consist of buttons, links, forms and data from a controller, the model, or a \viewmodel[]. 
+It is dependent on the model, controller and \viewmodel[]. It is dependent on the controller because the views responsibility is to make buttons and links which have to match the correct controller. It is dependent on the model and \viewmodel[] because this is the data it needs to present. 
+The dependency on the model could be removed and then all view data has to be parsed though a \viewmodel[], but we allow this because it is not always necessary to put the model into a \viewmodel[]. 
+
+\paragraph{Controller}
+The controllers all have independent responsibilities, but the general responsibility of the controller components is to process the data in the model and return this to a specific view, possibly through a \viewmodel[]. The controller depends on view, model, \viewmodel[] and tool. Changing any of these components will most likely result in a change of the controller. 
 
 \paragraph{Tools}
+The tool component consist of various help functionality. For example the problem distributer and the search functionality will be placed in this component. The tools will be used by the controller and it relies on the model. 
+
+\paragraph{ADO.NET}
+This component 
+
 
 %%%%%%%% Alt herunder er gammelt
 
