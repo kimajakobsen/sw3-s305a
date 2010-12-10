@@ -90,7 +90,7 @@ namespace HoplaHelpdesk.Tests
         #region Two Person test
 
         [TestMethod()]
-        public void FUTUREIMPLEMENTATIONBalanceWorkloadTestBlackBox1()
+        public void FutureImplementationBalanceWorkloadTestBlackBox1()
         {
             var tag1 = new Tag() { TimeConsumed = 100, SolvedProblems = 1, Priority = 10 };
             var tag2 = new Tag() { TimeConsumed = 500, SolvedProblems = 1, Priority = 9 };
@@ -113,7 +113,7 @@ namespace HoplaHelpdesk.Tests
                 }
             };
 
-            target.FUTUREIMPLEMENTATIONBalanceWorkload();
+            target.FutureImplementationBalanceWorkload();
 
             Assert.IsTrue(prob1.AssignedTo == aaaa);
             Assert.IsTrue(prob2.AssignedTo == bbbb);
