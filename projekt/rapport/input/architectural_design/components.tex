@@ -25,9 +25,10 @@ The controllers all have independent responsibilities, but the general responsib
 The tool component consist of various help functionality. For example the problem distributer and the search functionality will be placed in this component. The tools will be used by the controller and it relies on the model. 
 
 \paragraph{ADO.NET}
-This component 
+This component will not be build by us, this is an already made component which we will use as a database data provider. 
 
 
+\begin{comment}
 %%%%%%%% Alt herunder er gammelt
 
 created a closed-strict layers component architecture, we did this to avoid complex dependencies between components and therefore making it easy to change an interface, a function component, or \fixme{eller hvad?}. 
@@ -94,7 +95,7 @@ The database interface receives all database requests and translate them to the 
 %	\label{fig:AltSystemComponent}
 %\end{figure}
 
-
+\end{comment}
 \subsection{Client-Server}
 Because we are designing a help desk, we are dealing with users who are not present in a specific location. Therefore we also designed the system using a client-server architecture.
 On the client side there is a user interface and on the server side the functionality and model are located as seen on figure \ref{fig:client-server}. By using Local Presentation~\cite{roedeaalborg}[p.~200] we enable clients to access the system from anywhere, and still keep the functionality and model on the server and thus keeping the system flexible.         
