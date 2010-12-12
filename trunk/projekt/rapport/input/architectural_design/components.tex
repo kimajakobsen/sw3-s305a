@@ -4,6 +4,12 @@ With basis in our system definition in chapter \ref{sec:systemdefinition} and ou
 As a part of obtaining high flexibility we will use ASP.NET Mvc 2 framework, which is a model view controller design pattern based framework.
 The database will be access by the system though the ADO.NET data provider. This gives us a component design as seen on figure \ref{fig:system_component_mvc}. 
 
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.8]{input/architectural_design/system_component_mvc.pdf}
+	\morscaption{The system component. The arrows represent dependency}
+	\label{fig:system_component_mvc}
+\end{figure}
 
 \paragraph{Model}
 The Models responsibility is to represent the objects and their data which is stored in the database, fetched from the database. The result is an interface which enables the controllers and \viewmodel[] to access the data in the database in a nice and comprehensible way. This component is further described in \ref{sub:modelComponent}.
@@ -28,6 +34,8 @@ The tool component consist of various help functionality. For example the proble
 This component will not be build by us, this is an already made component which we will use as a database data provider. 
 
 
+
+
 \begin{comment}
 %%%%%%%% Alt herunder er gammelt
 
@@ -35,12 +43,7 @@ created a closed-strict layers component architecture, we did this to avoid comp
 
 
 
-\begin{figure}
-	\centering
-		\includegraphics[scale=0.5]{input/architectural_design/system_component_mvc.pdf}
-	\morscaption{Our Component }
-	\label{fig:system_component_mvc}
-\end{figure}
+
 %system_component_mvc.pdf
 
 The architecture has three layers: User- and System-interfaces, Functions, Model as shown on figure \ref{fig:SystemComponent}. The figures components will be explained in section \ref{sub:SystemComponent}.
