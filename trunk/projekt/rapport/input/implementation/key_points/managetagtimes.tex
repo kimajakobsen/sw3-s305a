@@ -1,0 +1,38 @@
+\section{Tag Time Management}
+\label{sec:managetagtimes}
+
+The \me{ManageTagTimes} method updates the statistics held by each tag whener a staff member marks a problem as solved and submits the number of hourse he/she used solving it. The \me{ManageTagTimes} method is a property of the \cl{Problem} class in the model.
+The idea behind it is simply to increment the \verb+SolvedProblems+ and \verb+TimeConsumed+ properties of each tag. 
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:managetagtimes]
+public void ManageTagTimes(double StaffTimeSpentInput)
+{
+    string StaffTimeSpent = StaffTimeSpentInput.ToString();
+    string[] split = StaffTimeSpent.Split(".".ToCharArray());
+    
+    int HoursUsed = Int32.Parse(split[0]);
+    int MinutesUsed = 0;
+
+    try
+    {
+        MinutesUsed = (int)(0.6*(double.Parse(split[1]))) + (HoursUsed*60);
+    }
+    catch
+    {
+        MinutesUsed = HoursUsed*60;
+    }
+
+    foreach (var tag in Tags)
+    {
+        if (tag.SolvedProblems == null)
+            tag.SolvedProblems = 0;
+        
+        tag.SolvedProblems++;
+
+        if (tag.TimeConsumed == null)
+            tag.TimeConsumed = 0;
+
+        tag.TimeConsumed = tag.TimeConsumed + MinutesUsed;
+    }
+}
+\end{lstlisting}
