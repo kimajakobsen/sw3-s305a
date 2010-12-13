@@ -1,0 +1,54 @@
+\sec{Estimated Time Consumption}
+\label{sec:estimated_time_consumption}
+
+As a part of calculating when a problem would be solved, one has to calculate how long each element in the queue which has a higher priority than the problem of interest has.
+
+Whenever a problem has been submitted,
+
+The \me{CalculateEstimatedTimeConsumption()} function -- which is a method in \cl{Problem} class -- estimates how much time is needed to solve the specific problem, under the assumption that there only exists this single problem on the assigned staff members queue. The idea is to sum up all the \verb+AverageTimeSpent+ property as well as all the count the number of tags, and lastly calculate the average time for all the tags. See code snippet \ref{lst:estimatedtimeconsumption}.
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:estimatedtimeconsumption]
+public TimeSpan EstimatedTimeConsumption
+{
+    get
+    {
+        return CalculateEstimatedTimeConsumption();
+    }
+}
+
+private TimeSpan CalculateEstimatedTimeConsumption()
+{
+    int NumberOfTags = 0;
+    decimal? ProblemTime = 0;
+    int Minutes = 0;
+    int Hours = 0;
+    int Days = 0;
+
+    decimal? average = 0;
+
+    foreach (Tag tag in Tags)
+    {
+        if (tag.AverageTimeSpent != null)
+        {
+            ProblemTime = ProblemTime + tag.AverageTimeSpent;
+        }
+        NumberOfTags++;
+    }
+
+    if (NumberOfTags == 0)
+    {
+        average = 10;
+    }
+    else
+    {
+        average = ProblemTime / NumberOfTags;
+    }
+
+    Hours = (int)average % 60;
+    Minutes = (int)average - (Hours*60);
+    Days = Hours % 24;
+    Hours = Hours - (Days * 24);
+
+    return new TimeSpan(Days, Hours, Minutes, 0);
+}
+\end{lstlisting}

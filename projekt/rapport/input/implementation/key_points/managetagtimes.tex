@@ -2,7 +2,7 @@
 \label{sec:managetagtimes}
 
 The \me{ManageTagTimes} method updates the statistics held by each tag whener a staff member marks a problem as solved and submits the number of hourse he/she used solving it. The \me{ManageTagTimes} method is a property of the \cl{Problem} class in the model.
-The idea behind it is simply to increment the \verb+SolvedProblems+ and \verb+TimeConsumed+ properties of each tag. 
+The idea behind it is simply to increment the \verb+SolvedProblems+ and \verb+TimeConsumed+ properties of each tag. The method is shown in code snippet \ref{lst:managetagtimes}.
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:managetagtimes]
 public void ManageTagTimes(double StaffTimeSpentInput)
