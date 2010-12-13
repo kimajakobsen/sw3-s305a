@@ -9,7 +9,7 @@ namespace HoplaHelpdesk.Models
     {
         public bool IsSelected { get; set; }
 
-        public decimal?  AverageTimeSpent 
+        public decimal? AverageTimeSpent 
         {  
             get
             {
