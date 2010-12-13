@@ -46,7 +46,7 @@ namespace HoplaHelpdesk.Models
                 // find the person with the lowest workload
                 Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
 
-                // assign the most important problem to the person,d
+                // assign the most important problem to the person
                 problemList[0].AssignedTo = min;
                 problemList.RemoveAt(0);
             }
