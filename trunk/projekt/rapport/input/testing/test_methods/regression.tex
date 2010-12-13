@@ -1,1 +1,10 @@
 \section{Regression Testing}
+Once the unit tests have been run and passed, the program is not necessarily done.
+If a feature is added later, some tests might be run again to ensure that the new feature did not ``break'' any of the existing features.
+This is known as regression testing.
+
+Usually only test cases regarding the component being changed, since running every test case will usually take a large amount of time.
+We do not, however, have that many test cases, so we just run every test case whenever a major change is made.
+By doing so we ensure that out program never regress.
+
+The regression tests we have run are used on white box unit tests, but upon running them as regression tests, they are black box tests, because we do not make a new analysis of the changed component.

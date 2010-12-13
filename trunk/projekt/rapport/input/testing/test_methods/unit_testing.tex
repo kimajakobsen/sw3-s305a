@@ -10,7 +10,7 @@ All major functions have been tested with Team Test. This mean that we have not 
 Throughout the development, we have omitted to write complex methods and functions in the controllers, and instead written them in the model or our tool component. We have therefore seen it unnecessary to unit test each controller. Instead we have tested them manually by running the program and seen that it behaves as expected. \fixme{Har omskrevet denne sidste linje, Se udkommenteret text. spoerg Magnus hvis du er i tvivl}
 %We considered controller unit testing as inefficient because it is easier to test controllers by running the program and see that they behave as expected. If any controller has very complex code a method will be made instead and this will be unit tested.\fixme{Skal vi ikke undg\aa{} at skrive om hvad vi IKKE har lavet?} 
 
-We have run tests for the search and the problem distribution methods -- these tests are described in chapter \ref{chap:problem_search} and \ref{sec:balWorUniTes} respectively -- along with other parts of the tool component and the model.. 
+We have run tests for the search and the problem distribution methods -- these tests are described in chapter \ref{chap:problem_search_test} and \ref{sec:balWorUniTes} respectively -- along with other parts of the tool component and the model.. 
 Controller unit testing requires a great deal of dependency injection and mocking since most controllers uses a database entity which we have to mock in order to make proper testing.
 Since no methods in the controllers are that complex, we have chosen to omit testing them.
 
