@@ -22,7 +22,7 @@
 \item[Department]\hfill
 \begin{description}
 \item[Purpose:]Create and manage departments.
-\item[Attributes:]
+\item[Attributes:]Department name, department id.
 \item[Operations:]Create department, edit departmentm delete department.
 \end{description}
 \end{description}
@@ -31,7 +31,7 @@
 \item[Category]\hfill
 \begin{description}
 \item[Purpose:]Create new categories and manage categories as well as aggregate categories and tags.
-\item[Attributes:]
+\item[Attributes:]Category name, category id.
 \item[Operations:]Create category, edit category, delete category, hide/unhide categories, hide/unhide tags.
 \end{description}
 \end{description}
@@ -39,8 +39,8 @@
 \begin{description}
 \item[Tag]\hfill
 \begin{description}
-\item[Purpose:]
-\item[Attributes:]
+\item[Purpose:]Create, delete and manage tags.
+\item[Attributes:]Tag name, tag id.
 \item[Operations:]create, edit, delete.
 \end{description}
 \end{description}
@@ -48,35 +48,35 @@
 \begin{description}
 \item[Problem]\hfill
 \begin{description}
-\item[Purpose:]
-\item[Attributes:]
-\item[Operations:]Categorize new problem, similar problem, create, subscribe, unsubscribe.
+\item[Purpose:]Create, delete and manage problems.
+\item[Attributes:]Problem id, problem name, person id, date, person name, comment, staff name, problem description.
+\item[Operations:]Categorize new problem, similar problem, create, subscribe, unsubscribe, add comment.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Home]\hfill
 \begin{description}
-\item[Purpose:]
-\item[Attributes:]
-\item[Operations:] If there are no users in the system, the home class will create a root user aswell as client staff and admin role.
+\item[Purpose:]Create client, staff and admin roles if the helpdesk don't contrain any roles. If there is no users in the system or no users are admin the home class will create a root user.
+\item[Attributes:] Username, password, email, role name.
+\item[Operations:] Create client, staff and admin roles, create root user.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Reassign]\hfill
 \begin{description}
-\item[Purpose:]
-\item[Attributes:]
-\item[Operations:] Assign problem.
+\item[Purpose:] Assign problems to staff members and reassign problems to staff members on request.
+\item[Attributes:] Staff id, problem id.
+\item[Operations:] Assign problem, reassign problems.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Statistics]\hfill
 \begin{description}
-\item[Purpose:]
-\item[Attributes:]
-\item[Operations:] Calculate statistics for each department.
+\item[Purpose:] Calculate statistics for departments and staff members.
+\item[Attributes:] 
+\item[Operations:] Calculate statistics for departments, calcuate statistics for staff members.
 \end{description}
 \end{description}
