@@ -1,0 +1,34 @@
+\section{Black and White Box Testing}
+\label{chap:whiteBox}
+White box testing requires knowledge of the code being tested.
+White box tests are generally written by the developers, because they have the needed knowledge.
+Black box testing on the other hand does not not require any knowledge of the code, but only what output is expected from a given input.
+We mainly use white box testing because we do have knowledge of the code which we are testing and white box testing is therefore preferred since we can make more accurate test cases through analysis of the code.
+
+Through an analysis of the code being tested we can see how much of a component is actually tested.
+The size of a tested component compared to the size of the entire component is a measure for for much of the code in the component which is covered by the tests.
+This is called ``code coverage'' and can be measured in several ways.
+These ways, along with the ones we are using, are described in the following subsection.
+
+\subsection{Code Coverage}
+\label{sub:codeCoverage}
+Code coverage is a measure of how much of a particular component is covered by the test cases written. \cite{cornett10}
+There are different units of measure for code coverage, e.g. statement coverage, decision coverage, condition coverage, loop coverage and path coverage.
+
+We will mainly focus on path coverage with loop coverage taken into account.
+It involves finding every code path the specific component can take, e.g. every if statement should be tested where the condition is both true and false.
+It is also needed to test the edge conditions for the the loops within the code of the component being tested.
+These edge conditions are zero runs, one run, and more than one run.
+
+This is done by making a flow chart of the component being tested to see which code paths there are.
+The flow chart can then be used as a graph and then every path from the start of the component to the end can be found using depth first search which will run until every edge is in a path leading from the start to the end vertex.
+Every path is recorded so that a test case covering every path can be created. \cite{whiteBox}
+
+
+
+
+\begin{comment}
+\subsection{Our Use of White Box Testing}
+We have used white box testing to test our tool component and the parts of the model component which we have wrote our selves -- the ADO.NET was used to generate much of the needed model.
+In order to insure that the code of the parts we were testing was covered we created a flow chart of the most complicated parts.
+\end{comment}
