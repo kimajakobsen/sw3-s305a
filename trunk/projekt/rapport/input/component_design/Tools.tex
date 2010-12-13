@@ -1,10 +1,9 @@
 \subsection{Tools}
-
 \begin{description}
 \item[ProblemDistributer]\hfill
 \begin{description}
 \item[Purpose:]Distribute problem based on problem tags and staff members workload.
-\item[Attributes:]Problem tags, staff workload.
+\item[Attributes:]Problem tags, staff id.
 \item[Operations:]Distribute problems, reassign problems.
 \end{description}
 \end{description}
@@ -14,19 +13,19 @@
 \hline
 \textbf{Operation}&Distribute Problems\\
 \hline
-\textbf{Category}&\underline{ }Active&\underline{ }Update\\
-&\underline{ }Passive&\underline{ }Read\\
-&&\underline{ }Compute\\
+\textbf{Category}&\underline{ }Active&\underline{x}Update\\
+&\underline{x}Passive&\underline{ }Read\\
+&&\underline{x}Compute\\
 &&\underline{ }Signal\\
-\textbf{Purpose}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Input data}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Conditions}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Effect}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Algorithm}&\multicolumn{2}{p{8cm}}{}\\
+\textbf{Purpose}&\multicolumn{2}{p{8cm}}{Distributing problems between staff members in each department, this is done to make sure that a single staff member do not have all the problems.}\\
+\textbf{Input data}&\multicolumn{2}{p{8cm}}{Problem id, staff id}\\
+\textbf{Conditions}&\multicolumn{2}{p{8cm}}{There must be problems attached to the department calling distribute functions.}\\
+\textbf{Effect}&\multicolumn{2}{p{8cm}}{Problems will be distributed equally between staff member until their workload balanced.}\\
+\textbf{Algorithm}&\multicolumn{2}{p{8cm}}{\fixme{Jazzmuz, kan du evt skrive kort om algoritmen, omkring 5-7 linjer max.}}\\
 \textbf{Datastructures}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Placement}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Involved objects}&\multicolumn{2}{p{8cm}}{}\\
-\textbf{Triggering events}&\multicolumn{2}{p{8cm}}{}\\
+\textbf{Placement}&\multicolumn{2}{p{8cm}}{Staff workload}\\
+\textbf{Involved objects}&\multicolumn{2}{p{8cm}}{Staff id, department id, problem id}\\
+\textbf{Triggering events}&\multicolumn{2}{p{8cm}}{Problem added to a department}\\
 \hline
 \end{tabular}
 \morscaption{what a nice figure!}
