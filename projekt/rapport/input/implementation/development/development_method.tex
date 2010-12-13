@@ -3,6 +3,81 @@
 In this section we will describe a few different Software development methods that we considered using.
 
 \subsection{Waterfall}
+The waterfall method, first published by Dr. Winston W. Royse in 1970 as a flawed method of development, has derived it's name directly from the concept of the method. If following this method in it's traditional form, development will go through several completely separated steps, from which it is never possible to go back (see \ref{fig:WaterfallPic}). These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.\\
+ \\
+Royce originally ment for this method to be developed into a fully iterative model, however, most software development companies adapted to non-iterative form.
+\cite{waterfallroyce}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.90\textwidth]{input/implementation/development/waterfall.pdf}
+	\morscaption{This illustrates a traditional waterfall in which the "water" can only proceed downwards until reaching the end (process completion)}
+	\label{fig:WaterfallPic}
+\end{figure}
+
+Unfortunately this software development method has a lot of drawbacks, the main one being it's inflexibility. Because the method is not designed to handle change in the specification during the development period, the software developed with this method could in the worst cases be useless by the time the development finishes. Therefor it is very common for software developers to incorporate change during the development, however, because the documentation for every little piece of work has already been made at this time, it is a colossal task to change even the smallest features. 
+\cite{waterfall}, \cite{waterfall3}
+\subsection{Agile Methods}
+
+Because of the traditional and wide spread waterfall method being so inflexible and difficult to work with, a lot of other methods has been suggested. These methods has been commonly known as ``Agile''. In 2001 a large group formed by representatives from them most popular Agile methods came together to form The Agile Alliance, which then formed ``The Agile Manifesto''. This Manifesto states four points that the Alliance deems critical for Agile Development:
+
+\begin{quotation}
+\begin{itemize}
+	\item \textbf{Individuals and Interaction} over processes and tools
+	\item \textbf{Working Software} over comprehensive documentation
+	\item \textbf{Customer Collaboration} over contract negotiation
+	\item \textbf{Responding to change} over following a plan
+\end{itemize}
+
+That is, while there is value in the items on the right, we value the items on the left more.
+\end{quotation}
+
+\subsubsection{Scrum}
+Scrum is an Agile development method that relies heavily on self-organizing teams. Scrum is best explained by the different components it contains:
+
+\paragraph{Customer / Product owner}\\
+The customer is the person og organization for whom the development team is currently working.
+
+\paragraph{ScrumMaster}\\
+The ScrumMaster is the manager of the scrum process, and is there to ensure that all developers use Scrum to achieve the maximum level of performance.
+
+\paragraph{Development team}\\
+The Development team is a set of developers working on the project. These can vary in size depending on the size of the task they have to solve.
+
+\paragraph{User Stories}\\
+This is a set of stories in which the customer explains in plain language what features the product should contain, and how he would like them to work.
+
+\paragraph{Product Backlog}\\
+This is the complete list of features - or user stories - that the customer would like the product to have.
+
+\paragraph{Sprints}\\
+Sprints are a limited timespan, in which developers work on coding, testing and implementing the features contained in the sprint backlog.
+
+\paragraph{Sprint Backlog}\\
+The Sprint backlog is the set of features that the specific development team are working on in the current sprint.
+
+\paragraph{Burndown Charts}\\
+Burndown charts are the set of features that still lack implementing. Typically, a burndown chart is created for both the individual sprints and the entire project.\\
+\\
+When understanding all of these ``components'', one can begin to understand how they are working together to create Scrum:
+
+The main component in Scrum is a sprint; \\
+Any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. This priority is decided by the product owner. When they have decided upon the features, they transfer them to the sprint backlog and start working. \\
+\\
+Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day and what might be holding them from proceeding. These meetings are held to synchronize the team members.\\
+\\
+After completing a sprint the team demonstrates all the features added to the product. This is done to assure that the customer and the developers are on the same page. Of course this meeting might lead to alteration of the recently implemented features, however, it might also lead to more features being added to the product backlog.\\
+\\
+After this meeting the team starts from the top with a new planning meeting and repeat this process until the customer is satisfied.
+\cite{goat} \cite{scrum}
+\subsubsection{Extreme Programming (XP)}
+\fixme{omkrives, lyder af lort}
+Extreme programming is different from other development methods because it is very hard to define the method within it, it is much more a mythology than it is an actual method, and so the working principles of XP is all recommendations:
+\section{Development Method}
+\label{sec:DevelopmentMethods}
+In this section we will describe a few different Software development methods that we considered using.
+
+\subsection{Waterfall}
 The waterfall method, first published by Dr. Winston W. Royse in 1970, has derived its name directly from the concept of the method. If following this method in it's traditional form, development will go through several completely separated steps, from which it is never possible to go back (see \ref{fig:WaterfallPic}). These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.\\
  \\
 Royce originally ment for this method to be developed into a fully iterative model, however, most software development companies adapted to non-iterative form.
@@ -95,18 +170,10 @@ eXtreme Programming differs from the other agile methods as it is more a set of 
 There are three different overall plans in XP:
 
 \begin{itemize}
-	\item Release Planning
-\end{itemize}
-The Overall plan for the project
-\begin{itemize}
-	\item Iteration Planning
-\end{itemize}
-The plan for this iteration of development. This is very semilar to the Scrum Sprints
-\begin{itemize}
-	\item Daily Planning
-\end{itemize}
-The day to day planning between developers.
-\\
+	\item \textbf{Release Planning}; The Overall plan for the project
+	\item \textbf{Iteration Planning}; The plan for this iteration of development. This is very similar to the Scrum Sprints
+	\item \textbf{Daily Planning}; The day to day planning between developers.
+\end[itemize}
 
 2. Small Releases\\
 This is simply about getting working software to the customer as fast as possible, better make a small release fast, than a large release slowly.\\
@@ -140,3 +207,19 @@ XP recommends that there is always a customer available, preferably on site. Thi
 \\
 12. Coding Standards\\
 This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves. This will be done almost by itself, as developers will grow tired of not understanding each others code. \\
+
+\cite{xp}, \cite{xp2}
+\subsection{Development during the project}
+\fixme{please find en bedre overskrift!}
+In our project we have not strictly followed any specific development method. Instead we have implemented elements from scrum and Extreme programming. At the start of each day we have held a meeting to discuss what we would be doing during the day. Furthermore have have had a lot of small sprints, where we focused on developing, integrating and testing new features. These sprints were very short, typically maximum a couple of days, because our development phase did not last for more than a couple of weeks.
+
+Besides the principles borrowed from scrum, we also used a lot of elements from Extreme Programming:
+\begin{itemize}
+\item We have planned our project in a similar way to XP
+\item We have constantly been making small releases 
+\item We have written a release every time we have developed/implemented a new feature
+\item We have had collective ownership of all our code
+\item We have written tests for all our major components 
+\item We have continuously integrated the created features into our main system
+\item We have had no overtime during this project.
+\item We have tried to maintain coding standards, although with limited success.
