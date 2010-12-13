@@ -1,18 +1,136 @@
 \section{Development Method}
 \label{sec:DevelopmentMethods}
-In this section we will describe a few different Software delvelopmentmoethods that we considered using.
+In this section we will describe a few different Software development methods that we considered using.
 
 \subsection{Waterfall}
 The waterfall method, first published by Dr. Winston W. Royse in 1970, has derived its name directly from the concept of the method. If following this method in it's traditional form, development will go through several completely separated steps, from which it is never possible to go back (see \ref{fig:WaterfallPic}). These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.\\
  \\
-Royce originally ment for this method to be developed into a fully iterative model, however, most software developers adapted to non-iterative form.
+Royce originally ment for this method to be developed into a fully iterative model, however, most software development companies adapted to non-iterative form.
 \cite{waterfallroyce}
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.90\textwidth]{input/implementation/development/waterfall.pdf}
-	\morscaption{This illustrates a traditional waterfall in which the "water" can only proceed downwards untill reaching the end (process completetion)}
+	\morscaption{This illustrates a traditional waterfall in which the "water" can only proceed downwards until reaching the end (process completion)}
 	\label{fig:WaterfallPic}
 \end{figure}
 
+Unfortunately, this software development method has a lot of drawbacks, the main one being it's inflexibility. Because the method is not designed to handle change in the specification during the development period, the software developed with this method could in the worst cases be useless by the time the development finishes. Therefor it is very common for software developers to incorporate change during the development, however, because the documentation for every little piece of work has already been made at this time, it is a colossal task to change even the smallest features. 
+
 \subsection{Agile Methods}
+
+Because of the traditional and wide spread development method being so inflexible and difficult to work with, a lot of other methods has been suggested. These methods has been commonly known as "Agile". In 2001 a large group formed by representatives from them most popular "Agile" methods came together to form The Agile Manifesto. This Manifesto states four things that they think Agile Development should value:
+\fixme{Skal citeres!}
+\begin{itemize}
+	\item Individuals and Interaction over processes and tools
+	\item Working Software over comprehensive documentation
+	\item Customer Collaboration over contract negotiation
+	\item Responding to change over following a plan
+\end{itemize}
+
+That is, while there is value in the items on the right, we value the items on the left more.
+\fixme{slut på citat}
+
+\subsection{Scrum}
+Scrum is an Agile development method that relies heavily on self-organizing teams. Scrum is best explained by the different components it contains:
+
+
+\begin{itemize}
+	\item Customer / Product owner
+\end{itemize}
+The customer is the person og organization for whom the development team is currently working.
+
+\begin{itemize}
+	\item ScrumMaster
+\end{itemize}
+The ScrumMaster is the manager of the scrum process, and is there to ensure that all developers use Scrum to achieve the maximum level of performance.
+
+\begin{itemize}
+	\item Development team
+\end{itemize}
+The Development team is a set of developers working on the project. These can vary in size depending on the size of the task they have to solve.
+
+\begin{itemize}
+	\item User Stories
+\end{itemize}
+This is a set of stories in which the customer explains in plain language what features the product should contain, and how he would like them to work.
+
+\begin{itemize}
+	\item Product Backlog
+\end{itemize}
+This is the complete list of features - or user stories - that the customer would like the product to have.
+
+\begin{itemize}
+	\item Sprints
+\end{itemize}
+Sprints are a limited timespan, in which developers work on coding, testing and implementing the features contained in the sprint backlog.
+
+\begin{itemize}
+	\item Sprint Backlog
+\end{itemize}
+The Sprint backlog is the set of features that the specific development team are working on in the current sprint.
+
+\begin{itemize}
+	\item Burndown Charts
+\end{itemize}
+Burndown charts are the set of features that still lack implementing. Typically, a burndown chart is created for both the individual sprints and the entire project.
+
+When understanding all of these "components", one can begin to understand how they are working together to create Scrum:
+
+The main component in Scrum is a sprint; \\
+Any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. This priority is decided by the product owner. When they have decided upon the features, they transfer them to the sprint backlog and start working. \\
+\\
+Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day and what they will be working on that day and what might be holding them from proceeding. These meetings are held to synchronize the team members.\\
+\\
+After completing a sprint the team demonstrates all the features added to the product. This is done to assure that the customer and the developers are on the same page. Ofcourse this meeting might lead to alteration of the recently implememted features, however, it might also lead to more features being added to the product backlog.\\
+\\
+After this meeting the team starts from the top with a new planning meeting.
+
+\subsection{Extreme Programming (XP)}
+\fixme{omkrives, lyder af lort}
+Extreme programming is different from other development methods because it is very hard to define the method within it, it is much more a methology than it is an actual method, and so the working principles of XP is all recommendations
+
+1. Planning
+There are three different overall plans in XP:
+
+\begin{itemize}
+	\item Release Planning
+The Overall plan for the project
+	\item Iteration Planning
+The plan for this iteration of development. This is very semilar to the Scrum Sprints
+	\item Daily Planning
+The day to day planning between developers.
+\end{itemize}
+
+2. Small Releases
+This is simply about getting working software to the customer as fast as possible, better make a small release fast, than a large release slowly.
+
+3. Metaphor
+Find a metaphor in the real world that resembles your project.
+
+4. Simple Design
+Design only what you will be during in this iteration of the project. Don't spend time to design something you might not even need later on.
+
+5. Testing
+The Development of the project should actually be test-driven. That means that you write unit-tests before you write actual code. Also, XP recommends that you run all tests simultaneously, so that you can see if a bug-correction has cascaded other problems.
+
+6. Refactoring
+Make the code simple to modify and understand, modify existing and working code so that it is easier to modify and understand - you never know when you have to add features using or modifying existing code.
+
+7. Pair Programming
+In Extreme Programming one developer should never work alone. Two developers always work alongside on a single computer. XP states that this will deliver code just as quickly as two developers with two computers, however, the code will be of higher quality.
+
+8. Collective Ownership
+Nobody owns any code - all code can be altered by anyone. This is possible because unit tests for everything already exists and it allows anyone to refactor or optimize the code as long as the unit tests pass afterwards.
+
+9. Continuous Integration
+Always integrate the feature you've just written in the project right away. This enhances the possibility to make a lot of small releases, and eliminates any large scale integration project at the end of development.
+
+10. No Overtime
+In XP projects no one should work overtime on a regular basis. Of course it can be necessary if something in the planning slipped, however, if it becomes a regular thing something is wrong with the planning.
+
+11. On-Site Customer
+XP recommends that there is always a customer on site. This will enhance the collaboration between customer and developers and hopefully developers won't have to change as much as of the features that they have implemented.
+
+12. Coding Standards
+This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves. This will be done almost by itself, as developers will grow tired of not understanding each others code. 
