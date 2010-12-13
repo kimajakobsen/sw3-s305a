@@ -90,7 +90,6 @@ namespace HoplaHelpdesk.Tools
             int noOfTagsToRemove = 0;
             List<int> tagsToRemove;
             List<Tag> tags = catTag.AllTagsSelected();
-
             List<Problem> temp = new List<Problem>();
 
             while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)
@@ -107,9 +106,9 @@ namespace HoplaHelpdesk.Tools
                     while (true)
                     {
                         temp = allProblems.ToList();
-                        foreach (Tag tag in currentSearch)
+                        foreach (Tag curTag in currentSearch)
                         {
-                            temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == tag.Id))).ToList();
+                            temp = temp.Where(x => x.Tags.Contains(allTags.FirstOrDefault(y => y.Id == curTag.Id))).ToList();
                         }
                         tempResult.AddRangeNoDuplicates(temp.ToList());
                         currentSearch = tags.RemoveNext(ref tagsToRemove);
@@ -125,7 +124,7 @@ namespace HoplaHelpdesk.Tools
 
             tempResult = new List<Problem>();
             int count = 0;
-            while (result.Count() < listMinSize && count <= allTags.Count)
+            while (result.Count+tempResult.Count < listMinSize && count <= allTags.Count)
             {
                 temp = (allProblems.Where(x => x.Tags.Count == count).ToList());
                 tempResult.AddRangeNoDuplicates(temp);

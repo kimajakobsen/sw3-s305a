@@ -73,7 +73,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DepartmentTest.cs" />
     <Compile Include="Models\DepartmentTest.cs" />
     <Compile Include="Models\CategoryTest.cs" />
     <Compile Include="Models\PersonTest.cs" />
