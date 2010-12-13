@@ -1,7 +1,116 @@
 \subsection{Model}
+We a final class diagram based on the class diagram from chapter \ref{cap:classesevents} so show the design of the system with the MVC utilized. In the current design a few thing has changed:
+\begin{itemize}
+	\item The role pattern: \\
+	The functionality form the actor \admin[] dose not inheritance from \astaff[] and \aclient[] etc. Figure \ref{tab:newactortable} shows the new role system.   
+	\item Problem: 
+	\begin{itemize}
+		\item Deadline: \\
+					The deadline is now a attribute instead of a class
+		\item tag problem
+		\item person problem staff client
+	\end{itemize}
+	\item 
+\end{itemize} 
 
-Billede af model
+\begin{figure}[htdp]
+\begin{center}
+\begin{tabular}{l  ccccc}
+\hline 
+\multicolumn{2}{r}{\shf{Actor}} \\
+\shf{Use case} 			&   \Aclient 	& \Astaff 		& \admin[c]  \\ \hline%
+Submit problem 		  	& $\checkmark$ 	&  &  \\ %
+My problems 		& $\checkmark$	&   &  \\ %
+Worklist 		& 	& $\checkmark$  &  \\ %
+Solve problem 			&     			& $\checkmark$	&  \\ %
+Administrate			&    			&				& $\checkmark$ \\%
+\gstat[c]			&				& 	& $\checkmark$ \\ \hline%
+\end{tabular}
+\end{center}
+\caption{\myCaption{Actor \& use case table}}
+\label{tab:newactortable}
+\end{figure}
 
+This is a brief description with a list of attributes for each class.
+
+
+\begin{description}
+\item[Problem]\hfill
+\begin{description}
+\item[Id:]
+\item[Title:]
+\item[Description:]
+\item[Added_date:]
+\item[Deadline:]
+\item[IsDeadlineApproved:]
+\item[Reassignable:]
+\item[SolvedAtTime:]
+\item[PersonId:]
+\end{description}
+\end{description}
+
+\begin{description}
+\item[Person]\hfill
+\begin{description}
+\item[Id:]
+\item[Name:]
+\item[Email:]
+\item[DepartmentId:]
+\end{description}
+\end{description}
+
+\begin{description}
+\item[Department]\hfill
+\begin{description}
+\item[Id:]
+\item[DepartmentName:]
+\item[Description:]
+\end{description}
+\end{description}
+
+\begin{description}
+\item[Solution]\hfill
+\begin{description}
+\item[Id:]
+\item[Description:]
+\end{description}
+\end{description}
+
+\begin{description}
+\item[Category]\hfill
+\begin{description}
+\item[Id:]
+\item[Name:]
+\item[Description:]
+\item[Department_Id:]
+\end{description}
+\end{description}
+
+\begin{description}
+\item[Tag]\hfill
+\begin{description}
+\item[Id:]
+\item[Name:]
+\item[Description:]
+\item[Priority:]
+\item[Category_Id:]
+\item[SolvedProblems:]
+\item[TimeConsumed:]
+\item[Hidden:]
+\end{description}
+\end{description}
+
+\begin{description}
+\item[Comment]\hfill
+\begin{description}
+\item[Id:]
+\item[Time:]
+\item[Description:]
+\item[Problem_Id:]
+\item[PersonId:]
+\item[PersonName:]
+\end{description}
+\end{description}
 
 \subsubsection{Classes}
 In this section we will give a brief description with a list of attributes for each class, as well as a operating specification of the complex operations.
