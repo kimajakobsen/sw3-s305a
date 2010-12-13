@@ -1,0 +1,18 @@
+\chapter{White Box Testing}
+\label{chap:whiteBox}
+\myTop{This chapter will describe what white box testing is and how we have used it to test our system.
+It is important for us to test our system, to make sure that it works accordingly to what we expect.}
+\section{Definition}
+White box testing requires knowledge of the code being tested.
+It involves finding every code path the specific component can take, e.g. every if statement should be tested where the condition is both true and false.
+It is also need to test the edge conditions for the the loops within the code of the component being tested
+
+This is done by making a flow chart of the component being tested to see which code paths there are.
+The flow chart can then be used as a graph and then every path from the start of the component to the end can be found using depth first search which will run until every vertex is in a path leading from the start to the end vertex.
+Every path is recorded so that a test case covering every path can be created.
+\cite{whiteBox}
+
+\section{Our Use of White Box Testing}
+We have used white box testing to test our tool component and the parts of the model component which we have wrote our selves -- the ADO.NET was used to generate much of the needed model.
+
+\myTail{}
