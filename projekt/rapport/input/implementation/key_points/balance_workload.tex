@@ -44,14 +44,7 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 	\label{fig:balanceWorkloadDiagram}
 \end{figure}
 
-%\begin{figure}
-%	\centering
-%\includegraphics[scale=1.0]{input/implementation/key_points/balanceWorkload_strangecase.pdf}
-%	\morscaption{Diagram illustrating the result of the \me{BalanceWorkload} method, executed in two different scenarios, where the final ``moveback'' in the loop is good and bad idea.}
-%	\label{fig:balanceWorkload_strangecase}
-%\end{figure}
 
-%\begin{comment}
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running for each staff member minus one. ``min'' and ``max'' are the person objects of which the algorithm are currently moving problems between. \vari{maxWorklistist} a sorted worklist. It is sorted in non-deacreasing order according to the estimated time consumption. }, label=lst:balanceWorkload]
 bool couldStillMove = true;
@@ -109,6 +102,5 @@ do
 
 
 \end{lstlisting}
-%\end{comment}
 
 
