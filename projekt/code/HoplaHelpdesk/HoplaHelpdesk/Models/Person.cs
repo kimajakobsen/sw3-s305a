@@ -177,50 +177,23 @@ namespace HoplaHelpdesk.Models
         /// Get the average time per problem solved by the staff
         /// </summary>
         /// <returns></returns>
-        public int AverageTimePerProblem()
+        public TimeSpan AverageTimePerProblem()
         {
-            return AverageTime("PerProblem");
+            return StatTool.AveragePerProblem(Worklist.Where(x => x.SolvedAtTime != null));
         }
 
         /// <summary>
         ///  Gets the average solving time per problem solved in the last week.
         /// </summary>
         /// <returns></returns>
-        public int AverageTimePerProblemLastWeek()
+        public TimeSpan AverageTimePerProblemLastWeek()
         {
-            return AverageTime("LastWeek");
+            
+              var now = DateTime.Now; 
+              var since = now.Subtract( new TimeSpan(7, 0, 0, 0));
+              return StatTool.AveragePerProblem(Worklist.Where(x => x.SolvedAtTime > since));
         }
 
-
-        private int AverageTime(string method)
-        {
-            int totalTime = 0;
-            int problems = 0;
-
-            IEnumerable<Problem> tmpList;
-             
-              if (method == "LastWeek")
-              {
-                  var lastWeek = DateTime.Now;
-                  var aWeek = new TimeSpan(7,0, 0, 0);
-                  lastWeek = lastWeek.Subtract(aWeek);
-                  tmpList = Worklist.Where(x => x.SolvedAtTime > lastWeek);
-              }
-              else
-              {
-                  tmpList = Worklist.Where(x => x.SolvedAtTime != null);
-              }
-
-            foreach(var problem in tmpList)
-            {
-                problems++;
-                totalTime = totalTime + (int)((TimeSpan)(problem.SolvedAtTime - problem.Added_date)).TotalMinutes;
-            }
-            if (problems == 0)
-                return 0;
-            else 
-                return  totalTime / problems;
-        }
 
         #endregion
 

@@ -114,8 +114,8 @@ namespace HoplaHelpdesk.Tests
             var prob4 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
             var prob5 = new Problem() { Added_date = new DateTime(2010, 10, 2), SolvedAtTime = new DateTime(2010, 10, 3) };
             var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
-            int expected = 10*24*60;
-            int actual;
+            TimeSpan expected = new TimeSpan(1,0,0,0);
+            TimeSpan actual;
             actual = target.AverageTimePerProblem();
             Assert.AreEqual(expected, actual);
         }
@@ -141,8 +141,8 @@ namespace HoplaHelpdesk.Tests
             var prob4 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
             var prob5 = new Problem() { Added_date = addDate, SolvedAtTime = solveDate };
             var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
-            int expected = 24*10*60;
-            int actual;
+            TimeSpan expected = new TimeSpan(10, 0, 0, 0);
+            TimeSpan actual;
             actual = target.AverageTimePerProblemLastWeek();
             Assert.AreEqual(expected, actual);
         }
@@ -174,8 +174,8 @@ namespace HoplaHelpdesk.Tests
             var prob4 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };
             var prob5 = new Problem() { Added_date = new DateTime(2010, 11, 20), SolvedAtTime = new DateTime(2010, 11, 21) };*/
             var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() { prob1, prob2, prob3, prob4, prob5 } };
-            int expected = 0;
-            int actual;
+            TimeSpan expected = new TimeSpan();
+            TimeSpan actual;
             actual = target.AverageTimePerProblemLastWeek();
             Assert.AreEqual(expected, actual);
         }
@@ -191,8 +191,8 @@ namespace HoplaHelpdesk.Tests
         public void AverageTimePerProblemTes2()
         {
             var target = new Person() { Name = "john", Worklist = new EntityCollection<Problem>() {} };
-            int expected = 0;
-            int actual;
+            TimeSpan expected = new TimeSpan();
+            TimeSpan actual;
             actual = target.AverageTimePerProblem();
             Assert.AreEqual(expected, actual);
         }

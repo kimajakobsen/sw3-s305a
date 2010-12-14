@@ -67,7 +67,6 @@ namespace HoplaHelpdesk.Models
                     if (max.Worklist == null) return;
                     
                     // Sort his worklist so that the highest priority is the first.
-
                     var maxWorklist = max.Worklist.ToList();
                     maxWorklist.Sort(Problem.GetETCComparer());
 
@@ -137,34 +136,31 @@ namespace HoplaHelpdesk.Models
 
         public TimeSpan AverageTimePerProblem()
         {
-            return AverageTimePerProblem(null);
+            List<Problem> problems = new List<Problem>();
+            foreach (var person in Persons)
+            {
 
+                problems.AddRange(person.Worklist.Where(x => x.SolvedAtTime != null));
+
+            }
+            return StatTool.AveragePerProblem(problems);
         }
 
         public TimeSpan AverageTimePerProblemLastWeek()
         {
-            return AverageTimePerProblem("LastWeek");
-
-        }
-
-        private TimeSpan AverageTimePerProblem(string method)
-        {
-            int people = 0;
-            int totalTime = 0;
+            List<Problem> problems = new List<Problem>();
+            var now = DateTime.Now;
+            var since = now.Subtract(new TimeSpan(7, 0, 0, 0));
             foreach (var person in Persons)
             {
-                people++;
-                if (method == "LastWeek")
-                    totalTime = person.AverageTimePerProblemLastWeek();
-                 else 
-                    totalTime = person.AverageTimePerProblem();
-            }
-            if (people == 0)
-                return new TimeSpan();
-            else
-                return new TimeSpan(0, totalTime / people, 0);
 
+                problems.AddRange(person.Worklist.Where(x => x.SolvedAtTime > since));
+
+            }
+            return StatTool.AveragePerProblem(problems);
         }
+
+     
         #endregion
 
     }
