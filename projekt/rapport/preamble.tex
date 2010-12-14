@@ -168,6 +168,22 @@ pdfborder=0 0 0
 \newcommand{\vari}[1]{\textbf{#1}}					%%Don't change
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%% Qoutations %%%%%%%%%%%%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcommand{\myQuote}[1]{
+\begin{flushleft}
+\Huge{\textbf{``}}
+\end{flushleft}
+\vspace{-30pt}
+\begin{quote}
+#1
+\end{quote}
+\vspace{-30pt}
+\begin{flushright}
+\Huge{\textbf{''}}
+\end{flushright}
+}
+
 
 %%%%%%%%% Defining Theorem %%%%%%%%%%%
 \theoremstyle{definition} \newtheorem{theorem}{Theorem}
