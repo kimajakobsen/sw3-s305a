@@ -3,7 +3,7 @@
 
 The \me{CalculateEstimatedTimeConsumption()} function -- which is a method in \cl{Problem} class -- estimates how much time is needed to solve the specific problem, under the assumption that there only exists this single problem on the assigned staff members queue. The idea is to sum up all the \verb+AverageTimeSpent+ property as well as all the count the number of tags, and lastly calculate the average time for all the tags. See code snippet \ref{lst:estimatedtimeconsumption}.
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:estimatedtimeconsumption]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method. In lines one to seven a property is shown, which wraps the method in lines nine to forty-three.}, label=lst:estimatedtimeconsumption]
 public TimeSpan EstimatedTimeConsumption
 {
     get
