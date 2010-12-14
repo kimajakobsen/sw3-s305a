@@ -37,10 +37,10 @@ Department target = new Department()
 %\end{comment}
 
 Now the expected result needs to be calculated. 
-Mike has three problems and this gives him a total workload of $20/1 + 20/2 + 20/2 = 40$. The workload is calculated by \vari{TimeConsumed} divided by \vari{SolvedProblems} of each tag.
+Mike has three problems and this gives him a total workload of $20 + 10 + 10 = 40$. The workload is calculated by \vari{TimeConsumed} divided by \vari{SolvedProblems} of each tag.
 This gives the estimated time consumption of the problem. Add up all problems and the workload is calculated.
 
-John has 1 problem which gives him a total workload of $20 / 2 = 10$. 
+John has 1 problem which gives him a total workload of $10$. 
 This implies that Mike's workload is overbalanced. 
 The algorithm is expected to reassign the problems so the workload is balanced. 
 Since there are four problems three with a estimated time consumption of 10 and one with 20.
