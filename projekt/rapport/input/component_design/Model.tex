@@ -1,6 +1,6 @@
 \subsection{Model}
-We made a final class diagram based on the class diagram from chapter \ref{cap:classesevents} to show the design of the system with the MVC utilized.
-The different classes can be seen on figure \ref{fig:ClassDiagramV2}
+We made a final class diagram based on class diagram on figure \ref{fig:pdaclassdiagram} -- from section \ref{sec:problem_structure} -- to show the design of the system with the MVC design pattern applied.
+The new class diagram can be seen on figure \ref{fig:ClassDiagramV2}.
 
 
 \begin{figure}%
@@ -10,10 +10,10 @@ The different classes can be seen on figure \ref{fig:ClassDiagramV2}
 \end{figure}
 
 
-In the current design the following things have been changed from the class diagram from chapter \ref{cap:classesevents}:
+In the current design the following have been changed from the class diagram from section \ref{sec:problem_structure}:
 \begin{itemize}	
 	\item The role pattern: \\
-	The functionality form the actor \admin[] dose not inheritance from \astaff[] and \aclient[] etc. Figure \ref{tab:newactortable} shows the new role system.   
+	The functionality from the actor \admin[] does not inherit from \astaff[] and \aclient[] etc. Figure \ref{tab:newactortable} shows the new role system.   
 	\item Problem: 
 	\begin{itemize}
 		\item \textbf{Deadline} \\
@@ -43,17 +43,18 @@ Administrate		&  	&		& $\checkmark$ \\	%
 \label{tab:newactortable}
 \end{figure}
 
-This is a description of attributes for each class.
+
+\subsubsection{Description of attributes for each class}
 
 \begin{description}
 \item[Problem]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each problem. 
+\item[Id:] A unique number which identifies each problem. 
 \item[Title:] Contains the problems title.
 \item[Description:] Contains the problems description.
 \item[Added\_date:] The date and time of when the problem is added.
 \item[Deadline:] A field where a date with a deadline can be added.
-\item[IsDeadlineApproved:] Whether or not the problems deadline has been approved by the \astaff[].
+\item[IsDeadlineApproved:] Whether or not the problems deadline has been approved by the assigned \astaff[] member.
 \item[Reassignable:] Whether or not a problem can be reassigned by the balance workload function \ref{sec:balanceworkload}. 
 \item[SolvedAtTime:] If a problem has been solved, the time of completion is saved, if there is no SolvedAtTime then the problems status is unsolved.
 \end{description}
