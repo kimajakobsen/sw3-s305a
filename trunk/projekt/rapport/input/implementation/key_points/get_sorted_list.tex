@@ -1,0 +1,24 @@
+\section{Get Sorted List}
+\label{sec:getsortedlist}
+
+The \me{GetSortedList()} method purpose is to sort the staff members list of problems the way where the most important problems -- which are defined in section \ref{sec:problem_priority} -- are listed first. 
+
+
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:getsortedlist]
+private List<Problem> GetSortedList()
+{
+    List<Problem> problemList = Worklist.ToList().Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
+
+    List<Problem> problemWithoutDeadline = Worklist.ToList().Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
+
+
+    problemList.Sort(Problem.GetComparer());
+
+    problemWithoutDeadline.Sort(Problem.GetComparer());
+
+    problemList.AddRange(problemWithoutDeadline);
+
+    return problemList;
+}
+\end{lstlisting}
