@@ -45,7 +45,7 @@ Administrate		&  	&		& $\checkmark$ \\	%
 
 
 \subsubsection{Description of Attributes for Each Class}
-
+\fixme{T\ae nkte p\aa , burde vi egentlig ikke ogs\aa{} beskrive hvad de forskellige attributter goer. Hvis vi ikke har det med, kan vi liges\aa{} godt lade v\ae re med at skrive det der st\aa r her, fordi vi har diagrammet der viser det samme.}
 \begin{description}
 \item[Problem]\hfill
 \begin{description}
@@ -90,7 +90,7 @@ Administrate		&  	&		& $\checkmark$ \\	%
 \item[Solution]\hfill
 \begin{description}
 	\item[Attributes:]Id and Description
-	\item[Operations:] \textit{none}
+	\item[Operations:]\textit{none}
 %\item[Id:] A number which is unique for each solution. 
 %\item[Description:] Contains the solution.
 \end{description}
@@ -99,34 +99,40 @@ Administrate		&  	&		& $\checkmark$ \\	%
 \begin{description}
 \item[Category]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each category. 
-\item[Name:] The name of the category.
-\item[Description:] Contains the description of the category.
-\item[Department\_Id:] The id of the department which the category belongs to. 
+	\item[Attributes:]Id, Name, Description, and Department\_Id
+	\item[Operations:]\textit{none}
+%\item[Id:] A number which is unique for each category. 
+%\item[Name:] The name of the category.
+%\item[Description:] Contains the description of the category.
+%\item[Department\_Id:] The id of the department which the category belongs to. 
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Tag]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each tag. 
-\item[Name:] The name of the tag.
-\item[Description:] The description of the tag.
-\item[Priority:] Each tag have a weight, problems with high weight are prioritized higher.
-\item[Category\_Id:] The id of the category which the tag belongs to. 
-\item[SolvedProblems:] The number of problems which have been solved with this tag.
-\item[TimeConsumed:] The total time problems with this tag have required to solve.
-\item[Hidden:] Whether or not a tag is visible.
+	\item[Attributes:]Id, Name, Description, Priority, Category\_Id, SolvedProblems, TimeConsumed, and Hidden
+	\item[Operations:]\me{AverageTimeSpent()}
+%\item[Id:] A number which is unique for each tag. 
+%\item[Name:] The name of the tag.
+%\item[Description:] The description of the tag.
+%\item[Priority:] Each tag have a weight, problems with high weight are prioritized higher.
+%\item[Category\_Id:] The id of the category which the tag belongs to. 
+%\item[SolvedProblems:] The number of problems which have been solved with this tag.
+%\item[TimeConsumed:] The total time problems with this tag have required to solve.
+%\item[Hidden:] Whether or not a tag is visible.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Comment]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each comment. 
-\item[Time:] The time and date when the comment is posted.  
-\item[Description:] The content of the comment.
-\item[Problem\_Id:] The id of the problem which the comment belongs to.
-\item[PersonId:] The id of the person who wrote the comment.
+	\item[Attributes:]Id, Time, Description, Problem\_Id, and PersonId
+	\item[Operations:]\textit{none}
+%\item[Id:] A number which is unique for each comment. 
+%\item[Time:] The time and date when the comment is posted.  
+%\item[Description:] The content of the comment.
+%\item[Problem\_Id:] The id of the problem which the comment belongs to.
+%\item[PersonId:] The id of the person who wrote the comment.
 \end{description}
 \end{description}
