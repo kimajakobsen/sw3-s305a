@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Text;
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Models
 {
@@ -64,9 +65,9 @@ namespace HoplaHelpdesk.Models
 
         private Double GetPriority()
         {
-            if (DateTime.Now > Deadline)
-            { // Whenever a 
-                return 10.0;
+            if ((DateTime.Now > Deadline) && (IsDeadlineApproved == true))
+            {
+                return Tools.MaxPriority.max;
             }
 
             if (Tags != null && Tags.Count != 0)
