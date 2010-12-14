@@ -75,8 +75,8 @@ If A is not run, B and C will never be run because they are inside of the A loop
 A will not be run if either the size of the result is at least equal to the minimum number of problems to find or if the number of tags to remove is at least equal to the number of selected tags.
 To not run the A loop, the number of selected tags is set to 0, i.e. no tags are selected.
 In order for D loop not to run there has been found enough problems or if the \vari{count} variable is at least equal to the number of tags selected. Therefore we set the minimum number of problems to find to zero.
-This test case is seen in code snippet \ref{src:runLoops}
-The \cl{ProblemSearch} is the class which which is being tested, particularly the Search method in this test case.
+This test case is seen in code snippet \ref{src:noLoops}.
+The \cl{ProblemSearch} is the class which which is being tested in the code snippet, particularly the \me{Search} method in this test case.
 
 \subsection{Test Case Two}
 The next test case will test the same as the above test case, except for the fact that the D loop will run exactly once instead of zero times.
