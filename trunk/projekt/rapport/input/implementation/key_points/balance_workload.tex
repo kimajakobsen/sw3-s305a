@@ -46,7 +46,8 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running for each staff member minus one. ``min'' and ``max'' are the person objects of which the algorithm are currently moving problems between. \vari{maxWorklistist} a sorted worklist. It is sorted in non-deacreasing order according to the estimated time consumption. }, label=lst:balanceWorkload]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running for each staff member minus one. ``min'' and ``max'' are the person objects of which the algorithm are currently moving problems between. \vari{maxWorklist} is a sorted worklist, which is sorted before the code snippet is called. It is sorted in non-deacreasing order according to the estimated time consumption. }, label=lst:balanceWorkload]
+....
 bool couldStillMove = true;
 do
 {
@@ -98,9 +99,7 @@ do
         }
     }
 } while (couldStillMove);
-
-
-
+....
 \end{lstlisting}
 
 
