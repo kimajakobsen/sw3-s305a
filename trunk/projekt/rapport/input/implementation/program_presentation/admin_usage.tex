@@ -78,10 +78,17 @@ To delete a tag, no problem can be associated with it.
 The deletion of tags is only supposed to be used if a tag is created incorrectly, e.g. another tag already exists or it is created in the wrong department.
 
 \subsection{\gstat[c]}
+\begin{figure}[htb]
+	\centering
+		\includegraphics[width=1.00\textwidth, clip=true, trim=2.9cm 2.5cm 15cm 8cm]{input/implementation/program_presentation/stat.png}
+	\morscaption{The statistics view, note that the screen shot has been cropped}
+	\label{fig:stat}
+\end{figure}
 An \admin[] can get statistics about how long problems in average remain unsolved.
 To do this he/she must select the Statics menu point as seen in figure \ref{fig:master}.
 He/she is then presented with a view which shows the average time for a problem to remain unsolved for each particular \astaff[] member, each department, and for the system over all.
 It also shows the average time for problems to be solved for the last week for all of the three groups above.
+This is seen in figure \ref{fig:stat}.
 
 These statistics can be used in any way the \admin[] wants, e.g. to see if a particular department needs more \astaff[] members if that given department is generally slower than the others.
 It is only \admin s who are allowed to see this page because \aclient s might use the statistics to categorize their problem, so that it will end up in the department which is generally fastest to solve problems, but this will actually make the problem be solved slower if the \astaff[] member has to figure out where to reassign it.
