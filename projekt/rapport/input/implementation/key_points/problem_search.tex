@@ -61,14 +61,14 @@ while (result.Count < listMinSize && noOfTagsToRemove < tags.Count)(*\label{sear
 \end{lstlisting}
 
 The most important part of the \me{InternalSearch} function is the while loop shown in code snippet \ref{src:search}.
-Generally, this loop finds problems which matches the tags specified in the input to the function and orders them with the problems with the most amount of matching tags in the beginning of the result list.
+Generally, this loop finds problems which match the tags specified in the input to the function and orders them with the problems with the most amount of matching tags in the beginning of the result list.
 The while loop beginning in line \ref{search:whileStart} will continue to run as long as there has not been found enough problems to suffice the minimum number of problems input and there still is at least one tag to search for.
 If there still is not enough problems another part of the search function will take care of this.
 This part is described in subsection \ref{sub:noTags}.
 
 The function will increase the number of tags to remove from the tag list which was input to the function every time an iteration ends in the outer while loop; lines \ref{search:whileStart}-\ref{search:whileEnd}.
 In the first iteration no tags are removed, this means that the function will find every problem which has every tag which is being search for and put these in the beginning of the result list.
-Further more the function sort the problems each step by the least amount of tags. The reason for this is that the less tags a problem has which are not searched for, the more likely it is that the given problem matches the search.
+Furthermore the function sort the problems each step by the least amount of tags. Because the less tags a problem have which are not searched for, the more likely it is that the given problem matches the search.
 For example if a search is run for the tags ``Computer'' and ``Harddisk'', the problems only containing these tags will be listed first and if a problem contains the tags ``Computer'', ``Harddisk'', ``Database'', and ``Connection'' it will be listed further down on the result list because it has unrelated tags attached to it.
 See a more detailed example of a run of the search function in appendix \ref{something}\fixme{Tilf\o j dette eksempel eller fjern denne linje}.
 
@@ -79,7 +79,7 @@ The \me{RemoveNext} function called in line \ref{search:removeNext} is responsib
 It will throw a \cl{NotSupportedException} when it has removed every combination of tags, which will break the inner while loop and add the problems found in the current search to the result list, which will be returned to the call site later.
 The function \me{AddRangeNoDuplicates}, is used instead of the in-build \me{AddRange} function, because otherwise one problem could be added several times, which is not wanted.
 One problem should only appear one time in the list returned from this function, because it would simply not make sense in relation to the minimum number of problems, since a single problem would be counted several times towards finding enough problems.
-Further more the client seaching for problems should not have the same problem appear on his/her list more than once.
+Furthermore the client seaching for problems should not have the same problem appear on his/her list more than once.
 Therefore at some point in our code we would have to filter out the duplicates, we chose to do it here, because it is the earliest step in finding problems in our database.
 If we were to filter the duplicates out another place, the search function could potentially return a list containing a single problem several times, which then -- when filtered -- only yields a single problem and thereby rendering the minimum number of problems nearly useless.
 
@@ -94,7 +94,7 @@ This means that if e.g. three tags should be removed it will initially be the fi
 \subsection{No Tags to Remove}
 \label{sub:noTags}
 If there has not been found enough problems to suffice the minimum number of problems during the search in tags the function will start to look for problems with no tags at all, then problems with one tag etc.
-This part of the function will start by finding every problem with no tags and add them to the result list, then every problem with a single tag is found and added.
+This part of the function will start by finding every problem with no tags and add them to the result list, and then every problem with a single tag is found and added.
 Here the problems are also added using the \me{AddRangeNoDuplicates} applying the same reasoning as above.
 This part of the function will continue to run until enough problems are found or it is about to search for more tags then there is in the ``All tags'' input.
 This means that it can actually return less problems than minimum number of problems if it cannot find any more, but at this point it has searched every problem, this means that it will actually return every problem in the ``Problems to search among'' sorted.
