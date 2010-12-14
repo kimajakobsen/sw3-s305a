@@ -4,7 +4,7 @@ The new class diagram can be seen on figure \ref{fig:ClassDiagramV2}.
 
 
 \begin{figure}%
-\includegraphics[width=\columnwidth]{input/component_design/ClassDiagramV2.pdf}%
+\includegraphics[scale=0.75]{input/component_design/ClassDiagramV2.pdf}%
 \caption{The Class Diagram}%
 \label{fig:ClassDiagramV2}%
 \end{figure}
@@ -49,42 +49,50 @@ Administrate		&  	&		& $\checkmark$ \\	%
 \begin{description}
 \item[Problem]\hfill
 \begin{description}
-\item[Id:] A unique number which identifies each problem. 
-\item[Title:] Contains the problems title.
-\item[Description:] Contains the problems description.
-\item[Added\_date:] The date and time of when the problem is added.
-\item[Deadline:] A field where a date with a deadline can be added.
-\item[IsDeadlineApproved:] Whether or not the problems deadline has been approved by the assigned \astaff[] member.
-\item[Reassignable:] Whether or not a problem can be reassigned by the balance workload function \ref{sec:balanceworkload}. 
-\item[SolvedAtTime:] If a problem has been solved, the time of completion is saved, if there is no SolvedAtTime then the problems status is unsolved.
+	\item[Attributes:]Id, Title, Description, Added\_date, Deadline, IsDeadlineApproved, Reassignable, and SolvedAtTime
+	\item[Operations:]\me{BalanceWorkload()}, \me{AverageTimePerProblem()}, and \me{AverageTimePerProblemLastWeek()}
+%\item[Id:] A unique number which identifies each problem. 
+%\item[Title:] Contains the problems title.
+%\item[Description:] Contains the problems description.
+%\item[Added\_date:] The date and time of when the problem is added.
+%\item[Deadline:] A field where a date with a deadline can be added.
+%\item[IsDeadlineApproved:] Whether or not the problems deadline has been approved by the assigned \astaff[] member.
+%\item[Reassignable:] Whether or not a problem can be reassigned by the balance workload function \ref{sec:balanceworkload}. 
+%\item[SolvedAtTime:] If a problem has been solved, the time of completion is saved, if there is no SolvedAtTime then the problems status is unsolved.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Person]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each Person. 
-\item[Name:] The name of the person.
-\item[Email:] The persons email, notifications are send to this email.  
-\item[DepartmentId:] This the id of the persons department if any. 
-\item[Other:] \fixme{skriv noget om aspnet person classen}
+	\item[Attributes:]Id, Name, Email, DepartmentId, Other, IsDeadlineApproved, Reassignable, and SolvedAtTime
+	\item[Operations:]\me{GetSortedList()}, \me{Roles()}, \me{IsStaff()}, \me{GetWorkload()}, \me{CascadeProblems()}, \me{SetNewDepartment()}, \me{AverageTimePerProblem()}, and \me{AverageTimePerProblemLastWeek()}
+%\item[Id:] A number which is unique for each Person. 
+%\item[Name:] The name of the person.
+%\item[Email:] The persons email, notifications are send to this email.  
+%\item[DepartmentId:] This the id of the persons department if any. 
+\fixme{skriv noget om aspnet person classen}
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Department]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each department. 
-\item[DepartmentName:] The name of the department.
-\item[Description:] Contains the description of the department.
+	\item[Attributes:]Id, DepartmentName, and Description
+	\item[Operations:]\me{BalanceWorklaod()}, \me{AverageTimePerProblem()}, and \me{AverageTimePerProblemLastWeek()}
+%\item[Id:] A number which is unique for each department. 
+%\item[DepartmentName:] The name of the department.
+%\item[Description:] Contains the description of the department.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Solution]\hfill
 \begin{description}
-\item[Id:] A number which is unique for each solution. 
-\item[Description:] Contains the solution.
+	\item[Attributes:]Id and Description
+	\item[Operations:] \textit{none}
+%\item[Id:] A number which is unique for each solution. 
+%\item[Description:] Contains the solution.
 \end{description}
 \end{description}
 
