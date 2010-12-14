@@ -1,10 +1,11 @@
 \section{Development Method}
 \label{sec:DevelopmentMethods}
 In this section we will describe a few different Software development methods that we considered using.
+Subsection \ref{sub:ourDevMethod} explains the method used for this project, which is a combination of the different methods described in this section.
 
 \subsection{Waterfall}
-The waterfall method, first published by Dr. Winston W. Royce in 1970 as a flawed method of development, has derived its name directly from the concept of the method. If following this method in it's traditional form, development will go through several completely separated steps, from which it is never possible to go back (see \ref{fig:WaterfallPic}). These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.\\
- \\
+The waterfall method, first published by Dr. Winston W. Royce in 1970 as a flawed method of development, has derived its name directly from the concept of the method. If following this method in it's traditional form, development will go through several completely separated steps, from which it is never possible to go back as seen on figure \ref{fig:WaterfallPic}. These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.
+
 Royce originally meant for this method to be developed into a fully iterative model, however, most software development companies adapted to non-iterative form.
 \cite{waterfallroyce}
 
@@ -15,59 +16,65 @@ Royce originally meant for this method to be developed into a fully iterative mo
 	\label{fig:WaterfallPic}
 \end{figure}
 
-Unfortunately, this software development method has a lot of drawbacks, the main one being it's inflexibility. Because the method is not designed to handle change in the specification during the development period, the software developed with this method could in the worst cases be useless by the time the development finishes. Therefor it is very common for software developers to incorporate change during the development, however, because the documentation for every little piece of work has already been made at this time, it is a colossal task to change even the smallest features. 
+Unfortunately, this software development method has a lot of drawbacks, the main one being it's inflexibility.
+Because the method is not designed to handle change in the specification during the development period, the software developed with this method could in the worst cases be useless by the time the development finishes.
+Therefore it is very common for software developers to incorporate change during the development, however, because the documentation for every little piece of work has already been made at this time, it is a colossal task to change even the smallest features.
+Because the changes must be made to all the documentation prior to the step where the change is made. 
 
 \subsection{Agile Methods}
+Because of the traditional and wide spread development method being so inflexible and difficult to work with, a lot of other methods has been suggested.
+These methods has been commonly known as ``Agile''.
+In 2001 a large group formed by representatives from them most popular Agile methods came together to form ``The Agile Alliance''.
+This alliance created the ``Agile Manifesto'', which states four things that the alliance think Agile Development should be:
 
-Because of the traditional and wide spread development method being so inflexible and difficult to work with, a lot of other methods has been suggested. These methods has been commonly known as ``Agile''. In 2001 a large group formed by representatives from them most popular Agile methods came together to form ``The Agile Alliance''. This alliance created the ``Agile Manifesto'', which states four things that the alliance think Agile Development should be:
-
-\begin{quotation}
-	\begin{itemize}
+\myQuote{
+\begin{itemize}
 	\item \textbf{Individuals and Interaction} over processes and tools
 	\item \textbf{Working Software} over comprehensive documentation
 	\item \textbf{Customer Collaboration} over contract negotiation
 	\item \textbf{Responding to change} over following a plan
 \end{itemize}
-
-That is, while there is value in the items on the right, we value the items on the left more.
-\end{quotation}
+That is, while there is value in the items on the right, we value the items on the left more. \cite{agileManifesto}
+}
 
 \subsection{Scrum}
 Scrum is an Agile development method that relies heavily on self-organizing teams. Scrum is best explained by the different components it contains:
 
-\paragraph{Customer / Product owner}\ \\
+\subsubsection{Customer / Product owner}
 The customer is the person og organization for whom the development team is currently working.
 
-\paragraph{ScrumMaster}\ \\
+\subsubsection{ScrumMaster}
 The ScrumMaster is the manager of the scrum process, and is there to ensure that all developers use Scrum to achieve the maximum level of performance.
 
-\paragraph{Development team}\ \\
+\subsubsection{Development team}
 The Development team is a set of developers working on the project. These can vary in size depending on the size of the task they have to solve.
 
-\paragraph{User Stories}\ \\
-This is a set of stories in which the customer explains in plain language what features the product should contain, and how he would like them to work.
+\subsubsection{User Stories}
+This is a set of stories in which the customer explains in plain language what features the product should contain, and how he/she would like them to work.
 
-\paragraph{Product Backlog}\ \\
-This is the complete list of features - or user stories - that the customer would like the product to have.
+\subsubsection{Product Backlog}
+This is the complete list of features -- or user stories -- that the customer would like the product to have.
+Each feature is prioritized to determine the order of which these should be implemented.
 
-\paragraph{Sprints}\ \\
+\subsubsection{Sprints}
 Sprints are a limited timespan, in which developers work on coding, testing and implementing the features contained in the sprint backlog.
 
-\paragraph{Sprint Backlog}\ \\
+\subsubsection{Sprint Backlog}
 The Sprint backlog is the set of features that the specific development team are working on in the current sprint.
 
-\paragraph{Burndown Charts}\ \\
-Burndown charts are the set of features that still lack implementing. Typically, a burndown chart is created for both the individual sprints and the entire project.\\
- \\
-When understanding all of these ``components'', one can begin to understand how they are working together to create Scrum:
+\subsubsection{Burndown Charts}
+Burndown charts are the set of features that still lack implementing. Typically, a burndown chart is created for both the individual sprints and the entire project.
 
-The main component in Scrum is a sprint; \\
-Any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. This priority is decided by the product owner. When they have decided upon the features, they transfer them to the sprint backlog and start working. \\
- \\
-Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day and what might be holding them from proceeding. These meetings are held to synchronize the team members.\\
- \\
-After completing a sprint the team demonstrates all the features added to the product. This is done to assure that the customer and the developers are on the same page. Of course this meeting might lead to alteration of the recently implemented features, however, it might also lead to more features being added to the product backlog.\\
- \\
+\subsubsection{Putting the Components Together}
+When understanding all of these ``components'', one can begin to understand how they are working together to create Scrum.
+
+The main component in Scrum is a sprint;
+any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. This priority is decided by the product owner. When they have decided upon the features, the development team transfer them to the sprint backlog and start working.
+
+Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day and what might be holding them from proceeding. These meetings are held to synchronize the team members.
+
+After completing a sprint the team demonstrates all the features added to the product. This is done to assure that the customer and the developers are on the same page. Of course this meeting might lead to alteration of the recently implemented features, however, it might also lead to more features being added to the product backlog.
+
 After this meeting the team starts from the top with a new planning meeting and repeat this process until the customer is satisfied.
 
 \subsection{Extreme Programming (XP)}
@@ -76,9 +83,9 @@ Extreme Programming differs from the other agile methods as it is more a set of 
 1. Planning\\
 There are three different overall plans in XP:
 \begin{itemize}
-	\item \textbf{Release Planning}; The Overall plan for the project
-	\item \textbf{Iteration Planning}; The plan for this iteration of development. This is very similar to the Scrum Sprints
-	\item \textbf{Daily Planning}; The day to day planning between developers.
+	\item \textbf{Release Planning:} The Overall plan for the project
+	\item \textbf{Iteration Planning:} The plan for this iteration of development. This is very similar to the Scrum Sprints
+	\item \textbf{Daily Planning:} The day to day planning between developers.
 \end{itemize}
 \ \\
 2. Small Releases\\
@@ -115,7 +122,8 @@ XP recommends that there is always a customer available, preferably on site. Thi
 This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves. This will be done almost by itself, as developers will grow tired of not understanding each others code. \\
 
 \cite{xp}, \cite{xp2}
-\subsection{Development during the project}
+\subsection{Development During the Project}
+\label{sub:ourDevMethod}
 In our project we have not strictly followed any specific development method. Instead we have implemented elements from scrum and Extreme programming. At the start of each day we have held a meeting to discuss what we would be doing during the day. Furthermore have have had a lot of small sprints, where we focused on developing, integrating and testing new features. These sprints were very short, typically maximum a couple of days, because our development phase did not last for more than a couple of weeks.
 
 Besides the principles borrowed from scrum, we also used a lot of elements from Extreme Programming:
