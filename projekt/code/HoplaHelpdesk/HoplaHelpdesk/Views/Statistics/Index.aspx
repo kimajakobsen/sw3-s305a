@@ -6,19 +6,29 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Person Statistic</h2>
+    <h2>Statistics</h2>
         <% foreach(var department in Model.Departments){ %>
             <fieldset>
                 <legend>
                     <%: department.Name %>
                 </legend>
+            <% if (department.Persons != null && department.Persons.Count != 0)
+               { %>
             <% Html.RenderPartial("StatPersonList", department.Persons); %><br/>
-            <p> Department in average: <%: department.AverageTimePerProblem() %>. In last week <%: department.AverageTimePerProblemLastWeek() %> </p>
+            
+            <p> 
+            Average time to solve for all problems in the <%: department.Name%>: <%: department.AverageTimePerProblem()%> <br />
+            Average time to solve during the past 7 days: <%: department.AverageTimePerProblemLastWeek()%> </p>
+            <% }
+               else
+               { %>
+               <p>No staff members employed in this department.</p>
+            <% } %>
             </fieldset>
     <% } %>
    
     <p>
-    In total all staff solved a problem in average of <%: Model.AverageAllTime %>. 
-    Last week in average were <%: Model.AverageLastWeek %>
+    Average time to solve for all problems in the system: <%: Model.AverageAllTime %> <br />
+    Average time to solve during the past 7 days: <%: Model.AverageLastWeek %>
     </p>
 </asp:Content>
