@@ -2,13 +2,13 @@
 \label{chap:whiteBox}
 White box testing requires knowledge of the code being tested.
 White box tests are generally written by the developers, because they have the needed knowledge.
-Black box testing on the other hand does not not require any knowledge of the code, but only what output is expected from a given input.
+Black box testing on the other hand does not require any knowledge of the code, but only what output is expected from a given input.
 We mainly use white box testing because we do have knowledge of the code which we are testing and white box testing is therefore preferred since we can make more accurate test cases through analysis of the code.
 
-Through an analysis of the code being tested we can see how much of a component is actually tested.
+Through an analysis of the code we can see how much of a component is actually tested.
 The size of a tested component compared to the size of the entire component is a measure for how much of the code in the component which is covered by the tests.
 This is called ``code coverage'' and can be measured in several ways.
-These ways, along with the ones we are using, are described in the following subsection.
+This, along with the ones we are using, is described in subsection \ref{sub:codeCoverage}.
 
 \subsection{Code Coverage}
 \label{sub:codeCoverage}
@@ -17,7 +17,7 @@ There are different units of measure for code coverage, e.g. statement coverage,
 
 We will mainly focus on path coverage with loop coverage taken into account.
 It involves finding every code path the specific component can take, e.g. every if statement should be tested where the condition is both true and false.
-It is also needed to test the edge conditions for the the loops within the code of the component being tested.
+It is also needed to test the edge conditions for the loops within the code of the component being tested.
 These edge conditions are zero runs, one run, and more than one run.
 
 This is done by making a flow chart of the component being tested to see which code paths there are.
