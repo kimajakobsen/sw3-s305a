@@ -71,16 +71,17 @@ When understanding all of these ``components'', one can begin to understand how 
 The main component in Scrum is a sprint;
 any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. This priority is decided by the product owner. When they have decided upon the features, the development team transfer them to the sprint backlog and start working.
 
-Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day and what might be holding them from proceeding. These meetings are held to synchronize the team members.
+Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day, and what might be holding them from proceeding. These meetings are held to synchronize the team members.
 
-After completing a sprint the team demonstrates all the features added to the product. This is done to assure that the customer and the developers are on the same page. Of course this meeting might lead to alteration of the recently implemented features, however, it might also lead to more features being added to the product backlog.
+After completing a sprint the team demonstrates all the features added to the product. This is done to assure that the customer and the developers are on the same page.
+Of course this meeting might lead to alteration of the recently implemented features, however, it might also lead to more features being added to the product backlog.
 
-After this meeting the team starts from the top with a new planning meeting and repeat this process until the customer is satisfied.
+After this meeting the team starts from the top with a new planning meeting and repeat this process until the customer is satisfied with the features implemented.
 
 \subsection{Extreme Programming (XP)}
-Extreme Programming differs from the other agile methods as it is more a set of recommendations than an actual method. The recommendations of XP is as following:\\
-\ \\
-1. Planning\\
+Extreme Programming differs from the other agile methods as it is more a set of recommendations than an actual method. The recommendations of XP is as following:
+
+\subsubsection{Planning}
 There are three different overall plans in XP:
 \begin{itemize}
 	\item \textbf{Release Planning:} The Overall plan for the project
@@ -88,43 +89,49 @@ There are three different overall plans in XP:
 	\item \textbf{Daily Planning:} The day to day planning between developers.
 \end{itemize}
 \ \\
-2. Small Releases\\
-This is simply about getting working software to the customer as fast as possible, better make a small release fast, than a large release slowly.\\
- \\
-3. Metaphor\\
-Find a metaphor in the real world that resembles your project.\\
- \\
-4. Simple Design\\
-Design only what you will be doing in this iteration of the project. Don't spend time to design something you might not even need later on.\\
- \\
-5. Testing\\
-The Development of the project should actually be test-driven. That means that you write unit-tests before you write actual code. Also, XP recommends that you run all tests simultaneously, so that you can see if a bug-correction has cascaded other problems.\\
- \\
-6. Refactoring\\
-Make the code simple to modify and understand, modify existing and working code so that it is easier to modify and understand - you never know when you have to add features using or modifying existing code.\\
- \\
-7. Pair Programming\\
-In Extreme Programming one developer should never work alone. Two developers always work alongside on a single computer. XP states that this will deliver code just as quickly as two developers with two computers, however, the code will be of higher quality.\\
- \\
-8. Collective Ownership\\
-Nobody owns any code - all code can be altered by anyone. This is possible because unit tests for everything already exists and it allows anyone to refactor or optimize the code as long as the unit tests pass afterwards.\\
- \\
-9. Continuous Integration\\
-Always integrate the feature you have just written in the project right away. This enhances the possibility to make a lot of small releases, and eliminates any large scale integration project at the end of development.\\
- \\
-10. No Overtime\\
-In XP projects no one should work overtime on a regular basis. Of course it can be necessary if something in the planning slipped, however, if it becomes a regular thing something is wrong with the planning.\\
- \\
-11. On-Site Customer\\
-XP recommends that there is always a customer available, preferably on site. This will enhance the collaboration between customer and developers and hopefully developers won't have to change as much as of the features that they have implemented.\\
- \\
-12. Coding Standards\\
-This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves. This will be done almost by itself, as developers will grow tired of not understanding each others code. \\
+\subsubsection{Small Releases}
+This is simply about getting working software to the customer as fast as possible, better make a small release fast, than a large release slowly.
 
-\cite{xp}, \cite{xp2}
+\subsubsection{Metaphor}
+Find a metaphor in the real world that resembles your project.
+
+\subsubsection{Simple Design}
+Design only what you will be doing in this iteration of the project. Do not spend time designing something you might not even need later on.
+
+\subsubsection{Testing}
+The Development of the project should actually be test-driven.
+That means that you write unit-tests before you write actual code.
+Also, XP recommends that you run all tests simultaneously, so that you can see if a bug-correction has fixed other problems.
+
+\subsubsection{Refactoring}
+Make the code simple to modify and understand, modify existing and working code so that it is easier to modify and understand - you never know when you have to add features using or modifying existing code.
+
+\subsubsection{Pair Programming}
+In Extreme Programming one developer should never work alone. Two developers always work alongside on a single computer. XP states that this will deliver code just as quickly as two developers with two computers, however, the code will be of higher quality.
+
+\subsubsection{Collective Ownership}
+Nobody owns any code -- all code can be altered by anyone.
+This is possible because unit tests for everything already exists and it allows anyone to refactor or optimize the code as long as the unit tests pass afterwards.
+
+\subsubsection{Continuous Integration}
+Always integrate the feature you have just written in the project right away.
+This enhances the possibility to make a lot of small releases, and eliminates any large scale integration project at the end of development.
+
+\subsubsection{No Overtime}
+In XP projects no one should work overtime on a regular basis.
+Of course it can be necessary if something in the planning slipped, however, if it becomes a regular thing something is wrong with the planning.
+
+\subsubsection{On-Site Customer}
+XP recommends that there is always a customer available, preferably on site.
+This will enhance the collaboration between customer and developers and hopefully developers will not have to change as much as of the features that they have implemented.
+
+\subsubsection{Coding Standards}
+This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves.
+This will be done almost by itself, as developers will grow tired of not understanding each others code.
+\cite{xp} \cite{xp2}
 \subsection{Development During the Project}
 \label{sub:ourDevMethod}
-In our project we have not strictly followed any specific development method. Instead we have implemented elements from scrum and Extreme programming. At the start of each day we have held a meeting to discuss what we would be doing during the day. Furthermore have have had a lot of small sprints, where we focused on developing, integrating and testing new features. These sprints were very short, typically maximum a couple of days, because our development phase did not last for more than a couple of weeks.
+In our project we have not strictly followed any specific development method. Instead we have implemented elements from scrum and extreme programming. At the start of each day we have held a meeting to discuss what we would be doing during the day. Furthermore we have had a lot of small sprints, where we focused on developing, integrating and testing new features. These sprints were very short, typically maximum a couple of days, because our development phase did not last for more than a couple of weeks.
 
 Besides the principles borrowed from scrum, we also used a lot of elements from Extreme Programming:
 \begin{itemize}
@@ -134,8 +141,8 @@ Besides the principles borrowed from scrum, we also used a lot of elements from 
 \item We have had collective ownership of all our code
 \item We have written tests for all our major components 
 \item We have continuously integrated the created features into our main system
-\item We have had no overtime during this project.
+\item We have not had regular overtime during this project.
 \item We have tried to maintain coding standards, although with limited success.
 \end{itemize}
 
-Using these elements have made it much easier for us to delegate our work and plan all the aspects of our project. Also, it has given us a all a better understanding of our code, as we have all collaborating to achieve our goal, and has often edited each others' code. The swift implementation of development and the fact we almost never work late has helped us to maintain a high interest in the project.
+Using these elements have made it much easier for us to delegate our work and plan all the aspects of our project. Also, it has given us a all a better understanding of our code, as we have all collaborating to achieve our goal, and has often edited each others' code. The swift development of our application and the fact we almost never work late has helped us to maintain a high interest in the project.
