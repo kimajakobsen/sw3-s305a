@@ -1,11 +1,11 @@
 \chapter{Problem Search Test}
 \label{chap:problem_search_test}
 \myTop{In this chapter the test cases regarding the \cl{ProblemSearch} class and its methods: \me{Search} and \me{SearchSolvedFirst} are described.
-It is generally the white box unit tests to provide code coverage which are described in this chapter, because those are the most important, since we are focused on the functionality of our system and therefore want as much of our code tested as possible.}
+It is generally the white box code coverage unit tests which are described in this chapter, because those are the most important, since we are focused on the functionality of our system and therefore want as much of our code tested as possible.}
 
 \section{Unit Test Cases for the Search Function}
 \label{sec:unit_problem_search}
-\begin{figure}[hbt]
+\begin{figure}[h]
 	\centering
 		\includegraphics[width=1.00\textwidth]{input/testing/problem_search.pdf}
 	\morscaption{Flow chart of the search function.
@@ -25,7 +25,7 @@ This is more thoroughly described in subsection \ref{sub:searchTags}.
 To make test cases a set of tags and problems are needed to test upon.
 These are seen in figure \ref{tab:problem_search_base}.
 
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 		\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
@@ -74,8 +74,7 @@ The first test case will consider the option where the none of the loop is not r
 If A is not run, B and C will never be run because they are inside of the A loop.
 A will not be run if either the size of the result is at least equal to the minimum number of problems to find or if the number of tags to remove is at least equal to the number of selected tags.
 To not run the A loop, the number of selected tags is set to 0, i.e. no tags are selected.
-In order for D loop not to run there has been found enough problems or if the \vari{count} variable is at least equal to the number of tags selected.
-For the D loop not to run the minimum number of problems to find to zero.
+In order for D loop not to run there has been found enough problems or if the \vari{count} variable is at least equal to the number of tags selected. Therefore we set the minimum number of problems to find to zero.
 This test case is seen in code snippet \ref{src:runLoops}
 The \cl{ProblemSearch} is the class which which is being tested, particularly the Search method in this test case.
 
@@ -95,7 +94,7 @@ Now that we have tested all code paths not containing any runs of the A loop, th
 To run loop A once, there most be a positive number of tags which are selected.
 If the A loop is run then both the B and C will be run at least once, for the following reasons:
 \begin{itemize}
-	\item B will be run because the first time the current search is initialized, it will contain all selected tags, which must be at least once, therefore the B decision in figure \ref{fig:problem_search_flow} will render true at least once and run the B loop.
+	\item B will be run because the first time the current search is initialized, it will contain all selected tags, which must be at least one, therefore the B decision in figure \ref{fig:problem_search_flow} will render true at least once and run the B loop.
 	\item As described earlier the C loop acts as a do-while loop for reasons explained, thereby allowing the C loop to be run at least once.
 \end{itemize}
 
@@ -110,9 +109,9 @@ As shown above the A and D loops number of runs can be changed independently.
 The number of iterations that the B and C loops will take is however very dependent on the number of times A will run.
 For A to run more than once, the number of selected tags most be more than one and the number of problems found in the first run of loop A must not exceed the minimum number of problems to find.
 At the first run of A the B loop will run $x$ times, where $x$ is the number of selected tags.
-Because the current search during the first iteration of A will contain every selected tag, which is more than one, thereby letting be run more than one time.
+Because the current search during the first iteration of A will contain every selected tag, which is more than one, thereby letting B run more than one time.
 During the second run of A the C loop will run $x$ times, where $x$ is the number of selected tags.
-The reason for this is that the search will ``soften'' the search now only search for problems all but one tag, which will render a search where each tag is removed.
+The reason for this is that the search will ``soften'' the search and now only search for problems with all but one tag, which will render a search where each tag is removed.
 
 The three test cases which will cover the last code paths are:
 \begin{itemize}
@@ -120,7 +119,7 @@ The three test cases which will cover the last code paths are:
 	\item The A, B, and C loops are run several time and the D loop is run exacly once.
 	\item The A, B, C, and D loops are run several time.
 \end{itemize}
-To ensure that the A, B, and C loops are run more than once, the number of selected tags is set to two and the minimum number of problems to find is set appriate.
+To ensure that the A, B, and C loops are run more than once, the number of selected tags is set to two and the minimum number of problems to find is set appriopriate.
 The test cases are shown in appendix \ref{chap:problem_search_test_source}.
 
 \section{Regression Test Cases}
