@@ -1,40 +1,40 @@
 \section{System Definition}
 \label{sec:factor}
 \label{sec:systemdefinition}
-To better be able to define our system we will use the FACTOR method\cite[p.~39]{roedeaalborg}. This model contains different parts of the requirements, and it will help us derive the system definition.  \\
+In order to define our system we will use the FACTOR criterion\cite[p.~39]{roedeaalborg}. These criteria contains different parts of the requirements, and it will help us derive the system definition.  \\
 \ \\
 {\Large \textbf{F}}unctionality \\
-Our program will contain features aimed at easing the problem-solving process for service employees. Therefor the system will have the following features:
+Our application will contain features aimed at easing the problem-solving process for service employees, therefore the application will need to have the following features:
 \begin{itemize}
 \item Problem distribution\\
-The system should distribute problems to the relevant service department and balance the workload of service employees so all have a equal workload. 
+The application should distribute problems to the relevant service department and balance the workload of service employees so all have a equal workload. 
 \item Problem categorization \\
 Categorize problem and thereby making it easy to find relevant problems.
 \item Ranking of problems \\
 Unsolved Problems are displayed on a ranked list, depending on their importance.
 \item Keep track \\
-The system should be able to keep track of all the information regarding a problem, this being
+The application should be able to keep track of all the information regarding a problem, this being
 \begin{itemize}
 	\item When it approximately will be solved
 	\item Who is assigned to solve the problem
-	\item What the deadline is, if the staff approved it, and if it is exceeded
+	\item What the deadline is, and if it is exceeded
 	\item What tags and categories are related to the problem 
 	\item Comments related to the problem
 \end{itemize}
 \item Knowledge saved \\
-The system should be able to recognize common problems and recommend similar problem to the user, and by that saving the service employee the bother of solving common problems. 
+The application should be able to recognize common problems and recommend similar problem to the user, and by that saving the service employee the bother of solving common problems. 
 \item Statistics \\
 Allow the supervisor to monitor the work process of the employees.
 \end{itemize}
 \ \\
 {\Large \textbf{A}}pplicationdomain \\
-This system will be applicable to office environments which deals with solving of problems.\\
+This application will be applicable to office environments which deals with solving of problems.\\
 \ \\
 {\Large \textbf{C}}onditions \\ 
-The problem submitting users are not required to have any expert knowledge to use the helpdesk. The service personal will have to learn to use the staff interface to solve problems. The administrators will have to learn to use the functionality in the administrator interface.   \\
+The end users are not required to have any expert level knowledge to use the application. The service personal will have to learn to use the staff interface to solve problems. The administrators will have to learn to use the functionality in the administrator interface.   \\
 \ \\
 {\Large \textbf{T}}echnology \\
-In the development of our program we are going to use the programming language C\# together with the Model-View-Controller framework 2 that exists within the ASP.NET framework. We will set up a development server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
+In the development of our program we are going to use C\# along with the Model-View-Controller framework 2 that exists within ASP.NET framework. We will set up a server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
 \\
 The end result will be a web interface running on a webserver, with underlying SQL database.\\
 \ \\
@@ -42,17 +42,17 @@ The end result will be a web interface running on a webserver, with underlying S
 Problems, solution, \aclient s, \astaff members, \admin s, departments, categories and tags. \\
 \ \\
 {\Large \textbf{R}}esponsibility \\
-Our system is responsible for keeping track of all technically related problems within an organization. It is also responsible for distributing tasks amongst employees and supplying statistics on their progress to their supervisors. Finally it is also responsible for enabling users and technical employees to communicate about a problem and the following solution.
+Our application is responsible for keeping track of all problems within the physical environment of an organization. It is also responsible for distributing tasks amongst employees and supplying statistics about the progress to their supervisors. Finally it is also responsible for enabling users and technical employees to communicate about a problem and the following solution.
 \ \\ 
 
 Using these FACTOR criteria, we arrive at the following system definition:
 \begin{itemize}
-\item The system should be web-based so that we can create an application capable of running without prior installation.
-\item The system should contain prioritized tags, enabling us to determine the importance of problems
-\item The system should keep track of the problems Estemated time of compleation, comments and what employee is responsible for the problem. This will enable us to create detailed statistic about problem solving efficiency and individual employees.
-\item The system should be able to save and suggest prior problems and their solutions to users.
-\item The system should take into account, the workload of the employees to be able to estimate how long a problem will take to finish.
-\item The system should only use dynamic data, in order to run in different environments.
-\item The system should contain a structure that can handle problems, categories, tags, employees, supervisors, ordinary users and department.
+\item The application should be web-based so that we can create an application capable of running without prior installation.
+\item The application should contain prioritized tags, enabling us to determine the importance of problems
+\item The application should keep track of the estimated completion time of the problem along with comments and what employee is responsible for the problem. This will enable us to create statistic about problem solving efficiency and individual employees.
+\item The application should be able to save and suggest prior problems and their solutions to users.
+\item The application should take into account, the workload of the employees to estimate how long a problem will take to solve.
+\item The application should should contain nothing but dynamic data within the problem domain, so that the application can run in different environments.
+\item The application should contain a structure that can handle problems, departments, categories, tags, employees, supervisors and ordinary users.
 \end{itemize}
 
