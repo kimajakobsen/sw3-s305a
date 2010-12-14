@@ -1,0 +1,107 @@
+\section{Get statistics}
+\label{sec:getstatistics}
+
+The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AverageTimePerProblem()} method -- seen in code snippet \ref{lst:averagetimeperproblem} --  which utilizes the \me{AverageTimePerProblem()} method as well as the \me{AverageTimePerProblemLastWeek()} methods, which both are wrappers to the \me{AverageTime(string method)} method. All three is shown in code snippet \ref{lst:averagetime}.
+
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The StatisticsController controller}, label=lst:getstatistics]
+[Authorize(Roles = Constants.AdminRoleName)]
+public class StatisticsController : Controller
+{
+    hoplaEntities db = new hoplaEntities();
+    public ActionResult Index()
+    {
+        var departments = db.DepartmentSet.ToList();
+        int TotalTime = 0;
+        int TotalTimeLastWeek = 0;
+        int problems = 0;
+        foreach(var dep in departments){
+           TotalTimeLastWeek = (int)dep.AverageTimePerProblem().TotalMinutes;
+           TotalTime = (int)dep.AverageTimePerProblem().TotalMinutes;
+           problems++;
+        }
+
+        var viewModel = new StatisticViewModel()
+        {
+            AverageLastWeek = new TimeSpan(0,TotalTimeLastWeek/problems,0),
+            AverageAllTime = new TimeSpan(0,TotalTime/problems,0),
+            Departments = departments
+            
+        };
+        return View(viewModel);
+    }
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The AverageTimePerProblem(string method) method -- which is found in the \cl{Department} class -- together with its wrappers.}, label=lst:averagetimeperproblem]
+public TimeSpan AverageTimePerProblem()
+{
+    return AverageTimePerProblem(null);
+
+}
+
+public TimeSpan AverageTimePerProblemLastWeek()
+{
+    return AverageTimePerProblem("LastWeek");
+}
+
+private TimeSpan AverageTimePerProblem(string method)
+{
+    int people = 0;
+    int totalTime = 0;
+    foreach (var person in Persons)
+    {
+        people++;
+        if (method == "LastWeek")
+            totalTime = (int)person.AverageTimePerProblemLastWeek().TotalMinutes;
+         else 
+            totalTime = (int)person.AverageTimePerProblem().TotalMinutes;
+    }
+    if (people == 0)
+        return new TimeSpan();
+    else
+        return new TimeSpan(0, totalTime / people, 0);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The AverageTime(string method) method -- which is found in the \cl{Person} class -- together with its wrapper.}, label=lst:averagetime]
+public TimeSpan AverageTimePerProblem()
+{
+    return AverageTime("PerProblem");
+}
+
+public TimeSpan AverageTimePerProblemLastWeek()
+{
+    return AverageTime("LastWeek");
+}
+
+
+private TimeSpan AverageTime(string method)
+{
+    int totalTime = 0;
+    int problems = 0;
+      IEnumerable<Problem> worklist = null;
+      if (method == "LastWeek")
+      {
+          var lastWeek = DateTime.Now;
+          var aWeek = new TimeSpan(7,0, 0, 0);
+          lastWeek = lastWeek.Subtract(aWeek);
+          worklist = Worklist.Where(x => x.SolvedAtTime > lastWeek);
+      }
+      else
+      {
+          worklist = Worklist.Where(x => x.SolvedAtTime != null);
+      }
+
+    foreach(var problem in worklist)
+    {
+        problems++;
+        totalTime = totalTime + (int)((TimeSpan)(problem.SolvedAtTime - problem.Added_date)).TotalMinutes;
+    }
+    if (problems == 0)
+        return new TimeSpan();
+    else 
+        return new TimeSpan(0, totalTime / problems,0);
+}
+\end{lstlisting}
