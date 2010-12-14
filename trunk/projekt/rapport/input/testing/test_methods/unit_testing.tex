@@ -6,15 +6,15 @@ The idea behind unit testing is to check an individual method by executing it wi
 Generally a unit test is white because it should cover each code path in order to make sure that the test actually suffice to test the given unit. \cite[p.~39]{williams06}
 To make sure that each code path is covered, the method for code coverage described in subsection \ref{sub:codeCoverage} is used.
 
-All major functions have been tested with Team Test. This mean that we have not made any unit testing on controllers. 
+All major functions have been tested with Team Test. This means that we have not made any unit testing on controllers. 
 Throughout the development, we have omitted to write complex methods and functions in the controllers, and instead written them in the model or our tool component. We have therefore seen it unnecessary to unit test each controller. Instead we have tested them manually by running the program and seen that it behaves as expected. 
 
 We have run tests for the search and the problem distribution methods -- these tests are described in chapter \ref{chap:problem_search_test} and \ref{sec:balWorUniTes} respectively -- along with other parts of the tool component and the model.
 Controller unit testing requires a great deal of dependency injection and mocking since most controllers uses a database entity which we have to mock in order to make proper testing.
 Since no methods in the controllers are that complex, we have chosen to omit testing them.
 
-A unit test consist of three parts, an arrange phase, an act phase, and an assert phase. 
+To better explain a unit test we divided it in three parts: an arrange phase, an act phase, and an assert phase. 
 The arrange phase sets up the input and requirements for the test. 
-The act is the run of the method and the assert is the actual testing, e.g. where the result from the method is compared to an expected value. \fixme{unit test referance her tak.} \fixme{Der findes ikke nogen...}
+The act is the run of the method and the assert is the actual testing, e.g. where the result from the method is compared to an expected value. 
 
-In chapter \ref{sec:balWorUniTes} a white box unit test of the balance workload method is presented and in section \ref{sec:independencyInjection} a unit test with dependency injection is explained. \fixme{Skal de ref med?}
+In chapter \ref{sec:balWorUniTes} a white box unit test of the balance workload method is presented and in section \ref{sec:independencyInjection} a unit test with dependency injection is explained.
