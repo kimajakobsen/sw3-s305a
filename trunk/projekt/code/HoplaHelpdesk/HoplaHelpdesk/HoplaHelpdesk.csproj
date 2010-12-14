@@ -108,6 +108,7 @@
     <Compile Include="Tools\ProblemComparer.cs" />
     <Compile Include="Tools\ProblemDistributer.cs" />
     <Compile Include="Tools\SQLf.cs" />
+    <Compile Include="Tools\StatTool.cs" />
     <Compile Include="ViewModels\AttachSolutionViewModel.cs" />
     <Compile Include="ViewModels\CategoryTagSelectionViewModel.cs" />
     <Compile Include="Tools\ProblemSearch.cs" />

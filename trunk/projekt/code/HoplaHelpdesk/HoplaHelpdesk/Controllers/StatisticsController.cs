@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using HoplaHelpdesk.ViewModels;
 using HoplaHelpdesk.Models;
+using HoplaHelpdesk.Tools;
 
 namespace HoplaHelpdesk.Controllers
 {
@@ -17,19 +18,23 @@ namespace HoplaHelpdesk.Controllers
         public ActionResult Index()
         {
             var departments = db.DepartmentSet.ToList();
-            int TotalTime = 0;
-            int TotalTimeLastWeek = 0;
-            int problems = 0;
+            
+            List<Problem> problems = new List<Problem>();
+            List<Problem> problemsPastWeek = new List<Problem>();
+            var now = DateTime.Now;
+            var since = now.Subtract(new TimeSpan(7, 0, 0, 0));
             foreach(var dep in departments){
-               TotalTimeLastWeek = (int)dep.AverageTimePerProblem().TotalMinutes;
-               TotalTime = (int)dep.AverageTimePerProblem().TotalMinutes;
-               problems++;
+                foreach (var person in dep.Persons)
+                {
+                    problemsPastWeek.AddRange(person.Worklist.Where(x => x.SolvedAtTime > since));
+                    problems.AddRange(person.Worklist.Where(x => x.SolvedAtTime != null));
+                }
             }
 
             var viewModel = new StatisticViewModel()
             {
-                AverageLastWeek = new TimeSpan(0,TotalTimeLastWeek/problems,0),
-                AverageAllTime = new TimeSpan(0,TotalTime/problems,0),
+                AverageLastWeek = StatTool.AveragePerProblem(problemsPastWeek),
+                AverageAllTime = StatTool.AveragePerProblem(problems),
                 Departments = departments
                 
             };
