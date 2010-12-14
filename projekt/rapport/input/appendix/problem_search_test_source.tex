@@ -1,0 +1,298 @@
+\chapter{Test Cases for Problem Search}
+\label{chap:problem_search_test_source}
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The nine test cases for the problem search function}, label=src:problem_search_test_source, float=false]
+#region Search code coverage
+#region Test 1: Search for no tag, minimum number of problems = 0
+[TestMethod()]
+public void A0_D0_SearchForNoTagNoProblems()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 0;
+
+	expected = new List<Problem>();
+	#endregion
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.AreEqual(expected.Count, actual.Count);
+	#endregion
+}
+#endregion
+
+#region Test 2: Search for no tag, minimum number of problems = 1
+[TestMethod()]
+public void A0_D1_SearchForNoTagOneProblem()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 1;
+
+	expected = new List<Problem>
+	{
+		problems[2]
+	};
+	#endregion
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 3: Search for no tag, minimum number of problems = 6
+[TestMethod()]
+public void A0_Dx_SearchForNoTagSixProblems()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 6;
+
+	expected = new List<Problem> 
+	{ 
+		problems[2],
+		problems[3],
+		problems[4],
+		problems[5],
+		problems[0],
+		problems[1]
+	};
+	#endregion
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 4: Search for tag 3, minimum number of problems = 1
+[TestMethod()]
+public void A1_B1_C1_D0_SearchForTag3OneProblem()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 1;
+
+	tags[3].IsSelected = true;
+	expected = new List<Problem> 
+	{ 
+		problems[5]
+	};
+	#endregion
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.IsTrue(actual.Count >= minNoProb);
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 5: Search for tag 3, minimum number of problems = 2
+[TestMethod()]
+public void A1_B1_C1_D1_SearchForTag3TwoProblem()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 2;
+
+	tags[3].IsSelected = true;
+	expected = new List<Problem> 
+	{ 
+		problems[5],
+		problems[2]
+	};
+	#endregion
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.IsTrue(actual.Count >= minNoProb);
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 6: Search for tag 3, minimum number of problems = 4
+[TestMethod()]
+public void A1_B1_C1_Dx_SearchForTag3TwoProblem()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 4;
+
+	tags[3].IsSelected = true;
+	expected = new List<Problem> 
+	{ 
+		problems[5],
+		problems[2],
+		problems[3],
+		problems[4]
+	};
+	#endregion
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.IsTrue(actual.Count >= minNoProb);
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 7: Search for tag 0 and 1, minimum number of problems = 4
+[TestMethod()]
+public void Ax_Bx_Cx_D0_SearchForTag0And1FourProblems()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 4;
+
+	tags[0].IsSelected = true;
+	tags[1].IsSelected = true;
+	expected = new List<Problem> 
+	{ 
+		problems[0],
+		problems[1],
+		problems[3],
+		problems[4]
+	};
+	#endregion
+
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.IsTrue(actual.Count >= minNoProb);
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 8: Search for tag 0 and 1, minimum number of problems = 5
+[TestMethod()]
+public void Ax_Bx_Cx_D1_SearchForTag0And1FiveProblems()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 5;
+
+	tags[0].IsSelected = true;
+	tags[1].IsSelected = true;
+	expected = new List<Problem> 
+	{ 
+		problems[0],
+		problems[1],
+		problems[3],
+		problems[4],
+		problems[2]
+	};
+	#endregion
+
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.IsTrue(actual.Count >= minNoProb);
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+
+#region Test 9: Search for tag 0 and 1, minimum number of problems = 6
+[TestMethod()]
+public void Ax_Bx_Cx_Dx_SearchForTag0And1SixProblems()
+{
+	#region Arrange
+	List<Problem> expected = null;
+	List<Problem> actual = null;
+	int minNoProb = 6;
+
+	tags[0].IsSelected = true;
+	tags[1].IsSelected = true;
+	expected = new List<Problem> 
+	{ 
+		problems[0],
+		problems[1],
+		problems[3],
+		problems[4],
+		problems[2],
+		problems[5]
+	};
+	#endregion
+
+
+	#region Act
+	actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+	#endregion
+
+	#region Assertions
+	Assert.IsTrue(actual.Count >= minNoProb);
+	Assert.AreEqual(expected.Count, actual.Count);
+	for (int i = 0; i < actual.Count; i++)
+	{
+		Assert.AreEqual(expected[i].Id, actual[i].Id);
+	}
+	#endregion
+}
+#endregion
+#endregion
+\end{lstlisting}
