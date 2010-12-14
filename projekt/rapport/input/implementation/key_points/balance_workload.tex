@@ -4,7 +4,7 @@ Whenever a staff member is removed from a department or has marked a problem as 
 it becomes necessary to balance the workload of each staff member in the department, since we do not want the staff members to be overloaded with problems. 
 
 To balance the workload, each staff members workload must be calculated. 
-The workload of a staff member is defined by the amount of time estimated that each problem on his workload takes to be solved. 
+The workload of a staff member is defined by the amount of time that each problem on his workload estimated takes to be solved. 
 The workload is calculated by the \me{GetWorkload} method.
 
 The time a problem takes to be solved is estimated by the average time consumption of the tags connected to the problem. 
@@ -16,7 +16,7 @@ It keeps reassigning problems until the minimum staff member has a higher or equ
 %The original idea was that this would ensure that bad last reassignments would be omitted by switching them backwards. However, later we discovered that this approach is not sufficient to prevent bad last reassignments. An example is illustrated in figure \ref{fig:balanceWorkload_strangecase}. The dark grey colored box is representing a high priority problem which in the first scenario, the workload is most balanced if it is moved back after the final iteration of the loop, whereas the workload is most balanced if it is not moved back in on the scenario to the right, marked ``Move back Bad idea''. Although that this seems like a trivial bug to fix afterwards, we chose not to fix it, as it would make.
 
 All this is iterated once per staff member minus one in the department. 
-E.g. if there are two staff members it is ran once, if there is three it yields two etc. 
+E.g. if there are two staff members it is run once, if there is three it yields twice etc. 
 The pseudo code is displayed in code snippet \ref{lst:balanceWorkload}.
 
 The primary concern of the algorithm is to distribute the problems so each staff member has as balanced workload as possible.
