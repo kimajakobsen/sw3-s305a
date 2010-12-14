@@ -155,9 +155,9 @@ namespace HoplaHelpdesk.Models
             {
                 people++;
                 if (method == "LastWeek")
-                    totalTime = (int)person.AverageTimePerProblemLastWeek().TotalMinutes;
+                    totalTime = person.AverageTimePerProblemLastWeek();
                  else 
-                    totalTime = (int)person.AverageTimePerProblem().TotalMinutes;
+                    totalTime = person.AverageTimePerProblem();
             }
             if (people == 0)
                 return new TimeSpan();

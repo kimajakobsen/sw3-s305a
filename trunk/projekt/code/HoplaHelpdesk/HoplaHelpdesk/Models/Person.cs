@@ -177,7 +177,7 @@ namespace HoplaHelpdesk.Models
         /// Get the average time per problem solved by the staff
         /// </summary>
         /// <returns></returns>
-        public TimeSpan AverageTimePerProblem()
+        public int AverageTimePerProblem()
         {
             return AverageTime("PerProblem");
         }
@@ -186,38 +186,40 @@ namespace HoplaHelpdesk.Models
         ///  Gets the average solving time per problem solved in the last week.
         /// </summary>
         /// <returns></returns>
-        public TimeSpan AverageTimePerProblemLastWeek()
+        public int AverageTimePerProblemLastWeek()
         {
             return AverageTime("LastWeek");
         }
 
 
-        private TimeSpan AverageTime(string method)
+        private int AverageTime(string method)
         {
             int totalTime = 0;
             int problems = 0;
-              IEnumerable<Problem> worklist = null;
+
+            IEnumerable<Problem> tmpList;
+             
               if (method == "LastWeek")
               {
                   var lastWeek = DateTime.Now;
                   var aWeek = new TimeSpan(7,0, 0, 0);
                   lastWeek = lastWeek.Subtract(aWeek);
-                  worklist = Worklist.Where(x => x.SolvedAtTime > lastWeek);
+                  tmpList = Worklist.Where(x => x.SolvedAtTime > lastWeek);
               }
               else
               {
-                  worklist = Worklist.Where(x => x.SolvedAtTime != null);
+                  tmpList = Worklist.Where(x => x.SolvedAtTime != null);
               }
 
-            foreach(var problem in worklist)
+            foreach(var problem in tmpList)
             {
                 problems++;
                 totalTime = totalTime + (int)((TimeSpan)(problem.SolvedAtTime - problem.Added_date)).TotalMinutes;
             }
             if (problems == 0)
-                return new TimeSpan();
+                return 0;
             else 
-                return new TimeSpan(0, totalTime / problems,0);
+                return  totalTime / problems;
         }
 
         #endregion
