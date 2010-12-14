@@ -1,8 +1,8 @@
 \section{Get statistics}
 \label{sec:getstatistics}
 
-The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AverageTimePerProblem()} method -- seen in code snippet \ref{lst:averagetimeperproblem} --  which utilizes the \me{AverageTimePerProblem()} method as well as the \me{AverageTimePerProblemLastWeek()} methods, which both are wrappers to the \me{AverageTime(string method)} method. All three is shown in code snippet \ref{lst:averagetime}.
-
+The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AverageTimePerProblem()} method -- seen in code snippet \ref{lst:averagetimeperproblem} --  which utilizes the \me{AverageTimePerProblem()} method as well as the \me{AverageTimePerProblemLastWeek()} methods, which both are wrappers to the \me{AverageTime(string method)} method. All three is shown in code snippet \ref{lst:averagetime}.\\
+The purpose is to view statistics 
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The StatisticsController controller}, label=lst:getstatistics]
 [Authorize(Roles = Constants.AdminRoleName)]
