@@ -1,10 +1,10 @@
 \section{System Definition}
 \label{sec:factor}
 \label{sec:systemdefinition}
-In order to define our system we will use the FACTOR criterion\cite[p.~39]{roedeaalborg}. These criteria contains different parts of the requirements, and it will help us derive the system definition.  \\
+In order to define our system we use the FACTOR criterion\cite[p.~39]{roedeaalborg}. These criteria contains different parts of the requirements, and it will help us derive the system definition.  \\
 \ \\
 {\Large \textbf{F}}unctionality \\
-Our application will contain features aimed at easing the problem-solving process for service employees, therefore the application will need to have the following features:
+Our application contain features aimed at easing the problem-solving process for service employees, therefore the application needs to have the following features:
 \begin{itemize}
 \item Problem distribution\\
 The application should distribute problems to the relevant service department and balance the workload of service employees so all have a equal workload. 
@@ -27,27 +27,42 @@ The application should be able to recognize common problems and recommend simila
 Allow the supervisor to monitor the work process of the employees.
 \end{itemize}
 \ \\
-{\Large \textbf{A}}pplicationdomain \\
-This application will be applicable to office environments which deals with solving of problems.\\
+{\Large \textbf{A}}pplication domain \\
+This application is applicable to office environments which deals with solving of problems.\\
 \ \\
 {\Large \textbf{C}}onditions \\ 
-The end users are not required to have any expert level knowledge to use the application. The service personal will have to learn to use the staff interface to solve problems. The administrators will have to learn to use the functionality in the administrator interface.   \\
+The end users are not required to have any expert level knowledge to use the application. The service personal have to learn to use the staff interface to solve problems. The administrators have to learn to use the functionality in the administrator interface.   \\
 \ \\
 {\Large \textbf{T}}echnology \\
-In the development of our program we are going to use C\# along with the Model-View-Controller framework 2 that exists within ASP.NET framework. We will set up a server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
+In the development of our program we use C\# along with the Model-View-Controller framework 2 that exists within ASP.NET framework. We use a server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
 \\
-The end result will be a web interface running on a webserver, with underlying SQL database.\\
+The end result is a web interface running on a webserver, with underlying SQL database.\\
 \ \\
 {\Large \textbf{O}}bjects \\
-Problems, solution, \aclient s, \astaff members, \admin s, departments, categories and tags. \\
+Problems, solution, \aclient[]s, \astaff[] members, \admin{}s, departments, categories and tags. \\
 \ \\
 {\Large \textbf{R}}esponsibility \\
 Our application is responsible for keeping track of all problems within the physical environment of an organization. It is also responsible for distributing tasks amongst employees and supplying statistics about the progress to their supervisors. Finally it is also responsible for enabling users and technical employees to communicate about a problem and the following solution.
 \ \\ 
 
+%%% Nutid
+Using these FACTOR criteria the following system definition is derived:
+\begin{itemize}
+\item The application is be web-based so that we can create an application capable of running without prior installation.
+\item The application contains prioritized tags, enabling us to determine the importance of problems
+\item The application keeps track of the estimated completion time of the problem along with comments and what employee is responsible for solving the problem. This enables us to create statistic about problem solving efficiency and individual employees.
+\item The application is able to save and suggest prior problems and their solutions to users.
+\item The application takes into account, the workload of the employees to estimate how long a problem will take to solve.
+\item The application contains nothing but dynamic data within the problem domain, so that the application can run in different environments.
+\item The application contains a structure that can handle problems, departments, categories, tags, employees, supervisors and ordinary users.
+\end{itemize}
+
+
+%% Fremtid
+\begin{comment}
 Using these FACTOR criteria, we arrive at the following system definition:
 \begin{itemize}
-\item The application should be web-based so that we can create an application capable of running without prior installation.
+\item The application is be web-based so that we can create an application capable of running without prior installation.
 \item The application should contain prioritized tags, enabling us to determine the importance of problems
 \item The application should keep track of the estimated completion time of the problem along with comments and what employee is responsible for the problem. This will enable us to create statistic about problem solving efficiency and individual employees.
 \item The application should be able to save and suggest prior problems and their solutions to users.
@@ -55,4 +70,6 @@ Using these FACTOR criteria, we arrive at the following system definition:
 \item The application should should contain nothing but dynamic data within the problem domain, so that the application can run in different environments.
 \item The application should contain a structure that can handle problems, departments, categories, tags, employees, supervisors and ordinary users.
 \end{itemize}
+\end{comment}
+
 
