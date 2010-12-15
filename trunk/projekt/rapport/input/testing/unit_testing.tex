@@ -5,33 +5,23 @@
 Throughout the development, we have used Visual Studios built in Team Test, which is an integrated unit-testing framework. \cite{teamtest} 
 The idea behind unit testing is to check an individual method by executing it with appropriate input, and afterwards check that its output corresponds to the expected.
 
-All major functions have been tested with Team Test. This mean that we have not made any unit testing on controllers. We deemed controller unit testing as inefficient because it is easier to test controllers by running the program and see that they behave as expected. If a controller were to contain complex code we have aimed to create methods outside controllers instead and these would have been unit tested. 
-We have done this, forexample, to the search- and problem distribution method. 
-Controller unit testing requires a great deal of independency injection and mocking since most controllers use a database entity which would then have to be mocked in order to make proper testing.
+All major functions have been tested with Team Test. This mean that we have not made any unit testing on controllers. 
+Throughout the development, we have omitted to write complex methods and functions in the controllers, and instead written them in the model. We have theirfore seen it unnecessary to unit test each controller. Instead we have tested them manually by running the program and seen that it behaves as expected. \fixme{Har omskrevet denne sidste linje, Se udkommenteret text. spoerg Magnus hvis du er i tvivl}
+%We considered controller unit testing as inefficient because it is easier to test controllers by running the program and see that they behave as expected. If any controller has very complex code a method will be made instead and this will be unit tested.\fixme{Skal vi ikke undg\aa{} at skrive om hvad vi IKKE har lavet?} 
+This is done with for example the search and the problem distribution methods. 
+Controller unit testing requires a great deal of independency injection and mocking since most controllers uses a database entity which we have to mock in order to make proper testing. 
 
-A unit test consist of three parts:
-\begin{itemize}
-\item The arrange phase 
-	\begin{itemize}
-	\item Set up the input and requirements for the test. 
-	\end{itemize}
-\item The act phase
-	\begin{itemize}
-	\item Running the test itself.
-	\end{itemize}
-\item The assert phase.
-	\begin{itemize}
-	\item Comparing the output with the expected output
-	\end{itemize}
-\end{itemize}
+A unit test consist of three parts, an arrange phase, an act phase, and a assert phase. 
+The arrange phase sets up the input and requirements for the test. 
+The act is the run of the method and the assert is the actual testing.  
 
-The sections \ref{sec:balWorUniTes} and \ref{sec:independencyInjection} demonstrates a black box test and a unit test of different componenets of our system, respectively.
+In section \ref{sec:balWorUniTes} a black box test of the balance workload method is presented and in section \ref{sec:independencyInjection} a unit test with independency injection is explained. 
 
 
 
 \section{Balance workload unit test}
 \label{sec:balWorUniTes}
-The \class{department} class has a method called \me{balance workload}, which balances the workload between all staff members in the department. 
+The department class has a method called balance workload, which balances the workload between all staff members in the department. 
 The method is described fully in section \ref{sec:balanceworkload}. 
 To arrange the test a department object is initialized and the required properties is set. This means the \vari{persons} property is set to a list of \cl{persons} and each person is assigned a number of problem with tags. 
 The arrange can be seen in code snippet \ref{lst:balanceWorkloadTest2arrange}. 

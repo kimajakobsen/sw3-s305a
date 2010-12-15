@@ -1,17 +1,83 @@
 \chapter{Perspective}
 \label{chap:perspective}
+\myTop{This chapter rounds of the report by setting the \hdesk[] into perspective.
+To set our application into perspective, this chapter presents alternative uses for the \hdesk[] and other approaches than ours to the creation of a help desk application.}
+The \hdesk[] application is made to ease the cooperation between service employees and the other members at an organization.
+This chapter shows other ways in which the \hdesk[] could be used if it was modified, and other approaches which could have been taken to make a help desk application.
+
+Using the same approach as we have taken to make a help desk to make a hospital system containing patients and cures.
+The patients in the hospital system would be saved as problems in our help desk.
+The departments, categories, and tags in our application could be hospital wards, symptom categories, and symptoms respectively.
+When a patient is hospitalized, all his/her symptoms are entered in the system and it will find the ward which he/she should be admitted to.
+The \astaff[] members would be the doctors and surgeons at the hospital.
+The way the problems in our application are distributed should possibly be changed, in order to avoid having patients change doctor several times.
+The main idea with this is that the solutions/cures should be saved and be accessible to anyone, to help future patients with symptoms matching a cured patients.
+This does however violate the confidentiality of the patients \cite{ama}, because anyone can see their journal.
+Perhaps this could be overcome in some way by saving the the patients without name and any other identification, and having his/her personal journal along side the \hdesk[]-hospital system.
+
+Instead of managing problems, a system managing tasks could be made from the same principles.
+The tags might be directly associated with an employee.
+An example of the usage could be a group of programmers each responsible for one or more components of the piece of software they are developing.
+If one of the developers gets an idea for a component which he/she is not working one, this idea could be committed and the system would then send the idea to the developer(s) currently working on the given component.
+This is probably not effect in a small group, but might come in handy when some developers do not know who is working on other components.
+
+It might also be used as a bugzilla; an application where all bugs are collected and possible distributed to developers to fix them.
+The bugs in such an application would then be the counterpart to the problems in our application.
+The bugs would be committed in the same way as the problems in the \hdesk[] application, where they are categorized, in order to distribute them correctly.
+The \astaff[] members would be the developers of the program which the bugzilla is associated with or perhaps a small part of the developers who are specialized in bug fixing.
+
+The way we have approached the help desk is based on the assumption that every problem -- or at least a huge part of them -- can be categorized using tags which the \admin[]s have made.
+Another approach could be to let the users add the tags which they think covers their problems.
+This would make a more flexible application for the \aclient[]s, but might be more difficult for the distribution method to find the right department for the problems because the \aclient[]s might use slightly different tags which means the same, e.g. one \aclient[] writes ``Connection Error'' as a tag another might write ``Connection Failure'' to categorize the same or a similar problem.
+
+An even more flexible way might be to avoid using tags and only use a textual description of the problem.
+To compare problems this text has to be analyzed.
+Text analysis can be very complex, because different people write differently.
+\fixme{Skal der evt. sættes en kilde her eller er det verbotten i perspective}
+The \aclient[]s are much freer because they can describe their problem in plain text.
+This will hopefully lead to better described problems, but it might be harder the distribute the problems using this approach.
+
+Another approach than ours to make a help desk is to avoid the \astaff[] role altogether and allow everyone to commit and solve problems.
+We have assumed that the organizations which are to use our application have one or more departments which takes care of solving the problems which are committed.
+The problems should not be distributed to anyone, but rather be collected into a ``Free Problems'' list.
+Everyone can access this list and pick a problem to solve.
+The solved problems and their solutions can be accessed by everyone as well to cross reference new problems to already solved problems if such should arise.
+
+Our application can be modified to fit other needs such as those of a hospital, or to track tasks and/or bugs rather than problems.
+The \hdesk[] is not only way to make a help desk, but just the result of our approach to it, which we have documented in this report.
+\fixme{Lidt tynd afrunding her til sidst, men er kørt lidt død i det.
+Måske top and tail skal droppes og skrives ud i texten i stedet?}
+
+\myTail{Other uses for our application are described here to put it into perspective.
+Other ways to approach a help desk application are also explained in this chapter to compare our application to them.}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Det nedenforstående har jeg udkommenteret fordi jeg ikke mener det har noget at gøre med en perspektivering at gøre.
+%Tag evt. et kig på det og se om du mener noget af det kan tages med alligevel.
+\begin{comment}
 %\myTop{top}
-The goal of the project is to create a general help desk which makes it easy and fast for persons to get their problems solved, and in the same time lighten the work burden of the service employees by organizing the problems and spare them from solving trivial reappearing problems. 
-Even though the need for a helpdesk seems realistic we did not examen this. We did not base our system definition on interviews of service personal but based it upon our own personal experience in the area. 
+The goal of the project is to create a general help desk which makes it easy and fast for persons working in an organization to get their problems solved, and in the same time lighten the work burden of the service employees by organizing the problems and spare them from solving trivial reappearing problems. 
+Even though the need for a help desk seems realistic we did not examine this. We did not base our system definition on interviews of service personal but based it upon our own personal experience in the area. 
 
 The system is designed to be a general system which can be usable in all kinds of organizations and companies. 
 Because the system is not completed and not tested in a real life company, we have no way of knowing if the structure will cover every companies and organizations needs. Furthermore there is not made any usability testing of \hdesk[] and, therefore, a lot of real life functionality could be missing without our knowledge of it.   
 
-Our \hdesk[] is only able to help persons electronically. Therefore should phone-, person to person-, and letter-contact be avoided because the \hdesk will the not be efficient.    
+Our \hdesk[] is only able to help persons electronically.
+Therefore should phone-, person to person-, and letter-contact between service employees and the person who discovered the problem be avoided because the \hdesk[] will the not be efficient.    
 
-In short, the \hdesk[] should make the work process easy and not complicate the process, to insure this is it very important that the systems configuration is setup correctly. It is of the utter most important that the users adapt as much as possible to the system and then the system should be flexible enough to smooth the work process.   
+In short, the \hdesk[] should make the work process easy and not complicate the process.
+To insure this it is very important that the systems configuration is setup correctly.
+It is of the utter most importance that the users adapt as much as possible to the system and then the system should be flexible enough to smooth the work process.   
 
 %Since the main goal of the project is to achieve knowledge we did not spent any time talking to possible costumers or the staff members of the university who is supposed to benefit from the system. From the beginning we have not assumed they will be using the system and therefore we made the requirements and analysis based upon our idea and previously experience from working at similar places. 
 %If did was not a learning process we would have used possible costumer to properly analyze the problem domain. 
 
 %\myTail{tail}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
