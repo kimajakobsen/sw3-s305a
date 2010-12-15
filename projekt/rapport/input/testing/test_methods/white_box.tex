@@ -1,14 +1,14 @@
 \section{Black and White Box Testing}
 \label{chap:whiteBox}
-White box testing requires knowledge of the code being tested.
-White box tests are generally written by the developers, because they have the needed knowledge.
-Black box testing on the other hand does not require any knowledge of the code, but only what output is expected from a given input.
-We mainly use white box testing because we do have knowledge of the code which we are testing and white box testing is therefore preferred since we can make more accurate test cases through analysis of the code.
+There is a definite difference between the two concepts black- and white box testing;
+White box testing requires knowledge of the code being tested whereas black box testing requires no knowledge of the code being executed what so ever.
+White box tests are generally conducted by the developers because they have the needed knowledge, whereas black box testing is often conducted by others because they have no idea how the program works and are therefore better able to determine whether or not a program provides the expected output.
+We mainly use white box testing because we do have knowledge of the code which we are conducting tests of, white box testing is therefore preferred since we can make more accurate test cases through analysis of the code.
 
 Through an analysis of the code we can see how much of a component is actually tested.
 The size of a tested component compared to the size of the entire component is a measure for how much of the code in the component which is covered by the tests.
 This is called ``code coverage'' and can be measured in several ways.
-This, along with the ones we are using, is described in subsection \ref{sub:codeCoverage}.
+These, along with the ones we are using, are described below in subsection \ref{sub:codeCoverage}.
 
 \subsection{Code Coverage}
 \label{sub:codeCoverage}
@@ -23,9 +23,6 @@ These edge conditions are zero runs, one run, and more than one run.
 This is done by making a flow chart of the component being tested to see which code paths there are.
 The flow chart can then be used as a graph and then every path from the start of the component to the end can be found using depth first search which will run until every edge is in a path leading from the start to the end vertex.
 Every path is recorded so that a test case covering every path can be created. \cite{whiteBox}
-
-
-
 
 \begin{comment}
 \subsection{Our Use of White Box Testing}
