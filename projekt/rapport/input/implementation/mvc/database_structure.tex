@@ -1,4 +1,4 @@
-\section{Database Structure}
+\subsection{Database Structure}
 \label{sec:databasestructure}
 
 We distinguish between two parts of the database, the login part, and the model part. 
@@ -13,7 +13,7 @@ This gives some redundant data, but only the username and email.
 When we needs to access data from the membership tables we had to use SQL statements and not the object oriented approached we used for the rest. 
 This is limited since our main functionality depends on the model. 
 
-\subsection{ADO.NET Entity Framework}
+\subsubsection{ADO.NET Entity Framework}
 \label{sub:adonet}
 The ADO.NET is designed by Microsoft with the purpose of making a disconnected database architecture to use with the .NET framework \cite{adonetDesignGoal}. 
 This architecture is an improvement from the older database architectures where a connection were made and held open in the entire runtime. With a disconnected database the connection is only open when data is needed \cite{disconnectedData}. 
