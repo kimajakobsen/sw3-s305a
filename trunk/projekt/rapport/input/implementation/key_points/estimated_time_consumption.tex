@@ -1,7 +1,11 @@
 \section{Estimated Time Consumption}
 \label{sec:estimated_time_consumption}
 
-The \me{CalculateEstimatedTimeConsumption()} function -- which is a method in the \cl{Problem} class -- estimates how much time is needed to solve the specific problem, under the assumption that there only exists this single problem on the assigned staff members queue. The idea is to sum up all the \vari{AverageTimeSpent} property as well as all the count the number of tags, and lastly calculate the average time for all the tags. See code snippet \ref{lst:estimatedtimeconsumption}. The \me{CalculateEstimatedTimeConsumption()} function uses functionality from the \cl{AverageAllTags} class which can be seen in code snippet \ref{lst:averagealltags}.
+The \me{CalculateEstimatedTimeConsumption} function -- which is a method in the \cl{Problem} class -- estimates how much time is needed to solve the specific problem, under the assumption that there only exists this single problem on the assigned staff members queue. The idea is to sum up all the \vari{AverageTimeSpent} property as well as all the count the number of tags, and lastly calculate the average time for all the tags. See code snippet \ref{lst:estimatedtimeconsumption}. The \me{CalculateEstimatedTimeConsumption} function uses functionality from the \cl{AverageAllTags} class which can be seen in code snippet \ref{lst:averagealltags}.
+
+The \cl{AverageAllTags} class is used if no tags are attached to the problem which the \me{CalculateEstimatedTimeConsumption} method is on.
+The property \vari{averageAll} the average time among all tags.
+It is belonging to the \cl{AverageAllTags} calss.
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method. In lines one to seven a property is shown, which wraps the method in lines nine to forty-three.}, label=lst:estimatedtimeconsumption]
 public TimeSpan EstimatedTimeConsumption

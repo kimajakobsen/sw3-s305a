@@ -1,23 +1,25 @@
 \section{Balance Workload}
 \label{sec:balanceworkload}
 Whenever a staff member is removed from a department or has marked a problem as solved, 
-it becomes necessary to balance the workload of each staff member in the department, since we do not want the staff members to be overloaded with problems. 
+it becomes necessary to balance the workload of each staff member in that department, since we do not want the staff members to be overloaded with problems. 
 
 To balance the workload, each staff members workload must be calculated. 
-The workload of a staff member is defined by the amount of time that each problem on his workload estimated takes to be solved. 
+The workload of a staff member is defined by the amount of time that each problem on his worklist estimated takes to be solved. 
 The workload is calculated by the \me{GetWorkload} method.
 
-The time a problem takes to be solved is estimated by the average time consumption of the tags connected to the problem. 
-This is calculated by the \me{CalculateTimeConsumption} method.
+The time a problem takes to be solved is estimated by the average time consumption of the tags attached to the problem. 
+This is calculated by the \me{CalculateTimeConsumption} method which is described in section \ref{sec:estimated_time_consumption}.
 
 The \me{BalanceWorkload} method works by finding the staff member in the department with the minimum workload and the staff member with the maximum workload. Then it moves the problem with the lowest estimated time consumption from the maximum staff member to the minimum. 
-It keeps reassigning problems until the minimum staff member has a higher or equal workload than the maximum staff member. If the minimum staff member has a higher workload, then the algorithm checks if the balance can be balanced even further by calculating if the last moved problem should be moved back or not, and moves it accordingly. See lines 25 to 42 in code snippet \ref{lst:balanceWorkload}.
+It keeps reassigning problems until the minimum staff member has a greater or equal workload compared to the \astaff[] member with the maximum workload.
+If the minimum staff member has a higher workload, then the algorithm checks if the workload balance between the two \astaff[] members can be balanced even further by calculating if the last moved problem should be moved back or not, and moves it accordingly.
+See lines \ref{balanceWorkload:goBackStart} to \ref{balanceWorkload:goBackEnd} in code snippet \ref{lst:balanceWorkload}.
 
 %The original idea was that this would ensure that bad last reassignments would be omitted by switching them backwards. However, later we discovered that this approach is not sufficient to prevent bad last reassignments. An example is illustrated in figure \ref{fig:balanceWorkload_strangecase}. The dark grey colored box is representing a high priority problem which in the first scenario, the workload is most balanced if it is moved back after the final iteration of the loop, whereas the workload is most balanced if it is not moved back in on the scenario to the right, marked ``Move back Bad idea''. Although that this seems like a trivial bug to fix afterwards, we chose not to fix it, as it would make.
 
 All this is iterated once per staff member minus one in the department. 
-E.g. if there are two staff members it is run once, if there is three it yields twice etc. 
-The pseudo code is displayed in code snippet \ref{lst:balanceWorkload}.
+E.g. if there are two staff members it is run once, if there is three it runs twice etc. 
+The source code is displayed in code snippet \ref{lst:balanceWorkload}.
 
 The primary concern of the algorithm is to distribute the problems so each staff member has as balanced workload as possible.
 
@@ -46,8 +48,8 @@ An example of the algorithm is shown on figure \ref{fig:balanceWorkloadDiagram}.
 
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running for each staff member minus one. ``min'' and ``max'' are the person objects of which the algorithm are currently moving problems between. \vari{maxWorklist} is a sorted worklist, which is sorted before the code snippet is called. It is sorted in non-deacreasing order according to the estimated time consumption. }, label=lst:balanceWorkload]
-....
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{A code snippet of the balance workload method. The presented code is within a for loop running for each staff member minus one. ``min'' and ``max'' are the \cl{Person} objects of which the algorithm is currently moving problems between. \vari{maxWorklist} is a sorted worklist, which is sorted before the code snippet is called. It is sorted in non-deacreasing order according to the estimated time consumption.}, label=lst:balanceWorkload]
+...
 bool couldStillMove = true;
 do
 {
@@ -71,7 +73,7 @@ do
         problemToBeMoved.AssignedTo = min;
 
         if (min.Workload >= max.Workload)
-        {
+        {(*\label{balanceWorkload:goBackStart}*)
             // Initialize variables for checking whether or not to move the last problem back
             double beforeMoveBack = 0.0;
             double afterMoveBack = 0.0;
@@ -91,7 +93,7 @@ do
                 problemToBeMoved.AssignedTo = min;
             }
             couldStillMove = false;
-        }
+        }(*\label{balanceWorkload:goBackEnd}*)
         else if (min.Workload == max.Workload)
         {
             // Don't move back if they are equal
@@ -99,7 +101,7 @@ do
         }
     }
 } while (couldStillMove);
-....
+...
 \end{lstlisting}
 
 
