@@ -1,8 +1,8 @@
 \section{Database Structure}
 \label{sec:databasestructure}
 
-We distinguish two parts of the database, the login part, and the model part. 
-The model part is created from our Model \fixme{Link til MODELLEN s\ae{}ttes ind her. } using the ADO.NET Entity Framework(EF) which is described in subsection \ref{sub:adonet}. 
+We distinguish between two parts of the database, the login part, and the model part. 
+The model part is created from our Model \ref{sub:modelComponent} using the ADO.NET Entity Framework(EF) which is described in subsection \ref{sub:adonet}. 
 We choose to use ADO.NET EF because we do not have to worry about converting our tuples to objects and to make sure that changed properties are mapped to the database correctly.  
 To administrate users we use the inbuilt ASP.NET membership provider which provides a login system with support for role authorization. 
 We use this provider since it saves time instead of building our own login system. 
