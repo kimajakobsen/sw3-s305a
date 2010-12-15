@@ -1,9 +1,9 @@
 \section{BalanceWorkload}
 \label{sec:futureimplementationbalanceworkload}
 
-The original \me{BalanceWorkload} method distributes the problems by looking at the staff member which has the highest workload as well as the one with the lowest, and then shifts the reassignable problems until the workload between the two are as equal as possible. This approach does not take the priority nor the deadline into account.
+The original \me{BalanceWorkload} method distributes the problems by looking at the staff member which has the highest workload as well as the one with the lowest, and then shifts the reassignable problems until the workload between the two are as equal as possible. This approach does not take the priority nor the deadline into account. Section \ref{sec:balanceworkload} describe the \me{BalanceWorkload} method throughly. 
 
-We deem to be a significant problem, which is why we have suggested in the method \me{FutureImplementationBalanceWorkload} how  the feature could also be implemented. This is shown in the code snippet: \ref{lst:futureimplementationbalanceworkload}. 
+We deem that to be a significant problem, which is why we have suggested an alternative way to implement this feature, we call this \me{FutureImplementationBalanceWorkload}. This is shown in the code snippet: \ref{lst:futureimplementationbalanceworkload}. 
 
 The main idea behind \me{FutureImplementationBalanceWorkload} is that the algorithm only has to balance the workload by some extent as a problem would always be added to the person with the lowest workload, every time there is an alteration of a problem the algorithm will then run again to distribute to workload properly.
 
