@@ -31,11 +31,11 @@ The tools classes is a collection of methods that do not display functionallity 
 \textbf{Triggering events}&\multicolumn{2}{p{8cm}}{Problem added to a department}\\
 \hline
 \end{tabular}
-\morscaption{what a nice figure!}
+\morscaption{This is a operation specification of distribute problems from the ProblemDistributer class}
 \end{figure}
 
 \begin{description}
-\item[Problem Search]\hfill
+\item[ProblemSearch]\hfill
 \begin{description}
 \item[Purpose:]Allows users who is logged on as client or staff to search through problems, the search is based on tags and status.
 \item[Attributes:]Tags, status.
@@ -56,14 +56,14 @@ The tools classes is a collection of methods that do not display functionallity 
 \textbf{Input data}&\multicolumn{2}{p{8cm}}{Tag, status.}\\
 \textbf{Conditions}&\multicolumn{2}{p{8cm}}{The user must be logged in as either client or staff.}\\
 \textbf{Effect}&\multicolumn{2}{p{8cm}}{A page with search results will be shown.}\\
-\textbf{Algorithm}&\multicolumn{2}{p{8cm}}{Searches threw the model for all input tags, whereafter it searches again for all input tags minus one, then minus two, etc. until sufficient number of problems has been found.}\\
+\textbf{Algorithm}&\multicolumn{2}{p{8cm}}{Searches through the model for all input tags, whereafter it searches again for all input tags minus one, then minus two, etc. until sufficient number of problems has been found.}\\
 \textbf{Datastructures}&\multicolumn{2}{p{8cm}}{Lists}\\
 \textbf{Placement}&\multicolumn{2}{p{8cm}}{}\\
 \textbf{Involved objects}&\multicolumn{2}{p{8cm}}{Tags, status, client or staff}\\
-\textbf{Triggering events}&\multicolumn{2}{p{8cm}}{Clients and Staffs}\\
+\textbf{Triggering events}&\multicolumn{2}{p{8cm}}{This operation occurs whenever a client or staff commit a problem or search for a problem.}\\
 \hline
 \end{tabular}
-\morscaption{what a nice figure!}
+\morscaption{This is a operation specification of search problem from the ProblemSearch class}
 \end{figure}
 
 \begin{description}
