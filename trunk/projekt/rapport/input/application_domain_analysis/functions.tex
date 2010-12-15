@@ -1,7 +1,7 @@
 \section{Function}
 \label{sec:function}
 
-The purpose of this section is to ``determine the system's information processing capabilities'' \cite[p.~137]{roedeaalborg}. Ultimately resulting in ``a complete list of functions with specification of complex functions.'' \cite[p.~137]{roedeaalborg} 
+The purpose of this section is to ``determine the system's information processing capabilities'' \cite[p.~137]{roedeaalborg}. Ultimately resulting in'' a complete list of functions with specification of complex functions.'' \cite[p.~137]{roedeaalborg} 
 All functions with a medium or complex complexity are explained below.
 
 
@@ -53,7 +53,7 @@ Delete person 							&   Simple & Update   \\ \hline%
 Reset person password 			&   Medium & Update/Signal   \\ \hline%
 Balance workload 						&   Complex & Calculate   \\ \hline%
 Get statistics							&   Medium & Read/Calculate   \\ \hline%
-Distribute problem & Medium & Read/Calculate/Update \\ \hline%
+Distribute problem & Medium & Calculate/Update \\ \hline%
 \end{tabular}
 \end{center}
 \morscaption{Function list}
@@ -61,7 +61,7 @@ Distribute problem & Medium & Read/Calculate/Update \\ \hline%
 \end{figure}
 
 \paragraph{Search for problems }
-This function searches the model for problems with specific tags, then presents them in an ordered list assorted after problems with most similar tags. 
+This function searches the model for problems with specific tags, then presents them in an ordered list sorted after problems with most similar tags. 
 It is both \textit{read} and \textit{calculate} because it reads in the model and compute which problems are most similar. 
 This function is \textit{complex}.
 
@@ -70,7 +70,7 @@ This function is \textit{complex}.
 %It has to divide the number of problem solved and the total amount of time all problems with this tag required to be solved. 
 
 \paragraph{Manage tag time}
-This function takes the time a staff has used to solve a problem and adds to the related tags time consumption and increments the solved problems property. 
+This function takes the time a staff members has used to solve a problem and adds it to the related tags time consumption and increments the solved problems property of the inflicted tags. 
 
 \paragraph{Get estimated time consumption of problem }
 This function calculates the amount of time a specific problems acquires to be solved. This is based upon the related tags. 
@@ -82,14 +82,14 @@ This function takes all the problems of the assigned staff member which are expe
 \paragraph{Get sorted worklist}
 This function returns the work list of a staff member in sorted order after priority. 
 
-\paragraph{Reset person password}
+\paragraph{Reset persons password}
 If a person forgets his password, then he can get a new password send to his mail. The password is randomly generated. This function updates the model to match the computed password. This function is \textit{medium}.
 
 \paragraph{Balance workload}
-This function compares the workload of staff and distributes their problems equally among other \astaff members in the same department. This function calculate the workload of \astaff s and then moves problems in the most optimal way. This function is Complex.   
+This function compares the workload of staff members and distributes their problems equally among the \astaff{} members in the same department. This function calculate the workload of \astaff{}s and then moves problems in the most optimal way. This function is Complex.   
 
 \paragraph{Get statistics}
-The statistics function calculate how long each \astaff[] use to solve a problem in average. The function can also find the total average for departments. This function is medium.
+The statistics function calculates how long each \astaff[] member uses to solve a problem in average. The function can also find the total average for departments. This function is medium.
 
 
 

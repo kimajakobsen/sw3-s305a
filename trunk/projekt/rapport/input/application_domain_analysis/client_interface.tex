@@ -1,11 +1,19 @@
 \subsection{\cinterface}
 \label{sec:client_interface}
 
-The \aclient interface is illustrated in figure \ref{fig:client_interface}.
+The \aclient[] interface is illustrated in figure \ref{fig:client_interface}.
 After login, the \aclient[] is presented with the \textit{main} window. 
 
+
+\begin{figure}[p]
+	\centering
+		\includegraphics[width = \textwidth, clip=true, trim=0 4cm 5cm 0]{input/application_domain_analysis/Navigation_DiagramClient.pdf}
+	\morscaption{Navigation diagram of the client interface}
+	\label{fig:client_interface} %fig:Navigation_DiagramAdmin
+\end{figure}
+
 \subsubsection{Main}
-The \aclient s main window allows the \aclient to choose what to do in the helpdesk system. The ``Main'' window have three buttons:
+The \aclient s main window allows the \aclient[] to choose what to do in the helpdesk system. The ``Main'' window have three buttons:
 \begin{itemize}
 	\item The ``Commit Problem'' button which sends the user to the ``Categorize new problem'' window.
 	\item The ``My problems'' button which sends the user to ``Search'' window.
@@ -72,17 +80,17 @@ To add a new problem the \aclient[] need to select the tags which best describes
 \subsubsection{Search for Similar Problems}
 A search is preformed with the selected tags from the previous window, a list with similar problems are displayed. This window includes the following: 
 \begin{itemize}
-	\item The window ``Search'' with all it elements.
+	\item The window ``Search'' with all the the search property.
 	\item A button called ``No problem suffice'' which loads the window ``Create new problem''.
 \end{itemize}
-The found problems can be double clicked and the window ``Client problem view''. 
+The found problems can be  clicked and the user is redirected to  the window ``Client problem view''. 
 
 \subsubsection{Create new problem}
 The ``Create new problem'' window's purpose is to describe, categorize, suggest deadline and submit the problem. The window contains the following elements:
 \begin{itemize}
 	\item A text field where information about the problem can be entered.
-	\item The frame ``Categories and tags'' enables the \aclient to change and add tags so the problem is best describe.
-	\item A calender where a deadline can be suggested to the \astaff member.
+	\item The frame ``Categories and tags'' enables the \aclient[] to change and add tags so the problem is best describe.
+	\item A calendar where a deadline can be suggested to the \astaff[] member.
 	\item ``Create'' submits the problem and send the user to the ``Client problem view''.
 \end{itemize}
 
