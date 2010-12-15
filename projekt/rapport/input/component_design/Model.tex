@@ -54,7 +54,7 @@ There are additional navigation properties on some of the classes such as a \var
 \begin{description}
 	\item[Purpose:]To represent problems and their relations to persons, comments, tags, and solutions.
 	\item[Attributes:]Id, Title, Description, Added\_date, Deadline, IsDeadlineApproved, Reassignable, and SolvedAtTime
-	\item[Operations:]\me{BalanceWorkload()}, \me{AverageTimePerProblem()}, and \me{AverageTimePerProblemLastWeek()}
+	\item[Operations:]\me{BalanceWorkload}, \me{AverageTimePerProblem}, and \me{AverageTimePerProblemLastWeek}
 %\item[Id:] A unique number which identifies each problem. 
 %\item[Title:] Contains the problems title.
 %\item[Description:] Contains the problems description.
@@ -71,7 +71,7 @@ There are additional navigation properties on some of the classes such as a \var
 \begin{description}
 	\item[Purpose:]To represent persons and their relations, as well as perform operations associated with a person.
 	\item[Attributes:]Id, Name, Email, DepartmentId, Other, IsDeadlineApproved, Reassignable, and SolvedAtTime
-	\item[Operations:]\me{GetSortedList()}, \me{Roles()}, \me{IsStaff()}, \me{GetWorkload()}, \me{CascadeProblems()}, \me{SetNewDepartment()}, \me{AverageTimePerProblem()}, and \me{AverageTimePerProblemLastWeek()}
+	\item[Operations:]\me{GetSortedList}, \me{Roles}, \me{IsStaff}, \me{GetWorkload}, \me{CascadeProblems}, \me{SetNewDepartment}, \me{AverageTimePerProblem}, and \me{AverageTimePerProblemLastWeek}
 %\item[Id:] A number which is unique for each Person. 
 %\item[Name:] The name of the person.
 %\item[Email:] The persons email, notifications are send to this email.  
@@ -85,7 +85,7 @@ There are additional navigation properties on some of the classes such as a \var
 \begin{description}
 	\item[Purpose:]To represent departments and their relations, as well as handle some statistics and balance the workload across the persons associated with the department.
 	\item[Attributes:]Id, DepartmentName, and Description
-	\item[Operations:]\me{BalanceWorklaod()}, \me{AverageTimePerProblem()}, and \me{AverageTimePerProblemLastWeek()}
+	\item[Operations:]\me{BalanceWorklaod}, \me{AverageTimePerProblem}, and \me{AverageTimePerProblemLastWeek}
 %\item[Id:] A number which is unique for each department. 
 %\item[DepartmentName:] The name of the department.
 %\item[Description:] Contains the description of the department.
@@ -121,7 +121,7 @@ There are additional navigation properties on some of the classes such as a \var
 \begin{description}
 	\item[Purpose:]To represent tags and their relations to categories and problems. 
 	\item[Attributes:]Id, Name, Description, Priority, Category\_Id, SolvedProblems, TimeConsumed, and Hidden
-	\item[Operations:]\me{AverageTimeSpent()}
+	\item[Operations:]\me{AverageTimeSpent}
 %\item[Id:] A number which is unique for each tag. 
 %\item[Name:] The name of the tag.
 %\item[Description:] The description of the tag.
