@@ -1,13 +1,15 @@
 \section{BalanceWorkload}
 \label{sec:futureimplementationbalanceworkload}
 
-The original \me{BalanceWorkload} method distributes the problems by looking at the staff member which has the highest workload as well as the one with the lowest, and then shifts the reassignable problems until the workload between the two are as equal as possible. This approach doesn't take the priority or whether or not the deadline is approved into account. 
+The original \me{BalanceWorkload} method distributes the problems by looking at the staff member which has the highest workload as well as the one with the lowest, and then shifts the reassignable problems until the workload between the two are as equal as possible. This approach does not take the priority nor the deadline into account.
 
-The main idea behind the \me{FutureImplementationBalanceWorkload} method -- which is seen in code snippet \ref{lst:futureimplementationbalanceworkload} -- is that the algorithm only has to balance the workload by some extension, which is by always choosing the person with the minimum workload, whenever a problem is about to be distributed. The argument behind this idea is that whenever a staff member solves a problem, then the algorithm will be executed again, which then autimatically will assign him/her new problems.
+We deem to be a significant problem, which is why we have suggested in the method \me{FutureImplementationBalanceWorkload} how  the feature could also be implemented. This is shown in the code snippet: \ref{lst:futureimplementationbalanceworkload}. 
 
-This simple approach of distributing problems allows us to choose which problems to distribute first. From here, all we have to do is to sort the list of problems to distribute in the manner we want. In the \me{FutureImplementationBalanceWorkload} method, we have chosen to have the problems with an approved deadline at the top of a temporary list, sorted by highest priority at top. Below that, all other problems -- problems without an approved deadline.
+The main idea behind \me{FutureImplementationBalanceWorkload} is that the algorithm only has to balance the workload by some extent as a problem would always be added to the person with the lowest workload, every time there is an alteration of a problem the algorithm will then run again to distribute to workload properly.
 
-In short, the \me{FutureImplementationBalanceWorkload} method does the above explained by first unassigning all the reassignable problems from all members of the specific department, followed by sorting them in the fashion explained above, and at last continually assigns the problem from the top of the temporary list, until the temporary list is empty.
+This simple approach of distributing problems allows us to choose which problems to distribute first. All we have to do then is sort the list of problems to distribute them in the manner we want. In the \me{FutureImplementationBalanceWorkload} method, we have chosen to have the problems with an approved deadline at the top of a temporary list, sorted by highest priority at top. Below that all problems without a deadline.
+
+In short, the \me{FutureImplementationBalanceWorkload} method does the above explained by first unassigning all the reassignable problems from all members of the specific department, followed by sorting them in the fashion explained above, and at last assigns the problems from the top of the temporary list, until the temporary list is empty.
 
 \paragraph{Pros} are that problems which are more important will be solved faster.
 \paragraph{Cons} are that the workload will be a slightly bit more unbalanced between the individual staff members in the department.

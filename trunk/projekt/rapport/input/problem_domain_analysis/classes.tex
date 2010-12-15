@@ -1,7 +1,7 @@
 \section{Classes and Events}
 \label{cap:classesevents}
-In the process of finding classes and events we made up several classes and events some of which are not used in the actual program, since it might be more efficiently to exclude some classes. This will be elaborated further in the \nameref{design} part. To come up with the classes and events we talk about different possible scenarios and based on that we developed our class diagram. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
-
+In the process of finding classes and events we made up several classes and events some of which are not used in the actual program, since it might be more efficient to exclude some classes. This will be elaborated further in the \nameref{design} part. To come up with the classes and events we talked about different possible scenarios, we then developed our class diagram based upon these scenarios. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
+\fixme{Står i datid}
 
 \begin{figure}[]
 \begin{tabular}{ l c c c c c} \hline
@@ -34,7 +34,7 @@ In the process of finding classes and events we made up several classes and even
 The following is a list of the classes from the class diagram \ref{fig:pdaclassdiagram}.
 
 \paragraph{Problem}
-Problem is the basic building brick in our system. It is used to hold information about the specific problems which it represents.
+Problem is the basic building block in our system. It is used to contain information about the specific problems which it represents.
 
 \paragraph{Deadline} The deadline can be approved or not approved and is a part of the problem. 
 
@@ -46,7 +46,7 @@ Contains state and information about a given solution
 \paragraph{Person}
 This contains attributes about the users in the system, name, address, phone number etc. We will look into the details later in the report.
 
-\paragraph{Client} A \aclient[] can be subscribed to a problem and be associated with the comments that the actor \aclient[] posts.  
+\paragraph{Client} A \aclient[] can be subscribed to a problem in order to be associated with it, and thereby receive updates about this problem, for example new comments or solutions.
  
 \paragraph{Staff}
 The \astaff[] class inherits from the \aclient[] class.
