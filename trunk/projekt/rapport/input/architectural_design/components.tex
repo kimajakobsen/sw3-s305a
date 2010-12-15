@@ -1,8 +1,8 @@
 \section{Component Architecture}
 \label{sec:components}
-With basis in our system definition in chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. 
-As a part of obtaining high flexibility we will use ASP.NET Mvc 2 framework, which is a model view controller design pattern based framework.
-Our database will be accessed by the system though the ADO.NET data provider. This gives us a component design as seen on figure \ref{fig:system_component_mvc}. 
+On the basis of chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. 
+In order to obtain high flexibility we will use ASP.NET Mvc 2 framework described in \ref{sec:mvc}, to make components easily swappable
+The database will be accessed by the system through the ADO.NET data provider described in \ref{sub:adonet}. This gives us a component design as seen on figure \ref{fig:system_component_mvc}.
 
 \begin{figure}
 	\centering
@@ -11,15 +11,15 @@ Our database will be accessed by the system though the ADO.NET data provider. Th
 	\label{fig:system_component_mvc}
 \end{figure}
 
+\begin{comment}
 \paragraph{Model}
-The Models responsibility is to represent the objects and their data which is stored in the database, fetched from the database. The result is an interface which enables the controllers and \viewmodel{} to access the data in the database in a nice and comprehensible way. This component is further described in chapter \ref{chap:componentdesign}.
+The responsibility of the model is to represent the objects and their data which is stored in- and fetched from the database. This component is further described in \ref{sub:modelComponent}.
 
 \paragraph{View Model}
 \viewmodel{}s are dependent on the model since it is a container of elements from the model.
 
-
 \paragraph{View} 
-This components' responsibility is to structure the information and layout in the GUI. 
+This responsibility of the components is to structure the information and layout in the GUI. 
 The interfaces consist of buttons, links, forms and data from a controller, the model, or a \viewmodel{}. 
 It is dependent on the model, controller and \viewmodel{}. It is dependent on the controller because the views responsibility is to make buttons and links which have to match the correct controller. It is dependent on the model and \viewmodel{} because this is the data it needs to present. 
 The dependency on the model could be removed and then all view data has to be parsed though a \viewmodel{}, but we allow this because it is not always necessary to put the model into a \viewmodel{}. 
@@ -33,7 +33,7 @@ The tool component consist of various help functionality. For example the proble
 \paragraph{ADO.NET}
 This component will not be build by us, this is an already made component which we will use as a database data provider. 
 
-
+\end{comment}
 
 
 \begin{comment}
@@ -99,6 +99,8 @@ The database interface receives all database requests and translate them to the 
 %\end{figure}
 
 \end{comment}
+
+
 \subsection{Client-Server}
 Because we are designing a help desk, we are dealing with users who are not present in a specific location. Therefore we also designed the system using a client-server architecture.
 On the client side there is a user interface and on the server side the functionality and model are located as seen on figure \ref{fig:client-server}. By using Local Presentation~\cite{roedeaalborg}[p.~200] we enable clients to access the system from anywhere, and still keep the functionality and model on the server and thus keeping the system flexible.         
