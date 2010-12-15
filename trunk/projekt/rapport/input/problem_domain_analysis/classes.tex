@@ -1,34 +1,37 @@
 \section{Classes and Events}
 \label{cap:classesevents}
-In the process of finding classes and events we made up several classes and events some of which are not used in the actual program, since it might be more efficient to exclude some classes. This will be elaborated further in the \nameref{design} part. To come up with the classes and events we talked about different possible scenarios, we then developed our class diagram based upon these scenarios. This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. On figure \ref{fig:classeseventstable} the relations between classes and events are illustrated.  
-\fixme{Står i datid}
-
+In the process of finding classes and events several classes and events are found, some of which are not used in the actual program, since it might be more efficient to exclude some classes. 
+This is elaborated further in the \nameref{design} part. 
+To come up with the classes and events several different possible scenarios are discussed and from those scenarios we base our class diagram. 
+This section describes all the classes and events in the final iteration of the process and all the redundant classes and events are omitted. 
+On figure \ref{fig:classeseventstable} the relations between some of the classes and events are illustrated. The figure is used as a foundation to find all classes. 
+%\begin{comment}
 \begin{figure}[]
 \begin{tabular}{ l c c c c c} \hline
 \\
 &\emph{\textbf{Classes}} &  &  & &  \\ 
-\emph{\textbf{Events}} & Problem & Solution & Staff & Department & Person \\ \hline
- Problem added 				& $ \checkmark $ &  &  & $ \checkmark $ &  \\ 
- Problem solved 			& $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ &  \\ 
- Problem updated 			& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
- Problem assigned 		& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
- Problem unassigned 	& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
- Problem deleted 			& $ \checkmark $ &  &  & $ \checkmark $ &  \\ 
- User replied 				& $ \checkmark $ &  & $ \checkmark $ & $ \checkmark $ &  \\ 
- Staff replied 				& $ \checkmark $ &  &  &  &  \\ 
- Department created 	&  &  &  & $ \checkmark $ &  \\ 
- Department closed 		&  &  &  & $ \checkmark $ &  \\ 
- Role assigned 				&  &  &  & $ \checkmark $ & $ \checkmark $  \\ 
- Role unassigned 			&  &  &  &  $ \checkmark $  & $ \checkmark $ \\ 
- Person created 			&  &  &  &  & $ \checkmark $ \\ 
- Solution found 			& $ \checkmark $ & $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ \\ 
- Solution assigned		& $ \checkmark $ & $ \checkmark $ & $ \checkmark $ &  & $ \checkmark $ \\ 
- Problem categorized	& $ \checkmark $ &  &  & $ \checkmark $ &  \\ \hline
+\emph{\textbf{Events}} 		& Problem 		& Solution 			& Staff 			& Department & Person \\ \hline
+ Problem added 			& $ \checkmark $ 	&  				&  				& &  \\ 
+ Problem solved 			& $ \checkmark $ 	& $ \checkmark $ 	& 				& &  \\ 
+ Problem updated 			& $ \checkmark $ 	&  				& $ \checkmark $ 	&  &  \\ 
+ Problem assigned 			& $ \checkmark $ 	&  				& $ \checkmark $ 	&  &  \\ 
+ Problem unassigned 		& $ \checkmark $ 	&  				& $ \checkmark $ 	&  &  \\ 
+ Problem deleted 			& $ \checkmark $ 	&  				&  				&  &  \\ 
+ User replied 				& $ \checkmark $ 	&  				& $ \checkmark $ 	&  & $ \checkmark $  \\ 
+ Staff replied 				& $ \checkmark $ 	&  				&  				&  &  $ \checkmark $ \\ 
+ Department created 			&  				&  				&  				& $ \checkmark $ &  \\ 
+ Department closed 			&  				&  				&  				& $ \checkmark $ &  \\ 
+ Role assigned 				&  				&  				&  				& $ \checkmark $ & $ \checkmark $  \\ 
+ Role unassigned 			&  				&  				&  				&  $ \checkmark $  & $ \checkmark $ \\ 
+ Person created 			&  				&  				&  				&  & $ \checkmark $ \\ 
+ Solution found 				& $ \checkmark $ 	& $ \checkmark $ 	& $ \checkmark $ 	&  & $ \checkmark $ \\ 
+ Solution assigned			& $ \checkmark $ 	& $ \checkmark $ 	& $ \checkmark $ 	&  & $ \checkmark $ \\ 
+ Problem categorized			& $ \checkmark $ 	&  				&  				& $ \checkmark $ &  \\ \hline
 \end{tabular}
 \morscaption{Problem-domain analysis event table}
 \label{fig:classeseventstable}
 \end{figure}
-
+%\end{comment}
 
 \subsection{Classes}
 The following is a list of the classes from the class diagram \ref{fig:pdaclassdiagram}.
