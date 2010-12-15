@@ -1,8 +1,11 @@
 \section{Problem Prioritization}
 \label{sec:problem_priority}
+%When a problem is added to the system the priority of the problems is calculated based on the tags attached to the problem.
+The priority of a problem is used in the staffs worklist, where all problems are sorted by priority, however all problems with deadlines are shown first on the list.
+The division of the worklist is made to create a better overview.
+If a problem with an approved deadline is overdue, the priority will go up to the maximum priority, which in turn will make the problem appear on the top of the list.
 
-When a problem is added to the system the priority of the problems is calculated based on the tags of the problem. The priority is used in the staffs worklist, where all problems are sorted by priority, though are all problems with deadlines showed highest on the list. The division of the worklist is made to create a better overview. If a problem with an approved deadline is overdue, then the priority will go up to the maximum priority, which in turn will make the problem appear on the top of the list.
- 
+\begin{comment}
 The priority of a problem is based on two factors:
 
 %When assigning multiple problems to a staff member, they will appear as a list. 
@@ -13,15 +16,15 @@ The priority of a problem is based on two factors:
 
 \begin{itemize}
 	\item Whether or not a deadline is approved
-	\item The priority
+	\item The priority of the tags attached to the problem
 \end{itemize}
+\end{comment}
 
 The worklist should be sorted because some problems are more important then others and should be solved prior to lesser important problems. 
 
-When a staff member is assigned to a problem, then he should read the new problem and approve the problems deadline if it is reasonable. 
-
+When a staff member is assigned to a problem, he should read the new problem and approve the problems deadline if it is reasonable. 
 
 %The list is ordered by priority of the problem, however problems with approved deadlines will always appear on top of the list regardless of their or other problems priority. 
 %This splits the list into two parts. Above, priority-sorted problems with approved deadlines, and below priority-sorted problems with or without not approved deadlines. 
 
-An example can be seen in figure \ref{fig:worklist}.
+An example of a worklist can be seen in figure \ref{fig:worklist}.
