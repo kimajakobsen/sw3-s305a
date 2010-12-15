@@ -189,7 +189,6 @@ namespace HoplaHelpdesk.Models
 
             if (NumberOfTags == 0)
             {
-                //average = 10;
                 average = Tools.AverageAllTags.averageAll;
             }
             else
