@@ -1,13 +1,12 @@
 \section{Development Method}
 \label{sec:DevelopmentMethods}
-In this section we will describe a few different Software development methods that we considered using.
-Subsection \ref{sub:ourDevMethod} explains the method used for this project, which is a combination of the different methods described in this section.
+In this section we will describe a few different Software development methods that we consider using.
+Subsection \ref{sub:ourDevMethod} explains the method we use for this project, which is a combination of the different methods described in this section.
 
 \subsection{Waterfall}
-The waterfall method, first published by Dr. Winston W. Royce in 1970 as a flawed method of development, has derived its name directly from the concept of the method. If following this method in it's traditional form, development will go through several completely separated steps, from which it is never possible to go back as seen on figure \ref{fig:WaterfallPic}. These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.
+The waterfall method \cite{waterfallroyce}, first published by Dr. Winston W. Royce in 1970 as a flawed method of development, has derived its name directly from the concept of the method. If following this method in its traditional form, development will go through several completely separated steps, from which it is never possible to go back as seen on figure \ref{fig:WaterfallPic}. These steps will not necessarily be done by the same development teams which means that everything has to be documented thoroughly before starting the next step.
 
 Royce originally meant for this method to be developed into a fully iterative model, however, most software development companies adapted to non-iterative form.
-\cite{waterfallroyce}
 
 \begin{figure}[H]
 	\centering
@@ -16,14 +15,14 @@ Royce originally meant for this method to be developed into a fully iterative mo
 	\label{fig:WaterfallPic}
 \end{figure}
 
-Unfortunately, this software development method has a lot of drawbacks, the main one being it's inflexibility.
+Unfortunately, this software development method has a lot of drawbacks, the main one being its inflexibility.
 Because the method is not designed to handle change in the specification during the development period, the software developed with this method could in the worst cases be useless by the time the development finishes.
 Therefore it is very common for software developers to incorporate change during the development, however, because the documentation for every little piece of work has already been made at this time, it is a colossal task to change even the smallest features.
 Because the changes must be made to all the documentation prior to the step where the change is made. 
 
 \subsection{Agile Methods}
-Because of the traditional and wide spread development method being so inflexible and difficult to work with, a lot of other methods has been suggested.
-These methods has been commonly known as ``Agile''.
+Because of the traditional and wide spread development method being so inflexible and difficult to work with, a lot of other methods is suggested.
+These methods is commonly known as ``Agile'' \cite{agileManifesto}.\fixme{Mere d\ae{}kkende kilde tak.  Mvh lasse.}
 In 2001 a large group formed by representatives from them most popular Agile methods came together to form ``The Agile Alliance''.
 This alliance created the ``Agile Manifesto'', which states four things that the alliance think Agile Development should be:
 
@@ -41,7 +40,7 @@ That is, while there is value in the items on the right, we value the items on t
 Scrum is an Agile development method that relies heavily on self-organizing teams. Scrum is best explained by the different components it contains:
 
 \subsubsection{Customer / Product owner}
-The customer is the person og organization for whom the development team is currently working.
+The customer is the person or organization for whom the development team is currently working.
 
 \subsubsection{ScrumMaster}
 The ScrumMaster is the manager of the scrum process, and is there to ensure that all developers use Scrum to achieve the maximum level of performance.
@@ -69,7 +68,9 @@ Burndown charts are the set of features that still lack implementing. Typically,
 When understanding all of these ``components'', one can begin to understand how they are working together to create Scrum.
 
 The main component in Scrum is a sprint;
-any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. This priority is decided by the product owner. When they have decided upon the features, the development team transfer them to the sprint backlog and start working.
+any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. 
+This priority is decided by the product owner. 
+When they have decided upon the features, the development team transfer them to the sprint backlog and start working.
 
 Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day, and what might be holding them from proceeding. These meetings are held to synchronize the team members.
 
@@ -79,7 +80,8 @@ Of course this meeting might lead to alteration of the recently implemented feat
 After this meeting the team starts from the top with a new planning meeting and repeat this process until the customer is satisfied with the features implemented.
 
 \subsection{Extreme Programming (XP)}
-Extreme Programming differs from the other agile methods as it is more a set of recommendations than an actual method. The recommendations of XP is as following:
+Extreme Programming differs from the other agile methods as it is more a set of recommendations than an actual method. All sources in this subsection is from the following cites \cite{xp, xp2}.
+The recommendations of XP is as following:
 
 \subsubsection{Planning}
 There are three different overall plans in XP:
@@ -128,21 +130,22 @@ This will enhance the collaboration between customer and developers and hopefull
 \subsubsection{Coding Standards}
 This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves.
 This will be done almost by itself, as developers will grow tired of not understanding each others code.
-\cite{xp} \cite{xp2}
+
+
 \subsection{Development During the Project}
 \label{sub:ourDevMethod}
-In our project we have not strictly followed any specific development method. Instead we have implemented elements from scrum and extreme programming. At the start of each day we have held a meeting to discuss what we would be doing during the day. Furthermore we have had a lot of small sprints, where we focused on developing, integrating and testing new features. These sprints were very short, typically maximum a couple of days, because our development phase did not last for more than a couple of weeks.
+In our project we do not strictly follow any specific development method. Instead we implement elements from scrum and extreme programming. At the start of each day we hold a meeting to discuss what we will be doing during the day. Furthermore we have a lot of small sprints, where we focus on developing, integrating and testing new features. These sprints are very short, typically maximum a couple of days, because our development phase do not last for more than a couple of weeks.
 
-Besides the principles borrowed from scrum, we also used a lot of elements from Extreme Programming:
+Beside the principles borrowed from scrum, we also uses a lot of elements from Extreme Programming:
 \begin{itemize}
-\item We have planned our project in a similar way to XP
-\item We have constantly been making small releases 
-\item We have written a release every time we have developed/implemented a new feature
-\item We have had collective ownership of all our code
-\item We have written tests for all our major components 
-\item We have continuously integrated the created features into our main system
-\item We have not had regular overtime during this project.
-\item We have tried to maintain coding standards, although with limited success.
+\item We plan our project in a similar way to XP
+\item We are constantly been making small releases 
+\item We write a release every time we have developed/implemented a new feature
+\item We have collective ownership of all our code
+\item We write tests for all our major components 
+\item We are continuously integrating the created features into our main system
+\item We do not have regular overtime in this project.
+\item We try to maintain coding standards.
 \end{itemize}
 
-Using these elements have made it much easier for us to delegate our work and plan all the aspects of our project. Also, it has given us a all a better understanding of our code, as we have all collaborating to achieve our goal, and has often edited each others' code. The swift development of our application and the fact we almost never work late has helped us to maintain a high interest in the project.
+Using these elements it much easier for us to delegate our work and plan all the aspects of our project. Also, it has given us a all a better understanding of our code, as all collaborates to achieve our goal, and often edites each others' code. The swift development of our application and the fact we almost never work late has helped us to maintain a high interest in the project.
