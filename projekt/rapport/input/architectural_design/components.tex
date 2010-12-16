@@ -1,39 +1,41 @@
 \section{Component Architecture}
 \label{sec:components}
-On the basis of chapter \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. 
-In order to obtain high flexibility we will use ASP.NET Mvc 2 framework described in \ref{sec:mvc}, to make components easily swappable.
-The the application will access the database by using the ADO.NET data provider described in \ref{sub:adonet}. This gives us a component design as seen on figure \ref{fig:system_component_mvc}.
+On the basis of section \ref{sec:systemdefinition} and our evaluation of criteria in section \ref{sec:criteria} we found that our main priority is flexibility. 
+In order to obtain high flexibility we will use ASP.NET MVC 2 framework described in section \ref{sec:mvc}, to make components easily swappable.
+The the application will access the database by using the ADO.NET data provider described in section \ref{sub:adonet}. This gives us a component design as seen on figure \ref{fig:system_component_mvc}.
+The figure illustrates the components dependency among each other. 
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.8]{input/architectural_design/system_component_mvc.pdf}
 	\morscaption{The application component. The arrows represent dependency}
 	\label{fig:system_component_mvc}
 \end{figure}
 
-\begin{comment}
+
+%\begin{comment}
 \paragraph{Model}
 The responsibility of the model is to represent the objects and their data which is stored in- and fetched from the database. This component is further described in \ref{sub:modelComponent}.
+
+
+\paragraph{Tools}
+The tool component consist of various help functionality. For example the problem distributer and the search functionality is placed in this component. The tools is used by the controller and it relies on the model. 
 
 \paragraph{View Model}
 \viewmodel{}s are dependent on the model since it is a container of elements from the model.
 
 \paragraph{View} 
-This responsibility of the components is to structure the information and layout in the GUI. 
-The interfaces consist of buttons, links, forms and data from a controller, the model, or a \viewmodel{}. 
+The responsibility of this components is to structure the information and layout in the GUI. 
 It is dependent on the model, controller and \viewmodel{}. It is dependent on the controller because the views responsibility is to make buttons and links which have to match the correct controller. It is dependent on the model and \viewmodel{} because this is the data it needs to present. 
 The dependency on the model could be removed and then all view data has to be parsed though a \viewmodel{}, but we allow this because it is not always necessary to put the model into a \viewmodel{}. 
 
 \paragraph{Controller}
 The controllers all have independent responsibilities, but the general responsibility of the controller components is to process the data in the model and return this to a specific view, possibly through a \viewmodel{}. The controller depends on view, model, \viewmodel{} and tool. Changing any of these components will most likely result in a change of the controller. 
 
-\paragraph{Tools}
-The tool component consist of various help functionality. For example the problem distributer and the search functionality will be placed in this component. The tools will be used by the controller and it relies on the model. 
-
 \paragraph{ADO.NET}
-This component will not be build by us, this is an already made component which we will use as a database data provider. 
+This component is not build by us, this is an already made component which is used as a database data provider. 
 
-\end{comment}
+%\end{comment}
 
 
 \begin{comment}
