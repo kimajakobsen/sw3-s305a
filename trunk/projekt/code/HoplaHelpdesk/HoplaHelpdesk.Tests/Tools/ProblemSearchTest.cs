@@ -206,7 +206,7 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -231,7 +231,7 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -266,7 +266,7 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -297,7 +297,7 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -330,7 +330,7 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -365,7 +365,7 @@ namespace HoplaHelpdesk.Tests
             #endregion
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -402,7 +402,7 @@ namespace HoplaHelpdesk.Tests
 
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -440,7 +440,7 @@ namespace HoplaHelpdesk.Tests
 
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
@@ -479,7 +479,7 @@ namespace HoplaHelpdesk.Tests
 
 
             #region Act
-            actual = ProblemSearch.Search(catTag, problems, tags, minNoProb);
+            actual = ProblemSearch.Search(catTag, problems, minNoProb);
             #endregion
 
             #region Assertions
