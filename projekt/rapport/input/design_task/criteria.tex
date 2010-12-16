@@ -26,8 +26,8 @@ The definition of these quality goals -- or simply criteria -- is shown in figur
 %\subsection{Quality Goals}
 %Since it is not possible to prioritize each criteria equally,
 We have chosen to use a four step priority scale: Very important, important, less important, and irrelevant.
-Each criteria defined in figure \ref{fig:defOfCrit} is prioritized in figure \ref{fig:prioritizedCrit}. Furthermore the figure shows a column labeled ``Easily Fulfilled''
-which specifies whether a given criteria will be fulfilled without much effort.
+Each criteria defined in figure \ref{fig:defOfCrit} is prioritized in figure \ref{fig:prioritizedCrit}. Furthermore the figure shows a column labeled ``Easily Fulfilled'' which specifies whether a given criteria will be fulfilled without much effort.
+We would like to explicity state, that these quality goals are not about what's optimal for the application as a product, which should actually be installed and used, but instead as what we have focused on during our development.
 
 \begin{figure}[h]
 	\centering
@@ -50,14 +50,15 @@ which specifies whether a given criteria will be fulfilled without much effort.
 	\label{fig:prioritizedCrit}
 \end{figure}
 
-How we have prioritized the criteria is based on our application definition, which is found in chapter \ref{sec:systemdefinition}. The reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown bellow.
+How we have prioritized the criteria is based on our application definition, which is found in section \ref{sec:systemdefinition}. The reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown bellow.
 
 \paragraph{Usable}
 
 It is important that our application is user friendly because a helpdesk needs to be very usable to ease the process of getting help and the end user will not use the helpdesk if it is unusable.
 it is however not very important since this is a study project and we are more concerned with the functionality of the application than the usability, hence; less important 
 \paragraph{Secure}
-For the \hdesk[] security is less important. We want to distinguish between \aclient[]s, \astaff members[]s and \admin[]s -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
+For the \hdesk[] security is less important. We want to distinguish between \aclient[]s, \astaff[] members and \admin[]s -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
+We do not have any sensitive information, other than e-mail addresses and passwords. We do not take any direct measures to prevent data interception or any other serious security flaw. We do, however encrypt the passwords which are stored in the database.
 We do however not have any sensitive information, so we take no measures to prevent data interception or any other serious security flaw.
 \paragraph{Efficient}
 We do not care for the efficiency of our application, only that it works, which lead us to deem this criteria irrelevant. 
