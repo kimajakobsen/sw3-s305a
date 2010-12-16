@@ -1,16 +1,16 @@
 \section{Corrections to the Analysis}
 \label{sec:correctionstotheanalysis}
 
-We reviewed the analysis and came up with some corrections. Subsection \ref{sub:classesandevents}, \ref{sub:classdiagram},\ref{sub:classdiagram}, and \ref{sub:interface} contains the corrections, modifications, and supplement to the analysis. 
+We review the analysis and come up with some corrections. Subsection \ref{sub:classesandevents}, \ref{sub:classdiagram},\ref{sub:classdiagram}, and \ref{sub:interface} contains the corrections, modifications, and supplement to the analysis. 
 
 \subsection{Classes and events}
 \label{sub:classesandevents}
-We removed the following classes because they where redundant: 
+The following classes are removed because they where redundant: 
 \paragraph{Deadline}
-We changed the class \cl{deadline} so now it is an attribute.
+The class \cl{deadline} so now it is an attribute.
 
 \paragraph{Client, Staff and Admin}
-We changed the role system because we use the MVC framework \ref{sec:mvc}. A person can have more roles, the role structure is seen on figure \ref{tab:newactortable}.  
+The role system is changed because we use the MVC framework \ref{sec:mvc}. A person can have more roles. The new role structure is seen on figure \ref{tab:newactortable}.  
 
 \begin{figure}[p]
 \begin{center}
@@ -32,7 +32,7 @@ Administrate		&  	&		& $\checkmark$ \\	%
 
 \subsection{Class diagram}
 \label{sub:classdiagram}
-The class diagram from figure \ref{fig:pdaclassdiagram} was modified so the following was changed:
+The class diagram from figure \ref{fig:pdaclassdiagram} is modified so the following is changed:
 \begin{itemize}
 \item \textbf{Problem and tag relation} \\
 					A tag can be connected to multiple different problems and a problem can have many tags connected to it. 
@@ -42,21 +42,21 @@ The class diagram from figure \ref{fig:pdaclassdiagram} was modified so the foll
 
 \subsection{Functions}
 \label{sub:function}
-The function list we fabricated in section \ref{sec:function} are outdated, but we used them in the planning face. The functionality of the described functions are the basically the same.  
+The function list in section \ref{sec:function} is outdated, but we use them in the planning phase. The functionality of the described functions are basically the same.  
 
 \subsection{Interfaces}
 \label{sub:interface}
-The navigation diagrams from section \ref{sec:interfaces} are reflecting the final design except for a few changes:
+The navigation diagrams from section \ref{sec:interfaces} are reflecting of the final design except for a few changes:
 
 \paragraph{Client interface}
-In the client navigation diagram only the Main window was changed. We have decided that it should be changed to a navigation bar and thereby make it easy to navigate between the different windows. 
+In the client navigation diagram only the Main window is changed. It is changed to a navigation bar and thereby making it easy to navigate between the different windows. 
 When a new problem is created the user is directed to the Search window, there the user have the options to see his/hers problems or search for problems. 
 
 \paragraph{Staff interface}
 Similar to the Client interface the Main window is changed to a navigation bar. In the Staff Problem View there was added a save button, to do what the name implies. 
 
 \paragraph{Admin interface}
-The Main window was change to a navigation bar. The Department administration was divided in two windows, this was done to avoid updating the two tables every time a new department was selected, see subsection \ref{sub:managedep} for a more throughly explanation.  
+The Main window is changed to a navigation bar. The Department administration is divided into two windows, this is done to avoid updating the two tables every time a new department is selected, see subsection \ref{sub:managedep} for a more throughly explanation.  
 
 The final navigation and design is described and shown in chapter \ref{chap:program_presentation}.
 
