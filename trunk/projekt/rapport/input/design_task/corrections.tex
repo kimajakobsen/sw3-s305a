@@ -1,0 +1,17 @@
+\section{Corrections to the Analysis}
+\label{sec:correctionstotheanalysis}
+
+The altered version of our class diagram -- which can be seen on figure \ref{fig:ClassDiagramV2} -- contains the following changes:
+\begin{itemize}	
+	\item The role pattern: \\
+	The functionality from the actor \admin[] does not inherit from \astaff[] and \aclient[] etc. Figure \ref{tab:newactortable} shows the new role system.   
+	\item Problem: 
+	\begin{itemize}
+		\item \textbf{Deadline} \\
+					The deadline is now a attribute instead of a class
+		\item \textbf{Problem and tag relation} \\
+					A tag can be connected to multiple different problems and a problem can have many tags connected to it. 
+		\item \textbf{Problem and person relations} \\
+					A person can have from zero to three simultaneous roles.				
+	\end{itemize}
+\end{itemize}
