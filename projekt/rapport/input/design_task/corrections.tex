@@ -1,31 +1,16 @@
 \section{Corrections to the Analysis}
 \label{sec:correctionstotheanalysis}
 
-We reviewed the analysis and came up with some corrections. Subsection \ref{}, \ref{}, and \ref{} contains the corrections, modifications, and supplement to the analysis. 
+We reviewed the analysis and came up with some corrections. Subsection \ref{sub:classesandevents}, \ref{}, and \ref{} contains the corrections, modifications, and supplement to the analysis. 
 
 \subsection{Classes and events}
+\label{sub:classesandevents}
+We removed the following classes because they where redundant: 
+\paragraph{Deadline}
+We changed the class \cl{deadline} so now it is an attribute.
 
-
-\subsection{}
-
-
-\subsection{}
-
-
-The altered version of our class diagram -- which can be seen on figure \ref{fig:ClassDiagramV2} -- contains the following changes:
-\begin{itemize}	
-	\item The role pattern: \\
-	The functionality from the actor \admin[] does not inherit from \astaff[] and \aclient[] etc. Figure \ref{tab:newactortable} shows the new role system.   
-	\item Problem: 
-	\begin{itemize}
-		\item \textbf{Deadline} \\
-					The deadline is now a attribute instead of a class
-		\item \textbf{Problem and tag relation} \\
-					A tag can be connected to multiple different problems and a problem can have many tags connected to it. 
-		\item \textbf{Problem and person relations} \\
-					A person can have from zero to three simultaneous roles.				
-	\end{itemize}
-\end{itemize}
+\paragraph{Client, Staff and Admin}
+We changed the role system because we use the MVC framework \ref{sec:mvc}. A person can have more roles, the role structure is seen on figure \ref{tab:newactortable}.  
 
 \begin{figure}[p]
 \begin{center}
@@ -44,3 +29,31 @@ Administrate		&  	&		& $\checkmark$ \\	%
 \caption{\myCaption{Actor \& use case table}}
 \label{tab:newactortable}
 \end{figure}
+
+\subsection{Class diagram}
+The class diagram from figure \ref{fig:pdaclassdiagram} was modified so the following was changed:
+\begin{itemize}
+\item \textbf{Problem and tag relation} \\
+					A tag can be connected to multiple different problems and a problem can have many tags connected to it. 
+\item \textbf{Problem and person relations} \\
+					A person can have from zero to three simultaneous roles.	
+\end{itemize}
+
+\subsection{Functions}
+The function list we fabricated in section \ref{sec:function} are outdated, but we used them in the planning face. The functionality of the described functions are the basically the same.  
+
+\subsection{Interfaces}
+The navigation diagrams from section \ref{sec:interfaces} are reflecting the final design except for a few changes:
+
+\paragraph{Client interface}
+In the client navigation diagram only the Main window was changed. We have decided that it should be changed to a navigation bar and thereby make it easy to navigate between the different windows. 
+When a new problem is created the user is directed to the Search window, there the user have the options to see his/hers problems or search for problems. 
+
+\paragraph{Staff interface}
+Similar to the Client interface the Main window is changed to a navigation bar. In the Staff Problem View there was added a save button, to do what the name implies. 
+
+\paragraph{Admin interface}
+The Main window was change to a navigation bar. The Department administration was divided in two windows, this was done to avoid updating the two tables every time a new department was selected, see subsection \ref{sub:managedep} for a more throughly explanation.  
+
+The final navigation and design is described and show in chapter \ref{chap:program_presentation}.
+
