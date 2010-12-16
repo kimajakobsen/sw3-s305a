@@ -1,13 +1,13 @@
 \section{Admin Usage}
 \label{sec:admin_usage}
-The use cases \tucadmin[] and \gstat[], which are described in section \ref{sec:usecase}, are the two main usages of the system which the \admin[] will use.
+The use cases \tucadmin[] and \gstat[], which are described in section \ref{sec:usecase}, are the two main usages of the application which the \admin[] will use.
 The \tucadmin[] use case is divided into two usages; manage people and manage departments.
 These three usages are described in the following subsections.
 
 \subsection{Manage People}
 \label{sub:managePeople}
-For an \admin[] to manage the people in the system -- or rather the peoples users -- he/she can click the menu point called Manage People which can be seen in figure \ref{fig:master}.
-The screen which the \admin[] is then presented with a table of all the users in the system.
+For an \admin[] to manage the people in the application -- or rather the peoples users -- he/she can click the menu point called Manage People which can be seen in figure \ref{fig:master}.
+The screen which the \admin[] is then presented with a table of all the users in the application.
 The table includes: Actions on the user, id number, e-mail, department name, workload, and the roles of the user.
 The department name and workload is only available for \astaff[] users, because they are the only ones with a department and a workload.
 Other users simply gets ``N/A'' in these cells of the table.
@@ -19,15 +19,15 @@ From here he/she can see the id and user name of the user, and can edit the e-ma
 The department can only be edited if the user is a staff member.
 If a non-\astaff[] user is given the \astaff[] role, the \admin[] is asked to give the user a department, because we do not want to \astaff[] members without a department.
 
-The deletion of a user will result in permanent removal of the user from the system.
+The deletion of a user will result in permanent removal of the user from the application.
 This can only happen if the user is not subscribed to any problems and is not assigned to any problems.
 
 The reset password action initiates a random password generator to set as the new password for the given user.
 After that an e-mail is sent to the user containing the newly generated password.
 
 \subsection{Manage Departments}
-The menu point Manage Departments which is seen in figure \ref{fig:master} allows the \admin[]s to administrate the departments, categories, and tags in the system.
-The view shown when this menu point is clicked, the \admin[] is presented with a list of every department in the system along with a link to create a new department.
+The menu point Manage Departments which is seen in figure \ref{fig:master} allows the \admin[]s to administrate the departments, categories, and tags in the application.
+The view shown when this menu point is clicked, the \admin[] is presented with a list of every department in the application along with a link to create a new department.
 
 When creating a new department, the \admin[] creating it must provide the name of the department and a description.
 A newly created department is initially empty, i.e. it contains no categories and no \astaff[] members are part of it.
@@ -48,7 +48,7 @@ These two parts of the department view are described in the following sub-subsec
 \subsubsection{Manage \astaff[c] Members}
 When a \astaff[] member is selected, the \admin[] is redirected to the person editor of that \astaff[] member, which is described in subsection \ref{sub:managePeople}.
 To add a \astaff[] member to the selected department, the \admin[] can click the Add staff link in the department view.
-This renders a view with a table of every person in the system who has the \astaff[] role.
+This renders a view with a table of every person in the application who has the \astaff[] role.
 The table resembles the table described in subsection \ref{sub:managePeople} except that the id for the \astaff[] members are not shown.
 
 \subsubsection{Manage Categories}
@@ -64,7 +64,7 @@ It is possible to create new tags from the category view, these tags will initia
 
 During creation of a tag, the \admin[] most provide a name for tag, a description, and a priority.
 The priority of a tag is a number which indicates how important a problem with the tag is relatively to problems with other tags.
-There is no inbuilt scale, if the organization using out system wants their tags to vary in priority from 0 to 10 they can do that, the only constraint is that the priority is a 16 bit integer, resulting in a range from $2^{15}$ to $2^{15}-1$.
+There is no inbuilt scale, if the organization using out application wants their tags to vary in priority from 0 to 10 they can do that, the only constraint is that the priority is a 16 bit integer, resulting in a range from $2^{15}$ to $2^{15}-1$.
 
 In the category view, the tags can also be individually be hidden, edited, viewed in details, and deleted.
 Hiding a tag means that it will not be shown in e.g. the problem search usage of the \aclient[]s.
@@ -86,7 +86,7 @@ The deletion of tags is only supposed to be used if a tag is created incorrectly
 \end{figure}
 An \admin[] can get statistics about how long problems in average remain unsolved.
 To do this he/she must select the Statics menu point as seen in figure \ref{fig:master}.
-He/she is then presented with a view which shows the average time for a problem to remain unsolved for each particular \astaff[] member, each department, and for the system over all.
+He/she is then presented with a view which shows the average time for a problem to remain unsolved for each particular \astaff[] member, each department, and for the application over all.
 It also shows the average time for problems to be solved for the last week for all of the three groups above.
 This is seen in figure \ref{fig:stat}.
 
