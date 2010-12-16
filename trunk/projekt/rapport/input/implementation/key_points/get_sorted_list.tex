@@ -3,7 +3,7 @@
 
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:getsortedlist,float=hp]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The GetSortedList method}, label=lst:getsortedlist,float=hp]
 private List<Problem> GetSortedList()
 {
     List<Problem> problemList = Worklist.ToList().Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
