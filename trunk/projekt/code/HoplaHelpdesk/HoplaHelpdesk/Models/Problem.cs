@@ -89,20 +89,7 @@ namespace HoplaHelpdesk.Models
         /// <param name="StaffTimeSpentInput">Hours as a double, seperated with ".".</param>
         public void ManageTagTimes(double StaffTimeSpentInput)
         {
-            string StaffTimeSpent = StaffTimeSpentInput.ToString();
-            string[] split = StaffTimeSpent.Split(".".ToCharArray());
-            
-            int HoursUsed = Int32.Parse(split[0]);
-            int MinutesUsed = 0;
-
-            try
-            {
-                MinutesUsed = (int)(0.6*(double.Parse(split[1]))) + (HoursUsed*60);
-            }
-            catch
-            {
-                MinutesUsed = HoursUsed*60;
-            }
+            int MinutesUsed = (int)(StaffTimeSpentInput*60);
 
             foreach (var tag in Tags)
             {
