@@ -1,11 +1,9 @@
 \section{Get Sorted List}
 \label{sec:getsortedlist}
 
-The \me{GetSortedList} method -- shown in code snippet \ref{lst:getsortedlist} -- purpose is to sort the staff members worklist as defined in section \ref{sec:problem_priority}. 
 
 
-
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:getsortedlist]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method}, label=lst:getsortedlist,float=hp]
 private List<Problem> GetSortedList()
 {
     List<Problem> problemList = Worklist.ToList().Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
@@ -22,3 +20,6 @@ private List<Problem> GetSortedList()
     return problemList;
 }
 \end{lstlisting}
+
+The \me{GetSortedList} method -- shown in code snippet \ref{lst:getsortedlist} -- purpose is to sort the staff members worklist as defined in section \ref{sec:problem_priority}. 
+
