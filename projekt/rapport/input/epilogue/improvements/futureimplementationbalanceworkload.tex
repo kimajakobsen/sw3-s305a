@@ -3,17 +3,17 @@
 
 The original \me{BalanceWorkload} method -- which is described throughly in section \ref{sec:balanceworkload} -- distributes the problems by looking at the staff member which has the highest workload as well as the one with the lowest, and then shifts the reassignable problems until the workload between the two are as equal as possible. This approach does not take the priority nor the deadline into account, which is why we suggest the following new method, which is shown in code snippet -- \ref{lst:futureimplementationbalanceworkload}. 
 
-The main idea behind the \me{FutureImplementationBalanceWorkload} method is that the algorithm only has to balance the workload by some extent as a problem would always be added to the person with the lowest workload every time a problem has been marked as solved or a new problem is submitted, the algorithm will then run again to distribute to workload properly.
+The main idea behind the \me{FutureImplementationBalanceWorkload} method is that the algorithm only has to balance the workload by some extent as a problem would always be added to the person with the lowest workload every time a problem has been marked as solved or a new problem is submitted, the algorithm will then run again to distribute the workload properly.
 
 This simple approach of distributing problems allows us to choose which problems to distribute first. All we have to do then is sort a temporary list of problems to distribute them in the manner we want. In the \me{FutureImplementationBalanceWorkload} method, we have chosen to have the problems with an approved deadline at the top of the temporary list, sorted by highest priority at top. Below that all problems without a deadline.
 
 In short, the \me{FutureImplementationBalanceWorkload} method does the above explained by first unassigning all the reassignable problems from all members of the specific department, followed by sorting them in the fashion explained above, and at last assigns the problems from the top of the temporary list, until the temporary list is empty.
 
-\paragraph{Pros} are that problems which are more important will be solved faster.
-\paragraph{Cons} are that the workload will be a slightly bit more unbalanced between the individual staff members in the department.
-\paragraph{We did not implement this feature because} we decided early in the beginning only to focus on workload and not priority or deadlines. We discovered too late that this was not a hard issue to solve, however we decided not to implement it as we felt that we did not have the time. Note that this method is still in the application together with a simple testing method as which we did a very limited amount on testing on it to ensure that it works somewhat. We would like to state explicitly that the \me{FutureImplementationBalanceWorkload} method is not used by the application although it is in the source code of it.
+\pcparagraph{Pros} are that problems which are more important will be solved faster.
+\pcparagraph{Cons} are that the workload will be a slightly bit more unbalanced between the individual staff members in the department.
+\pcparagraph{We did not implement this feature because} we decided early in the beginning only to focus on workload and not priority or deadlines. We discovered too late that this was not a hard issue to solve, however we decided not to implement it as we felt that we did not have the time. Note that this method is still in the application together with a simple testing method as which we did a very limited amount on testing on it to ensure that it works. We would like to state explicitly that the \me{FutureImplementationBalanceWorkload} method is not used by the application although it is in the source code of it.
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{A possible future implementation of the \me{BalanceWorkload} algorithm.}, label=lst:futureimplementationbalanceworkload]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{A possible future implementation of the \me{BalanceWorkload} algorithm}, label=lst:futureimplementationbalanceworkload]
 public void FutureImplementationBalanceWorkload()
 {
     Person dummyPerson = new Person();
