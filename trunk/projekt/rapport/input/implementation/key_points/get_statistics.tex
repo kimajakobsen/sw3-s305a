@@ -1,12 +1,10 @@
 \section{Get statistics}
 \label{sec:getstatistics}
 
-The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AveragePerProblem} method -- seen in code snippet \ref{lst:averageperproblem}. A screenshot showing how the statistics are used can be seen in figure \ref{fig:stat}.
-
-%The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AverageTimePerProblem()} method -- seen in code snippet \ref{lst:averagetimeperproblem} --  which utilizes the \me{AverageTimePerProblem()} method as well as the \me{AverageTimePerProblemLastWeek()} methods, which both are wrappers to the \me{AverageTime(string method)} method. All three is shown in code snippet \ref{lst:averagetime}.\\
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The StatisticsController controller}, label=lst:getstatistics]
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The StatisticsController controller}, label=lst:getstatistics,float=hp]
 [Authorize(Roles = Constants.AdminRoleName)]
 public class StatisticsController : Controller
 {
@@ -62,3 +60,7 @@ public class StatTool
     }
 }
 \end{lstlisting}
+
+The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AveragePerProblem} method -- seen in code snippet \ref{lst:averageperproblem}. A screenshot showing how the statistics are used can be seen in figure \ref{fig:stat}.
+
+%The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AverageTimePerProblem()} method -- seen in code snippet \ref{lst:averagetimeperproblem} --  which utilizes the \me{AverageTimePerProblem()} method as well as the \me{AverageTimePerProblemLastWeek()} methods, which both are wrappers to the \me{AverageTime(string method)} method. All three is shown in code snippet \ref{lst:averagetime}.\\
