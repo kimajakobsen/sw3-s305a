@@ -4,8 +4,15 @@ This chapter concludes whether or not our application live up to our application
 
 Our front end part of our application -- which the users of the application uses -- is web based, and can run in a browser, thereby enabling the users of our application without any installation, assuming they have a browser.
 
+Our application contains tags which have priories.
+These priorities are used to calculate the importance of a problem.
+The priority of a given problem is found by calculating the average priority of all tags attached to the problem.
 
-
+The problems each has an estimated completion time.
+An estimation called estimated time consumption is used to calculate the estimated time of completion.
+The estimated time consumption is based on the time which the tags that are attached to the given problem takes to solve on average.
+If a problem is not on the top worklist of the the \astaff[] member who is assigned to solve it, the estimated time consumption from every problem above the given one is summed up and added to the estimated time consumption of the given problem, this yields the estimated time of completion for the given problem.
+The way the estimated time of completion is calculated is described in further details in section \ref{sec:expected_time_of_completion} and the estimated time consumption is described in section \ref{sec:estimated_time_consumption}.
 
 
 
