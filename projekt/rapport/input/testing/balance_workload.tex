@@ -77,7 +77,7 @@ The method is described in section \ref{sec:dispro}.
 
 \me{GetStaff} is designed to be more testable and therefore it acts on the \cl{IPerson} interface. 
 The method depends on the \vari{Workload} property of \cl{person} and at the time of the unit test for this method the \vari{workload} is not fully implemented and neither is the \vari{isStaff} property. 
-Therefore we make a \cl{TestPerson} class which implemented the \cl{IPerson} interface.
+Therefore we made a \cl{TestPerson} class which implemented the \cl{IPerson} interface.
 The \cl{TestStaff} implementation of the \me{isStaff} method returns true unless the \vari{name} is ``john''. 
 The \me{workload} property just counts the number of items in the \cl{person} class's \vari{worklist}. 
 
