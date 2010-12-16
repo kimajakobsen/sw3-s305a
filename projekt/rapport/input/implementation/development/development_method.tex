@@ -22,16 +22,16 @@ Because the changes must be made to all the documentation prior to the step wher
 
 \subsection{Agile Methods}
 Because of the traditional and wide spread development method being so inflexible and difficult to work with, a lot of other methods is suggested.
-These methods is commonly known as ``Agile'' \cite{agileManifesto}.\fixme{Mere d\ae{}kkende kilde tak.  Mvh lasse.}
+These methods is commonly known as ``Agile'' \cite{agileManifesto} and \cite{agilepyra}.
 In 2001 a large group formed by representatives from them most popular Agile methods came together to form ``The Agile Alliance''.
 This alliance created the ``Agile Manifesto'', which states four things that the alliance think Agile Development should be:
 
 \myQuote{
 \begin{itemize}
-	\item \textbf{Individuals and Interaction} over processes and tools
-	\item \textbf{Working Software} over comprehensive documentation
-	\item \textbf{Customer Collaboration} over contract negotiation
-	\item \textbf{Responding to change} over following a plan
+	\item \textbf{Individuals and Interaction} over processes and tools.
+	\item \textbf{Working Software} over comprehensive documentation.
+	\item \textbf{Customer Collaboration} over contract negotiation.
+	\item \textbf{Responding to change} over following a plan.
 \end{itemize}
 That is, while there is value in the items on the right, we value the items on the left more. \cite{agileManifesto}
 }
@@ -59,7 +59,7 @@ Each feature is prioritized to determine the order of which these should be impl
 Sprints are a limited timespan, in which developers work on coding, testing and implementing the features contained in the sprint backlog.
 
 \subsubsection{Sprint Backlog}
-The Sprint backlog is the set of features that the specific development team are working on in the current sprint.
+The Sprint backlog is the set of features that the specific development team is working on in the current sprint.
 
 \subsubsection{Burndown Charts}
 Burndown charts are the set of features that still lack implementing. Typically, a burndown chart is created for both the individual sprints and the entire project.
@@ -70,7 +70,7 @@ When understanding all of these ``components'', one can begin to understand how 
 The main component in Scrum is a sprint;
 any sprint starts with a planning meeting in which the development team decides what features from the product backlog to work on, starting from the highest priority. 
 This priority is decided by the product owner. 
-When they have decided upon the features, the development team transfer them to the sprint backlog and start working.
+When they have decided upon the features, the development team transfers them to the sprint backlog and start working.
 
 Once a day during the sprint all team members meet with the ScrumMaster and the product owner and talk about what they have been working on the previous day, what they will be working on that day, and what might be holding them from proceeding. These meetings are held to synchronize the team members.
 
@@ -81,7 +81,7 @@ After this meeting the team starts from the top with a new planning meeting and 
 
 \subsection{Extreme Programming (XP)}
 Extreme Programming differs from the other agile methods as it is more a set of recommendations than an actual method. All sources in this subsection is from the following cites \cite{xp, xp2}.
-The recommendations of XP is as following:
+The recommendations of XP are as following:
 
 \subsubsection{Planning}
 There are three different overall plans in XP:
@@ -113,7 +113,7 @@ In Extreme Programming one developer should never work alone. Two developers alw
 
 \subsubsection{Collective Ownership}
 Nobody owns any code -- all code can be altered by anyone.
-This is possible because unit tests for everything already exists and it allows anyone to refactor or optimize the code as long as the unit tests pass afterwards.
+This is possible because unit tests already exist for everything which allows anyone to refactor or optimize the code as long as the unit tests pass afterwards.
 
 \subsubsection{Continuous Integration}
 Always integrate the feature you have just written in the project right away.
@@ -128,24 +128,23 @@ XP recommends that there is always a customer available, preferably on site.
 This will enhance the collaboration between customer and developers and hopefully developers will not have to change as much as of the features that they have implemented.
 
 \subsubsection{Coding Standards}
-This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, it should be implemented by the developers themselves.
-This will be done almost by itself, as developers will grow tired of not understanding each others code.
+This is simply needed to implement some of the other concepts of XP, however, coding standards should not be enforced by someone higher in the company hierarchy, and it should be implemented by the developers themselves.
+%This will be done almost by itself, as developers will grow tired of not understanding each others code.
 
 
 \subsection{Development During the Project}
 \label{sub:ourDevMethod}
 In our project we do not strictly follow any specific development method. Instead we implement elements from scrum and extreme programming. At the start of each day we hold a meeting to discuss what we will be doing during the day. Furthermore we have a lot of small sprints, where we focus on developing, integrating and testing new features. These sprints are very short, typically maximum a couple of days, because our development phase do not last for more than a couple of weeks.
 
-Beside the principles borrowed from scrum, we also uses a lot of elements from Extreme Programming:
+Beside the principles borrowed from scrum, we also use a lot of elements from Extreme Programming:
 \begin{itemize}
-\item We plan our project in a similar way to XP
+\item We plan our project in a similar way to XP.
 \item We are constantly been making small releases 
-\item We write a release every time we have developed/implemented a new feature
-\item We have collective ownership of all our code
-\item We write tests for all our major components 
-\item We are continuously integrating the created features into our main application
+\item We write a release every time we have developed/implemented a new feature.
+\item We have collective ownership of all our code.
+\item We write tests for all our major components.
+\item We are continuously integrating the created features into our main application.
 \item We do not have regular overtime in this project.
 \item We try to maintain coding standards.
 \end{itemize}
-\fixme{ret kilder - der er 2 ``Scrum''}
-Using these elements it much easier for us to delegate our work and plan all the aspects of our project. Also, it has given us a all a better understanding of our code, as all collaborates to achieve our goal, and often edites each others' code. The swift development of our application and the fact we almost never work late has helped us to maintain a high interest in the project.
+Using these elements it much easier for us to delegate our work and plan all the aspects of our project. Also, it has given us a better understanding of our code, as all collaborate to achieve our common goal, and often edits each other's code. The swift development of our application and the fact we almost never work late has helped us to maintain a high interest in the project.
