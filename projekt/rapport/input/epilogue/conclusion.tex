@@ -3,7 +3,7 @@
 \emptyTop{}
 This chapter concludes whether or not our application lives up to our application definition, which is seen in section \ref{sec:systemdefinition}.
 
-The front end part of our application -- which is described in chapter \ref{chap:program_presentation} -- is web based, and can run in a browser, thereby enabling the users of our application without any installation, assuming they have a browser.
+The front end of our application -- which is described in chapter \ref{chap:program_presentation} -- is web based, and can run in a browser, thereby enables the users of our application, without any installation, to access our application -- assuming they have a browser.
 
 Our application contains tags which have priories.
 These priorities are used to calculate the importance of a problem.
@@ -12,28 +12,26 @@ The priority of a given problem is found by calculating the average priority of 
 The problems each has an estimated completion time, which is -- as the name suggests -- an estimation on when the problem is solved.
 Another estimation called estimated time consumption is used to calculate the estimated time of completion.
 The estimated time consumption is based on the time which the tags that are attached to the given problem takes to solve on average.
-If a problem is not on the top worklist of the the \astaff[] member who is assigned to solve it, the estimated time consumption from every problem above the it is summed up and added to the estimated time consumption of the given problem in order to get the estimated time of completion for the given problem.
+
+The estimated time consumption of a problem is the sum of all problems placed above the problem on the staff worklist.%If a problem is not on the top worklist of the the \astaff[] member who is assigned to solve it, the estimated time consumption from every problem above the it is summed up and added to the estimated time consumption of the given problem in order to get the estimated time of completion for the given problem.
 The way the estimated time of completion is calculated is described in further details in section \ref{sec:expected_time_of_completion} and the estimated time consumption is described in section \ref{sec:estimated_time_consumption}.
 
 The \hdesk[] saves every problem -- it is actually impossible to delete problems through our front end.
-This allows the application to suggest problems when a \aclient[] is about to commit a new problem.
+This allows the application to suggest old problems when a \aclient[] is about to commit a new problem.
 The problems suggested is based on the the tags which the \aclient[] has used to categorized the problem.
 These problems are found using our \me{Search} method, which is described in section \ref{sec:search}.
-The \me{Search} method finds problems which contains the same tags  as the ones which are used to categorize the new problem.
-It also orders them with the problems with the most matching tags first in the list.
+The \me{Search} method finds problems which contains the same tags  as the ones which are used to categorize the new problem. It orders them according the most matching tags.
 
-When a problem is created and again when it is solved it is given a time stamp.
-These time stamps are used to calculate the time it takes for a problem to get solved, notice that this is different from the ``solve time''.
-The time to solve is the time from when a problem is committed to when it is solved while the solve time is the time the \astaff[] member who solves it has spent working on it.
+When a problem is created and solved it is given a time stamp.
+These time stamps are used to calculate the time it takes for a problem to get solved.
+The time to solve a problem is the time from when a problem is committed to when it is solved while the solve time is the time the \astaff[] member who solves it has spent working on it.
 The time to solve is used to generate statistics, which the \admin[]s can access to see if the resources could be distributes better, e.g. by transferring a \astaff[] member from one department to another.
 How the statistics are generated is described in section \ref{sec:getstatistics}.
-The solve time is entered by a \astaff[] when he/she declares a problem solved.
+The solve time -- which is different from ``The time to solve a problem'' -- is entered by a \astaff[] when he/she declares a problem solved.
 The solve time is saved on the tags attached to the problem being solved and is used to calculate the estimated time consumption of unsolved problems with these tags.
 
 The tags, categories and departments are all dynamic, i.e. they can be changed, the same applies to the persons, problems, and solution.
 This means that our model of the problem domain is dynamic.
-Our application does however lack the feature to move categories between departments and move tags between categories.
-This would have given an even more flexible and dynamic application.
 
 We thereby conclude that our application lives up to our application definition, but there is room for improvements as chapter \ref{chap:future_work} suggests.
 
