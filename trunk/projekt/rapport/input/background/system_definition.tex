@@ -1,63 +1,77 @@
 \section{Application Definition}
 \label{sec:factor}
 \label{sec:systemdefinition}
-In order to define our application we use the FACTOR criterion\cite[p.~39]{roedeaalborg}. These criteria contains different parts of the requirements, and it will help us derive the application definition.  \\
+In order to define our application we use the FACTOR criterion. \cite[p.~39]{roedeaalborg} These criteria contains different parts of the requirements, and it will help us derive the application definition.
+The FACTOR criterion for our application is as follows: \\
 \ \\
 {\Large \textbf{F}}unctionality \\
 Our application contain features aimed at easing the problem-solving process for service employees, therefore the application needs to have the following features:
 \begin{itemize}
 \item Problem distribution\\
-The application should distribute problems to the relevant service department and balance the workload of service employees so all have a equal workload. 
+The application distributes problems to the relevant service department and balance the workload of service employees so all have a equal workload. 
 \item Problem categorization \\
-Categorize problem and thereby making it easy to find relevant problems.
+The problems can be categorized and thereby making it easy to find relevant problems.
 \item Ranking of problems \\
-Unsolved Problems are displayed on a ranked list, depending on their importance.
+Unsolved Problems are displayed on a ranked list for service employees, depending on their importance.
 \item Keep track \\
-The application should be able to keep track of all the information regarding a problem, this being
+The application is able to keep track of all the information regarding a problem, this being
 \begin{itemize}
 	\item When it approximately will be solved
 	\item Who is assigned to solve the problem
 	\item What the deadline is, and if it is exceeded
-	\item What tags and categories are related to the problem 
-	\item Comments related to the problem
+	\item Which tags and categories are related to the problem 
+	\item Communication between the service employee and the person who committed the problem
 \end{itemize}
 \item Knowledge saved \\
-The application should be able to recognize common problems and recommend similar problem to the user, and by that saving the service employee the bother of solving common problems. 
+The application is able to recognize common problems and recommend similar problems to the user, and by that saving the service employee the work of solving common problems several times. 
 \item Statistics \\
 Allow the supervisor to monitor the work process of the employees.
 \end{itemize}
 \ \\
 {\Large \textbf{A}}pplication domain \\
-This application is applicable to office environments which deals with solving of problems.\\
+This application is applicable to office environments which deals with solving of problems.
+The persons who will be using our application to commit problems are the ``regular'' personnel or employees while the service employees or service personnel are the ones who will solved the problems.\\
 \ \\
 {\Large \textbf{C}}onditions \\ 
-The end users are not required to have any expert level knowledge to use the application. The service personal have to learn to use the staff interface to solve problems. The administrators have to learn to use the functionality in the administrator interface.   \\
+The end users are not required to have any expert level knowledge to use the application.
+The service personnel and the regular personnel have to learn to use the application to commit and solve problems.
+The administrators have to learn to use the functionality in the administrator interface of the application. \\
 \ \\
 {\Large \textbf{T}}echnology \\
-In the development of our program we use C\# along with the Model-View-Controller framework 2 that exists within ASP.NET framework. We use a server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.\\
-\\
-The end result is a web interface running on a webserver, with underlying SQL database.\\
+In the development of our program we use C\# along with the Model-View-Controller framework 2 that exists within ASP.NET framework.
+%We use a server and use AnhkSVN and Microsoft SQL server along with visual studio 2010.
+We use AnkhSVN and Visual Studio 2010 to collaborate on development.
+To store data we will use a DBMS(database management system).
+The choice of DBMS is made later, namely in subsection \ref{sub:database}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%The above three sentenses might be shortened
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The end result is a web interface running on a web server, with an underlying SQL database.\\
 \ \\
 {\Large \textbf{O}}bjects \\
-Problems, solution, \aclient[]s, \astaff[] members, \admin{}s, departments, categories and tags. \\
+Problems, solutions, \aclient[]s, service personnel which are called \astaff[] members, \admin{}s, departments, categories, and tags. \\
 \ \\
 {\Large \textbf{R}}esponsibility \\
-Our application is responsible for keeping track of all problems within the physical environment of an organization. It is also responsible for distributing tasks amongst employees and supplying statistics about the progress to their supervisors. Finally it is also responsible for enabling users and technical employees to communicate about a problem and the following solution.
+Our application is responsible for keeping track of all problems within the physical environment of an organization.
+It is also responsible for distributing tasks amongst employees and supplying statistics about the progress to their supervisors.
+Finally it is also responsible for enabling both regular personnel and service personnel -- \astaff[] members, to communicate with each other about a problem and the following solution.
 \ \\ 
 
 %%% Nutid
-Using these FACTOR criteria the following application definition is derived:
+Using the FACTOR criterion the following application definition is derived:
 \begin{itemize}
 \item The application is be web-based so that we can create an application capable of running without prior installation.
 \item The application contains prioritized tags, enabling us to determine the importance of problems
-\item The application keeps track of the estimated completion time of the problem along with comments and what employee is responsible for solving the problem. This enables us to create statistic about problem solving efficiency and individual employees.
+\item The application keeps track of the estimated completion time of the problem along with comments and which employee is responsible for solving the problem.
+This enables us to create statistics about problem solving efficiency and individual employees.
 \item The application is able to save and suggest prior problems and their solutions to users.
 \item The application takes into account, the workload of the employees to estimate how long a problem will take to solve.
 \item The application contains nothing but dynamic data within the problem domain, so that the application can run in different environments.
 \item The application contains a structure that can handle problems, departments, categories, tags, employees, supervisors and ordinary users.
 \end{itemize}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fremtid
 \begin{comment}
 Using these FACTOR criteria, we arrive at the following application definition:
@@ -71,5 +85,6 @@ Using these FACTOR criteria, we arrive at the following application definition:
 \item The application should contain a structure that can handle problems, departments, categories, tags, employees, supervisors and ordinary users.
 \end{itemize}
 \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
