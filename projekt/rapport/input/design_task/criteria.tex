@@ -12,13 +12,13 @@ The definition of these quality goals -- or simply criteria -- is shown in figur
   Efficient&How well the resources available are being used \\ \\
   Consistence&How correct the data in the model is \\ \\
   Reliable&The degree of the systems accessibility \\ \\
-  Maintainable&The cost of locating and fixing system errors \\ \\
+  Maintainable&The cost of locating and fixing application errors \\ \\
   Testable&The cost to ensure performs intentionally \\ \\	
-	Flexible&How easily the system can be setup to fit the structure of an institution. \\ \\  %Flexible&The cost for the end user to modify the system after deployment \\ \\
-	Comprehensible&How easy it is for the end user to understand the system \\ \\
-  Reusable&The potential for using parts of this system in another system \\ \\
-  Portable&How much effort needed to change the platform of the system \\ \\
-  Interoperable&How well the system cooperates with other systems \\
+	Flexible&How easily the application can be setup to fit the structure of an institution. \\ \\  %Flexible&The cost for the end user to modify the system after deployment \\ \\
+	Comprehensible&How easy it is for the end user to understand the application \\ \\
+  Reusable&The potential for using parts of this application in another application \\ \\
+  Portable&How much effort needed to change the platform of the application \\ \\
+  Interoperable&How well the application cooperates with other applications \\
 \end{sable}
 
 \subsection{Quality Goals}
@@ -48,42 +48,42 @@ which specifies whether a given criteria will be fulfilled without much effort.
 	\label{fig:prioritizedCrit}
 \end{figure}
 
-How we have prioritized the criteria is based on our system definition, which is found in chapter \ref{sec:systemdefinition}. The reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown bellow.
+How we have prioritized the criteria is based on our application definition, which is found in chapter \ref{sec:systemdefinition}. The reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown bellow.
 
 \paragraph{Usable}
 It is important that our application is user friendly because it can be used in any organization, it is however not very important since we during this project primarily will tailor it to the university's system.
-Further more we are more concerned with the functionality of the system than the usability, hence; important 
+Further more we are more concerned with the functionality of the application than the usability, hence; important 
 \paragraph{Secure}
 For the \hdesk[] security is less important. We want to distinguish between \aclient s \astaff s and \admin s -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
 We do however not have any sensitive information, so we take no measures to prevent data interception or any other serious security flaw.
 \paragraph{Efficient}
-We do not care for the efficiency of our system, but only that it works which lead us to irrelevant for this criterion 
+We do not focus on the efficiency of our application, but only that it works which lead us to irrelevant for this criterion.
 \paragraph{Consistence}
 It is important that end users can see which problems are solved and which are not.
-Further more the \hdesk[] model should not contain duplicates, since it could compromise the integrity of the statistics which the system generates.
+Further more the \hdesk[] model should not contain duplicates, since it could compromise the integrity of the statistics which the application generates.
 This lead us to prioritize consistence as important.
 \paragraph{Reliable}
-The reliability of the \hdesk[] system is not of great interest to us.
+The reliability of the \hdesk[] application is not of great interest to us.
 %Of course we do not want to sabotage our system to malfunction at any time, we just want to pay our attention to other criteria instead.
-We do not actively do anything to increase the reliability of the system, neither do we intensionally decrease it.
+We do not actively do anything to increase the reliability of the application, neither do we intensionally decrease it.
 We want to pay our attention to other criteria instead, therefore this criterion is prioritized less important.
 \paragraph{Maintainable}
-Since we not intend to maintain the system after it is finished, it is prioritized as irrelevant.
+Since we not intend to maintain the application after it is finished, it is prioritized as irrelevant.
 \paragraph{Testable}
-We want our system to work and to make sure it does, we will run tests.
-Therefore we want our system to be testable.
+We want our application to work and to make sure it does, we will run tests.
+Therefore we want our application to be testable.
 \paragraph{Flexible}
-It is very central to our system that it is flexible, because we want it to be generic -- that it can be adapted to any organization without much or any cost. To insure this we added features to manage departments, manage persons, manage categories, and manage tags at runtime. We have chosen this to be a very important criteria.
+It is very central to our application that it is flexible, because we want it to be generic -- that it can be adapted to any organization without much or any cost. To insure this we added features to manage departments, manage persons, manage categories, and manage tags at runtime. We have chosen this to be a very important criteria.
 \paragraph{Comprehensible}
-Since the \hdesk[] system is supposed to be generic, it should be easy for the user to understand it.
+Since the \hdesk[] application is supposed to be generic, it should be easy for the user to understand it.
 However our focus is primarily on functionality, so we have prioritized it important.
 \paragraph{Reusable}
-Since we do not care much for the system after it is deployed, we do not care whether or not it is reusable, hence irrelevant.
+Since we do not care much for the application after it is deployed, we do not care whether or not it is reusable, hence irrelevant.
 \paragraph{Portable}
-Our systems portability can be divided into two, the client side and the server side.
-We do not care about the portability of the server side, because we will rather focus on the portability on the client side and the functionality of the system.
+Our applications portability can be divided into two, the client side and the server side.
+We do not care about the portability of the server side, because we will rather focus on the portability on the client side and the functionality of the application.
 Therefore it is considered irrelevant.
-The end users will access our system through a browser, so we assume that it can be easily fulfilled since there are many browsers for different platforms. \cite{chrome10}\cite{firefox}
+The end users will access our application through a browser, so we assume that it can be easily fulfilled since there are many browsers for different platforms. \cite{chrome10}\cite{firefox}
 \paragraph{Interoperable}
-If it is possible we want to be able to use an existing database for authentication to our system.
-This is however the only other system which we plan on cooperating with, therefore it is prioritized less important.
+If it is possible we want to be able to use an existing database for authentication to our application.
+This is however the only other application which we plan on cooperating with, therefore it is prioritized less important.
