@@ -33,8 +33,8 @@ This application is applicable to office environments which deals with solving o
 The persons who will be using our application to commit problems are the ``regular'' personnel or employees while the service employees or service personnel are the ones who will solved the problems.\\
 \ \\
 {\Large \textbf{C}}onditions \\ 
-The end users are not required to have any expert level knowledge to use the application.
-The service personnel and the regular personnel have to learn to use the application to commit and solve problems.
+The persons who commit the problems are not required to have any expert level knowledge to use the application.
+The service personnel have to learn to use the application to solve problems.
 The administrators have to learn to use the functionality in the administrator interface of the application. \\
 \ \\
 {\Large \textbf{T}}echnology \\
@@ -47,10 +47,20 @@ The choice of DBMS is made later, namely in subsection \ref{sub:database}.
 %The above three sentenses might be shortened
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The end result is a web interface running on a web server, with an underlying SQL database.\\
+The result is a web interface running on a web server, with an underlying SQL database.\\
 \ \\
-{\Large \textbf{O}}bjects \\
-Problems, solutions, \aclient[]s, service personnel which are called \astaff[] members, \admin{}s, departments, categories, and tags. \\
+{\Large \textbf{O}}bjects
+\begin{itemize}
+	\item Problems
+	\item Solutions
+	\item Departments
+	\item Categories
+	\item Tags
+	\item Clients are the persons who commit the problems
+	\item Staff members are the service personnel
+	\item Admins are the administrator and bosses					
+\end{itemize}
+
 \ \\
 {\Large \textbf{R}}esponsibility \\
 Our application is responsible for keeping track of all problems within the physical environment of an organization.
