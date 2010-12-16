@@ -17,3 +17,78 @@ The method that does the actual work is the \me{GetStaff} method which has sever
 All overloads takes a \cl{Problem} as parameter. 
 The other takes either a department or a list of \cl{IPerson}, which is a \cl{Person} interface made to make it more testable. 
 Some overloads use both parameters.
+
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{the \me{GetStaff} method, together with its overloads}, label=lst:getstaff,float=hp]
+public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
+{
+    var persons = new List<IPerson>();
+    foreach (var item in PersonSet)
+    {
+        persons.Add(item);
+
+    }
+    return GetStaff(Problem, persons, GetDepartment(Problem.Tags));
+}
+
+public static IPerson GetStaff(Problem Problem, List<IPerson> PersonSet)
+{
+  
+    return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
+}
+
+public static IPerson GetStaff(Problem Problem, List<Person> PersonSet, Department department)
+{
+    var persons = new List<IPerson>();
+    foreach (var item in PersonSet)
+    {
+        persons.Add(item);
+
+    }
+    return GetStaff(Problem, persons, department);
+}
+
+public static IPerson GetStaff(Problem Problem, Department department)
+{
+    return GetStaff(Problem, department.Persons.ToList(), department);
+}
+
+public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Department department)
+{
+    
+    
+    IEnumerable<IPerson> persons = null;
+    if (department != null)
+    {
+         persons = PersonSet.Where(x => x.Department == department && x.IsStaff() == true);
+         if (persons == null || persons.Count() == 0)
+         {
+             persons = PersonSet.Where(x => x.IsStaff() == true);
+         }
+    } else {
+         persons = PersonSet.Where(x => x.IsStaff() == true);
+    }
+    Double min = Double.MaxValue;
+    if (persons.Count() == 0 || persons == null)
+    {
+        throw new ArgumentNullException("The Person List were empty");
+    }
+    IPerson staff = persons.First();
+    foreach (var person in persons)
+    {
+            var workload = person.GetWorkload();
+            if (workload < min)
+            {
+                min = workload;
+                staff = person;
+            }   
+    }
+    //var person = PersonSet.Single(x => x.Id == 1);
+    if (persons == null)
+    {
+        staff = persons.First();
+    }
+   
+    return staff;
+}
+\end{lstlisting}
