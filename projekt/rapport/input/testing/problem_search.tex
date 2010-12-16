@@ -36,7 +36,7 @@ These are seen in figure \ref{tab:problem_search_base}.
 \label{sec:unit_problem_search}
 \begin{figure}[p]
 	\centering
-		\includegraphics[width=1.00\textwidth]{input/testing/problem_search.pdf}
+		\includegraphics[width=1.25\textwidth]{input/testing/problem_search.pdf}
 	\morscaption{Flow chart of the search function.
 	The letters in the decisions indicates which loop they are associated with, e.g. the decision labeled A is associated with the loop A}
 	\label{fig:problem_search_flow}
@@ -70,7 +70,7 @@ public void A0_D0_SearchForNoTagNoProblems()
 \end{lstlisting}
 
 Since the search method only contain loops and no if statements, the focus for the test cases regarding the search is on the loops edge conditions.
-The first test case will consider the option where the none of the loop is not run.
+The first test case will test the option where none of the loop are run.
 If \textit{A} is not run, \textit{B} and \textit{C} will never be run because they are inside of the \textit{A} loop.
 \textit{A} will not be run if either the size of the result is at least equal to the minimum number of problems to find or if the number of tags to remove is at least equal to the number of selected tags.
 To not run the \textit{A} loop, the number of selected tags is set to 0, i.e. no tags are selected.
