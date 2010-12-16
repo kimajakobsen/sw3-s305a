@@ -4,7 +4,7 @@ The design of \hdesk[] is specified from the following quality goals: Usable, se
 The definition of these quality goals -- or simply criteria -- is shown in figure \ref{fig:defOfCrit}.
 \cite[p.~178]{roedeaalborg}
 
-\begin{sable}[htbp]{0.3}{0.7}{Definition of criteria}{fig:defOfCrit}
+\begin{sable}[h]{0.3}{0.7}{Definition of criteria}{fig:defOfCrit}
  \shfone{Criterion}&\shftwo{Definition} \\
 \hline \\
   Usable&The end user can easily use the application \\ \\
@@ -15,7 +15,9 @@ The definition of these quality goals -- or simply criteria -- is shown in figur
   Maintainable&The cost of locating and fixing application errors \\ \\
   Testable&The cost to ensure performs intentionally \\ \\	
 	Flexible&How easily the application can be setup to fit the structure of an institution. \\ \\  %Flexible&The cost for the end user to modify the system after deployment \\ \\
-	Comprehensible&How easy it is for the end user to understand the application \\ \\
+	%Comprehensible&How easy it is for the end user to understand the application \\ \\
+	Comprehensible&How easy it is to understand the application \\ \\
+
   Reusable&The potential for using parts of this application in another application \\ \\
   Portable&How much effort needed to change the platform of the application \\ \\
   Interoperable&How well the application cooperates with other applications \\
@@ -27,7 +29,7 @@ Each criteria defined in figure \ref{fig:defOfCrit} is prioritized in figure \re
 Further the figure \ref{fig:prioritizedCrit} shows a column labeled ``Easily Fulfilled''
 which specifies whether a given criteria will be fulfilled without much effort.
 
-\begin{figure}[htbp]
+\begin{figure}[h]
 	\centering
 		\begin{tabular}{| l | m{0.135\textwidth} | m{0.135\textwidth}| m{0.13\textwidth}| m{0.135\textwidth}|m{0.13\textwidth}|} \hline
 												& Very  Important 												& Important 														& Less Important 											& Irrelevant 												& Easily Fulfilled 									\\ \hline
@@ -51,10 +53,11 @@ which specifies whether a given criteria will be fulfilled without much effort.
 How we have prioritized the criteria is based on our application definition, which is found in chapter \ref{sec:systemdefinition}. The reasoning for the priority of each criteria in figure \ref{fig:prioritizedCrit} is shown bellow.
 
 \paragraph{Usable}
-It is important that our application is user friendly because it can be used in any organization, it is however not very important since we during this project primarily will tailor it to the university's system.
-Further more we are more concerned with the functionality of the application than the usability, hence; important 
+
+It is important that our application is user friendly because a helpdesk needs to be very usable to ease the process of getting help and the end user will not use the helpdesk if it is unusable.
+it is however not very important since this is a study project and we are more concerned with the functionality of the application than the usability, hence; less important 
 \paragraph{Secure}
-For the \hdesk[] security is less important. We want to distinguish between \aclient s \astaff s and \admin s -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
+For the \hdesk[] security is less important. We want to distinguish between \aclient[]s, \astaff members[]s and \admin[]s -- the clients are e.g. not allowed to solve problems or choose who should be assigned to what problem.
 We do however not have any sensitive information, so we take no measures to prevent data interception or any other serious security flaw.
 \paragraph{Efficient}
 We do not focus on the efficiency of our application, but only that it works which lead us to irrelevant for this criterion.
@@ -71,12 +74,13 @@ We want to pay our attention to other criteria instead, therefore this criterion
 Since we not intend to maintain the application after it is finished, it is prioritized as irrelevant.
 \paragraph{Testable}
 We want our application to work and to make sure it does, we will run tests.
-Therefore we want our application to be testable.
+Therefore we want our application to be testable, hence testable is important. 
 \paragraph{Flexible}
 It is very central to our application that it is flexible, because we want it to be generic -- that it can be adapted to any organization without much or any cost. To insure this we added features to manage departments, manage persons, manage categories, and manage tags at runtime. We have chosen this to be a very important criteria.
 \paragraph{Comprehensible}
-Since the \hdesk[] application is supposed to be generic, it should be easy for the user to understand it.
-However our focus is primarily on functionality, so we have prioritized it important.
+Since this is study project it is important that our application is comprehensible in order to explain how it works. 
+%Since the \hdesk[] application is supposed to be generic, it should be easy for the user to understand it.
+%However our focus is primarily on functionality, so we have prioritized it important.
 \paragraph{Reusable}
 Since we do not care much for the application after it is deployed, we do not care whether or not it is reusable, hence irrelevant.
 \paragraph{Portable}
