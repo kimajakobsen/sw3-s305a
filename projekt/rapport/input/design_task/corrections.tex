@@ -1,6 +1,17 @@
 \section{Corrections to the Analysis}
 \label{sec:correctionstotheanalysis}
 
+We reviewed the analysis and came up with some corrections. Subsection \ref{}, \ref{}, and \ref{} contains the corrections, modifications, and supplement to the analysis. 
+
+\subsection{Classes and events}
+
+
+\subsection{}
+
+
+\subsection{}
+
+
 The altered version of our class diagram -- which can be seen on figure \ref{fig:ClassDiagramV2} -- contains the following changes:
 \begin{itemize}	
 	\item The role pattern: \\
@@ -15,3 +26,21 @@ The altered version of our class diagram -- which can be seen on figure \ref{fig
 					A person can have from zero to three simultaneous roles.				
 	\end{itemize}
 \end{itemize}
+
+\begin{figure}[p]
+\begin{center}
+\begin{tabular}{l  ccccc}
+\hline 
+\multicolumn{2}{r}{\shf{Actor}} \\
+\shf{Use case} 	&   \Aclient 	& \Astaff 		& \admin[c]  \\ \hline%
+Submit problem 	& $\checkmark$ 	&  	&  \\ %
+My problems 		& $\checkmark$	&   &  \\ %
+Worklist 				& 	& $\checkmark$  &  \\ %
+Solve problem 	& 	& $\checkmark$	&  \\ %
+Administrate		&  	&		& $\checkmark$ \\	%
+\gstat[c]				&		& 	& $\checkmark$ \\ \hline%
+\end{tabular}
+\end{center}
+\caption{\myCaption{Actor \& use case table}}
+\label{tab:newactortable}
+\end{figure}
