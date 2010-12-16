@@ -13,13 +13,13 @@ In the second case the problem is distributed among all staff members and the st
 If a problem is assigned to an inappropriate department we assume that any staff member would have the acquired knowledge to reassign the problem to the appropriate department. 
 The problem is always assigned to the staff member with the lowest workload and therefore he has the most time to read the problem and determine the correct department.
 
-The method that does the actual work is the \me{GetStaff} method which has several overloads. 
+The method that does the actual work is the \me{GetStaff()} method which has several overloads. The overloads can be seen in code snippet \ref{lst:getstaffoverloads}. The actual method can be seen in code snippet \ref{lst:getstaff}. 
 All overloads takes a \cl{Problem} as parameter. 
 The other takes either a department or a list of \cl{IPerson}, which is a \cl{Person} interface made to make it more testable. 
 Some overloads use both parameters.
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{the \me{GetStaff} method, together with its overloads}, label=lst:getstaff,float=hp]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The overloads for the \me{GetStaff()} method}, label=lst:getstaffoverloads,float=hp]
 public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
 {
     var persons = new List<IPerson>();
@@ -52,7 +52,8 @@ public static IPerson GetStaff(Problem Problem, Department department)
 {
     return GetStaff(Problem, department.Persons.ToList(), department);
 }
-
+\end{lstlisting}
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{the \me{GetStaff()} method}, label=lst:getstaff,float=hp]
 public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Department department)
 {
     
