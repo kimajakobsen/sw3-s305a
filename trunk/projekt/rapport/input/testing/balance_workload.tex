@@ -1,13 +1,13 @@
 \chapter{Balance Workload Test}
 \label{sec:balWorUniTes}
-\myTop{The test cases made for the \me{BalanceWorkload} method of the \cl{Department} class are described in this chapter. This chapter 
+\myTop{The test cases made for the \me{BalanceWorkload} method of the \cl{Department} class are described in this chapter. This chapter is important since it provides an example of a unit test. 
 Code snippets are shown along with the description to make the test cases easier to understand.}
-%To test our balance workload method we have chosen to use a white unit test.
-%An analysis was made in order to make sure that every code path of the method was covered.
-\fixme{Der skal st\aa{} noget i starten om hvilken metode der er brugt til at give disse test cases liv.}
 
+To test our balance workload method we have chosen to use a unit test. This is not the only unit test made of this component. This is more an introduction of unit testing than an actual test case. Meaning that it does not test the method properly to ensure full code coverage. It test if the method behaves as expected with the given input. 
+
+%An analysis was made in order to make sure that every code path of the method was covered.
 The department class has a method called balance workload, which balances the workload between all staff members in the department. 
-The method is described fully in section \ref{sec:balanceworkload}. 
+The method is fully described in section \ref{sec:balanceworkload}. 
 To arrange the test a department object is initialized and the required properties are set. This means the \vari{Persons} property is set to a list of \cl{Persons} and each person is assigned a number of problem with tags. 
 The arrangement of a test case can be seen in code snippet \ref{lst:balanceWorkloadTest2arrange}. 
 %\begin{comment}
@@ -62,22 +62,22 @@ Assert.IsTrue(
 \end{lstlisting}
 %\end{comment}
 
-It is necessary to test various scenarios, e.g. test cases where problems are solved, not reassignable, problems with extreme estimated time consumption, staff members with no problems, an empty department, various estimate time consumptions, and different priorities. 
+It is necessary to test various scenarios, e.g. test cases where problems are solved, not reassignable, problems with extreme estimated time consumption, staff members with no problems, an empty department, various estimate time consumptions, and different priorities. To make a complete white box test an analysis has to be made to ensure every code path is covered. 
 
 \section{Dependency Injection}
 \label{sec:independencyInjection}
 For some methods dependency injection must be made in order to execute a proper test. 
-In the example with \me{BalanceWorkload}, dependency injection could have been made on the workload property of \cl{person}. 
-This was not made because the workload method were already tested at the time \me{BalanceWorkload} were tested.
+In the example with \me{BalanceWorkload}, dependency injection can be made on the workload property of \cl{person}. 
+This is not made because the workload method has been tested at the time \me{BalanceWorkload} is tested.
 
-To properly make a dependency injection the method in action should be programmed to an interface. 
+To properly make a dependency injection the method in action has to be programmed to an interface. 
 This makes it easy to swap the implemented class with another class. 
-We did this to test the method \me{GetStaff} in the \cl{ProblemDistributer} class. 
+We do this to test the method \me{GetStaff} in the \cl{ProblemDistributer} class. 
 The method is described in section \ref{sec:dispro}.
 
-\me{GetStaff} were designed to be more testable and therefore it acts on the \cl{IPerson} interface. 
-The method depends on the \vari{Workload} property of \cl{person} and at the time of the unit test for this method the \vari{workload} were not fully implemented and neither were the \vari{isStaff} property. 
-Therefore we made a \cl{TestPerson} class which implemented the \cl{IPerson} interface.
+\me{GetStaff} is designed to be more testable and therefore it acts on the \cl{IPerson} interface. 
+The method depends on the \vari{Workload} property of \cl{person} and at the time of the unit test for this method the \vari{workload} is not fully implemented and neither is the \vari{isStaff} property. 
+Therefore we make a \cl{TestPerson} class which implemented the \cl{IPerson} interface.
 The \cl{TestStaff} implementation of the \me{isStaff} method returns true unless the \vari{name} is ``john''. 
 The \me{workload} property just counts the number of items in the \cl{person} class's \vari{worklist}. 
 
@@ -88,6 +88,6 @@ In this way it is possible to make a unit test work.
 Like for the problem search, regression tests are used every time a significant change is made to balance workload method.
 This is to ensure that the new change does not ruin anything that already worked.
 The regression tests are simply all the unit tests of this method, which can be run every time a change is made to the method if necessary.
-\fixme{Evt. alt source code i et appendix? S\aa{} kan vi henvise til det.}
+%\fixme{Evt. alt source code i et appendix? S\aa{} kan vi henvise til det.}
 \myTail{This chapter shows how the test cases of the \me{BalanceWorkload} method is made.
-Exmaples from the test cases source code are given in this chapter to give a better understanding of the test cases.}
+Examples from the test cases source code are given in this chapter to give a better understanding of the test cases.}
