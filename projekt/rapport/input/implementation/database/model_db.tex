@@ -10,7 +10,7 @@ Security is not a big concern in this project and therefore we do not want to sp
 The major disadvantage is that including the membership providers database scheme with the model is not supported and does not work properly. 
 Therefore we had to add a person entity and change the register functionality to also save the registered person in our person table. 
 This gives some redundant data, but only the username and email. 
-When we needs to access data from the membership tables we had to use SQL statements and not the object oriented approached we used for the rest. 
+When we need to access data from the membership tables we have to use SQL statements and not the object oriented approached we used for the rest. 
 This is limited since our main functionality depends on the model. 
 
 Our model as it is in the ADO.NET Entity Model Designer is shown on figure \ref{fig:edmxModel}
