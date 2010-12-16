@@ -4,9 +4,10 @@ The \astaff[] members main usage of the is to solve problems.
 This is corresponding to the \ucsolproblem{} use case in section \ref{sec:usecase}.
 This use case is how ever quite large, so it is divided into three steps; choosing a problem to solve, communicate with the subscriber(s), solve the problem.
 The communication with the subscriber(s) step might not be applied during the solve usage of the \aclient[].
-The three steps are described in the following subsections.
+The three steps are described in subsections \ref{sub:probsolve}, \ref{sub:communicate}, and \ref{sub:solveprob}.
 
 \subsection{Choosing a Problem to Solve}
+\label{sub:probsolve}
 \begin{figure}[htb]
 	\centering
 		\includegraphics[width=1.00\textwidth, clip=true, trim=4cm 10.5cm 8cm 8cm]{input/implementation/program_presentation/worklist.png}
@@ -43,11 +44,13 @@ When doing so, he/she can either reassign directly to another \astaff[] member o
 In either case the problem will be marked non-reassignable, in order to stop the balance workload function from moving it to another \astaff[] member or back to the \astaff[] member who had it in the first place.
 
 \subsection{Communicate With Subscribers}
+\label{sub:communicate}
 To communicate with the subscribers, the \astaff[] member can write comments to a problem, which the subscribers can see and again respond to.
 This communication is important because the \astaff[] member might need more details about a problem in order to solve it.
 
 \subsection{Solve the Problem}
-Through the \staff[] members problem details it is possible to attach an existing solution or write a new one.
+\label{sub:solveprob}
+With the \staff[] members problem details is it possible to attach an existing solution or write a new one.
 Once a problem has been given a solution the subscribers are notified and they can check if the solution actually solved their problem.
 They can then write a comment back telling the assigned \astaff[] member whether or not the solution solved the problem for them.
 If the subscribers are content with the solution(s) the \astaff[] member can mark the problem as solved and enter the time he spend on the problem, so that future problems similar to the given can be given an estimation.
@@ -61,4 +64,4 @@ When the \astaff[] member finds a problem with the right solution, he/she can at
 To write a new solution the \astaff[] member clicks the corresponding link in the \astaff[]s problem details view.
 He/she is then presented with a text area and a create button.
 When the button is clicked, a new solution is created with the given text is attached to the problem being solved.
-The problem is not marked as solved as soon as a solution is attached to it, because the solution might not actually have solved the problem or the \astaff[] member might want to attach more than one solution before he/she wants to mark it solved.
+The problem is not marked as solved as a solution is attached to it, because the solution might not actually have solved the problem or the \astaff[] member might want to attach more than one solution before he/she wants to mark it solved.
