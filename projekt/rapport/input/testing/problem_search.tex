@@ -4,15 +4,6 @@
 It is generally the white box code coverage unit tests which are described in this chapter, because those are the most important, since we are focused on the functionality of our application and therefore want as much of our code tested as possible.}
 
 \section{Unit Test Cases for the Search Function}
-\label{sec:unit_problem_search}
-\begin{figure}[h]
-	\centering
-		\includegraphics[width=1.00\textwidth]{input/testing/problem_search.pdf}
-	\morscaption{Flow chart of the search function.
-	The letters in the decisions indicates which loop they are associated with, e.g. the decision labeled A is associated with the loop A}
-	\label{fig:problem_search_flow}
-\end{figure}
-
 To test our problem search function, we have made an analysis of the code paths of the function.
 The flow chart generated from this analysis is seen in figure \ref{fig:problem_search_flow}.
 The decisions in the figure are labeled with a letter.
@@ -25,7 +16,7 @@ This is more thoroughly described in subsection \ref{sub:searchTags}.
 To make test cases a set of tags and problems are needed to test upon.
 These are seen in figure \ref{tab:problem_search_base}.
 
-\begin{figure}[H]
+\begin{figure}[hp]
 	\centering
 		\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
@@ -42,9 +33,18 @@ These are seen in figure \ref{tab:problem_search_base}.
 	\label{tab:problem_search_base}
 \end{figure}
 
+\label{sec:unit_problem_search}
+\begin{figure}[p]
+	\centering
+		\includegraphics[width=1.00\textwidth]{input/testing/problem_search.pdf}
+	\morscaption{Flow chart of the search function.
+	The letters in the decisions indicates which loop they are associated with, e.g. the decision labeled A is associated with the loop A}
+	\label{fig:problem_search_flow}
+\end{figure}
 
-\subsection{Test Case One}
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The test case for no run of any loops}, label=src:noLoops]
+
+\subsection{Test Case One}\
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The test case for no run of any loops}, label=src:noLoops,float=htb]
 #region Test 1: Search for no tag, minimum number of problems = 0
 [TestMethod()]
 public void A0_D0_SearchForNoTagNoProblems()
