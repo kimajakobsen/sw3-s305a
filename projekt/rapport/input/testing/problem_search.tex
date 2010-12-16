@@ -8,7 +8,7 @@ To test our problem search function, we have made an analysis of the code paths 
 The flow chart generated from this analysis is seen in figure \ref{fig:problem_search_flow}.
 The decisions in the figure are labeled with a letter.
 This is done because we want to refer to these decisions -- which are the conditions for loops to run another iteration -- later.
-Notice that the loop labeled C is portrayed as a do-while even though code snippet \ref{src:search} shows that this loop is a while loop.
+Notice that the loop labeled \textit{C} is portrayed as a do-while even though code snippet \ref{src:search} shows that this loop is a while loop.
 The reason for this is that the loop is a \verb|while(true)|, which breaks when an exception of the type \cl{NotSupportedException} is thrown.
 This means that the loop will always run at least once, like a do-while loop.
 This is more thoroughly described in subsection \ref{sub:searchTags}.
@@ -59,7 +59,7 @@ public void A0_D0_SearchForNoTagNoProblems()
 
 	#region Act
 	actual = ProblemSearch.Search(catTag,
-		problems, tags, minNoProb);
+		problems, minNoProb);
 	#endregion
 
 	#region Assertions
@@ -78,6 +78,9 @@ The \textit{D} loop will not be run if enough problems are found or if the \vari
 Because of this the minimum number of problems to find is set to zero.
 This test case is seen in code snippet \ref{src:noLoops}.
 The \cl{ProblemSearch} is the class which is being tested in the code snippet, particularly the \me{Search} method in this test case.
+The variable \vari{catTag} is of the type \cl{CategoryTagSelectionViewModel} and contains categories, which in turn contains the selected tags.
+No tags are however selected in this test case.
+The \vari{problems} variable contains the six problems defined in figure \ref{tab:problem_search_base}.
 
 \subsection{Test Case Two}
 The next test case will test the same as the above test case, except for the fact that the \textit{D} loop will run exactly once instead of zero times.
@@ -123,7 +126,7 @@ The three test cases which will cover the last code paths are:
 To ensure that the \textit{A}, \textit{B}, and \textit{C} loops are run more than once, the number of selected tags is set to two and the minimum number of problems to find is set appropriately.
 The test cases are shown in appendix \ref{chap:problem_search_test_source}.
 
-\subsection{Regression Test Cases}
+\section{Regression Test Cases}
 \label{sec:regression_problem_search}
 The same test cases as described above are used as regression test cases, to ensure that no new change will sabotage any of the already working code.
 There could be made a new analysis of the code each time a change is made, but this will take a lot of time, and will not necessarily generate better test cases.
