@@ -25,7 +25,7 @@ The views display the data and UI. They are typically created with data provided
 The controllers reacts to user requests the users provides through the UI. Based on this they decide which view should be rendered. If the data which the view should display does not exist in the model (input, etc.) the controller can also provide this data to the view.
 
 \paragraph{Master-page}
-Master-pages is not a part of MVC as a design-idea, it is a component implemented by Microsoft. The master-page is a page that is always loaded when displaying a view. Like the view, it consists of (X)HTML and C\#/ Visual Basic, however, it also has content-containers. These containers can be created anywhere on the web page, and are filled with content by views.
+Master-pages is not a part of MVC as a design pattern. It is a component implemented by Microsoft. The master-page is a page that is always loaded when displaying a view. Like the view, it consists of (X)HTML and C\#/ Visual Basic, however, it also has content-containers. These containers can be created anywhere on the web page, and are filled with content by views.
 
 \paragraph{Structure}
 An interesting thing about MVC is that there are no actual HTML files, all content is generated generically as the users interacts with the different components within the web page. When entering an URL the user actually call methods in controllers, the user can even add parameters to the calls. The controllers then redirects the user to the correct view based on the input and the method called. The view then executes, which results in a plain web page that can be displayed in a browser.
