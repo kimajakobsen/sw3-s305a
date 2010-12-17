@@ -2,17 +2,34 @@
 \label{sec:balWorUniTes}
 \myTop{The test cases made for the \me{BalanceWorkload} method of the \cl{Department} class are described in this chapter. This chapter is important since it provides an example of a unit test. 
 Code snippets are shown along with the description to make the test cases easier to understand.}
-
-To test our \me{BalanceWorkload} method we have chosen to use a unit test. This is not the only unit test we have made on this component. This is more an introduction of unit testing than an actual test case. Meaning that it does not test the method properly to ensure full code coverage. It test if the method behaves as expected with the given input. 
+To test our \me{BalanceWorkload} method we have chosen to use a unit test.
+This is not the only unit test we have made on this component.
+This is more an introduction of unit testing than an actual test case.
+Meaning that it does not test the method properly to ensure full code coverage.
+It tests if the method behaves as expected with the given input. 
 
 %An analysis was made in order to make sure that every code path of the method was covered.
 The \me{BalanceWorkload} method balances the workload between all staff members in the department. 
 The method is fully described in section \ref{sec:balanceworkload}. 
 To arrange the test a department object is initialized and the required properties are set. This means the \vari{Persons} property is set to a list of \cl{Persons} and each person is assigned a number of problem with tags. 
-The arrangement of a test case can be seen in code snippet \ref{lst:balanceWorkloadTest2arrange}. 
-%\begin{comment}
+The arrangement of a test case can be seen in code snippet \ref{lst:balanceWorkloadTest2arrange}.
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The arrange phase of the unit test of balance workload}, label=lst:balanceWorkloadTest2arrange,name=src:balance]
+Now the expected result needs to be calculated. 
+Mike has three problems and this gives him a total workload of $20 + 10 + 10 = 40$. The workload is calculated by \vari{TimeConsumed} divided by \vari{SolvedProblems} of each tag (See lines one to four).
+This gives the estimated time consumption of the problem. Add up all problems and the workload is calculated.
+
+John has 1 problem which gives him a total workload of $10$. 
+This implies that Mike's workload is overbalanced. 
+The algorithm is expected to reassign the problems to balance the workloads. 
+Since there are four problems three with an estimated time consumption of 10 and one with 20.
+The most balanced possibility with the given problems is when one has a workload of 30 (the sum of $10 + 20$) and the other 20 (the sum of $10 + 10$). 
+
+This can be expressed with a boolean expression which can be tested with the assert method \me{IsTrue}. 
+This assert can be seen on code snippet \ref{lst:balanceWorkloadTestAssert}.
+
+It is necessary to test various scenarios, e.g. test cases where problems are solved, not reassignable, problems with extreme estimated time consumption, staff members with no problems, an empty department, various estimate time consumptions, and different priorities. To make a complete white box test an analysis has to be made to ensure that every code path is covered. 
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The arrange phase of the unit test of balance workload}, label=lst:balanceWorkloadTest2arrange,name=src:balance,float=p]
 var tag1 =  new Tag(){ TimeConsumed = 20, SolvedProblems = 1 , Priority = 1  };  
 var tag2 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 2  }; 
 var tag3 =  new Tag(){ TimeConsumed = 10, SolvedProblems = 1 , Priority = 3  }; 
@@ -34,40 +51,19 @@ Department target = new Department()
     }
 };
 \end{lstlisting}
-%\end{comment}
-
-Now the expected result needs to be calculated. 
-Mike has three problems and this gives him a total workload of $20 + 10 + 10 = 40$. The workload is calculated by \vari{TimeConsumed} divided by \vari{SolvedProblems} of each tag (See lines one to four).
-This gives the estimated time consumption of the problem. Add up all problems and the workload is calculated.
-
-John has 1 problem which gives him a total workload of $10$. 
-This implies that Mike's workload is overbalanced. 
-The algorithm is expected to reassign the problems so the workload is balanced. 
-Since there are four problems three with a estimated time consumption of 10 and one with 20.
-The most balanced possible with the given problems is when one has 30 (the sum of $10 + 20$) workload and the other has 20 (the sum of $10 + 10$). 
-
-This can be expressed with a boolean expression which can be tested with the assert method \me{IsTrue}. 
-This assert can be seen on code snippet \ref{lst:balanceWorkloadTestAssert}.
-
-%\begin{comment}
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{An example unit test which tests a specific instance of the balanceWorkload method.}, label=lst:balanceWorkloadTestAssert,name=src:balance]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{An example unit test which tests a specific instance of the balanceWorkload method.}, label=lst:balanceWorkloadTestAssert,name=src:balance,float=p]
 target.BalanceWorkload();
 Assert.IsTrue(
 		(john.Worklist.Contains(john.Workload == 30 && mike.Workload == 20) ||
 		(mike.Workload == 30 && john.Workload == 20)
 	));
-.
-.
-.
-\end{lstlisting}
-%\end{comment}
-
-It is necessary to test various scenarios, e.g. test cases where problems are solved, not reassignable, problems with extreme estimated time consumption, staff members with no problems, an empty department, various estimate time consumptions, and different priorities. To make a complete white box test an analysis has to be made to ensure every code path is covered. 
-
+...
+\end{lstlisting} \
+\nopagebreak[4] \
 \section{Dependency Injection}
 \label{sec:independencyInjection}
 For some methods dependency injection must be made in order to execute a proper test. 
-In the example with \me{BalanceWorkload}, dependency injection can be made on the workload property of \cl{person}. 
+In the example with \me{BalanceWorkload}, dependency injection can be made on the workload property of \vari{Person}. 
 This is not made because the workload method has been tested at the time \me{BalanceWorkload} is tested.
 
 To properly make a dependency injection the method in action has to be programmed to an interface. 
@@ -76,16 +72,16 @@ We do this to test the method \me{GetStaff} in the \cl{ProblemDistributer} class
 The method is described in section \ref{sec:dispro}.
 
 \me{GetStaff} is designed to be more testable and therefore it acts on the \cl{IPerson} interface. 
-The method depends on the \vari{Workload} property of \cl{person} and at the time of the unit test for this method the \vari{workload} is not fully implemented and neither is the \vari{isStaff} property. 
+The method depends on the \vari{Workload} property of \cl{Person} and at the time of the unit test for this method the \vari{workload} is not fully implemented and neither is the \vari{IsStaff} property. 
 Therefore we made a \cl{TestPerson} class which implemented the \cl{IPerson} interface.
-The \cl{TestStaff} implementation of the \me{isStaff} method returns true unless the \vari{name} is ``john''. 
-The \me{workload} property just counts the number of items in the \cl{person} class's \vari{worklist}. 
+The \cl{TestStaff} implementation of the \me{IsStaff} method returns true unless the \vari{Name} is ``john''. 
+The \me{workload} property just counts the number of items in the \cl{Person} class's \vari{Worklist}. 
 
 In this way it is possible to make a unit test work.
 
 \section{Regression Testing}
 \label{sec:regression_balance_workload}
-Like for the problem search, regression tests are used every time a significant change is made to balance workload method.
+Regression tests are used every time a significant change is made to balance workload method.
 This is to ensure that the new change does not ruin anything that already worked.
 The regression tests are simply all the unit tests of this method, which can be run every time a change is made to the method if necessary.
 %\fixme{Evt. alt source code i et appendix? S\aa{} kan vi henvise til det.}
