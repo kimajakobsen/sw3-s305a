@@ -1,22 +1,21 @@
 \subsection{Controller}
-
-The controller classes are used to display the model functionality and feed the model with data.
+The controller classes provides functionality to the application.
+They are responsible for sending data from the Model to the View component and updating the Model.
+The controllers does not have any noticeable attributes, hence the attributes entries are not applicable here.
 
 \begin{description}
 \item[Account]\hfill
 \begin{description}
 \item[Purpose:]Register new users, manage the user login and authorize user roles.
-\item[Attributes:]Username, password, email.
-\item[Operations:]Register users, user login, authorize roles.
+\item[Operations:]\me{ChangePassword} -- change the password of a \cl{Person}, \me{Register} -- register a new \cl{Person}, \me{LogOff}, and \me{LogOn}.
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Person]\hfill
 \begin{description}
-\item[Purpose:]Manage client, staff and admin functions.
-\item[Attributes:]Username, problem id, role, description, person id, department id, 
-\item[Operations:]View problem, search problems, attach solution, list solutions, detach solution, add solution, edit, create, change department, edit person, choose department, delete person, add user to role, remove user from role, mail.
+\item[Purpose:]Manage the objects of the class \cl{Person}, which represents the users of the application.
+\item[Operations:]\me{Create}, \me{Details}, \me{Edit}, \me{Delete}, \me{ChangeDepartment} -- changes the department of a \cl{Person} who is a \astaff[], and \me{ChooseDepartment} -- selects a department for a \cl{Person} who is a \astaff[], but does not have a department.
 \end{description}
 \end{description}
 
@@ -24,8 +23,7 @@ The controller classes are used to display the model functionality and feed the 
 \item[Department]\hfill
 \begin{description}
 \item[Purpose:]Create and manage departments.
-\item[Attributes:]Department name, department id.
-\item[Operations:]Create department, edit departmentm delete department.
+\item[Operations:]\me{Create}, \me{Details}, \me{Edit}, and \me{Delete}
 \end{description}
 \end{description}
 
@@ -33,8 +31,7 @@ The controller classes are used to display the model functionality and feed the 
 \item[Category]\hfill
 \begin{description}
 \item[Purpose:]Create new categories and manage categories as well as aggregate categories and tags.
-\item[Attributes:]Category name, category id.
-\item[Operations:]Create category, edit category, delete category, hide/unhide categories, hide/unhide tags.
+\item[Operations:]\me{Create}, \me{Details}, \me{Edit}, \me{Delete}, \me{HideUnhide} -- toggles the \vari{Hidden} property of every \cl{Tag} belonging to the \cl{Category}, and \me{TagHideUnhide} -- toggles the \vari{Hidden} property of a single \cl{Tag} belonging to the \cl{Category}.
 \end{description}
 \end{description}
 
@@ -42,26 +39,25 @@ The controller classes are used to display the model functionality and feed the 
 \item[Tag]\hfill
 \begin{description}
 \item[Purpose:]Create, delete and manage tags.
-\item[Attributes:]Tag name, tag id.
-\item[Operations:]create, edit, delete.
+\item[Operations:]\me{Create}, \me{Details}, \me{Edit}, and \me{Delete}
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Problem]\hfill
 \begin{description}
-\item[Purpose:]Create, delete and manage problems.
-\item[Attributes:]Problem id, problem name, person id, date, person name, comment, staff name, problem description.
-\item[Operations:]Categorize new problem, similar problem, create, subscribe, unsubscribe, add comment.
+\item[Purpose:]Create and manage problems.
+\item[Operations:]\me{Create}, \me{Details}, \me{CategorizeNewProblem} -- allows a \aclient[] to categorize a new problem, \me{SimilarProblems} -- finds problems using the \me{Search} method which is described later in figure \ref{fig:Search}, \me{Subscribe}, and \me{Unsubscribe}
 \end{description}
 \end{description}
 
 \begin{description}
 \item[Home]\hfill
 \begin{description}
-\item[Purpose:]Create client, staff and admin roles if the helpdesk don't contrain any roles. If there is no users in the application or no users are admin the home class will create a root user.
-\item[Attributes:]Username, password, email, role name.
-\item[Operations:]Create client, staff and admin roles, create root user.
+\item[Purpose:]The Primary purpose of this controller is to redirect to user to the login screen or to the views which the user is allowed to use.
+The secondary purpose is to create client, staff and admin roles if the helpdesk does not contain these roles.
+If there is no users with the admin role the home class will create a root user.
+\item[Operations:]\me{Index}.
 \end{description}
 \end{description}
 
@@ -69,8 +65,7 @@ The controller classes are used to display the model functionality and feed the 
 \item[Reassign]\hfill
 \begin{description}
 \item[Purpose:]Assign problems to staff members and reassign problems to staff members on request.
-\item[Attributes:]Staff id, problem id.
-\item[Operations:]Assign problem, reassign problems.
+\item[Operations:]\me{Assign} -- assigns a problem to a \astaff[] member.
 \end{description}
 \end{description}
 
@@ -78,7 +73,6 @@ The controller classes are used to display the model functionality and feed the 
 \item[Statistics]\hfill
 \begin{description}
 \item[Purpose:]Calculate statistics for departments and staff members.
-\item[Attributes:] Staff id, department id, total time taken to solve all problems, number of problems.
-\item[Operations:]Calculate statistics for departments, calcuate statistics for staff members.
+\item[Operations:]\me{Index} -- sends statistical data to a view.
 \end{description}
 \end{description}
