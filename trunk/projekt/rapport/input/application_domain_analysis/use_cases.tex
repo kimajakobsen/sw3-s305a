@@ -16,7 +16,7 @@ The use case \ucsproblem[] is only used by the actor \aclient. Except for cases 
 \item \sadb{Use Case:} \ucsproblem[c] is initialized when a \aclient{} has a problem and wishes to submit that problem to the application in order to get help from the \astaff{}. 
 First he has to select a category and choose one or more tags, he can select tags from more then one category. 
 When the \aclient{} is done selecting tags the application compares the selected tags with other problems. 
-If similar problems is found the \aclient{} is presented with these.
+If similar problems are found the \aclient{} is presented with these.
 If one of these matches his particular problem, he can subscribe to the problem if it is \open[] or read the solution(s) if the problem is \closed{}, thus hoping that this will lead to solving the \aclient[]s problem.
 If no similar problem was found the \aclient{} creates a problem with a title, description and the previously selected tags. 
 Hereafter the problem gets assigned to a member of the \astaff{}. 
@@ -34,10 +34,10 @@ Hereafter the problem gets assigned to a member of the \astaff{}.
 
 \subsubsection{\gstat[c]} The use case \gstat[] is accessible by the \admin[]. It shows statistics about how much time each \astaff[] member uses to solve problems.
 
-\subsubsection{\ucsolproblem[c]} The use case \ucsolproblem{} is the \astaff{}s primary usage of the application. When the \astaff[] get his \todolist[] he can select a problem and solve the problem. A statechart diagram is shown in figure \ref{fig:solve_problem_use_case}.
+\subsubsection{\ucsolproblem[c]} The use case \ucsolproblem{} is the \astaff{}s primary usage of the application. When the \astaff[] get his \todolist[] he/she can select a problem and solve the problem. A statechart diagram is shown in figure \ref{fig:solve_problem_use_case}.
 
 \begin{itemize}
-\item \sadb{Use Case:} The use case is initialized when the \astaff[] member wants to check his \todolist[]. The \astaff[] member is then presented with a list of unsolved problems assigned to him. The \astaff[] member can then click on one of the problems to read the problem, see status of it, add comments to it, search the database for similar problem, reassign it, or write a new solution. 
+\item \sadb{Use Case:} The use case is initialized when the \astaff[] member wants to check his/her \todolist[]. The \astaff[] member is then presented with a list of unsolved problems assigned to him/her. The \astaff[] member can then click on one of the problems to read the problem, see status of it, add comments to it, search the database for similar problem, reassign it, or write a new solution. 
 
 \item \sadb{Objects:} Problem, tag, comment, category, deadline, \client[], \staff[], department, and solution
 
