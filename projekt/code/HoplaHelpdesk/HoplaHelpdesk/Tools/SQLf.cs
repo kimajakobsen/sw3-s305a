@@ -13,7 +13,7 @@ namespace HoplaHelpdesk.Tools
     public static class SQLf
     {
         //Function to check if user already got a specific role
-        // ConnectionStrinGlobal will connect to the db via Kiel
+        // ConnectionStrinGloabl will connect to the db via Kiel
         private static string connString = Constants.ConnectionString;
 
         public static Boolean UserIsAlreadyInThatRole(String user, String role)
@@ -366,26 +366,7 @@ namespace HoplaHelpdesk.Tools
         //Function for reseting password for a specific user
         public static String ResetPassword(String user)
         {   
-            //Connection
-            SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = connString;
-            //Preparing SqlCommand
-            SqlCommand password;
-            SqlCommand userId;
-
-            //SqlCommand to find UserId
-            userId = new SqlCommand("SELECT UserId FROM aspnet_Users WHERE (UserName = '" + user + "')", cn);
-            
-            //Executing the SqlCommand
-            cn.Open();
-            String userA = userId.ExecuteScalar().ToString();
-            //
-            password = new SqlCommand("SELECT Password FROM aspnet_Membership WHERE (UserId = '" + userA + "')", cn);
-            String passA = password.ExecuteScalar().ToString();
-            //Converting Application into a String
-            cn.Close();
-            // - - - - - - - - - - - - - - - - - - - - - - - - - \\
-
+            //Define array for new password
             String[] passarray =
             {
                 "a","b","c","d","e","f","g","h","j", "i" ,"k",
@@ -409,9 +390,9 @@ namespace HoplaHelpdesk.Tools
             }
             //Finding the user
             MembershipUser u = Membership.GetUser(user);
-            //Generating a new password for the user
+            //Generating a temporary password for the user
             String np = u.ResetPassword();
-            //Changing the password for the user by using the the resetted password as old password
+            //Changing the password for the user by using the the temporary password as old password
             u.ChangePassword(np, setPass);
             return setPass;
 
