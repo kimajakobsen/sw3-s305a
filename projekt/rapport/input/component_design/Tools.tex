@@ -1,20 +1,20 @@
 \subsection{Tools}
-
-The tools classes is a collection of static methods that is used to implement advanced functionality, however, they do not display any content. 
+The tools classes is a collection of static methods that is used to implement advanced functionality, however, they do not display any content.
+The Tools component does not have any noticeable attributes, hence the attributes entries are not applicable here.
 
 \begin{description}
 \item[ProblemDistributer]\hfill
 \begin{description}
 \item[Purpose:]Distribute problem based on problem tags and staff members workload.
-\item[Attributes:]Problem tags, staff id.
-\item[Operations:]Distribute problems, reassign problems.
+\item[Attributes:]none
+\item[Operations:]\me{DistributeProblems} -- seen in \ref{fig:DistributeProblems}.
 \end{description}
 \end{description}
 
 \begin{figure}
 \begin{tabular}{p{3.5cm} p{4cm} p{4cm}}
 \hline
-\textbf{Operation}&Distribute Problems\\
+\textbf{Operation}&DistributeProblems\\
 \hline
 \textbf{Category}&\underline{ }Active&\underline{x}Update\\
 &\underline{x}Passive&\underline{ }Read\\
@@ -31,22 +31,22 @@ The tools classes is a collection of static methods that is used to implement ad
 \textbf{Triggering events}&\multicolumn{2}{p{8cm}}{Problem added to a department}\\
 \hline
 \end{tabular}
-\morscaption{This is a operation specification of distribute problems from the ProblemDistributer class}
+\morscaption{The operation specification of \me{DistributeProblems} method from the \cl{ProblemDistributer} class}
+\label{fig:DistributeProblems}
 \end{figure}
 
 \begin{description}
 \item[ProblemSearch]\hfill
 \begin{description}
 \item[Purpose:]Allows users who is logged on as client or staff to search through problems, the search is based on tags and status.
-\item[Attributes:]Tags, status.
-\item[Operations:]Search through problems based on tags and / or status.
+\item[Operations:]\me{Search} -- seen in figure \ref{fig:Search}.
 \end{description}
 \end{description}
 
 \begin{figure}
 \begin{tabular}{p{3.5cm} p{4cm} p{4cm}}
 \hline
-\textbf{Operation}&Search Problem\\
+\textbf{Operation}&Search\\
 \hline
 \textbf{Category}&\underline{x}Active&\underline{ }Update\\
 &\underline{ }Passive&\underline{x}Read\\
@@ -63,14 +63,14 @@ The tools classes is a collection of static methods that is used to implement ad
 \textbf{Triggering events}&\multicolumn{2}{p{8cm}}{This operation occurs whenever a client or staff commit a problem or search for a problem.}\\
 \hline
 \end{tabular}
-\morscaption{This is a operation specification of search problem from the ProblemSearch class}
+\morscaption{The operation specification of \me{Search} method from the \cl{ProblemSearch} class}
+\label{fig:Search}
 \end{figure}
 
 \begin{description}
 \item[SQL]\hfill
 \begin{description}
 \item[Purpose:]A collection of functions for SQL query and insertion for the aspnet membership database
-\item[Attributes:]Username, role name, description.
 \item[Operations:]Check if user is in a role, add role to user, check if user is staff, check if user exists, remove role from user, get all roles for a user, get all roles, assign client to user, add a new role, remove user from aspnet membership, reset password, get email for user.
 \end{description}
 \end{description}
@@ -79,7 +79,6 @@ The tools classes is a collection of static methods that is used to implement ad
 \item[AverageAllTags]\hfill
 \begin{description}
 \item[Purpose:]Calculates the average time spent for a problem which has no tags.
-\item[Attributes:]\textit{none}
 \item[Operations:]Calculate average time.
 \end{description}
 \end{description}
@@ -88,7 +87,6 @@ The tools classes is a collection of static methods that is used to implement ad
 \item[MaxPriority]\hfill
 \begin{description}
 \item[Purpose:] Return the maximum priority which exists in the model.
-\item[Attributes:]Tags.
 \item[Operations:]Find maximum priority.
 \end{description}
 \end{description}
@@ -97,7 +95,6 @@ The tools classes is a collection of static methods that is used to implement ad
 \item[StatTool]\hfill
 \begin{description}
 \item[Purpose:] Returns the average time consumed per problem, which will be used to calculate statistics.
-\item[Attributes:]Total time, number of problems.
 \item[Operations:]Calculate average time consumed per problem.
 \end{description}
 \end{description}
