@@ -10,7 +10,7 @@ In the second case the staff member with the lowest workload will get the proble
 If a problem is assigned to an inappropriate department we assume that any staff member would have the acquired knowledge to reassign the problem to the appropriate department. 
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The overloads for the \me{GetStaff()} method}, label=lst:getstaffoverloads,float=h]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The overloads for the \me{GetStaff} method}, label=lst:getstaffoverloads,float=h]
 public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
 {
     var persons = new List<IPerson>();
@@ -46,7 +46,7 @@ All overloads takes a \cl{Problem} as parameter.
 The other takes either a department or a list of \cl{IPerson}, which is a \cl{Person} interface made to make it more testable. 
 Some overloads use both parameters.
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{the \me{GetStaff()} method}, label=lst:getstaff,float=hp]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{the \me{GetStaff} method}, label=lst:getstaff,float=hp]
 public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Department department)
 { 
     IEnumerable<IPerson> persons = null;
