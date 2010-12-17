@@ -3,22 +3,18 @@
 
 
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The CalculateETA method}, label=lst:calculateeta,float=hp]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The CalculateETA method}, label=lst:calculateeta,float=h]
 private DateTime CalculateETA()
 {
     DateTime DateTime = DateTime.Now;
-
     foreach (Problem problem in AssignedTo.SortedWorklist)
     {
         DateTime = DateTime.Add(Estimated¨TimeConsumption);
-
         if (problem.Id == Id)
             break;
     }
-
     return DateTime;
 }
 \end{lstlisting}
 
 The \me{CalculateETA} method -- which is a method in \cl{Problem} class -- estimates time when a specific problem will be solved, based on all the problems in the staff members worklist. The method is shown in code snippet \ref{lst:calculateeta}
-\newpage

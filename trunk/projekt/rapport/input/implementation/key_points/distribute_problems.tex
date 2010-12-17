@@ -9,27 +9,20 @@ In the first case a department is simply chosen by the order in which the depart
 In the second case the staff member with the lowest workload will get the problem, no matter what department he/she belongs to.
 If a problem is assigned to an inappropriate department we assume that any staff member would have the acquired knowledge to reassign the problem to the appropriate department. 
 
-The method that does the actual work is the \me{GetStaff} method which has several overloads. The overloads can be seen in code snippet \ref{lst:getstaffoverloads}. The actual method can be seen in code snippet \ref{lst:getstaff}. 
-All overloads takes a \cl{Problem} as parameter. 
-The other takes either a department or a list of \cl{IPerson}, which is a \cl{Person} interface made to make it more testable. 
-Some overloads use both parameters.
 
-
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The overloads for the \me{GetStaff()} method}, label=lst:getstaffoverloads,float=hp]
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The overloads for the \me{GetStaff()} method}, label=lst:getstaffoverloads,float=h]
 public static IPerson GetStaff(Problem Problem, List<Person> PersonSet)
 {
     var persons = new List<IPerson>();
     foreach (var item in PersonSet)
     {
         persons.Add(item);
-
     }
     return GetStaff(Problem, persons, GetDepartment(Problem.Tags));
 }
 
 public static IPerson GetStaff(Problem Problem, List<IPerson> PersonSet)
 {
-  
     return GetStaff(Problem, PersonSet, GetDepartment(Problem.Tags));
 }
 
@@ -39,7 +32,6 @@ public static IPerson GetStaff(Problem Problem, List<Person> PersonSet, Departme
     foreach (var item in PersonSet)
     {
         persons.Add(item);
-
     }
     return GetStaff(Problem, persons, department);
 }
@@ -49,11 +41,14 @@ public static IPerson GetStaff(Problem Problem, Department department)
     return GetStaff(Problem, department.Persons.ToList(), department);
 }
 \end{lstlisting}
+The method that does the actual work is the \me{GetStaff} method which has several overloads. The overloads can be seen in code snippet \ref{lst:getstaffoverloads}. The actual method can be seen in code snippet \ref{lst:getstaff}. 
+All overloads takes a \cl{Problem} as parameter. 
+The other takes either a department or a list of \cl{IPerson}, which is a \cl{Person} interface made to make it more testable. 
+Some overloads use both parameters.
+
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{the \me{GetStaff()} method}, label=lst:getstaff,float=hp]
 public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Department department)
-{
-    
-    
+{ 
     IEnumerable<IPerson> persons = null;
     if (department != null)
     {
@@ -80,7 +75,6 @@ public static IPerson GetStaff(Problem Problem,  List<IPerson> PersonSet, Depart
                 staff = person;
             }   
     }
-    //var person = PersonSet.Single(x => x.Id == 1);
     if (persons == null)
     {
         staff = persons.First();
