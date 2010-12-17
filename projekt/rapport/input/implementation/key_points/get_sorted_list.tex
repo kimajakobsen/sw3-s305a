@@ -9,9 +9,16 @@ The \me{GetSortedList} method -- shown in code snippet \ref{lst:getsortedlist} -
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The GetSortedList method}, label=lst:getsortedlist,float=h]
 private List<Problem> GetSortedList()
 {
-    List<Problem> problemList = Worklist.ToList().Where(x => x.SolvedAtTime == null && x.IsDeadlineApproved == true).ToList();
+    List<Problem> problemList = Worklist.ToList().Where(
+    				x => 
+					x.SolvedAtTime == null && 
+					x.IsDeadlineApproved == true).ToList();
 
-    List<Problem> problemWithoutDeadline = Worklist.ToList().Where(x => x.SolvedAtTime == null && (x.IsDeadlineApproved == false || x.IsDeadlineApproved == null)).ToList();
+    List<Problem> problemWithoutDeadline = Worklist.ToList().Where(
+    				x =>
+					x.SolvedAtTime == null && (
+					x.IsDeadlineApproved == false || 
+					x.IsDeadlineApproved == null)).ToList();
 
 
     problemList.Sort(Problem.GetComparer());
