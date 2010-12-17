@@ -4,24 +4,13 @@
 
 
 \begin{lstlisting}[style=sourceCode, caption=\myCaption{The ManageTagTimes method. In lines one to seven a property is shown, which wraps the method in lines nine to forty-three.}, label=lst:estimatedtimeconsumption,float=hp]
-public TimeSpan EstimatedTimeConsumption
-{
-    get
-    {
-        return CalculateEstimatedTimeConsumption();
-    }
-}
-
 private TimeSpan CalculateEstimatedTimeConsumption()
 {
     int NumberOfTags = 0;
     decimal? ProblemTime = 0;
-    int Minutes = 0;
-    int Hours = 0;
-    int Days = 0;
-
+    int Minutes = 0, Hours = 0, Days = 0;
     decimal? average = 0;
-
+    
     foreach (Tag tag in Tags)
     {
         if (tag.AverageTimeSpent != null)
@@ -49,7 +38,14 @@ private TimeSpan CalculateEstimatedTimeConsumption()
 }
 \end{lstlisting}
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The \cl{AverageAllTags} class, which is stored in the Tools folder.}, label=lst:averagealltags,float=hp]
+
+The \me{CalculateEstimatedTimeConsumption} function -- which is a method in the \cl{Problem} class -- estimates how much time is needed to solve the specific problem, under the assumption that there only exists this single problem on the assigned staff members queue. The idea is to sum up all the \vari{AverageTimeSpent} property as well as all the count the number of tags, and lastly calculate the average time for all the tags. See code snippet \ref{lst:estimatedtimeconsumption}. The \me{CalculateEstimatedTimeConsumption} function uses functionality from the \cl{AverageAllTags} class which can be seen in code snippet \ref{lst:averagealltags}.
+
+The \cl{AverageAllTags} class is used if no tags are attached to the problem which the \me{CalculateEstimatedTimeConsumption} method is on.
+The property \vari{averageAll} the average time among all tags.
+It is belonging to the \cl{AverageAllTags} class.
+
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The \cl{AverageAllTags} class, which is stored in the Tools folder.}, label=lst:averagealltags,float=h]
 public static class AverageAllTags
 {
     static hoplaEntities db = new hoplaEntities();
@@ -75,9 +71,3 @@ public static class AverageAllTags
 }
 \end{lstlisting}
 
-
-The \me{CalculateEstimatedTimeConsumption} function -- which is a method in the \cl{Problem} class -- estimates how much time is needed to solve the specific problem, under the assumption that there only exists this single problem on the assigned staff members queue. The idea is to sum up all the \vari{AverageTimeSpent} property as well as all the count the number of tags, and lastly calculate the average time for all the tags. See code snippet \ref{lst:estimatedtimeconsumption}. The \me{CalculateEstimatedTimeConsumption} function uses functionality from the \cl{AverageAllTags} class which can be seen in code snippet \ref{lst:averagealltags}.
-
-The \cl{AverageAllTags} class is used if no tags are attached to the problem which the \me{CalculateEstimatedTimeConsumption} method is on.
-The property \vari{averageAll} the average time among all tags.
-It is belonging to the \cl{AverageAllTags} class.

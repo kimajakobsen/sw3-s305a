@@ -2,66 +2,59 @@
 \label{sec:getstatistics}
 
 
-
-
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The StatisticsController controller}, label=lst:getstatistics,float=hp]
-[Authorize(Roles = Constants.AdminRoleName)]
-public class StatisticsController : Controller
+%\vspace{-4mm}
+\begin{nopagebreak}
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The StatisticsController controller}, label=lst:getstatistics]
+public ActionResult Index()
 {
-    // GET: /Statistics/
-    hoplaEntities db = new hoplaEntities();
-    public ActionResult Index()
-    {
-        var departments = db.DepartmentSet.ToList();
-        
-        List<Problem> problems = new List<Problem>();
-        List<Problem> problemsPastWeek = new List<Problem>();
-        var now = DateTime.Now;
-        var since = now.Subtract(new TimeSpan(7, 0, 0, 0));
-        foreach(var dep in departments){
-            foreach (var person in dep.Persons)
-            {
-                problemsPastWeek.AddRange(person.Worklist.Where(x => x.SolvedAtTime > since));
-                problems.AddRange(person.Worklist.Where(x => x.SolvedAtTime != null));
-            }
-        }
-
-        var viewModel = new StatisticViewModel()
-        {
-            AverageLastWeek = StatTool.AveragePerProblem(problemsPastWeek),
-            AverageAllTime = StatTool.AveragePerProblem(problems),
-            Departments = departments
-            
-        };
-        return View(viewModel);
-    }
-
+	var departments = db.DepartmentSet.ToList();
+	List<Problem> problems = new List<Problem>();
+	List<Problem> problemsPastWeek = new List<Problem>();
+	var now = DateTime.Now;
+	var since = now.Subtract(new TimeSpan(7, 0, 0, 0));
+	foreach(var dep in departments)	{
+		foreach (var person in dep.Persons) {
+			problemsPastWeek.AddRange(person.Worklist.Where(x => x.SolvedAtTime > since));
+			problems.AddRange(person.Worklist.Where(x => x.SolvedAtTime != null));
+		}
+	}
+	var viewModel = new StatisticViewModel()
+	{
+		AverageLastWeek = StatTool.AveragePerProblem(problemsPastWeek),
+		AverageAllTime = StatTool.AveragePerProblem(problems),
+		Departments = departments
+	 };
+	return View(viewModel);
 }
+
+
 \end{lstlisting}
 
+%\vspace{-5mm}  
 
-\begin{lstlisting}[style=sourceCode, caption=\myCaption{The AveragePerProblem(IEnumerable<Problem> problems) method -- which is found in the \cl{StatTool} class.}, label=lst:averageperproblem,float=hp]
-public class StatTool
+
+\vspace{-5mm}
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{The AveragePerProblem method}, label=lst:averageperproblem]%
+
+public static TimeSpan AveragePerProblem(IEnumerable<Problem> problems)
 {
-   
-    public static TimeSpan AveragePerProblem(IEnumerable<Problem> problems)
-    {
-        if (problems == null || problems.Count() == 0)
-            return new TimeSpan();
-       int totalTime = 0; 
-       int problemsCount = 0;
-       foreach(var problem in problems){
-           problemsCount++;
-           totalTime = totalTime + (int)((TimeSpan)(problem.SolvedAtTime - problem.Added_date)).TotalMinutes;
-       }
-
-       return new TimeSpan(0,totalTime / problemsCount,0);
-       
-    }
+	if (problems == null || problems.Count() == 0)
+		return new TimeSpan();
+		int totalTime = 0; 
+		int problemsCount = 0;
+		foreach(var problem in problems){
+			problemsCount++;
+			totalTime = totalTime + (int)((TimeSpan)(problem.SolvedAtTime - problem.Added_date)).TotalMinutes;
+		}
+	return new TimeSpan(0,totalTime / problemsCount,0);  
+	}
 }
+
 \end{lstlisting}
 
 The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AveragePerProblem} method -- seen in code snippet \ref{lst:averageperproblem}. A screenshot showing how the statistics are used can be seen in figure \ref{fig:stat}.
-\newpage
 
+\end{nopagebreak}
+\nopagebreak[4]
+\newpage
 %The \cl{StatisticsController} controller -- seen in code snippet \ref{lst:getstatistics} -- calculates the statistics, by utilizing the \me{AverageTimePerProblem()} method -- seen in code snippet \ref{lst:averagetimeperproblem} --  which utilizes the \me{AverageTimePerProblem()} method as well as the \me{AverageTimePerProblemLastWeek()} methods, which both are wrappers to the \me{AverageTime(string method)} method. All three is shown in code snippet \ref{lst:averagetime}.\\
