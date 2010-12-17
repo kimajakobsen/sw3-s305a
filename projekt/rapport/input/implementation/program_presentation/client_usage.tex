@@ -26,11 +26,11 @@ These headlines are categories.
 \subsubsection{Consider Existing Problems}
 \label{ssu:consider}
 When the problem is categorized the application searches for problems matching the specified tags, the search function is described in \ref{sec:search}.
-The problems found in the search are listed in a table with columns showing number of matching tags, deadline, estimated time of completion, and title and description.
+The problems found in the search are listed in a table with columns showing number of matching tags, deadline, estimated time of completion, title, and description.
 The last column also shows whether the given problem is solved or not.
 
 \subsubsection{Create New Problem}
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 		\includegraphics[width=1.00\textwidth, clip=true, trim=2.9cm 0.5cm 15cm 8cm]{input/implementation/program_presentation/newProblem.png}
 	\morscaption{The create step of committing a new problem, note that the page has been cropped}
@@ -56,11 +56,11 @@ The three first are represented as check boxes and the last is a text field, whi
 
 If the only my problems check box is checked, the result will only show problems which the \aclient[] is subscribed to.
 The only solved problems and only unsolved problems check boxes does as their names indicate.
-If both check boxes are check, no problems will be found of course.
+If both check boxes are checked, no problems will be found of course.
 
 The minimum number of problems is used as an input to the search function, which specifies how many problems should be found before the search function stops running.
 The reason for this is that the search is done stepwise, lowering the bound for similarity at each step.
-In order to make the search be fast it then need a number which indicates that the size of the result is satisfactory.
+In order to make the search run faster it then needs a number which indicates if the size of the result is satisfactory.
 The search function is described more thoroughly in section \ref{sec:search}.
 
 The result field displays the problems found by the search function.
@@ -69,7 +69,7 @@ The way the problems are displayed resembles the table in the \nameref{ssu:consi
 The problems in the list can be clicked to enter the details of the given problem, this detail view is described in the following sub-subsection.
 
 \subsubsection{Problem Details}
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 		\includegraphics[width=1.00\textwidth, clip=true, trim=2.9cm 0.5cm 3cm 8cm]{input/implementation/program_presentation/problemDetails.png}
 	\morscaption{The details of a problem}

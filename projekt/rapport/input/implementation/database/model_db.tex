@@ -5,11 +5,9 @@ We distinguish between two parts of the database, the login part, and the model 
 The model part is created from our Model \ref{sub:modelComponent} using the ADO.NET Entity Framework(EF) which is described in subsection \ref{sub:adonet}. 
 We choose to use ADO.NET EF because then we do not have to worry about converting our tuples to objects and to make sure that changed properties are mapped to the database correctly.  
 
-To administrate users we use the inbuilt ASP.NET membership provider which provides a login system with support for role authorization. 
+To administrate users we use the built in ASP.NET membership provider which provides a login system with support for role authorization. 
 We use this provider since it saves time instead of building our own login system. 
-Security is not a big concern in this project and therefore we do not want to spend time creating a secure login system. 
-The major disadvantage is that including the membership providers database scheme with the model is not supported and does not work properly. 
-Therefore we had to add a person entity and change the register functionality to also save the registered person in our person table. 
+The major disadvantage is that including the membership providers database scheme with the model is not supported and does not work properly, therefore we had to add a person entity and change the register functionality to also save the registered person in our person table. 
 This gives some redundant data, but only the username and email. 
 
 When we need to access data from the membership tables we have to use SQL statements and not the object oriented approached we used for the rest. 
