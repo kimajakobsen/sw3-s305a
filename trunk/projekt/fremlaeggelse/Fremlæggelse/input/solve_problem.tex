@@ -1,4 +1,4 @@
-\section*{Balance Workload}
+\subsection*{Balance Workload}
 \begin{frame}{Balance Workload}
 \begin{figure}[H]
 	\centering
@@ -25,4 +25,40 @@
 		\includegraphics[width=1.00\textwidth, clip=true, trim=4cm 10.5cm 8cm 9cm]{input/magnus_after.png}
 	\label{fig:magnus_after}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Balance Workload}
+
+\begin{itemize}
+	\item Iterating $n-1$ times
+	\begin{itemize}
+		\item $n$ is the number employees in department
+	\end{itemize}
+	\item Balance between maximum and minimum workload
+\end{itemize}
+
+\only<2>{
+\begin{figure}
+	\centering
+		\includegraphics[scale=0.5]{input/balanceWorkloadDiagram.pdf}
+	\caption{Found on page 80}
+	\label{fig:balanceWorkloadDiagram}
+\end{figure}
+}
+\end{frame}
+
+\begin{frame}{Balance Workload -- Improvements}
+
+\begin{itemize}
+	\item Consider priority
+
+	\begin{enumerate}
+		\item<2-> Put all reassignable, unsolved problems into a list
+		\item<3-> Sort the list
+		\item<4-> Assign must important problem to least occupied person
+		\item<5-> Repeat step 3 until all problems are assigned
+	\end{enumerate}
+
+\end{itemize}
+
 \end{frame}
