@@ -183,9 +183,9 @@ namespace HoplaHelpdesk.Models
                 average = ProblemTime / NumberOfTags;
             }
 
-            Hours = (int)average % 60;
+            Hours = (int)average / 60;
             Minutes = (int)average - (Hours*60);
-            Days = Hours % 24;
+            Days = Hours / 24;
             Hours = Hours - (Days * 24);
 
             return new TimeSpan(Days, Hours, Minutes, 0);
