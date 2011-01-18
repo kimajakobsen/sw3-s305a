@@ -1,0 +1,11 @@
+\subsection*{Improved balance workload}
+The while loop starting on line 22 in code snippet 16.1 on page 108 should be as the while loop in code snippet \ref{lst:futureimplementationbalanceworkload}.
+\begin{lstlisting}[style=sourceCode, caption=\myCaption{Corrected worklist}, label=lst:futureimplementationbalanceworkload]
+while (dummyPerson.SortedWorklist.Count > 0)
+{
+	// find the person with the lowest workload
+	Person min = Persons.FirstOrDefault(y => y.GetWorkload() == Persons.Min(x => x.GetWorkload()));
+	// assign the most important problem to the person
+	dummyPerson.SortedWorklist[0].AssignedTo = min;
+}
+\end{lstlisting}
