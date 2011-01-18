@@ -3,7 +3,7 @@
 \begin{frame}
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=\textwidth]{input/search/home.JPG}
+\includegraphics[clip=true,trim=0cm 9cm 16cm 0cm,width=\textwidth]{input/search/home.JPG}
 %\caption{default}
 %\label{default}
 \end{center}
@@ -15,7 +15,7 @@
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=\textwidth]{input/search/commit.png}
+\includegraphics[clip=true,trim=0cm 2cm 16cm 0cm,width=\textwidth]{input/search/commit.png}
 %\caption{default}
 %\label{default}
 \end{center}
@@ -27,7 +27,7 @@
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=\textwidth]{input/search/similarProblems.png}
+\includegraphics[clip=true,trim=2cm 2cm 16cm 9cm,width=\textwidth]{input/search/similarProblems.png}
 %\caption{default}
 %\label{default}
 \end{center}
@@ -39,51 +39,40 @@
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width=\textwidth]{input/search/newProblem.png}
+\includegraphics[clip=true,trim=3.5cm 0cm 9cm 9.5cm,width=\textwidth]{input/search/newProblem2.png}
 %\caption{default}
 %\label{default}
 \end{center}
 \end{figure}
 
 \end{frame}
-% The interresting here is the search, we try search a set of problems
+% The interresting here is  the search, we try search a set of problems
 
-
-
+\newcommand{\tagone}{Computer}
+\newcommand{\tagtwo}{BSOD}
 \subsubsection{Search}
 \begin{frame}{The Search}
 \begin{itemize}
-	\item Tags to search: Computer + Blue screen
-	\item Minimum number of problems to find: 3
-	\item Problems to search in 
-	\begin{itemize}
-		\item Computer \only<2>{(One match)}
-		\item Blue screen  \only<2>{(One match)}
-		\item Computer + Blue screen  \only<2>{(Two matches)}
-		\item Computer + Blue screen + Internet  \only<2>{(Two matches and one unrelated)}
-		\item Computer + Internet  \only<2>{(One Math and one unrelated)}
-		\item Internet  \only<2>{(No Match)}
-	\end{itemize}
+	\item Tags to search: \tagone{} + \tagtwo{}
+	\only<2->{\item Minimum number of problems to find: 3}
+ 	\only<3>{ \item Problems to search in: }
+	\only<4>{ \item Results: }
+	\only<3-4>{\begin{itemize}}
+		\only<3>{\item A - \tagone{} }
+		\only<3>{\item B - \tagtwo{} }
+		\only<3>{\item C -\tagone{} + \tagtwo{} }
+		\only<3>{\item D - \tagone{} + \tagtwo{} + Internet  }
+		\only<3>{\item E - \tagone{} + Internet }
+		\only<3>{\item F - Internet }
+	
+		\only<4>{\item C - \tagone{} + \tagtwo{} }
+		\only<4>{\item D - \tagone{} + \tagtwo{} + Internet}
+		\only<4>{\item B - \tagtwo{}}
+		\only<4>{\item A - \tagone{}}
+		\only<4>{\item E - \tagone{} + Internet}
+	\only<3-4>{\end{itemize}}
 \end{itemize}
 
 \end{frame}
 
-
-
-\begin{frame}{The Search}
-\begin{itemize}
-	\item Result
-	\begin{itemize}
-		%First it finds where both is and sorts so the one with minumum number of tags is presented. 
-		\item Computer + Blue screen 
-		\item Computer + Blue screen + Internet
-		%then it removes the  Computer, as it is first.
-		\item Blue screen
-		\item Computer
-		\item Computer + Internet
-		% They get sorted ofter number og tags.
-		% IF minimum were higher Internet will be with as well
-	\end{itemize}
-\end{itemize}
-\end{frame}
 
